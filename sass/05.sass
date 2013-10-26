@@ -1,0 +1,736 @@
+html, body, div
+  margin: 0
+  padding: 0
+  border: 0
+  outline: 0
+  font-size: 100%
+  vertical-align: baseline
+  font: inherit
+
+h1, h2, h3, h4, h5, h6
+  margin: 0
+  padding: 0
+  border: 0
+  outline: 0
+  font-size: 100%
+  vertical-align: baseline
+  font: inherit
+  font-weight: bold
+
+a, p, ul, ol, li, img, span, strong, em, table, tbody, tfoot, thead, tr, th, td, applet, object, iframe, blockquote, pre, abbr, acronym, address, big, cite, code, del, dfn, font, ins, kbd, q, s, samp, small, strike, sub, sup, tt, var, b, u, i, center, dl, dt, dd, caption, fieldset, form, label, legend, article, aside, figure, footer, header, hgroup, section, canvas, details, embed, figcaption, menu, nav, output, ruby, summary, time, mark, audio, video
+  margin: 0
+  padding: 0
+  border: 0
+  outline: 0
+  font-size: 100%
+  vertical-align: baseline
+  font: inherit
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section
+  display: block
+
+body
+  line-height: 1
+
+strong
+  font-weight: bold
+
+em
+  font-style: italic
+
+ol, ul
+  list-style: none
+
+blockquote, q
+  quotes: none
+
+blockquote
+  &:before, &:after
+    content: ''
+    content: none
+
+q
+  &:before, &:after
+    content: ''
+    content: none
+
+\:focus
+  outline: 0
+
+ins
+  text-decoration: none
+
+del
+  text-decoration: line-through
+
+table
+  border-collapse: collapse
+  border-spacing: 0
+
+.grid-1, .grid-2, .grid-3, .grid-4, .grid-5, .grid-6, .grid-7, .grid-8, .grid-9, .grid-10, .grid-11, .grid-12, .grid-13, .grid-14, .grid-15, .grid-16, .grid-17, .grid-18, .grid-19, .grid-20, .grid-21, .grid-22, .grid-23, .grid-24
+  position: relative
+  margin-left: 10px
+  margin-right: 10px
+
+.clearfix:after
+  font-size: 0
+
+#skip-link
+  left: 50%
+  margin-left: -5.25em
+  margin-top: 0
+  position: absolute
+  width: auto
+  z-index: 50
+  a
+    background: #444
+    background: rgba(0, 0, 0, 0.6)
+    color: #fff
+    display: block
+    padding: 1px 10px 2px 10px
+    text-decoration: none
+    -khtml-border-radius: 0 0 10px 10px
+    -moz-border-radius: 0 0 10px 10px
+    -o-border-radius: 0 0 10px 10px
+    -webkit-border-top-left-radius: 0
+    -webkit-border-top-right-radius: 0
+    -webkit-border-bottom-left-radius: 10px
+    -webkit-border-bottom-right-radius: 10px
+    border-radius: 0 0 10px 10px
+    &:link, &:visited
+      background: #444
+      background: rgba(0, 0, 0, 0.6)
+      color: #fff
+      display: block
+      padding: 1px 10px 2px 10px
+      text-decoration: none
+      -khtml-border-radius: 0 0 10px 10px
+      -moz-border-radius: 0 0 10px 10px
+      -o-border-radius: 0 0 10px 10px
+      -webkit-border-top-left-radius: 0
+      -webkit-border-top-right-radius: 0
+      -webkit-border-bottom-left-radius: 10px
+      -webkit-border-bottom-right-radius: 10px
+      border-radius: 0 0 10px 10px
+    &:hover, &:active, &:focus
+      outline: 0
+
+.inline li, .tabs li, .breadcrumb li
+  list-style: none
+  display: inline
+  margin-right: 0.5em
+
+.item-list li
+  list-style: none
+
+.pager li
+  display: inline
+  margin-right: 0.25em
+
+img
+  vertical-align: bottom
+
+.field-label-inline
+  .field-label, .field-items, .field-item
+    display: inline
+
+\::-moz-focus-inner
+  border: 0
+  padding: 0
+
+input
+  &[type="search"]::-webkit-search-decoration
+    display: none
+  margin: 0
+  vertical-align: middle
+
+button, select, textarea
+  margin: 0
+  vertical-align: middle
+
+button
+  -webkit-appearance: none
+  -moz-border-radius: 11px
+  -webkit-border-radius: 11px
+  -moz-background-clip: padding
+  -webkit-background-clip: padding
+  background-clip: padding-box
+  border-radius: 11px
+  background: #dddddd url(/sites/all/themes/omega/omega/images/button.png) repeat-x
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(1, #dddddd))
+  background: -moz-linear-gradient(top center, white 0%, #dddddd 100%)
+  border: 1px solid
+  border-color: #ddd #bbb #999
+  cursor: pointer
+  color: #333
+  font: bold 12px/1.2 Arial,sans-serif
+  outline: 0
+  overflow: visible
+  padding: 3px 10px 4px
+  text-shadow: #fff 0 1px 1px
+  width: auto
+  *padding-top: 2px
+  *padding-bottom: 0px
+
+input
+  &[type="reset"], &[type="submit"], &[type="button"]
+    -webkit-appearance: none
+    -moz-border-radius: 11px
+    -webkit-border-radius: 11px
+    -moz-background-clip: padding
+    -webkit-background-clip: padding
+    background-clip: padding-box
+    border-radius: 11px
+    background: #dddddd url(/sites/all/themes/omega/omega/images/button.png) repeat-x
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(1, #dddddd))
+    background: -moz-linear-gradient(top center, white 0%, #dddddd 100%)
+    border: 1px solid
+    border-color: #ddd #bbb #999
+    cursor: pointer
+    color: #333
+    font: bold 12px/1.2 Arial,sans-serif
+    outline: 0
+    overflow: visible
+    padding: 3px 10px 4px
+    text-shadow: #fff 0 1px 1px
+    width: auto
+    *padding-top: 2px
+    *padding-bottom: 0px
+
+button
+  *padding-top: 1px
+  *padding-bottom: 1px
+
+textarea, select
+  -webkit-appearance: none
+  -moz-border-radius: 0
+  -webkit-border-radius: 0
+  border-radius: 0
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+  -moz-background-clip: padding
+  -webkit-background-clip: padding
+  background-clip: padding-box
+  background-color: #fff
+  border: 1px solid
+  border-color: #848484 #c1c1c1 #e1e1e1
+  color: #000
+  outline: 0
+  padding: 2px 3px
+  font-size: 13px
+  font-family: Arial,sans-serif
+  height: 1.8em
+  *padding-top: 2px
+  *padding-bottom: 1px
+  *height: auto
+
+input
+  &[type="date"], &[type="datetime"], &[type="datetime-local"], &[type="email"], &[type="month"], &[type="number"], &[type="password"], &[type="search"], &[type="tel"], &[type="text"], &[type="time"], &[type="url"], &[type="week"]
+    -webkit-appearance: none
+    -moz-border-radius: 0
+    -webkit-border-radius: 0
+    border-radius: 0
+    -webkit-box-sizing: border-box
+    -moz-box-sizing: border-box
+    box-sizing: border-box
+    -moz-background-clip: padding
+    -webkit-background-clip: padding
+    background-clip: padding-box
+    background-color: #fff
+    border: 1px solid
+    border-color: #848484 #c1c1c1 #e1e1e1
+    color: #000
+    outline: 0
+    padding: 2px 3px
+    font-size: 13px
+    font-family: Arial,sans-serif
+    height: 1.8em
+    *padding-top: 2px
+    *padding-bottom: 1px
+    *height: auto
+  &.placeholder_text
+    color: #888
+
+textarea.placeholder_text, input:-moz-placeholder, textarea:-moz-placeholder, ::-webkit-input-placeholder
+  color: #888
+
+button
+  &:focus, &:active
+    -moz-box-shadow: #06f 0 0 7px
+    -webkit-box-shadow: #06f 0 0 7px
+    box-shadow: #06f 0 0 7px
+    z-index: 1
+
+input
+  &:focus, &:active
+    -moz-box-shadow: #06f 0 0 7px
+    -webkit-box-shadow: #06f 0 0 7px
+    box-shadow: #06f 0 0 7px
+    z-index: 1
+
+select
+  &:focus, &:active
+    -moz-box-shadow: #06f 0 0 7px
+    -webkit-box-shadow: #06f 0 0 7px
+    box-shadow: #06f 0 0 7px
+    z-index: 1
+
+textarea
+  &:focus, &:active
+    -moz-box-shadow: #06f 0 0 7px
+    -webkit-box-shadow: #06f 0 0 7px
+    box-shadow: #06f 0 0 7px
+    z-index: 1
+
+input
+  &[type="file"]
+    &:focus, &:active
+      -moz-box-shadow: none
+      -webkit-box-shadow: none
+      box-shadow: none
+  &[type="radio"]
+    &:focus, &:active
+      -moz-box-shadow: none
+      -webkit-box-shadow: none
+      box-shadow: none
+  &[type="checkbox"]
+    &:focus, &:active
+      -moz-box-shadow: none
+      -webkit-box-shadow: none
+      box-shadow: none
+
+select[disabled], textarea[disabled]
+  background-color: #eee
+
+input
+  &[type="date"][disabled], &[type="datetime"][disabled], &[type="datetime-local"][disabled], &[type="email"][disabled], &[type="month"][disabled], &[type="number"][disabled], &[type="password"][disabled], &[type="search"][disabled], &[type="tel"][disabled], &[type="text"][disabled], &[type="time"][disabled], &[type="url"][disabled], &[type="week"][disabled]
+    background-color: #eee
+
+button[disabled], input[disabled]
+  -moz-box-shadow: none
+  -webkit-box-shadow: none
+  box-shadow: none
+  -webkit-user-select: none
+  -moz-user-select: none
+  user-select: none
+  color: #888
+  cursor: default
+
+select[disabled]
+  -moz-box-shadow: none
+  -webkit-box-shadow: none
+  box-shadow: none
+  -webkit-user-select: none
+  -moz-user-select: none
+  user-select: none
+  color: #888
+  cursor: default
+  option, optgroup
+    -moz-box-shadow: none
+    -webkit-box-shadow: none
+    box-shadow: none
+    -webkit-user-select: none
+    -moz-user-select: none
+    user-select: none
+    color: #888
+    cursor: default
+
+textarea
+  &[disabled]
+    -moz-box-shadow: none
+    -webkit-box-shadow: none
+    box-shadow: none
+    -webkit-user-select: none
+    -moz-user-select: none
+    user-select: none
+    color: #888
+    cursor: default
+  height: auto
+
+select
+  &[size], &[multiple]
+    height: auto
+
+@media (-webkit-min-device-pixel-ratio: 0)
+  select
+    background-image: url(/sites/all/themes/omega/omega/images/select-arrow.gif)
+    background-repeat: no-repeat
+    background-position: right center
+    padding-right: 20px
+    &[size], &[multiple]
+      background-image: none
+      padding: 0
+
+textarea
+  min-height: 40px
+  overflow: auto
+  resize: vertical
+  width: 100%
+
+optgroup
+  color: #000
+  font-style: normal
+  font-weight: normal
+
+.ie6-button
+  background: #dddddd url(/sites/all/themes/omega/omega/images/button.png) repeat-x
+  border: 1px solid
+  border-color: #ddd #bbb #999
+  cursor: pointer
+  color: #333
+  font: bold 12px/1.2 Arial,sans-serif
+  padding: 2px 10px 0px
+  overflow: visible
+  width: auto
+
+* html button
+  background: #dddddd url(/sites/all/themes/omega/omega/images/button.png) repeat-x
+  border: 1px solid
+  border-color: #ddd #bbb #999
+  cursor: pointer
+  color: #333
+  font: bold 12px/1.2 Arial,sans-serif
+  padding: 2px 10px 0px
+  overflow: visible
+  width: auto
+  padding-top: 1px
+  padding-bottom: 1px
+
+.ie6-input
+  background: #fff
+  border: 1px solid
+  border-color: #848484 #c1c1c1 #e1e1e1
+  color: #000
+  padding: 2px 3px 1px
+  font-size: 13px
+  font-family: Arial,sans-serif
+  vertical-align: top
+
+* html
+  textarea
+    background: #fff
+    border: 1px solid
+    border-color: #848484 #c1c1c1 #e1e1e1
+    color: #000
+    padding: 2px 3px 1px
+    font-size: 13px
+    font-family: Arial,sans-serif
+    vertical-align: top
+  select
+    background: #fff
+    border: 1px solid
+    border-color: #848484 #c1c1c1 #e1e1e1
+    color: #000
+    padding: 2px 3px 1px
+    font-size: 13px
+    font-family: Arial,sans-serif
+    vertical-align: top
+    margin-top: 1px
+
+.placeholder_text, .ie6-input-disabled, .ie6-button-disabled
+  color: #888
+
+.ie6-input-disabled
+  background: #eee
+
+body
+  font: 13px/1.5 Verdana,Helvetica,Arial,sans-serif
+
+a
+  &:link, &:visited
+    color: #0062A0
+    text-decoration: underline
+  &:hover
+    color: #202124
+    text-decoration: none
+  &:active
+    color: #202124
+    text-decoration: none
+    color: #000
+
+hr
+  margin: 0
+  padding: 0
+  border: none
+  height: 1px
+  background: #5294c1
+
+h1, h2, h3, h4, h5, h6
+  letter-spacing: -0.05em
+  font-family: Georgia,'Times New Roman',serif
+
+h1
+  font-size: 36px
+
+h2
+  font-size: 28px
+
+h1.site-name
+  font-size: 36px
+
+h2
+  &.site-name
+    font-size: 36px
+  &.block-title
+    font-size: 18px
+    margin: 0
+  &.node-title
+    font-size: 28px
+
+h3
+  font-size: 21px
+
+h4
+  font-size: 19px
+
+h5
+  font-size: 17px
+
+h6
+  font-size: 15px
+
+ol
+  list-style: decimal
+
+ul
+  list-style: disc
+  ul
+    padding-top: 0.5em
+
+ol ol
+  padding-top: 0.5em
+
+.node
+  ol
+    padding-left: 1.2em
+  ul
+    padding-left: 1.2em
+    &.inline
+      padding-left: 0
+  ol.inline
+    padding-left: 0
+
+p, dl, hr, h1, h2, h3, h4, h5, h6, ol, ul, pre, table, address, fieldset
+  margin-bottom: 20px
+
+dt, .admin h3
+  font-size: 18px
+  margin: 0
+
+dd
+  padding-left: 10px
+  font-size: 0.9em
+  font-style: italic
+  margin-bottom: 20px
+
+.logo-img
+  float: left
+  margin-right: 20px
+
+.site-name-slogan
+  float: left
+
+.site-name
+  margin-top: 20px
+  a
+    text-decoration: none
+  margin-bottom: 0
+  line-height: 1em
+
+.site-slogan
+  margin-bottom: 0
+  line-height: 1em
+  font-weight: normal
+
+.menu
+  margin: 0
+  padding: 0
+  li
+    list-style: none
+
+.form-actions input
+  margin-right: 0.5em
+  &:hover
+    background: #FFFFFF
+
+label
+  font-weight: bold
+
+.item-list .pager
+  padding: 0
+  margin: 0
+  li, ul li
+    margin: 0
+    padding: 0
+    float: left
+  position: relative
+  margin: 0
+  padding: 0
+  font-size: 10px
+  text-align: left
+
+.pager
+  li
+    a
+      display: inline-block
+    &.pager-ellipsis, &.pager-current, a
+      padding: 4px 8px
+      text-decoration: none
+    &.pager-current
+      padding: 4px 8px
+      font-weight: bold
+    &.pager-first a, &.pager-previous a, &.pager-next a, &.pager-last a
+      width: 50px
+      text-align: center
+      padding: 4px 0
+    &.pager-next
+      position: absolute
+      top: 0
+      right: 50px
+    &.pager-last, &.pager-next.last
+      position: absolute
+      top: 0
+      right: 0
+      border-right: 0
+    &.pager-ellipsis, &.pager-current, a
+      color: #1a1a1a
+    border-right: 1px solid
+    border-color: #ddd #bbb #999
+    color: #333
+    font: bold 12px/1.2 Arial,sans-serif
+    outline: 0
+    &.pager-current
+      background: #dddddd url(/sites/all/themes/omega/omega/images/button.png) repeat-x
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #1a1a1a), color-stop(1, #5a5a5a))
+      background: -moz-linear-gradient(top center, #1a1a1a 0%, #5a5a5a 100%)
+      color: #FFF
+      outline: 0
+    &.pager-next
+      border-left: 1px solid
+      border-color: #ddd #bbb #999
+    a
+      background: #dddddd url(/sites/all/themes/omega/omega/images/button.png) repeat-x
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(1, #dddddd))
+      background: -moz-linear-gradient(top center, white 0%, #dddddd 100%)
+      cursor: pointer
+      &:hover
+        background: #FFF
+        color: #454545
+    &.first
+      border-radius: 5px 0 0 5px
+      -moz-border-radius: 5px 0 0 5px
+      -webkit-border-radius: 5px 0 0 5px
+      a
+        border-radius: 5px 0 0 5px
+        -moz-border-radius: 5px 0 0 5px
+        -webkit-border-radius: 5px 0 0 5px
+        &:hover
+          border-radius: 5px 0 0 5px
+          -moz-border-radius: 5px 0 0 5px
+          -webkit-border-radius: 5px 0 0 5px
+    &.pager-last
+      border-radius: 0 5px 5px 0
+      -moz-border-radius: 0 5px 5px 0
+      -webkit-border-radius: 0 5px 5px 0
+      a
+        border-radius: 0 5px 5px 0
+        -moz-border-radius: 0 5px 5px 0
+        -webkit-border-radius: 0 5px 5px 0
+        &:hover
+          border-radius: 0 5px 5px 0
+          -moz-border-radius: 0 5px 5px 0
+          -webkit-border-radius: 0 5px 5px 0
+  background: #ebebeb
+  border: 1px solid
+  border-color: #ddd #bbb #999
+  border-radius: 5px
+  -moz-border-radius: 5px
+  -webkit-border-radius: 5px
+
+table
+  border: 1px solid #CCC
+  width: 100%
+
+thead th, th
+  background: #f7f7f7
+  border-bottom: 1px solid #ccc
+  color: #333
+
+td
+  padding: 4px 8px
+  vertical-align: middle
+
+th
+  padding: 4px 8px
+  vertical-align: middle
+  a
+    text-decoration: none
+    &:link, &:visited
+      text-decoration: none
+    display: block
+    img
+      margin: 0 0 0 5px
+  &.active
+    background: #DDD
+    border-left: 1px solid #CCC
+    border-right: 1px solid #CCC
+
+tr
+  &.even td
+    background: #F1F5FA
+  &.odd td
+    background: #fff
+
+td.active
+  border-left: 1px solid #CCC
+  border-right: 1px solid #CCC
+
+tr
+  &.even td.active
+    background: #e5e9ed
+  &.odd td.active
+    background: #f2f2f2
+  &:hover td, &.even:hover td.active, &.odd:hover td.active
+    background: #FFFEEE
+
+td ul.links
+  margin-bottom: 0
+
+.node-links ul li a, .comment-links ul li a
+  text-transform: lowercase
+  display: block
+  float: left
+  text-decoration: none
+  -moz-background-clip: padding
+  -webkit-background-clip: padding
+  background-clip: padding-box
+  margin: 0 0.5em 0.5em 0
+  vertical-align: middle
+  -webkit-appearance: none
+  -moz-border-radius: 11px
+  -webkit-border-radius: 11px
+  border-radius: 11px
+  background: #dddddd url(/sites/all/themes/omega/omega/images/button.png) repeat-x
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(1, #dddddd))
+  background: -moz-linear-gradient(top center, white 0%, #dddddd 100%)
+  border: 1px solid
+  border-color: #ddd #bbb #999
+  cursor: pointer
+  color: #333
+  font: bold 12px/1.2 Arial,sans-serif
+  outline: 0
+  overflow: visible
+  padding: 4px 10px 3px
+  text-shadow: #fff 0 1px 1px
+  width: auto
+  *padding-top: 2px
+  *padding-bottom: 0px
+
+.node-links ul li a:hover, .comment-links ul li a:hover
+  background: #FFF
+
+.tips, .description
+  font-size: 10px
+  color: #6a6a6a
+

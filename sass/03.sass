@@ -1,0 +1,424 @@
+.rteindent1
+  margin-left: 40px
+
+.rteindent2
+  margin-left: 80px
+
+.rteindent3
+  margin-left: 120px
+
+.rteindent4
+  margin-left: 160px
+
+.rteleft
+  text-align: left
+
+.rteright
+  text-align: right
+
+.rtecenter
+  text-align: center
+
+.rtejustify
+  text-align: justify
+
+.ibimage_left
+  float: left
+
+.ibimage_right
+  float: right
+
+table.cke_editor fieldset
+  padding: 0 !important
+
+.cke_editor
+  display: table !important
+  display: inline-table !important
+
+#ie#bug
+  display: inline-table !important
+
+.cke_dialog tr td:last-child
+  border-right: 0
+
+form#ckeditor-admin-profile-form
+  textarea#edit-toolbar, #edit-toolbar + .grippie
+    display: none
+
+div
+  &.sortableList
+    cursor: n-resize
+  &.widthMarker
+    height: 20px
+    border-top: 1px dashed #CCC
+    margin: 10px 0px 0px 1px
+    padding-left: 1px
+    text-align: center
+  &.sortableList
+    &.group
+      margin: 20px 0px 0px 0px
+    div.sortableListDiv
+      height: 30px
+      margin-bottom: 3px
+      width: 900px
+      span.sortableListSpan
+        background-color: #F0F0EE
+        height: 30px
+        border-right: 1px dashed #CCC
+        display: block
+        ul
+          width: 900px
+          white-space: nowrap
+          border: 1px solid #CCC
+          list-style: none
+          margin: 0px
+          padding: 0px 0px 0px 1px
+          height: 30px
+          li
+            list-style: none
+            cursor: move
+            height: 18px
+            min-width: 18px
+            padding: 2px
+            &.group
+              min-width: 5px
+              padding-left: 2px
+            img
+              border: 0
+              padding: 0
+              margin: 0
+
+li.sortableItem
+  position: relative
+  float: left
+  margin: 3px 1px 1px 0px
+  border: 1px solid #CCC
+  background-color: #F0F0EE
+  z-index: 99
+
+#security-filters
+  .filter-text-formats
+    float: left
+    clear: both
+    width: 15%
+    font-size: 11px
+    font-weight: bold
+    padding: 10px 0px
+    .filter-text-format-status
+      float: left
+      padding-right: 20px
+    .enabled
+      background: url(/sites/all/modules/ckeditor/images/tick.png) no-repeat right center
+    .disabled
+      background: url(/sites/all/modules/ckeditor/images/delete.png) no-repeat right center
+  .filter-info
+    float: left
+    width: 85%
+  .fieldset-legend
+    background: none
+    padding-left: 10px
+    a
+      font-weight: normal
+      font-size: 10px
+      padding-left: 5px
+  .filter-wrapper
+    clear: both
+    float: left
+    border-bottom: 1px solid #CCCCCC
+    width: 100%
+
+fieldset#edit-appearance div#groupLayout
+  border: 0
+  padding: 0 0 0 0
+  margin: 1em 0
+  overflow: auto
+
+div
+  &#allButtons
+    border: 0
+    padding: 0 0 0 0
+    margin: 1em 0
+    overflow: auto
+  &.codeblock
+    padding: 5px
+    border: 1px solid #CCC
+    background-color: #EEE
+
+.ctools-locked
+  color: red
+  border: 1px solid red
+  padding: 1em
+
+.ctools-owns-lock
+  background: #FFFFDD none repeat scroll 0 0
+  border: 1px solid #F0C020
+  padding: 1em
+
+a.ctools-ajaxing, input.ctools-ajaxing, button.ctools-ajaxing, select.ctools-ajaxing
+  padding-right: 18px !important
+  background: url(/sites/all/modules/ctools/images/status-active.gif) right center no-repeat
+
+div.ctools-ajaxing
+  float: left
+  width: 18px
+  background: url(/sites/all/modules/ctools/images/status-active.gif) center center no-repeat
+
+#edit-fbconnect-button
+  .form-type-radio
+    clear: both
+    padding: 10px
+  input.form-radio
+    float: left
+    vertical-align: middle
+  label.option
+    float: left
+    background: #5f78ab url(../images/theme/facebook_list.png) no-repeat
+    border-top: solid 1px #1a356e
+    border-right: solid 1px #1a356e
+    border-bottom: solid 1px #1a356e
+    color: #fff
+    display: block
+    font-family: "lucida grande",tahoma,verdana,arial,sans-serif
+    font-weight: bold
+    padding: 2px 6px 3px 6px
+    margin: 1px 1px 0 21px
+    text-shadow: none
+
+.page-admin-config #edit-fbconnect-button .form-item label.option
+  &[for="edit-fbconnect-button-large-short"]
+    background-position: left -140px
+    font-size: 13px
+    line-height: 16px
+    padding: 2px 6px 4px 32px
+  &[for="edit-fbconnect-button-medium-short"]
+    background-position: left -190px
+    font-size: 11px
+    line-height: 14px
+    padding: 2px 6px 3px 28px
+  &[for="edit-fbconnect-button-small-short"]
+    background-position: left -234px
+    font-size: 10px
+    line-height: 10px
+    padding: 2px 6px 2px 22px
+
+.form-item-fbconnect-button-text
+  clear: both
+  padding: 20px 0 0 0
+
+div
+  &.panel-pane
+    div
+      &.admin-links
+        font-size: xx-small
+        margin-right: 1em
+        li
+          a
+            color: #ccc
+          padding-bottom: 2px
+          background: white
+          z-index: 201
+        &:hover a
+          color: #000
+      &.admin-links-hover a
+        color: #000
+      &.admin-links a
+        &:before
+          content: "["
+        &:after
+          content: "]"
+      &.panel-hide
+        display: none
+      &.panel-hide-hover
+        display: block
+        position: absolute
+        z-index: 200
+        margin-top: -1.5em
+    &:hover div.panel-hide
+      display: block
+      position: absolute
+      z-index: 200
+      margin-top: -1.5em
+    div
+      &.node
+        margin: 0
+        padding: 0
+      &.feed a
+        float: right
+  &.tweets-pulled-listing
+    ul
+      list-style: none
+    div.tweet-authorphoto
+      margin: 0 5px 0 0
+      float: left
+      img
+        max-height: 40px
+        max-width: 40px
+    a
+      color: blue
+    .tweet-author a
+      font-weight: bold
+    .tweet-time a
+      color: silver
+    div.tweet-divider
+      clear: left
+      border-bottom: 1px solid #efefef
+      margin: 5px 0 5px 0
+
+.panel-flexible .panel-separator
+  margin: 0 0 1em 0
+
+.panels-flexible-region
+  padding: 0
+
+.panels-flexible-region-inside
+  padding-right: 0.5em
+  padding-left: 0.5em
+
+.panels-flexible-region-inside-first
+  padding-left: 0
+
+.panels-flexible-region-inside-last
+  padding-right: 0
+
+.panels-flexible-column
+  padding: 0
+
+.panels-flexible-column-inside
+  padding-right: 0.5em
+  padding-left: 0.5em
+
+.panels-flexible-column-inside-first
+  padding-left: 0
+
+.panels-flexible-column-inside-last
+  padding-right: 0
+
+.panels-flexible-row
+  padding: 0 0 0.5em 0
+  margin: 0
+
+.panels-flexible-row-last
+  padding-bottom: 0
+
+.panels-flexible-column-4-main
+  float: left
+  width: 99.0000%
+
+.panels-flexible-4-inside
+  padding-right: 0px
+
+.panels-flexible-4
+  width: auto
+
+.panels-flexible-region-4-center
+  float: left
+  width: 32.9798%
+
+.panels-flexible-region-4-row1_center
+  float: left
+  width: 33.0206%
+
+.panels-flexible-region-4-row1_right
+  float: left
+  width: 32.9997%
+
+.panels-flexible-row-4-main-row-inside
+  padding-right: 0px
+
+.panels-flexible-region-4-row2_left
+  float: left
+  width: 33.0084%
+
+.panels-flexible-region-4-row2_center
+  float: left
+  width: 33.0372%
+
+.panels-flexible-region-4-row2_right
+  float: left
+  width: 32.9544%
+
+.panels-flexible-row-4-1-inside
+  padding-right: 0px
+
+.panels-flexible-region-4-row3_left
+  float: left
+  width: 33.0084%
+
+.panels-flexible-region-4-row3_center
+  float: left
+  width: 33.0362%
+
+.panels-flexible-region-4-row3_right
+  float: left
+  width: 32.9554%
+
+.panels-flexible-row-4-2-inside
+  padding-right: 0px
+
+.panels-flexible-region-4-row_4_left
+  float: left
+  width: 32.6950%
+
+.panels-flexible-region-4-row4_center
+  float: left
+  width: 32.9315%
+
+.panels-flexible-region-4-row4_right
+  float: left
+  width: 33.3735%
+
+.panels-flexible-row-4-3-inside
+  padding-right: 0px
+
+.panels-flexible-region-4-row5_left
+  float: left
+  width: 32.7273%
+
+.panels-flexible-region-4-row5_center
+  float: left
+  width: 32.9436%
+
+.panels-flexible-region-4-row5_right
+  float: left
+  width: 33.3291%
+
+.panels-flexible-row-4-4-inside
+  padding-right: 0px
+
+.panels-flexible-region-4-row6_left
+  float: left
+  width: 32.6842%
+
+.panels-flexible-region-4-row6_center
+  float: left
+  width: 32.9717%
+
+.panels-flexible-region-4-row6_right
+  float: left
+  width: 33.3441%
+
+.panels-flexible-row-4-5-inside
+  padding-right: 0px
+
+.locale-untranslated
+  font-style: normal
+  text-decoration: line-through
+
+#locale-translation-filter-form
+  .form-item-language, .form-item-translation, .form-item-group
+    float: left
+    padding-right: .8em
+    margin: 0.1em
+    width: 15em
+  .form-type-select select
+    width: 100%
+  .form-actions
+    float: left
+    padding: 3ex 0 0 1em
+
+.language-switcher-locale-session a
+  &.active
+    color: #0062A0
+  &.session-active
+    color: #000000
+
