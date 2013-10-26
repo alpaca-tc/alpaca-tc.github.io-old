@@ -1,14 +1,370 @@
-{% capture root_url %}{{ site.root | strip_slash }}{% endcapture %}
-{% include head.html %}
-<body {% if page.body_id %} id="{{ page.body_id }}" {% endif %} {% if page.sidebar == false %} class="no-sidebar" {% endif %} {% if page.sidebar == 'collapse' or site.sidebar == 'collapse' %} class="collapse-sidebar sidebar-footer" {% endif %}>
-  <header role="banner">{% include header.html %}</header>
-  <nav role="navigation">{% include navigation.html %}</nav>
-  <div id="main">
-    <div id="content">
-      {{ content | expand_urls: root_url }}
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>alpaca-tc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <!-- <link rel="shortcut icon" href="" type="image/png"> -->
+    <link type="text/css" rel="stylesheet" href="http://www.amazeelabs.com/sites/default/files/css/css_5XB5aQOGzDUVxnwtHDXg0AJDjmjZbe2Sh1K2BEkR5cM.css" media="all">
+    <link type="text/css" rel="stylesheet" href="http://www.amazeelabs.com/sites/default/files/css/css_KwNPG1nyoe2h1Z09gDFX4hPNxaUUGFDkaI5-SofPNuo.css" media="all">
+    <link type="text/css" rel="stylesheet" href="http://www.amazeelabs.com/sites/default/files/css/css_dGPpVUd8RzucMpNYcSmoYU8gQvf7yxW7KvKBe2DqIHQ.css" media="all">
+    <link type="text/css" rel="stylesheet" href="http://www.amazeelabs.com/sites/default/files/css/css_DxpyfDFVm5NSESfpRYI-LvX_eb2Wk3T0Hqeky7PWsNU.css" media="all">
+    <link type="text/css" rel="stylesheet" href="http://www.amazeelabs.com/sites/default/files/css/css_tt2KGkU1G9DLAO8dlUHWrYWz1djq8fUllxvATZnuiYY.css" media="all">
+
+    <!--[if IE 7]>
+    <link type="text/css" rel="stylesheet" href="http://www.amazeelabs.com/sites/all/themes/labs/css/ie7.css?mugk8g" media="all" />
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="http://www.amazeelabs.com/sites/default/files/css/css_ubi5kb9g9qzFo9KW04zmQkIpzJNd4dbcu8HkETW52Wk.css" media="all">
+
+    <!--[if (lt IE 9)&(!IEMobile)]>
+    <link type="text/css" rel="stylesheet" href="http://www.amazeelabs.com/sites/default/files/css/css_sBV0Og02aEIMq0Rj_JZJCOr1qbc9kJhdFTHYS_HDtHw.css" media="all" />
+    <![endif]-->
+
+    <!--[if gte IE 9]><!-->
+    <link type="text/css" rel="stylesheet" href="http://www.amazeelabs.com/sites/default/files/css/css_kmBJO5PkQdLigMFP-jZLFYl1VhJH3zF3KCgiFjIrqJo.css" media="all">
+    <!--<![endif]-->
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="page clearfix" id="page">
+      <header id="section-header" class="section section-header">
+        <div id="zone-branding-wrapper" class="zone-wrapper zone-branding-wrapper clearfix">
+          <div id="zone-branding" class="zone zone-branding clearfix container-12">
+            <div class="grid-4 region region-branding" id="region-branding">
+              <div class="region-inner region-branding-inner">
+
+                <h2 class="site-name"><a href="/en" rel="home" title="Home">Website</a></h2>
+              </div>
+            </div>
+
+            <div class="grid-8 region region-menu" id="region-menu">
+              <div class="region-inner region-menu-inner">
+                <nav class="navigation">
+                  <ul id="main-menu" class="links inline main-menu">
+                    <li class="first active"><a href="/blog/" id="team" class="active-trail active">Blog</a>
+                    </li>
+                    <li><a href="https://github.com/alpaca-tc" id="github">GitHub</a>
+                    </li>
+                    <li><a href="/en/drupal" id="drupal">Drupal</a></li>
+                    <li><a href="/en/mobile" id="mobile">Mobile</a></li>
+                    <li><a href="/en/conversion" id="conversion">Conversion</a></li>
+                    <li><a href="/en/clients" id="clients">Clients</a></li>
+                    <li class="last"><a href="/en/contact" id="contact">Contact</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section id="section-content" class="section section-content">
+        <div id="zone-content-wrapper" class="zone-wrapper zone-content-wrapper clearfix">
+          <div id="zone-content" class="zone zone-content clearfix container-12">
+
+            <div class="grid-12 region region-content" id="region-content">
+              <h1 class="title" id="page-title">Team</h1>
+              <div class="panel-flexible panels-flexible-4 clearfix" id="team">
+                <div class="panel-flexible-inside panels-flexible-4-inside">
+
+                  <div class="panels-flexible-row panels-flexible-row-4-main-row panels-flexible-row-first clearfix">
+                    <div class="inside panels-flexible-row-inside panels-flexible-row-4-main-row-inside panels-flexible-row-inside-first clearfix">
+                      <div class="panels-flexible-region panels-flexible-region-4-center panels-flexible-region-first ">
+                        <div class="inside panels-flexible-region-inside panels-flexible-region-4-center-inside panels-flexible-region-inside-first">
+                          <div class="panel-pane pane-node">
+
+
+
+                            <!--<div class="pane-content">-->
+                              <div class="node node-person view-mode-full clearfix ">
+
+
+                                <div class="field field-name-field-headshot field-type-image field-label-hidden">
+                                  <div class="field-items">
+                                    <div class="field-item even">
+                                      <img typeof="foaf:Image" src="http://www.amazeelabs.com/sites/default/files/gregory_gerhardt.png" alt="Gregory Gerhardt" title="Gregory Gerhardt">
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="field field-name-person-name-title field-type-ds field-label-hidden">
+                                  <div class="field-items">
+                                    <div class="field-item even">
+                                      <h2 class="person-name">Gregory Gerhardt</h2>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="field field-name-field-main-position field-type-text field-label-hidden">
+                                  <div class="field-items">
+                                    <div class="field-item even">Managing Director, Founder</div>
+                                  </div>
+                                </div>
+                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                                  <div class="field-items">
+                                    <div class="field-item even" property="content:encoded">
+                                      <p>Before Gregory got eaten by the Web he studied Law and worked in management support at a Swiss bank. With this background, he quickly understands the demands of sophisticated clients and knows how to translate the fiercest
+                                        business challenges into Web platforms. Gregory guides our team and makes sure everybody is comfortable and fully focused on conversion!</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="field field-name-field-fun-fact field-type-text-with-summary field-label-above">
+                                  <div class="field-label">Fun Fact:&nbsp;</div>
+                                  <div class="field-items">
+                                    <div class="field-item even">
+                                      <p>Gregory is an avid windsurfer.</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="field field-name-person-phone field-type-ds field-label-hidden">
+                                  <div class="field-items">
+                                    <div class="field-item even"><span class="phone-image"><span class="phone-text">+41 79 822 04 90</span></span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="field field-name-field-email field-type-email field-label-hidden clearfix">
+                                  <div class="field-items">
+                                    <div class="field-item even"><span class="email-image"><span class="email-text"><a href="mailto:gregory@amazeelabs.com">gregory@amazeelabs.com</a></span></span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="field field-name-person-drupal field-type-ds field-label-hidden">
+                                  <div class="field-items">
+                                    <div class="field-item even"><span class="drupal-image"><span class="drupal-text"><a href="http://drupal.org/user/2053410">gregster</a></span></span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!--
+                                THIS FILE IS NOT USED AND IS HERE AS A STARTING POINT FOR CUSTOMIZATION ONLY.
+                                See http://api.drupal.org/api/function/theme_field/7 for details.
+                                After copying this file to your theme's folder and customizing it, remove this
+                                HTML comment.
+                                -->
+                                <div class="field field-name-field-twitter field-type-text field-label-hidden clearfix">
+                                  <div class="field-items">
+                                    <div class="field-item even"><span class="twitter-image"><span class="twitter-text"><a href="http://twitter.com/gregster">@gregster</a></span></span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <!--</div>-->
+
+
+                          </div>
+                        </div>
+                      </div>
+                      <div class="panels-flexible-region panels-flexible-region-4-row1_center ">
+                        <div class="inside panels-flexible-region-inside panels-flexible-region-4-row1_center-inside">
+                          <div class="panel-pane pane-node" id="dania">
+
+
+
+                            <!--<div class="pane-content">-->
+                              <div class="node node-person view-mode-full clearfix ">
+
+
+                                <div class="field field-name-field-headshot field-type-image field-label-hidden">
+                                  <div class="field-items">
+                                    <div class="field-item even">
+                                      <img typeof="foaf:Image" src="http://www.amazeelabs.com/sites/default/files/dania_gerhardt.png" alt="Dania Gerhardt" title="Dania Gerhardt">
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="field field-name-person-name-title field-type-ds field-label-hidden">
+                                  <div class="field-items">
+                                    <div class="field-item even">
+                                      <h2 class="person-name">Dania Gerhardt</h2>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="field field-name-field-main-position field-type-text field-label-hidden">
+                                  <div class="field-items">
+                                    <div class="field-item even">Head Operations, Founder</div>
+                                  </div>
+                                </div>
+                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                                  <div class="field-items">
+                                    <div class="field-item even" property="content:encoded">
+                                      <p>Dania is our organizational talent, so naturally, we’ll let her take the lead when it comes to managing the Labs’ projects. She’ll probably be your first contact when you come to Amazee Labs and she will most likely hand
+                                        you the keys once your new Web home is ready! Before Amazee, she worked as an auditor and accounting consultant for an international auditing company.</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="field field-name-field-fun-fact field-type-text-with-summary field-label-above">
+                                  <div class="field-label">Fun Fact:&nbsp;</div>
+                                  <div class="field-items">
+                                    <div class="field-item even">
+                                      <p>Dania has seen the sun rise on top of Mount Kilimanjaro.</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="field field-name-person-phone field-type-ds field-label-hidden">
+                                  <div class="field-items">
+                                    <div class="field-item even"><span class="phone-image"><span class="phone-text">+41 79 770 17 91</span></span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="field field-name-field-email field-type-email field-label-hidden clearfix">
+                                  <div class="field-items">
+                                    <div class="field-item even"><span class="email-image"><span class="email-text"><a href="mailto:dania@amazeelabs.com">dania@amazeelabs.com</a></span></span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="field field-name-person-drupal field-type-ds field-label-hidden">
+                                  <div class="field-items">
+                                    <div class="field-item even"><span class="drupal-image"><span class="drupal-text"><a href="http://drupal.org/user/352108">dania.gerhardt </a></span></span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!--
+                                THIS FILE IS NOT USED AND IS HERE AS A STARTING POINT FOR CUSTOMIZATION ONLY.
+                                See http://api.drupal.org/api/function/theme_field/7 for details.
+                                After copying this file to your theme's folder and customizing it, remove this
+                                HTML comment.
+                                -->
+                                <div class="field field-name-field-twitter field-type-text field-label-hidden clearfix">
+                                  <div class="field-items">
+                                    <div class="field-item even"><span class="twitter-image"><span class="twitter-text"><a href="http://twitter.com/daniagerhardt">@daniagerhardt</a></span></span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <!--</div>-->
+
+
+                          </div>
+                        </div>
+                      </div>
+                      <div class="panels-flexible-region panels-flexible-region-4-row1_right panels-flexible-region-last ">
+                        <div class="inside panels-flexible-region-inside panels-flexible-region-4-row1_right-inside panels-flexible-region-inside-last">
+                          <div class="panel-pane pane-node" id="michael">
+
+
+
+                            <!--<div class="pane-content">-->
+                              <div class="node node-person view-mode-full clearfix ">
+
+
+                                <div class="field field-name-field-headshot field-type-image field-label-hidden">
+                                  <div class="field-items">
+                                    <div class="field-item even">
+                                      <img typeof="foaf:Image" src="http://www.amazeelabs.com/sites/default/files/michael_schmid.png" alt="Michael Schmid" title="Michael Schmid">
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="field field-name-person-name-title field-type-ds field-label-hidden">
+                                  <div class="field-items">
+                                    <div class="field-item even">
+                                      <h2 class="person-name">Michael Schmid</h2>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="field field-name-field-main-position field-type-text field-label-hidden">
+                                  <div class="field-items">
+                                    <div class="field-item even">Head Technology</div>
+                                  </div>
+                                </div>
+                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                                  <div class="field-items">
+                                    <div class="field-item even" property="content:encoded">
+                                      <p>Don’t let his youngish appearance fool you: Michael’s IT Kung Fu surpasses that of many elders of the trade with ease! Be it designing or programming, setting up scalable server infrastructures or simply giving easy-to-understand
+                                        IT support, it all seems to come natural to Michael. He leads the Labs’ Tech Department and will make sure that all of your wishes become a virtual reality!</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="field field-name-field-fun-fact field-type-text-with-summary field-label-above">
+                                  <div class="field-label">Fun Fact:&nbsp;</div>
+                                  <div class="field-items">
+                                    <div class="field-item even">
+                                      <p>Michael was Swiss IT Champion in network technology in 2007.</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="field field-name-person-phone field-type-ds field-label-hidden">
+                                  <div class="field-items">
+                                    <div class="field-item even"><span class="phone-image"><span class="phone-text">+41 79 888 13 85</span></span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="field field-name-field-email field-type-email field-label-hidden clearfix">
+                                  <div class="field-items">
+                                    <div class="field-item even"><span class="email-image"><span class="email-text"><a href="mailto:michael@amazeelabs.com">michael@amazeelabs.com</a></span></span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="field field-name-person-drupal field-type-ds field-label-hidden">
+                                  <div class="field-items">
+                                    <div class="field-item even"><span class="drupal-image"><span class="drupal-text"><a href="http://drupal.org/user/643820">Schnitzel</a></span></span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!--
+                                THIS FILE IS NOT USED AND IS HERE AS A STARTING POINT FOR CUSTOMIZATION ONLY.
+                                See http://api.drupal.org/api/function/theme_field/7 for details.
+                                After copying this file to your theme's folder and customizing it, remove this
+                                HTML comment.
+                                -->
+                                <div class="field field-name-field-twitter field-type-text field-label-hidden clearfix">
+                                  <div class="field-items">
+                                    <div class="field-item even"><span class="twitter-image"><span class="twitter-text"><a href="http://twitter.com/schnitzel">@schnitzel</a></span></span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer id="section-footer" class="section section-footer">
+        <div id="zone-footer-wrapper" class="zone-wrapper zone-footer-wrapper clearfix">
+          <div id="zone-footer" class="zone zone-footer clearfix container-12">
+            <div class="grid-12 region region-footer-first" id="region-footer-first">
+              <div class="region-inner region-footer-first-inner">
+                <div class="block block-block block-19 block-block-19 odd block-without-title" id="block-block-19">
+                  <div class="block-inner clearfix">
+
+                    <div class="content clearfix">
+                      <p><a href="#region-page-top">Top</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="block block-multiblock block-1 block-multiblock-1 odd block-without-title" id="block-multiblock-1">
+                  <div class="block-inner clearfix">
+
+                    <div class="content clearfix">
+                      <div class="item-list">
+                        <ul>
+                          <li class="first"><a href="http://www.amazeelabs.com/" class="domain-id-0 active">Website</a>
+                          </li>
+                          <li><a href="http://events.amazeelabs.com/" class="domain-id-2 ">Events</a>
+                          </li>
+                          <li><a href="http://blog.amazeelabs.com/" class="domain-id-3 ">Blog</a>
+                          </li>
+                          <li class="last"><a href="http://extreme.amazeelabs.com/" class="domain-id-4 ">Extreme</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
-  </div>
-  <footer role="contentinfo">{% include footer.html %}</footer>
-  {% include after_footer.html %}
-</body>
+  </body>
 </html>
+
