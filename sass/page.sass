@@ -11,18 +11,35 @@
   .inner
     padding: $space_width
 
-  h1, h1 a
+  h1, h1 a, h2, h2 a, h3, h3 a, h4, h4 a, h5, h5 a, h6, h6 a
+    font-weight: bold
+    font-family: $font_default
     font-size: $fz_title
     text-shadow: 0 1px 0 rgba(255,255,255,0.8)
     color: $cl_fresh_water
     width: 543px
-    line-height: 1.2em
-    margin-bottom: $space_width
+    line-height: $large_line_height
+  h2
+    font-size: $fz_large
+  h3
+    font-size: $fz_eye_friendly
+  h4
+    font-size: $fz_normal
+  h5
+    font-size: $fz_normal
+
+  ol li
+    // list-style: decimal inside
+    list-style: inside
+    padding-left: 20px
+
+  ul li
+    list-style: inside
+    padding-left: 10px
 
   p
+    line-height: $default_line_height
     word-wrap: break-word
-    font-family: Courier10BTRoman,Courier,monospace
-    margin-bottom: $space_width
 
   a
     color: $cl_lake
@@ -32,3 +49,7 @@
     background: url(/images/common/repeating-dots.png) repeat-x 0 top
     .inner
       background: url(/images/common/repeating-dots.png) repeat-x 0 bottom
+
+  h1, h2, h3, h4, h5, h6, p, ul, ol
+    margin-top: $bordering_space_width
+    margin-bottom: $bordering_space_width
