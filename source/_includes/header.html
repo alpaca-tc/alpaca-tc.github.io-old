@@ -1,7 +1,11 @@
         <div class="inner_wrapper">
           <div class="inner clearfix">
             <div id="logo">
-              <h1 id="site_title"><a href="/">Alpaca Engineer Blog</a></h1>
+              <h1 id="site_title">
+                <a href="/">
+                  {% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}
+                </a>
+              </h1>
             </div>
 
             <nav id="header_nav">
