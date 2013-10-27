@@ -1,0 +1,21 @@
+---
+layout: page
+title: "AboutMe"
+date: 2013-10-27 19:12
+comments: true
+sharing: true
+footer: true
+---
+
+# 自己紹介
+
+**アルパカ隊長**
+
+VimやRubyの開発をしています。
+今はEntrepreneur Factory inc.で起業家のための学習サイトの構築・運営をしています。たまに、Lang-8の開発をしています。
+趣味は、ボルダリング・サイクリング・旅行・お酒・料理・温泉・小物屋さん・etc
+
+## 連絡先など
+
+- [Github](https://github.com/alpaca-tc)
+- [Twitter](https://twitter.com/alpaca_taichou)
