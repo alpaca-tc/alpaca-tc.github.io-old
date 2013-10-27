@@ -1,17 +1,84 @@
+@import 'default'
 @import 'blueprint/grid'
 
-// @media (min-width:1031px)
-//   .outer_envelope
-//     +column(24)
+// PC
+@media only screen and (min-width:1021px)
+  header
+    #logo
+      +column(7)
+      float: left
+    #header_nav
+      +column(14)
+      float: right
+
+  footer
+    #footer_link.clearfix
+      nav#footer_nav
+        float: left
+        +column(12)
+      nav#footer_social_link
+        float: right
+        +push($blueprint-grid-columns - 15)
+        +column(3, true)
+
+
+// // NotePC
 // @media (min-width:916px) and (max-width:1030px)
+//   p
+//     color: green
 //   .outer_envelope
-//     +column(20)
+//     p
+//       color: green
+//
+// // Tablet
 // @media (min-width:761px) and (max-width:915px)
+//   p
+//     color: pink
 //   .outer_envelope
 //     +column(16)
-// @media (max-width:760px)
-//   .outer_envelope
-//     +column(13)
-// @media (max-width:500px)
-//   .outer_envelope
-//     +column(10)
+
+// Smartphone
+@media (max-width:960px)
+  .outer_envelope
+    width: 93.5%
+
+    header
+      #logo
+        width: 500px
+        margin: auto
+        text-align: center
+      nav#header_nav
+        display: block
+        margin: auto
+        width: span(14)
+        text-align: center
+    footer
+      #footer_link
+        nav#footer_nav
+          +column(2)
+          float: left
+        nav#footer_social_link
+          +column(2, true)
+          float: right
+
+  .inner_wrapper
+    position: static
+    float: none
+    margin: auto
+
+// Mobile
+@media (max-width:630px)
+  .outer_envelope
+    header
+      #logo
+        width: 93.5%
+      nav#header_nav
+        width: 93.5%
+  .post_row
+    h1, h2
+      font-size: $fz_normal
+    section.meta
+      .inner
+        padding: 5px
+      background: none
+

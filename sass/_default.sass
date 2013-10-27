@@ -3,7 +3,6 @@
 @import 'font/lietz_lindau_hamburg_regular.sass'
 @import 'blueprint/grid'
 @import 'compass'
-@import 'multi_screen'
 @import 'plugins'
 
 $cl_background: #d1d6ce
@@ -33,21 +32,6 @@ $blueprint-container-size: $blueprint-grid-outer-width * $blueprint-grid-columns
   text-shadow: 0 1px 0 rgba(255,255,255,0.8)
   color: #494949
 
-body
-  background: url(/images/common/body-bg.jpg) repeat center top
-
-  a, p
-    font-size: 100%
-    vertical-align: baseline
-    line-height: 1.4em
-
-  h1, h2, h3, h4, h5, h6, a
-    +clumsy_regular
-    // +link-colors(${1:normal}, ${2:hover}, ${3:active}, ${4:visited}, ${5:focus})
-    +link-colors($cl_normal, $cl_lake, $cl_lake, $cl_normal, $cl_lake)
-
 =center
   vertical-align: middle
   text-align: center
-
-

@@ -1,6 +1,5 @@
 $noise-bg: image-url('solarized/noise.png') top left !default
 $img-border: inline-image('solarized/dotted-border.png') !default
-$mono: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace !default
 
 // Main Link Colors
 $link-color: lighten(#165b94, 3) !default
@@ -55,3 +54,22 @@ $footer-border-bottom: darken($footer-bg, 15) !default
 $footer-link-color: darken($footer-bg, 38) !default
 $footer-link-color-hover: darken($footer-color, 25) !default
 $page-border-bottom: darken($footer-bg, 5) !default
+
+// Font
+$mono: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace !default
+$blockquote: $type-border !default
+$sans: "PT Sans", "Helvetica Neue", Arial, sans-serif !default
+$serif: "PT Serif", Georgia, Times, "Times New Roman", serif !default
+$heading-font-family: "PT Serif", "Georgia", "Helvetica Neue", Arial, sans-serif !default
+$header-title-font-family: $heading-font-family !default
+$header-subtitle-font-family: $heading-font-family !default
+
+// Fonts
+.heading
+  font-family: $heading-font-family
+.sans
+  font-family: $sans
+.serif
+  font-family: $serif
+.mono
+  font-family: $mono
