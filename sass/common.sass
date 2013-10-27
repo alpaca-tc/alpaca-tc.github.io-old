@@ -1,0 +1,129 @@
+@import 'blueprint/grid'
+@import 'compass'
+@import 'font/clumsy_regular.sass'
+@import 'multi_screen'
+
+$cl_background: #d1d6ce
+$cl_lake: #0062A0
+$cl_normal: #494949
+$cl_super_light_gray: #F8F6EA
+$cl_light_gray: #979690
+$cl_red: #e54a4a
+
+$fz_small: 80%
+
+$space_width: 15px
+
+$blueprint-grid-outer-width: 40.40px
+$blueprint-container-size: $blueprint-grid-outer-width * $blueprint-grid-columns - $blueprint-grid-margin
+
+// Font
+=clumsy_regular
+  font-family: ClumsyRegular,serif
+  text-decoration: none
+  text-shadow: 0 1px 0 rgba(255,255,255,0.8)
+  color: #494949
+
+body
+  background: url(/images/common/body-bg.jpg) repeat center top
+
+  a, p
+    font-size: 100%
+    vertical-align: baseline
+    line-height: 1.4em
+
+  h1, h2, h3, h4, h5, h6, a
+    +clumsy_regular
+    // +link-colors(${1:normal}, ${2:hover}, ${3:active}, ${4:visited}, ${5:focus})
+    +link-colors($cl_normal, $cl_lake, $cl_lake, $cl_normal, $cl_lake)
+
+=center
+  vertical-align: middle
+  text-align: center
+
+// .inner_wrapper
+
+.outer_envelope
+  +container
+  padding-top: $space_width
+
+  header
+    margin-bottom: $space_width
+    .inner_wrapper
+      .inner.clearfix
+        $logo_columns: 10
+        $nav_columns: 14
+        #logo
+          +column($logo_columns)
+          float: left
+          #site_title
+            font-size: 24px
+            margin-bottom: $space_width
+        nav#header_nav
+          +column($nav_columns)
+          float: left
+          margin: auto
+          padding-top: 8px
+          ul.clearfix
+            li
+              +center
+              width: span(3)
+              float: left
+              +box-align(center)
+            li.last
+              +last
+
+  #main_contents
+    .inner_wrapper
+      .inner
+        display: block
+  footer
+    #go_to_top
+      p
+        float: right
+        a
+          +clumsy_regular
+          background: url(/images/common/sort-order-bg.png)
+          border: 1px dashed #7D807C
+          color: $cl_light_gray
+          font-size: $fz_small
+          padding: 0px 16px
+          text-decoration: none
+          text-shadow: 0 1px 0 white
+
+    .inner_wrapper
+      margin-top: $space_width
+      background: url(/images/common/dashed-line.png) repeat-x top
+      padding-top: $space_width
+      .inner
+        padding-bottom: $space_width
+        background: url(/images/common/dashed-line.png) repeat-x bottom
+        #footer_link.clearfix
+          nav#footer_nav
+            +column(12)
+            font-size: $fz_small
+            li + li
+              margin-top: $space_width
+
+          nav#footer_social_link
+            +push($blueprint-grid-columns - 15)
+            +column(3, true)
+            ul li
+              a
+                background-repeat: no-repeat
+                height: 42px
+                display: block
+                text-indent: -999em
+                background-position: right
+
+              &.twitter
+                a
+                  background-image: url(/images/social/icon-twitter.png)
+
+    #footer_mark
+      text-align: center
+      height: 2em
+      margin: $space_width auto
+
+      small
+        +clumsy_regular
