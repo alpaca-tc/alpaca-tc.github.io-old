@@ -15,7 +15,16 @@ categories:
 ruby = 'test'
 ```
 
+```ruby
+def hello(test)
+  puts test
+end
+```
+
 > 引用の文字列
 > Display
 
 ## なかなか難しいね。
+
+hogepiyoooooooooooooooooo
+
