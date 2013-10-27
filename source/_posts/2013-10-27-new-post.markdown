@@ -1,0 +1,21 @@
+---
+layout: post
+title: "new post"
+date: 2013-10-27 19:30
+comments: true
+categories:
+---
+
+# テスト投稿だよーgithubGithu
+
+どうやって表示されるんだろう
+[Githubへアクセスしてみる？](https://github.com/alpaca-tc)
+
+```ruby
+ruby = 'test'
+```
+
+> 引用の文字列
+> Display
+
+## なかなか難しいね。

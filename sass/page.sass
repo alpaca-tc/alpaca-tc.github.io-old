@@ -1,9 +1,34 @@
 @import 'default'
 
-#page_contents
-  h1
-    font-size: $fz_large
-    margin: $space_width auto
-  h2
-    font-size: $fz_eye_friendly
-    margin: 10px auto
+.post_row
+  background-color: #F8F6EA
+  font-size: 14px
+  line-height: 20px
+  color: #403f3f
+  text-shadow: 0 1px 0 rgba(255,255,255,1)
+  position: relative
+
+  .inner
+    padding: $space_width
+
+  h1, h1 a
+    font-size: $fz_title
+    text-shadow: 0 1px 0 rgba(255,255,255,0.8)
+    color: $cl_fresh_water
+    width: 543px
+    line-height: 1.2em
+    margin-bottom: $space_width
+
+  p
+    word-wrap: break-word
+    font-family: Courier10BTRoman,Courier,monospace
+    margin-bottom: $space_width
+
+  a
+    color: $cl_lake
+    text-decoration: underline
+
+  section.meta
+    background: url(/images/common/repeating-dots.png) repeat-x 0 top
+    .inner
+      background: url(/images/common/repeating-dots.png) repeat-x 0 bottom
