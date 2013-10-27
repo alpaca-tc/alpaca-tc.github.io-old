@@ -1,92 +1,18 @@
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8">
-    <title>title</title>
-    <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="/stylesheets/common.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="/stylesheets/multi_screen.css" type="text/css" media="all"/>
-  </head>
-
+{% capture root_url %}{{ site.root | strip_slash }}{% endcapture %}
+{% include head.html %}
   <body>
     <div id="header_top" class="outer_envelope">
-      <header>
-        <div class="inner_wrapper">
-          <div class="inner clearfix">
-            <div id="logo">
-              <h1 id="site_title"><a href="/">Alpaca Engineer Blog</a></h1>
-            </div>
-
-            <nav id="header_nav">
-              <ul class="clearfix">
-                <li>
-                  <a href="/aboutme">About Me</a>
-                </li>
-                <li>
-                  <a href="/blog/">Blog</a>
-                </li>
-                <li>
-                  <a target="_blank" href="/works">Works</a>
-                </li>
-                <li>
-                  <a target="_blank" href="https://gihtub.com/alpaca-tc">GitHub</a>
-                </li>
-                <li>
-                  <a target="_blank" href="https://twitter.com/alpaca_taichou">Twitter</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <header>{% include header.html %}</header>
 
       <div id="main_contents">
         <div class="inner_wrapper">
           <div class="inner">
-            a
+            {{ content | expand_urls: root_url }}
           </div>
         </div>
       </div><!-- /div#main_contents -->
 
-      <footer>
-        <div id="go_to_top" class="clearfix">
-          <p><a href="#header_top">Go to Top</a></p>
-        </div>
-        <div class="inner_wrapper">
-          <div class="inner">
-            <div id="footer_link" class="clearfix">
-              <nav id="footer_nav">
-                <ul class="clearfix">
-                  <li>
-                    <a href="/aboutme">About Me</a>
-                  </li>
-                  <li>
-                    <a href="/blog/">Blog</a>
-                  </li>
-                  <li>
-                    <a target="_blank" href="/works">Works</a>
-                  </li>
-                </ul>
-              </nav>
-
-              <nav id="footer_social_link">
-                <ul class="clearfix">
-                  <li class="twitter">
-                    <a target="_blank" href="https://gihtub.com/alpaca-tc">GitHub</a>
-                  </li>
-                  <li>
-                    <a target="_blank" href="https://twitter.com/alpaca_taichou">Twitter</a>
-                  </li>
-                </ul>
-              </nav>
-
-            </div>
-          </div>
-        </div>
-        <div id="footer_mark">
-          <small>&nbsp;&copy; 2013, alpaca-tc.github.io</small>
-        </div>
-      </footer>
+      <footer role="contentinfo">{% include footer.html %}</footer>
     </div>
   </body>
 </html>
