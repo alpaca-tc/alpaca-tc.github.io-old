@@ -1,6 +1,11 @@
 <div class="sharing">
-  {% if site.google_plus_one %}
+  {% if site.google_plus_one.share_button.enable %}
     <div class="button google_plus_button g-plus" data-action="share"></div>
+  {% endif %}
+
+
+  {% if site.google_plus_one.like_button.enable %}
+    <g:plusone size="tall"></g:plusone>
   {% endif %}
 
   {% if site.twitter_tweet_button %}

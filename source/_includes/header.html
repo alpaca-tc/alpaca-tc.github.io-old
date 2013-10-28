@@ -2,9 +2,11 @@
           <div class="inner clearfix">
             <div id="logo">
               <h1 id="site_title">
-                <a href="/">
-                  {% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}
-                </a>
+                {% if page.title %}
+                  <a href="/">{{ page.title }} - {{ site.title_english }}</a>
+                {% else %}
+                  {{ site.title_english }}
+                {% endif %}
               </h1>
             </div>
 

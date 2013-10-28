@@ -3,7 +3,9 @@
 # ----------------------- #
 
 url: http://alpaca-tc.github.io
-title: Alpaca Engineer's Blog
+title: アルパカエンジニアのブログ
+single_title: アルパカエンジニアのブログ - Vim, Ruby, Railsの技術ブログ
+title_english: Alpaca Engineer's Blog
 subtitle: ''
 author: alpaca-tc
 simple_search: http://google.com/search
@@ -79,13 +81,15 @@ twitter_user: alpaca_taichou
 twitter_tweet_button: true
 
 # Google +1
-google_plus_one: true
-google_plus_one_size: medium
-
-# Google Plus Profile
-# Hidden: No visible button, just add author information to search results
-googleplus_user: 105581201951227096827
-googleplus_hidden: false
+google_plus_one:
+  user_id: 105581201951227096827
+  hide_author: false
+  like_button:
+    enable: true
+    size: small
+  share_button:
+    enable: false
+    language: ja # en-US
 
 # Pinboard
 pinboard_user:

@@ -1,5 +1,17 @@
-{% if site.google_plus_one %}
-  <script type="text/javascript"> (function() { var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true; po.src = 'https://apis.google.com/js/plusone.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s); })(); </script>
+{% if site.google_plus_one.share_button.enable or site.google_plus_one.like_button.enable %}
+  <script type="text/javascript">
+    window.___gcfg = {
+      lang: '{{ site.google_plus_one.share_button.language }}',
+    };
+    (function() {
+      var po = document.createElement('script');
+      po.type = 'text/javascript';
+      po.async = true;
+      po.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(po, s);
+    })();
+  </script>
 {% endif %}
 
 {% if site.twitter_tweet_button %}
