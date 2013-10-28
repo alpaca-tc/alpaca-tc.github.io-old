@@ -2,12 +2,18 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    <title>{% if page.title %}{{ page.title }} | {% endif %}アルパカエンジニアのブログ</title>
 
     {% capture description %}{% if page.description %}{{ page.description }}{% else %}{{ content | raw_content }}{% endif %}{% endcapture %}
     <meta name="description" content="{{ description | strip_html | condense_spaces | truncate:150 }}">
     {% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% unless site.googleplus_hidden %}
+      {% if site.googleplus_user %}
+    <link rel="author" href="https://plus.google.com/{{site.googleplus_user}}" />
+      {% endif %}
+    {% endif %}
 
     <link rel="canonical" href="{{ canonical }}">
     <link href="{{ root_url }}/favicon.png" rel="icon">

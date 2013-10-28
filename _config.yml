@@ -79,7 +79,7 @@ twitter_user: alpaca_taichou
 twitter_tweet_button: true
 
 # Google +1
-google_plus_one: false
+google_plus_one: true
 google_plus_one_size: medium
 
 # Google Plus Profile
@@ -101,6 +101,9 @@ disqus_show_comment_count: false
 
 # Google Analytics
 google_analytics_tracking_id: UA-44082439-2
+
+# Hatena Bookmark
+hatena_bookmark_button: true
 
 # Facebook Like
 facebook_like: true
