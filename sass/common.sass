@@ -1,13 +1,14 @@
 @import 'default'
 
 body
-  background: url(/images/common/body-bg.jpg) repeat center top
+  background: $cl_background
 
   html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video
     font-size: 100%
     vertical-align: baseline
     line-height: 1.4em
     font-family: $font_default
+    word-wrap: break-word
 
   h1, h2, h3, h4, h5, h6, a
     +clumsy_regular
@@ -42,6 +43,9 @@ body
     .inner_wrapper
       .inner
         display: block
+        .left_page
+        .right_page
+
   footer
     #go_to_top
       p
@@ -57,28 +61,24 @@ body
           text-shadow: 0 1px 0 white
 
     .inner_wrapper
-      margin-top: $space_width
       background: url(/images/common/dashed-line.png) repeat-x bottom
+      margin-top: $space_width
+
       .inner
         padding-bottom: $space_width
-        #footer_link.clearfix
-          nav#footer_nav
-            font-size: $fz_small
-            li + li
-              margin-top: $space_width
 
-          nav#footer_social_link
-            ul li
-              a
-                background-repeat: no-repeat
-                height: 42px
-                display: block
-                text-indent: -999em
-                background-position: right
+      nav#footer_social_link
+        ul li
+          a
+            height: 42px
+            background-repeat: no-repeat
+            display: block
+            text-indent: -999em
+            background-position: right
 
-              &.twitter
-                a
-                  background-image: url(/images/social/icon-twitter.png)
+          &.twitter
+            a
+              background-image: url(/images/social/icon-twitter.png)
 
     #footer_mark
       text-align: center

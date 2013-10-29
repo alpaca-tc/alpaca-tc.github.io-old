@@ -1,55 +1,116 @@
 @import 'default'
 
-.post_row
-  background-color: #F8F6EA
-  font-size: 14px
-  line-height: 20px
-  color: #403f3f
-  text-shadow: 0 1px 0 rgba(255,255,255,1)
-  position: relative
+#main_contents
+  .post_row
+    // background-color: #F8F6EA
+    background-color: white
+    +box-shadow(0px 4px 4px #eee)
+    border: 1px solid #eee
+    font-size: 14px
+    line-height: 20px
+    color: #403f3f
+    text-shadow: 0 1px 0 rgba(255,255,255,1)
+    position: relative
+    margin-bottom: $space_width
 
-  .inner
-    padding: $space_width
+    header.field-items, footer
+      h1
+        padding-left: $space_width
+        padding-right: $space_width
 
-  h1, h1 a, h2, h2 a, h3, h3 a, h4, h4 a, h5, h5 a, h6, h6 a
-    font-weight: bold
-    font-family: $font_default
-    font-size: $fz_title
-    text-shadow: 0 1px 0 rgba(255,255,255,0.8)
-    color: $cl_fresh_water
-    width: 543px
-    line-height: $large_line_height
-  h2
-    font-size: $fz_large
-  h3
-    font-size: $fz_eye_friendly
-  h4
-    font-size: $fz_normal
-  h5
-    font-size: $fz_normal
-
-  ol li
-    // list-style: decimal inside
-    list-style: inside
-    padding-left: 20px
-
-  ul li
-    list-style: inside
-    padding-left: 10px
-
-  p
-    line-height: $default_line_height
-    word-wrap: break-word
-
-  a
-    color: $cl_lake
-    text-decoration: underline
-
-  section.meta
-    background: url(/images/common/repeating-dots.png) repeat-x 0 top
     .inner
-      background: url(/images/common/repeating-dots.png) repeat-x 0 bottom
+      .entry-content > *, .sharing
+        padding-right: $space_width
+        padding-left: $space_width
+      .sharing
+        padding-bottom: $space_width
+      hr
+        border: 0
+        height: 0
+        // +box-shadow(0px 15px 4px #EEE)
+        border-top: 2px solid $cl_background
+        border-bottom: 2px solid $cl_background
 
-  h1, h2, h3, h4, h5, h6, p, ul, ol
-    margin-top: $bordering_space_width
-    margin-bottom: $bordering_space_width
+      figure.code
+        overflow-x: hidden
+        padding: 0
+        td.code
+          code
+            padding: $space_width
+            &, & span
+              font-size: $fz_normal
+        td.gutter
+          display: none
+
+    // & > *:not(.bogus-wrapper)
+    // .inner
+    //   padding: $space_width
+
+    h1, h1 a, h2, h2 a, h3, h3 a, h4, h4 a, h5, h5 a, h6, h6 a
+      text-align: left
+      font-family: $font_default
+      text-shadow: 0 1px 0 rgba(255,255,255,0.8)
+      color: $cl_fresh_water
+      width: 543px
+      line-height: $large_line_height
+    h1
+      font-size: $fz_large
+      font-weight: bold
+    h2
+      font-size: $fz_normal
+      font-weight: bold
+    h3
+      font-size: $fz_normal
+    h4
+      font-size: $fz_eye_friendly
+    h5
+      font-size: $fz_tiny
+
+
+    ol li
+      // list-style: decimal inside
+      list-style: inside
+      padding-left: 20px
+
+    ul li
+      list-style: inside
+      padding-left: 10px
+
+    p
+      line-height: $default_line_height
+      // word-wrap: break-word
+
+    a
+      color: $cl_lake
+      text-decoration: underline
+
+    section.meta
+      padding-top: 10px
+      text-align: center
+      background: url(/images/common/repeating-dots.png) repeat-x 0 top
+      .inner
+        padding-bottom: 13px
+        background: url(/images/common/repeating-dots.png) repeat-x 0 bottom
+
+    h1, h2, h3, h4, h5, h6, p, ul, ol
+      margin-top: $bordering_space_width
+      margin-bottom: $bordering_space_width
+
+  .sharing
+    margin: auto
+    width: 90%
+    padding-top: $space_width
+    padding-left: 10px
+    .button
+      float: left
+      text-align: center
+    .google_plus_button_like
+      width: 24%
+      padding-top: 2px
+    .twitter_button
+      width: 32%
+    .hatena_bookmark_button
+      padding-top: 2px
+      width: 33%
+    // .ft_like_button
+    // .google_plus_button_like

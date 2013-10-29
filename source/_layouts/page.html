@@ -4,10 +4,17 @@
     <div id="header_top" class="outer_envelope">
       <header>{% include header.html %}</header>
 
-      <div id="main_contents">
+      <div id="main_contents" class="clearfix">
         <div class="inner_wrapper">
-          <div id="page_contents" class="inner">
-            {{ content | expand_urls: root_url }}
+          <div class="inner">
+            <div class="left_page inner_wrapper">
+              <div id="page_contents" class="inner">
+                {{ content | expand_urls: root_url }}
+              </div>
+            </div>
+            <div class="right_page inner_wrapper">
+              {% include sidebar.html %}
+            </div>
           </div>
         </div>
       </div><!-- /div#main_contents -->

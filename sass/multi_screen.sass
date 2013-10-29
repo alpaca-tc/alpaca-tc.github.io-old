@@ -1,83 +1,192 @@
 @import 'default'
 @import 'blueprint/grid'
 
-// PC
-@media only screen and (min-width:1021px)
+$main_contents_width: 647px
+
+=load_heavy_image
+  body
+    // background: url(/images/common/body-bg.jpg) repeat center top
+
+=centering_head_nav
   header
     #logo
-      +column(7)
-      float: left
-    #header_nav
-      +column(14)
-      float: right
+      width: 500px
+      margin: auto
+      text-align: center
+    nav#header_nav
+      display: block
+      margin: auto
+      width: span(14)
+      text-align: center
 
+=centering_main_contents
+  .outer_envelope
+    width: 100%
+    overflow: visible
+
+  #main_contents
+    max-width: $main_contents_width
+    margin: auto
+    .inner_wrapper
+      position: static
+      float: none
+
+=centering_footer_nav
   footer
+    .inner
+      width: $main_contents_width
+      margin-left: auto
+      margin-right: auto
+
     #footer_link.clearfix
       nav#footer_nav
-        float: left
-        +column(12)
-      nav#footer_social_link
-        float: right
-        +push($blueprint-grid-columns - 15)
-        +column(3, true)
+        +column(8)
+        font-size: $fz_small
+        li + li
+          height: 2em
+          margin-top: $space_width
 
-// // NotePC
-// @media (min-width:916px) and (max-width:1030px)
-//   p
-//     color: green
-//   .outer_envelope
-//     p
-//       color: green
-//
-// // Tablet
-// @media (min-width:761px) and (max-width:915px)
-//   p
-//     color: pink
-//   .outer_envelope
-//     +column(16)
+      nav#footer_social_link
+        +column(3, true)
+        float: right
+
+// PC
+@media only screen and (min-width:1021px)
+  +load_heavy_image
+
+  .outer_envelope
+    width: 100%
+    .inner_wrapper
+      width: 960px
+      margin: auto
+
+    footer
+      .inner_wrapper
+        width: 100%
+        .inner
+          width: 960px
+          margin: auto
+
+          nav#footer_nav
+            +column(4)
+            float: left
+            li
+              height: 30px
+          nav#footer_social_link
+            +column(4)
+            float: right
+
+    header
+      #logo
+        +column(8)
+      #header_nav
+        +column(14)
+        float: right
+
+    #main_contents
+      .left_page
+        max-width: $main_contents_width
+        float: left
+        margin-right: 28px
+      .right_page
+        width: 283px
+        float: right
+
+// NotePC
+@media (min-width:916px) and (max-width:1021px)
+  +load_heavy_image
+
+  .outer_envelope
+    header
+      display: block
+      .inner_wrapper
+        width: 94%
+        margin: auto
+        .inner
+          #logo
+            +column(7.1)
+          #header_nav
+            +column(14)
+            float: right
+
+  +centering_main_contents
+  +centering_footer_nav
+
+// Tablet
+@media (min-width:761px) and (max-width:915px)
+  +load_heavy_image
+  +centering_main_contents
+  +centering_head_nav
+  +centering_footer_nav
 
 // Smartphone
-@media (max-width:960px)
-  .outer_envelope
-    width: 93.5%
-
-    header
-      #logo
-        width: 500px
-        margin: auto
-        text-align: center
-      nav#header_nav
-        display: block
-        margin: auto
-        width: span(14)
-        text-align: center
-    footer
-      #footer_link
-        nav#footer_nav
-          +column(2)
-          float: left
-        nav#footer_social_link
-          +column(2, true)
-          float: right
-
-  .inner_wrapper
-    position: static
-    float: none
-    margin: auto
+@media (min-width:691px) and (max-width:960px)
+  +load_heavy_image
+  +centering_head_nav
+  +centering_main_contents
+  +centering_footer_nav
 
 // Mobile
-@media (max-width:630px)
+@media (max-width:690px)
+  *
+    -webkit-text-size-adjust: none
+  $main_contents_width: 93%
+  +centering_main_contents
+
   .outer_envelope
     header
+      text-align: center
       #logo
-        width: 93.5%
-      nav#header_nav
-        width: 93.5%
-  .post_row
-    h1, h2
-      font-size: $fz_normal
-    section.meta
+        display: block
+        width: $main_contents_width
+        margin: auto
+      #header_nav
+        display: block
+        text-align: center
+        font-size: $fz_small
+        width: $main_contents_width
+        ul.clearfix
+          li
+            height: 1.5em
+            width: 33% !important
+            &:nth-child(4)
+              width: 40% !important
+              margin-right: 10%
+              text-align: right !important
+            &:nth-child(5)
+              margin-left: 10%
+              width: 40% !important
+              text-align: left !important
+
+    #main_contents
+      width: $main_contents_width
+
+    footer
+      #go_to_top
+        right: 14px
+        position: fixed
+        bottom: 3px
       .inner
-        padding: 5px
-      background: none
+        width: $main_contents_width
+        margin: auto
+
+      #footer_link.clearfix
+        nav#footer_nav, nav#footer_social_link
+          display: block
+          margin-bottom: $space_width
+          ul > li
+            text-align: center
+            width: 33%
+            float: left
+
+    #page_contents
+      h1
+        font-size: $fz_normal
+      figure.code
+        padding: 0
+        td.code
+          code
+            padding: $space_width
+            // &, & span
+              // font-size: 10px
 
