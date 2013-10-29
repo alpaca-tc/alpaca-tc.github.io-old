@@ -1,23 +1,31 @@
 <div class="sharing clearfix">
+  {% if post.url %}
+    {% assign unique_url = post.url %}
+  {% else %}
+    {% assign unique_url = page.url %}
+  {% endif %}
+  {% capture unique_url %}{{ site.url }}{{ unique_url }}{% endcapture %}
+
   {% if site.google_plus_one.share_button.enable %}
     <div class="button google_plus_button_share g-plus" data-action="share"></div>
   {% endif %}
 
   {% if site.twitter_tweet_button %}
     <div class="button twitter_button">
-      <a href="https://twitter.com/share" class="twitter-share-button"  data-url="{{ site.url }}{{ page.url }}" data-via="{{ site.twitter_user }}" data-counturl="{{ site.url }}{{ page.url }}"  data-count="vertical">Tweet</a>
+      <a href="https://twitter.com/share" class="twitter-share-button"  data-url="{{ unique_url }}" data-via="{{ site.twitter_user }}" data-counturl="{{ unique_url }}"  data-count="vertical">Tweet</a>
     </div>
   {% endif %}
 
   {% if site.facebook_like %}
+
     <div class="button ft_like_button">
-      <div class="fb-like" data-send="false" data-layout="button_count" width="150" data-show-faces="false" data-font="arial"  data-action="like"></div>
+      <div class="fb-like" data-href="{{ unique_url }}" data-send="false" data-layout="button_count" width="150" data-show-faces="false" data-font="arial"  data-action="like"></div>
     </div>
   {% endif %}
 
   {% if site.hatena_bookmark_button %}
     <div class="button hatena_bookmark_button">
-      <a href="http://b.hatena.ne.jp/entry/{{ site.url }}{{ page.url }}/" class="hatena-bookmark-button" data-hatena-bookmark-title="{{ page.title }}" data-hatena-bookmark-layout="vertical-balloon" data-hatena-bookmark-lang="en" title="このエントリーをはてなブックマークに追加">
+      <a href="http://b.hatena.ne.jp/entry/{{ unique_url }}" class="hatena-bookmark-button" data-hatena-bookmark-title="{{ post.title }} - {{ site.title }}" data-hatena-bookmark-layout="vertical-balloon" data-hatena-bookmark-lang="en" title="このエントリーをはてなブックマークに追加">
         <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
       </a>
     </div>
@@ -25,7 +33,7 @@
 
   {% if site.google_plus_one.like_button.enable %}
     <div class="button google_plus_button_like">
-      <g:plusone size="tall"></g:plusone>
+      <div data-href="{{ unique_url }}" class="g-plusone" data-size="tall" ... ></div>
     </div>
   {% endif %}
 </div>

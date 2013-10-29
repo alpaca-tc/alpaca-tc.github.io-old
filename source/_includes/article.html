@@ -52,10 +52,7 @@
     {% endif %}
 
     {% unless page.sharing == false %}
-      {% if page.layout == 'post' %}
-        {% include post/sharing.html %}
-        {% include post/load_sharing_js.html %}
-      {% endif %}
+      {% include post/sharing.html %}
     {% endunless %}
   </div>
 </article>
