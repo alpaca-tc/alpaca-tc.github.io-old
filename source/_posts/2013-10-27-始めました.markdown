@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "とりあえず..."
+title: "初めました"
 date: 2013-10-27 23:12
 comments: true
 categories: diary
