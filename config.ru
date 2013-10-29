@@ -1,5 +1,6 @@
 require 'bundler/setup'
 require 'sinatra/base'
+require 'pry'
 
 # The project root directory
 $root = ::File.dirname(__FILE__)
@@ -7,7 +8,8 @@ $root = ::File.dirname(__FILE__)
 class SinatraStaticServer < Sinatra::Base
 
   get(/.+/) do
-    send_sinatra_file(request.path) {404}
+    # send_sinatra_file(request.path) {404}
+    send_sinatra_file(URI.unescape(request.path)) {404}
   end
 
   not_found do

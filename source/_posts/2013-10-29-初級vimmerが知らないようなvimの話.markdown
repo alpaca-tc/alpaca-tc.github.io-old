@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "よく会う関西学生vimmerが知らないようなvimの話"
+title: "初級vimmerが知らないようなvimの話"
 date: 2013-10-29 19:57
 comments: true
 categories:

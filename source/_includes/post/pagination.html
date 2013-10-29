@@ -1,0 +1,12 @@
+<div class="pagination meta clearfix">
+  {% if page.previous.url %}
+    <div class="arrow_block left_block">
+      <a class="basic-alignment" href="{{page.previous.url}}" title="Previous Post: {{page.previous.title}}">&laquo; {{page.previous.title}}</a>
+    </div>
+  {% endif %}
+  {% if page.next.url %}
+    <div class="arrow_block right_block">
+      <a class="basic-alignment" href="{{page.next.url}}" title="Next Post: {{page.next.title}}">{{page.next.title}} &raquo;</a>
+    </div>
+  {% endif %}
+</p>

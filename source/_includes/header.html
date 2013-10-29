@@ -3,7 +3,8 @@
             <div id="logo">
               <h1 id="site_title">
                 {% if page.title %}
-                  <a href="/">{{ page.title }} - {{ site.title_english }}</a>
+                  <a href=".">{{ page.title }}</a><br/>
+                  <a class="small" href="/">{{ site.title_english }}</a>
                 {% else %}
                   {{ site.title_english }}
                 {% endif %}

@@ -51,8 +51,8 @@
       font-family: $font_default
       text-shadow: 0 1px 0 rgba(255,255,255,0.8)
       color: $cl_fresh_water
-      width: 543px
       line-height: $large_line_height
+      width: inherit
     h1
       font-size: $fz_large
       font-weight: bold
@@ -114,3 +114,14 @@
       width: 33%
     // .ft_like_button
     // .google_plus_button_like
+
+  .pagination.clearfix
+    .arrow_block
+      display: block
+      width: 50%
+      &.left_block
+        text-align: left
+        float: left
+      &.right_block
+        text-align: right
+        float: right

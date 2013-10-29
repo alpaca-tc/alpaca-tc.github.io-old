@@ -1,3 +1,9 @@
+# TODO
+
+- 日本語を使うためにカスタマイズ
+  - '/Users/alpaca/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/stringex-1.4.0/lib/stringex/string_extensions.rb:49'
+  - to_asciiを消す
+
 ## What is Octopress?
 
 Octopress is [Jekyll](https://github.com/mojombo/jekyll) blogging at its finest.

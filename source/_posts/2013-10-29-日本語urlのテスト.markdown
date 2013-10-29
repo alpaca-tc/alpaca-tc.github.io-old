@@ -1,0 +1,12 @@
+---
+layout: post
+title: "日本語URLのテスト"
+date: 2013-10-29 22:39
+comments: true
+categories:
+---
+
+Jekyllと、to_urlメソッドを書き換えて日本語URLに対応してみた。
+あのおかしなローマ字はなんだかねぇ！
+
+という訳でテスト投稿なり。
