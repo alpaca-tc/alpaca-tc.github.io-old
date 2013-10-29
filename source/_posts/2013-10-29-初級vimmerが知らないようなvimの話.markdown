@@ -3,7 +3,7 @@ layout: post
 title: "初級vimmerが知らないようなvimの話"
 date: 2013-10-29 19:57
 comments: true
-categories:
+categories: vim
 ---
 
 Vimの中で、`g:...`, `s:...`のように、スコープ毎に変数が分かれてるよね。

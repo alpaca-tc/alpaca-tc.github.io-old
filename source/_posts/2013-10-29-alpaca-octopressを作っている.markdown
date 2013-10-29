@@ -3,7 +3,7 @@ layout: post
 title: "alpaca_octopressを作っている"
 date: 2013-10-29 04:52
 comments: true
-categories:
+categories: [vim, alpaca_octopress]
 ---
 
 昨日言った通り、今は[alpaca_octopress.vim](https://github.com/alpaca-tc/alpaca_octopress.vim)を作っています

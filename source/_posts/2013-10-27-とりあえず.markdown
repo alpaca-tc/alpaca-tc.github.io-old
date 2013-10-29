@@ -3,7 +3,7 @@ layout: post
 title: "とりあえず..."
 date: 2013-10-27 23:12
 comments: true
-categories:
+categories: diary
 ---
 
 記念すべき初カキコ。
