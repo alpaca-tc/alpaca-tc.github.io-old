@@ -8,6 +8,8 @@
     <meta name="description" content="{{ description | strip_html | condense_spaces | truncate:150 }}">
     {% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+    <meta content='{% if page.title %}{{ page.title }} | アルパカエンジニアのブログ{% else %}{{ site.single_title }}{% endif %}' name='title' />
+    <meta content='{% if page.title %}{{ page.title }} | アルパカエンジニアのブログ{% else %}{{ site.single_title }}{% endif %}' name='og:title' />
 
     {% unless site.google_plus_one.hide_author %}
       {% if site.google_plus_one.user_id %}
