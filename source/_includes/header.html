@@ -1,14 +1,7 @@
         <div class="inner_wrapper clearfix">
           <div class="inner clearfix">
             <div id="logo">
-              <h1 id="site_title">
-                {% if page.title %}
-                  <a href=".">{{ page.title }}</a><br/>
-                  <a class="small" href="/">{{ site.title_english }}</a>
-                {% else %}
-                  {{ site.title_english }}
-                {% endif %}
-              </h1>
+              <h1 id="site_title">{% if page.title %}<a href=".">{{ page.title }}</a><br/><a class="small" href="/">{{ site.title_english }}</a>{% else %}<a href="/">{{ site.title_english }}</a>{% endif %}</h1>
             </div>
 
             <nav id="header_nav">
