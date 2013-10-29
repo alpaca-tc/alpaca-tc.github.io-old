@@ -1,4 +1,5 @@
 @import 'default'
+@import "compass/utilities/color/contrast"
 
 body
   background: $cl_background
@@ -43,8 +44,8 @@ body
     .inner_wrapper
       .inner
         display: block
-        .left_page
-        .right_page
+        // .left_page
+        // .right_page
 
   footer
     #go_to_top
@@ -68,17 +69,20 @@ body
         padding-bottom: $space_width
 
       nav#footer_social_link
-        ul li
-          a
-            height: 42px
-            background-repeat: no-repeat
-            display: block
-            text-indent: -999em
-            background-position: right
-
-          &.twitter
-            a
-              background-image: url(/images/social/icon-twitter.png)
+        // $icon_size: 256px
+        $icon_size: 64px
+        ul
+          height: $icon_size + 6px
+          li
+            & a img
+              $contrasted-dark-default: #CCC
+              background: contrast-color($cl_background)
+              +box-shadow(0px 2px 3px #CCC)
+              +opacity(1)
+              +border-radius($icon_size / 2 + 3px)
+            &, & a img
+              width: $icon_size
+              height: $icon_size
 
     #footer_mark
       text-align: center

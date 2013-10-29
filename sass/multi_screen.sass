@@ -47,8 +47,12 @@ $main_contents_width: 647px
           margin-top: $space_width
 
       nav#footer_social_link
-        +column(3, true)
+        +column(8, true)
         float: right
+        ul li
+          float: right
+          & + li
+            margin-right: $space_width
 
 // PC
 @media only screen and (min-width:1021px)
@@ -59,22 +63,6 @@ $main_contents_width: 647px
     .inner_wrapper
       width: 960px
       margin: auto
-
-    footer
-      .inner_wrapper
-        width: 100%
-        .inner
-          width: 960px
-          margin: auto
-
-          nav#footer_nav
-            +column(4)
-            float: left
-            li
-              height: 30px
-          nav#footer_social_link
-            +column(4)
-            float: right
 
     header
       #logo
@@ -91,6 +79,27 @@ $main_contents_width: 647px
       .right_page
         width: 283px
         float: right
+
+    footer
+      .inner_wrapper
+        width: 100%
+        .inner
+          width: 960px
+          margin: auto
+
+          nav#footer_nav
+            +column(4)
+            float: left
+            li
+              height: 30px
+          nav#footer_social_link
+            +column(10)
+            float: right
+
+            ul li
+              float: right
+              & + li
+                margin-right: $space_width
 
 // NotePC
 @media (min-width:916px) and (max-width:1021px)
@@ -170,10 +179,16 @@ $main_contents_width: 647px
         width: $main_contents_width
         margin: auto
 
+      #footer_social_link
+        ul
+          li
+            float: left
+
       #footer_link.clearfix
+        nav#footer_social_link
+          margin-top: $space_width
         nav#footer_nav, nav#footer_social_link
           display: block
-          margin-bottom: $space_width
           ul > li
             text-align: center
             width: 33%
