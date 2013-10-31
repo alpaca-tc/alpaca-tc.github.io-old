@@ -1,17 +1,48 @@
 @import 'default'
 @import 'sidebar'
 
+=blockquote
+  +transition(all, 0.3s)
+  color: #606060
+  background: #f9f9f9
+  position: relative
+  overflow: hidden
+  display: block
+  padding: 15px 60px
+  margin-bottom: $space_width
+  &:hover
+    color: #454545
+    &:before
+      color: #b8cec7
+  &:before
+    left: -3px
+  &:after
+    right: -2px
+  &:before, &:after
+    display: block
+    content: "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+    font-size: 24px
+    overflow: hidden
+    position: absolute
+    top: 0px
+    bottom: 0px
+    line-height: 0.4em
+    word-break: break-all
+    color: #d0dfda
+    width: 7px !important
+
 #main_contents
   .post_row
-    // background-color: #F8F6EA
-    background-color: white
     +box-shadow(0px 4px 4px #eee)
+    background-color: white
     border: 1px solid #eee
+    color: #403f3f
     font-size: 14px
     line-height: 20px
-    color: #403f3f
     text-shadow: 0 1px 0 rgba(255,255,255,1)
     position: relative
+    padding-top: $space_width
+    padding-bottom: $space_width
     margin-bottom: $space_width
 
     header.field-items, footer
@@ -20,82 +51,87 @@
         padding-right: $space_width
 
     .inner
-      .entry-content > *, .sharing
-        padding-right: $space_width
-        padding-left: $space_width
-      .sharing
-        padding-bottom: $space_width
-      hr
-        border: 0
-        height: 0
-        // +box-shadow(0px 15px 4px #EEE)
-        border-top: 2px solid $cl_background
-        border-bottom: 2px solid $cl_background
+      .entry-content
+        & > *, .sharing
+          padding-right: $space_width
+          padding-left: $space_width
 
-      figure.code
-        overflow-x: hidden
-        padding: 0
-        td.code
-          code
-            padding: $space_width
-            &, & span
-              font-size: $fz_normal
-        td.gutter
-          display: none
+        figure.code
+          overflow-x: hidden
+          padding: 0
+          td.code
+            code
+              padding: $space_width
+              &, & span
+                font-size: $fz_normal
+          td.gutter
+            display: none
 
-    // & > *:not(.bogus-wrapper)
-    // .inner
-    //   padding: $space_width
+        p > blockquote, > blockquote
+          +blockquote
 
-    h1, h1 a, h2, h2 a, h3, h3 a, h4, h4 a, h5, h5 a, h6, h6 a
-      text-align: left
-      font-family: $font_default
-      text-shadow: 0 1px 0 rgba(255,255,255,0.8)
-      color: $cl_fresh_water
-      line-height: $large_line_height
-      width: inherit
-    h1
-      font-size: $fz_large
-      font-weight: bold
-    h2
-      font-size: $fz_normal
-      font-weight: bold
-    h3
-      font-size: $fz_normal
-    h4
-      font-size: $fz_eye_friendly
-    h5
-      font-size: $fz_tiny
+        ol li
+          // list-style: decimal inside
+          list-style: inside
+          padding-left: 20px
 
+        ul li
+          list-style: inside
+          padding-left: 10px
 
-    ol li
-      // list-style: decimal inside
-      list-style: inside
-      padding-left: 20px
+        p
+          line-height: $default_line_height
+          > img.image_on_frame
+            +box-shadow(0 0 5px #ebebeb)
+            position: relative
+            display: block
+            max-width: 90%
+            padding: 5px
+            margin: 10px auto 10px auto
+            border: 1px solid #ebebeb
 
-    ul li
-      list-style: inside
-      padding-left: 10px
+        hr
+          border: 0
+          height: 0
+          // +box-shadow(0px 15px 4px #EEE)
+          border-top: 2px solid $cl_background
+          border-bottom: 2px solid $cl_background
+        .sharing
+          padding-bottom: $space_width
 
-    p
-      line-height: $default_line_height
-      // word-wrap: break-word
+        h1, h1 a, h2, h2 a, h3, h3 a, h4, h4 a, h5, h5 a, h6, h6 a
+          text-align: left
+          font-family: $font_default
+          text-shadow: 0 1px 0 rgba(255,255,255,0.8)
+          color: $cl_fresh_water
+          line-height: $large_line_height
+          width: inherit
+        > h1
+          font-size: $fz_large
+          font-weight: bold
+        > h2
+          font-size: $fz_normal
+          font-weight: bold
+        > h3
+          font-size: $fz_normal
+        > h4
+          font-size: $fz_eye_friendly
+        > h5
+          font-size: $fz_tiny
+        strong
+          font-weight: bold
 
-    a
-      color: $cl_lake
-      text-decoration: underline
-
-    section.meta
-      padding-top: 10px
-      text-align: center
-      background: url(/images/common/repeating-dots.png) repeat-x 0 top
-      .inner
-        padding-bottom: 13px
-        background: url(/images/common/repeating-dots.png) repeat-x 0 bottom
-
-    h1, h2, h3, h4, h5, h6, p, ul, ol
-      margin-top: $bordering_space_width
-      margin-bottom: $bordering_space_width
+      h1, h2, h3, h4, h5, h6, p, ul, ol
+        margin-bottom: $bordering_space_width
+      a
+        text-decoration: underline
+      section.meta
+        padding-top: 10px
+        text-align: center
+        background: url(/images/common/repeating-dots.png) repeat-x 0 top
+        .inner
+          padding-bottom: 13px
+          background: url(/images/common/repeating-dots.png) repeat-x 0 bottom
 
   .sharing
     margin: auto
