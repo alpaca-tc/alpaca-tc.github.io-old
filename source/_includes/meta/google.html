@@ -1,0 +1,6 @@
+{% unless site.google_plus_one.hide_author %}
+  {% if site.google_plus_one.user_id %}
+    <link rel="author" href="https://plus.google.com/{{site.google_plus_one.user_id}}" />
+    <link rel="publisher" href="https://plus.google.com/{{site.google_plus_one.user_id}}" />
+  {% endif %}
+{% endunless %}

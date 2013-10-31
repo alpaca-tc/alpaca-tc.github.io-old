@@ -8,6 +8,10 @@ single_title: アルパカエンジニアのブログ - Vim, Ruby, Railsの技�
 title_english: Alpaca Engineer's Blog
 subtitle: ''
 author: alpaca-tc
+author_info:
+  ja: 石井浩之
+  en: Ishii Hiroyuki
+  email: alprhcp666@gmail.com
 simple_search: http://google.com/search
 description: Vim, Rails/Ruby, JavaScript、などWeb開発に関する技術ブログ
 

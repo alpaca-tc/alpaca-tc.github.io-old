@@ -1,3 +1,9 @@
+{% if post.url %}
+  {% assign unique_url = post.url %}
+{% else %}
+  {% assign unique_url = page.url %}
+{% endif %}
+{% capture unique_url %}{{ site.url }}{{ unique_url }}{% endcapture %}
 <!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -9,13 +15,10 @@
     {% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='{% if page.title %}{{ page.title }} | アルパカエンジニアのブログ{% else %}{{ site.single_title }}{% endif %}' name='title' />
-    <meta content='{% if page.title %}{{ page.title }} | アルパカエンジニアのブログ{% else %}{{ site.single_title }}{% endif %}' name='og:title' />
 
-    {% unless site.google_plus_one.hide_author %}
-      {% if site.google_plus_one.user_id %}
-    <link rel="author" href="https://plus.google.com/{{site.google_plus_one.user_id}}" />
-      {% endif %}
-    {% endunless %}
+    {% include meta/google.html %}
+    {% include meta/og.html %}
+    {% include meta/twitter.html %}
 
     <link rel="canonical" href="{{ canonical }}">
     <link href="{{ root_url }}/favicon.png" rel="icon">

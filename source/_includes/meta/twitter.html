@@ -1,0 +1,7 @@
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{% if page.title %}{{ page.title }} | アルパカエンジニアのブログ{% else %}{{ site.single_title }}{% endif %}">
+<meta name="twitter:description" content="{{ description | strip_html | condense_spaces | truncate:150 }}">
+<meta name="twitter:image" content="http://{{ site.url }}/images/meta/site_title.png">
+
+<meta name="twitter:site" content="@{{ site.twitter_user }}">
+<meta name="twitter:creator" content="@{{ site.twitter_user }}">
