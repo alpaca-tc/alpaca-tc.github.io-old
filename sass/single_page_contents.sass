@@ -1,3 +1,19 @@
 #single_page_contents
   background: white
   padding: $space_width
+
+  h1, h2
+    margin-bottom: $space_width
+
+  > ul
+    margin: $space_width auto
+    padding-left: $space_width
+    > ol
+      list-style-type: decimal
+    > li
+      list-style-type: disc
+      margin-left: $space_width
+      > ul
+        > li, > ol
+          list-style-type: disc
+          margin-left: $space_width
