@@ -1,39 +1,21 @@
-<div class="sharing clearfix">
-  {% if post.url %}
-    {% assign unique_url = post.url %}
-  {% else %}
-    {% assign unique_url = page.url %}
-  {% endif %}
-  {% capture unique_url %}{{ site.url }}{{ unique_url }}{% endcapture %}
+{% include function/unique_info.html %}
 
-  {% if site.google_plus_one.share_button.enable %}
-    <div class="button google_plus_button_share g-plus" data-action="share"></div>
-  {% endif %}
+<section class="sharing clearfix">
+  <div class="button hatena_bookmark_button">
+    <a href="http://b.hatena.ne.jp/entry/{{ unique_url }}" class="hatena-bookmark-button" data-hatena-bookmark-title="{{ unique_title }}" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
+      <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+    </a>
+  </div>
 
-  {% if site.twitter_tweet_button %}
-    <div class="button twitter_button">
-      <a href="https://twitter.com/share" class="twitter-share-button"  data-url="{{ unique_url }}" data-via="{{ site.twitter_user }}" data-counturl="{{ unique_url }}"  data-count="vertical">Tweet</a>
-    </div>
-  {% endif %}
+  <div class="button ft_like_button">
+    <div class="fb-like" data-href="{{ unique_url }}" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
+  </div>
 
-  {% if site.facebook_like %}
+  <div class="button google_plus_button_like">
+    <div data-annotation="none" data-href="{{ unique_url }}" class="g-plusone" data-size="medium" ></div>
+  </div>
 
-    <div class="button ft_like_button">
-      <div class="fb-like" data-href="{{ unique_url }}" data-send="false" data-layout="button_count" width="150" data-show-faces="false" data-font="arial"  data-action="like"></div>
-    </div>
-  {% endif %}
-
-  {% if site.hatena_bookmark_button %}
-    <div class="button hatena_bookmark_button">
-      <a href="http://b.hatena.ne.jp/entry/{{ unique_url }}" class="hatena-bookmark-button" data-hatena-bookmark-title="{{ post.title }} - {{ site.title }}" data-hatena-bookmark-layout="vertical-balloon" data-hatena-bookmark-lang="en" title="このエントリーをはてなブックマークに追加">
-        <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
-      </a>
-    </div>
-  {% endif %}
-
-  {% if site.google_plus_one.like_button.enable %}
-    <div class="button google_plus_button_like">
-      <div data-href="{{ unique_url }}" class="g-plusone" data-size="tall" ... ></div>
-    </div>
-  {% endif %}
-</div>
+  <div class="button twitter_button">
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="{{ unique_url }}" data-via="{{ site.social.twitter.user }}" data-counturl="{{ unique_url }}" >Tweet</a>
+  </div>
+</section>

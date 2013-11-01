@@ -74,44 +74,36 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/delicious.
 #   3rd Party Settings    #
 # ----------------------- #
 
-# Github repositories
-github_user: alpaca-tc
-github_repo_count: 0
-github_show_profile_link: true
-github_skip_forks: true
-
-# Twitter
-twitter_user: alpaca_taichou
-twitter_tweet_button: true
-
-# Google +1
-google_plus_one:
-  user_id: 105581201951227096827
-  hide_author: false
-  like_button:
+social:
+  github:
+    user: alpaca-tc
+    repo_count: 0
+    show_profile_link: true
+    skip_forks: true
+  twitter:
+    user: alpaca_taichou
     enable: true
-    size: small
-  share_button:
-    enable: false
-    language: ja # en-US
-
-# Pinboard
-pinboard_user:
-pinboard_count: 3
-
-# Delicious
-delicious_user:
-delicious_count: 3
-
-# Disqus Comments
-disqus_short_name:
-disqus_show_comment_count: false
+  google_plus:
+    id: 105581201951227096827
+    hide_author: false
+    like_button:
+      enable: true
+  pinboard:
+    count: 3
+    user:
+  delicious:
+    user:
+    count: 3
+  disqus:
+    short_name:
+    show_comment_count: false
+  facebook:
+    app_id: 224701561024840
+    show_comment: true
+    like_button: true
+  hatena:
+    bookmark_button: true
 
 # Google Analytics
 google_analytics_tracking_id: UA-44082439-2
 
-# Hatena Bookmark
-hatena_bookmark_button: true
-
-# Facebook Like
-facebook_like: true

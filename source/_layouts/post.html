@@ -5,6 +5,7 @@ single: true
 {% capture root_url %}{{ site.root | strip_slash }}{% endcapture %}
 {% include head.html %}
   <body>
+    {% include post/load_sharing_js.html %}
     <div id="header_top" class="outer_envelope clearfix">
       <header>{% include header.html %}</header>
 
@@ -15,12 +16,7 @@ single: true
 
             {% include post/pagination.html %}
 
-            {% if site.disqus_short_name and page.comments == true %}
-              <section>
-                <h1>Comments</h1>
-                <div id="disqus_thread" aria-live="polite">{% include post/disqus_thread.html %}</div>
-              </section>
-            {% endif %}
+            {% include post/comment.html %}
           </div><!-- /div.inner -->
         </div>
       </div>

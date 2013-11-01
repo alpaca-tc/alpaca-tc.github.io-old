@@ -1,23 +1,32 @@
-{% if site.google_plus_one.share_button.enable or site.google_plus_one.like_button.enable %}
+<script type="text/javascript">
+  var load_javascript_async = function(id, url){
+    var js, fjs = document.getElementsByTagName('script')[0];
+    if (!document.getElementById(id)) {
+      js = document.createElement('script');
+      js.id = id;
+      js.src = url;
+      fjs.parentNode.insertBefore(js, fjs);
+    }
+  };
+</script>
+
+{% if site.social.google_plus.like_button.enable %}
   <script type="text/javascript">
     window.___gcfg = {
       lang: '{{ site.google_plus_one.share_button.language }}',
     };
-    (function() {
-      var po = document.createElement('script');
-      po.type = 'text/javascript';
-      po.async = true;
-      po.src = 'https://apis.google.com/js/plusone.js';
-      var s = document.getElementsByTagName('script')[0];
-      s.parentNode.insertBefore(po, s);
-    })();
+    load_javascript_async('google_plus_one_js', 'https://apis.google.com/js/plusone.js')
   </script>
 {% endif %}
 
-{% if site.twitter_tweet_button %}
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+{% if site.social.facebook.like_button %}
+  <script type="text/javascript">load_javascript_async('facebook_jssdk', '//connect.facebook.net/ja_JP/all.js#xfbml=1&appId={{ site.social.facebook.app_id }}')</script>
 {% endif %}
 
-{% if site.hatena_bookmark_button %}
-    <script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+{% if site.social.twitter.enable %}
+  <script type="text/javascript">load_javascript_async('twitter_wjs', '//platform.twitter.com/widgets.js')</script>
+{% endif %}
+
+{% if site.social.hatena.bookmark_button %}
+  <script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
 {% endif %}

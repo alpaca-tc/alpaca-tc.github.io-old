@@ -1,6 +1,7 @@
 {% capture root_url %}{{ site.root | strip_slash }}{% endcapture %}
 {% include head.html %}
   <body>
+    {% include post/load_sharing_js.html %}
     <div id="header_top" class="outer_envelope clearfix">
       <header>{% include header.html %}</header>
 

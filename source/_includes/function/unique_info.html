@@ -1,0 +1,10 @@
+{% if post.url %}
+  {% assign unique_url = post.url %}
+{% else %}
+  {% assign unique_url = page.url %}
+{% endif %}
+{% capture unique_url %}{{ site.url }}{{ unique_url }}{% endcapture %}
+
+{% capture unique_title %}
+{% if page.title %}{{ page.title }} | {{ site.title }}{% endif %}{% if post.title %}{{ post.title }} | {{ site.title }} {% else %}{{ site.single_title }}{% endif %}
+{% endcapture %}

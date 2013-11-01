@@ -42,3 +42,12 @@ $font_cool_alpha: ClumsyRegular,serif
 =center
   vertical-align: middle
   text-align: center
+
+=clear_link
+  +link-colors($cl_normal, $cl_lake, $cl_lake, $cl_lake, $cl_lake)
+  color: $cl_fresh_water
+
+=fadehover($speed: 0.4s, $opacity: 0.8)
+  +transition( all $speed ease )
+  &:hover
+    +opacity($opacity)

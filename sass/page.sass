@@ -96,6 +96,7 @@
           // +box-shadow(0px 15px 4px #EEE)
           border-top: 2px solid $cl_background
           border-bottom: 2px solid $cl_background
+
         .sharing
           padding-bottom: $space_width
 
@@ -123,8 +124,12 @@
 
       h1, h2, h3, h4, h5, h6, p, ul, ol
         margin-bottom: $bordering_space_width
+
       a
+        +clear_link
+        +fadehover
         text-decoration: underline
+
       section.meta
         padding-top: 10px
         text-align: center
@@ -134,21 +139,23 @@
           background: url(/images/common/repeating-dots.png) repeat-x 0 bottom
 
   .sharing
-    margin: auto
-    width: 90%
-    padding-top: $space_width
-    padding-left: 10px
+    margin-top: $space_width
+    padding-left: $space_width
+    padding-right: $space_width
+
     .button
-      float: left
-      text-align: center
-    .google_plus_button_like
-      width: 24%
-      padding-top: 2px
-    .twitter_button
-      width: 32%
-    .hatena_bookmark_button
-      padding-top: 2px
-      width: 33%
+      display: inline
+      text-align: left
+      & + .button
+        padding-left: 15px
+    // .google_plus_button_like
+    //   width: 24%
+    //   padding-top: 2px
+    // .twitter_button
+    //   width: 32%
+    // .hatena_bookmark_button
+    //   padding-top: 2px
+    //   width: 33%
     // .ft_like_button
     // .google_plus_button_like
 
