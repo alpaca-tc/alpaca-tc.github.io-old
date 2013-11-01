@@ -8,15 +8,14 @@
       <div id="main_contents" class="clearfix">
         <div class="inner_wrapper">
           <div class="inner">
+
             <div class="left_page inner_wrapper">
-              <div id="page_contents" class="inner">
+              <div id="single_page_contents" class="inner">
                 {{ content | expand_urls: root_url }}
               </div>
             </div>
 
-            <aside id="sidebar" class="right_page inner_wrapper">
-              {% include sidebar.html %}
-            </aside>
+            {% include sidebar.html %}
           </div>
         </div>
       </div><!-- /div#main_contents -->

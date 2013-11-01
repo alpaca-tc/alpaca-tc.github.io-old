@@ -1,7 +1,11 @@
-<section id="side_about_me" class="sidebar_row">
-  {% include aside/about_me.html %}
-</section>
+<aside id="sidebar" class="right_page inner_wrapper">
+  {% unless page.title == 'AboutMe' %}
+    <section id="side_about_me" class="sidebar_row">
+      {% include aside/about_me.html %}
+    </section>
+  {% endunless %}
 
-<section id="side_twitter_timeline_widget" class="sidebar_row">
-  {% include aside/twitter_timeline_widget.html %}
-</section>
+  <section id="side_twitter_timeline_widget" class="sidebar_row">
+    {% include aside/twitter_timeline_widget.html %}
+  </section>
+</aside>
