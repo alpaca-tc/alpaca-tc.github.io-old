@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "検索1位になりました"
+title: "３日で検索1位になりました"
 date: 2013-11-01 02:29
 comments: true
 categories: [seo]
