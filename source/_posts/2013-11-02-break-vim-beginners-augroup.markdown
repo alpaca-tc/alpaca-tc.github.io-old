@@ -91,13 +91,11 @@ filetype.vimにて`runtime! ftdetect/*.vim`と書かれており、`~/.vim/ftdet
 
 ```vim
 " ~/.vim/ftdetect/coffee.vim
-augroup FtDetectCoffee
-  autocmd!
-  autocmd BufNewFile,BufRead *.coffee    setf coffee
-augroup END
+autocmd BufNewFile,BufRead *.coffee    setf coffee
 ```
 
 といった設定にて、ファイルタイプを検出できるようになります。
+`augroup filetypedetect`の宣言内なので、グループの宣言は不要です。
 
 ## 本日の脱Vim中級者
 
