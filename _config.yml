@@ -85,9 +85,8 @@ social:
     enable: true
   google_plus:
     id: 105581201951227096827
-    hide_author: false
-    like_button:
-      enable: true
+    show_author: true
+    like_button: true
   pinboard:
     count: 3
     user:
