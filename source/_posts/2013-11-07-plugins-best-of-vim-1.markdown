@@ -32,7 +32,7 @@ unlet hooks
 - 使いやすさ抜群の*整列用プラグイン*
 - `Alignta`がメジャーだけど、正直使いにくいよね。
 
-![vim-easy-align DEMO](https://raw.github.com/junegunn/i/master/vim-easy-align.gif)
+{% img image_on_frame center https://raw.github.com/junegunn/i/master/vim-easy-align.gif vim-easy-align DEMO %}
 
 ```vim
 NeoBundleLazy 'junegunn/vim-easy-align', { 'autoload': {
