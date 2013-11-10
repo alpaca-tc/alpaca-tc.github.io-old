@@ -1,0 +1,419 @@
+
+
+  
+
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>オススメなVimのプラグイン紹介 | アルパカエンジニアのブログ</title>
+
+    
+    <meta name="description" content="普段使っているプラグインの中で、これはイケてる！と思ったプラグインを4つ紹介。 auto-pairs {}、()などの、対応する文字を自働入力
+括弧の片方が消えた時や、重複する時に自働で調整してくれる
+innoremap ( ()&lt;Left&gt;とか未だにやっているのダサくない？ 1
+2 &hellip;">
+    
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+    <meta content='オススメなVimのプラグイン紹介 | アルパカエンジニアのブログ' name='title' />
+
+    
+  <link rel="author" href="https://plus.google.com/105581201951227096827" />
+  <link rel="publisher" href="https://plus.google.com/105581201951227096827" />
+
+
+    <meta property="og:title" content='オススメなVimのプラグイン紹介 | アルパカエンジニアのブログ' />
+<meta property="og:locale" content="ja"/>
+<meta property="og:image" content="http://http://alpaca-tc.github.io/images/meta/site_title.png"/>
+<meta property="og:type" content="blog"/>
+<meta property="og:url" content="http://alpaca-tc.github.io/blog/vim/plugins-best-of-vim-1/"/>
+<meta property="og:site_name" content="アルパカエンジニアのブログ"/>
+<meta property="og:email" content="alprhcp666@gmail.com"/>
+<meta property="og:description" content="普段使っているプラグインの中で、これはイケてる！と思ったプラグインを4つ紹介。 auto-pairs {}、()などの、対応する文字を自働入力
+括弧の片方が消えた時や、重複する時に自働で調整してくれる
+innoremap ( ()&lt;Left&gt;とか未だにやっているのダサくない？ 1
+2 &hellip;" />
+
+    <meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="オススメなVimのプラグイン紹介 | アルパカエンジニアのブログ">
+<meta name="twitter:description" content="普段使っているプラグインの中で、これはイケてる！と思ったプラグインを4つ紹介。 auto-pairs {}、()などの、対応する文字を自働入力
+括弧の片方が消えた時や、重複する時に自働で調整してくれる
+innoremap ( ()&lt;Left&gt;とか未だにやっているのダサくない？ 1
+2 &hellip;">
+<meta name="twitter:image" content="http://http://alpaca-tc.github.io/images/meta/site_title.png">
+
+<meta name="twitter:site" content="@">
+<meta name="twitter:creator" content="@">
+
+
+    <link rel="canonical" href="">
+    <link href="/favicon.png" rel="icon">
+    <!-- <link rel="apple&#45;touch&#45;icon" href="icon.png" /> -->
+    <link href="/atom.xml" rel="alternate" title="アルパカエンジニアのブログ" type="application/atom+xml">
+    <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="/stylesheets/common.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="/stylesheets/page.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="/stylesheets/multi_screen.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="/stylesheets/screen.css" type="text/css" media="all"/>
+
+    <script type="text/javascript" src="//typesquare.com/accessor/script/typesquare.js?l~JsLTo7f1A%3D" charset="utf-8"></script>
+    <script src="/javascripts/modernizr-2.0.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!-- <script>!window.jQuery &#38;&#38; document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script> -->
+    <meta name="google-site-verification" content="thSL3cUT7BV1-AENglRFIF-kv6I85JJ6_iUGAU8GaQI" />
+    <!--[if lte IE 8]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    
+    
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-44082439-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+  </head>
+
+  <body>
+    <script type="text/javascript">
+  var load_javascript_async = function(id, url){
+    var js, fjs = document.getElementsByTagName('script')[0];
+    if (!document.getElementById(id)) {
+      js = document.createElement('script');
+      js.id = id;
+      js.src = url;
+      fjs.parentNode.insertBefore(js, fjs);
+    }
+  };
+</script>
+
+
+  <script type="text/javascript">
+    window.___gcfg = {
+      lang: '',
+    };
+    load_javascript_async('google_plus_one_js', 'https://apis.google.com/js/plusone.js')
+  </script>
+
+
+
+  <script type="text/javascript">load_javascript_async('facebook_jssdk', '//connect.facebook.net/ja_JP/all.js#xfbml=1&appId=224701561024840')</script>
+
+
+
+  <script type="text/javascript">load_javascript_async('twitter_wjs', '//platform.twitter.com/widgets.js')</script>
+
+
+
+  <script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+
+    <div id="header_top" class="outer_envelope clearfix">
+      <header>        <div class="inner_wrapper clearfix">
+          <div class="inner clearfix">
+            <div id="logo">
+              
+                <h1 id="site_title"><a href=".">オススメなVimのプラグイン紹介</a> > <a href="/blog/vim">vim</a></h1>
+              
+            </div>
+
+            <nav id="header_nav">
+              <ul class="clearfix">
+                <li>
+                  <a href="/about-me">About Me</a>
+                </li>
+                <li>
+                  <a href="/blog/archives/">Blog</a>
+                </li>
+                <li>
+                  <a href="/works/">Works</a>
+                </li>
+                <li>
+                  <a target="_blank" href="https://gihtub.com/alpaca-tc">GitHub</a>
+                </li>
+                <li>
+                  <a target="_blank" href="https://twitter.com/alpaca_taichou">Twitter</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+</header>
+
+      <div id="main_contents">
+        <div class="inner_wrapper">
+          <div class="inner">
+            <article class="post_row">
+  <div class="inner">
+    <header class="field-items">
+      
+        <h1>
+          
+            
+              オススメなVimのプラグイン紹介
+          
+        </h1>
+      
+
+      
+        <section class="meta">
+          <div class="inner">
+            
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2013-11-07T05:22:00+09:00" pubdate data-updated="true">Nov 7<span>th</span>, 2013</time>
+            
+  
+
+<span class="byline author">Posted by 石井浩之</span>
+
+            
+
+<span class="categories">
+  
+    
+      <a class='category' href='/blog//vim/'>vim</a>
+    
+  
+</span>
+
+
+
+
+            
+          </div>
+        </section>
+      
+    </header>
+
+    
+      <section class="entry-content"><p>普段使っているプラグインの中で、<em>これはイケてる！</em>と思ったプラグインを4つ紹介。</p>
+
+<h2><a href="https://github.com/jiangmiao/auto-pairs">auto-pairs</a></h2>
+
+<ul>
+<li><code>{}</code>、<code>()</code>などの、対応する文字を<em>自働入力</em></li>
+<li>括弧の片方が消えた時や、重複する時に<em>自働で調整してくれる</em></li>
+<li><code>innoremap ( ()&lt;Left&gt;</code>とか未だにやっているのダサくない？</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="c">&quot; [本家](https://github.com/jiangmiao/auto-pairs)</span>
+</span><span class='line'><span class="c">&quot; Lazy loading用に修正済み</span>
+</span><span class='line'>NeoBundleLazy <span class="s1">&#39;alpaca-tc/auto-pairs&#39;</span><span class="p">,</span> { <span class="s1">&#39;autoload&#39;</span> : {
+</span><span class='line'>      \ <span class="s1">&#39;insert&#39;</span>: <span class="m">1</span> }}
+</span><span class='line'>
+</span><span class='line'><span class="k">let</span> hooks <span class="p">=</span> neobundle#get_hooks<span class="p">(</span><span class="s1">&#39;auto-pairs&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="k">function</span><span class="p">!</span> hooks.on_post_source<span class="p">(</span>bundle<span class="p">)</span>
+</span><span class='line'>  <span class="k">call</span> auto_pairs#try_init<span class="p">()</span>
+</span><span class='line'><span class="k">endfunction</span>
+</span><span class='line'>unlet hooks
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2><a href="https://github.com/junegunn/vim-easy-align">vim-easy-align</a></h2>
+
+<ul>
+<li>使いやすさ抜群の<em>整列用プラグイン</em></li>
+<li><code>Alignta</code>がメジャーだけど、正直使いにくいよね。</li>
+</ul>
+
+
+<p><img class="image_on_frame center" src="https://raw.github.com/junegunn/i/master/vim-easy-align.gif" title="vim-easy-align DEMO" ></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'>NeoBundleLazy <span class="s1">&#39;junegunn/vim-easy-align&#39;</span><span class="p">,</span> { <span class="s1">&#39;autoload&#39;</span>: {
+</span><span class='line'>      \ <span class="s1">&#39;commands&#39;</span> : [<span class="s1">&#39;EasyAlign&#39;</span>] }}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2><a href="https://github.com/Yggdroot/indentLine">indentLine</a></h2>
+
+<ul>
+<li>イケてる、<em>インデント表示プラグイン</em></li>
+<li><code>vim-indent-guides</code>は画面がうるさくなるから嫌！っていう人向け</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">if</span> has<span class="p">(</span><span class="s1">&#39;conceal&#39;</span><span class="p">)</span>
+</span><span class='line'>  NeoBundleLazy <span class="s1">&#39;Yggdroot/indentLine&#39;</span><span class="p">,</span> { <span class="s1">&#39;autoload&#39;</span> : {
+</span><span class='line'>        \   <span class="s1">&#39;commands&#39;</span> : [<span class="s1">&#39;IndentLinesReset&#39;</span><span class="p">,</span> <span class="s1">&#39;IndentLinesToggle&#39;</span>]<span class="p">,</span>
+</span><span class='line'>        \   <span class="s1">&#39;filetypes&#39;</span>: <span class="k">g</span>:my.<span class="nb">ft</span>.program_files<span class="p">,</span>
+</span><span class='line'>        \ }}
+</span><span class='line'><span class="k">endif</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2><a href="https://github.com/terryma/vim-multiple-cursors">vim-multiple-cursors</a></h2>
+
+<ul>
+<li>SublimeTextの複数マーク&amp;同時編集 の機能を実現するプラグイン</li>
+<li>実装に関しては完全に「こいつ無茶しやがって&hellip;」状態。</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'>NeoBundleLazy <span class="s1">&#39;terryma/vim-multiple-cursors&#39;</span><span class="p">,</span> { <span class="s1">&#39;autload&#39;</span>: {
+</span><span class='line'>      \ <span class="s1">&#39;function_prefix&#39;</span>: <span class="s1">&#39;multiple_cursors&#39;</span><span class="p">,</span>
+</span><span class='line'>      \ }}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>今回紹介したプラグインは、かなりシンプルに洗練されています。
+使っているだけでも、作者の男前さを感じられる。そんなプラグインだと思います。</p>
+</section>
+    
+
+    
+      
+  
+
+
+
+
+
+
+<section class="sharing clearfix">
+  <div class="button hatena_bookmark_button">
+    <a href="http://b.hatena.ne.jp/entry/http://alpaca-tc.github.io/blog/vim/plugins-best-of-vim-1/" class="hatena-bookmark-button" data-hatena-bookmark-title="
+オススメなVimのプラグイン紹介 | アルパカエンジニアのブログアルパカエンジニアのブログ - Vim, Ruby, Rails, SEOの技術ブログ
+" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
+      <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+    </a>
+  </div>
+
+  <div class="button ft_like_button">
+    <div class="fb-like" data-href="http://alpaca-tc.github.io/blog/vim/plugins-best-of-vim-1/" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
+  </div>
+
+  <div class="button google_plus_button_like">
+    <div data-annotation="none" data-href="http://alpaca-tc.github.io/blog/vim/plugins-best-of-vim-1/" class="g-plusone" data-size="medium" ></div>
+  </div>
+
+  <div class="button twitter_button">
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca-tc.github.io/blog/vim/plugins-best-of-vim-1/" data-via="alpaca_taichou" data-counturl="http://alpaca-tc.github.io/blog/vim/plugins-best-of-vim-1/" >Tweet</a>
+  </div>
+</section>
+
+    
+  </div>
+</article>
+
+
+
+            <div class="pagination meta clearfix">
+  
+    <div class="arrow_block left_block">
+      <a class="basic-alignment" href="/blog/vim/break-vim-beginners-augroup/" title="Previous Post: Vim中級者を脱する augroup編">&laquo; Vim中級者を脱する augroup編</a>
+    </div>
+  
+  
+    <div class="arrow_block right_block">
+      <a class="basic-alignment" href="/blog/vim/training-of-new-employees/" title="Next Post: Vimを使って新人教育">Vimを使って新人教育 &raquo;</a>
+    </div>
+  
+</p>
+
+
+            
+
+
+
+          </div><!-- /div.inner -->
+        </div>
+      </div>
+
+      <footer role="contentinfo">        <div class="inner_wrapper">
+          <div class="inner">
+            <div id="go_to_top" class="clearfix">
+              <p><a href="#header_top">Go to Top</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="inner_wrapper">
+          <div class="inner">
+            <div id="footer_link" class="clearfix">
+              <nav id="footer_nav">
+                <ul class="clearfix">
+                  <li>
+                    <a href="/about-me">About Me</a>
+                  </li>
+                  <li>
+                    <a href="/blog/">Blog</a>
+                  </li>
+                  <li>
+                    <a href="/works/">Works</a>
+                  </li>
+                </ul>
+              </nav>
+
+              <nav id="footer_social_link">
+                <ul class="clearfix">
+                  <li class="qiita">
+                    <a href="mailto:alprhcp666@gmail.com">
+                      <img src="/images/social/icon_mail.png" alt="Send mail to alpaca-tc">
+                    </a>
+                  </li>
+                  <li class="github">
+                    <a target="_blank" href="https://gihtub.com/alpaca-tc">
+                      <img src="/images/social/icon_github.png" alt="Github @alpaca-tc">
+                    </a>
+                  </li>
+                  <li class="twitter">
+                    <a target="_blank" href="https://twitter.com/alpaca_taichou">
+                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_taichou">
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+
+            </div>
+          </div>
+        </div>
+        <div id="footer_mark">
+          <small>&nbsp;&copy; 2013, alpaca-tc.github.io</small>
+        </div>
+</footer>
+    </div>
+  </body>
+</html>

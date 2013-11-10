@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: diary | アルパカエンジニアのブログ]]></title>
+  <link href="http://alpaca-tc.github.io/blog/diary/atom.xml" rel="self"/>
+  <link href="http://alpaca-tc.github.io/"/>
+  <updated>2013-11-11T08:32:21+09:00</updated>
+  <id>http://alpaca-tc.github.io/</id>
+  <author>
+    <name><![CDATA[alpaca-tc]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[初めました]]></title>
+    <link href="http://alpaca-tc.github.io/blog/diary/start_blog/"/>
+    <updated>2013-10-27T23:12:00+09:00</updated>
+    <id>http://alpaca-tc.github.io/blog/diary/start_blog</id>
+    <content type="html"><![CDATA[<p>記念すべき初カキコ。
+さて、技術ブログは今までQiitaを使っていましたが、そちらを辞めて自分のブログを作ることにしました。</p>
+
+<h2>乗り換える2つの理由</h2>
+
+<h3>1. Qiitaは使いにくい</h3>
+
+<p>皆さんも薄々感じていると思いますが、QiitaのUIは使いにくいです。だってVimから出るんだもん。</p>
+
+<h3>2. SEOで遊びたい</h3>
+
+<p>そろそろ、「アルパカ エンジニア」や幾つかのキーワードが欲しいです。</p>
+
+<h3>3. 対外アピールできない</h3>
+
+<p>Qiitaで見ても、「この人どんな人？」って分からないですよね。それは楽しくないし、勿体ない。</p>
+
+<p>なので、<strong>Vimで完結</strong> + <strong>アルパカなエンジニア</strong>をアピールするためにブログにしたいと思います。</p>
+
+<h2>Octopress + Vim</h2>
+
+<p>Vimから記事を書いて、Vimからデプロイしてます。
+Octopressを簡単に操作できるように<a href="https://github.com/alpaca-tc/alpaca_octopress.vim">プラグイン</a>を作りました。
+あぁ、簡単でいいですね。</p>
+
+<p><code>:Octopress new_post 新しい記事の名前</code></p>
+
+<h2>アルパカなエンジニアを目指す</h2>
+
+<p>しばらくの目標です。
+半年ぐらいで、「アルパカ + エンジニア」のキーワードで1位取れればなぁと思います。
+そして、HPのデザインもアルパカな感じにしていきます！</p>
+]]></content>
+  </entry>
+  
+</feed>
+
+
+

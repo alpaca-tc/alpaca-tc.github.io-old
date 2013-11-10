@@ -1,0 +1,391 @@
+
+
+  
+
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>octopressとセットで入れておきたいVimプラグインまとめ | アルパカエンジニアのブログ</title>
+
+    
+    <meta name="description" content="Octopressは利用者が一部なので、デフォルトのVimではなにも対応していません。
+プラグイン無しでも利用することもできますが、正直使いにくいですよね。 最低限下記のプラグインぐらいは入れておきましょう。 vim-liquid liquidはoctopress(jekyll) &hellip;">
+    
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+    <meta content='octopressとセットで入れておきたいVimプラグインまとめ | アルパカエンジニアのブログ' name='title' />
+
+    
+  <link rel="author" href="https://plus.google.com/105581201951227096827" />
+  <link rel="publisher" href="https://plus.google.com/105581201951227096827" />
+
+
+    <meta property="og:title" content='octopressとセットで入れておきたいVimプラグインまとめ | アルパカエンジニアのブログ' />
+<meta property="og:locale" content="ja"/>
+<meta property="og:image" content="http://http://alpaca-tc.github.io/images/meta/site_title.png"/>
+<meta property="og:type" content="blog"/>
+<meta property="og:url" content="http://alpaca-tc.github.io/blog/vim/octopress_and_vimplugin/"/>
+<meta property="og:site_name" content="アルパカエンジニアのブログ"/>
+<meta property="og:email" content="alprhcp666@gmail.com"/>
+<meta property="og:description" content="Octopressは利用者が一部なので、デフォルトのVimではなにも対応していません。
+プラグイン無しでも利用することもできますが、正直使いにくいですよね。 最低限下記のプラグインぐらいは入れておきましょう。 vim-liquid liquidはoctopress(jekyll) &hellip;" />
+
+    <meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="octopressとセットで入れておきたいVimプラグインまとめ | アルパカエンジニアのブログ">
+<meta name="twitter:description" content="Octopressは利用者が一部なので、デフォルトのVimではなにも対応していません。
+プラグイン無しでも利用することもできますが、正直使いにくいですよね。 最低限下記のプラグインぐらいは入れておきましょう。 vim-liquid liquidはoctopress(jekyll) &hellip;">
+<meta name="twitter:image" content="http://http://alpaca-tc.github.io/images/meta/site_title.png">
+
+<meta name="twitter:site" content="@">
+<meta name="twitter:creator" content="@">
+
+
+    <link rel="canonical" href="">
+    <link href="/favicon.png" rel="icon">
+    <!-- <link rel="apple&#45;touch&#45;icon" href="icon.png" /> -->
+    <link href="/atom.xml" rel="alternate" title="アルパカエンジニアのブログ" type="application/atom+xml">
+    <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="/stylesheets/common.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="/stylesheets/page.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="/stylesheets/multi_screen.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="/stylesheets/screen.css" type="text/css" media="all"/>
+
+    <script type="text/javascript" src="//typesquare.com/accessor/script/typesquare.js?l~JsLTo7f1A%3D" charset="utf-8"></script>
+    <script src="/javascripts/modernizr-2.0.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!-- <script>!window.jQuery &#38;&#38; document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script> -->
+    <meta name="google-site-verification" content="thSL3cUT7BV1-AENglRFIF-kv6I85JJ6_iUGAU8GaQI" />
+    <!--[if lte IE 8]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    
+    
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-44082439-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+  </head>
+
+  <body>
+    <script type="text/javascript">
+  var load_javascript_async = function(id, url){
+    var js, fjs = document.getElementsByTagName('script')[0];
+    if (!document.getElementById(id)) {
+      js = document.createElement('script');
+      js.id = id;
+      js.src = url;
+      fjs.parentNode.insertBefore(js, fjs);
+    }
+  };
+</script>
+
+
+  <script type="text/javascript">
+    window.___gcfg = {
+      lang: '',
+    };
+    load_javascript_async('google_plus_one_js', 'https://apis.google.com/js/plusone.js')
+  </script>
+
+
+
+  <script type="text/javascript">load_javascript_async('facebook_jssdk', '//connect.facebook.net/ja_JP/all.js#xfbml=1&appId=224701561024840')</script>
+
+
+
+  <script type="text/javascript">load_javascript_async('twitter_wjs', '//platform.twitter.com/widgets.js')</script>
+
+
+
+  <script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+
+    <div id="header_top" class="outer_envelope clearfix">
+      <header>        <div class="inner_wrapper clearfix">
+          <div class="inner clearfix">
+            <div id="logo">
+              
+                <h1 id="site_title"><a href=".">octopressとセットで入れておきたいVimプラグインまとめ</a> > <a href="/blog/vim">vim</a></h1>
+              
+            </div>
+
+            <nav id="header_nav">
+              <ul class="clearfix">
+                <li>
+                  <a href="/about-me">About Me</a>
+                </li>
+                <li>
+                  <a href="/blog/archives/">Blog</a>
+                </li>
+                <li>
+                  <a href="/works/">Works</a>
+                </li>
+                <li>
+                  <a target="_blank" href="https://gihtub.com/alpaca-tc">GitHub</a>
+                </li>
+                <li>
+                  <a target="_blank" href="https://twitter.com/alpaca_taichou">Twitter</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+</header>
+
+      <div id="main_contents">
+        <div class="inner_wrapper">
+          <div class="inner">
+            <article class="post_row">
+  <div class="inner">
+    <header class="field-items">
+      
+        <h1>
+          
+            
+              octopressとセットで入れておきたいVimプラグインまとめ
+          
+        </h1>
+      
+
+      
+        <section class="meta">
+          <div class="inner">
+            
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2013-11-01T17:06:00+09:00" pubdate data-updated="true">Nov 1<span>st</span>, 2013</time>
+            
+  
+
+<span class="byline author">Posted by 石井浩之</span>
+
+            
+
+<span class="categories">
+  
+    
+      <a class='category' href='/blog//vim/'>vim</a>
+    
+  
+</span>
+
+
+
+
+            
+          </div>
+        </section>
+      
+    </header>
+
+    
+      <section class="entry-content"><p>Octopressは利用者が一部なので、デフォルトのVimではなにも対応していません。
+プラグイン無しでも利用することもできますが、正直使いにくいですよね。</p>
+
+<p>最低限下記のプラグインぐらいは入れておきましょう。</p>
+
+<h2><a href="https://github.com/tpope/vim-liquid">vim-liquid</a></h2>
+
+<p><code>liquid</code>はoctopress(jekyll)で採用されているテンプレートエンジンです。</p>
+
+<p>このプラグインを入れると、ファイルタイプの検知や、キーワードのハイライトをしてくれるようになります。
+何が良いかというと、そのおかげで<code>neocomplete.vim</code>や<code>matchit.vim</code>などの他のプラグインもliquid用に対応してくれるんですよね。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'>NeoBundleLazy <span class="s1">&#39;tpope/vim-liquid&#39;</span><span class="p">,</span> { <span class="s1">&#39;autoload&#39;</span> : {
+</span><span class='line'>      \ <span class="s1">&#39;filetypes&#39;</span> : <span class="s1">&#39;liquid&#39;</span>
+</span><span class='line'>      \ }}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2><a href="https://github.com/tangledhelix/vim-octopress">vim-octopress</a></h2>
+
+<p>VimからOctopressのコマンド操作をするプラグインです。
+<code>:Octopress [command][{option}]</code>で実行することができます。</p>
+
+<ol>
+<li><code>:Octopress new_post title</code></li>
+<li><code>:Octopress gen_deploy</code></li>
+</ol>
+
+
+<p>この2回の操作で、新しい記事をアップロードできます。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'>NeoBundleLazy <span class="s1">&#39;tangledhelix/vim-octopress&#39;</span><span class="p">,</span> { <span class="s1">&#39;autoload&#39;</span> : {
+</span><span class='line'>      \ <span class="s1">&#39;commands&#39;</span>: <span class="s1">&#39;Octopress&#39;</span><span class="p">,</span>
+</span><span class='line'>      \ }}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2><a href="https://github.com/alpaca-tc/alpaca_octopress.vim">alpaca_octopress</a></h2>
+
+<p><code>vim-octopress</code>の非同期実行版です。
+人柱属性のある方はこちらをオススメします。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'>NeoBundleLazy <span class="s1">&#39;alpaca-tc/alpaca_octopress.vim&#39;</span><span class="p">,</span> { <span class="s1">&#39;autoload&#39;</span> : {
+</span><span class='line'>      \ <span class="s1">&#39;branch&#39;</span>: <span class="s1">&#39;v0.3&#39;</span><span class="p">,</span>
+</span><span class='line'>      \ <span class="s1">&#39;functions&#39;</span> : <span class="s1">&#39;octopress#complete&#39;</span><span class="p">,</span>
+</span><span class='line'>      \ <span class="s1">&#39;commands&#39;</span>: {
+</span><span class='line'>      \   <span class="s1">&#39;name&#39;</span> : <span class="s1">&#39;Octopress&#39;</span><span class="p">,</span>
+</span><span class='line'>      \   <span class="s1">&#39;complete&#39;</span> : <span class="s1">&#39;customlist,octopress#complete&#39;</span><span class="p">,</span>
+</span><span class='line'>      \ }<span class="p">,</span>
+</span><span class='line'>      \ }}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>まとめ</h2>
+
+<p>Octopressはかなりエンジニアと相性が良いプロジェクトだと思います。
+ついでにVimmerの方は、これらのプラグインを入れてより親和性を高めましょう！</p>
+</section>
+    
+
+    
+      
+  
+
+
+
+
+
+
+<section class="sharing clearfix">
+  <div class="button hatena_bookmark_button">
+    <a href="http://b.hatena.ne.jp/entry/http://alpaca-tc.github.io/blog/vim/octopress_and_vimplugin/" class="hatena-bookmark-button" data-hatena-bookmark-title="
+octopressとセットで入れておきたいVimプラグインまとめ | アルパカエンジニアのブログアルパカエンジニアのブログ - Vim, Ruby, Rails, SEOの技術ブログ
+" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
+      <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+    </a>
+  </div>
+
+  <div class="button ft_like_button">
+    <div class="fb-like" data-href="http://alpaca-tc.github.io/blog/vim/octopress_and_vimplugin/" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
+  </div>
+
+  <div class="button google_plus_button_like">
+    <div data-annotation="none" data-href="http://alpaca-tc.github.io/blog/vim/octopress_and_vimplugin/" class="g-plusone" data-size="medium" ></div>
+  </div>
+
+  <div class="button twitter_button">
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca-tc.github.io/blog/vim/octopress_and_vimplugin/" data-via="alpaca_taichou" data-counturl="http://alpaca-tc.github.io/blog/vim/octopress_and_vimplugin/" >Tweet</a>
+  </div>
+</section>
+
+    
+  </div>
+</article>
+
+
+
+            <div class="pagination meta clearfix">
+  
+    <div class="arrow_block left_block">
+      <a class="basic-alignment" href="/blog/seo/no1_alpaca_engineer/" title="Previous Post: ３日で検索1位になりました">&laquo; ３日で検索1位になりました</a>
+    </div>
+  
+  
+    <div class="arrow_block right_block">
+      <a class="basic-alignment" href="/blog/vim/break-vim-beginners-augroup/" title="Next Post: Vim中級者を脱する augroup編">Vim中級者を脱する augroup編 &raquo;</a>
+    </div>
+  
+</p>
+
+
+            
+
+
+
+          </div><!-- /div.inner -->
+        </div>
+      </div>
+
+      <footer role="contentinfo">        <div class="inner_wrapper">
+          <div class="inner">
+            <div id="go_to_top" class="clearfix">
+              <p><a href="#header_top">Go to Top</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="inner_wrapper">
+          <div class="inner">
+            <div id="footer_link" class="clearfix">
+              <nav id="footer_nav">
+                <ul class="clearfix">
+                  <li>
+                    <a href="/about-me">About Me</a>
+                  </li>
+                  <li>
+                    <a href="/blog/">Blog</a>
+                  </li>
+                  <li>
+                    <a href="/works/">Works</a>
+                  </li>
+                </ul>
+              </nav>
+
+              <nav id="footer_social_link">
+                <ul class="clearfix">
+                  <li class="qiita">
+                    <a href="mailto:alprhcp666@gmail.com">
+                      <img src="/images/social/icon_mail.png" alt="Send mail to alpaca-tc">
+                    </a>
+                  </li>
+                  <li class="github">
+                    <a target="_blank" href="https://gihtub.com/alpaca-tc">
+                      <img src="/images/social/icon_github.png" alt="Github @alpaca-tc">
+                    </a>
+                  </li>
+                  <li class="twitter">
+                    <a target="_blank" href="https://twitter.com/alpaca_taichou">
+                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_taichou">
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+
+            </div>
+          </div>
+        </div>
+        <div id="footer_mark">
+          <small>&nbsp;&copy; 2013, alpaca-tc.github.io</small>
+        </div>
+</footer>
+    </div>
+  </body>
+</html>

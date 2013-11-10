@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: vim | アルパカエンジニアのブログ]]></title>
+  <link href="http://alpaca-tc.github.io/blog/vim/atom.xml" rel="self"/>
+  <link href="http://alpaca-tc.github.io/"/>
+  <updated>2013-11-11T08:32:21+09:00</updated>
+  <id>http://alpaca-tc.github.io/</id>
+  <author>
+    <name><![CDATA[alpaca-tc]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Vimを使って新人教育]]></title>
+    <link href="http://alpaca-tc.github.io/blog/vim/training-of-new-employees/"/>
+    <updated>2013-11-11T05:21:00+09:00</updated>
+    <id>http://alpaca-tc.github.io/blog/vim/training-of-new-employees</id>
+    <content type="html"><![CDATA[<p>嬉しいことに、一緒に働く仲間が2人増えました。</p>
+
+<p>まだRubyに慣れていないそうなので、はじめの一ヶ月は教育期間を挟みます。</p>
+
+<p>新人の方もvimmerなので、そのためのプラグインを作りました。</p>
+
+<p><img class="image_on_frame center" src="/images/blog/11_11.png" title="Vimのデモ" ></p>
+
+<p><strong><a href="https://github.com/enfactv/assignment">assignment.vim</a></strong></p>
+
+<p>インストールはごく簡単です。</p>
+
+<p><code>``vim
+NeoBundle 'alpaca-tc/assignment'</code></p>
+
+<p>let g:assignment#path = expand(&lsquo;~/path/to/assignment&rsquo;)
+```</p>
+
+<h3>良かったこと</h3>
+
+<ul>
+<li>GitHubの使い方がわからなくても、Vimから徐々に取り組めること</li>
+<li>問題のやり取りが楽になったこと</li>
+<li>自動テストがあるので、リモート勤務でも採点できること</li>
+</ul>
+
+
+<h3>悪かったこと</h3>
+
+<ul>
+<li>一問一答の形式って効率悪いよね&hellip;</li>
+</ul>
+
+
+<p>とりあえず一ヶ月はこの形式で進めて、Rubyに慣れてもらおうかと思います。</p>
+
+<h2>まとめ</h2>
+
+<p>正直、今日は書くことがなかっただけです。えへ。
+暇だなー、俺初級者かなーと思う方が入れば、試しに問題に挑戦してみてください。</p>
+
+<ol>
+<li>プラグインをインストール</li>
+<li><code>:AssignmentInit ~/インストール先ディレクトリ</code>を実行して初期化</li>
+<li>vimrcに<code>let g:assignment#path = expand('~/path/to/assignment')</code>を追加</li>
+<li><code>:Assignment solve &lt;tab&gt;</code>で問題を選択</li>
+<li>Guardをまわしながら解くのみ！</li>
+</ol>
+
+
+<p>初めは、8クイーン問題や、RubyのDSLを作る問題などです。
+初級者向けですが、少しは暇つぶしにはなると思いますよ！</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[オススメなVimのプラグイン紹介]]></title>
+    <link href="http://alpaca-tc.github.io/blog/vim/plugins-best-of-vim-1/"/>
+    <updated>2013-11-07T05:22:00+09:00</updated>
+    <id>http://alpaca-tc.github.io/blog/vim/plugins-best-of-vim-1</id>
+    <content type="html"><![CDATA[<p>普段使っているプラグインの中で、<em>これはイケてる！</em>と思ったプラグインを4つ紹介。</p>
+
+<h2><a href="https://github.com/jiangmiao/auto-pairs">auto-pairs</a></h2>
+
+<ul>
+<li><code>{}</code>、<code>()</code>などの、対応する文字を<em>自働入力</em></li>
+<li>括弧の片方が消えた時や、重複する時に<em>自働で調整してくれる</em></li>
+<li><code>innoremap ( ()&lt;Left&gt;</code>とか未だにやっているのダサくない？</li>
+</ul>
+
+
+<p>```vim
+&ldquo; <a href="https://github.com/jiangmiao/auto-pairs">本家</a>
+&rdquo; Lazy loading用に修正済み
+NeoBundleLazy &lsquo;alpaca-tc/auto-pairs&rsquo;, { &lsquo;autoload&rsquo; : {</p>
+
+<pre><code>  \ 'insert': 1 }}
+</code></pre>
+
+<p>let hooks = neobundle#get_hooks(&lsquo;auto-pairs&rsquo;)
+function! hooks.on_post_source(bundle)
+  call auto_pairs#try_init()
+endfunction
+unlet hooks
+```</p>
+
+<h2><a href="https://github.com/junegunn/vim-easy-align">vim-easy-align</a></h2>
+
+<ul>
+<li>使いやすさ抜群の<em>整列用プラグイン</em></li>
+<li><code>Alignta</code>がメジャーだけど、正直使いにくいよね。</li>
+</ul>
+
+
+<p><img class="image_on_frame center <a" src="href="https://raw.github.com/junegunn/i/master/vim-easy-align.gif">https://raw.github.com/junegunn/i/master/vim-easy-align.gif</a>" title="vim-easy-align DEMO" ></p>
+
+<p>```vim
+NeoBundleLazy &lsquo;junegunn/vim-easy-align&rsquo;, { &lsquo;autoload&rsquo;: {</p>
+
+<pre><code>  \ 'commands' : ['EasyAlign'] }}
+</code></pre>
+
+<p>```</p>
+
+<h2><a href="https://github.com/Yggdroot/indentLine">indentLine</a></h2>
+
+<ul>
+<li>イケてる、<em>インデント表示プラグイン</em></li>
+<li><code>vim-indent-guides</code>は画面がうるさくなるから嫌！っていう人向け</li>
+</ul>
+
+
+<p>```vim
+if has(&lsquo;conceal&rsquo;)
+  NeoBundleLazy &lsquo;Yggdroot/indentLine&rsquo;, { &lsquo;autoload&rsquo; : {</p>
+
+<pre><code>    \   'commands' : ['IndentLinesReset', 'IndentLinesToggle'],
+    \   'filetypes': g:my.ft.program_files,
+    \ }}
+</code></pre>
+
+<p>endif
+```</p>
+
+<h2><a href="https://github.com/terryma/vim-multiple-cursors">vim-multiple-cursors</a></h2>
+
+<ul>
+<li>SublimeTextの複数マーク&amp;同時編集 の機能を実現するプラグイン</li>
+<li>実装に関しては完全に「こいつ無茶しやがって&hellip;」状態。</li>
+</ul>
+
+
+<p>```vim
+NeoBundleLazy &lsquo;terryma/vim-multiple-cursors&rsquo;, { &lsquo;autload&rsquo;: {</p>
+
+<pre><code>  \ 'function_prefix': 'multiple_cursors',
+  \ }}
+</code></pre>
+
+<p>```</p>
+
+<p>今回紹介したプラグインは、かなりシンプルに洗練されています。
+使っているだけでも、作者の男前さを感じられる。そんなプラグインだと思います。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Vim中級者を脱する augroup編]]></title>
+    <link href="http://alpaca-tc.github.io/blog/vim/break-vim-beginners-augroup/"/>
+    <updated>2013-11-02T02:30:00+09:00</updated>
+    <id>http://alpaca-tc.github.io/blog/vim/break-vim-beginners-augroup</id>
+    <content type="html"><![CDATA[<h2>augroup, autocmdを理解する</h2>
+
+<p><strong>所要時間 3分</strong></p>
+
+<h3>この記事を読むべき人</h3>
+
+<ul>
+<li><code>augroup</code>を理解していない人</li>
+<li><code>:source</code>コマンドを使う人</li>
+</ul>
+
+
+<h2>そもそもautocmdって？</h2>
+
+<p>これは何をしているコマンドなのか分解してみましょう。</p>
+
+<p><code>vim
+autocmd BufNewFile * echo 'This is new file'
+</code></p>
+
+<ol>
+<li>autocmdのコマンドを開始しますよ</li>
+<li><code>BufNewFile</code>というタイミングでこのコマンドを実行しますよ</li>
+<li>全てのバッファで<code>echo 'This is new file'</code>を実行しますよ</li>
+</ol>
+
+
+<p>となります。</p>
+
+<p>このように、保存時や新規のファイルといったタイミングでコマンドを実行できます。</p>
+
+<h2>では、augroupはなんのために存在するの？</h2>
+
+<p><code>augroup</code>は、<code>autocmd</code>をグループでまとめるためのコマンドです。こんな感じて使われます。</p>
+
+<p><code>vim
+augroup EditNewFile
+  autocmd!
+  autocmd BufNewFile * echo 'This is new file'
+augroup END
+</code></p>
+
+<p>例えば、<code>autocmd</code>が設定されているvimrcを、<code>:source ~/.vimrc</code>で再度読み込むとしましょう。</p>
+
+<p>するとどうなるかというと、通常は<strong><code>autocmd</code>が重複して2度設定されます</strong>
+当然、その<code>autocmd</code>が発火するときに2度実行されるので、実行が遅くなります。</p>
+
+<p>それを防ぐために<code>augroup</code>を使います。</p>
+
+<h2>ベストプラクティスは？</h2>
+
+<p>つまるところ、<code>augroup</code>は<code>autocmd</code>をまとめて初期化する場合に使用します。
+具体例を上げると、下記のような形になります。</p>
+
+<p>```vim
+augroup MyAutoCmd
+  autocmd! &ldquo; => このaugroupに紐づいたautocmdを消し去ります
+augroup END</p>
+
+<p>&hellip;</p>
+
+<p>augroup MyAutoCmd
+  autocmd BufNewFile * echo &lsquo;This is new file&rsquo;
+  autocmd BufNewFile,BufRead *.haml setf haml
+augroup END
+```</p>
+
+<p>こうすることで、2重に設定されることのない設定になります。</p>
+
+<h2>もう一歩踏み込んでみる</h2>
+
+<p>autocmdの設定方法をVimのRuntimeから学んでみましょう。</p>
+
+<p><code>vim
+:edit $VIMRUNTIME/filetype.vim
+</code></p>
+
+<p>これはファイルタイプの定義を行っているファイルです。</p>
+
+<p>augroupが宣言されているので、一覧を<code>:autocmd filetypedetect</code>でみれることが分かります。</p>
+
+<p>驚くことに、もの凄い数のコマンドを実行してファイルタイプを設定していることが分かります。</p>
+
+<h3>ftdetectを知る</h3>
+
+<p>filetype.vimにて<code>runtime! ftdetect/*.vim</code>と書かれており、<code>~/.vim/ftdetect/*</code>を読み込んでいることが分かります。</p>
+
+<p>つまり、ファイルタイプの設定は<code>ftdetect</code>以下で設定するのがベターとされています。</p>
+
+<p><code>vim
+" ~/.vim/ftdetect/coffee.vim
+autocmd BufNewFile,BufRead *.coffee    setf coffee
+</code></p>
+
+<p>といった設定にて、ファイルタイプを検出できるようになります。
+<code>augroup filetypedetect</code>の宣言内なので、グループの宣言は不要です。</p>
+
+<h2>本日の脱Vim中級者</h2>
+
+<p>vimrcでファイルタイプの検出をしている方は、<code>~/.vim/ftdetect</code>以下に設定を移してみましょう。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[octopressとセットで入れておきたいVimプラグインまとめ]]></title>
+    <link href="http://alpaca-tc.github.io/blog/vim/octopress_and_vimplugin/"/>
+    <updated>2013-11-01T17:06:00+09:00</updated>
+    <id>http://alpaca-tc.github.io/blog/vim/octopress_and_vimplugin</id>
+    <content type="html"><![CDATA[<p>Octopressは利用者が一部なので、デフォルトのVimではなにも対応していません。
+プラグイン無しでも利用することもできますが、正直使いにくいですよね。</p>
+
+<p>最低限下記のプラグインぐらいは入れておきましょう。</p>
+
+<h2><a href="https://github.com/tpope/vim-liquid">vim-liquid</a></h2>
+
+<p><code>liquid</code>はoctopress(jekyll)で採用されているテンプレートエンジンです。</p>
+
+<p>このプラグインを入れると、ファイルタイプの検知や、キーワードのハイライトをしてくれるようになります。
+何が良いかというと、そのおかげで<code>neocomplete.vim</code>や<code>matchit.vim</code>などの他のプラグインもliquid用に対応してくれるんですよね。</p>
+
+<p>```vim
+NeoBundleLazy &lsquo;tpope/vim-liquid&rsquo;, { &lsquo;autoload&rsquo; : {</p>
+
+<pre><code>  \ 'filetypes' : 'liquid'
+  \ }}
+</code></pre>
+
+<p>```</p>
+
+<h2><a href="https://github.com/tangledhelix/vim-octopress">vim-octopress</a></h2>
+
+<p>VimからOctopressのコマンド操作をするプラグインです。
+<code>:Octopress [command][{option}]</code>で実行することができます。</p>
+
+<ol>
+<li><code>:Octopress new_post title</code></li>
+<li><code>:Octopress gen_deploy</code></li>
+</ol>
+
+
+<p>この2回の操作で、新しい記事をアップロードできます。</p>
+
+<p>```vim
+NeoBundleLazy &lsquo;tangledhelix/vim-octopress&rsquo;, { &lsquo;autoload&rsquo; : {</p>
+
+<pre><code>  \ 'commands': 'Octopress',
+  \ }}
+</code></pre>
+
+<p>```</p>
+
+<h2><a href="https://github.com/alpaca-tc/alpaca_octopress.vim">alpaca_octopress</a></h2>
+
+<p><code>vim-octopress</code>の非同期実行版です。
+人柱属性のある方はこちらをオススメします。</p>
+
+<p>```vim
+NeoBundleLazy &lsquo;alpaca-tc/alpaca_octopress.vim&rsquo;, { &lsquo;autoload&rsquo; : {</p>
+
+<pre><code>  \ 'branch': 'v0.3',
+  \ 'functions' : 'octopress#complete',
+  \ 'commands': {
+  \   'name' : 'Octopress',
+  \   'complete' : 'customlist,octopress#complete',
+  \ },
+  \ }}
+</code></pre>
+
+<p>```</p>
+
+<h2>まとめ</h2>
+
+<p>Octopressはかなりエンジニアと相性が良いプロジェクトだと思います。
+ついでにVimmerの方は、これらのプラグインを入れてより親和性を高めましょう！</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[alpaca_octopress続き]]></title>
+    <link href="http://alpaca-tc.github.io/blog/vim/alpaca_octopress/about_alpaca_complete/"/>
+    <updated>2013-10-30T04:34:00+09:00</updated>
+    <id>http://alpaca-tc.github.io/blog/vim/alpaca_octopress/about_alpaca_complete</id>
+    <content type="html"><![CDATA[<p>octopress用のプラグイン<em>alpaca_octopress.vim</em>をガシガシ作っています。
+コマンドの非同期実行、サイトのプレビュー、etc&hellip;全てをVimで完結しつつあります！</p>
+
+<p>ある程度完成したら、Vim使いがOctopressを5分で構築出来るようなプラグインも同封するつもり。
+全てVimで完結するのはVimmerにとっては楽でいいなぁ〜。</p>
+
+<h2>OctopressTweet!!</h2>
+
+<p>そして今から<code>:OctopressTweet</code>を実行して、この投稿がTweetされることを望みます。
+無事Tweet出来たらまさに完結ですね。うりゃ！</p>
+]]></content>
+  </entry>
+  
+</feed>
+
+
+

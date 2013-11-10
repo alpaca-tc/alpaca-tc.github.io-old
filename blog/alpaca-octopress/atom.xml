@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: alpaca_octopress | アルパカエンジニアのブログ]]></title>
+  <link href="http://alpaca-tc.github.io/blog/alpaca-octopress/atom.xml" rel="self"/>
+  <link href="http://alpaca-tc.github.io/"/>
+  <updated>2013-11-11T08:32:21+09:00</updated>
+  <id>http://alpaca-tc.github.io/</id>
+  <author>
+    <name><![CDATA[alpaca-tc]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[alpaca_octopress続き]]></title>
+    <link href="http://alpaca-tc.github.io/blog/vim/alpaca_octopress/about_alpaca_complete/"/>
+    <updated>2013-10-30T04:34:00+09:00</updated>
+    <id>http://alpaca-tc.github.io/blog/vim/alpaca_octopress/about_alpaca_complete</id>
+    <content type="html"><![CDATA[<p>octopress用のプラグイン<em>alpaca_octopress.vim</em>をガシガシ作っています。
+コマンドの非同期実行、サイトのプレビュー、etc&hellip;全てをVimで完結しつつあります！</p>
+
+<p>ある程度完成したら、Vim使いがOctopressを5分で構築出来るようなプラグインも同封するつもり。
+全てVimで完結するのはVimmerにとっては楽でいいなぁ〜。</p>
+
+<h2>OctopressTweet!!</h2>
+
+<p>そして今から<code>:OctopressTweet</code>を実行して、この投稿がTweetされることを望みます。
+無事Tweet出来たらまさに完結ですね。うりゃ！</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[alpaca_octopressを作っている]]></title>
+    <link href="http://alpaca-tc.github.io/blog/vim/alpaca_octopress/create_new_plugin_for_octopress/"/>
+    <updated>2013-10-29T04:52:00+09:00</updated>
+    <id>http://alpaca-tc.github.io/blog/vim/alpaca_octopress/create_new_plugin_for_octopress</id>
+    <content type="html"><![CDATA[<p>昨日言った通り、今は<a href="https://github.com/alpaca-tc/alpaca_octopress.vim">alpaca_octopress.vim</a>を作っています</p>
+
+<p>ブランチは<code>v0.3</code>が最新ですね。</p>
+
+<h2>使い方</h2>
+
+<p><code>:Octopress [command] {option}</code></p>
+
+<p><code>vim
+" 設定はこんな感じ
+let g:octopress#rake_command = 'bundle exec rake'
+let g:octopress#project_url = expand('~/project/octopress')
+let g:octopress#system#async = 1
+</code></p>
+
+<p>Octopress関連で<code>deploy</code>とか<code>async</code>とかをよく使うけど、このプラグインを入れれば非同期で実行できます。
+新しく記事書くときは、<code>:Octopress new_post 新しい記事</code>とやればどのディレクトリに居ても起動出来るので、記事を書くのがちょっと楽になります。</p>
+
+<h2>初めてのvital.vim</h2>
+
+<p>このプラグインを作る上で、初めて<a href="https://github.com/vim-jp/vital.vim">vital.vim</a>さんを使ってみました。
+vitalは、JavaScriptでいうjQueryみたいに、これはベストな書き方！というコードを寄せ集めたスクリプト集です。</p>
+
+<p>今回は、プロセスをオブジェクト化して、非同期で実行&amp;管理するために使ってみました。
+触ってみた感じ、まだまだ人柱感が強いです。。</p>
+
+<p>荒削りというか、汎用的というか、、Process周りのvitalはまだまだ利用者がいないのだろうと思います。
+vimproc周りの動作もおかしいようだし、Vimからプロセス操作するのはやっぱり難しいね！</p>
+
+<hr />
+
+<p><code>:Octopress deploy</code>っと！</p>
+
+<p>さて、寝よう。</p>
+]]></content>
+  </entry>
+  
+</feed>
+
+
+
