@@ -4,7 +4,7 @@
   <title><![CDATA[アルパカエンジニアのブログ]]></title>
   <link href="http://alpaca-tc.github.io/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-11-11T08:51:33+09:00</updated>
+  <updated>2013-11-11T13:40:57+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -67,71 +67,9 @@
 
 <h2>まとめ</h2>
 
-<p>正直、今日は書くことがなかっただけです。えへ。
-暇だなー、俺初級者かなーと思う方が入れば、試しに問題に挑戦してみてください。</p>
+<p>正直、今日は書くことがなかっただけです。えへ。</p>
 
-<ol>
-<li>プラグインをインストール</li>
-<li><code>:AssignmentInit ~/インストール先ディレクトリ</code>を実行して初期化</li>
-<li>vimrcに<code>let g:assignment#path = expand('~/path/to/assignment')</code>を追加</li>
-<li><code>:Assignment solve &lt;tab&gt;</code>で問題を選択</li>
-<li>Guardをまわしながら解くのみ！</li>
-</ol>
-
-
-<p>初めは、8クイーン問題や、RubyのDSLを作る問題などです。
-初級者向けですが、少しは暇つぶしにはなると思いますよ！</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Vimを使って新人教育]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/training-of-new-employee/"/>
-    <updated>2013-11-11T05:21:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/vim/training-of-new-employee</id>
-    <content type="html"><![CDATA[<p>嬉しいことに、一緒に働く仲間が2人増えました。</p>
-
-<p>まだRubyに慣れていないそうなので、はじめの一ヶ月は教育期間を挟みます。</p>
-
-<p>新人の方もvimmerなので、そのためのプラグインを作りました。</p>
-
-<p><img class="image_on_frame center" src="http://alpaca-tc.github.io/images/blog/11_11.png" title="Vimのデモ" ></p>
-
-<p><strong><a href="https://github.com/enfactv/assignment">assignment.vim</a></strong></p>
-
-<p>インストールはごく簡単です。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'>NeoBundle <span class="s1">&#39;alpaca-tc/assignment&#39;</span>`
-</span><span class='line'>
-</span><span class='line'><span class="k">let</span> <span class="k">g</span>:assignment#<span class="nb">path</span> <span class="p">=</span> expand<span class="p">(</span><span class="s1">&#39;~/path/to/assignment&#39;</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>良かったこと</h3>
-
-<ul>
-<li>GitHubの使い方がわからなくても、Vimから徐々に取り組めること</li>
-<li>問題のやり取りが楽になったこと</li>
-<li>自動テストがあるので、リモート勤務でも採点できること</li>
-</ul>
-
-
-<h3>悪かったこと</h3>
-
-<ul>
-<li>一問一答の形式って効率悪いよね&hellip;</li>
-</ul>
-
-
-<p>とりあえず一ヶ月はこの形式で進めて、Rubyに慣れてもらおうかと思います。</p>
-
-<h2>まとめ</h2>
-
-<p>正直、今日は書くことがなかっただけです。えへ。
-暇だなー、俺初級者かなーと思う方が入れば、試しに問題に挑戦してみてください。</p>
+<p>俺初級者かなーと思う方が入れば、試しに問題に挑戦してみてください。</p>
 
 <ol>
 <li>プラグインをインストール</li>
