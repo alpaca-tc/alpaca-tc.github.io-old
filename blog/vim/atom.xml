@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vim | アルパカエンジニアのブログ]]></title>
   <link href="http://alpaca-tc.github.io/blog/vim/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-11-11T13:40:57+09:00</updated>
+  <updated>2013-11-13T14:52:13+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -15,16 +15,82 @@
   
   <entry>
     <title type="html"><![CDATA[Vimを使って新人教育]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/training-of-new-employees/"/>
+    <link href="http://alpaca-tc.github.io/blog/vim/training-of-new-employees.html"/>
     <updated>2013-11-11T05:21:00+09:00</updated>
     <id>http://alpaca-tc.github.io/blog/vim/training-of-new-employees</id>
+    <content type="html"><![CDATA[<p>一緒に働く仲間が増えました。
+普段からオープンソースの開発や、バリバリ仕事ができる人でなければなかなかコードを書く力というのは一定の基準にならないと思います。</p>
+
+<p>そこで、ペアプロやリファクタリングなどを行ってコーディングを教えるのが普通だと思うのですが、うちの会社はほとんどリモート勤務です。</p>
+
+<p>とりあえず、最低限のレベルになるまでは、Githubを通して一問一答の形で問題を解いてってもらおうかなと思いました。</p>
+
+<p>幸い、新人の人もvimmerなので、そのためのプラグインを作りました。</p>
+
+<p>{% img image_on_frame center /images/blog/11_11.png Vimのデモ %}</p>
+
+<p><strong><a href="https://github.com/enfactv/assignment">assignment.vim</a></strong></p>
+
+<p>インストールはごく簡単です。</p>
+
+<p><code>``vim
+NeoBundle 'alpaca-tc/assignment'</code></p>
+
+<p>let g:assignment#path = expand(&lsquo;~/path/to/assignment&rsquo;)</p>
+
+<p>&ldquo; 初期化
+&rdquo; <code>:AssignmentInit ~/インストール先ディレクトリ</code>
+```</p>
+
+<h3>良かったこと</h3>
+
+<ul>
+<li>GitHubの使い方がわからなくても、Vimから取り組めること</li>
+<li>問題を作成するのが少し楽になったこと</li>
+<li>Guard + Rspecの環境で、自動テストされること</li>
+</ul>
+
+
+<h3>悪かったこと</h3>
+
+<ul>
+<li>一問一答の形式って鬼効率悪いよね&hellip;</li>
+</ul>
+
+
+<p>まぁ、とりあえず一ヶ月はこの形式で進めていけば、最低限のコーディングができるようになるはずです。</p>
+
+<h3>まとめ</h3>
+
+<p>正直、今日は書くことがなかっただけです。うい！
+暇だなーと思う方が入れば、プラグインを入れて問題を解いてみてください。</p>
+
+<ol>
+<li>プラグインをインストール</li>
+<li><code>:AssignmentInit ~/インストール先ディレクトリ</code>を実行</li>
+<li>vimrcに<code>let g:assignment#path = expand('~/path/to/assignment')</code>を追加</li>
+<li><code>:Assignment solve &lt;tab&gt;</code>で問題を選択</li>
+<li>Guardをまわしながら解くのみ！</li>
+</ol>
+
+
+<p>8クイーン問題や、RubyのDSLを作る問題などです。
+初級者向けですが、暇つぶしにはなると思いますよ！</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Vimを使って新人教育]]></title>
+    <link href="http://alpaca-tc.github.io/blog/vim/training-of-new-employee.html"/>
+    <updated>2013-11-11T05:21:00+09:00</updated>
+    <id>http://alpaca-tc.github.io/blog/vim/training-of-new-employee</id>
     <content type="html"><![CDATA[<p>嬉しいことに、一緒に働く仲間が2人増えました。</p>
 
 <p>まだRubyに慣れていないそうなので、はじめの一ヶ月は教育期間を挟みます。</p>
 
 <p>新人の方もvimmerなので、そのためのプラグインを作りました。</p>
 
-<p><img class="image_on_frame center" src="/images/blog/2013_11_11.png" title="Vimのデモ" ></p>
+<p>{% img image_on_frame center /images/blog/11_11.png Vimのデモ %}</p>
 
 <p><strong><a href="https://github.com/enfactv/assignment">assignment.vim</a></strong></p>
 
@@ -36,19 +102,12 @@ NeoBundle 'alpaca-tc/assignment'</code></p>
 <p>let g:assignment#path = expand(&lsquo;~/path/to/assignment&rsquo;)
 ```</p>
 
-<h2><a href="https://github.com/enfactv/assignment">assignment.vim</a>とは</h2>
-
-<p>Vimから演習問題を選択して、挑戦することができます。
-それぞれの演習問題は、テストが書かれているのでGuard-Rspecを回しながら確認できます。</p>
-
-<p>オールグリーンになったら、Vimからコマンドを実行してGithubへPull-Requestを送ります。</p>
-
 <h3>良かったこと</h3>
 
 <ul>
 <li>GitHubの使い方がわからなくても、Vimから徐々に取り組めること</li>
-<li>問題のやり取りが楽になったこと(コマンドで自動化)</li>
-<li>自動テストがあるので、挑戦者が自分で採点できること(リモート勤務なので、必須)</li>
+<li>問題のやり取りが楽になったこと</li>
+<li>自動テストがあるので、リモート勤務でも採点できること</li>
 </ul>
 
 
@@ -59,14 +118,12 @@ NeoBundle 'alpaca-tc/assignment'</code></p>
 </ul>
 
 
-<p>作る時間が割ともったいない。
-ま、とりあえず一ヶ月はこの形式で進めて、Rubyに慣れてもらおうかと思います。</p>
+<p>とりあえず一ヶ月はこの形式で進めて、Rubyに慣れてもらおうかと思います。</p>
 
 <h2>まとめ</h2>
 
-<p>正直、今日は書くことがなかっただけです。えへ。</p>
-
-<p>俺初級者かなーと思う方が入れば、試しに問題に挑戦してみてください。</p>
+<p>正直、今日は書くことがなかっただけです。えへ。
+暇だなー、俺初級者かなーと思う方が入れば、試しに問題に挑戦してみてください。</p>
 
 <ol>
 <li>プラグインをインストール</li>
@@ -84,7 +141,7 @@ NeoBundle 'alpaca-tc/assignment'</code></p>
   
   <entry>
     <title type="html"><![CDATA[オススメなVimのプラグイン紹介]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/plugins-best-of-vim-1/"/>
+    <link href="http://alpaca-tc.github.io/blog/vim/plugins-best-of-vim-1.html"/>
     <updated>2013-11-07T05:22:00+09:00</updated>
     <id>http://alpaca-tc.github.io/blog/vim/plugins-best-of-vim-1</id>
     <content type="html"><![CDATA[<p>普段使っているプラグインの中で、<em>これはイケてる！</em>と思ったプラグインを4つ紹介。</p>
@@ -121,7 +178,7 @@ unlet hooks
 </ul>
 
 
-<p><img class="image_on_frame center <a" src="href="https://raw.github.com/junegunn/i/master/vim-easy-align.gif">https://raw.github.com/junegunn/i/master/vim-easy-align.gif</a>" title="vim-easy-align DEMO" ></p>
+<p>{% img image_on_frame center <a href="https://raw.github.com/junegunn/i/master/vim-easy-align.gif">https://raw.github.com/junegunn/i/master/vim-easy-align.gif</a> vim-easy-align DEMO %}</p>
 
 <p>```vim
 NeoBundleLazy &lsquo;junegunn/vim-easy-align&rsquo;, { &lsquo;autoload&rsquo;: {</p>
@@ -175,7 +232,7 @@ NeoBundleLazy &lsquo;terryma/vim-multiple-cursors&rsquo;, { &lsquo;autload&rsquo
   
   <entry>
     <title type="html"><![CDATA[Vim中級者を脱する augroup編]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/break-vim-beginners-augroup/"/>
+    <link href="http://alpaca-tc.github.io/blog/vim/break-vim-beginners-augroup.html"/>
     <updated>2013-11-02T02:30:00+09:00</updated>
     <id>http://alpaca-tc.github.io/blog/vim/break-vim-beginners-augroup</id>
     <content type="html"><![CDATA[<h2>augroup, autocmdを理解する</h2>
@@ -283,7 +340,7 @@ autocmd BufNewFile,BufRead *.coffee    setf coffee
   
   <entry>
     <title type="html"><![CDATA[octopressとセットで入れておきたいVimプラグインまとめ]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/octopress_and_vimplugin/"/>
+    <link href="http://alpaca-tc.github.io/blog/vim/octopress_and_vimplugin.html"/>
     <updated>2013-11-01T17:06:00+09:00</updated>
     <id>http://alpaca-tc.github.io/blog/vim/octopress_and_vimplugin</id>
     <content type="html"><![CDATA[<p>Octopressは利用者が一部なので、デフォルトのVimではなにも対応していません。
@@ -352,24 +409,6 @@ NeoBundleLazy &lsquo;alpaca-tc/alpaca_octopress.vim&rsquo;, { &lsquo;autoload&rs
 
 <p>Octopressはかなりエンジニアと相性が良いプロジェクトだと思います。
 ついでにVimmerの方は、これらのプラグインを入れてより親和性を高めましょう！</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[alpaca_octopress続き]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/alpaca_octopress/about_alpaca_complete/"/>
-    <updated>2013-10-30T04:34:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/vim/alpaca_octopress/about_alpaca_complete</id>
-    <content type="html"><![CDATA[<p>octopress用のプラグイン<em>alpaca_octopress.vim</em>をガシガシ作っています。
-コマンドの非同期実行、サイトのプレビュー、etc&hellip;全てをVimで完結しつつあります！</p>
-
-<p>ある程度完成したら、Vim使いがOctopressを5分で構築出来るようなプラグインも同封するつもり。
-全てVimで完結するのはVimmerにとっては楽でいいなぁ〜。</p>
-
-<h2>OctopressTweet!!</h2>
-
-<p>そして今から<code>:OctopressTweet</code>を実行して、この投稿がTweetされることを望みます。
-無事Tweet出来たらまさに完結ですね。うりゃ！</p>
 ]]></content>
   </entry>
   

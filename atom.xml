@@ -4,7 +4,7 @@
   <title><![CDATA[アルパカエンジニアのブログ]]></title>
   <link href="http://alpaca-tc.github.io/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-11-11T13:40:57+09:00</updated>
+  <updated>2013-11-12T03:39:41+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -15,16 +15,88 @@
   
   <entry>
     <title type="html"><![CDATA[Vimを使って新人教育]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/training-of-new-employees/"/>
+    <link href="http://alpaca-tc.github.io/blog/vim/training-of-new-employees.html"/>
     <updated>2013-11-11T05:21:00+09:00</updated>
     <id>http://alpaca-tc.github.io/blog/vim/training-of-new-employees</id>
+    <content type="html"><![CDATA[<p>一緒に働く仲間が増えました。
+普段からオープンソースの開発や、バリバリ仕事ができる人でなければなかなかコードを書く力というのは一定の基準にならないと思います。</p>
+
+<p>そこで、ペアプロやリファクタリングなどを行ってコーディングを教えるのが普通だと思うのですが、うちの会社はほとんどリモート勤務です。</p>
+
+<p>とりあえず、最低限のレベルになるまでは、Githubを通して一問一答の形で問題を解いてってもらおうかなと思いました。</p>
+
+<p>幸い、新人の人もvimmerなので、そのためのプラグインを作りました。</p>
+
+<p><img class="image_on_frame center" src="http://alpaca-tc.github.io/images/blog/11_11.png" title="Vimのデモ" ></p>
+
+<p><strong><a href="https://github.com/enfactv/assignment">assignment.vim</a></strong></p>
+
+<p>インストールはごく簡単です。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'>NeoBundle <span class="s1">&#39;alpaca-tc/assignment&#39;</span>`
+</span><span class='line'>
+</span><span class='line'><span class="k">let</span> <span class="k">g</span>:assignment#<span class="nb">path</span> <span class="p">=</span> expand<span class="p">(</span><span class="s1">&#39;~/path/to/assignment&#39;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">&quot; 初期化</span>
+</span><span class='line'><span class="c">&quot; `:AssignmentInit ~/インストール先ディレクトリ`</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>良かったこと</h3>
+
+<ul>
+<li>GitHubの使い方がわからなくても、Vimから取り組めること</li>
+<li>問題を作成するのが少し楽になったこと</li>
+<li>Guard + Rspecの環境で、自動テストされること</li>
+</ul>
+
+
+<h3>悪かったこと</h3>
+
+<ul>
+<li>一問一答の形式って鬼効率悪いよね&hellip;</li>
+</ul>
+
+
+<p>まぁ、とりあえず一ヶ月はこの形式で進めていけば、最低限のコーディングができるようになるはずです。</p>
+
+<h3>まとめ</h3>
+
+<p>正直、今日は書くことがなかっただけです。うい！
+暇だなーと思う方が入れば、プラグインを入れて問題を解いてみてください。</p>
+
+<ol>
+<li>プラグインをインストール</li>
+<li><code>:AssignmentInit ~/インストール先ディレクトリ</code>を実行</li>
+<li>vimrcに<code>let g:assignment#path = expand('~/path/to/assignment')</code>を追加</li>
+<li><code>:Assignment solve &lt;tab&gt;</code>で問題を選択</li>
+<li>Guardをまわしながら解くのみ！</li>
+</ol>
+
+
+<p>8クイーン問題や、RubyのDSLを作る問題などです。
+初級者向けですが、暇つぶしにはなると思いますよ！</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Vimを使って新人教育]]></title>
+    <link href="http://alpaca-tc.github.io/blog/vim/training-of-new-employee.html"/>
+    <updated>2013-11-11T05:21:00+09:00</updated>
+    <id>http://alpaca-tc.github.io/blog/vim/training-of-new-employee</id>
     <content type="html"><![CDATA[<p>嬉しいことに、一緒に働く仲間が2人増えました。</p>
 
 <p>まだRubyに慣れていないそうなので、はじめの一ヶ月は教育期間を挟みます。</p>
 
 <p>新人の方もvimmerなので、そのためのプラグインを作りました。</p>
 
-<p><img class="image_on_frame center" src="http://alpaca-tc.github.io/images/blog/2013_11_11.png" title="Vimのデモ" ></p>
+<p><img class="image_on_frame center" src="http://alpaca-tc.github.io/images/blog/11_11.png" title="Vimのデモ" ></p>
 
 <p><strong><a href="https://github.com/enfactv/assignment">assignment.vim</a></strong></p>
 
@@ -39,19 +111,12 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h2><a href="https://github.com/enfactv/assignment">assignment.vim</a>とは</h2>
-
-<p>Vimから演習問題を選択して、挑戦することができます。
-それぞれの演習問題は、テストが書かれているのでGuard-Rspecを回しながら確認できます。</p>
-
-<p>オールグリーンになったら、Vimからコマンドを実行してGithubへPull-Requestを送ります。</p>
-
 <h3>良かったこと</h3>
 
 <ul>
 <li>GitHubの使い方がわからなくても、Vimから徐々に取り組めること</li>
-<li>問題のやり取りが楽になったこと(コマンドで自動化)</li>
-<li>自動テストがあるので、挑戦者が自分で採点できること(リモート勤務なので、必須)</li>
+<li>問題のやり取りが楽になったこと</li>
+<li>自動テストがあるので、リモート勤務でも採点できること</li>
 </ul>
 
 
@@ -62,14 +127,12 @@
 </ul>
 
 
-<p>作る時間が割ともったいない。
-ま、とりあえず一ヶ月はこの形式で進めて、Rubyに慣れてもらおうかと思います。</p>
+<p>とりあえず一ヶ月はこの形式で進めて、Rubyに慣れてもらおうかと思います。</p>
 
 <h2>まとめ</h2>
 
-<p>正直、今日は書くことがなかっただけです。えへ。</p>
-
-<p>俺初級者かなーと思う方が入れば、試しに問題に挑戦してみてください。</p>
+<p>正直、今日は書くことがなかっただけです。えへ。
+暇だなー、俺初級者かなーと思う方が入れば、試しに問題に挑戦してみてください。</p>
 
 <ol>
 <li>プラグインをインストール</li>
@@ -87,7 +150,7 @@
   
   <entry>
     <title type="html"><![CDATA[オススメなVimのプラグイン紹介]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/plugins-best-of-vim-1/"/>
+    <link href="http://alpaca-tc.github.io/blog/vim/plugins-best-of-vim-1.html"/>
     <updated>2013-11-07T05:22:00+09:00</updated>
     <id>http://alpaca-tc.github.io/blog/vim/plugins-best-of-vim-1</id>
     <content type="html"><![CDATA[<p>普段使っているプラグインの中で、<em>これはイケてる！</em>と思ったプラグインを4つ紹介。</p>
@@ -188,7 +251,7 @@
   
   <entry>
     <title type="html"><![CDATA[Vim中級者を脱する augroup編]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/break-vim-beginners-augroup/"/>
+    <link href="http://alpaca-tc.github.io/blog/vim/break-vim-beginners-augroup.html"/>
     <updated>2013-11-02T02:30:00+09:00</updated>
     <id>http://alpaca-tc.github.io/blog/vim/break-vim-beginners-augroup</id>
     <content type="html"><![CDATA[<h2>augroup, autocmdを理解する</h2>
@@ -314,7 +377,7 @@
   
   <entry>
     <title type="html"><![CDATA[octopressとセットで入れておきたいVimプラグインまとめ]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/octopress_and_vimplugin/"/>
+    <link href="http://alpaca-tc.github.io/blog/vim/octopress_and_vimplugin.html"/>
     <updated>2013-11-01T17:06:00+09:00</updated>
     <id>http://alpaca-tc.github.io/blog/vim/octopress_and_vimplugin</id>
     <content type="html"><![CDATA[<p>Octopressは利用者が一部なので、デフォルトのVimではなにも対応していません。
@@ -393,7 +456,7 @@
   
   <entry>
     <title type="html"><![CDATA[３日で検索1位になりました]]></title>
-    <link href="http://alpaca-tc.github.io/blog/seo/no1_alpaca_engineer/"/>
+    <link href="http://alpaca-tc.github.io/blog/seo/no1_alpaca_engineer.html"/>
     <updated>2013-11-01T02:29:00+09:00</updated>
     <id>http://alpaca-tc.github.io/blog/seo/no1_alpaca_engineer</id>
     <content type="html"><![CDATA[<p>二日前のブログにて
@@ -418,7 +481,7 @@
   
   <entry>
     <title type="html"><![CDATA[alpaca_octopress続き]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/alpaca_octopress/about_alpaca_complete/"/>
+    <link href="http://alpaca-tc.github.io/blog/vim/alpaca_octopress/about_alpaca_complete.html"/>
     <updated>2013-10-30T04:34:00+09:00</updated>
     <id>http://alpaca-tc.github.io/blog/vim/alpaca_octopress/about_alpaca_complete</id>
     <content type="html"><![CDATA[<p>octopress用のプラグイン<em>alpaca_octopress.vim</em>をガシガシ作っています。
@@ -436,7 +499,7 @@
   
   <entry>
     <title type="html"><![CDATA[alpaca_octopressを作っている]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/alpaca_octopress/create_new_plugin_for_octopress/"/>
+    <link href="http://alpaca-tc.github.io/blog/vim/alpaca_octopress/create_new_plugin_for_octopress.html"/>
     <updated>2013-10-29T04:52:00+09:00</updated>
     <id>http://alpaca-tc.github.io/blog/vim/alpaca_octopress/create_new_plugin_for_octopress</id>
     <content type="html"><![CDATA[<p>昨日言った通り、今は<a href="https://github.com/alpaca-tc/alpaca_octopress.vim">alpaca_octopress.vim</a>を作っています</p>
@@ -482,7 +545,7 @@ vimproc周りの動作もおかしいようだし、Vimからプロセス操作�
   
   <entry>
     <title type="html"><![CDATA[初めました]]></title>
-    <link href="http://alpaca-tc.github.io/blog/diary/start_blog/"/>
+    <link href="http://alpaca-tc.github.io/blog/diary/start_blog.html"/>
     <updated>2013-10-27T23:12:00+09:00</updated>
     <id>http://alpaca-tc.github.io/blog/diary/start_blog</id>
     <content type="html"><![CDATA[<p>記念すべき初カキコ。

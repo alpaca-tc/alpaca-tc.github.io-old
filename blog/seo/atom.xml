@@ -4,7 +4,7 @@
   <title><![CDATA[Category: seo | アルパカエンジニアのブログ]]></title>
   <link href="http://alpaca-tc.github.io/blog/seo/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-11-11T13:40:57+09:00</updated>
+  <updated>2013-11-13T14:52:13+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -15,7 +15,7 @@
   
   <entry>
     <title type="html"><![CDATA[３日で検索1位になりました]]></title>
-    <link href="http://alpaca-tc.github.io/blog/seo/no1_alpaca_engineer/"/>
+    <link href="http://alpaca-tc.github.io/blog/seo/no1_alpaca_engineer.html"/>
     <updated>2013-11-01T02:29:00+09:00</updated>
     <id>http://alpaca-tc.github.io/blog/seo/no1_alpaca_engineer</id>
     <content type="html"><![CDATA[<p>二日前のブログにて
@@ -27,7 +27,7 @@
 
 <p>ブログを初めて3日目にて、はやくも<strong>検索結果が1位</strong>になりました！</p>
 
-<p><img class="image_on_frame center" src="/images/blog/seo_no_1.png" title="アルパカエンジニア SEO 1位" ></p>
+<p>{% img image_on_frame center /images/blog/seo_no_1.png アルパカエンジニア SEO 1位 %}</p>
 
 <p>超ニッチなワードだと、タイトルの一致率高めてやれば一瞬なんですね〜。
 僕の他にもアルパカを名乗るエンジニアブログが居たのですが、順位を抜いたのでやっと胸を張れます。(何に)</p>

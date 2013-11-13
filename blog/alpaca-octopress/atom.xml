@@ -4,7 +4,7 @@
   <title><![CDATA[Category: alpaca_octopress | アルパカエンジニアのブログ]]></title>
   <link href="http://alpaca-tc.github.io/blog/alpaca-octopress/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-11-11T13:40:57+09:00</updated>
+  <updated>2013-11-13T14:52:13+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -15,7 +15,7 @@
   
   <entry>
     <title type="html"><![CDATA[alpaca_octopress続き]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/alpaca_octopress/about_alpaca_complete/"/>
+    <link href="http://alpaca-tc.github.io/blog/vim/alpaca_octopress/about_alpaca_complete.html"/>
     <updated>2013-10-30T04:34:00+09:00</updated>
     <id>http://alpaca-tc.github.io/blog/vim/alpaca_octopress/about_alpaca_complete</id>
     <content type="html"><![CDATA[<p>octopress用のプラグイン<em>alpaca_octopress.vim</em>をガシガシ作っています。
@@ -33,7 +33,7 @@
   
   <entry>
     <title type="html"><![CDATA[alpaca_octopressを作っている]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/alpaca_octopress/create_new_plugin_for_octopress/"/>
+    <link href="http://alpaca-tc.github.io/blog/vim/alpaca_octopress/create_new_plugin_for_octopress.html"/>
     <updated>2013-10-29T04:52:00+09:00</updated>
     <id>http://alpaca-tc.github.io/blog/vim/alpaca_octopress/create_new_plugin_for_octopress</id>
     <content type="html"><![CDATA[<p>昨日言った通り、今は<a href="https://github.com/alpaca-tc/alpaca_octopress.vim">alpaca_octopress.vim</a>を作っています</p>
