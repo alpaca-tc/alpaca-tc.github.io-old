@@ -4,7 +4,7 @@
   <title><![CDATA[アルパカエンジニアのブログ]]></title>
   <link href="http://alpaca-tc.github.io/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-11-12T03:39:41+09:00</updated>
+  <updated>2013-11-13T17:00:07+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,88 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[JavaScript補完プラグインのTernがすごい]]></title>
+    <link href="http://alpaca-tc.github.io/blog/how-to-use-tern-vim.html"/>
+    <updated>2013-11-13T14:40:00+09:00</updated>
+    <id>http://alpaca-tc.github.io/blog/how-to-use-tern-vim</id>
+    <content type="html"><![CDATA[<p>「え、JavaScriptを書いているのに、Tern使ってないの？」</p>
+
+<p>ダサい。イケてない。
+あぁ、残念。</p>
+
+<p><a href="https://github.com/marijnh/tern">Tern</a>は、marijnhという凄いエンジニアの人が作っているJavaScriptの動的補完プラグイン</p>
+
+<p>コードを動的にパースして、今カーソルがある変数の型まで調べて補完しちゃってくれる。
+設定をすれば、jQueryなどのプラグインでの諸々も補完しちゃう凄いやつなのだ。</p>
+
+<p>まぁ、何はともあれ一度使ってみてください。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">if</span> has<span class="p">(</span><span class="s1">&#39;python&#39;</span><span class="p">)</span> &amp;&amp; executable<span class="p">(</span><span class="s1">&#39;npm&#39;</span><span class="p">)</span>
+</span><span class='line'>  NeoBundleLazy <span class="s1">&#39;marijnh/tern_for_vim&#39;</span><span class="p">,</span> {
+</span><span class='line'>        \ <span class="s1">&#39;build&#39;</span> : <span class="s1">&#39;npm install&#39;</span><span class="p">,</span>
+</span><span class='line'>        \ <span class="s1">&#39;autoload&#39;</span> : {
+</span><span class='line'>        \ <span class="s1">&#39;functions&#39;</span>: [<span class="s1">&#39;tern#Complete&#39;</span><span class="p">,</span> <span class="s1">&#39;tern#Enable&#39;</span>]<span class="p">,</span>
+</span><span class='line'>        \ <span class="s1">&#39;filetypes&#39;</span> : <span class="s1">&#39;javascript&#39;</span>
+</span><span class='line'>        \ }}
+</span><span class='line'><span class="k">endif</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">let</span> hooks <span class="p">=</span> neobundle#get_hooks<span class="p">(</span><span class="s1">&#39;tern_for_vim&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="k">function</span><span class="p">!</span> hooks.on_post_source<span class="p">(</span>bundle<span class="p">)</span>
+</span><span class='line'>  <span class="k">function</span><span class="p">!</span> <span class="k">s</span>:disable_tern<span class="p">()</span>
+</span><span class='line'>    <span class="k">if</span> &amp;<span class="k">filetype</span> <span class="p">=~</span> <span class="s1">&#39;^javascript&#39;</span>
+</span><span class='line'>      autocmd<span class="p">!</span> TernAutomatically <span class="p">&lt;</span>buffer<span class="p">&gt;</span>
+</span><span class='line'>      <span class="k">call</span> tern#Disable<span class="p">()</span>
+</span><span class='line'>    <span class="k">endif</span>
+</span><span class='line'>  <span class="k">endfunction</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">function</span><span class="p">!</span> <span class="k">s</span>:disable_tern_automatically<span class="p">()</span>
+</span><span class='line'>    augroup TernAutomatically
+</span><span class='line'>      autocmd<span class="p">!</span> * <span class="p">&lt;</span>buffer<span class="p">&gt;</span>
+</span><span class='line'>      autocmd <span class="nb">FileType</span> * <span class="p">&lt;</span>buffer<span class="p">&gt;</span> <span class="k">call</span> <span class="k">s</span>:disable_tern<span class="p">()</span>
+</span><span class='line'>    augroup END
+</span><span class='line'>  <span class="k">endfunction</span>
+</span><span class='line'>
+</span><span class='line'>  augroup MyAutoCmd
+</span><span class='line'>    autocmd <span class="nb">FileType</span> javascript <span class="k">call</span> <span class="k">s</span>:disable_tern_automatically<span class="p">()</span>
+</span><span class='line'>  augroup END
+</span><span class='line'><span class="k">endfunction</span>
+</span><span class='line'>unlet hooks
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Vimを使って新人教育]]></title>
