@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vim | アルパカエンジニアのブログ]]></title>
   <link href="http://alpaca-tc.github.io/blog/vim/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-11-13T18:18:59+09:00</updated>
+  <updated>2013-11-13T18:31:51+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -18,35 +18,36 @@
     <link href="http://alpaca-tc.github.io/blog/vim/break-vim-beginners-scope.html"/>
     <updated>2013-11-13T17:26:00+09:00</updated>
     <id>http://alpaca-tc.github.io/blog/vim/break-vim-beginners-scope</id>
-    <content type="html"><![CDATA[<p>スコープというのは、<code>宣言の場所により決定される変数やプロシ-ジャの有効範囲</code>ということで</p>
+    <content type="html"><![CDATA[<p>スコープというのは、有効範囲のことで</p>
 
 <p>いわゆるグローバル変数や、ローカル変数などと呼ばれるものです。
-個人的に、Vimプラグインを作り始めて一番ハマったのが<strong>スコープの問題</strong>でした。</p>
+個人的に、Vimで一番ハマったのが<strong>スコープの問題</strong>でした。</p>
 
-<p>vimrcの修正の時に、コピーペーストばかりしていると自分でも何やっているのか理解できないままですよね。</p>
+<p>vimrcの修正の時に、コピーペーストばかりで何やっているのか理解できないままですよね。あなた。</p>
 
-<p>という訳で、よく登場しそうなスコープを少し理解してみましょう。</p>
+<p>という訳で、よく登場しそうなスコープだけでも理解してみましょう。</p>
 
-<h2>よく見るスコープ一覧</h2>
+<h1>よく見るスコープ一覧</h1>
 
 <ul>
-<li><code>g:</code>グローバルスコープ</li>
-<li><code>a:</code>関数内スコープ</li>
-<li><code>s:</code>スクリプトスコープ</li>
-<li><code>b:</code>バッファスコープ</li>
-<li><code>let huga=...</code>などの接頭辞なし変数</li>
+<li>グローバルスコープ　<code>g:</code></li>
+<li>関数内スコープ　<code>a:</code></li>
+<li>スクリプトスコープ　<code>s:</code></li>
+<li>バッファスコープ　<code>b:</code></li>
+<li>接頭辞なし　<code>let huga=...</code>など</li>
 </ul>
 
 
-<h3><code>g:</code>スコープ</h3>
+<h2>グローバル(g:)スコープ</h2>
+
+<p><strong>どこからでも参照できます。</strong></p>
+
+<p>プラグインの設定で見慣れたスコープですね。</p>
 
 <p><code>let g:neocomplete#enable_at_startup = 1</code></p>
 
-<p>こんな感じで、プラグインの設定にはよく使われるスコープです。
-見てのとおり、<strong>グローバルなスコープとしてどこでも参照できます。</strong></p>
-
-<p>スコープの変数を初期化するには、下記のようなコードを使います。
-プラグインによる大量のエラーコードによって操作できなくなるので、嫌いな人のvimrcの末尾に書き込んでください。</p>
+<p>変数を初期化するには、次のようにします。
+大量のエラーコードによって操作できなくなるので<em>、嫌いな人のvimrcの末尾に書き込んでください。</em></p>
 
 <p><code>vim
 for key in keys(g:)
@@ -54,10 +55,13 @@ for key in keys(g:)
 endfor
 </code></p>
 
-<h3><code>a:</code>スコープ</h3>
+<h2><code>a:</code>スコープ</h2>
 
-<p>個人的に一番理解しがたいスコープです。
-関数内で、引数を参照するときに使用するスコープ</p>
+<p><strong>関数内で、引数を参照するときに使用するスコープ</strong></p>
+
+<p>個人的に一番理解しがたいスコープです。</p>
+
+<p>こんな感じで使います。他言語から移ってきた人には、正直使いづらい。</p>
 
 <p>```
 function! g:huga(a, b)
@@ -70,8 +74,9 @@ endfunction</p>
 <p>call g:huga(&lsquo;a&rsquo;, &lsquo;b&rsquo;)
 ```</p>
 
-<p>こんな感じで使います。他言語から移ってきた人には、正直使いづらい。
-あー、なるほど関数内でだけ有効なスコープなのか。と思っていたらそれも間違い。</p>
+<p><em>あー、なるほど関数内でだけ有効なスコープなのか。</em></p>
+
+<p>と思っていたらそれも間違い。</p>
 
 <p>下記のようにすると、<strong>グローバルなスコープとして参照できます。</strong></p>
 
@@ -86,13 +91,15 @@ endfunction</p>
 <p>call a:huga(&lsquo;a&rsquo;, &lsquo;b&rsquo;)
 ```</p>
 
-<p>けれど、<code>echo a:</code>は動かない。
-僕には真実が分からない。</p>
+<p>けれど、<code>echo a:</code>は動かない。</p>
 
-<h3><code>s:</code>スコープ</h3>
+<p>僕には真実が分からない。</p>
 
-<p>scriptのファイル内でのみ有効なスコープです。
-プラグインで、プライベートなメソッドや定数を作るときによく使います。</p>
+<h2>スクリプト(s:)スコープ</h2>
+
+<p><strong>ファイル内でのみ有効なスコープ</strong>です。</p>
+
+<p>プラグインで、プライベートなメソッドや定数を作るときによく使います。</p>
 
 <p><code>
 let s:script_scope = '外部からは参照できない'
@@ -101,87 +108,84 @@ function! s:script_scope_method()
 endfunction
 </code></p>
 
-<p>実は、この<code>s:</code>から始まる関数は、スクリプトがsourceされるときに置き換えられます。
-<code>&lt;SNR&gt;1_script_scope_method</code>という感じの形になります。
-えぇ、そうです。<strong>グローバルなスコープとして参照できます。</strong></p>
+<p>この<code>s:</code>は、スクリプトがsourceされるときに置き換えられます。</p>
+
+<p><code>&lt;SNR&gt;1_...</code>という感じの形になります。</p>
+
+<p>えぇ、そうです。すると、<strong>グローバルなスコープとして参照できます。</strong></p>
 
 <p>この<code>&lt;SNR&gt;</code>の後にどの数値が割り振られているかは、<code>:scriptnames</code>で参照できます。</p>
 
-<p>あるいは、こんな感じでも取得できます。</p>
+<p><code>s:</code>は<code>&lt;SID&gt;</code>として使えば、グローバルで使えます。</p>
+
+<p>マッピングの時に、scriptスコープを使う時などは必須ですね。</p>
 
 <p><code>vim
-function s:SID()
-  return matchstr(expand('&lt;sfile&gt;'), '&lt;SNR&gt;\zs\d\+\ze_SID$')
-endfun
-echo s:SID() "=&gt; 244
+nnoremap s :echo &lt;SID&gt;SID()&lt;CR&gt;
 </code></p>
 
-<p><code>s:SID()</code>は<code>&lt;SID&gt;SID()</code>としても使えて、<code>&lt;SNR&gt;...</code>に置き換わるのでグローバルで使えます。
-マッピングの時に、scriptスコープを使いたかったら必須ですね。</p>
+<p>ただし、<em>変数は基本的には聖域</em>です。</p>
 
-<p><code>nnoremap s :echo &lt;SID&gt;SID()&lt;CR&gt;</code></p>
+<h2>バッファ(b:)スコープ</h2>
 
-<p>ただし、s:変数は基本的には聖域です。
-あーややこしい!!!</p>
+<p><strong>バッファ単位のスコープ</strong>です。</p>
 
-<h3><code>b:</code>スコープ</h3>
-
-<p>バッファ単位のスコープです。
-ファイルタイプによる設定や、一時バッファによるプラグインの変数などはこのスコープを使います。</p>
+<p>ファイルタイプによる設定や、一時バッファによる変数などに使います。</p>
 
 <ul>
-<li>ファイルタイプの変更をしたら&hellip;<code>b:current_syntax</code>, <code>b:did_ft_plugin</code>, <code>b:did_indent</code>etcが初期化&amp;格納されます</li>
-<li>Uniteを起動したら<code>b:unite</code>に、VimShellを起動したら<code>b:vimshell</code>にデータが格納されます。</li>
+<li>ファイルタイプの変更で、<code>b:current_syntax</code>などが初期化&amp;格納されます</li>
+<li>Uniteを起動で、<code>b:unite</code>にデータが格納されます。</li>
 </ul>
 
 
 <p>Uniteのデバッグするときには、<code>echo b:unite.candidates</code>などを参照しましょう。</p>
 
-<p>バッファが削除される<code>:bdelete</code>のタイミングで消去されます。
-あぁ、ようやくまともなスコープだ。</p>
+<p>そして、バッファが削除される<code>:bdelete</code>のタイミングで消去されます。</p>
 
-<h3><code>let huga=...</code>などの接頭辞なし変数</h3>
+<p>あぁ、ようやくまともなスコープだ。</p>
 
-<p>えぇ。<strong>グローバルなスコープとして参照できます。</strong>
-お前もか！</p>
+<h2><code>let huga=...</code>などの接頭辞なし変数</h2>
 
-<p>マナーとしては、やはり<code>g:</code>で宣言したいところですが、
-Vimにデフォルトで入っているプラグインは、容赦なくこの変数を使ってきます。</p>
+<p>えぇ。<strong>グローバルなスコープとして参照できます。</strong></p>
+
+<p>お前もか！</p>
+
+<p>マナーとしては、やはり<code>g:</code>で宣言したいところですが、</p>
+
+<p>Vimにデフォルトで入っているプラグインは、容赦なくこの変数を使ってきます。</p>
 
 <p><code>:echo loaded_*&lt;Tab&gt;</code>などすれば、奴らを見つけられるはずです。</p>
 
-<p>細かいことを言えば、関数内ならばローカルスコープです。
-あるいは、ペチパーには理解しやすいスコープなのかもしれません。</p>
+<p>細かいことを言えば、関数内ならばローカルスコープです。。。</p>
 
 <h2>スコープのまとめ</h2>
 
 <ul>
 <li>スコープは<strong>ほとんどグローバルで参照できる</strong></li>
-<li>getbufvar()やgettabvar()などでスコープへアクセス出来るため、聖域はほとんど無い</li>
-<li>VimLは枠にハマらない言語仕様を持っている</li>
+<li>getbufvar()やgettabvar()などでスコープへアクセス出来るため、<strong>聖域はほとんど無い</strong></li>
+<li>VimLは枠にハマらない<strong>素敵な</strong>言語仕様を持っている</li>
 </ul>
 
 
-<p><strong>正直今でも理解出来ていない</strong></p>
+<p><strong>正直今でも理解出来ていない。</strong></p>
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[JavaScript補完プラグインのTernがすごい]]></title>
+    <title type="html"><![CDATA[JavaScript補完プラグインのTernはすごいヤツ]]></title>
     <link href="http://alpaca-tc.github.io/blog/vim/how-to-use-tern-vim.html"/>
     <updated>2013-11-13T14:40:00+09:00</updated>
     <id>http://alpaca-tc.github.io/blog/vim/how-to-use-tern-vim</id>
-    <content type="html"><![CDATA[<p>「え、JavaScriptを書いているのに、Tern使ってないの？」</p>
+    <content type="html"><![CDATA[<p><strong>「え、JavaScriptを書いているのに、Tern使ってないの？」</strong></p>
 
 <p>ダサい。イケてない。
 あぁ、残念。</p>
 
-<p><a href="https://github.com/marijnh/tern">Tern</a>は、marijnhという凄いエンジニアの人が作っているJavaScriptの動的補完プラグイン</p>
+<p><a href="https://github.com/marijnh/tern">Tern</a>は、marijnhという凄いエンジニアの人が作っている<strong>JavaScriptの動的補完プラグイン</strong></p>
 
-<p>コードを動的にパースして、今カーソルがある変数の型まで調べて補完しちゃってくれる。
-設定をすれば、jQueryなどのプラグインでの諸々も補完しちゃう凄いやつなのだ。</p>
+<p>コードを動的にパースして、今カーソルがある変数の型まで調べて補完しちゃってくれる。</p>
 
-<p>まぁ、何はともあれ一度使ってみてください。</p>
+<p>設定をすれば、jQueryなどのプラグインでの諸々も補完しちゃう凄いやつなのだ。</p>
 
 <p>```vim
 if has(&lsquo;python&rsquo;) &amp;&amp; executable(&lsquo;npm&rsquo;)
@@ -189,44 +193,15 @@ if has(&lsquo;python&rsquo;) &amp;&amp; executable(&lsquo;npm&rsquo;)
 
 <pre><code>    \ 'build' : 'npm install',
     \ 'autoload' : {
-    \ 'functions': ['tern#Complete', 'tern#Enable'],
-    \ 'filetypes' : 'javascript'
+    \   'functions': ['tern#Complete', 'tern#Enable'],
+    \   'filetypes' : 'javascript'
     \ }}
 </code></pre>
 
-<p>endif</p>
-
-<p>let hooks = neobundle#get_hooks(&lsquo;tern_for_vim&rsquo;)
-function! hooks.on_post_source(bundle)
-  function! s:disable_tern()</p>
-
-<pre><code>if &amp;filetype =~ '^javascript'
-  autocmd! TernAutomatically &lt;buffer&gt;
-  call tern#Disable()
-endif
-</code></pre>
-
-<p>  endfunction</p>
-
-<p>  function! s:disable_tern_automatically()</p>
-
-<pre><code>augroup TernAutomatically
-  autocmd! * &lt;buffer&gt;
-  autocmd FileType * &lt;buffer&gt; call s:disable_tern()
-augroup END
-</code></pre>
-
-<p>  endfunction</p>
-
-<p>  augroup MyAutoCmd</p>
-
-<pre><code>autocmd FileType javascript call s:disable_tern_automatically()
-</code></pre>
-
-<p>  augroup END
-endfunction
-unlet hooks
+<p>endif
 ```</p>
+
+<p>まぁ、何はともあれ一度使ってみてください。</p>
 ]]></content>
   </entry>
   

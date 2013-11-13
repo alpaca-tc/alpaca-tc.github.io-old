@@ -10,8 +10,8 @@
     <title>アルパカエンジニアのブログ - Vim, Ruby, Rails, SEOの技術ブログ</title>
 
     
-    <meta name="description" content="Vim中級者を脱する スコープ編 Nov 13th, 2013 Posted by 石井浩之 vim スコープというのは、宣言の場所により決定される変数やプロシ-ジャの有効範囲ということで いわゆるグローバル変数や、ローカル変数などと呼ばれるものです。
-個人的に、 &hellip;">
+    <meta name="description" content="Vim中級者を脱する スコープ編 Nov 13th, 2013 Posted by 石井浩之 vim スコープというのは、有効範囲のことで いわゆるグローバル変数や、ローカル変数などと呼ばれるものです。
+個人的に、Vimで一番ハマったのがスコープの問題でした。 vimrcの修正の時に、 &hellip;">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='アルパカエンジニアのブログ - Vim, Ruby, Rails, SEOの技術ブログ' name='title' />
@@ -28,13 +28,13 @@
 <meta property="og:url" content="http://alpaca-tc.github.io/index.html"/>
 <meta property="og:site_name" content="アルパカエンジニアのブログ"/>
 <meta property="og:email" content="alprhcp666@gmail.com"/>
-<meta property="og:description" content="Vim中級者を脱する スコープ編 Nov 13th, 2013 Posted by 石井浩之 vim スコープというのは、宣言の場所により決定される変数やプロシ-ジャの有効範囲ということで いわゆるグローバル変数や、ローカル変数などと呼ばれるものです。
-個人的に、 &hellip;" />
+<meta property="og:description" content="Vim中級者を脱する スコープ編 Nov 13th, 2013 Posted by 石井浩之 vim スコープというのは、有効範囲のことで いわゆるグローバル変数や、ローカル変数などと呼ばれるものです。
+個人的に、Vimで一番ハマったのがスコープの問題でした。 vimrcの修正の時に、 &hellip;" />
 
     <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="アルパカエンジニアのブログ - Vim, Ruby, Rails, SEOの技術ブログ">
-<meta name="twitter:description" content="Vim中級者を脱する スコープ編 Nov 13th, 2013 Posted by 石井浩之 vim スコープというのは、宣言の場所により決定される変数やプロシ-ジャの有効範囲ということで いわゆるグローバル変数や、ローカル変数などと呼ばれるものです。
-個人的に、 &hellip;">
+<meta name="twitter:description" content="Vim中級者を脱する スコープ編 Nov 13th, 2013 Posted by 石井浩之 vim スコープというのは、有効範囲のことで いわゆるグローバル変数や、ローカル変数などと呼ばれるものです。
+個人的に、Vimで一番ハマったのがスコープの問題でした。 vimrcの修正の時に、 &hellip;">
 <meta name="twitter:image" content="http://http://alpaca-tc.github.io/images/meta/site_title.png">
 
 <meta name="twitter:site" content="@">
@@ -209,35 +209,36 @@
     </header>
 
     
-      <section class="entry-content"><p>スコープというのは、<code>宣言の場所により決定される変数やプロシ-ジャの有効範囲</code>ということで</p>
+      <section class="entry-content"><p>スコープというのは、有効範囲のことで</p>
 
 <p>いわゆるグローバル変数や、ローカル変数などと呼ばれるものです。
-個人的に、Vimプラグインを作り始めて一番ハマったのが<strong>スコープの問題</strong>でした。</p>
+個人的に、Vimで一番ハマったのが<strong>スコープの問題</strong>でした。</p>
 
-<p>vimrcの修正の時に、コピーペーストばかりしていると自分でも何やっているのか理解できないままですよね。</p>
+<p>vimrcの修正の時に、コピーペーストばかりで何やっているのか理解できないままですよね。あなた。</p>
 
-<p>という訳で、よく登場しそうなスコープを少し理解してみましょう。</p>
+<p>という訳で、よく登場しそうなスコープだけでも理解してみましょう。</p>
 
-<h2>よく見るスコープ一覧</h2>
+<h1>よく見るスコープ一覧</h1>
 
 <ul>
-<li><code>g:</code>グローバルスコープ</li>
-<li><code>a:</code>関数内スコープ</li>
-<li><code>s:</code>スクリプトスコープ</li>
-<li><code>b:</code>バッファスコープ</li>
-<li><code>let huga=...</code>などの接頭辞なし変数</li>
+<li>グローバルスコープ　<code>g:</code></li>
+<li>関数内スコープ　<code>a:</code></li>
+<li>スクリプトスコープ　<code>s:</code></li>
+<li>バッファスコープ　<code>b:</code></li>
+<li>接頭辞なし　<code>let huga=...</code>など</li>
 </ul>
 
 
-<h3><code>g:</code>スコープ</h3>
+<h2>グローバル(g:)スコープ</h2>
+
+<p><strong>どこからでも参照できます。</strong></p>
+
+<p>プラグインの設定で見慣れたスコープですね。</p>
 
 <p><code>let g:neocomplete#enable_at_startup = 1</code></p>
 
-<p>こんな感じで、プラグインの設定にはよく使われるスコープです。
-見てのとおり、<strong>グローバルなスコープとしてどこでも参照できます。</strong></p>
-
-<p>スコープの変数を初期化するには、下記のようなコードを使います。
-プラグインによる大量のエラーコードによって操作できなくなるので、嫌いな人のvimrcの末尾に書き込んでください。</p>
+<p>変数を初期化するには、次のようにします。
+大量のエラーコードによって操作できなくなるので<em>、嫌いな人のvimrcの末尾に書き込んでください。</em></p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -248,10 +249,13 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h3><code>a:</code>スコープ</h3>
+<h2><code>a:</code>スコープ</h2>
 
-<p>個人的に一番理解しがたいスコープです。
-関数内で、引数を参照するときに使用するスコープ</p>
+<p><strong>関数内で、引数を参照するときに使用するスコープ</strong></p>
+
+<p>個人的に一番理解しがたいスコープです。</p>
+
+<p>こんな感じで使います。他言語から移ってきた人には、正直使いづらい。</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -272,8 +276,9 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>こんな感じで使います。他言語から移ってきた人には、正直使いづらい。
-あー、なるほど関数内でだけ有効なスコープなのか。と思っていたらそれも間違い。</p>
+<p><em>あー、なるほど関数内でだけ有効なスコープなのか。</em></p>
+
+<p>と思っていたらそれも間違い。</p>
 
 <p>下記のようにすると、<strong>グローバルなスコープとして参照できます。</strong></p>
 
@@ -296,13 +301,15 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>けれど、<code>echo a:</code>は動かない。
-僕には真実が分からない。</p>
+<p>けれど、<code>echo a:</code>は動かない。</p>
 
-<h3><code>s:</code>スコープ</h3>
+<p>僕には真実が分からない。</p>
 
-<p>scriptのファイル内でのみ有効なスコープです。
-プラグインで、プライベートなメソッドや定数を作るときによく使います。</p>
+<h2>スクリプト(s:)スコープ</h2>
+
+<p><strong>ファイル内でのみ有効なスコープ</strong>です。</p>
+
+<p>プラグインで、プライベートなメソッドや定数を作るときによく使います。</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -315,72 +322,67 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>実は、この<code>s:</code>から始まる関数は、スクリプトがsourceされるときに置き換えられます。
-<code>&lt;SNR&gt;1_script_scope_method</code>という感じの形になります。
-えぇ、そうです。<strong>グローバルなスコープとして参照できます。</strong></p>
+<p>この<code>s:</code>は、スクリプトがsourceされるときに置き換えられます。</p>
+
+<p><code>&lt;SNR&gt;1_...</code>という感じの形になります。</p>
+
+<p>えぇ、そうです。すると、<strong>グローバルなスコープとして参照できます。</strong></p>
 
 <p>この<code>&lt;SNR&gt;</code>の後にどの数値が割り振られているかは、<code>:scriptnames</code>で参照できます。</p>
 
-<p>あるいは、こんな感じでも取得できます。</p>
+<p><code>s:</code>は<code>&lt;SID&gt;</code>として使えば、グローバルで使えます。</p>
+
+<p>マッピングの時に、scriptスコープを使う時などは必須ですね。</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">function</span> <span class="k">s</span>:SID<span class="p">()</span>
-</span><span class='line'>  <span class="k">return</span> matchstr<span class="p">(</span>expand<span class="p">(</span><span class="s1">&#39;&lt;sfile&gt;&#39;</span><span class="p">),</span> <span class="s1">&#39;&lt;SNR&gt;\zs\d\+\ze_SID$&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="k">endfun</span>
-</span><span class='line'>echo <span class="k">s</span>:SID<span class="p">()</span> &quot;<span class="p">=&gt;</span> <span class="m">244</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="nb">nnoremap</span> <span class="k">s</span> :echo <span class="p">&lt;</span>SID<span class="p">&gt;</span>SID<span class="p">()&lt;</span>CR<span class="p">&gt;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p><code>s:SID()</code>は<code>&lt;SID&gt;SID()</code>としても使えて、<code>&lt;SNR&gt;...</code>に置き換わるのでグローバルで使えます。
-マッピングの時に、scriptスコープを使いたかったら必須ですね。</p>
+<p>ただし、<em>変数は基本的には聖域</em>です。</p>
 
-<p><code>nnoremap s :echo &lt;SID&gt;SID()&lt;CR&gt;</code></p>
+<h2>バッファ(b:)スコープ</h2>
 
-<p>ただし、s:変数は基本的には聖域です。
-あーややこしい!!!</p>
+<p><strong>バッファ単位のスコープ</strong>です。</p>
 
-<h3><code>b:</code>スコープ</h3>
-
-<p>バッファ単位のスコープです。
-ファイルタイプによる設定や、一時バッファによるプラグインの変数などはこのスコープを使います。</p>
+<p>ファイルタイプによる設定や、一時バッファによる変数などに使います。</p>
 
 <ul>
-<li>ファイルタイプの変更をしたら&hellip;<code>b:current_syntax</code>, <code>b:did_ft_plugin</code>, <code>b:did_indent</code>etcが初期化&amp;格納されます</li>
-<li>Uniteを起動したら<code>b:unite</code>に、VimShellを起動したら<code>b:vimshell</code>にデータが格納されます。</li>
+<li>ファイルタイプの変更で、<code>b:current_syntax</code>などが初期化&amp;格納されます</li>
+<li>Uniteを起動で、<code>b:unite</code>にデータが格納されます。</li>
 </ul>
 
 
 <p>Uniteのデバッグするときには、<code>echo b:unite.candidates</code>などを参照しましょう。</p>
 
-<p>バッファが削除される<code>:bdelete</code>のタイミングで消去されます。
-あぁ、ようやくまともなスコープだ。</p>
+<p>そして、バッファが削除される<code>:bdelete</code>のタイミングで消去されます。</p>
 
-<h3><code>let huga=...</code>などの接頭辞なし変数</h3>
+<p>あぁ、ようやくまともなスコープだ。</p>
 
-<p>えぇ。<strong>グローバルなスコープとして参照できます。</strong>
-お前もか！</p>
+<h2><code>let huga=...</code>などの接頭辞なし変数</h2>
 
-<p>マナーとしては、やはり<code>g:</code>で宣言したいところですが、
-Vimにデフォルトで入っているプラグインは、容赦なくこの変数を使ってきます。</p>
+<p>えぇ。<strong>グローバルなスコープとして参照できます。</strong></p>
+
+<p>お前もか！</p>
+
+<p>マナーとしては、やはり<code>g:</code>で宣言したいところですが、</p>
+
+<p>Vimにデフォルトで入っているプラグインは、容赦なくこの変数を使ってきます。</p>
 
 <p><code>:echo loaded_*&lt;Tab&gt;</code>などすれば、奴らを見つけられるはずです。</p>
 
-<p>細かいことを言えば、関数内ならばローカルスコープです。
-あるいは、ペチパーには理解しやすいスコープなのかもしれません。</p>
+<p>細かいことを言えば、関数内ならばローカルスコープです。。。</p>
 
 <h2>スコープのまとめ</h2>
 
 <ul>
 <li>スコープは<strong>ほとんどグローバルで参照できる</strong></li>
-<li>getbufvar()やgettabvar()などでスコープへアクセス出来るため、聖域はほとんど無い</li>
-<li>VimLは枠にハマらない言語仕様を持っている</li>
+<li>getbufvar()やgettabvar()などでスコープへアクセス出来るため、<strong>聖域はほとんど無い</strong></li>
+<li>VimLは枠にハマらない<strong>素敵な</strong>言語仕様を持っている</li>
 </ul>
 
 
-<p><strong>正直今でも理解出来ていない</strong></p>
+<p><strong>正直今でも理解出来ていない。</strong></p>
 </section>
       
 
@@ -435,7 +437,7 @@ Vim中級者を脱する スコープ編 | アルパカエンジニアのブロ�
           
             <a href="/blog/vim/how-to-use-tern-vim.html">
               
-                JavaScript補完プラグインのTernがすごい
+                JavaScript補完プラグインのTernはすごいヤツ
               
             </a>
           
@@ -482,17 +484,16 @@ Vim中級者を脱する スコープ編 | アルパカエンジニアのブロ�
     </header>
 
     
-      <section class="entry-content"><p>「え、JavaScriptを書いているのに、Tern使ってないの？」</p>
+      <section class="entry-content"><p><strong>「え、JavaScriptを書いているのに、Tern使ってないの？」</strong></p>
 
 <p>ダサい。イケてない。
 あぁ、残念。</p>
 
-<p><a href="https://github.com/marijnh/tern">Tern</a>は、marijnhという凄いエンジニアの人が作っているJavaScriptの動的補完プラグイン</p>
+<p><a href="https://github.com/marijnh/tern">Tern</a>は、marijnhという凄いエンジニアの人が作っている<strong>JavaScriptの動的補完プラグイン</strong></p>
 
-<p>コードを動的にパースして、今カーソルがある変数の型まで調べて補完しちゃってくれる。
-設定をすれば、jQueryなどのプラグインでの諸々も補完しちゃう凄いやつなのだ。</p>
+<p>コードを動的にパースして、今カーソルがある変数の型まで調べて補完しちゃってくれる。</p>
 
-<p>まぁ、何はともあれ一度使ってみてください。</p>
+<p>設定をすれば、jQueryなどのプラグインでの諸々も補完しちゃう凄いやつなのだ。</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -502,60 +503,18 @@ Vim中級者を脱する スコープ編 | アルパカエンジニアのブロ�
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
 </pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">if</span> has<span class="p">(</span><span class="s1">&#39;python&#39;</span><span class="p">)</span> &amp;&amp; executable<span class="p">(</span><span class="s1">&#39;npm&#39;</span><span class="p">)</span>
 </span><span class='line'>  NeoBundleLazy <span class="s1">&#39;marijnh/tern_for_vim&#39;</span><span class="p">,</span> {
 </span><span class='line'>        \ <span class="s1">&#39;build&#39;</span> : <span class="s1">&#39;npm install&#39;</span><span class="p">,</span>
 </span><span class='line'>        \ <span class="s1">&#39;autoload&#39;</span> : {
-</span><span class='line'>        \ <span class="s1">&#39;functions&#39;</span>: [<span class="s1">&#39;tern#Complete&#39;</span><span class="p">,</span> <span class="s1">&#39;tern#Enable&#39;</span>]<span class="p">,</span>
-</span><span class='line'>        \ <span class="s1">&#39;filetypes&#39;</span> : <span class="s1">&#39;javascript&#39;</span>
+</span><span class='line'>        \   <span class="s1">&#39;functions&#39;</span>: [<span class="s1">&#39;tern#Complete&#39;</span><span class="p">,</span> <span class="s1">&#39;tern#Enable&#39;</span>]<span class="p">,</span>
+</span><span class='line'>        \   <span class="s1">&#39;filetypes&#39;</span> : <span class="s1">&#39;javascript&#39;</span>
 </span><span class='line'>        \ }}
 </span><span class='line'><span class="k">endif</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">let</span> hooks <span class="p">=</span> neobundle#get_hooks<span class="p">(</span><span class="s1">&#39;tern_for_vim&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="k">function</span><span class="p">!</span> hooks.on_post_source<span class="p">(</span>bundle<span class="p">)</span>
-</span><span class='line'>  <span class="k">function</span><span class="p">!</span> <span class="k">s</span>:disable_tern<span class="p">()</span>
-</span><span class='line'>    <span class="k">if</span> &amp;<span class="k">filetype</span> <span class="p">=~</span> <span class="s1">&#39;^javascript&#39;</span>
-</span><span class='line'>      autocmd<span class="p">!</span> TernAutomatically <span class="p">&lt;</span>buffer<span class="p">&gt;</span>
-</span><span class='line'>      <span class="k">call</span> tern#Disable<span class="p">()</span>
-</span><span class='line'>    <span class="k">endif</span>
-</span><span class='line'>  <span class="k">endfunction</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">function</span><span class="p">!</span> <span class="k">s</span>:disable_tern_automatically<span class="p">()</span>
-</span><span class='line'>    augroup TernAutomatically
-</span><span class='line'>      autocmd<span class="p">!</span> * <span class="p">&lt;</span>buffer<span class="p">&gt;</span>
-</span><span class='line'>      autocmd <span class="nb">FileType</span> * <span class="p">&lt;</span>buffer<span class="p">&gt;</span> <span class="k">call</span> <span class="k">s</span>:disable_tern<span class="p">()</span>
-</span><span class='line'>    augroup END
-</span><span class='line'>  <span class="k">endfunction</span>
-</span><span class='line'>
-</span><span class='line'>  augroup MyAutoCmd
-</span><span class='line'>    autocmd <span class="nb">FileType</span> javascript <span class="k">call</span> <span class="k">s</span>:disable_tern_automatically<span class="p">()</span>
-</span><span class='line'>  augroup END
-</span><span class='line'><span class="k">endfunction</span>
-</span><span class='line'>unlet hooks
 </span></code></pre></td></tr></table></div></figure>
 
+
+<p>まぁ、何はともあれ一度使ってみてください。</p>
 </section>
       
 
@@ -574,7 +533,7 @@ Vim中級者を脱する スコープ編 | アルパカエンジニアのブロ�
 <section class="sharing clearfix">
   <div class="button hatena_bookmark_button">
     <a href="http://b.hatena.ne.jp/entry/http://alpaca-tc.github.io/blog/vim/how-to-use-tern-vim.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
-JavaScript補完プラグインのTernがすごい | アルパカエンジニアのブログ 
+JavaScript補完プラグインのTernはすごいヤツ | アルパカエンジニアのブログ 
 " data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
       <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
     </a>
