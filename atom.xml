@@ -4,7 +4,7 @@
   <title><![CDATA[アルパカエンジニアのブログ]]></title>
   <link href="http://alpaca-tc.github.io/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-11-13T18:49:26+09:00</updated>
+  <updated>2013-11-14T08:34:57+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -103,9 +103,8 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>けれど、<code>echo a:</code>は動かない。</p>
-
-<p>僕には真実が分からない。</p>
+<p>実は、これ関数名に<code>:</code>が許可されているだけです。
+なので実際は<code>a:</code>スコープは関係ないんだけど、分かりづらい。</p>
 
 <h2>スクリプト(s:)スコープ</h2>
 
