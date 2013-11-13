@@ -1,12 +1,12 @@
 ---
 layout: post
-title: JavaScript補完プラグインのTernがすごい
+title: JavaScript補完プラグインのTernはすごいヤツ
 date: 2013-11-13 14:40
 comments: true
 categories: vim
 ---
 
-「え、JavaScriptを書いているのに、Tern使ってないの？」
+**「え、JavaScriptを書いているのに、Tern使ってないの？」**
 
 ダサい。イケてない。
 あぁ、残念。
