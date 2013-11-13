@@ -4,7 +4,7 @@
   <title><![CDATA[アルパカエンジニアのブログ]]></title>
   <link href="http://alpaca-tc.github.io/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-11-13T18:18:40+09:00</updated>
+  <updated>2013-11-13T18:18:59+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -195,9 +195,9 @@ Vimにデフォルトで入っているプラグインは、容赦なくこの�
   
   <entry>
     <title type="html"><![CDATA[JavaScript補完プラグインのTernがすごい]]></title>
-    <link href="http://alpaca-tc.github.io/blog/how-to-use-tern-vim.html"/>
+    <link href="http://alpaca-tc.github.io/blog/vim/how-to-use-tern-vim.html"/>
     <updated>2013-11-13T14:40:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/how-to-use-tern-vim</id>
+    <id>http://alpaca-tc.github.io/blog/vim/how-to-use-tern-vim</id>
     <content type="html"><![CDATA[<p>「え、JavaScriptを書いているのに、Tern使ってないの？」</p>
 
 <p>ダサい。イケてない。

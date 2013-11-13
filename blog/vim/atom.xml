@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vim | アルパカエンジニアのブログ]]></title>
   <link href="http://alpaca-tc.github.io/blog/vim/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-11-13T18:18:40+09:00</updated>
+  <updated>2013-11-13T18:18:59+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -163,6 +163,70 @@ Vimにデフォルトで入っているプラグインは、容赦なくこの�
 
 
 <p><strong>正直今でも理解出来ていない</strong></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[JavaScript補完プラグインのTernがすごい]]></title>
+    <link href="http://alpaca-tc.github.io/blog/vim/how-to-use-tern-vim.html"/>
+    <updated>2013-11-13T14:40:00+09:00</updated>
+    <id>http://alpaca-tc.github.io/blog/vim/how-to-use-tern-vim</id>
+    <content type="html"><![CDATA[<p>「え、JavaScriptを書いているのに、Tern使ってないの？」</p>
+
+<p>ダサい。イケてない。
+あぁ、残念。</p>
+
+<p><a href="https://github.com/marijnh/tern">Tern</a>は、marijnhという凄いエンジニアの人が作っているJavaScriptの動的補完プラグイン</p>
+
+<p>コードを動的にパースして、今カーソルがある変数の型まで調べて補完しちゃってくれる。
+設定をすれば、jQueryなどのプラグインでの諸々も補完しちゃう凄いやつなのだ。</p>
+
+<p>まぁ、何はともあれ一度使ってみてください。</p>
+
+<p>```vim
+if has(&lsquo;python&rsquo;) &amp;&amp; executable(&lsquo;npm&rsquo;)
+  NeoBundleLazy &lsquo;marijnh/tern_for_vim&rsquo;, {</p>
+
+<pre><code>    \ 'build' : 'npm install',
+    \ 'autoload' : {
+    \ 'functions': ['tern#Complete', 'tern#Enable'],
+    \ 'filetypes' : 'javascript'
+    \ }}
+</code></pre>
+
+<p>endif</p>
+
+<p>let hooks = neobundle#get_hooks(&lsquo;tern_for_vim&rsquo;)
+function! hooks.on_post_source(bundle)
+  function! s:disable_tern()</p>
+
+<pre><code>if &amp;filetype =~ '^javascript'
+  autocmd! TernAutomatically &lt;buffer&gt;
+  call tern#Disable()
+endif
+</code></pre>
+
+<p>  endfunction</p>
+
+<p>  function! s:disable_tern_automatically()</p>
+
+<pre><code>augroup TernAutomatically
+  autocmd! * &lt;buffer&gt;
+  autocmd FileType * &lt;buffer&gt; call s:disable_tern()
+augroup END
+</code></pre>
+
+<p>  endfunction</p>
+
+<p>  augroup MyAutoCmd</p>
+
+<pre><code>autocmd FileType javascript call s:disable_tern_automatically()
+</code></pre>
+
+<p>  augroup END
+endfunction
+unlet hooks
+```</p>
 ]]></content>
   </entry>
   
@@ -380,114 +444,6 @@ NeoBundleLazy &lsquo;terryma/vim-multiple-cursors&rsquo;, { &lsquo;autload&rsquo
 
 <p>今回紹介したプラグインは、かなりシンプルに洗練されています。
 使っているだけでも、作者の男前さを感じられる。そんなプラグインだと思います。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Vim中級者を脱する augroup編]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/break-vim-beginners-augroup.html"/>
-    <updated>2013-11-02T02:30:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/vim/break-vim-beginners-augroup</id>
-    <content type="html"><![CDATA[<h2>augroup, autocmdを理解する</h2>
-
-<p><strong>所要時間 3分</strong></p>
-
-<h3>この記事を読むべき人</h3>
-
-<ul>
-<li><code>augroup</code>を理解していない人</li>
-<li><code>:source</code>コマンドを使う人</li>
-</ul>
-
-
-<h2>そもそもautocmdって？</h2>
-
-<p>これは何をしているコマンドなのか分解してみましょう。</p>
-
-<p><code>vim
-autocmd BufNewFile * echo 'This is new file'
-</code></p>
-
-<ol>
-<li>autocmdのコマンドを開始しますよ</li>
-<li><code>BufNewFile</code>というタイミングでこのコマンドを実行しますよ</li>
-<li>全てのバッファで<code>echo 'This is new file'</code>を実行しますよ</li>
-</ol>
-
-
-<p>となります。</p>
-
-<p>このように、保存時や新規のファイルといったタイミングでコマンドを実行できます。</p>
-
-<h2>では、augroupはなんのために存在するの？</h2>
-
-<p><code>augroup</code>は、<code>autocmd</code>をグループでまとめるためのコマンドです。こんな感じて使われます。</p>
-
-<p><code>vim
-augroup EditNewFile
-  autocmd!
-  autocmd BufNewFile * echo 'This is new file'
-augroup END
-</code></p>
-
-<p>例えば、<code>autocmd</code>が設定されているvimrcを、<code>:source ~/.vimrc</code>で再度読み込むとしましょう。</p>
-
-<p>するとどうなるかというと、通常は<strong><code>autocmd</code>が重複して2度設定されます</strong>
-当然、その<code>autocmd</code>が発火するときに2度実行されるので、実行が遅くなります。</p>
-
-<p>それを防ぐために<code>augroup</code>を使います。</p>
-
-<h2>ベストプラクティスは？</h2>
-
-<p>つまるところ、<code>augroup</code>は<code>autocmd</code>をまとめて初期化する場合に使用します。
-具体例を上げると、下記のような形になります。</p>
-
-<p>```vim
-augroup MyAutoCmd
-  autocmd! &ldquo; => このaugroupに紐づいたautocmdを消し去ります
-augroup END</p>
-
-<p>&hellip;</p>
-
-<p>augroup MyAutoCmd
-  autocmd BufNewFile * echo &lsquo;This is new file&rsquo;
-  autocmd BufNewFile,BufRead *.haml setf haml
-augroup END
-```</p>
-
-<p>こうすることで、2重に設定されることのない設定になります。</p>
-
-<h2>もう一歩踏み込んでみる</h2>
-
-<p>autocmdの設定方法をVimのRuntimeから学んでみましょう。</p>
-
-<p><code>vim
-:edit $VIMRUNTIME/filetype.vim
-</code></p>
-
-<p>これはファイルタイプの定義を行っているファイルです。</p>
-
-<p>augroupが宣言されているので、一覧を<code>:autocmd filetypedetect</code>でみれることが分かります。</p>
-
-<p>驚くことに、もの凄い数のコマンドを実行してファイルタイプを設定していることが分かります。</p>
-
-<h3>ftdetectを知る</h3>
-
-<p>filetype.vimにて<code>runtime! ftdetect/*.vim</code>と書かれており、<code>~/.vim/ftdetect/*</code>を読み込んでいることが分かります。</p>
-
-<p>つまり、ファイルタイプの設定は<code>ftdetect</code>以下で設定するのがベターとされています。</p>
-
-<p><code>vim
-" ~/.vim/ftdetect/coffee.vim
-autocmd BufNewFile,BufRead *.coffee    setf coffee
-</code></p>
-
-<p>といった設定にて、ファイルタイプを検出できるようになります。
-<code>augroup filetypedetect</code>の宣言内なので、グループの宣言は不要です。</p>
-
-<h2>本日の脱Vim中級者</h2>
-
-<p>vimrcでファイルタイプの検出をしている方は、<code>~/.vim/ftdetect</code>以下に設定を移してみましょう。</p>
 ]]></content>
   </entry>
   
