@@ -29,24 +29,24 @@ if has('python') && executable('npm')
 endif
 
 let hooks = neobundle#get_hooks('tern_for_vim')
-function! hooks.on_post_source(bundle) "{{{
-  function! s:disable_tern() "{{{
+function! hooks.on_post_source(bundle)
+  function! s:disable_tern()
     if &filetype =~ '^javascript'
       autocmd! TernAutomatically <buffer>
       call tern#Disable()
     endif
-  endfunction"}}}
+  endfunction
 
-  function! s:disable_tern_automatically() "{{{
+  function! s:disable_tern_automatically()
     augroup TernAutomatically
       autocmd! * <buffer>
       autocmd FileType * <buffer> call s:disable_tern()
     augroup END
-  endfunction"}}}
+  endfunction
 
   augroup MyAutoCmd
     autocmd FileType javascript call s:disable_tern_automatically()
   augroup END
-endfunction"}}}
+endfunction
 unlet hooks
 ```
