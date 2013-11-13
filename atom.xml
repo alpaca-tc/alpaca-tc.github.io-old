@@ -4,7 +4,7 @@
   <title><![CDATA[アルパカエンジニアのブログ]]></title>
   <link href="http://alpaca-tc.github.io/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-11-13T18:18:10+09:00</updated>
+  <updated>2013-11-13T18:18:40+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Vim中級者を脱する スコープ編]]></title>
-    <link href="http://alpaca-tc.github.io/blog/break-vim-beginners-scope.html"/>
+    <link href="http://alpaca-tc.github.io/blog/vim/break-vim-beginners-scope.html"/>
     <updated>2013-11-13T17:26:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/break-vim-beginners-scope</id>
+    <id>http://alpaca-tc.github.io/blog/vim/break-vim-beginners-scope</id>
     <content type="html"><![CDATA[<p>スコープというのは、<code>宣言の場所により決定される変数やプロシ-ジャの有効範囲</code>ということで</p>
 
 <p>いわゆるグローバル変数や、ローカル変数などと呼ばれるものです。

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vim | アルパカエンジニアのブログ]]></title>
   <link href="http://alpaca-tc.github.io/blog/vim/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-11-13T18:18:10+09:00</updated>
+  <updated>2013-11-13T18:18:40+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,159 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Vim中級者を脱する スコープ編]]></title>
+    <link href="http://alpaca-tc.github.io/blog/vim/break-vim-beginners-scope.html"/>
+    <updated>2013-11-13T17:26:00+09:00</updated>
+    <id>http://alpaca-tc.github.io/blog/vim/break-vim-beginners-scope</id>
+    <content type="html"><![CDATA[<p>スコープというのは、<code>宣言の場所により決定される変数やプロシ-ジャの有効範囲</code>ということで</p>
+
+<p>いわゆるグローバル変数や、ローカル変数などと呼ばれるものです。
+個人的に、Vimプラグインを作り始めて一番ハマったのが<strong>スコープの問題</strong>でした。</p>
+
+<p>vimrcの修正の時に、コピーペーストばかりしていると自分でも何やっているのか理解できないままですよね。</p>
+
+<p>という訳で、よく登場しそうなスコープを少し理解してみましょう。</p>
+
+<h2>よく見るスコープ一覧</h2>
+
+<ul>
+<li><code>g:</code>グローバルスコープ</li>
+<li><code>a:</code>関数内スコープ</li>
+<li><code>s:</code>スクリプトスコープ</li>
+<li><code>b:</code>バッファスコープ</li>
+<li><code>let huga=...</code>などの接頭辞なし変数</li>
+</ul>
+
+
+<h3><code>g:</code>スコープ</h3>
+
+<p><code>let g:neocomplete#enable_at_startup = 1</code></p>
+
+<p>こんな感じで、プラグインの設定にはよく使われるスコープです。
+見てのとおり、<strong>グローバルなスコープとしてどこでも参照できます。</strong></p>
+
+<p>スコープの変数を初期化するには、下記のようなコードを使います。
+プラグインによる大量のエラーコードによって操作できなくなるので、嫌いな人のvimrcの末尾に書き込んでください。</p>
+
+<p><code>vim
+for key in keys(g:)
+  execute 'unlet g:' . key
+endfor
+</code></p>
+
+<h3><code>a:</code>スコープ</h3>
+
+<p>個人的に一番理解しがたいスコープです。
+関数内で、引数を参照するときに使用するスコープ</p>
+
+<p>```
+function! g:huga(a, b)
+  echo a:
+  &ldquo;=> {&lsquo;0&rsquo;: 0, &lsquo;000&rsquo;: [], &lsquo;b&rsquo;: &lsquo;b&rsquo;, &lsquo;a&rsquo;: &lsquo;a&rsquo;, &lsquo;firstline&rsquo;: 5, &lsquo;lastline&rsquo;: 5}
+  echo a:b
+  &rdquo;=> &lsquo;b&rsquo;
+endfunction</p>
+
+<p>call g:huga(&lsquo;a&rsquo;, &lsquo;b&rsquo;)
+```</p>
+
+<p>こんな感じで使います。他言語から移ってきた人には、正直使いづらい。
+あー、なるほど関数内でだけ有効なスコープなのか。と思っていたらそれも間違い。</p>
+
+<p>下記のようにすると、<strong>グローバルなスコープとして参照できます。</strong></p>
+
+<p>```
+function! a:huga(a, b)
+  echo a:
+  &ldquo;=> {&lsquo;0&rsquo;: 0, &lsquo;000&rsquo;: [], &lsquo;b&rsquo;: &lsquo;b&rsquo;, &lsquo;a&rsquo;: &lsquo;a&rsquo;, &lsquo;firstline&rsquo;: 5, &lsquo;lastline&rsquo;: 5}
+  echo a:b
+  &rdquo;=> &lsquo;b&rsquo;
+endfunction</p>
+
+<p>call a:huga(&lsquo;a&rsquo;, &lsquo;b&rsquo;)
+```</p>
+
+<p>けれど、<code>echo a:</code>は動かない。
+僕には真実が分からない。</p>
+
+<h3><code>s:</code>スコープ</h3>
+
+<p>scriptのファイル内でのみ有効なスコープです。
+プラグインで、プライベートなメソッドや定数を作るときによく使います。</p>
+
+<p><code>
+let s:script_scope = '外部からは参照できない'
+function! s:script_scope_method()
+  " プライベートメソッドとしてよく使われる
+endfunction
+</code></p>
+
+<p>実は、この<code>s:</code>から始まる関数は、スクリプトがsourceされるときに置き換えられます。
+<code>&lt;SNR&gt;1_script_scope_method</code>という感じの形になります。
+えぇ、そうです。<strong>グローバルなスコープとして参照できます。</strong></p>
+
+<p>この<code>&lt;SNR&gt;</code>の後にどの数値が割り振られているかは、<code>:scriptnames</code>で参照できます。</p>
+
+<p>あるいは、こんな感じでも取得できます。</p>
+
+<p><code>vim
+function s:SID()
+  return matchstr(expand('&lt;sfile&gt;'), '&lt;SNR&gt;\zs\d\+\ze_SID$')
+endfun
+echo s:SID() "=&gt; 244
+</code></p>
+
+<p><code>s:SID()</code>は<code>&lt;SID&gt;SID()</code>としても使えて、<code>&lt;SNR&gt;...</code>に置き換わるのでグローバルで使えます。
+マッピングの時に、scriptスコープを使いたかったら必須ですね。</p>
+
+<p><code>nnoremap s :echo &lt;SID&gt;SID()&lt;CR&gt;</code></p>
+
+<p>ただし、s:変数は基本的には聖域です。
+あーややこしい!!!</p>
+
+<h3><code>b:</code>スコープ</h3>
+
+<p>バッファ単位のスコープです。
+ファイルタイプによる設定や、一時バッファによるプラグインの変数などはこのスコープを使います。</p>
+
+<ul>
+<li>ファイルタイプの変更をしたら&hellip;<code>b:current_syntax</code>, <code>b:did_ft_plugin</code>, <code>b:did_indent</code>etcが初期化&amp;格納されます</li>
+<li>Uniteを起動したら<code>b:unite</code>に、VimShellを起動したら<code>b:vimshell</code>にデータが格納されます。</li>
+</ul>
+
+
+<p>Uniteのデバッグするときには、<code>echo b:unite.candidates</code>などを参照しましょう。</p>
+
+<p>バッファが削除される<code>:bdelete</code>のタイミングで消去されます。
+あぁ、ようやくまともなスコープだ。</p>
+
+<h3><code>let huga=...</code>などの接頭辞なし変数</h3>
+
+<p>えぇ。<strong>グローバルなスコープとして参照できます。</strong>
+お前もか！</p>
+
+<p>マナーとしては、やはり<code>g:</code>で宣言したいところですが、
+Vimにデフォルトで入っているプラグインは、容赦なくこの変数を使ってきます。</p>
+
+<p><code>:echo loaded_*&lt;Tab&gt;</code>などすれば、奴らを見つけられるはずです。</p>
+
+<p>細かいことを言えば、関数内ならばローカルスコープです。
+あるいは、ペチパーには理解しやすいスコープなのかもしれません。</p>
+
+<h2>スコープのまとめ</h2>
+
+<ul>
+<li>スコープは<strong>ほとんどグローバルで参照できる</strong></li>
+<li>getbufvar()やgettabvar()などでスコープへアクセス出来るため、聖域はほとんど無い</li>
+<li>VimLは枠にハマらない言語仕様を持っている</li>
+</ul>
+
+
+<p><strong>正直今でも理解出来ていない</strong></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Vimを使って新人教育]]></title>
@@ -335,80 +488,6 @@ autocmd BufNewFile,BufRead *.coffee    setf coffee
 <h2>本日の脱Vim中級者</h2>
 
 <p>vimrcでファイルタイプの検出をしている方は、<code>~/.vim/ftdetect</code>以下に設定を移してみましょう。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[octopressとセットで入れておきたいVimプラグインまとめ]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/octopress_and_vimplugin.html"/>
-    <updated>2013-11-01T17:06:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/vim/octopress_and_vimplugin</id>
-    <content type="html"><![CDATA[<p>Octopressは利用者が一部なので、デフォルトのVimではなにも対応していません。
-プラグイン無しでも利用することもできますが、正直使いにくいですよね。</p>
-
-<p>最低限下記のプラグインぐらいは入れておきましょう。</p>
-
-<h2><a href="https://github.com/tpope/vim-liquid">vim-liquid</a></h2>
-
-<p><code>liquid</code>はoctopress(jekyll)で採用されているテンプレートエンジンです。</p>
-
-<p>このプラグインを入れると、ファイルタイプの検知や、キーワードのハイライトをしてくれるようになります。
-何が良いかというと、そのおかげで<code>neocomplete.vim</code>や<code>matchit.vim</code>などの他のプラグインもliquid用に対応してくれるんですよね。</p>
-
-<p>```vim
-NeoBundleLazy &lsquo;tpope/vim-liquid&rsquo;, { &lsquo;autoload&rsquo; : {</p>
-
-<pre><code>  \ 'filetypes' : 'liquid'
-  \ }}
-</code></pre>
-
-<p>```</p>
-
-<h2><a href="https://github.com/tangledhelix/vim-octopress">vim-octopress</a></h2>
-
-<p>VimからOctopressのコマンド操作をするプラグインです。
-<code>:Octopress [command][{option}]</code>で実行することができます。</p>
-
-<ol>
-<li><code>:Octopress new_post title</code></li>
-<li><code>:Octopress gen_deploy</code></li>
-</ol>
-
-
-<p>この2回の操作で、新しい記事をアップロードできます。</p>
-
-<p>```vim
-NeoBundleLazy &lsquo;tangledhelix/vim-octopress&rsquo;, { &lsquo;autoload&rsquo; : {</p>
-
-<pre><code>  \ 'commands': 'Octopress',
-  \ }}
-</code></pre>
-
-<p>```</p>
-
-<h2><a href="https://github.com/alpaca-tc/alpaca_octopress.vim">alpaca_octopress</a></h2>
-
-<p><code>vim-octopress</code>の非同期実行版です。
-人柱属性のある方はこちらをオススメします。</p>
-
-<p>```vim
-NeoBundleLazy &lsquo;alpaca-tc/alpaca_octopress.vim&rsquo;, { &lsquo;autoload&rsquo; : {</p>
-
-<pre><code>  \ 'branch': 'v0.3',
-  \ 'functions' : 'octopress#complete',
-  \ 'commands': {
-  \   'name' : 'Octopress',
-  \   'complete' : 'customlist,octopress#complete',
-  \ },
-  \ }}
-</code></pre>
-
-<p>```</p>
-
-<h2>まとめ</h2>
-
-<p>Octopressはかなりエンジニアと相性が良いプロジェクトだと思います。
-ついでにVimmerの方は、これらのプラグインを入れてより親和性を高めましょう！</p>
 ]]></content>
   </entry>
   
