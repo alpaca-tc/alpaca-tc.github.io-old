@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vim | アルパカエンジニアのブログ]]></title>
   <link href="http://alpaca-tc.github.io/blog/vim/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-11-13T18:43:14+09:00</updated>
+  <updated>2013-11-13T18:49:26+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -18,11 +18,11 @@
     <link href="http://alpaca-tc.github.io/blog/vim/break-vim-beginners-scope.html"/>
     <updated>2013-11-13T17:26:00+09:00</updated>
     <id>http://alpaca-tc.github.io/blog/vim/break-vim-beginners-scope</id>
-    <content type="html"><![CDATA[<p>vimで一番ハマったのが<strong>スコープの問題</strong>でした。</p>
+    <content type="html"><![CDATA[<p>個人的に、Vimで一番ハマったのが<strong>スコープの問題</strong>でした。</p>
 
-<p>Vimのスコープの理解がなぁなぁな、あなた。</p>
+<p>vimrcのコピペばかりの、あなた。</p>
 
-<p>よく登場しそうなスコープだけでも理解してみましょう。</p>
+<p>せめて、よく登場するスコープだけでも理解してみましょう。</p>
 
 <h1>よく見るスコープ一覧</h1>
 
@@ -62,22 +62,23 @@ endfor
 
 <p>```
 function! Huga(first, second)
-  echo a:
-  &ldquo;=> {&lsquo;0&rsquo;: 0, &lsquo;000&rsquo;: [], &lsquo;second&rsquo;: &lsquo;b&rsquo;, &lsquo;first&rsquo;: &lsquo;a&rsquo;, &lsquo;firstline&rsquo;: 5, &lsquo;lastline&rsquo;: 5}
   echo a:first
-  &rdquo;=> &lsquo;b&rsquo;
+  &ldquo;=> &lsquo;a&rsquo;</p>
+
+<p>  echo a:
+  &ldquo;=> {&lsquo;0&rsquo;: 0, &lsquo;000&rsquo;: [], &lsquo;second&rsquo;: &lsquo;b&rsquo;, &lsquo;first&rsquo;: &lsquo;a&rsquo;, &lsquo;firstline&rsquo;: 5, &lsquo;lastline&rsquo;: 5}
 endfunction</p>
 
 <p>call Huga(&lsquo;a&rsquo;, &lsquo;b&rsquo;)
 ```</p>
 
-<p>あーなるほど、<strong>関数内でだけ有効なスコープなのか。</strong></p>
+<p>「あーなるほど、<strong>関数内でだけ有効なスコープなのか。</strong>」</p>
 
-<p>と思っていたらそれも<em>間違い</em>。</p>
+<p>と、思っていたら<em>それは間違い。</em></p>
 
-<p>下記のようにすると、<strong>グローバルなスコープとして参照できます。</strong></p>
+<p>下記のようにすると、<strong>グローバルスコープとして参照できます。</strong></p>
 
-<p>```
+<p>```vim
 function! a:huga()
   echo &lsquo;Global!?!?!?&rsquo;
 endfunction</p>
@@ -95,7 +96,7 @@ endfunction</p>
 
 <p>プラグインで、プライベートなメソッドや定数を作るときによく使います。</p>
 
-<p><code>
+<p><code>vim
 let s:script_scope = '外部からは参照できない'
 function! s:script_scope_method()
   " プライベートメソッドとしてよく使われる
@@ -116,7 +117,7 @@ endfunction
 nnoremap s :echo &lt;SID&gt;SID()&lt;CR&gt;
 </code></p>
 
-<p>ただし、<em>変数は基本的には聖域</em>です。</p>
+<p>ただし、<strong>変数は基本的には聖域</strong>です。</p>
 
 <h2>バッファ(b:)スコープ</h2>
 

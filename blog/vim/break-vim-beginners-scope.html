@@ -10,11 +10,11 @@
     <title>Vim中級者を脱する スコープ編 | アルパカエンジニアのブログ</title>
 
     
-    <meta name="description" content="vimで一番ハマったのがスコープの問題でした。 Vimのスコープの理解がなぁなぁな、あなた。 よく登場しそうなスコープだけでも理解してみましょう。 よく見るスコープ一覧 グローバルスコープ　g:
+    <meta name="description" content="個人的に、Vimで一番ハマったのがスコープの問題でした。 vimrcのコピペばかりの、あなた。 せめて、よく登場するスコープだけでも理解してみましょう。 よく見るスコープ一覧 グローバルスコープ　g:
 関数内スコープ　a:
 スクリプトスコープ　s:
 バッファスコープ　b:
-接頭辞なし　let huga &hellip;">
+接頭辞なし　let &hellip;">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='Vim中級者を脱する スコープ編 | アルパカエンジニアのブログ' name='title' />
@@ -31,19 +31,19 @@
 <meta property="og:url" content="http://alpaca-tc.github.io/blog/vim/break-vim-beginners-scope.html"/>
 <meta property="og:site_name" content="アルパカエンジニアのブログ"/>
 <meta property="og:email" content="alprhcp666@gmail.com"/>
-<meta property="og:description" content="vimで一番ハマったのがスコープの問題でした。 Vimのスコープの理解がなぁなぁな、あなた。 よく登場しそうなスコープだけでも理解してみましょう。 よく見るスコープ一覧 グローバルスコープ　g:
+<meta property="og:description" content="個人的に、Vimで一番ハマったのがスコープの問題でした。 vimrcのコピペばかりの、あなた。 せめて、よく登場するスコープだけでも理解してみましょう。 よく見るスコープ一覧 グローバルスコープ　g:
 関数内スコープ　a:
 スクリプトスコープ　s:
 バッファスコープ　b:
-接頭辞なし　let huga &hellip;" />
+接頭辞なし　let &hellip;" />
 
     <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vim中級者を脱する スコープ編 | アルパカエンジニアのブログ">
-<meta name="twitter:description" content="vimで一番ハマったのがスコープの問題でした。 Vimのスコープの理解がなぁなぁな、あなた。 よく登場しそうなスコープだけでも理解してみましょう。 よく見るスコープ一覧 グローバルスコープ　g:
+<meta name="twitter:description" content="個人的に、Vimで一番ハマったのがスコープの問題でした。 vimrcのコピペばかりの、あなた。 せめて、よく登場するスコープだけでも理解してみましょう。 よく見るスコープ一覧 グローバルスコープ　g:
 関数内スコープ　a:
 スクリプトスコープ　s:
 バッファスコープ　b:
-接頭辞なし　let huga &hellip;">
+接頭辞なし　let &hellip;">
 <meta name="twitter:image" content="http://http://alpaca-tc.github.io/images/meta/site_title.png">
 
 <meta name="twitter:site" content="@">
@@ -210,11 +210,11 @@
     </header>
 
     
-      <section class="entry-content"><p>vimで一番ハマったのが<strong>スコープの問題</strong>でした。</p>
+      <section class="entry-content"><p>個人的に、Vimで一番ハマったのが<strong>スコープの問題</strong>でした。</p>
 
-<p>Vimのスコープの理解がなぁなぁな、あなた。</p>
+<p>vimrcのコピペばかりの、あなた。</p>
 
-<p>よく登場しそうなスコープだけでも理解してみましょう。</p>
+<p>せめて、よく登場するスコープだけでも理解してみましょう。</p>
 
 <h1>よく見るスコープ一覧</h1>
 
@@ -263,22 +263,24 @@
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
+<span class='line-number'>9</span>
 </pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">function</span><span class="p">!</span> Huga<span class="p">(</span><span class="k">first</span><span class="p">,</span> second<span class="p">)</span>
+</span><span class='line'>  echo <span class="k">a</span>:<span class="k">first</span>
+</span><span class='line'><span class="c">  &quot;=&gt; &#39;a&#39;</span>
+</span><span class='line'>
 </span><span class='line'>  echo <span class="k">a</span>:
 </span><span class='line'><span class="c">  &quot;=&gt; {&#39;0&#39;: 0, &#39;000&#39;: [], &#39;second&#39;: &#39;b&#39;, &#39;first&#39;: &#39;a&#39;, &#39;firstline&#39;: 5, &#39;lastline&#39;: 5}</span>
-</span><span class='line'>  echo <span class="k">a</span>:<span class="k">first</span>
-</span><span class='line'><span class="c">  &quot;=&gt; &#39;b&#39;</span>
 </span><span class='line'><span class="k">endfunction</span>
 </span><span class='line'>
 </span><span class='line'><span class="k">call</span> Huga<span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>あーなるほど、<strong>関数内でだけ有効なスコープなのか。</strong></p>
+<p>「あーなるほど、<strong>関数内でだけ有効なスコープなのか。</strong>」</p>
 
-<p>と思っていたらそれも<em>間違い</em>。</p>
+<p>と、思っていたら<em>それは間違い。</em></p>
 
-<p>下記のようにすると、<strong>グローバルなスコープとして参照できます。</strong></p>
+<p>下記のようにすると、<strong>グローバルスコープとして参照できます。</strong></p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -329,7 +331,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>ただし、<em>変数は基本的には聖域</em>です。</p>
+<p>ただし、<strong>変数は基本的には聖域</strong>です。</p>
 
 <h2>バッファ(b:)スコープ</h2>
 
