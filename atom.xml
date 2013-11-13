@@ -4,7 +4,7 @@
   <title><![CDATA[アルパカエンジニアのブログ]]></title>
   <link href="http://alpaca-tc.github.io/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-11-13T18:31:51+09:00</updated>
+  <updated>2013-11-13T18:33:11+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -231,78 +231,6 @@
 
 
 <p>まぁ、何はともあれ一度使ってみてください。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Vimを使って新人教育]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/training-of-new-employees.html"/>
-    <updated>2013-11-11T05:21:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/vim/training-of-new-employees</id>
-    <content type="html"><![CDATA[<p>一緒に働く仲間が増えました。
-普段からオープンソースの開発や、バリバリ仕事ができる人でなければなかなかコードを書く力というのは一定の基準にならないと思います。</p>
-
-<p>そこで、ペアプロやリファクタリングなどを行ってコーディングを教えるのが普通だと思うのですが、うちの会社はほとんどリモート勤務です。</p>
-
-<p>とりあえず、最低限のレベルになるまでは、Githubを通して一問一答の形で問題を解いてってもらおうかなと思いました。</p>
-
-<p>幸い、新人の人もvimmerなので、そのためのプラグインを作りました。</p>
-
-<p><img class="image_on_frame center" src="http://alpaca-tc.github.io/images/blog/11_11.png" title="Vimのデモ" ></p>
-
-<p><strong><a href="https://github.com/enfactv/assignment">assignment.vim</a></strong></p>
-
-<p>インストールはごく簡単です。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'>NeoBundle <span class="s1">&#39;alpaca-tc/assignment&#39;</span>`
-</span><span class='line'>
-</span><span class='line'><span class="k">let</span> <span class="k">g</span>:assignment#<span class="nb">path</span> <span class="p">=</span> expand<span class="p">(</span><span class="s1">&#39;~/path/to/assignment&#39;</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="c">&quot; 初期化</span>
-</span><span class='line'><span class="c">&quot; `:AssignmentInit ~/インストール先ディレクトリ`</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>良かったこと</h3>
-
-<ul>
-<li>GitHubの使い方がわからなくても、Vimから取り組めること</li>
-<li>問題を作成するのが少し楽になったこと</li>
-<li>Guard + Rspecの環境で、自動テストされること</li>
-</ul>
-
-
-<h3>悪かったこと</h3>
-
-<ul>
-<li>一問一答の形式って鬼効率悪いよね&hellip;</li>
-</ul>
-
-
-<p>まぁ、とりあえず一ヶ月はこの形式で進めていけば、最低限のコーディングができるようになるはずです。</p>
-
-<h3>まとめ</h3>
-
-<p>正直、今日は書くことがなかっただけです。うい！
-暇だなーと思う方が入れば、プラグインを入れて問題を解いてみてください。</p>
-
-<ol>
-<li>プラグインをインストール</li>
-<li><code>:AssignmentInit ~/インストール先ディレクトリ</code>を実行</li>
-<li>vimrcに<code>let g:assignment#path = expand('~/path/to/assignment')</code>を追加</li>
-<li><code>:Assignment solve &lt;tab&gt;</code>で問題を選択</li>
-<li>Guardをまわしながら解くのみ！</li>
-</ol>
-
-
-<p>8クイーン問題や、RubyのDSLを作る問題などです。
-初級者向けですが、暇つぶしにはなると思いますよ！</p>
 ]]></content>
   </entry>
   

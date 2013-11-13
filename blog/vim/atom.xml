@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vim | アルパカエンジニアのブログ]]></title>
   <link href="http://alpaca-tc.github.io/blog/vim/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-11-13T18:31:51+09:00</updated>
+  <updated>2013-11-13T18:33:11+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -207,72 +207,6 @@ if has(&lsquo;python&rsquo;) &amp;&amp; executable(&lsquo;npm&rsquo;)
   
   <entry>
     <title type="html"><![CDATA[Vimを使って新人教育]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/training-of-new-employees.html"/>
-    <updated>2013-11-11T05:21:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/vim/training-of-new-employees</id>
-    <content type="html"><![CDATA[<p>一緒に働く仲間が増えました。
-普段からオープンソースの開発や、バリバリ仕事ができる人でなければなかなかコードを書く力というのは一定の基準にならないと思います。</p>
-
-<p>そこで、ペアプロやリファクタリングなどを行ってコーディングを教えるのが普通だと思うのですが、うちの会社はほとんどリモート勤務です。</p>
-
-<p>とりあえず、最低限のレベルになるまでは、Githubを通して一問一答の形で問題を解いてってもらおうかなと思いました。</p>
-
-<p>幸い、新人の人もvimmerなので、そのためのプラグインを作りました。</p>
-
-<p><img class="image_on_frame center" src="/images/blog/11_11.png" title="Vimのデモ" ></p>
-
-<p><strong><a href="https://github.com/enfactv/assignment">assignment.vim</a></strong></p>
-
-<p>インストールはごく簡単です。</p>
-
-<p><code>``vim
-NeoBundle 'alpaca-tc/assignment'</code></p>
-
-<p>let g:assignment#path = expand(&lsquo;~/path/to/assignment&rsquo;)</p>
-
-<p>&ldquo; 初期化
-&rdquo; <code>:AssignmentInit ~/インストール先ディレクトリ</code>
-```</p>
-
-<h3>良かったこと</h3>
-
-<ul>
-<li>GitHubの使い方がわからなくても、Vimから取り組めること</li>
-<li>問題を作成するのが少し楽になったこと</li>
-<li>Guard + Rspecの環境で、自動テストされること</li>
-</ul>
-
-
-<h3>悪かったこと</h3>
-
-<ul>
-<li>一問一答の形式って鬼効率悪いよね&hellip;</li>
-</ul>
-
-
-<p>まぁ、とりあえず一ヶ月はこの形式で進めていけば、最低限のコーディングができるようになるはずです。</p>
-
-<h3>まとめ</h3>
-
-<p>正直、今日は書くことがなかっただけです。うい！
-暇だなーと思う方が入れば、プラグインを入れて問題を解いてみてください。</p>
-
-<ol>
-<li>プラグインをインストール</li>
-<li><code>:AssignmentInit ~/インストール先ディレクトリ</code>を実行</li>
-<li>vimrcに<code>let g:assignment#path = expand('~/path/to/assignment')</code>を追加</li>
-<li><code>:Assignment solve &lt;tab&gt;</code>で問題を選択</li>
-<li>Guardをまわしながら解くのみ！</li>
-</ol>
-
-
-<p>8クイーン問題や、RubyのDSLを作る問題などです。
-初級者向けですが、暇つぶしにはなると思いますよ！</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Vimを使って新人教育]]></title>
     <link href="http://alpaca-tc.github.io/blog/vim/training-of-new-employee.html"/>
     <updated>2013-11-11T05:21:00+09:00</updated>
     <id>http://alpaca-tc.github.io/blog/vim/training-of-new-employee</id>
@@ -419,6 +353,114 @@ NeoBundleLazy &lsquo;terryma/vim-multiple-cursors&rsquo;, { &lsquo;autload&rsquo
 
 <p>今回紹介したプラグインは、かなりシンプルに洗練されています。
 使っているだけでも、作者の男前さを感じられる。そんなプラグインだと思います。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Vim中級者を脱する augroup編]]></title>
+    <link href="http://alpaca-tc.github.io/blog/vim/break-vim-beginners-augroup.html"/>
+    <updated>2013-11-02T02:30:00+09:00</updated>
+    <id>http://alpaca-tc.github.io/blog/vim/break-vim-beginners-augroup</id>
+    <content type="html"><![CDATA[<h2>augroup, autocmdを理解する</h2>
+
+<p><strong>所要時間 3分</strong></p>
+
+<h3>この記事を読むべき人</h3>
+
+<ul>
+<li><code>augroup</code>を理解していない人</li>
+<li><code>:source</code>コマンドを使う人</li>
+</ul>
+
+
+<h2>そもそもautocmdって？</h2>
+
+<p>これは何をしているコマンドなのか分解してみましょう。</p>
+
+<p><code>vim
+autocmd BufNewFile * echo 'This is new file'
+</code></p>
+
+<ol>
+<li>autocmdのコマンドを開始しますよ</li>
+<li><code>BufNewFile</code>というタイミングでこのコマンドを実行しますよ</li>
+<li>全てのバッファで<code>echo 'This is new file'</code>を実行しますよ</li>
+</ol>
+
+
+<p>となります。</p>
+
+<p>このように、保存時や新規のファイルといったタイミングでコマンドを実行できます。</p>
+
+<h2>では、augroupはなんのために存在するの？</h2>
+
+<p><code>augroup</code>は、<code>autocmd</code>をグループでまとめるためのコマンドです。こんな感じて使われます。</p>
+
+<p><code>vim
+augroup EditNewFile
+  autocmd!
+  autocmd BufNewFile * echo 'This is new file'
+augroup END
+</code></p>
+
+<p>例えば、<code>autocmd</code>が設定されているvimrcを、<code>:source ~/.vimrc</code>で再度読み込むとしましょう。</p>
+
+<p>するとどうなるかというと、通常は<strong><code>autocmd</code>が重複して2度設定されます</strong>
+当然、その<code>autocmd</code>が発火するときに2度実行されるので、実行が遅くなります。</p>
+
+<p>それを防ぐために<code>augroup</code>を使います。</p>
+
+<h2>ベストプラクティスは？</h2>
+
+<p>つまるところ、<code>augroup</code>は<code>autocmd</code>をまとめて初期化する場合に使用します。
+具体例を上げると、下記のような形になります。</p>
+
+<p>```vim
+augroup MyAutoCmd
+  autocmd! &ldquo; => このaugroupに紐づいたautocmdを消し去ります
+augroup END</p>
+
+<p>&hellip;</p>
+
+<p>augroup MyAutoCmd
+  autocmd BufNewFile * echo &lsquo;This is new file&rsquo;
+  autocmd BufNewFile,BufRead *.haml setf haml
+augroup END
+```</p>
+
+<p>こうすることで、2重に設定されることのない設定になります。</p>
+
+<h2>もう一歩踏み込んでみる</h2>
+
+<p>autocmdの設定方法をVimのRuntimeから学んでみましょう。</p>
+
+<p><code>vim
+:edit $VIMRUNTIME/filetype.vim
+</code></p>
+
+<p>これはファイルタイプの定義を行っているファイルです。</p>
+
+<p>augroupが宣言されているので、一覧を<code>:autocmd filetypedetect</code>でみれることが分かります。</p>
+
+<p>驚くことに、もの凄い数のコマンドを実行してファイルタイプを設定していることが分かります。</p>
+
+<h3>ftdetectを知る</h3>
+
+<p>filetype.vimにて<code>runtime! ftdetect/*.vim</code>と書かれており、<code>~/.vim/ftdetect/*</code>を読み込んでいることが分かります。</p>
+
+<p>つまり、ファイルタイプの設定は<code>ftdetect</code>以下で設定するのがベターとされています。</p>
+
+<p><code>vim
+" ~/.vim/ftdetect/coffee.vim
+autocmd BufNewFile,BufRead *.coffee    setf coffee
+</code></p>
+
+<p>といった設定にて、ファイルタイプを検出できるようになります。
+<code>augroup filetypedetect</code>の宣言内なので、グループの宣言は不要です。</p>
+
+<h2>本日の脱Vim中級者</h2>
+
+<p>vimrcでファイルタイプの検出をしている方は、<code>~/.vim/ftdetect</code>以下に設定を移してみましょう。</p>
 ]]></content>
   </entry>
   
