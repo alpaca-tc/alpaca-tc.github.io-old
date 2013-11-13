@@ -10,8 +10,7 @@
     <title>アルパカエンジニアのブログ - Vim, Ruby, Rails, SEOの技術ブログ</title>
 
     
-    <meta name="description" content="Vim中級者を脱する スコープ編 Nov 13th, 2013 Posted by 石井浩之 vim スコープというのは、有効範囲のことで いわゆるグローバル変数や、ローカル変数などと呼ばれるものです。
-個人的に、Vimで一番ハマったのがスコープの問題でした。 vimrcの修正の時に、 &hellip;">
+    <meta name="description" content="Vim中級者を脱する スコープ編 Nov 13th, 2013 Posted by 石井浩之 vim vimで一番ハマったのがスコープの問題でした。 Vimのスコープの理解がなぁなぁな、あなた。 よく登場しそうなスコープだけでも理解してみましょう。 よく見るスコープ一覧 グローバルスコープ　g &hellip;">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='アルパカエンジニアのブログ - Vim, Ruby, Rails, SEOの技術ブログ' name='title' />
@@ -28,13 +27,11 @@
 <meta property="og:url" content="http://alpaca-tc.github.io/index.html"/>
 <meta property="og:site_name" content="アルパカエンジニアのブログ"/>
 <meta property="og:email" content="alprhcp666@gmail.com"/>
-<meta property="og:description" content="Vim中級者を脱する スコープ編 Nov 13th, 2013 Posted by 石井浩之 vim スコープというのは、有効範囲のことで いわゆるグローバル変数や、ローカル変数などと呼ばれるものです。
-個人的に、Vimで一番ハマったのがスコープの問題でした。 vimrcの修正の時に、 &hellip;" />
+<meta property="og:description" content="Vim中級者を脱する スコープ編 Nov 13th, 2013 Posted by 石井浩之 vim vimで一番ハマったのがスコープの問題でした。 Vimのスコープの理解がなぁなぁな、あなた。 よく登場しそうなスコープだけでも理解してみましょう。 よく見るスコープ一覧 グローバルスコープ　g &hellip;" />
 
     <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="アルパカエンジニアのブログ - Vim, Ruby, Rails, SEOの技術ブログ">
-<meta name="twitter:description" content="Vim中級者を脱する スコープ編 Nov 13th, 2013 Posted by 石井浩之 vim スコープというのは、有効範囲のことで いわゆるグローバル変数や、ローカル変数などと呼ばれるものです。
-個人的に、Vimで一番ハマったのがスコープの問題でした。 vimrcの修正の時に、 &hellip;">
+<meta name="twitter:description" content="Vim中級者を脱する スコープ編 Nov 13th, 2013 Posted by 石井浩之 vim vimで一番ハマったのがスコープの問題でした。 Vimのスコープの理解がなぁなぁな、あなた。 よく登場しそうなスコープだけでも理解してみましょう。 よく見るスコープ一覧 グローバルスコープ　g &hellip;">
 <meta name="twitter:image" content="http://http://alpaca-tc.github.io/images/meta/site_title.png">
 
 <meta name="twitter:site" content="@">
@@ -209,23 +206,20 @@
     </header>
 
     
-      <section class="entry-content"><p>スコープというのは、有効範囲のことで</p>
+      <section class="entry-content"><p>vimで一番ハマったのが<strong>スコープの問題</strong>でした。</p>
 
-<p>いわゆるグローバル変数や、ローカル変数などと呼ばれるものです。
-個人的に、Vimで一番ハマったのが<strong>スコープの問題</strong>でした。</p>
+<p>Vimのスコープの理解がなぁなぁな、あなた。</p>
 
-<p>vimrcの修正の時に、コピーペーストばかりで何やっているのか理解できないままですよね。あなた。</p>
-
-<p>という訳で、よく登場しそうなスコープだけでも理解してみましょう。</p>
+<p>よく登場しそうなスコープだけでも理解してみましょう。</p>
 
 <h1>よく見るスコープ一覧</h1>
 
 <ul>
-<li>グローバルスコープ　<code>g:</code></li>
-<li>関数内スコープ　<code>a:</code></li>
-<li>スクリプトスコープ　<code>s:</code></li>
-<li>バッファスコープ　<code>b:</code></li>
-<li>接頭辞なし　<code>let huga=...</code>など</li>
+<li><em>グローバル</em>スコープ　<code>g:</code></li>
+<li><em>関数内</em>スコープ　<code>a:</code></li>
+<li><em>スクリプト</em>スコープ　<code>s:</code></li>
+<li><em>バッファ</em>スコープ　<code>b:</code></li>
+<li><em>接頭辞なし</em>　<code>let huga=...</code>など</li>
 </ul>
 
 
@@ -238,7 +232,7 @@
 <p><code>let g:neocomplete#enable_at_startup = 1</code></p>
 
 <p>変数を初期化するには、次のようにします。
-大量のエラーコードによって操作できなくなるので<em>、嫌いな人のvimrcの末尾に書き込んでください。</em></p>
+大量のエラーコードによって操作できなくなるので、<strong>嫌いな人のvimrcの末尾に書き込んでください。</strong></p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -249,7 +243,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h2><code>a:</code>スコープ</h2>
+<h2>関数内(a:)スコープ</h2>
 
 <p><strong>関数内で、引数を参照するときに使用するスコープ</strong></p>
 
@@ -265,20 +259,20 @@
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">function</span><span class="p">!</span> <span class="k">g</span>:huga<span class="p">(</span><span class="k">a</span><span class="p">,</span> <span class="k">b</span><span class="p">)</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">function</span><span class="p">!</span> Huga<span class="p">(</span><span class="k">first</span><span class="p">,</span> second<span class="p">)</span>
 </span><span class='line'>  echo <span class="k">a</span>:
-</span><span class='line'><span class="c">  &quot;=&gt; {&#39;0&#39;: 0, &#39;000&#39;: [], &#39;b&#39;: &#39;b&#39;, &#39;a&#39;: &#39;a&#39;, &#39;firstline&#39;: 5, &#39;lastline&#39;: 5}</span>
-</span><span class='line'>  echo <span class="k">a</span>:<span class="k">b</span>
+</span><span class='line'><span class="c">  &quot;=&gt; {&#39;0&#39;: 0, &#39;000&#39;: [], &#39;second&#39;: &#39;b&#39;, &#39;first&#39;: &#39;a&#39;, &#39;firstline&#39;: 5, &#39;lastline&#39;: 5}</span>
+</span><span class='line'>  echo <span class="k">a</span>:<span class="k">first</span>
 </span><span class='line'><span class="c">  &quot;=&gt; &#39;b&#39;</span>
 </span><span class='line'><span class="k">endfunction</span>
 </span><span class='line'>
-</span><span class='line'><span class="k">call</span> <span class="k">g</span>:huga<span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="k">call</span> Huga<span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p><em>あー、なるほど関数内でだけ有効なスコープなのか。</em></p>
+<p>あーなるほど、<strong>関数内でだけ有効なスコープなのか。</strong></p>
 
-<p>と思っていたらそれも間違い。</p>
+<p>と思っていたらそれも<em>間違い</em>。</p>
 
 <p>下記のようにすると、<strong>グローバルなスコープとして参照できます。</strong></p>
 
@@ -287,17 +281,11 @@
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">function</span><span class="p">!</span> <span class="k">a</span>:huga<span class="p">(</span><span class="k">a</span><span class="p">,</span> <span class="k">b</span><span class="p">)</span>
-</span><span class='line'>  echo <span class="k">a</span>:
-</span><span class='line'><span class="c">  &quot;=&gt; {&#39;0&#39;: 0, &#39;000&#39;: [], &#39;b&#39;: &#39;b&#39;, &#39;a&#39;: &#39;a&#39;, &#39;firstline&#39;: 5, &#39;lastline&#39;: 5}</span>
-</span><span class='line'>  echo <span class="k">a</span>:<span class="k">b</span>
-</span><span class='line'><span class="c">  &quot;=&gt; &#39;b&#39;</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">function</span><span class="p">!</span> <span class="k">a</span>:huga<span class="p">()</span>
+</span><span class='line'>  echo <span class="s1">&#39;Global!?!?!?&#39;</span>
 </span><span class='line'><span class="k">endfunction</span>
 </span><span class='line'>
-</span><span class='line'><span class="k">call</span> <span class="k">a</span>:huga<span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="k">call</span> <span class="k">a</span>:huga<span class="p">()</span> <span class="c">&quot; =&gt; Global!?!?!?</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -322,15 +310,13 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>この<code>s:</code>は、スクリプトがsourceされるときに置き換えられます。</p>
-
-<p><code>&lt;SNR&gt;1_...</code>という感じの形になります。</p>
+<p>この<code>s:</code>は、スクリプトがsourceされるときに置き換えられ、<code>&lt;SNR&gt;1_...</code>という感じの形になります。</p>
 
 <p>えぇ、そうです。すると、<strong>グローバルなスコープとして参照できます。</strong></p>
 
 <p>この<code>&lt;SNR&gt;</code>の後にどの数値が割り振られているかは、<code>:scriptnames</code>で参照できます。</p>
 
-<p><code>s:</code>は<code>&lt;SID&gt;</code>として使えば、グローバルで使えます。</p>
+<p>また、<code>s:</code>は<code>&lt;SID&gt;</code>として使えばスコープを超えて使用できるようになります。</p>
 
 <p>マッピングの時に、scriptスコープを使う時などは必須ですね。</p>
 
@@ -355,13 +341,11 @@
 
 <p>Uniteのデバッグするときには、<code>echo b:unite.candidates</code>などを参照しましょう。</p>
 
-<p>そして、バッファが削除される<code>:bdelete</code>のタイミングで消去されます。</p>
-
 <p>あぁ、ようやくまともなスコープだ。</p>
 
-<h2><code>let huga=...</code>などの接頭辞なし変数</h2>
+<h2>接頭辞なし(<code>let huga=</code>)変数</h2>
 
-<p>えぇ。<strong>グローバルなスコープとして参照できます。</strong></p>
+<p>えぇ。<strong>グローバルなスコープです。</strong></p>
 
 <p>お前もか！</p>
 
@@ -377,8 +361,8 @@
 
 <ul>
 <li>スコープは<strong>ほとんどグローバルで参照できる</strong></li>
-<li>getbufvar()やgettabvar()などでスコープへアクセス出来るため、<strong>聖域はほとんど無い</strong></li>
 <li>VimLは枠にハマらない<strong>素敵な</strong>言語仕様を持っている</li>
+<li>getbufvar()などでスコープへアクセス出来るため、<strong>聖域はほとんど無い</strong></li>
 </ul>
 
 
