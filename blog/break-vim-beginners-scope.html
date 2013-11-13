@@ -1,0 +1,480 @@
+
+
+  
+
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>Vim中級者を脱する スコープ編 | アルパカエンジニアのブログ</title>
+
+    
+    <meta name="description" content="スコープというのは、宣言の場所により決定される変数やプロシ-ジャの有効範囲ということで いわゆるグローバル変数や、ローカル変数などと呼ばれるものです。
+個人的に、Vimプラグインを作り始めて一番ハマったのがスコープの問題でした。 vimrcの修正の時に、 &hellip;">
+    
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+    <meta content='Vim中級者を脱する スコープ編 | アルパカエンジニアのブログ' name='title' />
+
+    
+  <link rel="author" href="https://plus.google.com/105581201951227096827" />
+  <link rel="publisher" href="https://plus.google.com/105581201951227096827" />
+
+
+    <meta property="og:title" content='Vim中級者を脱する スコープ編 | アルパカエンジニアのブログ' />
+<meta property="og:locale" content="ja"/>
+<meta property="og:image" content="http://http://alpaca-tc.github.io/images/meta/site_title.png"/>
+<meta property="og:type" content="blog"/>
+<meta property="og:url" content="http://alpaca-tc.github.io/blog/break-vim-beginners-scope.html"/>
+<meta property="og:site_name" content="アルパカエンジニアのブログ"/>
+<meta property="og:email" content="alprhcp666@gmail.com"/>
+<meta property="og:description" content="スコープというのは、宣言の場所により決定される変数やプロシ-ジャの有効範囲ということで いわゆるグローバル変数や、ローカル変数などと呼ばれるものです。
+個人的に、Vimプラグインを作り始めて一番ハマったのがスコープの問題でした。 vimrcの修正の時に、 &hellip;" />
+
+    <meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vim中級者を脱する スコープ編 | アルパカエンジニアのブログ">
+<meta name="twitter:description" content="スコープというのは、宣言の場所により決定される変数やプロシ-ジャの有効範囲ということで いわゆるグローバル変数や、ローカル変数などと呼ばれるものです。
+個人的に、Vimプラグインを作り始めて一番ハマったのがスコープの問題でした。 vimrcの修正の時に、 &hellip;">
+<meta name="twitter:image" content="http://http://alpaca-tc.github.io/images/meta/site_title.png">
+
+<meta name="twitter:site" content="@">
+<meta name="twitter:creator" content="@">
+
+
+    <link rel="canonical" href="">
+    <link href="/favicon.png" rel="icon">
+    <!-- <link rel="apple&#45;touch&#45;icon" href="icon.png" /> -->
+    <link href="/atom.xml" rel="alternate" title="アルパカエンジニアのブログ" type="application/atom+xml">
+    <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="/stylesheets/common.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="/stylesheets/page.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="/stylesheets/multi_screen.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="/stylesheets/screen.css" type="text/css" media="all"/>
+
+    <script type="text/javascript" src="//typesquare.com/accessor/script/typesquare.js?l~JsLTo7f1A%3D" charset="utf-8"></script>
+    <script src="/javascripts/modernizr-2.0.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!-- <script>!window.jQuery &#38;&#38; document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script> -->
+    <meta name="google-site-verification" content="thSL3cUT7BV1-AENglRFIF-kv6I85JJ6_iUGAU8GaQI" />
+    <!--[if lte IE 8]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    
+    
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-44082439-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+  </head>
+
+  <body>
+    <script type="text/javascript">
+  var load_javascript_async = function(id, url){
+    var js, fjs = document.getElementsByTagName('script')[0];
+    if (!document.getElementById(id)) {
+      js = document.createElement('script');
+      js.id = id;
+      js.src = url;
+      fjs.parentNode.insertBefore(js, fjs);
+    }
+  };
+</script>
+
+
+  <script type="text/javascript">
+    window.___gcfg = {
+      lang: '',
+    };
+    load_javascript_async('google_plus_one_js', 'https://apis.google.com/js/plusone.js')
+  </script>
+
+
+
+  <script type="text/javascript">load_javascript_async('facebook_jssdk', '//connect.facebook.net/ja_JP/all.js#xfbml=1&appId=224701561024840')</script>
+
+
+
+  <script type="text/javascript">load_javascript_async('twitter_wjs', '//platform.twitter.com/widgets.js')</script>
+
+
+
+  <script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+
+    <div id="header_top" class="outer_envelope clearfix">
+      <header>        <div class="inner_wrapper clearfix">
+          <div class="inner clearfix">
+            <div id="logo">
+              
+                <h1 id="site_title"><a href=".">Vim中級者を脱する スコープ編</a><br/><a class="small" href="/">Alpaca Engineer's Blog</a></h1>
+              
+            </div>
+
+            <nav id="header_nav">
+              <ul class="clearfix">
+                <li>
+                  <a href="/about-me">About Me</a>
+                </li>
+                <li>
+                  <a href="/blog/archives/">Blog</a>
+                </li>
+                <li>
+                  <a href="/works/">Works</a>
+                </li>
+                <li>
+                  <a target="_blank" href="https://gihtub.com/alpaca-tc">GitHub</a>
+                </li>
+                <li>
+                  <a target="_blank" href="https://twitter.com/alpaca_taichou">Twitter</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+</header>
+
+      <div id="main_contents">
+        <div class="inner_wrapper">
+          <div class="inner">
+            <article class="post_row">
+  <div class="inner">
+    <header class="field-items">
+      
+        <h1>
+          
+            
+              Vim中級者を脱する スコープ編
+          
+        </h1>
+      
+
+      
+        <section class="meta">
+          <div class="inner">
+            
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2013-11-13T17:26:00+09:00" pubdate data-updated="true">Nov 13<span>th</span>, 2013</time>
+            
+  
+
+<span class="byline author">Posted by 石井浩之</span>
+
+            
+
+
+
+
+            
+          </div>
+        </section>
+      
+    </header>
+
+    
+      <section class="entry-content"><p>スコープというのは、<code>宣言の場所により決定される変数やプロシ-ジャの有効範囲</code>ということで</p>
+
+<p>いわゆるグローバル変数や、ローカル変数などと呼ばれるものです。
+個人的に、Vimプラグインを作り始めて一番ハマったのが<strong>スコープの問題</strong>でした。</p>
+
+<p>vimrcの修正の時に、コピーペーストばかりしていると自分でも何やっているのか理解できないままですよね。</p>
+
+<p>という訳で、よく登場しそうなスコープを少し理解してみましょう。</p>
+
+<h2>よく見るスコープ一覧</h2>
+
+<ul>
+<li><code>g:</code>グローバルスコープ</li>
+<li><code>a:</code>関数内スコープ</li>
+<li><code>s:</code>スクリプトスコープ</li>
+<li><code>b:</code>バッファスコープ</li>
+<li><code>let huga=...</code>などの接頭辞なし変数</li>
+</ul>
+
+
+<h3><code>g:</code>スコープ</h3>
+
+<p><code>let g:neocomplete#enable_at_startup = 1</code></p>
+
+<p>こんな感じで、プラグインの設定にはよく使われるスコープです。
+見てのとおり、<strong>グローバルなスコープとしてどこでも参照できます。</strong></p>
+
+<p>スコープの変数を初期化するには、下記のようなコードを使います。
+プラグインによる大量のエラーコードによって操作できなくなるので、嫌いな人のvimrcの末尾に書き込んでください。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">for</span> <span class="nb">key</span> <span class="k">in</span> keys<span class="p">(</span><span class="k">g</span>:<span class="p">)</span>
+</span><span class='line'>  execute <span class="s1">&#39;unlet g:&#39;</span> . <span class="nb">key</span>
+</span><span class='line'><span class="k">endfor</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3><code>a:</code>スコープ</h3>
+
+<p>個人的に一番理解しがたいスコープです。
+関数内で、引数を参照するときに使用するスコープ</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">function</span><span class="p">!</span> <span class="k">g</span>:huga<span class="p">(</span><span class="k">a</span><span class="p">,</span> <span class="k">b</span><span class="p">)</span>
+</span><span class='line'>  echo <span class="k">a</span>:
+</span><span class='line'><span class="c">  &quot;=&gt; {&#39;0&#39;: 0, &#39;000&#39;: [], &#39;b&#39;: &#39;b&#39;, &#39;a&#39;: &#39;a&#39;, &#39;firstline&#39;: 5, &#39;lastline&#39;: 5}</span>
+</span><span class='line'>  echo <span class="k">a</span>:<span class="k">b</span>
+</span><span class='line'><span class="c">  &quot;=&gt; &#39;b&#39;</span>
+</span><span class='line'><span class="k">endfunction</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">call</span> <span class="k">g</span>:huga<span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>こんな感じで使います。他言語から移ってきた人には、正直使いづらい。
+あー、なるほど関数内でだけ有効なスコープなのか。と思っていたらそれも間違い。</p>
+
+<p>下記のようにすると、<strong>グローバルなスコープとして参照できます。</strong></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">function</span><span class="p">!</span> <span class="k">a</span>:huga<span class="p">(</span><span class="k">a</span><span class="p">,</span> <span class="k">b</span><span class="p">)</span>
+</span><span class='line'>  echo <span class="k">a</span>:
+</span><span class='line'><span class="c">  &quot;=&gt; {&#39;0&#39;: 0, &#39;000&#39;: [], &#39;b&#39;: &#39;b&#39;, &#39;a&#39;: &#39;a&#39;, &#39;firstline&#39;: 5, &#39;lastline&#39;: 5}</span>
+</span><span class='line'>  echo <span class="k">a</span>:<span class="k">b</span>
+</span><span class='line'><span class="c">  &quot;=&gt; &#39;b&#39;</span>
+</span><span class='line'><span class="k">endfunction</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">call</span> <span class="k">a</span>:huga<span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>けれど、<code>echo a:</code>は動かない。
+僕には真実が分からない。</p>
+
+<h3><code>s:</code>スコープ</h3>
+
+<p>scriptのファイル内でのみ有効なスコープです。
+プラグインで、プライベートなメソッドや定数を作るときによく使います。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">let</span> <span class="k">s</span>:script_scope <span class="p">=</span> <span class="s1">&#39;外部からは参照できない&#39;</span>
+</span><span class='line'><span class="k">function</span><span class="p">!</span> <span class="k">s</span>:script_scope_method<span class="p">()</span>
+</span><span class='line'><span class="c">  &quot; プライベートメソッドとしてよく使われる</span>
+</span><span class='line'><span class="k">endfunction</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>実は、この<code>s:</code>から始まる関数は、スクリプトがsourceされるときに置き換えられます。
+<code>&lt;SNR&gt;1_script_scope_method</code>という感じの形になります。
+えぇ、そうです。<strong>グローバルなスコープとして参照できます。</strong></p>
+
+<p>この<code>&lt;SNR&gt;</code>の後にどの数値が割り振られているかは、<code>:scriptnames</code>で参照できます。</p>
+
+<p>あるいは、こんな感じでも取得できます。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">function</span> <span class="k">s</span>:SID<span class="p">()</span>
+</span><span class='line'>  <span class="k">return</span> matchstr<span class="p">(</span>expand<span class="p">(</span><span class="s1">&#39;&lt;sfile&gt;&#39;</span><span class="p">),</span> <span class="s1">&#39;&lt;SNR&gt;\zs\d\+\ze_SID$&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="k">endfun</span>
+</span><span class='line'>echo <span class="k">s</span>:SID<span class="p">()</span> &quot;<span class="p">=&gt;</span> <span class="m">244</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>s:SID()</code>は<code>&lt;SID&gt;SID()</code>としても使えて、<code>&lt;SNR&gt;...</code>に置き換わるのでグローバルで使えます。
+マッピングの時に、scriptスコープを使いたかったら必須ですね。</p>
+
+<p><code>nnoremap s :echo &lt;SID&gt;SID()&lt;CR&gt;</code></p>
+
+<p>ただし、s:変数は基本的には聖域です。
+あーややこしい!!!</p>
+
+<h3><code>b:</code>スコープ</h3>
+
+<p>バッファ単位のスコープです。
+ファイルタイプによる設定や、一時バッファによるプラグインの変数などはこのスコープを使います。</p>
+
+<ul>
+<li>ファイルタイプの変更をしたら&hellip;<code>b:current_syntax</code>, <code>b:did_ft_plugin</code>, <code>b:did_indent</code>etcが初期化&amp;格納されます</li>
+<li>Uniteを起動したら<code>b:unite</code>に、VimShellを起動したら<code>b:vimshell</code>にデータが格納されます。</li>
+</ul>
+
+
+<p>Uniteのデバッグするときには、<code>echo b:unite.candidates</code>などを参照しましょう。</p>
+
+<p>バッファが削除される<code>:bdelete</code>のタイミングで消去されます。
+あぁ、ようやくまともなスコープだ。</p>
+
+<h3><code>let huga=...</code>などの接頭辞なし変数</h3>
+
+<p>えぇ。<strong>グローバルなスコープとして参照できます。</strong>
+お前もか！</p>
+
+<p>マナーとしては、やはり<code>g:</code>で宣言したいところですが、
+Vimにデフォルトで入っているプラグインは、容赦なくこの変数を使ってきます。</p>
+
+<p><code>:echo loaded_*&lt;Tab&gt;</code>などすれば、奴らを見つけられるはずです。</p>
+
+<p>細かいことを言えば、関数内ならばローカルスコープです。
+あるいは、ペチパーには理解しやすいスコープなのかもしれません。</p>
+
+<h2>スコープのまとめ</h2>
+
+<ul>
+<li>スコープは<strong>ほとんどグローバルで参照できる</strong></li>
+<li>getbufvar()やgettabvar()などでスコープへアクセス出来るため、聖域はほとんど無い</li>
+<li>VimLは枠にハマらない言語仕様を持っている</li>
+</ul>
+
+
+<p><strong>正直今でも理解出来ていない</strong></p>
+</section>
+    
+
+    
+      
+  
+
+
+
+
+
+
+<section class="sharing clearfix">
+  <div class="button hatena_bookmark_button">
+    <a href="http://b.hatena.ne.jp/entry/http://alpaca-tc.github.io/blog/break-vim-beginners-scope.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
+Vim中級者を脱する スコープ編 | アルパカエンジニアのブログアルパカエンジニアのブログ - Vim, Ruby, Rails, SEOの技術ブログ
+" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
+      <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+    </a>
+  </div>
+
+  <div class="button ft_like_button">
+    <div class="fb-like" data-href="http://alpaca-tc.github.io/blog/break-vim-beginners-scope.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
+  </div>
+
+  <div class="button google_plus_button_like">
+    <div data-annotation="none" data-href="http://alpaca-tc.github.io/blog/break-vim-beginners-scope.html" class="g-plusone" data-size="medium" ></div>
+  </div>
+
+  <div class="button twitter_button">
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca-tc.github.io/blog/break-vim-beginners-scope.html" data-via="alpaca_taichou" data-counturl="http://alpaca-tc.github.io/blog/break-vim-beginners-scope.html" >Tweet</a>
+  </div>
+</section>
+
+    
+  </div>
+</article>
+
+
+
+            <div class="pagination meta clearfix">
+  
+    <div class="arrow_block left_block">
+      <a class="basic-alignment" href="/blog/how-to-use-tern-vim.html" title="Previous Post: JavaScript補完プラグインのTernがすごい">&laquo; JavaScript補完プラグインのTernがすごい</a>
+    </div>
+  
+  
+</p>
+
+
+            
+
+
+
+          </div><!-- /div.inner -->
+        </div>
+      </div>
+
+      <footer role="contentinfo">        <div class="inner_wrapper">
+          <div class="inner">
+            <div id="go_to_top" class="clearfix">
+              <p><a href="#header_top">Go to Top</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="inner_wrapper">
+          <div class="inner">
+            <div id="footer_link" class="clearfix">
+              <nav id="footer_nav">
+                <ul class="clearfix">
+                  <li>
+                    <a href="/about-me">About Me</a>
+                  </li>
+                  <li>
+                    <a href="/blog/">Blog</a>
+                  </li>
+                  <li>
+                    <a href="/works/">Works</a>
+                  </li>
+                </ul>
+              </nav>
+
+              <nav id="footer_social_link">
+                <ul class="clearfix">
+                  <li class="qiita">
+                    <a href="mailto:alprhcp666@gmail.com">
+                      <img src="/images/social/icon_mail.png" alt="Send mail to alpaca-tc">
+                    </a>
+                  </li>
+                  <li class="github">
+                    <a target="_blank" href="https://gihtub.com/alpaca-tc">
+                      <img src="/images/social/icon_github.png" alt="Github @alpaca-tc">
+                    </a>
+                  </li>
+                  <li class="twitter">
+                    <a target="_blank" href="https://twitter.com/alpaca_taichou">
+                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_taichou">
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+
+            </div>
+          </div>
+        </div>
+        <div id="footer_mark">
+          <small>&nbsp;&copy; 2013, alpaca-tc.github.io</small>
+        </div>
+</footer>
+    </div>
+  </body>
+</html>

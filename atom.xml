@@ -4,7 +4,7 @@
   <title><![CDATA[アルパカエンジニアのブログ]]></title>
   <link href="http://alpaca-tc.github.io/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-11-13T17:00:07+09:00</updated>
+  <updated>2013-11-13T18:18:10+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,186 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Vim中級者を脱する スコープ編]]></title>
+    <link href="http://alpaca-tc.github.io/blog/break-vim-beginners-scope.html"/>
+    <updated>2013-11-13T17:26:00+09:00</updated>
+    <id>http://alpaca-tc.github.io/blog/break-vim-beginners-scope</id>
+    <content type="html"><![CDATA[<p>スコープというのは、<code>宣言の場所により決定される変数やプロシ-ジャの有効範囲</code>ということで</p>
+
+<p>いわゆるグローバル変数や、ローカル変数などと呼ばれるものです。
+個人的に、Vimプラグインを作り始めて一番ハマったのが<strong>スコープの問題</strong>でした。</p>
+
+<p>vimrcの修正の時に、コピーペーストばかりしていると自分でも何やっているのか理解できないままですよね。</p>
+
+<p>という訳で、よく登場しそうなスコープを少し理解してみましょう。</p>
+
+<h2>よく見るスコープ一覧</h2>
+
+<ul>
+<li><code>g:</code>グローバルスコープ</li>
+<li><code>a:</code>関数内スコープ</li>
+<li><code>s:</code>スクリプトスコープ</li>
+<li><code>b:</code>バッファスコープ</li>
+<li><code>let huga=...</code>などの接頭辞なし変数</li>
+</ul>
+
+
+<h3><code>g:</code>スコープ</h3>
+
+<p><code>let g:neocomplete#enable_at_startup = 1</code></p>
+
+<p>こんな感じで、プラグインの設定にはよく使われるスコープです。
+見てのとおり、<strong>グローバルなスコープとしてどこでも参照できます。</strong></p>
+
+<p>スコープの変数を初期化するには、下記のようなコードを使います。
+プラグインによる大量のエラーコードによって操作できなくなるので、嫌いな人のvimrcの末尾に書き込んでください。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">for</span> <span class="nb">key</span> <span class="k">in</span> keys<span class="p">(</span><span class="k">g</span>:<span class="p">)</span>
+</span><span class='line'>  execute <span class="s1">&#39;unlet g:&#39;</span> . <span class="nb">key</span>
+</span><span class='line'><span class="k">endfor</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3><code>a:</code>スコープ</h3>
+
+<p>個人的に一番理解しがたいスコープです。
+関数内で、引数を参照するときに使用するスコープ</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">function</span><span class="p">!</span> <span class="k">g</span>:huga<span class="p">(</span><span class="k">a</span><span class="p">,</span> <span class="k">b</span><span class="p">)</span>
+</span><span class='line'>  echo <span class="k">a</span>:
+</span><span class='line'><span class="c">  &quot;=&gt; {&#39;0&#39;: 0, &#39;000&#39;: [], &#39;b&#39;: &#39;b&#39;, &#39;a&#39;: &#39;a&#39;, &#39;firstline&#39;: 5, &#39;lastline&#39;: 5}</span>
+</span><span class='line'>  echo <span class="k">a</span>:<span class="k">b</span>
+</span><span class='line'><span class="c">  &quot;=&gt; &#39;b&#39;</span>
+</span><span class='line'><span class="k">endfunction</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">call</span> <span class="k">g</span>:huga<span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>こんな感じで使います。他言語から移ってきた人には、正直使いづらい。
+あー、なるほど関数内でだけ有効なスコープなのか。と思っていたらそれも間違い。</p>
+
+<p>下記のようにすると、<strong>グローバルなスコープとして参照できます。</strong></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">function</span><span class="p">!</span> <span class="k">a</span>:huga<span class="p">(</span><span class="k">a</span><span class="p">,</span> <span class="k">b</span><span class="p">)</span>
+</span><span class='line'>  echo <span class="k">a</span>:
+</span><span class='line'><span class="c">  &quot;=&gt; {&#39;0&#39;: 0, &#39;000&#39;: [], &#39;b&#39;: &#39;b&#39;, &#39;a&#39;: &#39;a&#39;, &#39;firstline&#39;: 5, &#39;lastline&#39;: 5}</span>
+</span><span class='line'>  echo <span class="k">a</span>:<span class="k">b</span>
+</span><span class='line'><span class="c">  &quot;=&gt; &#39;b&#39;</span>
+</span><span class='line'><span class="k">endfunction</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">call</span> <span class="k">a</span>:huga<span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>けれど、<code>echo a:</code>は動かない。
+僕には真実が分からない。</p>
+
+<h3><code>s:</code>スコープ</h3>
+
+<p>scriptのファイル内でのみ有効なスコープです。
+プラグインで、プライベートなメソッドや定数を作るときによく使います。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">let</span> <span class="k">s</span>:script_scope <span class="p">=</span> <span class="s1">&#39;外部からは参照できない&#39;</span>
+</span><span class='line'><span class="k">function</span><span class="p">!</span> <span class="k">s</span>:script_scope_method<span class="p">()</span>
+</span><span class='line'><span class="c">  &quot; プライベートメソッドとしてよく使われる</span>
+</span><span class='line'><span class="k">endfunction</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>実は、この<code>s:</code>から始まる関数は、スクリプトがsourceされるときに置き換えられます。
+<code>&lt;SNR&gt;1_script_scope_method</code>という感じの形になります。
+えぇ、そうです。<strong>グローバルなスコープとして参照できます。</strong></p>
+
+<p>この<code>&lt;SNR&gt;</code>の後にどの数値が割り振られているかは、<code>:scriptnames</code>で参照できます。</p>
+
+<p>あるいは、こんな感じでも取得できます。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">function</span> <span class="k">s</span>:SID<span class="p">()</span>
+</span><span class='line'>  <span class="k">return</span> matchstr<span class="p">(</span>expand<span class="p">(</span><span class="s1">&#39;&lt;sfile&gt;&#39;</span><span class="p">),</span> <span class="s1">&#39;&lt;SNR&gt;\zs\d\+\ze_SID$&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="k">endfun</span>
+</span><span class='line'>echo <span class="k">s</span>:SID<span class="p">()</span> &quot;<span class="p">=&gt;</span> <span class="m">244</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>s:SID()</code>は<code>&lt;SID&gt;SID()</code>としても使えて、<code>&lt;SNR&gt;...</code>に置き換わるのでグローバルで使えます。
+マッピングの時に、scriptスコープを使いたかったら必須ですね。</p>
+
+<p><code>nnoremap s :echo &lt;SID&gt;SID()&lt;CR&gt;</code></p>
+
+<p>ただし、s:変数は基本的には聖域です。
+あーややこしい!!!</p>
+
+<h3><code>b:</code>スコープ</h3>
+
+<p>バッファ単位のスコープです。
+ファイルタイプによる設定や、一時バッファによるプラグインの変数などはこのスコープを使います。</p>
+
+<ul>
+<li>ファイルタイプの変更をしたら&hellip;<code>b:current_syntax</code>, <code>b:did_ft_plugin</code>, <code>b:did_indent</code>etcが初期化&amp;格納されます</li>
+<li>Uniteを起動したら<code>b:unite</code>に、VimShellを起動したら<code>b:vimshell</code>にデータが格納されます。</li>
+</ul>
+
+
+<p>Uniteのデバッグするときには、<code>echo b:unite.candidates</code>などを参照しましょう。</p>
+
+<p>バッファが削除される<code>:bdelete</code>のタイミングで消去されます。
+あぁ、ようやくまともなスコープだ。</p>
+
+<h3><code>let huga=...</code>などの接頭辞なし変数</h3>
+
+<p>えぇ。<strong>グローバルなスコープとして参照できます。</strong>
+お前もか！</p>
+
+<p>マナーとしては、やはり<code>g:</code>で宣言したいところですが、
+Vimにデフォルトで入っているプラグインは、容赦なくこの変数を使ってきます。</p>
+
+<p><code>:echo loaded_*&lt;Tab&gt;</code>などすれば、奴らを見つけられるはずです。</p>
+
+<p>細かいことを言えば、関数内ならばローカルスコープです。
+あるいは、ペチパーには理解しやすいスコープなのかもしれません。</p>
+
+<h2>スコープのまとめ</h2>
+
+<ul>
+<li>スコープは<strong>ほとんどグローバルで参照できる</strong></li>
+<li>getbufvar()やgettabvar()などでスコープへアクセス出来るため、聖域はほとんど無い</li>
+<li>VimLは枠にハマらない言語仕様を持っている</li>
+</ul>
+
+
+<p><strong>正直今でも理解出来ていない</strong></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[JavaScript補完プラグインのTernがすごい]]></title>
