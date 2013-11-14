@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: learning_vim | アルパカエンジニアのブログ]]></title>
+  <link href="http://alpaca-tc.github.io/blog/learning-vim/atom.xml" rel="self"/>
+  <link href="http://alpaca-tc.github.io/"/>
+  <updated>2013-11-15T07:35:53+09:00</updated>
+  <id>http://alpaca-tc.github.io/</id>
+  <author>
+    <name><![CDATA[alpaca-tc]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[そろそろVimを使いこなせるようになりたい。]]></title>
+    <link href="http://alpaca-tc.github.io/blog/learning_vim/i-begin-to-learn-vim.html"/>
+    <updated>2013-11-15T06:58:00+09:00</updated>
+    <id>http://alpaca-tc.github.io/blog/learning_vim/i-begin-to-learn-vim</id>
+    <content type="html"><![CDATA[<h1><strong>「俺、ちゃんとVimやるわ」</strong></h1>
+
+<p>&hellip;と、夏の途中に宣言してからというもの、</p>
+
+<p>「仕事がー」、「友達がー」、「本をー」と、何かと理由をつけて結局やってませんでした。。。</p>
+
+<p>m(_ _)m &lt; 怠惰な人間です。クズです。生きててすみません。。。</p>
+
+<p>はい。</p>
+
+<p>今日からちゃんとVimと向き合いたいと思います。</p>
+
+<h2>そして、僕は2歳のころの時代へ&hellip;</h2>
+
+<p><img class="image_on_frame center" src="/images/blog/2013_11_15.png" title="The version of Vim" ></p>
+
+<p>1994年というと、僕がおもらしをして20万円ぐらいするPCを破壊したぐらいの時期でしょうか。</p>
+
+<p>これから、VimをVersion4に向けて再構築していきたいと思います。</p>
+]]></content>
+  </entry>
+  
+</feed>
+
+
+
