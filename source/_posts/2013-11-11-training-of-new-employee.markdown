@@ -16,6 +16,8 @@ categories: vim
 
 **[assignment.vim](https://github.com/enfactv/assignment)**
 
+<!-- more -->
+
 インストールはごく簡単です。
 
 ```vim

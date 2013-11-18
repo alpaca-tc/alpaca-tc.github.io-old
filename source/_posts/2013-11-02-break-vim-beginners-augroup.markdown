@@ -15,6 +15,8 @@ categories: vim
 - `augroup`を理解していない人
 - `:source`コマンドを使う人
 
+<!-- more -->
+
 ## そもそもautocmdって？
 
 これは何をしているコマンドなのか分解してみましょう。

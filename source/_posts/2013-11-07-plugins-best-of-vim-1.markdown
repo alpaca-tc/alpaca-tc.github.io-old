@@ -8,6 +8,8 @@ categories: vim
 
 普段使っているプラグインの中で、*これはイケてる！*と思ったプラグインを4つ紹介。
 
+<!-- more -->
+
 ## [auto-pairs](https://github.com/jiangmiao/auto-pairs)
 
 - `{}`、`()`などの、対応する文字を*自働入力*

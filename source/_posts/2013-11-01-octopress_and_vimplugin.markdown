@@ -11,6 +11,8 @@ Octopressは利用者が一部なので、デフォルトのVimではなにも�
 
 最低限下記のプラグインぐらいは入れておきましょう。
 
+<!-- more -->
+
 ## [vim-liquid](https://github.com/tpope/vim-liquid)
 
 `liquid`はoctopress(jekyll)で採用されているテンプレートエンジンです。

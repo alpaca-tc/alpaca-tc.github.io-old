@@ -8,6 +8,8 @@ categories: [vim, alpaca_octopress]
 
 昨日言った通り、今は[alpaca_octopress.vim](https://github.com/alpaca-tc/alpaca_octopress.vim)を作っています
 
+<!-- more -->
+
 ブランチは`v0.3`が最新ですね。
 
 ## 使い方

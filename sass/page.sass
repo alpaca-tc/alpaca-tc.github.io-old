@@ -49,9 +49,12 @@
       h1
         padding-left: $space_width
         padding-right: $space_width
+        &, & > a
+          color: black
+          text-decoration: none
 
     .inner
-      .entry-content
+      .entry-content, .article_footer
         =using_margin_instead_of_padding
           padding-left: 0px
           padding-right: 0px

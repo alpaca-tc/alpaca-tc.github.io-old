@@ -40,20 +40,17 @@
       {% capture excerpted %}{{ content | has_excerpt }}{% endcapture %}
 
       {% if excerpted == 'true' %}
-        <footer>
-          <div class="field-items">
-            <div class="field-item even"><a href="http://blog.amazeelabs.com/en/essence-web-week-issue-84#comments">Comments</a>
-            </div>
-          </div>
+        <footer class="article_footer">
+          {% include post/read_more.html %}
         </footer>
       {% endif %}
     {% else %}
       <section class="entry-content">{{ content }}</section>
     {% endif %}
 
-    {% unless page.sharing == false %}
-      {% include post/sharing.html %}
-    {% endunless %}
+    <!-- {#% unless page.sharing == false %} -->
+    <!--   {#% include post/sharing.html %} -->
+    <!-- {#% endunless %} -->
   </div>
 </article>
 

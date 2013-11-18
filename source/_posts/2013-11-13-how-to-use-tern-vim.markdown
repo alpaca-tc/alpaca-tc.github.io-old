@@ -11,6 +11,8 @@ categories: vim
 ダサい。イケてない。
 あぁ、残念。
 
+<!-- more -->
+
 [Tern](https://github.com/marijnh/tern)は、marijnhという凄いエンジニアの人が作っている**JavaScriptの動的補完プラグイン**
 
 コードを動的にパースして、今カーソルがある変数の型まで調べて補完しちゃってくれる。
