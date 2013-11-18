@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vim | アルパカエンジニアのブログ]]></title>
   <link href="http://alpaca-tc.github.io/blog/vim/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-11-15T07:39:15+09:00</updated>
+  <updated>2013-11-19T07:43:02+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -23,6 +23,9 @@
 <p>vimrcのコピペばかりの、あなた。</p>
 
 <p>せめて、よく登場するスコープだけでも理解してみましょう。</p>
+
+<!-- more -->
+
 
 <h1>よく見るスコープ一覧</h1>
 
@@ -171,6 +174,9 @@ nnoremap s :echo &lt;SID&gt;SID()&lt;CR&gt;
 <p>ダサい。イケてない。
 あぁ、残念。</p>
 
+<!-- more -->
+
+
 <p><a href="https://github.com/marijnh/tern">Tern</a>は、marijnhという凄いエンジニアの人が作っている<strong>JavaScriptの動的補完プラグイン</strong></p>
 
 <p>コードを動的にパースして、今カーソルがある変数の型まで調べて補完しちゃってくれる。</p>
@@ -209,6 +215,9 @@ if has(&lsquo;python&rsquo;) &amp;&amp; executable(&lsquo;npm&rsquo;)
 <p><img class="image_on_frame center" src="/images/blog/11_11.png" title="Vimのデモ" ></p>
 
 <p><strong><a href="https://github.com/enfactv/assignment">assignment.vim</a></strong></p>
+
+<!-- more -->
+
 
 <p>インストールはごく簡単です。</p>
 
@@ -261,6 +270,9 @@ NeoBundle 'alpaca-tc/assignment'</code></p>
     <updated>2013-11-07T05:22:00+09:00</updated>
     <id>http://alpaca-tc.github.io/blog/vim/plugins-best-of-vim-1</id>
     <content type="html"><![CDATA[<p>普段使っているプラグインの中で、<em>これはイケてる！</em>と思ったプラグインを4つ紹介。</p>
+
+<!-- more -->
+
 
 <h2><a href="https://github.com/jiangmiao/auto-pairs">auto-pairs</a></h2>
 
@@ -361,6 +373,9 @@ NeoBundleLazy &lsquo;terryma/vim-multiple-cursors&rsquo;, { &lsquo;autload&rsquo
 <li><code>augroup</code>を理解していない人</li>
 <li><code>:source</code>コマンドを使う人</li>
 </ul>
+
+
+<!-- more -->
 
 
 <h2>そもそもautocmdって？</h2>

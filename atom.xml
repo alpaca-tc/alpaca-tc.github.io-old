@@ -4,7 +4,7 @@
   <title><![CDATA[アルパカエンジニアのブログ]]></title>
   <link href="http://alpaca-tc.github.io/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-11-15T07:39:15+09:00</updated>
+  <updated>2013-11-19T07:43:02+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -30,6 +30,9 @@
 
 <p>今日からちゃんとVimと向き合いたいと思います。</p>
 
+<!-- more -->
+
+
 <h2>そして、僕は2歳のころの時代へ&hellip;</h2>
 
 <p><img class="image_on_frame center" src="http://alpaca-tc.github.io/images/blog/2013_11_15.png" title="The version of Vim" ></p>
@@ -50,6 +53,9 @@
 <p>vimrcのコピペばかりの、あなた。</p>
 
 <p>せめて、よく登場するスコープだけでも理解してみましょう。</p>
+
+<!-- more -->
+
 
 <h1>よく見るスコープ一覧</h1>
 
@@ -220,6 +226,9 @@
 <p>ダサい。イケてない。
 あぁ、残念。</p>
 
+<!-- more -->
+
+
 <p><a href="https://github.com/marijnh/tern">Tern</a>は、marijnhという凄いエンジニアの人が作っている<strong>JavaScriptの動的補完プラグイン</strong></p>
 
 <p>コードを動的にパースして、今カーソルがある変数の型まで調べて補完しちゃってくれる。</p>
@@ -263,6 +272,9 @@
 <p><img class="image_on_frame center" src="http://alpaca-tc.github.io/images/blog/11_11.png" title="Vimのデモ" ></p>
 
 <p><strong><a href="https://github.com/enfactv/assignment">assignment.vim</a></strong></p>
+
+<!-- more -->
+
 
 <p>インストールはごく簡単です。</p>
 
@@ -318,6 +330,9 @@
     <updated>2013-11-07T05:22:00+09:00</updated>
     <id>http://alpaca-tc.github.io/blog/vim/plugins-best-of-vim-1</id>
     <content type="html"><![CDATA[<p>普段使っているプラグインの中で、<em>これはイケてる！</em>と思ったプラグインを4つ紹介。</p>
+
+<!-- more -->
+
 
 <h2><a href="https://github.com/jiangmiao/auto-pairs">auto-pairs</a></h2>
 
@@ -428,6 +443,9 @@
 <li><code>augroup</code>を理解していない人</li>
 <li><code>:source</code>コマンドを使う人</li>
 </ul>
+
+
+<!-- more -->
 
 
 <h2>そもそもautocmdって？</h2>
@@ -549,6 +567,9 @@
 
 <p>最低限下記のプラグインぐらいは入れておきましょう。</p>
 
+<!-- more -->
+
+
 <h2><a href="https://github.com/tpope/vim-liquid">vim-liquid</a></h2>
 
 <p><code>liquid</code>はoctopress(jekyll)で採用されているテンプレートエンジンです。</p>
@@ -668,6 +689,9 @@
     <id>http://alpaca-tc.github.io/blog/vim/alpaca_octopress/create_new_plugin_for_octopress</id>
     <content type="html"><![CDATA[<p>昨日言った通り、今は<a href="https://github.com/alpaca-tc/alpaca_octopress.vim">alpaca_octopress.vim</a>を作っています</p>
 
+<!-- more -->
+
+
 <p>ブランチは<code>v0.3</code>が最新ですね。</p>
 
 <h2>使い方</h2>
@@ -716,6 +740,9 @@ vimproc周りの動作もおかしいようだし、Vimからプロセス操作�
 さて、技術ブログは今までQiitaを使っていましたが、そちらを辞めて自分のブログを作ることにしました。</p>
 
 <h2>乗り換える2つの理由</h2>
+
+<!-- more -->
+
 
 <h3>1. Qiitaは使いにくい</h3>
 

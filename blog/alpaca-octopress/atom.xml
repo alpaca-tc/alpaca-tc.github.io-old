@@ -4,7 +4,7 @@
   <title><![CDATA[Category: alpaca_octopress | アルパカエンジニアのブログ]]></title>
   <link href="http://alpaca-tc.github.io/blog/alpaca-octopress/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-11-15T07:39:15+09:00</updated>
+  <updated>2013-11-19T07:43:02+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -37,6 +37,9 @@
     <updated>2013-10-29T04:52:00+09:00</updated>
     <id>http://alpaca-tc.github.io/blog/vim/alpaca_octopress/create_new_plugin_for_octopress</id>
     <content type="html"><![CDATA[<p>昨日言った通り、今は<a href="https://github.com/alpaca-tc/alpaca_octopress.vim">alpaca_octopress.vim</a>を作っています</p>
+
+<!-- more -->
+
 
 <p>ブランチは<code>v0.3</code>が最新ですね。</p>
 

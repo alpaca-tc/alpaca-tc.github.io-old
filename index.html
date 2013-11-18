@@ -218,51 +218,22 @@
 
 <p>今日からちゃんとVimと向き合いたいと思います。</p>
 
-<h2>そして、僕は2歳のころの時代へ&hellip;</h2>
-
-<p><img class="image_on_frame center" src="/images/blog/2013_11_15.png" title="The version of Vim" ></p>
-
-<p>1994年というと、僕がおもらしをして20万円ぐらいするPCを破壊したぐらいの時期でしょうか。</p>
-
-<p>これから、VimをVersion4に向けて再構築していきたいと思います。</p>
 </section>
       
 
       
-    
+        <footer class="article_footer">
+          <div class="read_more">
+  <a href="/blog/learning_vim/i-begin-to-learn-vim.html">続きを読む &rarr;</a>
+</div>
 
-    
+        </footer>
       
-  
-
-
-
-
-
-
-<section class="sharing clearfix">
-  <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca-tc.github.io/blog/learning_vim/i-begin-to-learn-vim.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
-そろそろVimを使いこなせるようになりたい。 | アルパカエンジニアのブログ 
-" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
-      <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
-    </a>
-  </div>
-
-  <div class="button ft_like_button">
-    <div class="fb-like" data-href="http://alpaca-tc.github.io/blog/learning_vim/i-begin-to-learn-vim.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
-  </div>
-
-  <div class="button google_plus_button_like">
-    <div data-annotation="none" data-href="http://alpaca-tc.github.io/blog/learning_vim/i-begin-to-learn-vim.html" class="g-plusone" data-size="medium" ></div>
-  </div>
-
-  <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca-tc.github.io/blog/learning_vim/i-begin-to-learn-vim.html" data-via="alpaca_taichou" data-counturl="http://alpaca-tc.github.io/blog/learning_vim/i-begin-to-learn-vim.html" >Tweet</a>
-  </div>
-</section>
-
     
+
+    <!-- {#% unless page.sharing == false %} -->
+    <!--   {#% include post/sharing.html %} -->
+    <!-- {#% endunless %} -->
   </div>
 </article>
 
@@ -332,200 +303,22 @@
 
 <p>せめて、よく登場するスコープだけでも理解してみましょう。</p>
 
-<h1>よく見るスコープ一覧</h1>
-
-<ul>
-<li><em>グローバル</em>スコープ　<code>g:</code></li>
-<li><em>関数内</em>スコープ　<code>a:</code></li>
-<li><em>スクリプト</em>スコープ　<code>s:</code></li>
-<li><em>バッファ</em>スコープ　<code>b:</code></li>
-<li><em>接頭辞なし</em>　<code>let huga=...</code>など</li>
-</ul>
-
-
-<h2>グローバル(g:)スコープ</h2>
-
-<p><strong>どこからでも参照できます。</strong></p>
-
-<p>プラグインの設定で見慣れたスコープですね。</p>
-
-<p><code>let g:neocomplete#enable_at_startup = 1</code></p>
-
-<p>変数を初期化するには、次のようにします。
-大量のエラーコードによって操作できなくなるので、<strong>嫌いな人のvimrcの末尾に書き込んでください。</strong></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">for</span> <span class="nb">key</span> <span class="k">in</span> keys<span class="p">(</span><span class="k">g</span>:<span class="p">)</span>
-</span><span class='line'>  execute <span class="s1">&#39;unlet g:&#39;</span> . <span class="nb">key</span>
-</span><span class='line'><span class="k">endfor</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>関数内(a:)スコープ</h2>
-
-<p><strong>関数内で、引数を参照するときに使用するスコープ</strong></p>
-
-<p>個人的に一番理解しがたいスコープです。</p>
-
-<p>こんな感じで使います。他言語から移ってきた人には、正直使いづらい。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">function</span><span class="p">!</span> Huga<span class="p">(</span><span class="k">first</span><span class="p">,</span> second<span class="p">)</span>
-</span><span class='line'>  echo <span class="k">a</span>:<span class="k">first</span>
-</span><span class='line'><span class="c">  &quot;=&gt; &#39;a&#39;</span>
-</span><span class='line'>
-</span><span class='line'>  echo <span class="k">a</span>:
-</span><span class='line'><span class="c">  &quot;=&gt; {&#39;0&#39;: 0, &#39;000&#39;: [], &#39;second&#39;: &#39;b&#39;, &#39;first&#39;: &#39;a&#39;, &#39;firstline&#39;: 5, &#39;lastline&#39;: 5}</span>
-</span><span class='line'><span class="k">endfunction</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">call</span> Huga<span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>「あーなるほど、<strong>関数内でだけ有効なスコープなのか。</strong>」</p>
-
-<p>と、思っていたら<em>それは間違い。</em></p>
-
-<p>下記のようにすると、<strong>グローバルスコープとして参照できます。</strong></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">function</span><span class="p">!</span> <span class="k">a</span>:huga<span class="p">()</span>
-</span><span class='line'>  echo <span class="s1">&#39;Global!?!?!?&#39;</span>
-</span><span class='line'><span class="k">endfunction</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">call</span> <span class="k">a</span>:huga<span class="p">()</span> <span class="c">&quot; =&gt; Global!?!?!?</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>実は、これ関数名に<code>:</code>が許可されているだけです。
-なので実際は<code>a:</code>スコープは関係ないんだけど、分かりづらい。</p>
-
-<h2>スクリプト(s:)スコープ</h2>
-
-<p><strong>ファイル内でのみ有効なスコープ</strong>です。</p>
-
-<p>プラグインで、プライベートなメソッドや定数を作るときによく使います。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">let</span> <span class="k">s</span>:script_scope <span class="p">=</span> <span class="s1">&#39;外部からは参照できない&#39;</span>
-</span><span class='line'><span class="k">function</span><span class="p">!</span> <span class="k">s</span>:script_scope_method<span class="p">()</span>
-</span><span class='line'><span class="c">  &quot; プライベートメソッドとしてよく使われる</span>
-</span><span class='line'><span class="k">endfunction</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>この<code>s:</code>は、スクリプトがsourceされるときに置き換えられ、<code>&lt;SNR&gt;1_...</code>という感じの形になります。</p>
-
-<p>えぇ、そうです。すると、<strong>グローバルなスコープとして参照できます。</strong></p>
-
-<p>この<code>&lt;SNR&gt;</code>の後にどの数値が割り振られているかは、<code>:scriptnames</code>で参照できます。</p>
-
-<p>また、<code>s:</code>は<code>&lt;SID&gt;</code>として使えばスコープを超えて使用できるようになります。</p>
-
-<p>マッピングの時に、scriptスコープを使う時などは必須ですね。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="nb">nnoremap</span> <span class="k">s</span> :echo <span class="p">&lt;</span>SID<span class="p">&gt;</span>SID<span class="p">()&lt;</span>CR<span class="p">&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>ただし、<strong>変数は基本的には聖域</strong>です。</p>
-
-<h2>バッファ(b:)スコープ</h2>
-
-<p><strong>バッファ単位のスコープ</strong>です。</p>
-
-<p>ファイルタイプによる設定や、一時バッファによる変数などに使います。</p>
-
-<ul>
-<li>ファイルタイプの変更で、<code>b:current_syntax</code>などが初期化&amp;格納されます</li>
-<li>Uniteを起動で、<code>b:unite</code>にデータが格納されます。</li>
-</ul>
-
-
-<p>Uniteのデバッグするときには、<code>echo b:unite.candidates</code>などを参照しましょう。</p>
-
-<p>あぁ、ようやくまともなスコープだ。</p>
-
-<h2>接頭辞なし(<code>let huga=</code>)変数</h2>
-
-<p>えぇ。<strong>グローバルなスコープです。</strong></p>
-
-<p>お前もか！</p>
-
-<p>マナーとしては、やはり<code>g:</code>で宣言したいところですが、</p>
-
-<p>Vimにデフォルトで入っているプラグインは、容赦なくこの変数を使ってきます。</p>
-
-<p><code>:echo loaded_*&lt;Tab&gt;</code>などすれば、奴らを見つけられるはずです。</p>
-
-<p>細かいことを言えば、関数内ならばローカルスコープです。。。</p>
-
-<h2>スコープのまとめ</h2>
-
-<ul>
-<li>スコープは<strong>ほとんどグローバルで参照できる</strong></li>
-<li>VimLは枠にハマらない<strong>素敵な</strong>言語仕様を持っている</li>
-<li>getbufvar()などでスコープへアクセス出来るため、<strong>聖域はほとんど無い</strong></li>
-</ul>
-
-
-<p><strong>正直今でも理解出来ていない。</strong></p>
 </section>
       
 
       
-    
+        <footer class="article_footer">
+          <div class="read_more">
+  <a href="/blog/vim/break-vim-beginners-scope.html">続きを読む &rarr;</a>
+</div>
 
-    
+        </footer>
       
-  
-
-
-
-
-
-
-<section class="sharing clearfix">
-  <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca-tc.github.io/blog/vim/break-vim-beginners-scope.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
-Vim中級者を脱する スコープ編 | アルパカエンジニアのブログ 
-" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
-      <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
-    </a>
-  </div>
-
-  <div class="button ft_like_button">
-    <div class="fb-like" data-href="http://alpaca-tc.github.io/blog/vim/break-vim-beginners-scope.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
-  </div>
-
-  <div class="button google_plus_button_like">
-    <div data-annotation="none" data-href="http://alpaca-tc.github.io/blog/vim/break-vim-beginners-scope.html" class="g-plusone" data-size="medium" ></div>
-  </div>
-
-  <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca-tc.github.io/blog/vim/break-vim-beginners-scope.html" data-via="alpaca_taichou" data-counturl="http://alpaca-tc.github.io/blog/vim/break-vim-beginners-scope.html" >Tweet</a>
-  </div>
-</section>
-
     
+
+    <!-- {#% unless page.sharing == false %} -->
+    <!--   {#% include post/sharing.html %} -->
+    <!-- {#% endunless %} -->
   </div>
 </article>
 
@@ -594,70 +387,22 @@ Vim中級者を脱する スコープ編 | アルパカエンジニアのブロ�
 <p>ダサい。イケてない。
 あぁ、残念。</p>
 
-<p><a href="https://github.com/marijnh/tern">Tern</a>は、marijnhという凄いエンジニアの人が作っている<strong>JavaScriptの動的補完プラグイン</strong></p>
-
-<p>コードを動的にパースして、今カーソルがある変数の型まで調べて補完しちゃってくれる。</p>
-
-<p>設定をすれば、jQueryなどのプラグインでの諸々も補完しちゃう凄いやつなのだ。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">if</span> has<span class="p">(</span><span class="s1">&#39;python&#39;</span><span class="p">)</span> &amp;&amp; executable<span class="p">(</span><span class="s1">&#39;npm&#39;</span><span class="p">)</span>
-</span><span class='line'>  NeoBundleLazy <span class="s1">&#39;marijnh/tern_for_vim&#39;</span><span class="p">,</span> {
-</span><span class='line'>        \ <span class="s1">&#39;build&#39;</span> : <span class="s1">&#39;npm install&#39;</span><span class="p">,</span>
-</span><span class='line'>        \ <span class="s1">&#39;autoload&#39;</span> : {
-</span><span class='line'>        \   <span class="s1">&#39;functions&#39;</span>: [<span class="s1">&#39;tern#Complete&#39;</span><span class="p">,</span> <span class="s1">&#39;tern#Enable&#39;</span>]<span class="p">,</span>
-</span><span class='line'>        \   <span class="s1">&#39;filetypes&#39;</span> : <span class="s1">&#39;javascript&#39;</span>
-</span><span class='line'>        \ }}
-</span><span class='line'><span class="k">endif</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>まぁ、何はともあれ一度使ってみてください。</p>
 </section>
       
 
       
-    
+        <footer class="article_footer">
+          <div class="read_more">
+  <a href="/blog/vim/how-to-use-tern-vim.html">続きを読む &rarr;</a>
+</div>
 
-    
+        </footer>
       
-  
-
-
-
-
-
-
-<section class="sharing clearfix">
-  <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca-tc.github.io/blog/vim/how-to-use-tern-vim.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
-JavaScript補完プラグインのTernはすごいヤツ | アルパカエンジニアのブログ 
-" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
-      <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
-    </a>
-  </div>
-
-  <div class="button ft_like_button">
-    <div class="fb-like" data-href="http://alpaca-tc.github.io/blog/vim/how-to-use-tern-vim.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
-  </div>
-
-  <div class="button google_plus_button_like">
-    <div data-annotation="none" data-href="http://alpaca-tc.github.io/blog/vim/how-to-use-tern-vim.html" class="g-plusone" data-size="medium" ></div>
-  </div>
-
-  <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca-tc.github.io/blog/vim/how-to-use-tern-vim.html" data-via="alpaca_taichou" data-counturl="http://alpaca-tc.github.io/blog/vim/how-to-use-tern-vim.html" >Tweet</a>
-  </div>
-</section>
-
     
+
+    <!-- {#% unless page.sharing == false %} -->
+    <!--   {#% include post/sharing.html %} -->
+    <!-- {#% endunless %} -->
   </div>
 </article>
 
@@ -731,89 +476,22 @@ JavaScript補完プラグインのTernはすごいヤツ | アルパカエンジ
 
 <p><strong><a href="https://github.com/enfactv/assignment">assignment.vim</a></strong></p>
 
-<p>インストールはごく簡単です。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'>NeoBundle <span class="s1">&#39;alpaca-tc/assignment&#39;</span>`
-</span><span class='line'>
-</span><span class='line'><span class="k">let</span> <span class="k">g</span>:assignment#<span class="nb">path</span> <span class="p">=</span> expand<span class="p">(</span><span class="s1">&#39;~/path/to/assignment&#39;</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>良かったこと</h3>
-
-<ul>
-<li>GitHubの使い方がわからなくても、Vimから徐々に取り組めること</li>
-<li>問題のやり取りが楽になったこと</li>
-<li>自動テストがあるので、リモート勤務でも採点できること</li>
-</ul>
-
-
-<h3>悪かったこと</h3>
-
-<ul>
-<li>一問一答の形式って効率悪いよね&hellip;</li>
-</ul>
-
-
-<p>とりあえず一ヶ月はこの形式で進めて、Rubyに慣れてもらおうかと思います。</p>
-
-<h2>まとめ</h2>
-
-<p>正直、今日は書くことがなかっただけです。えへ。
-暇だなー、俺初級者かなーと思う方が入れば、試しに問題に挑戦してみてください。</p>
-
-<ol>
-<li>プラグインをインストール</li>
-<li><code>:AssignmentInit ~/インストール先ディレクトリ</code>を実行して初期化</li>
-<li>vimrcに<code>let g:assignment#path = expand('~/path/to/assignment')</code>を追加</li>
-<li><code>:Assignment solve &lt;tab&gt;</code>で問題を選択</li>
-<li>Guardをまわしながら解くのみ！</li>
-</ol>
-
-
-<p>初めは、8クイーン問題や、RubyのDSLを作る問題などです。
-初級者向けですが、少しは暇つぶしにはなると思いますよ！</p>
 </section>
       
 
       
-    
+        <footer class="article_footer">
+          <div class="read_more">
+  <a href="/blog/vim/training-of-new-employee.html">続きを読む &rarr;</a>
+</div>
 
-    
+        </footer>
       
-  
-
-
-
-
-
-
-<section class="sharing clearfix">
-  <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca-tc.github.io/blog/vim/training-of-new-employee.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
-Vimを使って新人教育 | アルパカエンジニアのブログ 
-" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
-      <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
-    </a>
-  </div>
-
-  <div class="button ft_like_button">
-    <div class="fb-like" data-href="http://alpaca-tc.github.io/blog/vim/training-of-new-employee.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
-  </div>
-
-  <div class="button google_plus_button_like">
-    <div data-annotation="none" data-href="http://alpaca-tc.github.io/blog/vim/training-of-new-employee.html" class="g-plusone" data-size="medium" ></div>
-  </div>
-
-  <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca-tc.github.io/blog/vim/training-of-new-employee.html" data-via="alpaca_taichou" data-counturl="http://alpaca-tc.github.io/blog/vim/training-of-new-employee.html" >Tweet</a>
-  </div>
-</section>
-
     
+
+    <!-- {#% unless page.sharing == false %} -->
+    <!--   {#% include post/sharing.html %} -->
+    <!-- {#% endunless %} -->
   </div>
 </article>
 
@@ -879,135 +557,22 @@ Vimを使って新人教育 | アルパカエンジニアのブログ
     
       <section class="entry-content"><p>普段使っているプラグインの中で、<em>これはイケてる！</em>と思ったプラグインを4つ紹介。</p>
 
-<h2><a href="https://github.com/jiangmiao/auto-pairs">auto-pairs</a></h2>
-
-<ul>
-<li><code>{}</code>、<code>()</code>などの、対応する文字を<em>自働入力</em></li>
-<li>括弧の片方が消えた時や、重複する時に<em>自働で調整してくれる</em></li>
-<li><code>innoremap ( ()&lt;Left&gt;</code>とか未だにやっているのダサくない？</li>
-</ul>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="c">&quot; [本家](https://github.com/jiangmiao/auto-pairs)</span>
-</span><span class='line'><span class="c">&quot; Lazy loading用に修正済み</span>
-</span><span class='line'>NeoBundleLazy <span class="s1">&#39;alpaca-tc/auto-pairs&#39;</span><span class="p">,</span> { <span class="s1">&#39;autoload&#39;</span> : {
-</span><span class='line'>      \ <span class="s1">&#39;insert&#39;</span>: <span class="m">1</span> }}
-</span><span class='line'>
-</span><span class='line'><span class="k">let</span> hooks <span class="p">=</span> neobundle#get_hooks<span class="p">(</span><span class="s1">&#39;auto-pairs&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="k">function</span><span class="p">!</span> hooks.on_post_source<span class="p">(</span>bundle<span class="p">)</span>
-</span><span class='line'>  <span class="k">call</span> auto_pairs#try_init<span class="p">()</span>
-</span><span class='line'><span class="k">endfunction</span>
-</span><span class='line'>unlet hooks
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2><a href="https://github.com/junegunn/vim-easy-align">vim-easy-align</a></h2>
-
-<ul>
-<li>使いやすさ抜群の<em>整列用プラグイン</em></li>
-<li><code>Alignta</code>がメジャーだけど、正直使いにくいよね。</li>
-</ul>
-
-
-<p><img class="image_on_frame center" src="https://raw.github.com/junegunn/i/master/vim-easy-align.gif" title="vim-easy-align DEMO" ></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'>NeoBundleLazy <span class="s1">&#39;junegunn/vim-easy-align&#39;</span><span class="p">,</span> { <span class="s1">&#39;autoload&#39;</span>: {
-</span><span class='line'>      \ <span class="s1">&#39;commands&#39;</span> : [<span class="s1">&#39;EasyAlign&#39;</span>] }}
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2><a href="https://github.com/Yggdroot/indentLine">indentLine</a></h2>
-
-<ul>
-<li>イケてる、<em>インデント表示プラグイン</em></li>
-<li><code>vim-indent-guides</code>は画面がうるさくなるから嫌！っていう人向け</li>
-</ul>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">if</span> has<span class="p">(</span><span class="s1">&#39;conceal&#39;</span><span class="p">)</span>
-</span><span class='line'>  NeoBundleLazy <span class="s1">&#39;Yggdroot/indentLine&#39;</span><span class="p">,</span> { <span class="s1">&#39;autoload&#39;</span> : {
-</span><span class='line'>        \   <span class="s1">&#39;commands&#39;</span> : [<span class="s1">&#39;IndentLinesReset&#39;</span><span class="p">,</span> <span class="s1">&#39;IndentLinesToggle&#39;</span>]<span class="p">,</span>
-</span><span class='line'>        \   <span class="s1">&#39;filetypes&#39;</span>: <span class="k">g</span>:my.<span class="nb">ft</span>.program_files<span class="p">,</span>
-</span><span class='line'>        \ }}
-</span><span class='line'><span class="k">endif</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2><a href="https://github.com/terryma/vim-multiple-cursors">vim-multiple-cursors</a></h2>
-
-<ul>
-<li>SublimeTextの複数マーク&amp;同時編集 の機能を実現するプラグイン</li>
-<li>実装に関しては完全に「こいつ無茶しやがって&hellip;」状態。</li>
-</ul>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'>NeoBundleLazy <span class="s1">&#39;terryma/vim-multiple-cursors&#39;</span><span class="p">,</span> { <span class="s1">&#39;autload&#39;</span>: {
-</span><span class='line'>      \ <span class="s1">&#39;function_prefix&#39;</span>: <span class="s1">&#39;multiple_cursors&#39;</span><span class="p">,</span>
-</span><span class='line'>      \ }}
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>今回紹介したプラグインは、かなりシンプルに洗練されています。
-使っているだけでも、作者の男前さを感じられる。そんなプラグインだと思います。</p>
 </section>
       
 
       
-    
+        <footer class="article_footer">
+          <div class="read_more">
+  <a href="/blog/vim/plugins-best-of-vim-1.html">続きを読む &rarr;</a>
+</div>
 
-    
+        </footer>
       
-  
-
-
-
-
-
-
-<section class="sharing clearfix">
-  <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca-tc.github.io/blog/vim/plugins-best-of-vim-1.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
-オススメなVimのプラグイン紹介 | アルパカエンジニアのブログ 
-" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
-      <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
-    </a>
-  </div>
-
-  <div class="button ft_like_button">
-    <div class="fb-like" data-href="http://alpaca-tc.github.io/blog/vim/plugins-best-of-vim-1.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
-  </div>
-
-  <div class="button google_plus_button_like">
-    <div data-annotation="none" data-href="http://alpaca-tc.github.io/blog/vim/plugins-best-of-vim-1.html" class="g-plusone" data-size="medium" ></div>
-  </div>
-
-  <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca-tc.github.io/blog/vim/plugins-best-of-vim-1.html" data-via="alpaca_taichou" data-counturl="http://alpaca-tc.github.io/blog/vim/plugins-best-of-vim-1.html" >Tweet</a>
-  </div>
-</section>
-
     
+
+    <!-- {#% unless page.sharing == false %} -->
+    <!--   {#% include post/sharing.html %} -->
+    <!-- {#% endunless %} -->
   </div>
 </article>
 
@@ -1083,150 +648,22 @@ Vimを使って新人教育 | アルパカエンジニアのブログ
 </ul>
 
 
-<h2>そもそもautocmdって？</h2>
-
-<p>これは何をしているコマンドなのか分解してみましょう。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'>autocmd <span class="nb">BufNewFile</span> * echo <span class="s1">&#39;This is new file&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ol>
-<li>autocmdのコマンドを開始しますよ</li>
-<li><code>BufNewFile</code>というタイミングでこのコマンドを実行しますよ</li>
-<li>全てのバッファで<code>echo 'This is new file'</code>を実行しますよ</li>
-</ol>
-
-
-<p>となります。</p>
-
-<p>このように、保存時や新規のファイルといったタイミングでコマンドを実行できます。</p>
-
-<h2>では、augroupはなんのために存在するの？</h2>
-
-<p><code>augroup</code>は、<code>autocmd</code>をグループでまとめるためのコマンドです。こんな感じて使われます。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'>augroup EditNewFile
-</span><span class='line'>  autocmd<span class="p">!</span>
-</span><span class='line'>  autocmd <span class="nb">BufNewFile</span> * echo <span class="s1">&#39;This is new file&#39;</span>
-</span><span class='line'>augroup END
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>例えば、<code>autocmd</code>が設定されているvimrcを、<code>:source ~/.vimrc</code>で再度読み込むとしましょう。</p>
-
-<p>するとどうなるかというと、通常は<strong><code>autocmd</code>が重複して2度設定されます</strong>
-当然、その<code>autocmd</code>が発火するときに2度実行されるので、実行が遅くなります。</p>
-
-<p>それを防ぐために<code>augroup</code>を使います。</p>
-
-<h2>ベストプラクティスは？</h2>
-
-<p>つまるところ、<code>augroup</code>は<code>autocmd</code>をまとめて初期化する場合に使用します。
-具体例を上げると、下記のような形になります。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'>augroup MyAutoCmd
-</span><span class='line'>  autocmd<span class="p">!</span> <span class="c">&quot; =&gt; このaugroupに紐づいたautocmdを消し去ります</span>
-</span><span class='line'>augroup END
-</span><span class='line'>
-</span><span class='line'>...
-</span><span class='line'>
-</span><span class='line'>augroup MyAutoCmd
-</span><span class='line'>  autocmd <span class="nb">BufNewFile</span> * echo <span class="s1">&#39;This is new file&#39;</span>
-</span><span class='line'>  autocmd <span class="nb">BufNewFile</span><span class="p">,</span><span class="nb">BufRead</span> *.haml <span class="k">setf</span> haml
-</span><span class='line'>augroup END
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>こうすることで、2重に設定されることのない設定になります。</p>
-
-<h2>もう一歩踏み込んでみる</h2>
-
-<p>autocmdの設定方法をVimのRuntimeから学んでみましょう。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="p">:</span>edit $VIMRUNTIME/<span class="k">filetype</span>.<span class="k">vim</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>これはファイルタイプの定義を行っているファイルです。</p>
-
-<p>augroupが宣言されているので、一覧を<code>:autocmd filetypedetect</code>でみれることが分かります。</p>
-
-<p>驚くことに、もの凄い数のコマンドを実行してファイルタイプを設定していることが分かります。</p>
-
-<h3>ftdetectを知る</h3>
-
-<p>filetype.vimにて<code>runtime! ftdetect/*.vim</code>と書かれており、<code>~/.vim/ftdetect/*</code>を読み込んでいることが分かります。</p>
-
-<p>つまり、ファイルタイプの設定は<code>ftdetect</code>以下で設定するのがベターとされています。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="c">&quot; ~/.vim/ftdetect/coffee.vim</span>
-</span><span class='line'>autocmd <span class="nb">BufNewFile</span><span class="p">,</span><span class="nb">BufRead</span> *.coffee    <span class="k">setf</span> coffee
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>といった設定にて、ファイルタイプを検出できるようになります。
-<code>augroup filetypedetect</code>の宣言内なので、グループの宣言は不要です。</p>
-
-<h2>本日の脱Vim中級者</h2>
-
-<p>vimrcでファイルタイプの検出をしている方は、<code>~/.vim/ftdetect</code>以下に設定を移してみましょう。</p>
 </section>
       
 
       
-    
+        <footer class="article_footer">
+          <div class="read_more">
+  <a href="/blog/vim/break-vim-beginners-augroup.html">続きを読む &rarr;</a>
+</div>
 
-    
+        </footer>
       
-  
-
-
-
-
-
-
-<section class="sharing clearfix">
-  <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca-tc.github.io/blog/vim/break-vim-beginners-augroup.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
-Vim中級者を脱する augroup編 | アルパカエンジニアのブログ 
-" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
-      <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
-    </a>
-  </div>
-
-  <div class="button ft_like_button">
-    <div class="fb-like" data-href="http://alpaca-tc.github.io/blog/vim/break-vim-beginners-augroup.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
-  </div>
-
-  <div class="button google_plus_button_like">
-    <div data-annotation="none" data-href="http://alpaca-tc.github.io/blog/vim/break-vim-beginners-augroup.html" class="g-plusone" data-size="medium" ></div>
-  </div>
-
-  <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca-tc.github.io/blog/vim/break-vim-beginners-augroup.html" data-via="alpaca_taichou" data-counturl="http://alpaca-tc.github.io/blog/vim/break-vim-beginners-augroup.html" >Tweet</a>
-  </div>
-</section>
-
     
+
+    <!-- {#% unless page.sharing == false %} -->
+    <!--   {#% include post/sharing.html %} -->
+    <!-- {#% endunless %} -->
   </div>
 </article>
 
@@ -1295,110 +732,22 @@ Vim中級者を脱する augroup編 | アルパカエンジニアのブログ
 
 <p>最低限下記のプラグインぐらいは入れておきましょう。</p>
 
-<h2><a href="https://github.com/tpope/vim-liquid">vim-liquid</a></h2>
-
-<p><code>liquid</code>はoctopress(jekyll)で採用されているテンプレートエンジンです。</p>
-
-<p>このプラグインを入れると、ファイルタイプの検知や、キーワードのハイライトをしてくれるようになります。
-何が良いかというと、そのおかげで<code>neocomplete.vim</code>や<code>matchit.vim</code>などの他のプラグインもliquid用に対応してくれるんですよね。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'>NeoBundleLazy <span class="s1">&#39;tpope/vim-liquid&#39;</span><span class="p">,</span> { <span class="s1">&#39;autoload&#39;</span> : {
-</span><span class='line'>      \ <span class="s1">&#39;filetypes&#39;</span> : <span class="s1">&#39;liquid&#39;</span>
-</span><span class='line'>      \ }}
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2><a href="https://github.com/tangledhelix/vim-octopress">vim-octopress</a></h2>
-
-<p>VimからOctopressのコマンド操作をするプラグインです。
-<code>:Octopress [command][{option}]</code>で実行することができます。</p>
-
-<ol>
-<li><code>:Octopress new_post title</code></li>
-<li><code>:Octopress gen_deploy</code></li>
-</ol>
-
-
-<p>この2回の操作で、新しい記事をアップロードできます。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'>NeoBundleLazy <span class="s1">&#39;tangledhelix/vim-octopress&#39;</span><span class="p">,</span> { <span class="s1">&#39;autoload&#39;</span> : {
-</span><span class='line'>      \ <span class="s1">&#39;commands&#39;</span>: <span class="s1">&#39;Octopress&#39;</span><span class="p">,</span>
-</span><span class='line'>      \ }}
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2><a href="https://github.com/alpaca-tc/alpaca_octopress.vim">alpaca_octopress</a></h2>
-
-<p><code>vim-octopress</code>の非同期実行版です。
-人柱属性のある方はこちらをオススメします。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'>NeoBundleLazy <span class="s1">&#39;alpaca-tc/alpaca_octopress.vim&#39;</span><span class="p">,</span> { <span class="s1">&#39;autoload&#39;</span> : {
-</span><span class='line'>      \ <span class="s1">&#39;branch&#39;</span>: <span class="s1">&#39;v0.3&#39;</span><span class="p">,</span>
-</span><span class='line'>      \ <span class="s1">&#39;functions&#39;</span> : <span class="s1">&#39;octopress#complete&#39;</span><span class="p">,</span>
-</span><span class='line'>      \ <span class="s1">&#39;commands&#39;</span>: {
-</span><span class='line'>      \   <span class="s1">&#39;name&#39;</span> : <span class="s1">&#39;Octopress&#39;</span><span class="p">,</span>
-</span><span class='line'>      \   <span class="s1">&#39;complete&#39;</span> : <span class="s1">&#39;customlist,octopress#complete&#39;</span><span class="p">,</span>
-</span><span class='line'>      \ }<span class="p">,</span>
-</span><span class='line'>      \ }}
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>まとめ</h2>
-
-<p>Octopressはかなりエンジニアと相性が良いプロジェクトだと思います。
-ついでにVimmerの方は、これらのプラグインを入れてより親和性を高めましょう！</p>
 </section>
       
 
       
-    
+        <footer class="article_footer">
+          <div class="read_more">
+  <a href="/blog/vim/octopress_and_vimplugin.html">続きを読む &rarr;</a>
+</div>
 
-    
+        </footer>
       
-  
-
-
-
-
-
-
-<section class="sharing clearfix">
-  <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca-tc.github.io/blog/vim/octopress_and_vimplugin.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
-octopressとセットで入れておきたいVimプラグインまとめ | アルパカエンジニアのブログ 
-" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
-      <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
-    </a>
-  </div>
-
-  <div class="button ft_like_button">
-    <div class="fb-like" data-href="http://alpaca-tc.github.io/blog/vim/octopress_and_vimplugin.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
-  </div>
-
-  <div class="button google_plus_button_like">
-    <div data-annotation="none" data-href="http://alpaca-tc.github.io/blog/vim/octopress_and_vimplugin.html" class="g-plusone" data-size="medium" ></div>
-  </div>
-
-  <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca-tc.github.io/blog/vim/octopress_and_vimplugin.html" data-via="alpaca_taichou" data-counturl="http://alpaca-tc.github.io/blog/vim/octopress_and_vimplugin.html" >Tweet</a>
-  </div>
-</section>
-
     
+
+    <!-- {#% unless page.sharing == false %} -->
+    <!--   {#% include post/sharing.html %} -->
+    <!-- {#% endunless %} -->
   </div>
 </article>
 
@@ -1485,38 +834,9 @@ octopressとセットで入れておきたいVimプラグインまとめ | ア�
       
     
 
-    
-      
-  
-
-
-
-
-
-
-<section class="sharing clearfix">
-  <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca-tc.github.io/blog/seo/no1_alpaca_engineer.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
-３日で検索1位になりました | アルパカエンジニアのブログ 
-" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
-      <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
-    </a>
-  </div>
-
-  <div class="button ft_like_button">
-    <div class="fb-like" data-href="http://alpaca-tc.github.io/blog/seo/no1_alpaca_engineer.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
-  </div>
-
-  <div class="button google_plus_button_like">
-    <div data-annotation="none" data-href="http://alpaca-tc.github.io/blog/seo/no1_alpaca_engineer.html" class="g-plusone" data-size="medium" ></div>
-  </div>
-
-  <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca-tc.github.io/blog/seo/no1_alpaca_engineer.html" data-via="alpaca_taichou" data-counturl="http://alpaca-tc.github.io/blog/seo/no1_alpaca_engineer.html" >Tweet</a>
-  </div>
-</section>
-
-    
+    <!-- {#% unless page.sharing == false %} -->
+    <!--   {#% include post/sharing.html %} -->
+    <!-- {#% endunless %} -->
   </div>
 </article>
 
@@ -1596,38 +916,9 @@ octopressとセットで入れておきたいVimプラグインまとめ | ア�
       
     
 
-    
-      
-  
-
-
-
-
-
-
-<section class="sharing clearfix">
-  <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca-tc.github.io/blog/vim/alpaca_octopress/about_alpaca_complete.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
-alpaca_octopress続き | アルパカエンジニアのブログ 
-" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
-      <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
-    </a>
-  </div>
-
-  <div class="button ft_like_button">
-    <div class="fb-like" data-href="http://alpaca-tc.github.io/blog/vim/alpaca_octopress/about_alpaca_complete.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
-  </div>
-
-  <div class="button google_plus_button_like">
-    <div data-annotation="none" data-href="http://alpaca-tc.github.io/blog/vim/alpaca_octopress/about_alpaca_complete.html" class="g-plusone" data-size="medium" ></div>
-  </div>
-
-  <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca-tc.github.io/blog/vim/alpaca_octopress/about_alpaca_complete.html" data-via="alpaca_taichou" data-counturl="http://alpaca-tc.github.io/blog/vim/alpaca_octopress/about_alpaca_complete.html" >Tweet</a>
-  </div>
-</section>
-
-    
+    <!-- {#% unless page.sharing == false %} -->
+    <!--   {#% include post/sharing.html %} -->
+    <!-- {#% endunless %} -->
   </div>
 </article>
 
@@ -1693,80 +984,22 @@ alpaca_octopress続き | アルパカエンジニアのブログ
     
       <section class="entry-content"><p>昨日言った通り、今は<a href="https://github.com/alpaca-tc/alpaca_octopress.vim">alpaca_octopress.vim</a>を作っています</p>
 
-<p>ブランチは<code>v0.3</code>が最新ですね。</p>
-
-<h2>使い方</h2>
-
-<p><code>:Octopress [command] {option}</code></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="c">&quot; 設定はこんな感じ</span>
-</span><span class='line'><span class="k">let</span> <span class="k">g</span>:octopress#rake_command <span class="p">=</span> <span class="s1">&#39;bundle exec rake&#39;</span>
-</span><span class='line'><span class="k">let</span> <span class="k">g</span>:octopress#project_url <span class="p">=</span> expand<span class="p">(</span><span class="s1">&#39;~/project/octopress&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="k">let</span> <span class="k">g</span>:octopress#system#async <span class="p">=</span> <span class="m">1</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Octopress関連で<code>deploy</code>とか<code>async</code>とかをよく使うけど、このプラグインを入れれば非同期で実行できます。
-新しく記事書くときは、<code>:Octopress new_post 新しい記事</code>とやればどのディレクトリに居ても起動出来るので、記事を書くのがちょっと楽になります。</p>
-
-<h2>初めてのvital.vim</h2>
-
-<p>このプラグインを作る上で、初めて<a href="https://github.com/vim-jp/vital.vim">vital.vim</a>さんを使ってみました。
-vitalは、JavaScriptでいうjQueryみたいに、これはベストな書き方！というコードを寄せ集めたスクリプト集です。</p>
-
-<p>今回は、プロセスをオブジェクト化して、非同期で実行&amp;管理するために使ってみました。
-触ってみた感じ、まだまだ人柱感が強いです。。</p>
-
-<p>荒削りというか、汎用的というか、、Process周りのvitalはまだまだ利用者がいないのだろうと思います。
-vimproc周りの動作もおかしいようだし、Vimからプロセス操作するのはやっぱり難しいね！</p>
-
-<hr />
-
-<p><code>:Octopress deploy</code>っと！</p>
-
-<p>さて、寝よう。</p>
 </section>
       
 
       
-    
+        <footer class="article_footer">
+          <div class="read_more">
+  <a href="/blog/vim/alpaca_octopress/create_new_plugin_for_octopress.html">続きを読む &rarr;</a>
+</div>
 
-    
+        </footer>
       
-  
-
-
-
-
-
-
-<section class="sharing clearfix">
-  <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca-tc.github.io/blog/vim/alpaca_octopress/create_new_plugin_for_octopress.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
-alpaca_octopressを作っている | アルパカエンジニアのブログ 
-" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
-      <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
-    </a>
-  </div>
-
-  <div class="button ft_like_button">
-    <div class="fb-like" data-href="http://alpaca-tc.github.io/blog/vim/alpaca_octopress/create_new_plugin_for_octopress.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
-  </div>
-
-  <div class="button google_plus_button_like">
-    <div data-annotation="none" data-href="http://alpaca-tc.github.io/blog/vim/alpaca_octopress/create_new_plugin_for_octopress.html" class="g-plusone" data-size="medium" ></div>
-  </div>
-
-  <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca-tc.github.io/blog/vim/alpaca_octopress/create_new_plugin_for_octopress.html" data-via="alpaca_taichou" data-counturl="http://alpaca-tc.github.io/blog/vim/alpaca_octopress/create_new_plugin_for_octopress.html" >Tweet</a>
-  </div>
-</section>
-
     
+
+    <!-- {#% unless page.sharing == false %} -->
+    <!--   {#% include post/sharing.html %} -->
+    <!-- {#% endunless %} -->
   </div>
 </article>
 
@@ -1810,7 +1043,7 @@ alpaca_octopressを作っている | アルパカエンジニアのブログ
   
 
   <section id="side_twitter_timeline_widget" class="sidebar_row">
-    <a class="twitter-timeline" href="https://twitter.com/alpaca_taichou" data-widget-id="395937677314232320">@alpaca_taichou のツイート</a>
+    <a class="twitter-timeline" href="https://twitter.com/alpaca_taichou" data-widget-id="395937677314232320" data-tweet-limit="1" data-height="15px">@alpaca_taichou のツイート</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
   </section>
