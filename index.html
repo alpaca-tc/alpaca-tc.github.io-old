@@ -10,7 +10,8 @@
     <title>アルパカエンジニアのブログ - Vim, Ruby, Rails, SEOの技術ブログ</title>
 
     
-    <meta name="description" content="そろそろVimを使いこなせるようになりたい。 Nov 15th, 2013 Posted by 石井浩之 learning_vim 「俺、ちゃんとVimやるわ」 &hellip;と、夏の途中に宣言してからというもの、 「仕事がー」、「友達がー」、「本をー」と、 &hellip;">
+    <meta name="description" content="I_begin_to_lean_vim_1 Nov 21st, 2013 Posted by 石井浩之 learning_vim Vim読書会 #1 先日から続けているVim読書会(一人)ですが、
+今回からモチベーションのために記事にあげて行おうと思います。 本日読むソースコード Vim-0.3 &hellip;">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='アルパカエンジニアのブログ - Vim, Ruby, Rails, SEOの技術ブログ' name='title' />
@@ -27,11 +28,13 @@
 <meta property="og:url" content="http://alpaca-tc.github.io/index.html"/>
 <meta property="og:site_name" content="アルパカエンジニアのブログ"/>
 <meta property="og:email" content="alprhcp666@gmail.com"/>
-<meta property="og:description" content="そろそろVimを使いこなせるようになりたい。 Nov 15th, 2013 Posted by 石井浩之 learning_vim 「俺、ちゃんとVimやるわ」 &hellip;と、夏の途中に宣言してからというもの、 「仕事がー」、「友達がー」、「本をー」と、 &hellip;" />
+<meta property="og:description" content="I_begin_to_lean_vim_1 Nov 21st, 2013 Posted by 石井浩之 learning_vim Vim読書会 #1 先日から続けているVim読書会(一人)ですが、
+今回からモチベーションのために記事にあげて行おうと思います。 本日読むソースコード Vim-0.3 &hellip;" />
 
     <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="アルパカエンジニアのブログ - Vim, Ruby, Rails, SEOの技術ブログ">
-<meta name="twitter:description" content="そろそろVimを使いこなせるようになりたい。 Nov 15th, 2013 Posted by 石井浩之 learning_vim 「俺、ちゃんとVimやるわ」 &hellip;と、夏の途中に宣言してからというもの、 「仕事がー」、「友達がー」、「本をー」と、 &hellip;">
+<meta name="twitter:description" content="I_begin_to_lean_vim_1 Nov 21st, 2013 Posted by 石井浩之 learning_vim Vim読書会 #1 先日から続けているVim読書会(一人)ですが、
+今回からモチベーションのために記事にあげて行おうと思います。 本日読むソースコード Vim-0.3 &hellip;">
 <meta name="twitter:image" content="http://http://alpaca-tc.github.io/images/meta/site_title.png">
 
 <meta name="twitter:site" content="@">
@@ -148,6 +151,159 @@
               <div id="page_contents" class="inner">
                 <div class="blog-index">
   
+  
+    
+    <div class="blog-articles">
+      <article class="post_row">
+  <div class="inner">
+    <header class="field-items">
+      
+        <h1>
+          
+            <a href="/blog/learning_vim/i-begin-to-lean-vim-1.html">
+              
+                I_begin_to_lean_vim_1
+              
+            </a>
+          
+        </h1>
+      
+
+      
+        <section class="meta">
+          <div class="inner">
+            
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2013-11-21T09:11:00+09:00" pubdate data-updated="true">Nov 21<span>st</span>, 2013</time>
+            
+  
+
+<span class="byline author">Posted by 石井浩之</span>
+
+            
+
+<span class="categories">
+  
+    <a class='category' href='/blog//learning-vim/'>learning_vim</a>
+  
+</span>
+
+
+
+
+            
+          </div>
+        </section>
+      
+    </header>
+
+    
+      <section class="entry-content"><h1>Vim読書会 #1</h1>
+
+<p>先日から続けているVim読書会(一人)ですが、
+今回からモチベーションのために記事にあげて行おうと思います。</p>
+
+<p><em>本日読むソースコード</em></p>
+
+<p><strong>Vim-0.3</strong></p>
+
+<ul>
+<li>cmdline.c</li>
+<li>cmdtab.h</li>
+<li>cmdcmds.c</li>
+</ul>
+
+
+<h2>cmdline.c L3723行</h2>
+
+<p>cmdline.c: functions for reading in the command line and executing it</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="c1">// L650:</span>
+</span><span class='line'><span class="k">static</span> <span class="n">char_u</span> <span class="o">*</span> <span class="n">DoOneCmd</span><span class="p">(</span><span class="n">buff</span><span class="p">)</span> <span class="n">char_u</span> <span class="o">*</span><span class="n">buff</span><span class="p">;</span> <span class="p">{</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>この関数で、コマンドラインからの入力を処理してます。
+関数の前半部分で入力をパースして、後半部分でコマンドを分岐しています。</p>
+
+<p>分岐部分はこんな感じですね。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="nl">L1111:</span>
+</span><span class='line'><span class="nl">cmdswitch:</span>
+</span><span class='line'>  <span class="k">switch</span> <span class="p">(</span><span class="n">cmdidx</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>    <span class="cm">/*</span>
+</span><span class='line'><span class="cm">     * quit current window, quit Vim if closed the last window</span>
+</span><span class='line'><span class="cm">     */</span>
+</span><span class='line'>    <span class="k">case</span> <span class="n">CMD_quit</span>:
+</span><span class='line'>      <span class="p">...</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">case</span> <span class="n">CMD_qall</span>:
+</span><span class='line'>      <span class="p">...</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>:quit</code>の処理を変更したかったら、<code>case CMD_quit</code>以下を変更すればいいです。</p>
+
+<h2>cmdtab.h L337行</h2>
+
+<p>また、<code>CMD_...</code>といった定数は<code>cmdtab.h</code>で初期化されており、全てのコマンドが定義されています。
+コマンドは、ユニークなID,コマンド名,受け付ける引数がここで定義されます。</p>
+
+<p>そのコマンドの実際の動作は、<code>cmdline.c</code>にべた書きされているという感じでしょうか。</p>
+
+<p>Vim-3.0の書き方だと、コマンドがひとつ増える度に<code>cmdline.c</code>の分岐がひとつ増えるというヘビーな書き方なので、新しいバージョンではリファクタリングされてそう。</p>
+
+<h2>cmdcmds.c L541行</h2>
+
+<p>cmdcmds.c: functions for command line commands</p>
+
+<p><code>cmdcmds.c</code>は、<code>cmdline.c</code>でのコマンドの分岐で重なる部分の関数をまとめたもの、といった印象です。
+Wordpressでいうfunctionsのような感じかな。一応、他の場所でも使える感じに仕上がっています。</p>
+
+<p>この中には、<code>do_align</code>や<code>doshell</code>といった、想像につく名前の関数がありますね。
+<code>CMD_move</code>で分岐した場合は、こちらに飛ばされます。</p>
+
+<p><code>:echo</code>などのコマンドを実装をする場合は、ここら辺を弄るだけでなんとかなりそうですね。</p>
+</section>
+      
+
+      
+    
+
+    <!-- {#% unless page.sharing == false %} -->
+    <!--   {#% include post/sharing.html %} -->
+    <!-- {#% endunless %} -->
+  </div>
+</article>
+
+
+    </div>
   
     
     <div class="blog-articles">
@@ -913,87 +1069,6 @@
 </section>
       
 
-      
-    
-
-    <!-- {#% unless page.sharing == false %} -->
-    <!--   {#% include post/sharing.html %} -->
-    <!-- {#% endunless %} -->
-  </div>
-</article>
-
-
-    </div>
-  
-    
-    <div class="blog-articles">
-      <article class="post_row">
-  <div class="inner">
-    <header class="field-items">
-      
-        <h1>
-          
-            <a href="/blog/vim/alpaca_octopress/create_new_plugin_for_octopress.html">
-              
-                Alpaca_octopressを作っている
-              
-            </a>
-          
-        </h1>
-      
-
-      
-        <section class="meta">
-          <div class="inner">
-            
-
-
-
-
-
-
-
-
-  
-
-
-
-<time datetime="2013-10-29T04:52:00+09:00" pubdate data-updated="true">Oct 29<span>th</span>, 2013</time>
-            
-  
-
-<span class="byline author">Posted by 石井浩之</span>
-
-            
-
-<span class="categories">
-  
-    <a class='category' href='/blog//alpaca-octopress/'>alpaca_octopress</a>, <a class='category' href='/blog//vim/'>vim</a>
-  
-</span>
-
-
-
-
-            
-          </div>
-        </section>
-      
-    </header>
-
-    
-      <section class="entry-content"><p>昨日言った通り、今は<a href="https://github.com/alpaca-tc/alpaca_octopress.vim">alpaca_octopress.vim</a>を作っています</p>
-
-</section>
-      
-
-      
-        <footer class="article_footer">
-          <div class="read_more">
-  <a href="/blog/vim/alpaca_octopress/create_new_plugin_for_octopress.html">続きを読む &rarr;</a>
-</div>
-
-        </footer>
       
     
 

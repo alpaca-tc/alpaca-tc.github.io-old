@@ -4,7 +4,7 @@
   <title><![CDATA[アルパカエンジニアのブログ]]></title>
   <link href="http://alpaca-tc.github.io/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-11-20T11:29:55+09:00</updated>
+  <updated>2013-11-21T10:03:13+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,95 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[i_begin_to_lean_vim_1]]></title>
+    <link href="http://alpaca-tc.github.io/blog/learning_vim/i-begin-to-lean-vim-1.html"/>
+    <updated>2013-11-21T09:11:00+09:00</updated>
+    <id>http://alpaca-tc.github.io/blog/learning_vim/i-begin-to-lean-vim-1</id>
+    <content type="html"><![CDATA[<h1>Vim読書会 #1</h1>
+
+<p>先日から続けているVim読書会(一人)ですが、
+今回からモチベーションのために記事にあげて行おうと思います。</p>
+
+<p><em>本日読むソースコード</em></p>
+
+<p><strong>Vim-0.3</strong></p>
+
+<ul>
+<li>cmdline.c</li>
+<li>cmdtab.h</li>
+<li>cmdcmds.c</li>
+</ul>
+
+
+<h2>cmdline.c L3723行</h2>
+
+<p>cmdline.c: functions for reading in the command line and executing it</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="c1">// L650:</span>
+</span><span class='line'><span class="k">static</span> <span class="n">char_u</span> <span class="o">*</span> <span class="n">DoOneCmd</span><span class="p">(</span><span class="n">buff</span><span class="p">)</span> <span class="n">char_u</span> <span class="o">*</span><span class="n">buff</span><span class="p">;</span> <span class="p">{</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>この関数で、コマンドラインからの入力を処理してます。
+関数の前半部分で入力をパースして、後半部分でコマンドを分岐しています。</p>
+
+<p>分岐部分はこんな感じですね。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="nl">L1111:</span>
+</span><span class='line'><span class="nl">cmdswitch:</span>
+</span><span class='line'>  <span class="k">switch</span> <span class="p">(</span><span class="n">cmdidx</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>    <span class="cm">/*</span>
+</span><span class='line'><span class="cm">     * quit current window, quit Vim if closed the last window</span>
+</span><span class='line'><span class="cm">     */</span>
+</span><span class='line'>    <span class="k">case</span> <span class="n">CMD_quit</span>:
+</span><span class='line'>      <span class="p">...</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">case</span> <span class="n">CMD_qall</span>:
+</span><span class='line'>      <span class="p">...</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>:quit</code>の処理を変更したかったら、<code>case CMD_quit</code>以下を変更すればいいです。</p>
+
+<h2>cmdtab.h L337行</h2>
+
+<p>また、<code>CMD_...</code>といった定数は<code>cmdtab.h</code>で初期化されており、全てのコマンドが定義されています。
+コマンドは、ユニークなID,コマンド名,受け付ける引数がここで定義されます。</p>
+
+<p>そのコマンドの実際の動作は、<code>cmdline.c</code>にべた書きされているという感じでしょうか。</p>
+
+<p>Vim-3.0の書き方だと、コマンドがひとつ増える度に<code>cmdline.c</code>の分岐がひとつ増えるというヘビーな書き方なので、新しいバージョンではリファクタリングされてそう。</p>
+
+<h2>cmdcmds.c L541行</h2>
+
+<p>cmdcmds.c: functions for command line commands</p>
+
+<p><code>cmdcmds.c</code>は、<code>cmdline.c</code>でのコマンドの分岐で重なる部分の関数をまとめたもの、といった印象です。
+Wordpressでいうfunctionsのような感じかな。一応、他の場所でも使える感じに仕上がっています。</p>
+
+<p>この中には、<code>do_align</code>や<code>doshell</code>といった、想像につく名前の関数がありますね。
+<code>CMD_move</code>で分岐した場合は、こちらに飛ばされます。</p>
+
+<p><code>:echo</code>などのコマンドを実装をする場合は、ここら辺を弄るだけでなんとかなりそうですね。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[そろそろVimを使いこなせるようになりたい。]]></title>

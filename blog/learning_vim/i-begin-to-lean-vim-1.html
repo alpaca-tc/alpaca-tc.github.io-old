@@ -7,31 +7,40 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <title>そろそろVimを使いこなせるようになりたい。 | アルパカエンジニアのブログ</title>
+    <title>i_begin_to_lean_vim_1 | アルパカエンジニアのブログ</title>
 
     
-    <meta name="description" content="「俺、ちゃんとVimやるわ」 &hellip;と、夏の途中に宣言してからというもの、 「仕事がー」、「友達がー」、「本をー」と、何かと理由をつけて結局やってませんでした。。。 m(_ _)m &lt; 怠惰な人間です。クズです。生きててすみません。。。 はい。 &hellip;">
+    <meta name="description" content="Vim読書会 #1 先日から続けているVim読書会(一人)ですが、
+今回からモチベーションのために記事にあげて行おうと思います。 本日読むソースコード Vim-0.3 cmdline.c
+cmdtab.h
+cmdcmds.c cmdline.c L3723行 cmdline.c: &hellip;">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
-    <meta content='そろそろVimを使いこなせるようになりたい。 | アルパカエンジニアのブログ' name='title' />
+    <meta content='i_begin_to_lean_vim_1 | アルパカエンジニアのブログ' name='title' />
 
     
   <link rel="author" href="https://plus.google.com/105581201951227096827" />
   <link rel="publisher" href="https://plus.google.com/105581201951227096827" />
 
 
-    <meta property="og:title" content='そろそろVimを使いこなせるようになりたい。 | アルパカエンジニアのブログ' />
+    <meta property="og:title" content='i_begin_to_lean_vim_1 | アルパカエンジニアのブログ' />
 <meta property="og:locale" content="ja"/>
 <meta property="og:image" content="http://http://alpaca-tc.github.io/images/meta/site_title.png"/>
 <meta property="og:type" content="blog"/>
-<meta property="og:url" content="http://alpaca-tc.github.io/blog/learning_vim/i-begin-to-learn-vim.html"/>
+<meta property="og:url" content="http://alpaca-tc.github.io/blog/learning_vim/i-begin-to-lean-vim-1.html"/>
 <meta property="og:site_name" content="アルパカエンジニアのブログ"/>
 <meta property="og:email" content="alprhcp666@gmail.com"/>
-<meta property="og:description" content="「俺、ちゃんとVimやるわ」 &hellip;と、夏の途中に宣言してからというもの、 「仕事がー」、「友達がー」、「本をー」と、何かと理由をつけて結局やってませんでした。。。 m(_ _)m &lt; 怠惰な人間です。クズです。生きててすみません。。。 はい。 &hellip;" />
+<meta property="og:description" content="Vim読書会 #1 先日から続けているVim読書会(一人)ですが、
+今回からモチベーションのために記事にあげて行おうと思います。 本日読むソースコード Vim-0.3 cmdline.c
+cmdtab.h
+cmdcmds.c cmdline.c L3723行 cmdline.c: &hellip;" />
 
     <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="そろそろVimを使いこなせるようになりたい。 | アルパカエンジニアのブログ">
-<meta name="twitter:description" content="「俺、ちゃんとVimやるわ」 &hellip;と、夏の途中に宣言してからというもの、 「仕事がー」、「友達がー」、「本をー」と、何かと理由をつけて結局やってませんでした。。。 m(_ _)m &lt; 怠惰な人間です。クズです。生きててすみません。。。 はい。 &hellip;">
+<meta name="twitter:title" content="i_begin_to_lean_vim_1 | アルパカエンジニアのブログ">
+<meta name="twitter:description" content="Vim読書会 #1 先日から続けているVim読書会(一人)ですが、
+今回からモチベーションのために記事にあげて行おうと思います。 本日読むソースコード Vim-0.3 cmdline.c
+cmdtab.h
+cmdcmds.c cmdline.c L3723行 cmdline.c: &hellip;">
 <meta name="twitter:image" content="http://http://alpaca-tc.github.io/images/meta/site_title.png">
 
 <meta name="twitter:site" content="@">
@@ -113,7 +122,7 @@
           <div class="inner clearfix">
             <div id="logo">
               
-                <h1 id="site_title"><a href=".">そろそろVimを使いこなせるようになりたい。</a> > <a href="/blog/learning_vim">learning_vim</a></h1>
+                <h1 id="site_title"><a href=".">i_begin_to_lean_vim_1</a> > <a href="/blog/learning_vim">learning_vim</a></h1>
               
             </div>
 
@@ -151,7 +160,7 @@
         <h1>
           
             
-              そろそろVimを使いこなせるようになりたい。
+              I_begin_to_lean_vim_1
           
         </h1>
       
@@ -172,7 +181,7 @@
 
 
 
-<time datetime="2013-11-15T06:58:00+09:00" pubdate data-updated="true">Nov 15<span>th</span>, 2013</time>
+<time datetime="2013-11-21T09:11:00+09:00" pubdate data-updated="true">Nov 21<span>st</span>, 2013</time>
             
   
 
@@ -198,28 +207,87 @@
     </header>
 
     
-      <section class="entry-content"><h1><strong>「俺、ちゃんとVimやるわ」</strong></h1>
+      <section class="entry-content"><h1>Vim読書会 #1</h1>
 
-<p>&hellip;と、夏の途中に宣言してからというもの、</p>
+<p>先日から続けているVim読書会(一人)ですが、
+今回からモチベーションのために記事にあげて行おうと思います。</p>
 
-<p>「仕事がー」、「友達がー」、「本をー」と、何かと理由をつけて結局やってませんでした。。。</p>
+<p><em>本日読むソースコード</em></p>
 
-<p>m(_ _)m &lt; 怠惰な人間です。クズです。生きててすみません。。。</p>
+<p><strong>Vim-0.3</strong></p>
 
-<p>はい。</p>
+<ul>
+<li>cmdline.c</li>
+<li>cmdtab.h</li>
+<li>cmdcmds.c</li>
+</ul>
 
-<p>今日からちゃんとVimと向き合いたいと思います。</p>
 
-<!-- more -->
+<h2>cmdline.c L3723行</h2>
+
+<p>cmdline.c: functions for reading in the command line and executing it</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="c1">// L650:</span>
+</span><span class='line'><span class="k">static</span> <span class="n">char_u</span> <span class="o">*</span> <span class="n">DoOneCmd</span><span class="p">(</span><span class="n">buff</span><span class="p">)</span> <span class="n">char_u</span> <span class="o">*</span><span class="n">buff</span><span class="p">;</span> <span class="p">{</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>そして、僕は2歳のころの時代へ&hellip;</h2>
+<p>この関数で、コマンドラインからの入力を処理してます。
+関数の前半部分で入力をパースして、後半部分でコマンドを分岐しています。</p>
 
-<p><img class="image_on_frame center" src="/images/blog/2013_11_15.png" title="The version of Vim" ></p>
+<p>分岐部分はこんな感じですね。</p>
 
-<p>1994年というと、僕がおもらしをして20万円ぐらいするPCを破壊したぐらいの時期でしょうか。</p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="nl">L1111:</span>
+</span><span class='line'><span class="nl">cmdswitch:</span>
+</span><span class='line'>  <span class="k">switch</span> <span class="p">(</span><span class="n">cmdidx</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>    <span class="cm">/*</span>
+</span><span class='line'><span class="cm">     * quit current window, quit Vim if closed the last window</span>
+</span><span class='line'><span class="cm">     */</span>
+</span><span class='line'>    <span class="k">case</span> <span class="n">CMD_quit</span>:
+</span><span class='line'>      <span class="p">...</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">case</span> <span class="n">CMD_qall</span>:
+</span><span class='line'>      <span class="p">...</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<p>これから、VimをVersion4に向けて再構築していきたいと思います。</p>
+
+<p><code>:quit</code>の処理を変更したかったら、<code>case CMD_quit</code>以下を変更すればいいです。</p>
+
+<h2>cmdtab.h L337行</h2>
+
+<p>また、<code>CMD_...</code>といった定数は<code>cmdtab.h</code>で初期化されており、全てのコマンドが定義されています。
+コマンドは、ユニークなID,コマンド名,受け付ける引数がここで定義されます。</p>
+
+<p>そのコマンドの実際の動作は、<code>cmdline.c</code>にべた書きされているという感じでしょうか。</p>
+
+<p>Vim-3.0の書き方だと、コマンドがひとつ増える度に<code>cmdline.c</code>の分岐がひとつ増えるというヘビーな書き方なので、新しいバージョンではリファクタリングされてそう。</p>
+
+<h2>cmdcmds.c L541行</h2>
+
+<p>cmdcmds.c: functions for command line commands</p>
+
+<p><code>cmdcmds.c</code>は、<code>cmdline.c</code>でのコマンドの分岐で重なる部分の関数をまとめたもの、といった印象です。
+Wordpressでいうfunctionsのような感じかな。一応、他の場所でも使える感じに仕上がっています。</p>
+
+<p>この中には、<code>do_align</code>や<code>doshell</code>といった、想像につく名前の関数がありますね。
+<code>CMD_move</code>で分岐した場合は、こちらに飛ばされます。</p>
+
+<p><code>:echo</code>などのコマンドを実装をする場合は、ここら辺を弄るだけでなんとかなりそうですね。</p>
 </section>
     
 
@@ -234,13 +302,9 @@
             <div class="pagination meta clearfix">
   
     <div class="arrow_block left_block">
-      <a class="basic-alignment" href="/blog/vim/break-vim-beginners-scope.html" title="Previous Post: Vim中級者を脱する スコープ編">&laquo; Vim中級者を脱する スコープ編</a>
+      <a class="basic-alignment" href="/blog/learning_vim/i-begin-to-learn-vim.html" title="Previous Post: そろそろVimを使いこなせるようになりたい。">&laquo; そろそろVimを使いこなせるようになりたい。</a>
     </div>
   
-  
-    <div class="arrow_block right_block">
-      <a class="basic-alignment" href="/blog/learning_vim/i-begin-to-lean-vim-1.html" title="Next Post: i_begin_to_lean_vim_1">i_begin_to_lean_vim_1 &raquo;</a>
-    </div>
   
 </p>
 
