@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "i_begin_to_lean_vim_1"
+title: 'Vimを勉強し始めました #1'
 date: 2013-11-21 09:11
 comments: true
 categories: learning_vim
