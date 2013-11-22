@@ -10,8 +10,7 @@
     <title>アルパカエンジニアのブログ - Vim, Ruby, Rails, SEOの技術ブログ</title>
 
     
-    <meta name="description" content="I_begin_to_lean_vim_1 Nov 21st, 2013 Posted by 石井浩之 learning_vim Vim読書会 #1 先日から続けているVim読書会(一人)ですが、
-今回からモチベーションのために記事にあげて行おうと思います。 本日読むソースコード Vim-0.3 &hellip;">
+    <meta name="description" content="Guard-shellが便利だった話 Nov 23rd, 2013 Posted by 石井浩之 ruby Guardって便利ですよねー。 あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。 最近Vimの開発をしていて、 &hellip;">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='アルパカエンジニアのブログ - Vim, Ruby, Rails, SEOの技術ブログ' name='title' />
@@ -28,13 +27,11 @@
 <meta property="og:url" content="http://alpaca-tc.github.io/index.html"/>
 <meta property="og:site_name" content="アルパカエンジニアのブログ"/>
 <meta property="og:email" content="alprhcp666@gmail.com"/>
-<meta property="og:description" content="I_begin_to_lean_vim_1 Nov 21st, 2013 Posted by 石井浩之 learning_vim Vim読書会 #1 先日から続けているVim読書会(一人)ですが、
-今回からモチベーションのために記事にあげて行おうと思います。 本日読むソースコード Vim-0.3 &hellip;" />
+<meta property="og:description" content="Guard-shellが便利だった話 Nov 23rd, 2013 Posted by 石井浩之 ruby Guardって便利ですよねー。 あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。 最近Vimの開発をしていて、 &hellip;" />
 
     <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="アルパカエンジニアのブログ - Vim, Ruby, Rails, SEOの技術ブログ">
-<meta name="twitter:description" content="I_begin_to_lean_vim_1 Nov 21st, 2013 Posted by 石井浩之 learning_vim Vim読書会 #1 先日から続けているVim読書会(一人)ですが、
-今回からモチベーションのために記事にあげて行おうと思います。 本日読むソースコード Vim-0.3 &hellip;">
+<meta name="twitter:description" content="Guard-shellが便利だった話 Nov 23rd, 2013 Posted by 石井浩之 ruby Guardって便利ですよねー。 あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。 最近Vimの開発をしていて、 &hellip;">
 <meta name="twitter:image" content="http://http://alpaca-tc.github.io/images/meta/site_title.png">
 
 <meta name="twitter:site" content="@">
@@ -151,6 +148,169 @@
               <div id="page_contents" class="inner">
                 <div class="blog-index">
   
+  
+    
+    <div class="blog-articles">
+      <article class="post_row">
+  <div class="inner">
+    <header class="field-items">
+      
+        <h1>
+          
+            <a href="/blog/ruby/the-story-about-guard-shell.html">
+              
+                Guard-shellが便利だった話
+              
+            </a>
+          
+        </h1>
+      
+
+      
+        <section class="meta">
+          <div class="inner">
+            
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2013-11-23T01:34:00+09:00" pubdate data-updated="true">Nov 23<span>rd</span>, 2013</time>
+            
+  
+
+<span class="byline author">Posted by 石井浩之</span>
+
+            
+
+<span class="categories">
+  
+    <a class='category' href='/blog//ruby/'>ruby</a>
+  
+</span>
+
+
+
+
+            
+          </div>
+        </section>
+      
+    </header>
+
+    
+      <section class="entry-content"><p><a href="https://github.com/guard/guard">Guard</a>って便利ですよねー。</p>
+
+<p>あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。</p>
+
+<p>最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。と思っていたのでGuardを使って実現してみました。</p>
+
+<h2>guard + guard-shell</h2>
+
+<p>おなじみのGuardにshellコマンドを実行できるようにします。
+GuardでC言語を自動コンパイル！！！</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Gemfile</span>
+</span><span class='line'><span class="n">source</span> <span class="s1">&#39;https://rubygems.org&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;guard&#39;</span>
+</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;guard-shell&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Guardfile</span>
+</span><span class='line'><span class="n">group</span> <span class="ss">:vim3</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">guard</span> <span class="ss">:shell</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">target_dir</span> <span class="o">=</span> <span class="s1">&#39;vim-3\.0/src&#39;</span>
+</span><span class='line'>    <span class="n">watch</span><span class="p">(</span><span class="sr">%r!^</span><span class="si">#{</span><span class="n">target_dir</span><span class="si">}</span><span class="sr">/(.+)\.(c|h)!</span><span class="p">)</span> <span class="k">do</span>
+</span><span class='line'>      <span class="sb">`cd </span><span class="si">#{</span><span class="n">target_dir</span><span class="si">}</span><span class="sb"> &amp;&amp; make`</span>
+</span><span class='line'>      <span class="sb">`cd </span><span class="si">#{</span><span class="n">target_dir</span><span class="si">}</span><span class="sb"> &amp;&amp; make debug`</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>ポイントは、<em>group</em>と<em>guard :shell &hellip;</em>ですね。</p>
+
+<h3>guardのDSL <em>group</em></h3>
+
+<p>groupのDSLを使うと、guardの設定を切り替えることができます。</p>
+
+<p>例えば、バージョン毎にgroupで設定をわけておけば、不必要な部分でguardが動作することを防ぐことができます。
+僕の場合は、vimのバージョン毎に設定を切り替えることで不必要なコンパイルを防いでいます。</p>
+
+<p>また、分けてあるgroupを切り替えるときは、guardのコンソールで<code>scope vim3</code>と打てば切り替わります。</p>
+
+<p>(起動時にscopeを指定する場合は、<code>guard --group vim3</code>)</p>
+
+<h3>guard-shellを使う</h3>
+
+<p>guard-shellは、ファイルの変更をフックにしてshellコマンドを実行するgemです。</p>
+
+<p>と、あたかもshellに特化したネーミングですが、実際はただ単にwatchに渡したブロックを評価するだけのシンプルなやつです。</p>
+
+<p>下記のようにすれば、ファイルが保存されたと同時に<code>hogepiyoooooooooooooo</code>と教えてくれます。
+わーい。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Guardfile</span>
+</span><span class='line'><span class="n">guard</span> <span class="ss">:shell</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">watch</span><span class="p">(</span><span class="sr">/.*/</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">m</span><span class="o">|</span> <span class="sb">`say hogepiyoooooooooooooo`</span> <span class="p">}</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>まとめ</h2>
+
+<p><em>guard-shell便利。</em></p>
+
+<p>(ホゲピヨーーーーーって言うのかと思ったら、「ホージピュゥ」って何か冷めた感じに返された。。。)</p>
+</section>
+      
+
+      
+    
+
+    <!-- {#% unless page.sharing == false %} -->
+    <!--   {#% include post/sharing.html %} -->
+    <!-- {#% endunless %} -->
+  </div>
+</article>
+
+
+    </div>
   
     
     <div class="blog-articles">
@@ -990,88 +1150,6 @@ Vimのオプションやコマンド名が、そのまま変数に使われて�
 <p>早くも、ブログを始めた目的の一つが終わりましたw</p>
 
 <p>やりたいことのために、他にも幾つかのキーワードで上位に出るようにしたいですね。</p>
-</section>
-      
-
-      
-    
-
-    <!-- {#% unless page.sharing == false %} -->
-    <!--   {#% include post/sharing.html %} -->
-    <!-- {#% endunless %} -->
-  </div>
-</article>
-
-
-    </div>
-  
-    
-    <div class="blog-articles">
-      <article class="post_row">
-  <div class="inner">
-    <header class="field-items">
-      
-        <h1>
-          
-            <a href="/blog/vim/alpaca_octopress/about_alpaca_complete.html">
-              
-                Alpaca_octopress続き
-              
-            </a>
-          
-        </h1>
-      
-
-      
-        <section class="meta">
-          <div class="inner">
-            
-
-
-
-
-
-
-
-
-  
-
-
-
-<time datetime="2013-10-30T04:34:00+09:00" pubdate data-updated="true">Oct 30<span>th</span>, 2013</time>
-            
-  
-
-<span class="byline author">Posted by 石井浩之</span>
-
-            
-
-<span class="categories">
-  
-    <a class='category' href='/blog//alpaca-octopress/'>alpaca_octopress</a>, <a class='category' href='/blog//vim/'>vim</a>
-  
-</span>
-
-
-
-
-            
-          </div>
-        </section>
-      
-    </header>
-
-    
-      <section class="entry-content"><p>octopress用のプラグイン<em>alpaca_octopress.vim</em>をガシガシ作っています。
-コマンドの非同期実行、サイトのプレビュー、etc&hellip;全てをVimで完結しつつあります！</p>
-
-<p>ある程度完成したら、Vim使いがOctopressを5分で構築出来るようなプラグインも同封するつもり。
-全てVimで完結するのはVimmerにとっては楽でいいなぁ〜。</p>
-
-<h2>OctopressTweet!!</h2>
-
-<p>そして今から<code>:OctopressTweet</code>を実行して、この投稿がTweetされることを望みます。
-無事Tweet出来たらまさに完結ですね。うりゃ！</p>
 </section>
       
 

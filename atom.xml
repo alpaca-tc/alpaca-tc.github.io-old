@@ -4,7 +4,7 @@
   <title><![CDATA[アルパカエンジニアのブログ]]></title>
   <link href="http://alpaca-tc.github.io/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-11-21T10:06:59+09:00</updated>
+  <updated>2013-11-23T01:52:28+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,105 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Guard-shellが便利だった話]]></title>
+    <link href="http://alpaca-tc.github.io/blog/ruby/the-story-about-guard-shell.html"/>
+    <updated>2013-11-23T01:34:00+09:00</updated>
+    <id>http://alpaca-tc.github.io/blog/ruby/the-story-about-guard-shell</id>
+    <content type="html"><![CDATA[<p><a href="https://github.com/guard/guard">Guard</a>って便利ですよねー。</p>
+
+<p>あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。</p>
+
+<p>最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。と思っていたのでGuardを使って実現してみました。</p>
+
+<h2>guard + guard-shell</h2>
+
+<p>おなじみのGuardにshellコマンドを実行できるようにします。
+GuardでC言語を自動コンパイル！！！</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Gemfile</span>
+</span><span class='line'><span class="n">source</span> <span class="s1">&#39;https://rubygems.org&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;guard&#39;</span>
+</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;guard-shell&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Guardfile</span>
+</span><span class='line'><span class="n">group</span> <span class="ss">:vim3</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">guard</span> <span class="ss">:shell</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">target_dir</span> <span class="o">=</span> <span class="s1">&#39;vim-3\.0/src&#39;</span>
+</span><span class='line'>    <span class="n">watch</span><span class="p">(</span><span class="sr">%r!^</span><span class="si">#{</span><span class="n">target_dir</span><span class="si">}</span><span class="sr">/(.+)\.(c|h)!</span><span class="p">)</span> <span class="k">do</span>
+</span><span class='line'>      <span class="sb">`cd </span><span class="si">#{</span><span class="n">target_dir</span><span class="si">}</span><span class="sb"> &amp;&amp; make`</span>
+</span><span class='line'>      <span class="sb">`cd </span><span class="si">#{</span><span class="n">target_dir</span><span class="si">}</span><span class="sb"> &amp;&amp; make debug`</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>ポイントは、<em>group</em>と<em>guard :shell &hellip;</em>ですね。</p>
+
+<h3>guardのDSL <em>group</em></h3>
+
+<p>groupのDSLを使うと、guardの設定を切り替えることができます。</p>
+
+<p>例えば、バージョン毎にgroupで設定をわけておけば、不必要な部分でguardが動作することを防ぐことができます。
+僕の場合は、vimのバージョン毎に設定を切り替えることで不必要なコンパイルを防いでいます。</p>
+
+<p>また、分けてあるgroupを切り替えるときは、guardのコンソールで<code>scope vim3</code>と打てば切り替わります。</p>
+
+<p>(起動時にscopeを指定する場合は、<code>guard --group vim3</code>)</p>
+
+<h3>guard-shellを使う</h3>
+
+<p>guard-shellは、ファイルの変更をフックにしてshellコマンドを実行するgemです。</p>
+
+<p>と、あたかもshellに特化したネーミングですが、実際はただ単にwatchに渡したブロックを評価するだけのシンプルなやつです。</p>
+
+<p>下記のようにすれば、ファイルが保存されたと同時に<code>hogepiyoooooooooooooo</code>と教えてくれます。
+わーい。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Guardfile</span>
+</span><span class='line'><span class="n">guard</span> <span class="ss">:shell</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">watch</span><span class="p">(</span><span class="sr">/.*/</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">m</span><span class="o">|</span> <span class="sb">`say hogepiyoooooooooooooo`</span> <span class="p">}</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>まとめ</h2>
+
+<p><em>guard-shell便利。</em></p>
+
+<p>(ホゲピヨーーーーーって言うのかと思ったら、「ホージピュゥ」って何か冷めた感じに返された。。。)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[i_begin_to_lean_vim_1]]></title>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ruby | アルパカエンジニアのブログ]]></title>
   <link href="http://alpaca-tc.github.io/blog/ruby/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-11-23T01:52:07+09:00</updated>
+  <updated>2013-11-23T01:52:28+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -81,11 +81,14 @@ end
 <p>下記のようにすれば、ファイルが保存されたと同時に<code>hogepiyoooooooooooooo</code>と教えてくれます。
 わーい。</p>
 
-<p><code>Guardfile
-guard :shell do
-  watch(/.*/) { |m| `say hogepiyoooooooooooooo` }
+<p>```ruby</p>
+
+<h1>Guardfile</h1>
+
+<p>guard :shell do
+  watch(/.*/) { |m| <code>say hogepiyoooooooooooooo</code> }
 end
-</code></p>
+```</p>
 
 <h2>まとめ</h2>
 
