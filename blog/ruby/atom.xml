@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ruby | アルパカエンジニアのブログ]]></title>
   <link href="http://alpaca-tc.github.io/blog/ruby/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-11-23T01:51:23+09:00</updated>
+  <updated>2013-11-23T01:52:07+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -26,9 +26,10 @@
 
 <h2>guard + guard-shell</h2>
 
-<p>おなじみのGuardにshellコマンドを実行できるようにします。</p>
+<p>おなじみのGuardにshellコマンドを実行できるようにします。
+GuardでC言語を自動コンパイル！！！</p>
 
-<p>```ruby:Gemfile</p>
+<p>```ruby</p>
 
 <h1>Gemfile</h1>
 
@@ -38,8 +39,11 @@
 gem &lsquo;guard-shell&rsquo;
 ```</p>
 
-<p>```ruby:Guardfile
-group :vim3 do
+<p>```ruby</p>
+
+<h1>Guardfile</h1>
+
+<p>group :vim3 do
   guard :shell do</p>
 
 <pre><code>target_dir = 'vim-3\.0/src'
