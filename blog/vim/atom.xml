@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vim | アルパカエンジニアのブログ]]></title>
   <link href="http://alpaca-tc.github.io/blog/vim/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-11-21T10:06:59+09:00</updated>
+  <updated>2013-11-23T01:50:39+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -212,7 +212,7 @@ if has(&lsquo;python&rsquo;) &amp;&amp; executable(&lsquo;npm&rsquo;)
 
 <p>新人の方もvimmerなので、そのためのプラグインを作りました。</p>
 
-<p><img class="image_on_frame center" src="/images/blog/11_11.png" title="Vimのデモ" ></p>
+<p>{% img image_on_frame center /images/blog/11_11.png Vimのデモ %}</p>
 
 <p><strong><a href="https://github.com/enfactv/assignment">assignment.vim</a></strong></p>
 
@@ -306,7 +306,7 @@ unlet hooks
 </ul>
 
 
-<p><img class="image_on_frame center <a" src="href="https://raw.github.com/junegunn/i/master/vim-easy-align.gif">https://raw.github.com/junegunn/i/master/vim-easy-align.gif</a>" title="vim-easy-align DEMO" ></p>
+<p>{% img image_on_frame center <a href="https://raw.github.com/junegunn/i/master/vim-easy-align.gif">https://raw.github.com/junegunn/i/master/vim-easy-align.gif</a> vim-easy-align DEMO %}</p>
 
 <p>```vim
 NeoBundleLazy &lsquo;junegunn/vim-easy-align&rsquo;, { &lsquo;autoload&rsquo;: {</p>

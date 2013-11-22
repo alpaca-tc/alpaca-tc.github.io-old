@@ -4,7 +4,7 @@
   <title><![CDATA[Category: learning_vim | アルパカエンジニアのブログ]]></title>
   <link href="http://alpaca-tc.github.io/blog/learning-vim/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-11-21T10:06:59+09:00</updated>
+  <updated>2013-11-23T01:50:39+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -119,7 +119,7 @@ Vimのオプションやコマンド名が、そのまま変数に使われて�
 
 <h2>そして、僕は2歳のころの時代へ&hellip;</h2>
 
-<p><img class="image_on_frame center" src="/images/blog/2013_11_15.png" title="The version of Vim" ></p>
+<p>{% img image_on_frame center /images/blog/2013_11_15.png The version of Vim %}</p>
 
 <p>1994年というと、僕がおもらしをして20万円ぐらいするPCを破壊したぐらいの時期でしょうか。</p>
 
