@@ -10,7 +10,7 @@
     <title>Guard-shellが便利だった話 | アルパカエンジニアのブログ</title>
 
     
-    <meta name="description" content="Guardって便利ですよねー。 あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。 最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。と思っていたのでGuardを使って実現してみました。 guard + guard-shell &hellip;">
+    <meta name="description" content="Guardって便利ですよねー。 あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。 最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。 Guardを使って実現してみました。 guard + guard-shell &hellip;">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='Guard-shellが便利だった話 | アルパカエンジニアのブログ' name='title' />
@@ -27,11 +27,11 @@
 <meta property="og:url" content="http://alpaca-tc.github.io/blog/ruby/the-story-about-guard-shell.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
 <meta property="og:email" content="alprhcp666@gmail.com"/>
-<meta property="og:description" content="Guardって便利ですよねー。 あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。 最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。と思っていたのでGuardを使って実現してみました。 guard + guard-shell &hellip;" />
+<meta property="og:description" content="Guardって便利ですよねー。 あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。 最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。 Guardを使って実現してみました。 guard + guard-shell &hellip;" />
 
     <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Guard-shellが便利だった話 | アルパカエンジニアのブログ">
-<meta name="twitter:description" content="Guardって便利ですよねー。 あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。 最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。と思っていたのでGuardを使って実現してみました。 guard + guard-shell &hellip;">
+<meta name="twitter:description" content="Guardって便利ですよねー。 あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。 最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。 Guardを使って実現してみました。 guard + guard-shell &hellip;">
 <meta name="twitter:image" content="http://http://alpaca-tc.github.io/images/meta/site_title.png">
 
 <meta name="twitter:site" content="@">
@@ -202,12 +202,18 @@
 
 <p>あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。</p>
 
-<p>最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。と思っていたのでGuardを使って実現してみました。</p>
+<p>最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。</p>
+
+<p>Guardを使って実現してみました。</p>
+
+<!-- more -->
+
 
 <h1>guard + guard-shell</h1>
 
-<p>おなじみのGuardにshellコマンドを実行できるようにします。
-GuardでC言語を自動コンパイル！！！</p>
+<p>おなじみのGuardにshellコマンドを実行できるようにします。</p>
+
+<p><em>GuardでC言語を自動コンパイル！！！</em></p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>

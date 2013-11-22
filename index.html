@@ -210,96 +210,20 @@
 
 <p>あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。</p>
 
-<p>最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。と思っていたのでGuardを使って実現してみました。</p>
+<p>最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。</p>
 
-<h1>guard + guard-shell</h1>
+<p>Guardを使って実現してみました。</p>
 
-<p>おなじみのGuardにshellコマンドを実行できるようにします。
-GuardでC言語を自動コンパイル！！！</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Gemfile</span>
-</span><span class='line'><span class="n">source</span> <span class="s1">&#39;https://rubygems.org&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;guard&#39;</span>
-</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;guard-shell&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Guardfile</span>
-</span><span class='line'><span class="n">group</span> <span class="ss">:vim3</span> <span class="k">do</span>
-</span><span class='line'>  <span class="n">guard</span> <span class="ss">:shell</span> <span class="k">do</span>
-</span><span class='line'>    <span class="n">target_dir</span> <span class="o">=</span> <span class="s1">&#39;vim-3\.0/src&#39;</span>
-</span><span class='line'>    <span class="n">watch</span><span class="p">(</span><span class="sr">%r!^</span><span class="si">#{</span><span class="n">target_dir</span><span class="si">}</span><span class="sr">/(.+)\.(c|h)!</span><span class="p">)</span> <span class="k">do</span>
-</span><span class='line'>      <span class="sb">`cd </span><span class="si">#{</span><span class="n">target_dir</span><span class="si">}</span><span class="sb"> &amp;&amp; make`</span>
-</span><span class='line'>      <span class="sb">`cd </span><span class="si">#{</span><span class="n">target_dir</span><span class="si">}</span><span class="sb"> &amp;&amp; make debug`</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="o">.</span><span class="n">.</span><span class="o">.</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>ポイントは、<em>group</em>と<em>guard :shell &hellip;</em>ですね。</p>
-
-<h2>guardのDSL <em>group</em></h2>
-
-<p>groupのDSLを使うと、guardの設定を切り替えることができます。</p>
-
-<p>例えば、バージョン毎にgroupで設定をわけておけば、不必要な部分でguardが動作することを防ぐことができます。
-僕の場合は、vimのバージョン毎に設定を切り替えることで不必要なコンパイルを防いでいます。</p>
-
-<p>また、分けてあるgroupを切り替えるときは、guardのコンソールで<code>scope vim3</code>と打てば切り替わります。</p>
-
-<p>(起動時にscopeを指定する場合は、<code>guard --group vim3</code>)</p>
-
-<h2>guard-shellを使う</h2>
-
-<p>guard-shellは、ファイルの変更をフックにしてshellコマンドを実行するgemです。</p>
-
-<p>と、あたかもshellに特化したネーミングですが、実際はただ単にwatchに渡したブロックを評価するだけのシンプルなやつです。</p>
-
-<p>下記のようにすれば、ファイルが保存されたと同時に<code>hogepiyoooooooooooooo</code>と教えてくれます。
-わーい。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Guardfile</span>
-</span><span class='line'><span class="n">guard</span> <span class="ss">:shell</span> <span class="k">do</span>
-</span><span class='line'>  <span class="n">watch</span><span class="p">(</span><span class="sr">/.*/</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">m</span><span class="o">|</span> <span class="sb">`say hogepiyoooooooooooooo`</span> <span class="p">}</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>まとめ</h2>
-
-<p><em>guard-shell便利。</em></p>
-
-<p>(ホゲピヨーーーーーって言うのかと思ったら、「ホージピュゥ」って何か冷めた感じに返された。。。)</p>
 </section>
       
 
+      
+        <footer class="article_footer">
+          <div class="read_more">
+  <a href="/blog/ruby/the-story-about-guard-shell.html">続きを読む &rarr;</a>
+</div>
+
+        </footer>
       
     
 
@@ -385,80 +309,16 @@ GuardでC言語を自動コンパイル！！！</p>
 </ul>
 
 
-<h2>cmdline.c L3723行</h2>
-
-<p>cmdline.c: functions for reading in the command line and executing it</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="c1">// L650:</span>
-</span><span class='line'><span class="k">static</span> <span class="n">char_u</span> <span class="o">*</span> <span class="n">DoOneCmd</span><span class="p">(</span><span class="n">buff</span><span class="p">)</span> <span class="n">char_u</span> <span class="o">*</span><span class="n">buff</span><span class="p">;</span> <span class="p">{</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>この関数で、コマンドラインからの入力を処理してます。
-関数の前半部分で入力をパースして、後半部分でコマンドを分岐しています。</p>
-
-<p>分岐部分はこんな感じですね。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="nl">L1111:</span>
-</span><span class='line'><span class="nl">cmdswitch:</span>
-</span><span class='line'>  <span class="k">switch</span> <span class="p">(</span><span class="n">cmdidx</span><span class="p">)</span>
-</span><span class='line'>  <span class="p">{</span>
-</span><span class='line'>    <span class="cm">/*</span>
-</span><span class='line'><span class="cm">     * quit current window, quit Vim if closed the last window</span>
-</span><span class='line'><span class="cm">     */</span>
-</span><span class='line'>    <span class="k">case</span> <span class="n">CMD_quit</span>:
-</span><span class='line'>      <span class="p">...</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">case</span> <span class="n">CMD_qall</span>:
-</span><span class='line'>      <span class="p">...</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><code>:quit</code>の処理を変更したかったら、<code>case CMD_quit</code>以下を変更すればいいです。</p>
-
-<h2>cmdtab.h L337行</h2>
-
-<p>また、<code>CMD_...</code>といった定数は<code>cmdtab.h</code>で初期化されており、全てのコマンドが定義されています。
-コマンドは、ユニークなID,コマンド名,受け付ける引数がここで定義されます。</p>
-
-<p>そのコマンドの実際の動作は、<code>cmdline.c</code>にべた書きされているという感じでしょうか。</p>
-
-<p>Vim-3.0の書き方だと、コマンドがひとつ増える度に<code>cmdline.c</code>の分岐がひとつ増えるというヘビーな書き方なので、新しいバージョンではリファクタリングされてそう。</p>
-
-<h2>cmdcmds.c L541行</h2>
-
-<p>cmdcmds.c: functions for command line commands</p>
-
-<p><code>cmdcmds.c</code>は、<code>cmdline.c</code>でのコマンドの分岐で重なる部分の関数をまとめたもの、といった印象です。
-Wordpressでいうfunctionsのような感じかな。一応、他の場所でも使える感じに仕上がっています。</p>
-
-<p>この中には、<code>do_align</code>や<code>doshell</code>といった、想像につく名前の関数がありますね。
-<code>CMD_move</code>で分岐した場合は、こちらに飛ばされます。</p>
-
-<h2>まとめ</h2>
-
-<p>コマンド関連の細かい実装を見るのは大変ですが、全体的に見ると読みやすかったです。
-Vimのオプションやコマンド名が、そのまま変数に使われているので読みやすかったです。</p>
-
-<p><code>:echo</code>などのコマンドを追加する場合は、ここら辺を弄るだけでなんとかなりそうですね！
-次回トライしてみます。</p>
 </section>
       
 
+      
+        <footer class="article_footer">
+          <div class="read_more">
+  <a href="/blog/learning_vim/i-begin-to-lean-vim-1.html">続きを読む &rarr;</a>
+</div>
+
+        </footer>
       
     
 
