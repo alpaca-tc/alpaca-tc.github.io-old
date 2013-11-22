@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ruby | アルパカエンジニアのブログ]]></title>
   <link href="http://alpaca-tc.github.io/blog/ruby/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-11-23T01:50:39+09:00</updated>
+  <updated>2013-11-23T01:51:23+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -28,14 +28,17 @@
 
 <p>おなじみのGuardにshellコマンドを実行できるようにします。</p>
 
-<p>```Gemfile
-source &lsquo;<a href="https://rubygems.org">https://rubygems.org</a>&rsquo;</p>
+<p>```ruby:Gemfile</p>
+
+<h1>Gemfile</h1>
+
+<p>source &lsquo;<a href="https://rubygems.org">https://rubygems.org</a>&rsquo;</p>
 
 <p>gem &lsquo;guard&rsquo;
 gem &lsquo;guard-shell&rsquo;
 ```</p>
 
-<p>```Guardfile
+<p>```ruby:Guardfile
 group :vim3 do
   guard :shell do</p>
 
