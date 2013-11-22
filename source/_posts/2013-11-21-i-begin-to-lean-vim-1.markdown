@@ -19,6 +19,8 @@ categories: learning_vim
 - cmdtab.h
 - cmdcmds.c
 
+<!-- more -->
+
 ## cmdline.c L3723行
 
 cmdline.c: functions for reading in the command line and executing it
