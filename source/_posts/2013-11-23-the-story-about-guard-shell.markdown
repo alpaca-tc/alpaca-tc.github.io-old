@@ -12,7 +12,7 @@ categories: ruby
 
 最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。と思っていたのでGuardを使って実現してみました。
 
-## guard + guard-shell
+# guard + guard-shell
 
 おなじみのGuardにshellコマンドを実行できるようにします。
 GuardでC言語を自動コンパイル！！！
@@ -42,7 +42,7 @@ end
 
 ポイントは、*group*と*guard :shell ...*ですね。
 
-### guardのDSL *group*
+## guardのDSL *group*
 
 groupのDSLを使うと、guardの設定を切り替えることができます。
 
@@ -53,7 +53,7 @@ groupのDSLを使うと、guardの設定を切り替えることができます�
 
 (起動時にscopeを指定する場合は、`guard --group vim3`)
 
-### guard-shellを使う
+## guard-shellを使う
 
 guard-shellは、ファイルの変更をフックにしてshellコマンドを実行するgemです。
 

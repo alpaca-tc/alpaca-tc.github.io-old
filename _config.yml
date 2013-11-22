@@ -3,9 +3,9 @@
 # ----------------------- #
 
 url: http://alpaca-tc.github.io
-title: アルパカエンジニアのブログ
-single_title: アルパカエンジニアのブログ - Vim, Ruby, Rails, SEOの技術ブログ
-title_english: Alpaca Engineer's Blog
+title: RailsとRubyとVimのブログ
+single_title: RailsとRubyとVimのブログ - alpaca-tc
+title_english: RailsとRubyとVimのブログ
 subtitle: ''
 author: alpaca-tc
 author_info:
