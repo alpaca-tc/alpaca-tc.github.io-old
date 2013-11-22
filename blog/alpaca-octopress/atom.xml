@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: alpaca_octopress | アルパカエンジニアのブログ]]></title>
+  <title><![CDATA[Category: alpaca_octopress | RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca-tc.github.io/blog/alpaca-octopress/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-11-23T01:52:28+09:00</updated>
+  <updated>2013-11-23T01:56:14+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: ruby | アルパカエンジニアのブログ]]></title>
+  <title><![CDATA[Category: ruby | RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca-tc.github.io/blog/ruby/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-11-23T01:52:28+09:00</updated>
+  <updated>2013-11-23T01:56:14+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -24,7 +24,7 @@
 
 <p>最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。と思っていたのでGuardを使って実現してみました。</p>
 
-<h2>guard + guard-shell</h2>
+<h1>guard + guard-shell</h1>
 
 <p>おなじみのGuardにshellコマンドを実行できるようにします。
 GuardでC言語を自動コンパイル！！！</p>
@@ -61,7 +61,7 @@ end
 
 <p>ポイントは、<em>group</em>と<em>guard :shell &hellip;</em>ですね。</p>
 
-<h3>guardのDSL <em>group</em></h3>
+<h2>guardのDSL <em>group</em></h2>
 
 <p>groupのDSLを使うと、guardの設定を切り替えることができます。</p>
 
@@ -72,7 +72,7 @@ end
 
 <p>(起動時にscopeを指定する場合は、<code>guard --group vim3</code>)</p>
 
-<h3>guard-shellを使う</h3>
+<h2>guard-shellを使う</h2>
 
 <p>guard-shellは、ファイルの変更をフックにしてshellコマンドを実行するgemです。</p>
 

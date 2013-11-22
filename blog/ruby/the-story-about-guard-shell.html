@@ -25,7 +25,7 @@
 <meta property="og:image" content="http://http://alpaca-tc.github.io/images/meta/site_title.png"/>
 <meta property="og:type" content="blog"/>
 <meta property="og:url" content="http://alpaca-tc.github.io/blog/ruby/the-story-about-guard-shell.html"/>
-<meta property="og:site_name" content="アルパカエンジニアのブログ"/>
+<meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
 <meta property="og:email" content="alprhcp666@gmail.com"/>
 <meta property="og:description" content="Guardって便利ですよねー。 あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。 最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。と思っていたのでGuardを使って実現してみました。 guard + guard-shell &hellip;" />
 
@@ -41,7 +41,7 @@
     <link rel="canonical" href="">
     <link href="/favicon.png" rel="icon">
     <!-- <link rel="apple&#45;touch&#45;icon" href="icon.png" /> -->
-    <link href="/atom.xml" rel="alternate" title="アルパカエンジニアのブログ" type="application/atom+xml">
+    <link href="/atom.xml" rel="alternate" title="RailsとRubyとVimのブログ" type="application/atom+xml">
     <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css" media="all"/>
     <link rel="stylesheet" href="/stylesheets/common.css" type="text/css" media="all"/>
     <link rel="stylesheet" href="/stylesheets/page.css" type="text/css" media="all"/>
@@ -204,7 +204,7 @@
 
 <p>最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。と思っていたのでGuardを使って実現してみました。</p>
 
-<h2>guard + guard-shell</h2>
+<h1>guard + guard-shell</h1>
 
 <p>おなじみのGuardにshellコマンドを実行できるようにします。
 GuardでC言語を自動コンパイル！！！</p>
@@ -253,7 +253,7 @@ GuardでC言語を自動コンパイル！！！</p>
 
 <p>ポイントは、<em>group</em>と<em>guard :shell &hellip;</em>ですね。</p>
 
-<h3>guardのDSL <em>group</em></h3>
+<h2>guardのDSL <em>group</em></h2>
 
 <p>groupのDSLを使うと、guardの設定を切り替えることができます。</p>
 
@@ -264,7 +264,7 @@ GuardでC言語を自動コンパイル！！！</p>
 
 <p>(起動時にscopeを指定する場合は、<code>guard --group vim3</code>)</p>
 
-<h3>guard-shellを使う</h3>
+<h2>guard-shellを使う</h2>
 
 <p>guard-shellは、ファイルの変更をフックにしてshellコマンドを実行するgemです。</p>
 
