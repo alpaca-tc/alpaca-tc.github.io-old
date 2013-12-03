@@ -10,8 +10,7 @@
     <title>RailsとRubyとVimのブログ - alpaca-tc</title>
 
     
-    <meta name="description" content="インラインTODO管理のWatsonを使う Dec 3rd, 2013 Posted by 石井浩之 ruby 最近、Githubのトレンドにも入っていたWatsonを紹介します。 インラインTODO管理とは何か もしあなたがエンジニアなら、次のようなコメントを見たことがあると思います。 1
-2 &hellip;">
+    <meta name="description" content="インラインTODO管理のWatsonを使う Dec 3rd, 2013 Posted by 石井浩之 ruby 最近、Githubのトレンドにも入っていたWatsonを紹介します。 続きを読む &rarr; Guard-shellが便利だった話 Nov 23rd, 2013 Posted by &hellip;">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='RailsとRubyとVimのブログ - alpaca-tc' name='title' />
@@ -28,13 +27,11 @@
 <meta property="og:url" content="http://alpaca-tc.github.io/index.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
 <meta property="og:email" content="alprhcp666@gmail.com"/>
-<meta property="og:description" content="インラインTODO管理のWatsonを使う Dec 3rd, 2013 Posted by 石井浩之 ruby 最近、Githubのトレンドにも入っていたWatsonを紹介します。 インラインTODO管理とは何か もしあなたがエンジニアなら、次のようなコメントを見たことがあると思います。 1
-2 &hellip;" />
+<meta property="og:description" content="インラインTODO管理のWatsonを使う Dec 3rd, 2013 Posted by 石井浩之 ruby 最近、Githubのトレンドにも入っていたWatsonを紹介します。 続きを読む &rarr; Guard-shellが便利だった話 Nov 23rd, 2013 Posted by &hellip;" />
 
     <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RailsとRubyとVimのブログ - alpaca-tc">
-<meta name="twitter:description" content="インラインTODO管理のWatsonを使う Dec 3rd, 2013 Posted by 石井浩之 ruby 最近、Githubのトレンドにも入っていたWatsonを紹介します。 インラインTODO管理とは何か もしあなたがエンジニアなら、次のようなコメントを見たことがあると思います。 1
-2 &hellip;">
+<meta name="twitter:description" content="インラインTODO管理のWatsonを使う Dec 3rd, 2013 Posted by 石井浩之 ruby 最近、Githubのトレンドにも入っていたWatsonを紹介します。 続きを読む &rarr; Guard-shellが便利だった話 Nov 23rd, 2013 Posted by &hellip;">
 <meta name="twitter:image" content="http://http://alpaca-tc.github.io/images/meta/site_title.png">
 
 <meta name="twitter:site" content="@">
@@ -209,111 +206,16 @@
     
       <section class="entry-content"><p>最近、Githubのトレンドにも入っていた<a href="http://goosecode.com/watson/">Watson</a>を紹介します。</p>
 
-<p><img class="image_on_frame center" src="/images/watson.png" title="watsonのデモ" ></p>
-
-<h2>インラインTODO管理とは何か</h2>
-
-<p>もしあなたがエンジニアなら、次のようなコメントを見たことがあると思います。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="ss">ActionController</span><span class="p">:</span><span class="ss">:Base</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">logged_in?</span>
-</span><span class='line'>    <span class="c1"># TODO 管理ユーザーと処理を分ける</span>
-</span><span class='line'>    <span class="o">.</span><span class="n">.</span><span class="o">.</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>このように、コード内には至る所にコメントが書かれています。
-単なるコードの説明に限らず、修正が必要な内容を記述したものも多くあります。</p>
-
-<p>しかしながら、しばしばこういったコメントは放置され、コードの中に埋もれたままになってしまうこともあります。</p>
-
-<p>Watsonは、コード内に書かれたコメントを走査し、近代的な管理ツールに流し込むことでIssueを管理するツールです。</p>
-
-<h2>どうやって使うのか</h2>
-
-<p>watsonを使って、コード内に記述されたコメントを洗い出して、GithubのIssueに登録してみましょう。</p>
-
-<h3>ステップ1: watsonのインストール</h3>
-
-<p><code>gem install watson</code></p>
-
-<h3>ステップ2: watsonの初期化</h3>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span><span class="nb">cd </span>path/to/project_dir
-</span><span class='line'><span class="nv">$ </span>watson
-</span><span class='line'><span class="c"># 一旦&lt;Ctrl-C&gt;で終了してください。</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>watsonを実行すると、.watsonrcが自動的に作成されます。</p>
-
-<p>ここでは、.watsonrcを編集して、走査するディレクトリなどを設定します。</p>
-
-<p>プロジェクトのファイル数が少なければ、設定は不要かと思います。</p>
-
-<p>例として、Railsプロジェクト用の<a href="https://gist.github.com/7770689">.watsonrc</a>を貼付けておきます。</p>
-
-<h3>ステップ3: watsonの実行！！</h3>
-
-<p>watsonを使うときは、独自のタグを使ってコメントを書いておきます。</p>
-
-<ul>
-<li><code>[todo] - タスクの内容を記入する</code></li>
-<li><code>[review] - 他の人に意見を求めるような内容を記入する</code></li>
-<li><code>[fix] - バグの内容を記入する</code></li>
-</ul>
-
-
-<p>適当なファイルを開いて、上記のようなフォーマットでコメントを記入してみてください。</p>
-
-<p>後は、再度<code>watson</code>と打って実行！</p>
-
-<p>めでたしめでたし。
-プロジェクト内のTODOなどが、一覧で出力されます。</p>
-
-<h3>ステップ4: githubへIssue登録する</h3>
-
-<p>先ほどの出力した内容を、Githubへ一括同期しましょう。</p>
-
-<p>まず、Githubのリポジトリをwatsonに認識させます</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>watson --remote github
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>英語のコメントに沿って、情報を入力していきましょう。</p>
-
-<p>続いて、Issueを登録します。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>watson --update
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>処理が終わると、Githubのissueへの登録が完了です。</p>
-
-<p><img class="image_on_frame center" src="/images/watson_issue_preview.png" title="githubのissueプレビュー" ></p>
-
-<h2>まとめ</h2>
-
-<p>watsonは先月ぐらいに注目され始めた新しいプロジェクトです。</p>
-
-<p>コメントを活用して、様々な処理を行えるように拡張されると思うので、今後の動向が楽しみですね。</p>
 </section>
       
 
+      
+        <footer class="article_footer">
+          <div class="read_more">
+  <a href="/blog/ruby/how-to-use-watson.html">続きを読む &rarr;</a>
+</div>
+
+        </footer>
       
     
 

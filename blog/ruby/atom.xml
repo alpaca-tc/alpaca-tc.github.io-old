@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ruby | RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca-tc.github.io/blog/ruby/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-12-04T00:38:57+09:00</updated>
+  <updated>2013-12-04T00:49:19+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -20,7 +20,10 @@
     <id>http://alpaca-tc.github.io/blog/ruby/how-to-use-watson</id>
     <content type="html"><![CDATA[<p>最近、Githubのトレンドにも入っていた<a href="http://goosecode.com/watson/">Watson</a>を紹介します。</p>
 
-<p><img class="image_on_frame center" src="/images/watson.png" title="watsonのデモ" ></p>
+<!-- more -->
+
+
+<p><img class="image_on_frame center" src="/images/blog/watson.png" title="watsonのデモ" ></p>
 
 <h2>インラインTODO管理とは何か</h2>
 
@@ -109,7 +112,7 @@ $ watson --update
 
 <p>処理が終わると、Githubのissueへの登録が完了です。</p>
 
-<p><img class="image_on_frame center" src="/images/watson_issue_preview.png" title="githubのissueプレビュー" ></p>
+<p><img class="image_on_frame center" src="/images/blog/watson_issue_preview.png" title="githubのissueプレビュー" ></p>
 
 <h2>まとめ</h2>
 
