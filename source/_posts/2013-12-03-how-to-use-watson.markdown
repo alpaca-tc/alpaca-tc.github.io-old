@@ -8,7 +8,9 @@ categories: ruby
 
 最近、Githubのトレンドにも入っていた[Watson]( http://goosecode.com/watson/ )を紹介します。
 
-{% img image_on_frame center /images/watson.png watsonのデモ %}
+<!-- more -->
+
+{% img image_on_frame center /images/blog/watson.png watsonのデモ %}
 
 ## インラインTODO管理とは何か
 
@@ -90,7 +92,7 @@ $ watson --update
 
 処理が終わると、Githubのissueへの登録が完了です。
 
-{% img image_on_frame center /images/watson_issue_preview.png githubのissueプレビュー %}
+{% img image_on_frame center /images/blog/watson_issue_preview.png githubのissueプレビュー %}
 
 
 ## まとめ
