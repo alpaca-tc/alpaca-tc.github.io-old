@@ -7,31 +7,49 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <title>Guard-shellが便利だった話 | アルパカエンジニアのブログ</title>
+    <title>インラインTODO管理のWatsonを使う | アルパカエンジニアのブログ</title>
 
     
-    <meta name="description" content="Guardって便利ですよねー。 あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。 最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。 Guardを使って実現してみました。 guard + guard-shell &hellip;">
+    <meta name="description" content="最近、Githubのトレンドにも入っていたWatsonを紹介します。 インラインTODO管理とは何か もしあなたがエンジニアなら、次のようなコメントを見たことがあると思います。 1
+2
+3
+4
+5
+6
+class ApplicationController &lt; &hellip;">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
-    <meta content='Guard-shellが便利だった話 | アルパカエンジニアのブログ' name='title' />
+    <meta content='インラインTODO管理のWatsonを使う | アルパカエンジニアのブログ' name='title' />
 
     
   <link rel="author" href="https://plus.google.com/105581201951227096827" />
   <link rel="publisher" href="https://plus.google.com/105581201951227096827" />
 
 
-    <meta property="og:title" content='Guard-shellが便利だった話 | アルパカエンジニアのブログ' />
+    <meta property="og:title" content='インラインTODO管理のWatsonを使う | アルパカエンジニアのブログ' />
 <meta property="og:locale" content="ja"/>
 <meta property="og:image" content="http://http://alpaca-tc.github.io/images/meta/site_title.png"/>
 <meta property="og:type" content="blog"/>
-<meta property="og:url" content="http://alpaca-tc.github.io/blog/ruby/the-story-about-guard-shell.html"/>
+<meta property="og:url" content="http://alpaca-tc.github.io/blog/ruby/how-to-use-watson.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
 <meta property="og:email" content="alprhcp666@gmail.com"/>
-<meta property="og:description" content="Guardって便利ですよねー。 あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。 最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。 Guardを使って実現してみました。 guard + guard-shell &hellip;" />
+<meta property="og:description" content="最近、Githubのトレンドにも入っていたWatsonを紹介します。 インラインTODO管理とは何か もしあなたがエンジニアなら、次のようなコメントを見たことがあると思います。 1
+2
+3
+4
+5
+6
+class ApplicationController &lt; &hellip;" />
 
     <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Guard-shellが便利だった話 | アルパカエンジニアのブログ">
-<meta name="twitter:description" content="Guardって便利ですよねー。 あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。 最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。 Guardを使って実現してみました。 guard + guard-shell &hellip;">
+<meta name="twitter:title" content="インラインTODO管理のWatsonを使う | アルパカエンジニアのブログ">
+<meta name="twitter:description" content="最近、Githubのトレンドにも入っていたWatsonを紹介します。 インラインTODO管理とは何か もしあなたがエンジニアなら、次のようなコメントを見たことがあると思います。 1
+2
+3
+4
+5
+6
+class ApplicationController &lt; &hellip;">
 <meta name="twitter:image" content="http://http://alpaca-tc.github.io/images/meta/site_title.png">
 
 <meta name="twitter:site" content="@">
@@ -111,7 +129,7 @@
           <div class="inner clearfix">
             <div id="logo">
               
-                <h1 id="site_title"><a href=".">Guard-shellが便利だった話</a> > <a href="/blog/ruby">ruby</a></h1>
+                <h1 id="site_title"><a href=".">インラインTODO管理のWatsonを使う</a> > <a href="/blog/ruby">ruby</a></h1>
               
             </div>
 
@@ -149,7 +167,7 @@
         <h1>
           
             
-              Guard-shellが便利だった話
+              インラインTODO管理のWatsonを使う
           
         </h1>
       
@@ -170,7 +188,7 @@
 
 
 
-<time datetime="2013-11-23T01:34:00+09:00" pubdate data-updated="true">Nov 23<span>rd</span>, 2013</time>
+<time datetime="2013-12-03T23:49:00+09:00" pubdate data-updated="true">Dec 3<span>rd</span>, 2013</time>
             
   
 
@@ -196,37 +214,13 @@
     </header>
 
     
-      <section class="entry-content"><p><a href="https://github.com/guard/guard">Guard</a>って便利ですよねー。</p>
+      <section class="entry-content"><p>最近、Githubのトレンドにも入っていた<a href="http://goosecode.com/watson/">Watson</a>を紹介します。</p>
 
-<p>あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。</p>
+<p><img class="image_on_frame center" src="/images/watson.png" title="watsonのデモ" ></p>
 
-<p>最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。</p>
+<h2>インラインTODO管理とは何か</h2>
 
-<p>Guardを使って実現してみました。</p>
-
-<!-- more -->
-
-
-<h1>guard + guard-shell</h1>
-
-<p>おなじみのGuardにshellコマンドを実行できるようにします。</p>
-
-<p><em>GuardでC言語を自動コンパイル！！！</em></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Gemfile</span>
-</span><span class='line'><span class="n">source</span> <span class="s1">&#39;https://rubygems.org&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;guard&#39;</span>
-</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;guard-shell&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
+<p>もしあなたがエンジニアなら、次のようなコメントを見たことがあると思います。</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -234,65 +228,96 @@
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Guardfile</span>
-</span><span class='line'><span class="n">group</span> <span class="ss">:vim3</span> <span class="k">do</span>
-</span><span class='line'>  <span class="n">guard</span> <span class="ss">:shell</span> <span class="k">do</span>
-</span><span class='line'>    <span class="n">target_dir</span> <span class="o">=</span> <span class="s1">&#39;vim-3\.0/src&#39;</span>
-</span><span class='line'>    <span class="n">watch</span><span class="p">(</span><span class="sr">%r!^</span><span class="si">#{</span><span class="n">target_dir</span><span class="si">}</span><span class="sr">/(.+)\.(c|h)!</span><span class="p">)</span> <span class="k">do</span>
-</span><span class='line'>      <span class="sb">`cd </span><span class="si">#{</span><span class="n">target_dir</span><span class="si">}</span><span class="sb"> &amp;&amp; make`</span>
-</span><span class='line'>      <span class="sb">`cd </span><span class="si">#{</span><span class="n">target_dir</span><span class="si">}</span><span class="sb"> &amp;&amp; make debug`</span>
-</span><span class='line'>    <span class="k">end</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="ss">ActionController</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">logged_in?</span>
+</span><span class='line'>    <span class="c1"># TODO 管理ユーザーと処理を分ける</span>
+</span><span class='line'>    <span class="o">.</span><span class="n">.</span><span class="o">.</span>
 </span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="o">.</span><span class="n">.</span><span class="o">.</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>ポイントは、<em>group</em>と<em>guard :shell &hellip;</em>ですね。</p>
+<p>このように、コード内には至る所にコメントが書かれています。
+単なるコードの説明に限らず、修正が必要な内容を記述したものも多くあります。</p>
 
-<h2>guardのDSL <em>group</em></h2>
+<p>しかしながら、しばしばこういったコメントは放置され、コードの中に埋もれたままになってしまうこともあります。</p>
 
-<p>groupのDSLを使うと、guardの設定を切り替えることができます。</p>
+<p>Watsonは、コード内に書かれたコメントを走査し、近代的な管理ツールに流し込むことでIssueを管理するツールです。</p>
 
-<p>例えば、バージョン毎にgroupで設定をわけておけば、不必要な部分でguardが動作することを防ぐことができます。
-僕の場合は、vimのバージョン毎に設定を切り替えることで不必要なコンパイルを防いでいます。</p>
+<h2>どうやって使うのか</h2>
 
-<p>また、分けてあるgroupを切り替えるときは、guardのコンソールで<code>scope vim3</code>と打てば切り替わります。</p>
+<p>watsonを使って、コード内に記述されたコメントを洗い出して、GithubのIssueに登録してみましょう。</p>
 
-<p>(起動時にscopeを指定する場合は、<code>guard --group vim3</code>)</p>
+<h3>ステップ1: watsonのインストール</h3>
 
-<h2>guard-shellを使う</h2>
+<p><code>gem install watson</code></p>
 
-<p>guard-shellは、ファイルの変更をフックにしてshellコマンドを実行するgemです。</p>
-
-<p>と、あたかもshellに特化したネーミングですが、実際はただ単にwatchに渡したブロックを評価するだけのシンプルなやつです。</p>
-
-<p>下記のようにすれば、ファイルが保存されたと同時に<code>hogepiyoooooooooooooo</code>と教えてくれます。
-わーい。</p>
+<h3>ステップ2: watsonの初期化</h3>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Guardfile</span>
-</span><span class='line'><span class="n">guard</span> <span class="ss">:shell</span> <span class="k">do</span>
-</span><span class='line'>  <span class="n">watch</span><span class="p">(</span><span class="sr">/.*/</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">m</span><span class="o">|</span> <span class="sb">`say hogepiyoooooooooooooo`</span> <span class="p">}</span>
-</span><span class='line'><span class="k">end</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span><span class="nb">cd </span>path/to/project_dir
+</span><span class='line'><span class="nv">$ </span>watson
+</span><span class='line'><span class="c"># 一旦&lt;Ctrl-C&gt;で終了してください。</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
+<p>watsonを実行すると、.watsonrcが自動的に作成されます。</p>
+
+<p>ここでは、.watsonrcを編集して、走査するディレクトリなどを設定します。</p>
+
+<p>プロジェクトのファイル数が少なければ、設定は不要かと思います。</p>
+
+<p>例として、Railsプロジェクト用の<a href="https://gist.github.com/7770689">.watsonrc</a>を貼付けておきます。</p>
+
+<h3>ステップ3: watsonの実行！！</h3>
+
+<p>watsonを使うときは、独自のタグを使ってコメントを書いておきます。</p>
+
+<ul>
+<li><code>[todo] - タスクの内容を記入する</code></li>
+<li><code>[review] - 他の人に意見を求めるような内容を記入する</code></li>
+<li><code>[fix] - バグの内容を記入する</code></li>
+</ul>
+
+
+<p>適当なファイルを開いて、上記のようなフォーマットでコメントを記入してみてください。</p>
+
+<p>後は、再度<code>watson</code>と打って実行！</p>
+
+<p>めでたしめでたし。
+プロジェクト内のTODOなどが、一覧で出力されます。</p>
+
+<h3>ステップ4: githubへIssue登録する</h3>
+
+<p>先ほどの出力した内容を、Githubへ一括同期しましょう。</p>
+
+<p>まず、Githubのリポジトリをwatsonに認識させます</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>watson --remote github
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>英語のコメントに沿って、情報を入力していきましょう。</p>
+
+<p>続いて、Issueを登録します。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>watson --update
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>処理が終わると、Githubのissueへの登録が完了です。</p>
+
+<p><img class="image_on_frame center" src="/images/watson_issue_preview.png" title="githubのissueプレビュー" ></p>
+
 <h2>まとめ</h2>
 
-<p><em>guard-shell便利。</em></p>
+<p>watsonは先月ぐらいに注目され始めた新しいプロジェクトです。</p>
 
-<p>(ホゲピヨーーーーーって言うのかと思ったら、「ホージピュゥ」って何か冷めた感じに返された。。。)</p>
+<p>コメントを活用して、様々な処理を行えるように拡張されると思うので、今後の動向が楽しみですね。</p>
 </section>
     
 
@@ -307,13 +332,9 @@
             <div class="pagination meta clearfix">
   
     <div class="arrow_block left_block">
-      <a class="basic-alignment" href="/blog/learning_vim/i-begin-to-lean-vim-1.html" title="Previous Post: Vimを勉強し始めました #1">&laquo; Vimを勉強し始めました #1</a>
+      <a class="basic-alignment" href="/blog/ruby/the-story-about-guard-shell.html" title="Previous Post: Guard-shellが便利だった話">&laquo; Guard-shellが便利だった話</a>
     </div>
   
-  
-    <div class="arrow_block right_block">
-      <a class="basic-alignment" href="/blog/ruby/how-to-use-watson.html" title="Next Post: インラインTODO管理のWatsonを使う">インラインTODO管理のWatsonを使う &raquo;</a>
-    </div>
   
 </p>
 

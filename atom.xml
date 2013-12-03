@@ -4,7 +4,7 @@
   <title><![CDATA[RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca-tc.github.io/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-11-28T19:54:37+09:00</updated>
+  <updated>2013-12-04T00:38:57+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,118 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[インラインTODO管理のWatsonを使う]]></title>
+    <link href="http://alpaca-tc.github.io/blog/ruby/how-to-use-watson.html"/>
+    <updated>2013-12-03T23:49:00+09:00</updated>
+    <id>http://alpaca-tc.github.io/blog/ruby/how-to-use-watson</id>
+    <content type="html"><![CDATA[<p>最近、Githubのトレンドにも入っていた<a href="http://goosecode.com/watson/">Watson</a>を紹介します。</p>
+
+<p><img class="image_on_frame center" src="http://alpaca-tc.github.io/images/watson.png" title="watsonのデモ" ></p>
+
+<h2>インラインTODO管理とは何か</h2>
+
+<p>もしあなたがエンジニアなら、次のようなコメントを見たことがあると思います。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="ss">ActionController</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">logged_in?</span>
+</span><span class='line'>    <span class="c1"># TODO 管理ユーザーと処理を分ける</span>
+</span><span class='line'>    <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>このように、コード内には至る所にコメントが書かれています。
+単なるコードの説明に限らず、修正が必要な内容を記述したものも多くあります。</p>
+
+<p>しかしながら、しばしばこういったコメントは放置され、コードの中に埋もれたままになってしまうこともあります。</p>
+
+<p>Watsonは、コード内に書かれたコメントを走査し、近代的な管理ツールに流し込むことでIssueを管理するツールです。</p>
+
+<h2>どうやって使うのか</h2>
+
+<p>watsonを使って、コード内に記述されたコメントを洗い出して、GithubのIssueに登録してみましょう。</p>
+
+<h3>ステップ1: watsonのインストール</h3>
+
+<p><code>gem install watson</code></p>
+
+<h3>ステップ2: watsonの初期化</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span><span class="nb">cd </span>path/to/project_dir
+</span><span class='line'><span class="nv">$ </span>watson
+</span><span class='line'><span class="c"># 一旦&lt;Ctrl-C&gt;で終了してください。</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>watsonを実行すると、.watsonrcが自動的に作成されます。</p>
+
+<p>ここでは、.watsonrcを編集して、走査するディレクトリなどを設定します。</p>
+
+<p>プロジェクトのファイル数が少なければ、設定は不要かと思います。</p>
+
+<p>例として、Railsプロジェクト用の<a href="https://gist.github.com/7770689">.watsonrc</a>を貼付けておきます。</p>
+
+<h3>ステップ3: watsonの実行！！</h3>
+
+<p>watsonを使うときは、独自のタグを使ってコメントを書いておきます。</p>
+
+<ul>
+<li><code>[todo] - タスクの内容を記入する</code></li>
+<li><code>[review] - 他の人に意見を求めるような内容を記入する</code></li>
+<li><code>[fix] - バグの内容を記入する</code></li>
+</ul>
+
+
+<p>適当なファイルを開いて、上記のようなフォーマットでコメントを記入してみてください。</p>
+
+<p>後は、再度<code>watson</code>と打って実行！</p>
+
+<p>めでたしめでたし。
+プロジェクト内のTODOなどが、一覧で出力されます。</p>
+
+<h3>ステップ4: githubへIssue登録する</h3>
+
+<p>先ほどの出力した内容を、Githubへ一括同期しましょう。</p>
+
+<p>まず、Githubのリポジトリをwatsonに認識させます</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>watson --remote github
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>英語のコメントに沿って、情報を入力していきましょう。</p>
+
+<p>続いて、Issueを登録します。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>watson --update
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>処理が終わると、Githubのissueへの登録が完了です。</p>
+
+<p><img class="image_on_frame center" src="http://alpaca-tc.github.io/images/watson_issue_preview.png" title="githubのissueプレビュー" ></p>
+
+<h2>まとめ</h2>
+
+<p>watsonは先月ぐらいに注目され始めた新しいプロジェクトです。</p>
+
+<p>コメントを活用して、様々な処理を行えるように拡張されると思うので、今後の動向が楽しみですね。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Guard-shellが便利だった話]]></title>
