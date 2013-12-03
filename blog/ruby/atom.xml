@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ruby | RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca-tc.github.io/blog/ruby/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-12-04T00:49:19+09:00</updated>
+  <updated>2013-12-04T01:56:04+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -54,7 +54,9 @@ end
 
 <h3>ステップ1: watsonのインストール</h3>
 
-<p><code>gem install watson</code></p>
+<p><code>sh
+$ gem install watson
+</code></p>
 
 <h3>ステップ2: watsonの初期化</h3>
 
@@ -66,11 +68,7 @@ $ watson</p>
 
 <p>```</p>
 
-<p>watsonを実行すると、.watsonrcが自動的に作成されます。</p>
-
-<p>ここでは、.watsonrcを編集して、走査するディレクトリなどを設定します。</p>
-
-<p>プロジェクトのファイル数が少なければ、設定は不要かと思います。</p>
+<p><code>.watsonrc</code>が自動的に作成されるので、プロジェクトに合わせて走査するディレクトリなどを設定します。</p>
 
 <p>例として、Railsプロジェクト用の<a href="https://gist.github.com/7770689">.watsonrc</a>を貼付けておきます。</p>
 
@@ -85,7 +83,7 @@ $ watson</p>
 </ul>
 
 
-<p>適当なファイルを開いて、上記のようなフォーマットでコメントを記入してみてください。</p>
+<p>試しに、適当なファイルを開いて、上記のようなフォーマットでコメントを記入してみてください。</p>
 
 <p>後は、再度<code>watson</code>と打って実行！</p>
 
@@ -118,7 +116,16 @@ $ watson --update
 
 <p>watsonは先月ぐらいに注目され始めた新しいプロジェクトです。</p>
 
-<p>コメントを活用して、様々な処理を行えるように拡張されると思うので、今後の動向が楽しみですね。</p>
+<p>今後は、コメントを活用して様々な処理を行えるように拡張されると思うので、動向が楽しみですね。</p>
+
+<h3>watsonの現状</h3>
+
+<ul>
+<li>Ruby初心者の人が作ったため、コードがよろしくない</li>
+<li>安定版に必要な機能が未実装。なので、新機能のPRがなかなか取り入れられない状況。数ヶ月待たないといけなさそう。</li>
+<li>対応しているファイルタイプがまだ少ない</li>
+</ul>
+
 ]]></content>
   </entry>
   
