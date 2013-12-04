@@ -45,16 +45,11 @@
         </footer>
       {% endif %}
     {% else %}
-      <section class="entry-content">
-        {{ content }}
-        {% unless page.sharing == false %}
-          <div class="zenback_wrapper">
-            {% include post/zenback.html %}
-          </div>
-        {% endunless %}
-
-      </section>
+      <section class="entry-content">{{ content }}</section>
     {% endif %}
+
+    {% unless page.sharing == false %}
+      {% include post/sharing.html %}
+    {% endunless %}
   </div>
 </article>
-
