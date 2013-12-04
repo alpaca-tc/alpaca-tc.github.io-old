@@ -47,12 +47,10 @@
     {% else %}
       <section class="entry-content">
         {{ content }}
-        {% unless index %}
-          {% if page.sharing == false %}
-            <div class="zenback_wrapper">
-              {% include post/zenback.html %}
-            </div>
-          {% endif %}
+        {% unless page.sharing == false %}
+          <div class="zenback_wrapper">
+            {% include post/zenback.html %}
+          </div>
         {% endunless %}
 
       </section>
