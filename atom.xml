@@ -4,7 +4,7 @@
   <title><![CDATA[RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca-tc.github.io/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-12-04T01:56:04+09:00</updated>
+  <updated>2013-12-04T21:09:57+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -128,7 +128,8 @@
 <h3>watsonの現状</h3>
 
 <ul>
-<li>Ruby初心者の人が作ったため、コードがよろしくない</li>
+<li>Ruby初心者の人が作ったため、コードがよろしくない(PR中)</li>
+<li>今のところ対応している管理ツールは、githubとbitbucket。</li>
 <li>安定版に必要な機能が未実装。なので、新機能のPRがなかなか取り入れられない状況。数ヶ月待たないといけなさそう。</li>
 <li>対応しているファイルタイプがまだ少ない</li>
 </ul>
