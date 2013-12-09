@@ -6,22 +6,27 @@ single: true
 {% include head.html %}
   <body>
     {% include post/load_sharing_js.html %}
-    <div id="header_top" class="outer_envelope clearfix">
+    <div id="header_top" class="outer_envelope">
       <header>{% include header.html %}</header>
 
       <div id="main_contents">
         <div class="inner_wrapper">
           <div class="inner">
-            {% include article.html %}
+            <div class="clearfix">
+              <div class="left_page inner_wrapper">
+                {% include article.html %}
+              </div>
+
+              {% include sidebar.html %}
+            </div>
 
             {% include post/pagination.html %}
-
-            {% include post/comment.html %}
-          </div><!-- /div.inner -->
+          </div>
         </div>
-      </div>
+      </div><!-- /div#main_contents -->
 
       <footer role="contentinfo">{% include footer.html %}</footer>
     </div>
   </body>
 </html>
+
