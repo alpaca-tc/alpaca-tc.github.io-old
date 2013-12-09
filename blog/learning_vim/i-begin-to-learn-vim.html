@@ -106,7 +106,7 @@
   <script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
 
 
-    <div id="header_top" class="outer_envelope clearfix">
+    <div id="header_top" class="outer_envelope">
       <header>        <div class="inner_wrapper clearfix">
           <div class="inner clearfix">
             <div id="logo">
@@ -121,7 +121,7 @@
                   <a href="/about-me">About Me</a>
                 </li>
                 <li>
-                  <a href="/blog/archives/">Blog</a>
+                  <a href="/">Blog</a>
                 </li>
                 <li>
                   <a href="/works/">Works</a>
@@ -142,7 +142,9 @@
       <div id="main_contents">
         <div class="inner_wrapper">
           <div class="inner">
-            <article class="post_row">
+            <div class="clearfix">
+              <div class="left_page inner_wrapper">
+                <article class="post_row">
   <div class="inner">
     <header class="field-items">
       
@@ -178,14 +180,13 @@
 
             
 
-<span class="categories">
-  
+  <span class="categories">
     
-      <a class='category' href='/blog//learning-vim/'>learning_vim</a>
+      
+        <a class='category' href='/blog/learning-vim/'>learning_vim</a>
+      
     
-  
-</span>
-
+  </span>
 
 
 
@@ -252,6 +253,61 @@
   </div>
 </article>
 
+              </div>
+
+              <aside id="sidebar" class="right_page inner_wrapper">
+  
+    <section id="side_about_me" class="sidebar_row">
+      <h1>プロフィール</h1>
+<section>
+  <figure class="image_wrapper">
+    <img src="https://plus.google.com/s2/photos/profile/105581201951227096827?sz=100" alt="石井 浩之">
+    <figcaption>石井 浩之</figcaption>
+  </figure>
+
+  <p>
+    RailsやVimを中心に開発をしている、アルパカ大好きエンジニアです。
+  </p>
+
+  <p class="go_to_aboutme">
+    <a href="/about-me">→詳しく見る</a>
+  </p>
+</section>
+
+    </section>
+  
+
+  
+
+
+  <section id="side_category_posts" class="sidebar_row">
+    <div id="blog-archives" class="category">
+      <h1>同じカテゴリーの記事</h1>
+
+      
+        <article>
+          <time datetime="2013-11-21T09:11:00+09:00" pubdate><span class='month'>Nov</span> <span class='day'>21</span> <span class='year'>2013</span></time>
+          <h1><a href="/blog/learning_vim/i-begin-to-lean-vim-1.html">Vimを勉強し始めました #1</a></h1>
+        </article>
+      
+        <article>
+          <time datetime="2013-11-15T06:58:00+09:00" pubdate><span class='month'>Nov</span> <span class='day'>15</span> <span class='year'>2013</span></time>
+          <h1><a href="/blog/learning_vim/i-begin-to-learn-vim.html">そろそろVimを使いこなせるようになりたい。</a></h1>
+        </article>
+      
+    </div>
+  </section>
+
+
+
+  <section id="side_twitter_timeline_widget" class="sidebar_row">
+    <a class="twitter-timeline" href="https://twitter.com/alpaca_taichou" data-widget-id="395937677314232320" data-tweet-limit="3" data-height="15px">@alpaca_taichou のツイート</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+  </section>
+</aside>
+
+            </div>
 
             <div class="pagination meta clearfix">
   
@@ -259,6 +315,7 @@
       <a class="basic-alignment" href="/blog/vim/break-vim-beginners-scope.html" title="Previous Post: Vim中級者を脱する スコープ編">&laquo; Vim中級者を脱する スコープ編</a>
     </div>
   
+
   
     <div class="arrow_block right_block">
       <a class="basic-alignment" href="/blog/learning_vim/i-begin-to-lean-vim-1.html" title="Next Post: Vimを勉強し始めました #1">Vimを勉強し始めました #1 &raquo;</a>
@@ -266,14 +323,9 @@
   
 </p>
 
-
-            
-
-
-
-          </div><!-- /div.inner -->
+          </div>
         </div>
-      </div>
+      </div><!-- /div#main_contents -->
 
       <footer role="contentinfo">        <div class="inner_wrapper">
           <div class="inner">
@@ -292,7 +344,7 @@
                     <a href="/about-me">About Me</a>
                   </li>
                   <li>
-                    <a href="/blog/">Blog</a>
+                    <a href="/">Blog</a>
                   </li>
                   <li>
                     <a href="/works/">Works</a>
@@ -330,3 +382,4 @@
     </div>
   </body>
 </html>
+

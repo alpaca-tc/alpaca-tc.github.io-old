@@ -109,7 +109,7 @@
   <script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
 
 
-    <div id="header_top" class="outer_envelope clearfix">
+    <div id="header_top" class="outer_envelope">
       <header>        <div class="inner_wrapper clearfix">
           <div class="inner clearfix">
             <div id="logo">
@@ -124,7 +124,7 @@
                   <a href="/about-me">About Me</a>
                 </li>
                 <li>
-                  <a href="/blog/archives/">Blog</a>
+                  <a href="/">Blog</a>
                 </li>
                 <li>
                   <a href="/works/">Works</a>
@@ -145,7 +145,9 @@
       <div id="main_contents">
         <div class="inner_wrapper">
           <div class="inner">
-            <article class="post_row">
+            <div class="clearfix">
+              <div class="left_page inner_wrapper">
+                <article class="post_row">
   <div class="inner">
     <header class="field-items">
       
@@ -181,14 +183,13 @@
 
             
 
-<span class="categories">
-  
+  <span class="categories">
     
-      <a class='category' href='/blog//vim/'>vim</a>
+      
+        <a class='category' href='/blog/vim/'>vim</a>
+      
     
-  
-</span>
-
+  </span>
 
 
 
@@ -267,6 +268,96 @@ JavaScript補完プラグインのTernはすごいヤツ | RailsとRubyとVimの
   </div>
 </article>
 
+              </div>
+
+              <aside id="sidebar" class="right_page inner_wrapper">
+  
+    <section id="side_about_me" class="sidebar_row">
+      <h1>プロフィール</h1>
+<section>
+  <figure class="image_wrapper">
+    <img src="https://plus.google.com/s2/photos/profile/105581201951227096827?sz=100" alt="石井 浩之">
+    <figcaption>石井 浩之</figcaption>
+  </figure>
+
+  <p>
+    RailsやVimを中心に開発をしている、アルパカ大好きエンジニアです。
+  </p>
+
+  <p class="go_to_aboutme">
+    <a href="/about-me">→詳しく見る</a>
+  </p>
+</section>
+
+    </section>
+  
+
+  
+
+
+  <section id="side_category_posts" class="sidebar_row">
+    <div id="blog-archives" class="category">
+      <h1>同じカテゴリーの記事</h1>
+
+      
+        <article>
+          <time datetime="2013-12-10T00:04:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>10</span> <span class='year'>2013</span></time>
+          <h1><a href="/blog/vim/neocomplete-vs-youcompleteme.html">NeoComplete vs YouCompleteMe</a></h1>
+        </article>
+      
+        <article>
+          <time datetime="2013-11-13T17:26:00+09:00" pubdate><span class='month'>Nov</span> <span class='day'>13</span> <span class='year'>2013</span></time>
+          <h1><a href="/blog/vim/break-vim-beginners-scope.html">Vim中級者を脱する スコープ編</a></h1>
+        </article>
+      
+        <article>
+          <time datetime="2013-11-13T14:40:00+09:00" pubdate><span class='month'>Nov</span> <span class='day'>13</span> <span class='year'>2013</span></time>
+          <h1><a href="/blog/vim/how-to-use-tern-vim.html">JavaScript補完プラグインのTernはすごいヤツ</a></h1>
+        </article>
+      
+        <article>
+          <time datetime="2013-11-11T05:21:00+09:00" pubdate><span class='month'>Nov</span> <span class='day'>11</span> <span class='year'>2013</span></time>
+          <h1><a href="/blog/vim/training-of-new-employee.html">Vimを使って新人教育</a></h1>
+        </article>
+      
+        <article>
+          <time datetime="2013-11-07T05:22:00+09:00" pubdate><span class='month'>Nov</span> <span class='day'>07</span> <span class='year'>2013</span></time>
+          <h1><a href="/blog/vim/plugins-best-of-vim-1.html">オススメなVimのプラグイン紹介</a></h1>
+        </article>
+      
+        <article>
+          <time datetime="2013-11-02T02:30:00+09:00" pubdate><span class='month'>Nov</span> <span class='day'>02</span> <span class='year'>2013</span></time>
+          <h1><a href="/blog/vim/break-vim-beginners-augroup.html">Vim中級者を脱する augroup編</a></h1>
+        </article>
+      
+        <article>
+          <time datetime="2013-11-01T17:06:00+09:00" pubdate><span class='month'>Nov</span> <span class='day'>01</span> <span class='year'>2013</span></time>
+          <h1><a href="/blog/vim/octopress_and_vimplugin.html">octopressとセットで入れておきたいVimプラグインまとめ</a></h1>
+        </article>
+      
+        <article>
+          <time datetime="2013-10-30T04:34:00+09:00" pubdate><span class='month'>Oct</span> <span class='day'>30</span> <span class='year'>2013</span></time>
+          <h1><a href="/blog/vim/alpaca_octopress/about_alpaca_complete.html">alpaca_octopress続き</a></h1>
+        </article>
+      
+        <article>
+          <time datetime="2013-10-29T04:52:00+09:00" pubdate><span class='month'>Oct</span> <span class='day'>29</span> <span class='year'>2013</span></time>
+          <h1><a href="/blog/vim/alpaca_octopress/create_new_plugin_for_octopress.html">alpaca_octopressを作っている</a></h1>
+        </article>
+      
+    </div>
+  </section>
+
+
+
+  <section id="side_twitter_timeline_widget" class="sidebar_row">
+    <a class="twitter-timeline" href="https://twitter.com/alpaca_taichou" data-widget-id="395937677314232320" data-tweet-limit="3" data-height="15px">@alpaca_taichou のツイート</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+  </section>
+</aside>
+
+            </div>
 
             <div class="pagination meta clearfix">
   
@@ -274,6 +365,7 @@ JavaScript補完プラグインのTernはすごいヤツ | RailsとRubyとVimの
       <a class="basic-alignment" href="/blog/vim/training-of-new-employee.html" title="Previous Post: Vimを使って新人教育">&laquo; Vimを使って新人教育</a>
     </div>
   
+
   
     <div class="arrow_block right_block">
       <a class="basic-alignment" href="/blog/vim/break-vim-beginners-scope.html" title="Next Post: Vim中級者を脱する スコープ編">Vim中級者を脱する スコープ編 &raquo;</a>
@@ -281,14 +373,9 @@ JavaScript補完プラグインのTernはすごいヤツ | RailsとRubyとVimの
   
 </p>
 
-
-            
-
-
-
-          </div><!-- /div.inner -->
+          </div>
         </div>
-      </div>
+      </div><!-- /div#main_contents -->
 
       <footer role="contentinfo">        <div class="inner_wrapper">
           <div class="inner">
@@ -307,7 +394,7 @@ JavaScript補完プラグインのTernはすごいヤツ | RailsとRubyとVimの
                     <a href="/about-me">About Me</a>
                   </li>
                   <li>
-                    <a href="/blog/">Blog</a>
+                    <a href="/">Blog</a>
                   </li>
                   <li>
                     <a href="/works/">Works</a>
@@ -345,3 +432,4 @@ JavaScript補完プラグインのTernはすごいヤツ | RailsとRubyとVimの
     </div>
   </body>
 </html>
+

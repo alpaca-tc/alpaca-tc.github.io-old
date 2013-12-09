@@ -7,34 +7,31 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <title>octopressとセットで入れておきたいVimプラグインまとめ | アルパカエンジニアのブログ</title>
+    <title>NeoComplete vs YouCompleteMe | アルパカエンジニアのブログ</title>
 
     
-    <meta name="description" content="Octopressは利用者が一部なので、デフォルトのVimではなにも対応していません。
-プラグイン無しでも利用することもできますが、正直使いにくいですよね。 最低限下記のプラグインぐらいは入れておきましょう。 vim-liquid liquidはoctopress(jekyll) &hellip;">
+    <meta name="description" content="この記事はVim Advent Calendar 2013の10日目です。 先日は@Lindaさんの無数のパッチを組み合わせて君だけの MacVim を作ろう！でした。 大学卒業までに、自分専用Vimを作ろうと思っている自分にとって大変参考になる記事でした。 NeoComplete VS &hellip;">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
-    <meta content='octopressとセットで入れておきたいVimプラグインまとめ | アルパカエンジニアのブログ' name='title' />
+    <meta content='NeoComplete vs YouCompleteMe | アルパカエンジニアのブログ' name='title' />
 
     
   <link rel="author" href="https://plus.google.com/105581201951227096827" />
   <link rel="publisher" href="https://plus.google.com/105581201951227096827" />
 
 
-    <meta property="og:title" content='octopressとセットで入れておきたいVimプラグインまとめ | アルパカエンジニアのブログ' />
+    <meta property="og:title" content='NeoComplete vs YouCompleteMe | アルパカエンジニアのブログ' />
 <meta property="og:locale" content="ja"/>
 <meta property="og:image" content="http://http://alpaca-tc.github.io/images/meta/site_title.png"/>
 <meta property="og:type" content="blog"/>
-<meta property="og:url" content="http://alpaca-tc.github.io/blog/vim/octopress_and_vimplugin.html"/>
+<meta property="og:url" content="http://alpaca-tc.github.io/blog/vim/neocomplete-vs-youcompleteme.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
 <meta property="og:email" content="alprhcp666@gmail.com"/>
-<meta property="og:description" content="Octopressは利用者が一部なので、デフォルトのVimではなにも対応していません。
-プラグイン無しでも利用することもできますが、正直使いにくいですよね。 最低限下記のプラグインぐらいは入れておきましょう。 vim-liquid liquidはoctopress(jekyll) &hellip;" />
+<meta property="og:description" content="この記事はVim Advent Calendar 2013の10日目です。 先日は@Lindaさんの無数のパッチを組み合わせて君だけの MacVim を作ろう！でした。 大学卒業までに、自分専用Vimを作ろうと思っている自分にとって大変参考になる記事でした。 NeoComplete VS &hellip;" />
 
     <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="octopressとセットで入れておきたいVimプラグインまとめ | アルパカエンジニアのブログ">
-<meta name="twitter:description" content="Octopressは利用者が一部なので、デフォルトのVimではなにも対応していません。
-プラグイン無しでも利用することもできますが、正直使いにくいですよね。 最低限下記のプラグインぐらいは入れておきましょう。 vim-liquid liquidはoctopress(jekyll) &hellip;">
+<meta name="twitter:title" content="NeoComplete vs YouCompleteMe | アルパカエンジニアのブログ">
+<meta name="twitter:description" content="この記事はVim Advent Calendar 2013の10日目です。 先日は@Lindaさんの無数のパッチを組み合わせて君だけの MacVim を作ろう！でした。 大学卒業までに、自分専用Vimを作ろうと思っている自分にとって大変参考になる記事でした。 NeoComplete VS &hellip;">
 <meta name="twitter:image" content="http://http://alpaca-tc.github.io/images/meta/site_title.png">
 
 <meta name="twitter:site" content="@">
@@ -114,7 +111,7 @@
           <div class="inner clearfix">
             <div id="logo">
               
-                <h1 id="site_title"><a href=".">octopressとセットで入れておきたいVimプラグインまとめ</a> > <a href="/blog/vim">vim</a></h1>
+                <h1 id="site_title"><a href=".">NeoComplete vs YouCompleteMe</a> > <a href="/blog/vim">vim</a></h1>
               
             </div>
 
@@ -154,7 +151,7 @@
         <h1>
           
             
-              octopressとセットで入れておきたいVimプラグインまとめ
+              NeoComplete vs YouCompleteMe
           
         </h1>
       
@@ -175,7 +172,7 @@
 
 
 
-<time datetime="2013-11-01T17:06:00+09:00" pubdate data-updated="true">Nov 1<span>st</span>, 2013</time>
+<time datetime="2013-12-10T00:04:00+09:00" pubdate data-updated="true">Dec 10<span>th</span>, 2013</time>
             
   
 
@@ -200,56 +197,114 @@
     </header>
 
     
-      <section class="entry-content"><p>Octopressは利用者が一部なので、デフォルトのVimではなにも対応していません。
-プラグイン無しでも利用することもできますが、正直使いにくいですよね。</p>
+      <section class="entry-content"><p>この記事は<a href="http://atnd.org/events/45072">Vim Advent Calendar 2013</a>の10日目です。</p>
 
-<p>最低限下記のプラグインぐらいは入れておきましょう。</p>
+<p>先日は<a href="https://twitter.com/Linda_pp">@Linda</a>さんの<a href="http://rhysd.hatenablog.com/entry/2013/12/09/001219">無数のパッチを組み合わせて君だけの MacVim を作ろう！</a>でした。</p>
+
+<p>大学卒業までに、自分専用Vimを作ろうと思っている自分にとって大変参考になる記事でした。</p>
+
+<h1>NeoComplete VS YouCompleteMe</h1>
+
+<p>さてさて、本日のAdvent CalendarではVimの補完プラグインの2大巨頭を比較してみようと思います。</p>
 
 <!-- more -->
 
 
-<h2><a href="https://github.com/tpope/vim-liquid">vim-liquid</a></h2>
+<ul>
+<li><a href="https://github.com/Shougo/neocomplete.vim">NeoComplete</a> &ndash; (Shougoさん作)</li>
+<li><a href="https://github.com/Valloric/YouCompleteMe">YouCompleteMe</a> &ndash; (Valloricさん作)</li>
+</ul>
 
-<p><code>liquid</code>はoctopress(jekyll)で採用されているテンプレートエンジンです。</p>
 
-<p>このプラグインを入れると、ファイルタイプの検知や、キーワードのハイライトをしてくれるようになります。
-何が良いかというと、そのおかげで<code>neocomplete.vim</code>や<code>matchit.vim</code>などの他のプラグインもliquid用に対応してくれるんですよね。</p>
+<p>元々、僕は<strong>大のShougo wareファン</strong>です。(Sourceや、本体への貢献も少ししています)</p>
+
+<p>そんな僕もVimを探求する気持ちから、ついYouCompleteMeに手を出してしまいました!!!</p>
+
+<p><strong>「は&hellip;速いぞこいつ！！」</strong></p>
+
+<p>その補完速度の衝撃さることながら、他にも素晴らしいことが。</p>
+
+<p>つい、NeoCompleteからの乗り換えが脳裏をよぎり、2週間使ってみることにしました。</p>
+
+<h2>何について書くの？</h2>
+
+<p>結論から言うと、NeoCompleteに戻ってきました。</p>
+
+<p>しかし、<strong>NeoCompleteに改善の余地がある</strong>ことに気付きました。</p>
+
+<p>「YCMのここが良かったから、NeoCompleteに取り入れよう！」という話をしたいと思います。</p>
+
+<h2>YouCompleteMeの良かった点</h2>
+
+<ul>
+<li><strong>補完が早い</strong></li>
+<li><strong>ファイル補完</strong>が素晴らしい</li>
+<li>設定がほぼ不要</li>
+<li>jedi.vim / clang-completeとの連携が容易</li>
+<li>fuzzy補完が使いやすい！</li>
+<li>YCM、と略しやすい。←</li>
+</ul>
+
+
+<p>補完スピードに関しては、感動しました。</p>
+
+<h3>ファイル補完機能</h3>
+
+<p>特筆すべきはファイル補完機能についてです。</p>
+
+<p>使ってわかる、YCMのファイル補完の素晴らしさ。</p>
+
+<p><img class="image_on_frame center" src="/images/blog/file_complete.png" title="YCMのファイル補完機能" ></p>
+
+<ul>
+<li>&ldquo;[Dir], [File]&#8221;で、補完候補の種類を入力している</li>
+<li>ファイル補完時、バッファ補完などのノイズが入らない</li>
+</ul>
+
+
+<p>今まで、NeoCompleteで満足していたんですが、YCMを使って初めて改善の余地があることに気付きました。</p>
+
+<h2>YouCompleteMeの悪かった点</h2>
+
+<ul>
+<li>補完の種類が少ない</li>
+<li>カスタマイズができない。</li>
+<li>補完候補の<code>dup</code>フラグが全てオン</li>
+</ul>
+
+
+<p>いや、一応カスタマイズしてNeoCompleteの移植できたんですけどね。疲れました。</p>
+
+<h2>NeoCompleteを改善する</h2>
+
+<p>さて、YCMを使って2週間。良いところをいくつか取り入れましょう。</p>
+
+<h3>1. file補完のノイズを改善する</h3>
+
+<p>デフォルトのNeoCompleteのfile補完のrankが低いため、ファイル補完時に他の候補が上にきてしまいます。</p>
+
+<p>ファイル補完の優先順位をあげましょう。</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'>NeoBundleLazy <span class="s1">&#39;tpope/vim-liquid&#39;</span><span class="p">,</span> { <span class="s1">&#39;autoload&#39;</span> : {
-</span><span class='line'>      \ <span class="s1">&#39;filetypes&#39;</span> : <span class="s1">&#39;liquid&#39;</span>
-</span><span class='line'>      \ }}
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">call</span> neocomplete#custom#source<span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="s1">&#39;rank&#39;</span><span class="p">,</span> <span class="m">10</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h2><a href="https://github.com/tangledhelix/vim-octopress">vim-octopress</a></h2>
+<p>これに関しては、<strong>元々のファイル補完のrankがなぜ低いのか疑問</strong>です。理由があるのでしょうか。</p>
 
-<p>VimからOctopressのコマンド操作をするプラグインです。
-<code>:Octopress [command][{option}]</code>で実行することができます。</p>
+<h3>2. file補完で[Dir], [File]を表示する</h3>
 
-<ol>
-<li><code>:Octopress new_post title</code></li>
-<li><code>:Octopress gen_deploy</code></li>
-</ol>
+<p>NeoCompleteに<a href="https://gist.github.com/qickstarter/7872458">パッチ</a>をあてます。</p>
 
+<p>これで、YouCompleteMeと同じファイル補完を実現できます。</p>
 
-<p>この2回の操作で、新しい記事をアップロードできます。</p>
+<h3>3. 補完速度を向上する</h3>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'>NeoBundleLazy <span class="s1">&#39;tangledhelix/vim-octopress&#39;</span><span class="p">,</span> { <span class="s1">&#39;autoload&#39;</span> : {
-</span><span class='line'>      \ <span class="s1">&#39;commands&#39;</span>: <span class="s1">&#39;Octopress&#39;</span><span class="p">,</span>
-</span><span class='line'>      \ }}
-</span></code></pre></td></tr></table></div></figure>
+<p>YCMでは、補完が少し止まる感覚が一切ありませんでした。</p>
 
+<p>NeoCompleteはsourceを駆け巡って、頑張って補完候補を取得しているのである程度は仕方ないです。</p>
 
-<h2><a href="https://github.com/alpaca-tc/alpaca_octopress.vim">alpaca_octopress</a></h2>
-
-<p><code>vim-octopress</code>の非同期実行版です。
-人柱属性のある方はこちらをオススメします。</p>
+<p>ただ、自分の環境にあわせれば、補完スピードはあがるはずです。</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -259,21 +314,46 @@
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'>NeoBundleLazy <span class="s1">&#39;alpaca-tc/alpaca_octopress.vim&#39;</span><span class="p">,</span> { <span class="s1">&#39;autoload&#39;</span> : {
-</span><span class='line'>      \ <span class="s1">&#39;branch&#39;</span>: <span class="s1">&#39;v0.3&#39;</span><span class="p">,</span>
-</span><span class='line'>      \ <span class="s1">&#39;functions&#39;</span> : <span class="s1">&#39;octopress#complete&#39;</span><span class="p">,</span>
-</span><span class='line'>      \ <span class="s1">&#39;commands&#39;</span>: {
-</span><span class='line'>      \   <span class="s1">&#39;name&#39;</span> : <span class="s1">&#39;Octopress&#39;</span><span class="p">,</span>
-</span><span class='line'>      \   <span class="s1">&#39;complete&#39;</span> : <span class="s1">&#39;customlist,octopress#complete&#39;</span><span class="p">,</span>
-</span><span class='line'>      \ }<span class="p">,</span>
-</span><span class='line'>      \ }}
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="c">&quot; 極端な例ですが、下記のような操作で補完をチューニングできます</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">&quot; 補完を始めるキーワード長を長くする</span>
+</span><span class='line'><span class="k">let</span> <span class="k">g</span>:neocomplete#sources#<span class="nb">syntax</span>#min_keyword_length <span class="p">=</span> <span class="m">4</span>
+</span><span class='line'><span class="k">let</span> <span class="k">g</span>:neocomplete#auto_completion_start_length <span class="p">=</span> <span class="m">4</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">&quot; 補完が止まった際に、スキップする長さを短くする</span>
+</span><span class='line'><span class="k">let</span> <span class="k">g</span>:neocomplete#skip_auto_completion_time <span class="p">=</span> <span class="s1">&#39;0.2&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">&quot; 使用する補完の種類を減らす</span>
+</span><span class='line'><span class="c">&quot; 現在のSourceの取得は `:echo keys(neocomplete#variables#get_sources())`</span>
+</span><span class='line'><span class="c">&quot; デフォルト: [&#39;file&#39;, &#39;tag&#39;, &#39;neosnippet&#39;, &#39;vim&#39;, &#39;dictionary&#39;, &#39;omni&#39;, &#39;member&#39;, &#39;syntax&#39;, &#39;include&#39;, &#39;buffer&#39;, &#39;file/include&#39;]</span>
+</span><span class='line'><span class="k">let</span> <span class="k">g</span>:neocomplete#sources <span class="p">=</span> {
+</span><span class='line'>  \ <span class="s1">&#39;_&#39;</span> : [<span class="s1">&#39;vim&#39;</span><span class="p">,</span> <span class="s1">&#39;omni&#39;</span><span class="p">,</span> <span class="s1">&#39;include&#39;</span><span class="p">,</span> <span class="s1">&#39;buffer&#39;</span><span class="p">,</span> <span class="s1">&#39;file/include&#39;</span>]
+</span><span class='line'>  \ }
+</span><span class='line'>
+</span><span class='line'><span class="c">&quot; 特定のタイミングでのみ使う補完は、直接呼び出すようにする</span>
+</span><span class='line'><span class="nb">inoremap</span> <span class="p">&lt;</span>expr<span class="p">&gt;&lt;</span>C<span class="p">-</span><span class="k">X</span><span class="p">&gt;&lt;</span>C<span class="p">-</span>F<span class="p">&gt;</span>  neocomplete#start_manual_complete<span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="nb">inoremap</span> <span class="p">&lt;</span>expr<span class="p">&gt;&lt;</span>C<span class="p">-</span><span class="k">X</span><span class="p">&gt;&lt;</span>C<span class="p">-</span>K<span class="p">&gt;</span>  neocomplete#start_manual_complete<span class="p">(</span><span class="s1">&#39;dictionary&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="nb">inoremap</span> <span class="p">&lt;</span>expr<span class="p">&gt;&lt;</span>C<span class="p">-</span><span class="k">X</span><span class="p">&gt;</span><span class="k">s</span>      neocomplete#start_manual_complete<span class="p">(</span><span class="s1">&#39;neosnippet&#39;</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
 <h2>まとめ</h2>
 
-<p>Octopressはかなりエンジニアと相性が良いプロジェクトだと思います。
-ついでにVimmerの方は、これらのプラグインを入れてより親和性を高めましょう！</p>
+<p>浮気して、彼女の良さに気付くパターンです。</p>
+
+<p>YCMを使って気付きました。なんだかんだ<strong>NeoCompleteが最高</strong>ですね！！</p>
 </section>
     
 
@@ -288,19 +368,19 @@
 
 <section class="sharing clearfix">
   <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca-tc.github.io/blog/vim/octopress_and_vimplugin.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
-octopressとセットで入れておきたいVimプラグインまとめ | RailsとRubyとVimのブログRailsとRubyとVimのブログ - alpaca-tc
+    <a href="http://b.hatena.ne.jp/entry/http://alpaca-tc.github.io/blog/vim/neocomplete-vs-youcompleteme.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
+NeoComplete vs YouCompleteMe | RailsとRubyとVimのブログRailsとRubyとVimのブログ - alpaca-tc
 " data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
       <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
     </a>
   </div>
 
   <div class="button ft_like_button">
-    <div class="fb-like" data-href="http://alpaca-tc.github.io/blog/vim/octopress_and_vimplugin.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
+    <div class="fb-like" data-href="http://alpaca-tc.github.io/blog/vim/neocomplete-vs-youcompleteme.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
   </div>
 
   <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca-tc.github.io/blog/vim/octopress_and_vimplugin.html" data-via="alpaca_taichou" data-counturl="http://alpaca-tc.github.io/blog/vim/octopress_and_vimplugin.html" >Tweet</a>
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca-tc.github.io/blog/vim/neocomplete-vs-youcompleteme.html" data-via="alpaca_taichou" data-counturl="http://alpaca-tc.github.io/blog/vim/neocomplete-vs-youcompleteme.html" >Tweet</a>
   </div>
 </section>
 
@@ -402,14 +482,10 @@ octopressとセットで入れておきたいVimプラグインまとめ | Rails
             <div class="pagination meta clearfix">
   
     <div class="arrow_block left_block">
-      <a class="basic-alignment" href="/blog/seo/no1_alpaca_engineer.html" title="Previous Post: ３日で検索1位になりました">&laquo; ３日で検索1位になりました</a>
+      <a class="basic-alignment" href="/blog/ruby/how-to-use-watson.html" title="Previous Post: インラインTODO管理のWatsonを使う">&laquo; インラインTODO管理のWatsonを使う</a>
     </div>
   
 
-  
-    <div class="arrow_block right_block">
-      <a class="basic-alignment" href="/blog/vim/break-vim-beginners-augroup.html" title="Next Post: Vim中級者を脱する augroup編">Vim中級者を脱する augroup編 &raquo;</a>
-    </div>
   
 </p>
 
