@@ -12,10 +12,11 @@ categories: vim
 
 大学卒業までに、自分専用Vimを作ろうと思っている自分にとって大変参考になる記事でした。
 
-
 # NeoComplete VS YouCompleteMe
 
 さてさて、本日のAdvent CalendarではVimの補完プラグインの2大巨頭を比較してみようと思います。
+
+<!-- more -->
 
 - [NeoComplete](https://github.com/Shougo/neocomplete.vim) - (Shougoさん作)
 - [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) - (Valloricさん作)
