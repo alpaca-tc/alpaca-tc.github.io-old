@@ -4,7 +4,7 @@
   <title><![CDATA[RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca-tc.github.io/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-12-10T00:11:04+09:00</updated>
+  <updated>2013-12-11T11:54:06+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -100,7 +100,7 @@
 
 <p>さて、YCMを使って2週間。良いところをいくつか取り入れましょう。</p>
 
-<h3>1. file補完のノイズを改善する</h3>
+<h3>1. file補完のノイズを改善する <strong>(本体が修正されました)</strong></h3>
 
 <p>デフォルトのNeoCompleteのfile補完のrankが低いため、ファイル補完時に他の候補が上にきてしまいます。</p>
 
@@ -113,7 +113,7 @@
 
 <p>これに関しては、<strong>元々のファイル補完のrankがなぜ低いのか疑問</strong>です。理由があるのでしょうか。</p>
 
-<h3>2. file補完で[Dir], [File]を表示する</h3>
+<h3>2. file補完で[Dir], [File]を表示する <strong>(本体が修正されました)</strong></h3>
 
 <p>NeoCompleteに<a href="https://gist.github.com/qickstarter/7872458">パッチ</a>をあてます。</p>
 
