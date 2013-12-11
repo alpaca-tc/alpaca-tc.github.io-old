@@ -76,7 +76,7 @@ categories: vim
 
 さて、YCMを使って2週間。良いところをいくつか取り入れましょう。
 
-### 1. file補完のノイズを改善する
+### 1. file補完のノイズを改善する **(本体が修正されました)**
 
 デフォルトのNeoCompleteのfile補完のrankが低いため、ファイル補完時に他の候補が上にきてしまいます。
 
@@ -88,7 +88,7 @@ call neocomplete#custom#source('file', 'rank', 10)
 
 これに関しては、**元々のファイル補完のrankがなぜ低いのか疑問**です。理由があるのでしょうか。
 
-### 2. file補完で[Dir], [File]を表示する
+### 2. file補完で[Dir], [File]を表示する **(本体が修正されました)**
 
 NeoCompleteに[パッチ](https://gist.github.com/qickstarter/7872458)をあてます。
 
