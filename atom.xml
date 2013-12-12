@@ -4,7 +4,7 @@
   <title><![CDATA[RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca-tc.github.io/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-12-11T11:54:06+09:00</updated>
+  <updated>2013-12-13T03:36:21+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,134 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Unite.vimとwatsonを使ったワークフロー]]></title>
+    <link href="http://alpaca-tc.github.io/blog/using-vim-unite-watson.html"/>
+    <updated>2013-12-13T02:29:00+09:00</updated>
+    <id>http://alpaca-tc.github.io/blog/using-vim-unite-watson</id>
+    <content type="html"><![CDATA[<p>最近、vim-unite-watsonを開発しました。</p>
+
+<p>これが、watsonの作者であるnhmoodさんにも好評で、僕自身ワークフローが変化して、だいぶ作業しやすくなりました。</p>
+
+<p>今回は、タスク管理をしたい人向けに、僕がどのようにワークフローを管理しているかを紹介します。</p>
+
+<!-- more -->
+
+
+<h1>ワークフローとVim</h1>
+
+<p>僕は普段、Webサービスの構築・保守を行う仕事をしています。</p>
+
+<p>そこでは、基本的なフローは次のような流れです。</p>
+
+<ol>
+<li>新機能・バグに対してIssueを発行する(あるいは既にTODOリストにある)</li>
+<li>トピックブランチを作る</li>
+<li>コードを書く</li>
+<li>コミット &ndash;> Pull-Requestを送る &ndash;> マージする</li>
+</ol>
+
+
+<p>では、Vimを一度も閉じることなくこれらの作業をしてみます。</p>
+
+<h2>1. Issueの発行</h2>
+
+<h3>1-1. TODOをコードに入力する</h3>
+
+<p><img class="image_on_frame center" src="http://alpaca-tc.github.io/images/blog/workflow_1.png" title="本番環境用にViewを作成すると記入する" ></p>
+
+<h3>1-2. IssueをGithubにあげる</h3>
+
+<p>インラインIssue管理のwatson(/blog/ruby/how-to-use-watson.html)を使って、GithubにIssueをあげます</p>
+
+<p><img class="image_on_frame center" src="http://alpaca-tc.github.io/images/blog/workflow_2.png" title=":Watsonのデモ" ></p>
+
+<p>Watsonを使えば、Vimから簡単にIssue管理を行うことが出来ますね。</p>
+
+<h2>2. 作業の目処を立てる</h2>
+
+<p>さて、これでIssueは挙げられたので、次はコードの改修をしていきます。</p>
+
+<h3>2-1. トピックブランチを作る</h3>
+
+<p>ブランチの作業は、<a href="https://github.com/alpaca-tc/vim-unite-giti">vim-unite-giti</a>を使います。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="p">:</span>Unite giti/branch
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>新しいブランチの名前を入力して、<code>[checkout branch]</code>の行を選択します。</p>
+
+<p><img class="image_on_frame center" src="http://alpaca-tc.github.io/images/blog/workflow_3.png" title="Unite gitiのデモ" ></p>
+
+<p>すると、新しいブランチが作られました。</p>
+
+<h3>2-2. コードの改修を行う場所に印をつけて行く</h3>
+
+<p>コードの改修は、多くの場合幾つかのファイルに跨がります。</p>
+
+<p>そのため、経験から作業が必要な箇所に目処をつけて、コメントを書いて行きます。</p>
+
+<p><img class="image_on_frame center" src="http://alpaca-tc.github.io/images/blog/workflow_4.png" title="" ></p>
+
+<p><img class="image_on_frame center" src="http://alpaca-tc.github.io/images/blog/workflow_5.png" title="" ></p>
+
+<p><img class="image_on_frame center" src="http://alpaca-tc.github.io/images/blog/workflow_6.png" title="" ></p>
+
+<p>todoの内容は、watsonによって管理されるので、vim-unite-watsonを使えば一覧としてみることができます。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="p">:</span>Unite watson/dirty
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img class="image_on_frame center" src="http://alpaca-tc.github.io/images/blog/workflow_7.png" title="unite-watsonのdemo" ></p>
+
+<p>これで、issueを解決するために必要な作業の一覧を自分で作ることが出来ました。</p>
+
+<p>Unite上のコメントを選択すると、該当箇所に飛べます。</p>
+
+<p>後は、</p>
+
+<ol>
+<li>該当箇所に飛ぶ</li>
+<li>コードを修正する</li>
+<li>解決したら、コメントを削除する</li>
+</ol>
+
+
+<p>を<code>:Unite watson/dirty</code>が空になるまで繰り返します。</p>
+
+<p>watsonの結果リストが空になれば、issueの問題を解決したことになり、次の作業に移ります。</p>
+
+<h3>3. GithubにPull-Requestする</h3>
+
+<p>これは、各々方法が分かれるかと思います。</p>
+
+<p>Vimから出ないでPull-Requestを送るには、<code>:!git push</code> &amp;&amp; <code>:!hub pull-request -h ...</code>というのが一番分かりやすいでしょうか。</p>
+
+<p>僕は、<code>:Unite giti/pull_request</code>で送るようにしています。</p>
+
+<h2>まとめ</h2>
+
+<p>Watsonやgitiはかなり便利です。</p>
+
+<p>特に、watsonはコーディング作業をマネジメントしたい人に向いていると思います。
+何も考えずに書くのではなく、作業時間の見積もりや、タスク管理を考えながらコーディングする人には向いているプラグインなのではないでしょうか。</p>
+
+<p>経営学部にいるので、タスク管理や時間計測はすっかり身に付いてしまいました。</p>
+
+<p><strong>今回紹介したプラグイン</strong></p>
+
+<ul>
+<li><a href="https://github.com/alpaca-tc/vim-unite-giti">vim-unite-giti</a></li>
+<li><a href="https://github.com/alpaca-tc/vim-unite-watson.vim">vim-unite-watson</a></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[NeoComplete vs YouCompleteMe]]></title>
@@ -100,7 +228,9 @@
 
 <p>さて、YCMを使って2週間。良いところをいくつか取り入れましょう。</p>
 
-<h3>1. file補完のノイズを改善する <strong>(本体が修正されました)</strong></h3>
+<p><strong>(追記: ファイル補完に関する修正は、本家に取り込まれました)</strong></p>
+
+<h3>1. file補完のノイズを改善する</h3>
 
 <p>デフォルトのNeoCompleteのfile補完のrankが低いため、ファイル補完時に他の候補が上にきてしまいます。</p>
 
@@ -113,7 +243,7 @@
 
 <p>これに関しては、<strong>元々のファイル補完のrankがなぜ低いのか疑問</strong>です。理由があるのでしょうか。</p>
 
-<h3>2. file補完で[Dir], [File]を表示する <strong>(本体が修正されました)</strong></h3>
+<h3>2. file補完で[Dir], [File]を表示する</h3>
 
 <p>NeoCompleteに<a href="https://gist.github.com/qickstarter/7872458">パッチ</a>をあてます。</p>
 
