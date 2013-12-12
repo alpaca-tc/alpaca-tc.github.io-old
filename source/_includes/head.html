@@ -8,13 +8,13 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <title>{% if page.title %}{{ page.title }} | アルパカエンジニアのブログ{% else %}{{ site.single_title }}{% endif %}</title>
+    <title>{% if page.title %}{{ page.title }} | RailsとRubyとVimのブログ{% else %}{{ site.single_title }}{% endif %}</title>
 
     {% capture description %}{% if page.description %}{{ page.description }}{% else %}{{ content | raw_content }}{% endif %}{% endcapture %}
     <meta name="description" content="{{ description | strip_html | condense_spaces | truncate:150 }}">
     {% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
-    <meta content='{% if page.title %}{{ page.title }} | アルパカエンジニアのブログ{% else %}{{ site.single_title }}{% endif %}' name='title' />
+    <meta content='{% if page.title %}{{ page.title }} | RailsとRubyとVimのブログ{% else %}{{ site.single_title }}{% endif %}' name='title' />
 
     {% include meta/google.html %}
     {% include meta/og.html %}
