@@ -3,7 +3,7 @@ layout: post
 title: Unite.vimとwatsonを使ったワークフロー
 date: 2013-12-13 02:29
 comments: true
-categories:
+categories: vim
 ---
 
 最近、vim-unite-watsonを開発しました。
