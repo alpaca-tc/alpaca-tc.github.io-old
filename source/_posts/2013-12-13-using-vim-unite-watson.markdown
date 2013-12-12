@@ -112,5 +112,6 @@ Watsonやgitiはかなり便利です。
 
 **今回紹介したプラグイン**
 
-- [vim-unite-giti](https://github.com/alpaca-tc/vim-unite-giti)
 - [vim-unite-watson](https://github.com/alpaca-tc/vim-unite-watson.vim)
+- [vim-unite-giti (本家)](https://github.com/kmnk/vim-unite-giti)
+- [vim-unite-giti (giti/pull\_request追加版)](https://github.com/alpaca-tc/vim-unite-giti)
