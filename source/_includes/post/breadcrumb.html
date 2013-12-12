@@ -1,0 +1,16 @@
+<div xmlns:v="http://rdf.data-vocabulary.org/#">
+  {% for category in page.categories %}
+    <span typeof="v:Breadcrumb">
+      <a href="/blog/{{ category }}/" rel="v:url" property="v:title">
+        {{ category }}
+      </a> ›
+    </span>
+  {% endfor %}
+
+  <span typeof="v:Breadcrumb">
+    <a href="{{ root_url }}{{ post.url }}" rel="v:url" property="v:title">
+      {{ page.title }}
+    </a>
+  </span>
+</div>
+
