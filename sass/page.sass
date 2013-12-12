@@ -185,10 +185,19 @@
     padding-right: $space_width
 
     .button
-      display: inline
-      text-align: left
+      float: left
       & + .button
         padding-left: 15px
+      &.hatena_bookmark_button
+        width: 48px
+      &.ft_like_button
+        width: 98px
+      &.google_plus_button_like
+        width: 32px
+      &.twitter_button
+        width: 100px
+        iframe
+          width: 100px !important
     // .google_plus_button_like
     //   width: 24%
     //   padding-top: 2px
