@@ -11,6 +11,19 @@ single: true
 
       <div id="main_contents">
         <div class="inner_wrapper">
+          <div xmlns:v="http://rdf.data-vocabulary.org/#">
+            <span typeof="v:Breadcrumb">
+              <a href="/blog/{{ page.categories[0] }}" rel="v:url" property="v:title">
+                {{ page.categories[0] }}
+              </a> ›
+            </span>
+            <span typeof="v:Breadcrumb">
+              <a href="." rel="v:url" property="v:title">
+                {{ page.title }}
+              </a>
+            </span>
+          </div>
+
           <div class="inner">
             <div class="clearfix">
               <div class="left_page inner_wrapper">

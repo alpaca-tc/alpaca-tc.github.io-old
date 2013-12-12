@@ -2,7 +2,11 @@
           <div class="inner clearfix">
             <div id="logo">
               {% if page.layout == 'post' and page.categories[0] %}
-                <h1 id="site_title"><a href=".">{{ page.title }}</a> > <a href="/blog/{{ page.categories[0] }}">{{ page.categories[0] }}</a></h1>
+                <h1>
+                  <a href="/" rel="v:url" property="v:title">
+                    {{ site.title_english }}
+                  </a>
+                </h1>
               {% else %}
                 <h1 id="site_title">{% if page.title %}<a href=".">{{ page.title }}</a><br/><a class="small" href="/">{{ site.title_english }}</a>{% else %}<a href="/">{{ site.title_english }}</a>{% endif %}</h1>
               {% endif %}
@@ -29,4 +33,3 @@
             </nav>
           </div>
         </div>
-
