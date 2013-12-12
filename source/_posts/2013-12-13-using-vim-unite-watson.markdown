@@ -35,7 +35,7 @@ categories:
 
 ### 1-2. IssueをGithubにあげる
 
-インラインIssue管理のwatson(/blog/ruby/how-to-use-watson.html)を使って、GithubにIssueをあげます
+インラインIssue管理の[watson](/blog/ruby/how-to-use-watson.html)を使って、GithubにIssueをあげます
 
 {% img image_on_frame center /images/blog/workflow_2.png :Watsonのデモ %}
 
