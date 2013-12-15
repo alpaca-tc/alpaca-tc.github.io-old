@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ruby | RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca-tc.github.io/blog/ruby/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-12-16T03:36:43+09:00</updated>
+  <updated>2013-12-16T03:43:59+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -132,6 +132,27 @@ p Branch.send(:val) #=> &lsquo;Branch&rsquo;
 <h3>追記</h3>
 
 <p>思いついたんだけど、継承するときにクラスインスタンス変数を渡せばいいのかな？</p>
+
+<p>どうでしょう。</p>
+
+<p>```ruby
+class Base
+  @val = &lsquo;Base&rsquo;</p>
+
+<p>  def self.inherited(klass)</p>
+
+<pre><code>klass.instance_variable_set('@val', @val)
+</code></pre>
+
+<p>  end
+end</p>
+
+<p>class Node &lt; Base; end
+class Branch &lt; Base; end</p>
+
+<p>p Node.instance_variable_get(&lsquo;@val&rsquo;) #=> &lsquo;Base&rsquo;
+p Branch.instance_variable_get(&lsquo;@val&rsquo;) #=> &lsquo;Base&rsquo;
+```</p>
 ]]></content>
   </entry>
   
