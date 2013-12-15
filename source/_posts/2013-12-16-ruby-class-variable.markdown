@@ -110,3 +110,26 @@ p Branch.send(:val) #=> 'Branch'
 ### 追記
 
 思いついたんだけど、継承するときにクラスインスタンス変数を渡せばいいのかな？
+
+どうでしょう。
+
+```ruby
+class Base
+  @val = nil
+
+  def self.inherited(klass)
+    klass.instance_variable_set('@val', @val)
+  end
+end
+
+class Node < Base
+  @val = 'Node'
+end
+
+class Branch < Base
+  @val = 'Branch'
+end
+
+p Node.instance_variable_get('@val') #=> 'Branch'
+p Branch.instance_variable_get('@val') #=> 'Branch'
+```
