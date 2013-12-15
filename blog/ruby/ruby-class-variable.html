@@ -7,31 +7,58 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <title>Guard-shellが便利だった話 | RailsとRubyとVimのブログ</title>
+    <title>Rubyのクラス変数について詰まったのでヘルプ | RailsとRubyとVimのブログ</title>
 
     
-    <meta name="description" content="Guardって便利ですよねー。 あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。 最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。 Guardを使って実現してみました。 guard + guard-shell &hellip;">
+    <meta name="description" content="基本的に、仕事でクラス変数を扱うことはほぼ無いです。 今回は遊びのコードを書いていて、悩んだことをまとめました。 まだ分からないので、誰か教えてください>&lt; Rubyのクラス変数の扱いが難しい&hellip;。 まず、次のようなコードを書いてみた。 1
+2
+3
+4
+5
+6
+7
+8
+9
+10 &hellip;">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
-    <meta content='Guard-shellが便利だった話 | RailsとRubyとVimのブログ' name='title' />
+    <meta content='Rubyのクラス変数について詰まったのでヘルプ | RailsとRubyとVimのブログ' name='title' />
 
     
   <link rel="author" href="https://plus.google.com/105581201951227096827" />
   <link rel="publisher" href="https://plus.google.com/105581201951227096827" />
 
 
-    <meta property="og:title" content='Guard-shellが便利だった話 | RailsとRubyとVimのブログ' />
+    <meta property="og:title" content='Rubyのクラス変数について詰まったのでヘルプ | RailsとRubyとVimのブログ' />
 <meta property="og:locale" content="ja"/>
 <meta property="og:image" content="http://http://alpaca-tc.github.io/images/meta/site_title.png"/>
 <meta property="og:type" content="blog"/>
-<meta property="og:url" content="http://alpaca-tc.github.io/blog/ruby/the-story-about-guard-shell.html"/>
+<meta property="og:url" content="http://alpaca-tc.github.io/blog/ruby/ruby-class-variable.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
 <meta property="og:email" content="alprhcp666@gmail.com"/>
-<meta property="og:description" content="Guardって便利ですよねー。 あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。 最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。 Guardを使って実現してみました。 guard + guard-shell &hellip;" />
+<meta property="og:description" content="基本的に、仕事でクラス変数を扱うことはほぼ無いです。 今回は遊びのコードを書いていて、悩んだことをまとめました。 まだ分からないので、誰か教えてください>&lt; Rubyのクラス変数の扱いが難しい&hellip;。 まず、次のようなコードを書いてみた。 1
+2
+3
+4
+5
+6
+7
+8
+9
+10 &hellip;" />
 
     <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Guard-shellが便利だった話 | RailsとRubyとVimのブログ">
-<meta name="twitter:description" content="Guardって便利ですよねー。 あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。 最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。 Guardを使って実現してみました。 guard + guard-shell &hellip;">
+<meta name="twitter:title" content="Rubyのクラス変数について詰まったのでヘルプ | RailsとRubyとVimのブログ">
+<meta name="twitter:description" content="基本的に、仕事でクラス変数を扱うことはほぼ無いです。 今回は遊びのコードを書いていて、悩んだことをまとめました。 まだ分からないので、誰か教えてください>&lt; Rubyのクラス変数の扱いが難しい&hellip;。 まず、次のようなコードを書いてみた。 1
+2
+3
+4
+5
+6
+7
+8
+9
+10 &hellip;">
 <meta name="twitter:image" content="http://http://alpaca-tc.github.io/images/meta/site_title.png">
 
 <meta name="twitter:site" content="@">
@@ -155,7 +182,7 @@
 
   <span typeof="v:Breadcrumb">
     <a href="" rel="v:url" property="v:title">
-      Guard-shellが便利だった話
+      Rubyのクラス変数について詰まったのでヘルプ
     </a>
   </span>
 </div>
@@ -172,7 +199,7 @@
         <h1>
           
             
-              Guard-shellが便利だった話
+              Rubyのクラス変数について詰まったのでヘルプ
           
         </h1>
       
@@ -193,7 +220,7 @@
 
 
 
-<time datetime="2013-11-23T01:34:00+09:00" pubdate data-updated="true">Nov 23<span>rd</span>, 2013</time>
+<time datetime="2013-12-16T01:10:00+09:00" pubdate data-updated="true">Dec 16<span>th</span>, 2013</time>
             
   
 
@@ -218,37 +245,18 @@
     </header>
 
     
-      <section class="entry-content"><p><a href="https://github.com/guard/guard">Guard</a>って便利ですよねー。</p>
+      <section class="entry-content"><p>基本的に、仕事でクラス変数を扱うことはほぼ無いです。</p>
 
-<p>あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。</p>
+<p>今回は遊びのコードを書いていて、悩んだことをまとめました。</p>
 
-<p>最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。</p>
-
-<p>Guardを使って実現してみました。</p>
+<p><strong>まだ分からないので、誰か教えてください>&lt;</strong></p>
 
 <!-- more -->
 
 
-<h1>guard + guard-shell</h1>
+<h1>Rubyのクラス変数の扱いが難しい&hellip;。</h1>
 
-<p>おなじみのGuardにshellコマンドを実行できるようにします。</p>
-
-<p><em>GuardでC言語を自動コンパイル！！！</em></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Gemfile</span>
-</span><span class='line'><span class="n">source</span> <span class="s1">&#39;https://rubygems.org&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;guard&#39;</span>
-</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;guard-shell&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
+<p>まず、次のようなコードを書いてみた。</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -262,59 +270,138 @@
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
 <span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Guardfile</span>
-</span><span class='line'><span class="n">group</span> <span class="ss">:vim3</span> <span class="k">do</span>
-</span><span class='line'>  <span class="n">guard</span> <span class="ss">:shell</span> <span class="k">do</span>
-</span><span class='line'>    <span class="n">target_dir</span> <span class="o">=</span> <span class="s1">&#39;vim-3\.0/src&#39;</span>
-</span><span class='line'>    <span class="n">watch</span><span class="p">(</span><span class="sr">%r!^</span><span class="si">#{</span><span class="n">target_dir</span><span class="si">}</span><span class="sr">/(.+)\.(c|h)!</span><span class="p">)</span> <span class="k">do</span>
-</span><span class='line'>      <span class="sb">`cd </span><span class="si">#{</span><span class="n">target_dir</span><span class="si">}</span><span class="sb"> &amp;&amp; make`</span>
-</span><span class='line'>      <span class="sb">`cd </span><span class="si">#{</span><span class="n">target_dir</span><span class="si">}</span><span class="sb"> &amp;&amp; make debug`</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Base</span><span class="p">;</span> <span class="k">end</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">Node</span> <span class="o">&lt;</span> <span class="no">Base</span>
+</span><span class='line'>  <span class="vc">@@val</span> <span class="o">=</span> <span class="s1">&#39;Node&#39;</span>
 </span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Branch</span> <span class="o">&lt;</span> <span class="no">Base</span>
+</span><span class='line'>  <span class="vc">@@val</span> <span class="o">=</span> <span class="s1">&#39;Branch&#39;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">p</span> <span class="no">Node</span><span class="o">.</span><span class="n">class_variable_get</span><span class="p">(</span><span class="s1">&#39;@@val&#39;</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Node&#39;</span>
+</span><span class='line'><span class="nb">p</span> <span class="no">Branch</span><span class="o">.</span><span class="n">class_variable_get</span><span class="p">(</span><span class="s1">&#39;@@val&#39;</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Branch&#39;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>ポイントは、<em>group</em>と<em>guard :shell &hellip;</em>ですね。</p>
+<p>ふむ、いたって想定通りの動作である。</p>
 
-<h2>guardのDSL <em>group</em></h2>
-
-<p>groupのDSLを使うと、guardの設定を切り替えることができます。</p>
-
-<p>例えば、バージョン毎にgroupで設定をわけておけば、不必要な部分でguardが動作することを防ぐことができます。
-僕の場合は、vimのバージョン毎に設定を切り替えることで不必要なコンパイルを防いでいます。</p>
-
-<p>また、分けてあるgroupを切り替えるときは、guardのコンソールで<code>scope vim3</code>と打てば切り替わります。</p>
-
-<p>(起動時にscopeを指定する場合は、<code>guard --group vim3</code>)</p>
-
-<h2>guard-shellを使う</h2>
-
-<p>guard-shellは、ファイルの変更をフックにしてshellコマンドを実行するgemです。</p>
-
-<p>と、あたかもshellに特化したネーミングですが、実際はただ単にwatchに渡したブロックを評価するだけのシンプルなやつです。</p>
-
-<p>下記のようにすれば、ファイルが保存されたと同時に<code>hogepiyoooooooooooooo</code>と教えてくれます。
-わーい。</p>
+<p>では、続いてクラス変数にデフォルト値を与えてみる。</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Guardfile</span>
-</span><span class='line'><span class="n">guard</span> <span class="ss">:shell</span> <span class="k">do</span>
-</span><span class='line'>  <span class="n">watch</span><span class="p">(</span><span class="sr">/.*/</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">m</span><span class="o">|</span> <span class="sb">`say hogepiyoooooooooooooo`</span> <span class="p">}</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Base</span>
+</span><span class='line'>  <span class="vc">@@val</span> <span class="o">=</span> <span class="s1">&#39;Base&#39;</span>
 </span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Node</span> <span class="o">&lt;</span> <span class="no">Base</span>
+</span><span class='line'>  <span class="vc">@@val</span> <span class="o">=</span> <span class="s1">&#39;Node&#39;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Branch</span> <span class="o">&lt;</span> <span class="no">Base</span>
+</span><span class='line'>  <span class="vc">@@val</span> <span class="o">=</span> <span class="s1">&#39;Branch&#39;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">p</span> <span class="no">Node</span><span class="o">.</span><span class="n">class_variable_get</span><span class="p">(</span><span class="s1">&#39;@@val&#39;</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Branch&#39;</span>
+</span><span class='line'><span class="nb">p</span> <span class="no">Branch</span><span class="o">.</span><span class="n">class_variable_get</span><span class="p">(</span><span class="s1">&#39;@@val&#39;</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Branch&#39;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h2>まとめ</h2>
+<p>Ooops!!! 派性クラス内のクラス変数が、Baseのクラス変数を参照しよる！！</p>
 
-<p><em>guard-shell便利。</em></p>
+<h2>解決編</h2>
 
-<p>(ホゲピヨーーーーーって言うのかと思ったら、「ホージピュゥ」って何か冷めた感じに返された。。。)</p>
+<p>うーん、どうもクラス変数という感じではなくなるけれど、こうするしかないのだろうか&hellip;。</p>
+
+<p>ものすごく気持ちが悪い。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Base</span>
+</span><span class='line'>  <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
+</span><span class='line'>    <span class="kp">private</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">val</span>
+</span><span class='line'>      <span class="s1">&#39;Base&#39;</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Node</span> <span class="o">&lt;</span> <span class="no">Base</span>
+</span><span class='line'>  <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
+</span><span class='line'>    <span class="kp">private</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">val</span>
+</span><span class='line'>      <span class="s1">&#39;Node&#39;</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Branch</span> <span class="o">&lt;</span> <span class="no">Base</span>
+</span><span class='line'>  <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
+</span><span class='line'>    <span class="kp">private</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">val</span>
+</span><span class='line'>      <span class="s1">&#39;Branch&#39;</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">p</span> <span class="no">Node</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="ss">:val</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Node&#39;</span>
+</span><span class='line'><span class="nb">p</span> <span class="no">Branch</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="ss">:val</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Branch&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>これだと、クラス変数ではなくなったけれど一応コードとして動く。 ただ、「これは無いだろ感」が凄いする。</p>
+
+<p>しかし、クラスインスタンス変数だと継承されないし、こうするしかないのかなぁ。</p>
+
+<p>今回の悩みは検索するにもキーワードが難しくて、正しい答えにたどり着けてないです>&lt;</p>
+
+<p><strong>だれか教えて！</strong></p>
 </section>
     
 
@@ -329,23 +416,23 @@
 
 <section class="sharing clearfix">
   <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca-tc.github.io/blog/ruby/the-story-about-guard-shell.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
-Guard-shellが便利だった話 | RailsとRubyとVimのブログRailsとRubyとVimのブログ
+    <a href="http://b.hatena.ne.jp/entry/http://alpaca-tc.github.io/blog/ruby/ruby-class-variable.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
+Rubyのクラス変数について詰まったのでヘルプ | RailsとRubyとVimのブログRailsとRubyとVimのブログ
 " data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
       <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
     </a>
   </div>
 
   <div class="button ft_like_button">
-    <div class="fb-like" data-href="http://alpaca-tc.github.io/blog/ruby/the-story-about-guard-shell.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
+    <div class="fb-like" data-href="http://alpaca-tc.github.io/blog/ruby/ruby-class-variable.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
   </div>
 
   <div class="button google_plus_button_like">
-    <div data-annotation="none" data-href="http://alpaca-tc.github.io/blog/ruby/the-story-about-guard-shell.html" class="g-plusone" data-size="medium" ></div>
+    <div data-annotation="none" data-href="http://alpaca-tc.github.io/blog/ruby/ruby-class-variable.html" class="g-plusone" data-size="medium" ></div>
   </div>
 
   <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca-tc.github.io/blog/ruby/the-story-about-guard-shell.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca-tc.github.io/blog/ruby/the-story-about-guard-shell.html" >Tweet</a>
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca-tc.github.io/blog/ruby/ruby-class-variable.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca-tc.github.io/blog/ruby/ruby-class-variable.html" >Tweet</a>
   </div>
 </section>
 
@@ -417,14 +504,10 @@ Guard-shellが便利だった話 | RailsとRubyとVimのブログRailsとRubyと
             <div class="pagination meta clearfix">
   
     <div class="arrow_block left_block">
-      <a class="basic-alignment" href="/blog/learning_vim/i-begin-to-lean-vim-1.html" title="Previous Post: Vimを勉強し始めました #1">&laquo; Vimを勉強し始めました #1</a>
+      <a class="basic-alignment" href="/blog/vim/using-vim-unite-watson.html" title="Previous Post: Unite.vimとwatsonを使ったワークフロー">&laquo; Unite.vimとwatsonを使ったワークフロー</a>
     </div>
   
 
-  
-    <div class="arrow_block right_block">
-      <a class="basic-alignment" href="/blog/ruby/how-to-use-watson.html" title="Next Post: インラインTODO管理のWatsonを使う">インラインTODO管理のWatsonを使う &raquo;</a>
-    </div>
   
 </p>
 

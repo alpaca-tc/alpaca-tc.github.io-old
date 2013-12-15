@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ruby | RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca-tc.github.io/blog/ruby/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-12-13T05:39:54+09:00</updated>
+  <updated>2013-12-16T01:37:23+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,122 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rubyのクラス変数について詰まったのでヘルプ]]></title>
+    <link href="http://alpaca-tc.github.io/blog/ruby/ruby-class-variable.html"/>
+    <updated>2013-12-16T01:10:00+09:00</updated>
+    <id>http://alpaca-tc.github.io/blog/ruby/ruby-class-variable</id>
+    <content type="html"><![CDATA[<p>基本的に、仕事でクラス変数を扱うことはほぼ無いです。</p>
+
+<p>今回は遊びのコードを書いていて、悩んだことをまとめました。</p>
+
+<p><strong>まだ分からないので、誰か教えてください>&lt;</strong></p>
+
+<!-- more -->
+
+
+<h1>Rubyのクラス変数の扱いが難しい&hellip;。</h1>
+
+<p>まず、次のようなコードを書いてみた。</p>
+
+<p>```ruby
+class Base; end</p>
+
+<p>class Node &lt; Base
+  @@val = &lsquo;Node&rsquo;
+end</p>
+
+<p>class Branch &lt; Base
+  @@val = &lsquo;Branch&rsquo;
+end</p>
+
+<p>p Node.class_variable_get(&lsquo;@@val&rsquo;) #=> &lsquo;Node&rsquo;
+p Branch.class_variable_get(&lsquo;@@val&rsquo;) #=> &lsquo;Branch&rsquo;
+```</p>
+
+<p>ふむ、いたって想定通りの動作である。</p>
+
+<p>では、続いてクラス変数にデフォルト値を与えてみる。</p>
+
+<p>```ruby
+class Base
+  @@val = &lsquo;Base&rsquo;
+end</p>
+
+<p>class Node &lt; Base
+  @@val = &lsquo;Node&rsquo;
+end</p>
+
+<p>class Branch &lt; Base
+  @@val = &lsquo;Branch&rsquo;
+end</p>
+
+<p>p Node.class_variable_get(&lsquo;@@val&rsquo;) #=> &lsquo;Branch&rsquo;
+p Branch.class_variable_get(&lsquo;@@val&rsquo;) #=> &lsquo;Branch&rsquo;
+```</p>
+
+<p>Ooops!!! 派性クラス内のクラス変数が、Baseのクラス変数を参照しよる！！</p>
+
+<h2>解決編</h2>
+
+<p>うーん、どうもクラス変数という感じではなくなるけれど、こうするしかないのだろうか&hellip;。</p>
+
+<p>ものすごく気持ちが悪い。</p>
+
+<p>```ruby
+class Base
+  class &lt;&lt; self</p>
+
+<pre><code>private
+
+def val
+  'Base'
+end
+</code></pre>
+
+<p>  end
+end</p>
+
+<p>class Node &lt; Base
+  class &lt;&lt; self</p>
+
+<pre><code>private
+
+def val
+  'Node'
+end
+</code></pre>
+
+<p>  end
+end</p>
+
+<p>class Branch &lt; Base
+  class &lt;&lt; self</p>
+
+<pre><code>private
+
+def val
+  'Branch'
+end
+</code></pre>
+
+<p>  end
+end</p>
+
+<p>p Node.send(:val) #=> &lsquo;Node&rsquo;
+p Branch.send(:val) #=> &lsquo;Branch&rsquo;
+```</p>
+
+<p>これだと、クラス変数ではなくなったけれど一応コードとして動く。 ただ、「これは無いだろ感」が凄いする。</p>
+
+<p>しかし、クラスインスタンス変数だと継承されないし、こうするしかないのかなぁ。</p>
+
+<p>今回の悩みは検索するにもキーワードが難しくて、正しい答えにたどり着けてないです>&lt;</p>
+
+<p><strong>だれか教えて！</strong></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[インラインTODO管理のWatsonを使う]]></title>

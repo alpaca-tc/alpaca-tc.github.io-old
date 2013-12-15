@@ -4,7 +4,7 @@
   <title><![CDATA[RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca-tc.github.io/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-12-13T05:39:54+09:00</updated>
+  <updated>2013-12-16T01:37:23+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,171 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rubyのクラス変数について詰まったのでヘルプ]]></title>
+    <link href="http://alpaca-tc.github.io/blog/ruby/ruby-class-variable.html"/>
+    <updated>2013-12-16T01:10:00+09:00</updated>
+    <id>http://alpaca-tc.github.io/blog/ruby/ruby-class-variable</id>
+    <content type="html"><![CDATA[<p>基本的に、仕事でクラス変数を扱うことはほぼ無いです。</p>
+
+<p>今回は遊びのコードを書いていて、悩んだことをまとめました。</p>
+
+<p><strong>まだ分からないので、誰か教えてください>&lt;</strong></p>
+
+<!-- more -->
+
+
+<h1>Rubyのクラス変数の扱いが難しい&hellip;。</h1>
+
+<p>まず、次のようなコードを書いてみた。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Base</span><span class="p">;</span> <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Node</span> <span class="o">&lt;</span> <span class="no">Base</span>
+</span><span class='line'>  <span class="vc">@@val</span> <span class="o">=</span> <span class="s1">&#39;Node&#39;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Branch</span> <span class="o">&lt;</span> <span class="no">Base</span>
+</span><span class='line'>  <span class="vc">@@val</span> <span class="o">=</span> <span class="s1">&#39;Branch&#39;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">p</span> <span class="no">Node</span><span class="o">.</span><span class="n">class_variable_get</span><span class="p">(</span><span class="s1">&#39;@@val&#39;</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Node&#39;</span>
+</span><span class='line'><span class="nb">p</span> <span class="no">Branch</span><span class="o">.</span><span class="n">class_variable_get</span><span class="p">(</span><span class="s1">&#39;@@val&#39;</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Branch&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>ふむ、いたって想定通りの動作である。</p>
+
+<p>では、続いてクラス変数にデフォルト値を与えてみる。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Base</span>
+</span><span class='line'>  <span class="vc">@@val</span> <span class="o">=</span> <span class="s1">&#39;Base&#39;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Node</span> <span class="o">&lt;</span> <span class="no">Base</span>
+</span><span class='line'>  <span class="vc">@@val</span> <span class="o">=</span> <span class="s1">&#39;Node&#39;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Branch</span> <span class="o">&lt;</span> <span class="no">Base</span>
+</span><span class='line'>  <span class="vc">@@val</span> <span class="o">=</span> <span class="s1">&#39;Branch&#39;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">p</span> <span class="no">Node</span><span class="o">.</span><span class="n">class_variable_get</span><span class="p">(</span><span class="s1">&#39;@@val&#39;</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Branch&#39;</span>
+</span><span class='line'><span class="nb">p</span> <span class="no">Branch</span><span class="o">.</span><span class="n">class_variable_get</span><span class="p">(</span><span class="s1">&#39;@@val&#39;</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Branch&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Ooops!!! 派性クラス内のクラス変数が、Baseのクラス変数を参照しよる！！</p>
+
+<h2>解決編</h2>
+
+<p>うーん、どうもクラス変数という感じではなくなるけれど、こうするしかないのだろうか&hellip;。</p>
+
+<p>ものすごく気持ちが悪い。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Base</span>
+</span><span class='line'>  <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
+</span><span class='line'>    <span class="kp">private</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">val</span>
+</span><span class='line'>      <span class="s1">&#39;Base&#39;</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Node</span> <span class="o">&lt;</span> <span class="no">Base</span>
+</span><span class='line'>  <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
+</span><span class='line'>    <span class="kp">private</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">val</span>
+</span><span class='line'>      <span class="s1">&#39;Node&#39;</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Branch</span> <span class="o">&lt;</span> <span class="no">Base</span>
+</span><span class='line'>  <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
+</span><span class='line'>    <span class="kp">private</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">val</span>
+</span><span class='line'>      <span class="s1">&#39;Branch&#39;</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">p</span> <span class="no">Node</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="ss">:val</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Node&#39;</span>
+</span><span class='line'><span class="nb">p</span> <span class="no">Branch</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="ss">:val</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Branch&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>これだと、クラス変数ではなくなったけれど一応コードとして動く。 ただ、「これは無いだろ感」が凄いする。</p>
+
+<p>しかし、クラスインスタンス変数だと継承されないし、こうするしかないのかなぁ。</p>
+
+<p>今回の悩みは検索するにもキーワードが難しくて、正しい答えにたどり着けてないです>&lt;</p>
+
+<p><strong>だれか教えて！</strong></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Unite.vimとwatsonを使ったワークフロー]]></title>
