@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ruby | RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca-tc.github.io/blog/ruby/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-12-16T01:43:51+09:00</updated>
+  <updated>2013-12-16T03:31:18+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -22,14 +22,14 @@
 
 <p>今回は遊びのコードを書いていて、悩んだことをまとめました。</p>
 
-<p><strong>まだ分からないので、誰か教えてください>&lt;</strong></p>
-
 <!-- more -->
 
 
 <h1>Rubyのクラス変数の扱いが難しい&hellip;。</h1>
 
-<p>まず、次のようなコードを書いてみた。</p>
+<p>これ、結構Ruby書いている自分でも初めて遭遇して悩む問題だった。</p>
+
+<p>まず、次のような動くコードを書いてみた。</p>
 
 <p>```ruby
 class Base; end</p>
@@ -46,13 +46,13 @@ end</p>
 p Branch.class_variable_get(&lsquo;@@val&rsquo;) #=> &lsquo;Branch&rsquo;
 ```</p>
 
-<p>ふむ、いたって想定通りの動作である。</p>
+<p>ふむ、それぞれの派生クラスでクラス変数が使えますね。</p>
 
-<p>では、続いてクラス変数にデフォルト値を与えてみる。</p>
+<p>では、続いて基底クラスにもクラス変数を与えてみる。</p>
 
 <p>```ruby
 class Base
-  @@val = &lsquo;Base&rsquo;
+  @@val = nil
 end</p>
 
 <p>class Node &lt; Base
@@ -67,13 +67,17 @@ end</p>
 p Branch.class_variable_get(&lsquo;@@val&rsquo;) #=> &lsquo;Branch&rsquo;
 ```</p>
 
-<p>Ooops!!! 派性クラス内のクラス変数が、Baseのクラス変数を参照しよる！！</p>
+<p>Ooops!!! 派性クラス内のクラス変数が、基底クラス変数を参照しよる！！</p>
 
 <h2>解決編</h2>
 
-<p>うーん、どうもクラス変数という感じではなくなるけれど、こうするしかないのだろうか&hellip;。</p>
+<p>やりたいことは、派生クラスの子クラスに共通の変数を持たせるということ。</p>
 
-<p>ものすごく気持ちが悪い。</p>
+<p>うーん、意外と難しい！</p>
+
+<p>どうもクラス変数という感じではなくなるけれど、こうするしかないのだろうか&hellip;。</p>
+
+<p>メソッドにしてみたら、とっても気持ちが悪い。</p>
 
 <p>```ruby
 class Base
@@ -119,13 +123,13 @@ end</p>
 p Branch.send(:val) #=> &lsquo;Branch&rsquo;
 ```</p>
 
-<p>これだと、クラス変数ではなくなったけれど一応コードとして動く。 ただ、「これは無いだろ感」が凄いする。</p>
+<p>これだと、一応コードとして動く。 ただ、<strong>これは無いだろ感</strong>あるよね。</p>
 
 <p>しかし、クラスインスタンス変数だと継承されないし、こうするしかないのかなぁ。</p>
 
 <p>今回の悩みは検索するにもキーワードが難しくて、正しい答えにたどり着けてないです>&lt;</p>
 
-<p><strong>だれか教えて！</strong></p>
+<p><strong>だれか教えてください！</strong> >_&lt;</p>
 ]]></content>
   </entry>
   
