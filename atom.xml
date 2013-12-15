@@ -4,7 +4,7 @@
   <title><![CDATA[RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca-tc.github.io/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-12-16T03:31:18+09:00</updated>
+  <updated>2013-12-16T03:33:12+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -176,9 +176,7 @@
 
 <p>しかし、クラスインスタンス変数だと継承されないし、こうするしかないのかなぁ。</p>
 
-<p>今回の悩みは検索するにもキーワードが難しくて、正しい答えにたどり着けてないです>&lt;</p>
-
-<p><strong>だれか教えてください！</strong> >_&lt;</p>
+<p><strong>だれか正しい方法があれば、教えてください！</strong> >_&lt;</p>
 ]]></content>
   </entry>
   
