@@ -115,21 +115,16 @@ p Branch.send(:val) #=> 'Branch'
 
 ```ruby
 class Base
-  @val = nil
+  @val = 'Base'
 
   def self.inherited(klass)
     klass.instance_variable_set('@val', @val)
   end
 end
 
-class Node < Base
-  @val = 'Node'
-end
+class Node < Base; end
+class Branch < Base; end
 
-class Branch < Base
-  @val = 'Branch'
-end
-
-p Node.instance_variable_get('@val') #=> 'Branch'
-p Branch.instance_variable_get('@val') #=> 'Branch'
+p Node.instance_variable_get('@val') #=> 'Base'
+p Branch.instance_variable_get('@val') #=> 'Base'
 ```
