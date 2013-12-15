@@ -3,14 +3,20 @@
 {% if site.categories[category] %}
   <section id="side_category_posts" class="sidebar_row">
     <div id="blog-archives" class="category">
-      <h1>同じカテゴリーの記事</h1>
+      <h1>{{ category }}カテゴリーの最新記事</h1>
 
-      {% for post in site.categories[category] %}
+      {% for post in site.categories[category] limit: site.recent_posts_for_category %}
         <article>
           <time datetime="{{ post.date | datetime | date_to_xmlschema }}" pubdate>{{ post.date | date: "<span class='month'>%b</span> <span class='day'>%d</span> <span class='year'>%Y</span>"}}</time>
           <h1><a href="{{ root_url }}{{ post.url }}">{{post.title}}</a></h1>
         </article>
       {% endfor %}
+
+      <div class="category_link">
+        <span class="categories">
+          <a href="/{{ site.category_dir }}/{{ category }}">→{{ category }}の記事をもっと見る</a>
+        </span>
+      </div>
     </div>
   </section>
 {% endif %}
