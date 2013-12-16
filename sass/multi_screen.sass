@@ -1,7 +1,7 @@
 @import 'default'
 @import 'blueprint/grid'
 
-$main_contents_width: 647px
+$main_contents_width: 690px
 
 =load_heavy_image
   body
@@ -18,6 +18,16 @@ $main_contents_width: 647px
       margin: auto
       width: span(14)
       text-align: center
+
+=pagination_2rows
+  #main_contents
+    .pagination
+      .arrow_block
+        display: block
+        position: static
+        float: none !important
+        width: 100% !important
+        margin-bottom: 1em
 
 =centering_main_contents
   .outer_envelope
@@ -81,18 +91,18 @@ $main_contents_width: 647px
           // width: 100%
 
 // PC
-@media only screen and (min-width:1021px)
+@media only screen and (min-width:960px)
   +load_heavy_image
 
   .outer_envelope
     width: 100%
     .inner_wrapper
-      width: 960px
+      width: 1024px
       margin: auto
 
     header
       #logo
-        +column(10)
+        +column(11)
       #header_nav
         +column(14)
         float: right
@@ -110,7 +120,7 @@ $main_contents_width: 647px
       .inner_wrapper
         width: 100%
         .inner
-          width: 960px
+          width: 1024px
           margin: auto
 
           nav#footer_nav
@@ -128,22 +138,31 @@ $main_contents_width: 647px
                 margin-right: $space_width
 
 // NotePC
-@media (min-width:916px) and (max-width:1021px)
+// @media (min-width:916px) and (max-width:1024px)
+//   +load_heavy_image
+//   // [todo] - multi screenに対応する。
+//   // [todo] - 見やすくする
+//   .outer_envelope
+//     header
+//       display: block
+//       .inner_wrapper
+//         max-width: 1024px
+//         margin: auto
+//         .inner
+//           #logo
+//             +column(7.8)
+//           #header_nav
+//             +column(14)
+//             float: right
+//
+//   +centering_main_contents
+//   +centering_footer_nav
+//   +adaptable_aside
+
+// Smartphone
+@media (min-width:691px) and (max-width:960px)
   +load_heavy_image
-
-  .outer_envelope
-    header
-      display: block
-      .inner_wrapper
-        width: 94%
-        margin: auto
-        .inner
-          #logo
-            +column(7.8)
-          #header_nav
-            +column(14)
-            float: right
-
+  +centering_head_nav
   +centering_main_contents
   +centering_footer_nav
   +adaptable_aside
@@ -155,14 +174,7 @@ $main_contents_width: 647px
   +centering_head_nav
   +centering_footer_nav
   +adaptable_aside
-
-// Smartphone
-@media (min-width:691px) and (max-width:960px)
-  +load_heavy_image
-  +centering_head_nav
-  +centering_main_contents
-  +centering_footer_nav
-  +adaptable_aside
+  +pagination_2rows
 
 // Mobile
 @media (max-width:690px)
@@ -200,6 +212,11 @@ $main_contents_width: 647px
     #main_contents
       width: $main_contents_width
       .post_row
+        header.field-items, footer
+          h1
+            &, & > a
+              font-size: 20px
+
         .categories
           display: block
 
@@ -237,5 +254,6 @@ $main_contents_width: 647px
             padding: $space_width
             // &, & span
               // font-size: 10px
+
 @media (max-width:382px)
   +sharing_2column
