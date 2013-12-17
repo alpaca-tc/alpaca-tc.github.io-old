@@ -4,7 +4,7 @@
   <title><![CDATA[RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca-tc.github.io/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-12-18T02:16:06+09:00</updated>
+  <updated>2013-12-18T02:17:37+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -25,18 +25,6 @@
 <p>先日の記事でも、git系のプラグインは「知らなかった」という話を沢山聞きました。せっかくなので使い方を紹介します。</p>
 
 <!-- more -->
-
-
-<h2>vimからgitを使う。</h2>
-
-<p>有名なプラグインは次のようなものです。それぞれ、一言でまとめます。</p>
-
-<ul>
-<li>git-vim　<strong><code>:Git</code>コマンドが便利。それなりに補完してくれる</strong></li>
-<li>vim-fugitive(fugitive.vim)　<strong>vim+gitでは一番有名。ただし、コードが糞なのと、操作が難しい</strong></li>
-<li>vim-versions(旧vim-vcs)　<strong>git+unite系では結構有名。簡単な操作なら十分かもしれない</strong></li>
-<li>gitv　<strong>gitkのvim版。gitk使ったこと無いっていう人には不要</strong></li>
-</ul>
 
 
 <h2>今回紹介するのはvim-unite-giti!!</h2>
