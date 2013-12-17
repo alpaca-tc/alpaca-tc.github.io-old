@@ -2,96 +2,100 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://alpaca-tc.github.io/blog/diary/start_blog.html</loc>
-        <lastmod>2013-12-16T03:19:45+09:00</lastmod>
+        <lastmod>2013-12-18T01:56:33+09:00</lastmod>
     </url>
     <url>
         <loc>
             http://alpaca-tc.github.io/blog/vim/alpaca_octopress/create_new_plugin_for_octopress.html
         </loc>
-        <lastmod>2013-12-16T03:19:45+09:00</lastmod>
+        <lastmod>2013-12-18T01:56:33+09:00</lastmod>
     </url>
     <url>
         <loc>http://alpaca-tc.github.io/blog/vim/alpaca_octopress/about_alpaca_complete.html</loc>
-        <lastmod>2013-12-16T03:19:45+09:00</lastmod>
+        <lastmod>2013-12-18T01:56:33+09:00</lastmod>
     </url>
     <url>
         <loc>http://alpaca-tc.github.io/blog/seo/no1_alpaca_engineer.html</loc>
-        <lastmod>2013-12-16T03:19:45+09:00</lastmod>
+        <lastmod>2013-12-18T01:56:33+09:00</lastmod>
     </url>
     <url>
         <loc>http://alpaca-tc.github.io/blog/vim/octopress_and_vimplugin.html</loc>
-        <lastmod>2013-12-16T03:19:45+09:00</lastmod>
+        <lastmod>2013-12-18T01:56:33+09:00</lastmod>
     </url>
     <url>
         <loc>http://alpaca-tc.github.io/blog/vim/break-vim-beginners-augroup.html</loc>
-        <lastmod>2013-12-16T03:19:45+09:00</lastmod>
+        <lastmod>2013-12-18T01:56:33+09:00</lastmod>
     </url>
     <url>
         <loc>http://alpaca-tc.github.io/blog/vim/plugins-best-of-vim-1.html</loc>
-        <lastmod>2013-12-16T03:19:45+09:00</lastmod>
+        <lastmod>2013-12-18T01:56:33+09:00</lastmod>
     </url>
     <url>
         <loc>http://alpaca-tc.github.io/blog/vim/training-of-new-employee.html</loc>
-        <lastmod>2013-12-16T03:19:45+09:00</lastmod>
+        <lastmod>2013-12-18T01:56:33+09:00</lastmod>
     </url>
     <url>
         <loc>http://alpaca-tc.github.io/blog/vim/how-to-use-tern-vim.html</loc>
-        <lastmod>2013-12-16T03:19:45+09:00</lastmod>
+        <lastmod>2013-12-18T01:56:33+09:00</lastmod>
     </url>
     <url>
         <loc>http://alpaca-tc.github.io/blog/vim/break-vim-beginners-scope.html</loc>
-        <lastmod>2013-12-16T03:19:45+09:00</lastmod>
+        <lastmod>2013-12-18T01:56:33+09:00</lastmod>
     </url>
     <url>
         <loc>http://alpaca-tc.github.io/blog/learning_vim/i-begin-to-learn-vim.html</loc>
-        <lastmod>2013-12-16T03:19:45+09:00</lastmod>
+        <lastmod>2013-12-18T01:56:33+09:00</lastmod>
     </url>
     <url>
         <loc>http://alpaca-tc.github.io/blog/learning_vim/i-begin-to-lean-vim-1.html</loc>
-        <lastmod>2013-12-16T03:19:45+09:00</lastmod>
+        <lastmod>2013-12-18T01:56:33+09:00</lastmod>
     </url>
     <url>
         <loc>http://alpaca-tc.github.io/blog/ruby/the-story-about-guard-shell.html</loc>
-        <lastmod>2013-12-16T03:19:45+09:00</lastmod>
+        <lastmod>2013-12-18T01:56:33+09:00</lastmod>
     </url>
     <url>
         <loc>http://alpaca-tc.github.io/blog/ruby/how-to-use-watson.html</loc>
-        <lastmod>2013-12-16T03:19:45+09:00</lastmod>
+        <lastmod>2013-12-18T01:56:33+09:00</lastmod>
     </url>
     <url>
         <loc>http://alpaca-tc.github.io/blog/vim/neocomplete-vs-youcompleteme.html</loc>
-        <lastmod>2013-12-16T03:19:45+09:00</lastmod>
+        <lastmod>2013-12-18T01:56:33+09:00</lastmod>
     </url>
     <url>
         <loc>http://alpaca-tc.github.io/blog/vim/using-vim-unite-watson.html</loc>
-        <lastmod>2013-12-16T03:19:45+09:00</lastmod>
+        <lastmod>2013-12-18T01:56:33+09:00</lastmod>
     </url>
     <url>
         <loc>http://alpaca-tc.github.io/blog/ruby/ruby-class-variable.html</loc>
-        <lastmod>2013-12-16T03:43:44+09:00</lastmod>
+        <lastmod>2013-12-18T01:56:33+09:00</lastmod>
+    </url>
+    <url>
+        <loc>http://alpaca-tc.github.io/blog/vim/how-to-use-vim-unite-giti.html</loc>
+        <lastmod>2013-12-18T02:00:21+09:00</lastmod>
     </url>
     <url>
         <loc>http://alpaca-tc.github.io/about-me/</loc>
-        <lastmod>2013-12-16T02:42:43+09:00</lastmod>
+        <lastmod>2013-12-18T01:56:33+09:00</lastmod>
     </url>
     <url>
         <loc>http://alpaca-tc.github.io/blog/archives/</loc>
-        <lastmod>2013-12-16T03:43:44+09:00</lastmod>
+        <lastmod>2013-12-18T02:00:21+09:00</lastmod>
     </url>
     <url>
         <loc>http://alpaca-tc.github.io/blog/</loc>
-        <lastmod>2013-12-16T02:42:43+09:00</lastmod>
+        <lastmod>2013-12-18T01:56:33+09:00</lastmod>
     </url>
     <url>
         <loc>http://alpaca-tc.github.io/</loc>
-        <lastmod>2013-12-16T03:43:44+09:00</lastmod>
+        <lastmod>2013-12-18T02:00:21+09:00</lastmod>
     </url>
     <url>
         <loc>http://alpaca-tc.github.io/robots.txt</loc>
-        <lastmod>2013-11-11T05:41:42+09:00</lastmod>
+        <lastmod>2013-12-18T01:18:01+09:00</lastmod>
     </url>
     <url>
         <loc>http://alpaca-tc.github.io/works/</loc>
-        <lastmod>2013-12-16T02:42:43+09:00</lastmod>
+        <lastmod>2013-12-18T01:56:33+09:00</lastmod>
     </url>
 </urlset>

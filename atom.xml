@@ -4,7 +4,7 @@
   <title><![CDATA[RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca-tc.github.io/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-12-17T16:24:07+09:00</updated>
+  <updated>2013-12-18T02:16:06+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,287 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[仕事が捗る！VimからGitを使う最適解]]></title>
+    <link href="http://alpaca-tc.github.io/blog/vim/how-to-use-vim-unite-giti.html"/>
+    <updated>2013-12-17T23:36:00+09:00</updated>
+    <id>http://alpaca-tc.github.io/blog/vim/how-to-use-vim-unite-giti</id>
+    <content type="html"><![CDATA[<p>先日の記事でもチラッと出てきた<a href="https://github.com/kmnk/vim-unite-giti">vim-unite-giti</a>というプラグインがあります。</p>
+
+<p><strong>ものすごーーーく便利</strong>なプラグインなんですが、何故かほとんど話を聞かないプラグインです。</p>
+
+<p>先日の記事でも、git系のプラグインは「知らなかった」という話を沢山聞きました。せっかくなので使い方を紹介します。</p>
+
+<!-- more -->
+
+
+<h2>vimからgitを使う。</h2>
+
+<p>有名なプラグインは次のようなものです。それぞれ、一言でまとめます。</p>
+
+<ul>
+<li>git-vim　<strong><code>:Git</code>コマンドが便利。それなりに補完してくれる</strong></li>
+<li>vim-fugitive(fugitive.vim)　<strong>vim+gitでは一番有名。ただし、コードが糞なのと、操作が難しい</strong></li>
+<li>vim-versions(旧vim-vcs)　<strong>git+unite系では結構有名。簡単な操作なら十分かもしれない</strong></li>
+<li>gitv　<strong>gitkのvim版。gitk使ったこと無いっていう人には不要</strong></li>
+</ul>
+
+
+<h2>今回紹介するのはvim-unite-giti!!</h2>
+
+<p>何はともあれ、<strong>まずは動画をみてくれ。</strong></p>
+
+<iframe width="560" height="420" src="http://www.youtube.com/embed/jCgcpIO9oBs?color=white&theme=light"></iframe>
+
+
+<p>とにかく、uniteインターフェースは操作を覚えることが少ない。</p>
+
+<p>今回も、幾つかのUniteコマンドを使っているけれど、基本的に「選択」→「アクション」の動作しかない。</p>
+
+<h3>:Unite giti/status</h3>
+
+<p>add, unstage, checkoutなどの操作が簡単ですね</p>
+
+<p>conflictがあれば、すぐ見れます。「選択」→「commitアクション」と進めば、指定したファイルだけのコミットもお手軽に作れます(!!)</p>
+
+<h3>:Unite giti/branch</h3>
+
+<p>tracking, chckout, deleteなどの操作が簡単ですね。</p>
+
+<p>branchを切るのにわざわざShellを使うなんて。あなた、Vimと触れ合う時間が減ってしまうではないですか。</p>
+
+<h3>:Unite giti/log</h3>
+
+<p>紹介していませんが、普通に便利です。vimdiffなどを見る事も簡単です。</p>
+
+<h2>vim-unite-giti以外のプラグイン</h2>
+
+<h3><em>git-vim</em> :GitDiff, :Git push</h3>
+
+<p>こちらは、特に驚きはないので初めて使う人以外は見なくてもいいです。</p>
+
+<iframe width="560" height="420" src="http://www.youtube.com/embed/wWI3Wb-0Vw4?color=white&theme=light"></iframe>
+
+
+<p>言わずもがな、コマンド名の通りです。</p>
+
+<p>git-vimを使って何がうれしいかと言うと、それなりに補完ができる点です。</p>
+
+<h3><em>fugitive</em> :Gcommit, :Gblame</h3>
+
+<p>すでに語り尽くされているので、ここでは取り上げません。</p>
+
+<p>他のプラグインにもにたようなコマンドがありますが、色付きなのと、機能性が優れているのでfugitiveがおすすめです。</p>
+
+<h2>vimrc</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="c">&quot; コピペで貼付けているので、これで動作しなかったら賢く書き換えてください。</span>
+</span><span class='line'>NeoBundleLazy <span class="s1">&#39;kmnk/vim-unite-giti&#39;</span><span class="p">,</span> {
+</span><span class='line'>      \ <span class="s1">&#39;autoload&#39;</span>: {
+</span><span class='line'>      \   <span class="s1">&#39;unite_sources&#39;</span>: [
+</span><span class='line'>      \     <span class="s1">&#39;giti&#39;</span><span class="p">,</span> <span class="s1">&#39;giti/branch&#39;</span><span class="p">,</span> <span class="s1">&#39;giti/branch/new&#39;</span><span class="p">,</span> <span class="s1">&#39;giti/branch_all&#39;</span><span class="p">,</span>
+</span><span class='line'>      \     <span class="s1">&#39;giti/config&#39;</span><span class="p">,</span> <span class="s1">&#39;giti/log&#39;</span><span class="p">,</span> <span class="s1">&#39;giti/remote&#39;</span><span class="p">,</span> <span class="s1">&#39;giti/status&#39;</span>
+</span><span class='line'>      \   ]
+</span><span class='line'>      \ }}
+</span><span class='line'>NeoBundleLazy <span class="s1">&#39;Shougo/git-vim&#39;</span><span class="p">,</span> {
+</span><span class='line'>      \ <span class="s1">&#39;autoload&#39;</span> : {
+</span><span class='line'>      \ <span class="s1">&#39;function_prefix&#39;</span> : <span class="s1">&#39;git&#39;</span><span class="p">,</span>
+</span><span class='line'>      \ <span class="s1">&#39;functions&#39;</span> : <span class="s1">&#39;git#get_current_branch&#39;</span><span class="p">,</span>
+</span><span class='line'>      \ <span class="s1">&#39;commands&#39;</span>: [
+</span><span class='line'>      \   { <span class="s1">&#39;name&#39;</span>: <span class="s1">&#39;GitDiff&#39;</span><span class="p">,</span>     <span class="s1">&#39;complete&#39;</span> : <span class="s1">&#39;customlist,git#list_commits&#39;</span> }<span class="p">,</span>
+</span><span class='line'>      \   { <span class="s1">&#39;name&#39;</span>: <span class="s1">&#39;GitVimDiff&#39;</span><span class="p">,</span>  <span class="s1">&#39;complete&#39;</span> : <span class="s1">&#39;customlist,git#list_commits&#39;</span> }<span class="p">,</span>
+</span><span class='line'>      \   { <span class="s1">&#39;name&#39;</span>: <span class="s1">&#39;Git&#39;</span><span class="p">,</span>         <span class="s1">&#39;complete&#39;</span> : <span class="s1">&#39;customlist,git#list_commits&#39;</span> }<span class="p">,</span>
+</span><span class='line'>      \   { <span class="s1">&#39;name&#39;</span>: <span class="s1">&#39;GitCheckout&#39;</span><span class="p">,</span> <span class="s1">&#39;complete&#39;</span> : <span class="s1">&#39;customlist,git#list_commits&#39;</span> }<span class="p">,</span>
+</span><span class='line'>      \   { <span class="s1">&#39;name&#39;</span>: <span class="s1">&#39;GitAdd&#39;</span><span class="p">,</span>      <span class="s1">&#39;complete&#39;</span> : <span class="s1">&#39;file&#39;</span> }<span class="p">,</span>
+</span><span class='line'>      \   <span class="s1">&#39;GitLog&#39;</span><span class="p">,</span> <span class="s1">&#39;GitCommit&#39;</span><span class="p">,</span> <span class="s1">&#39;GitBlame&#39;</span><span class="p">,</span> <span class="s1">&#39;GitPush&#39;</span>] }}
+</span><span class='line'>NeoBundleLazy <span class="s1">&#39;tpope/vim-fugitive&#39;</span><span class="p">,</span> { <span class="s1">&#39;autoload&#39;</span>: {
+</span><span class='line'>      \ <span class="s1">&#39;functions&#39;</span> : [<span class="s1">&#39;fugitive#head&#39;</span><span class="p">,</span> <span class="s1">&#39;fugitive#detect&#39;</span>]<span class="p">,</span>
+</span><span class='line'>      \ <span class="s1">&#39;commands&#39;</span>: [<span class="s1">&#39;Gcommit&#39;</span><span class="p">,</span> <span class="s1">&#39;Gblame&#39;</span><span class="p">,</span> <span class="s1">&#39;Ggrep&#39;</span><span class="p">,</span> <span class="s1">&#39;Gdiff&#39;</span><span class="p">,</span> <span class="s1">&#39;Gcd&#39;</span>] }}
+</span><span class='line'>
+</span><span class='line'><span class="c">&quot; git-vim</span>
+</span><span class='line'><span class="k">let</span> <span class="k">g</span>:git_bin <span class="p">=</span> executable<span class="p">(</span><span class="s1">&#39;hub&#39;</span><span class="p">)</span> ? <span class="s1">&#39;hub&#39;</span> : <span class="s1">&#39;git&#39;</span>
+</span><span class='line'><span class="k">let</span> <span class="k">g</span>:git_command_edit <span class="p">=</span> <span class="s1">&#39;vnew&#39;</span>
+</span><span class='line'><span class="k">let</span> <span class="k">g</span>:git_no_default_mappings <span class="p">=</span> <span class="m">1</span>
+</span><span class='line'><span class="nb">nnoremap</span> gA :<span class="p">&lt;</span>C<span class="p">-</span>U<span class="p">&gt;</span>GitAdd<span class="p">&lt;</span>Space<span class="p">&gt;</span>
+</span><span class='line'><span class="nb">nnoremap</span> <span class="p">&lt;</span><span class="k">silent</span><span class="p">&gt;</span>ga :<span class="p">&lt;</span>C<span class="p">-</span>U<span class="p">&gt;</span>GitAdd<span class="p">&lt;</span>CR<span class="p">&gt;</span>
+</span><span class='line'><span class="nb">nnoremap</span> <span class="nb">gp</span> :<span class="p">&lt;</span>C<span class="p">-</span>U<span class="p">&gt;</span>Git push<span class="p">&lt;</span>Space<span class="p">&gt;</span>
+</span><span class='line'><span class="nb">nnoremap</span> gD :<span class="p">&lt;</span>C<span class="p">-</span>U<span class="p">&gt;</span>GitDiff<span class="p">&lt;</span>Space<span class="p">&gt;</span>
+</span><span class='line'><span class="nb">nnoremap</span> gDD :<span class="p">&lt;</span>C<span class="p">-</span>U<span class="p">&gt;</span>GitDiff HEAD<span class="p">&lt;</span>CR<span class="p">&gt;</span>
+</span><span class='line'><span class="nb">nnoremap</span> git :<span class="p">&lt;</span>C<span class="p">-</span>U<span class="p">&gt;</span>Git<span class="p">&lt;</span>Space<span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">&quot; fugitive</span>
+</span><span class='line'><span class="nb">nnoremap</span> <span class="p">&lt;</span><span class="k">silent</span><span class="p">&gt;</span>gM :Gcommit <span class="p">--</span>amend<span class="p">&lt;</span>CR<span class="p">&gt;</span>
+</span><span class='line'><span class="nb">nnoremap</span> <span class="p">&lt;</span><span class="k">silent</span><span class="p">&gt;</span>gb :Gblame<span class="p">&lt;</span>CR<span class="p">&gt;</span>
+</span><span class='line'><span class="nb">nnoremap</span> <span class="p">&lt;</span><span class="k">silent</span><span class="p">&gt;</span>gB :Gbrowse<span class="p">&lt;</span>CR<span class="p">&gt;</span>
+</span><span class='line'><span class="nb">nnoremap</span> <span class="p">&lt;</span><span class="k">silent</span><span class="p">&gt;</span>gm :Gcommit<span class="p">&lt;</span>CR<span class="p">&gt;</span>
+</span><span class='line'><span class="k">let</span> hooks <span class="p">=</span> neobundle#get_hooks<span class="p">(</span><span class="s1">&#39;vim-fugitive&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="k">function</span><span class="p">!</span> hooks.on_source<span class="p">(</span>bundle<span class="p">)</span>
+</span><span class='line'>  augroup MyGitCmd
+</span><span class='line'>    autocmd<span class="p">!</span>
+</span><span class='line'>    autocmd <span class="nb">FileType</span> fugitiveblame <span class="k">vertical</span> <span class="k">res</span> <span class="m">25</span>
+</span><span class='line'>    autocmd <span class="nb">FileType</span> gitcommit<span class="p">,</span>git<span class="p">-</span><span class="nb">diff</span> <span class="nb">nnoremap</span> <span class="p">&lt;</span>buffer<span class="p">&gt;</span><span class="k">q</span> :<span class="k">q</span><span class="p">&lt;</span>CR<span class="p">&gt;</span>
+</span><span class='line'>  augroup END
+</span><span class='line'>
+</span><span class='line'>  <span class="k">let</span> <span class="k">g</span>:fugitive_git_executable <span class="p">=</span> executable<span class="p">(</span><span class="s1">&#39;hub&#39;</span><span class="p">)</span> ? <span class="s1">&#39;hub&#39;</span> : <span class="s1">&#39;git&#39;</span>
+</span><span class='line'><span class="k">endfunction</span>
+</span><span class='line'><span class="k">function</span><span class="p">!</span> hooks.on_post_source<span class="p">(</span>bundle<span class="p">)</span>
+</span><span class='line'>  <span class="k">call</span> fugitive#detect<span class="p">(</span>expand<span class="p">(</span><span class="s1">&#39;&lt;amatch&gt;:p&#39;</span><span class="p">))</span>
+</span><span class='line'><span class="k">endfunction</span>
+</span><span class='line'>command<span class="p">!</span> FugitiveReload <span class="k">call</span> fugitive#detect<span class="p">(</span>expand<span class="p">(</span><span class="s1">&#39;&lt;amatch&gt;:p&#39;</span><span class="p">))</span>
+</span><span class='line'>unlet hooks
+</span><span class='line'>
+</span><span class='line'><span class="c">&quot; vim-unite-giti</span>
+</span><span class='line'><span class="nb">nnoremap</span> <span class="p">&lt;</span><span class="k">silent</span><span class="p">&gt;</span>gl :Unite giti/log <span class="p">-</span>no<span class="p">-</span><span class="k">start</span><span class="p">-</span>insert <span class="p">-</span>horizontal<span class="p">&lt;</span>CR<span class="p">&gt;</span>
+</span><span class='line'><span class="nb">nnoremap</span> <span class="p">&lt;</span><span class="k">silent</span><span class="p">&gt;</span>gP :Unite giti<span class="sr">/pull_request/</span>base <span class="p">-</span>no<span class="p">-</span><span class="k">start</span><span class="p">-</span>insert <span class="p">-</span>horizontal<span class="p">&lt;</span>CR<span class="p">&gt;</span>
+</span><span class='line'><span class="nb">nnoremap</span> <span class="p">&lt;</span><span class="k">silent</span><span class="p">&gt;</span><span class="k">gs</span> :Unite giti/status <span class="p">-</span>no<span class="p">-</span><span class="k">start</span><span class="p">-</span>insert <span class="p">-</span>horizontal<span class="p">&lt;</span>CR<span class="p">&gt;</span>
+</span><span class='line'><span class="nb">nnoremap</span> <span class="p">&lt;</span><span class="k">silent</span><span class="p">&gt;</span>gh :Unite giti/branch_all <span class="p">-</span>no<span class="p">-</span><span class="k">start</span><span class="p">-</span>insert<span class="p">&lt;</span>CR<span class="p">&gt;</span>
+</span><span class='line'>
+</span><span class='line'>augroup MyUniteCmd
+</span><span class='line'>  autocmd<span class="p">!</span>
+</span><span class='line'>  autocmd <span class="nb">FileType</span> unite <span class="k">call</span> <span class="p">&lt;</span>SID<span class="p">&gt;</span>unite_my_settings<span class="p">()</span>
+</span><span class='line'>augroup END
+</span><span class='line'>
+</span><span class='line'><span class="k">function</span> <span class="k">s</span>:unite_my_settings<span class="p">()</span>
+</span><span class='line'>  <span class="k">let</span> profile_name <span class="p">=</span> substitute<span class="p">(</span>unite#get_current_unite<span class="p">()</span>.profile_name<span class="p">,</span> <span class="s1">&#39;[-/]&#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">!</span>empty<span class="p">(</span>profile_name<span class="p">)</span> &amp;&amp; has_key<span class="p">(</span><span class="k">s</span>:unite_hooks<span class="p">,</span> profile_name<span class="p">)</span>
+</span><span class='line'>    <span class="k">call</span> <span class="k">s</span>:unite_hooks[profile_name]<span class="p">()</span>
+</span><span class='line'>  <span class="k">endif</span>
+</span><span class='line'><span class="k">endfunction</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">let</span> <span class="k">s</span>:unite_hooks <span class="p">=</span> {}
+</span><span class='line'><span class="k">function</span><span class="p">!</span> <span class="k">s</span>:unite_hooks.source_giti_status<span class="p">()</span>
+</span><span class='line'><span class="c">  &quot; nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt;gM unite#do_action(&#39;ammend&#39;)</span>
+</span><span class='line'><span class="c">  &quot; nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt;gm unite#do_action(&#39;commit&#39;)</span>
+</span><span class='line'>  <span class="nb">nnoremap</span> <span class="p">&lt;</span><span class="k">silent</span><span class="p">&gt;&lt;</span>buffer<span class="p">&gt;&lt;</span>expr<span class="p">&gt;</span>ga unite#do_action<span class="p">(</span><span class="s1">&#39;stage&#39;</span><span class="p">)</span>
+</span><span class='line'>  <span class="nb">nnoremap</span> <span class="p">&lt;</span><span class="k">silent</span><span class="p">&gt;&lt;</span>buffer<span class="p">&gt;&lt;</span>expr<span class="p">&gt;</span>gc unite#do_action<span class="p">(</span><span class="s1">&#39;checkout&#39;</span><span class="p">)</span>
+</span><span class='line'>  <span class="nb">nnoremap</span> <span class="p">&lt;</span><span class="k">silent</span><span class="p">&gt;&lt;</span>buffer<span class="p">&gt;&lt;</span>expr<span class="p">&gt;</span><span class="nb">gd</span> unite#do_action<span class="p">(</span><span class="s1">&#39;diff&#39;</span><span class="p">)</span>
+</span><span class='line'>  <span class="nb">nnoremap</span> <span class="p">&lt;</span><span class="k">silent</span><span class="p">&gt;&lt;</span>buffer<span class="p">&gt;&lt;</span>expr<span class="p">&gt;</span>gu unite#do_action<span class="p">(</span><span class="s1">&#39;unstage&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="k">endfunction</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">function</span><span class="p">!</span> <span class="k">s</span>:unite_hooks.source_giti_branch<span class="p">()</span>
+</span><span class='line'>  <span class="nb">nnoremap</span> <span class="p">&lt;</span><span class="k">silent</span><span class="p">&gt;&lt;</span>buffer<span class="p">&gt;&lt;</span>expr<span class="p">&gt;</span><span class="k">d</span> unite#do_action<span class="p">(</span><span class="s1">&#39;delete&#39;</span><span class="p">)</span>
+</span><span class='line'>  <span class="nb">nnoremap</span> <span class="p">&lt;</span><span class="k">silent</span><span class="p">&gt;&lt;</span>buffer<span class="p">&gt;&lt;</span>expr<span class="p">&gt;</span>D unite#do_action<span class="p">(</span><span class="s1">&#39;delete_force&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="k">endfunction</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">function</span><span class="p">!</span> <span class="k">s</span>:unite_hooks.source_giti_branch_all<span class="p">()</span>
+</span><span class='line'>  <span class="k">call</span> <span class="k">s</span>:unite_hooks.source_giti_branch<span class="p">()</span>
+</span><span class='line'><span class="k">endfunction</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">function</span><span class="p">!</span> <span class="k">s</span>:unite_hooks.source_giti_log<span class="p">()</span>
+</span><span class='line'>  <span class="nb">nnoremap</span> <span class="p">&lt;</span><span class="k">silent</span><span class="p">&gt;&lt;</span>buffer<span class="p">&gt;&lt;</span>expr<span class="p">&gt;</span><span class="nb">gd</span> unite#do_action<span class="p">(</span><span class="s1">&#39;diff&#39;</span><span class="p">)</span>
+</span><span class='line'>  <span class="nb">nnoremap</span> <span class="p">&lt;</span><span class="k">silent</span><span class="p">&gt;&lt;</span>buffer<span class="p">&gt;&lt;</span>expr<span class="p">&gt;</span><span class="k">d</span> unite#do_action<span class="p">(</span><span class="s1">&#39;diff&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="k">endfunction</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>まとめ</h2>
+
+<p>ujihisaさんに憧れてのYoutube記事です。笑</p>
+
+<p>余談ですが、作者の<a href="https://github.com/kmnk">kmnk</a>さんのコードは<strong>めちゃくちゃ奇麗</strong>です。</p>
+
+<p>今までで読んできた中で、<em>一番奇麗なVimLのコード</em>でした。ほどよい抽象化、適切な命名、整理されたファイル達。率直に、この人と一緒に仕事出来る人は幸せだろうなぁと感じました。</p>
+
+<p>vim-unite-gitiを作ってくださって感謝します。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rubyのクラス変数について詰まったのでヘルプ]]></title>

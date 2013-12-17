@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vim | RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca-tc.github.io/blog/vim/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-12-17T16:24:07+09:00</updated>
+  <updated>2013-12-18T02:16:06+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,203 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[仕事が捗る！VimからGitを使う最適解]]></title>
+    <link href="http://alpaca-tc.github.io/blog/vim/how-to-use-vim-unite-giti.html"/>
+    <updated>2013-12-17T23:36:00+09:00</updated>
+    <id>http://alpaca-tc.github.io/blog/vim/how-to-use-vim-unite-giti</id>
+    <content type="html"><![CDATA[<p>先日の記事でもチラッと出てきた<a href="https://github.com/kmnk/vim-unite-giti">vim-unite-giti</a>というプラグインがあります。</p>
+
+<p><strong>ものすごーーーく便利</strong>なプラグインなんですが、何故かほとんど話を聞かないプラグインです。</p>
+
+<p>先日の記事でも、git系のプラグインは「知らなかった」という話を沢山聞きました。せっかくなので使い方を紹介します。</p>
+
+<!-- more -->
+
+
+<h2>vimからgitを使う。</h2>
+
+<p>有名なプラグインは次のようなものです。それぞれ、一言でまとめます。</p>
+
+<ul>
+<li>git-vim　<strong><code>:Git</code>コマンドが便利。それなりに補完してくれる</strong></li>
+<li>vim-fugitive(fugitive.vim)　<strong>vim+gitでは一番有名。ただし、コードが糞なのと、操作が難しい</strong></li>
+<li>vim-versions(旧vim-vcs)　<strong>git+unite系では結構有名。簡単な操作なら十分かもしれない</strong></li>
+<li>gitv　<strong>gitkのvim版。gitk使ったこと無いっていう人には不要</strong></li>
+</ul>
+
+
+<h2>今回紹介するのはvim-unite-giti!!</h2>
+
+<p>何はともあれ、<strong>まずは動画をみてくれ。</strong></p>
+
+<p><iframe width="560" height="420" src="http://www.youtube.com/embed/jCgcpIO9oBs?color=white&theme=light"></iframe></p>
+
+<p>とにかく、uniteインターフェースは操作を覚えることが少ない。</p>
+
+<p>今回も、幾つかのUniteコマンドを使っているけれど、基本的に「選択」→「アクション」の動作しかない。</p>
+
+<h3>:Unite giti/status</h3>
+
+<p>add, unstage, checkoutなどの操作が簡単ですね</p>
+
+<p>conflictがあれば、すぐ見れます。「選択」→「commitアクション」と進めば、指定したファイルだけのコミットもお手軽に作れます(!!)</p>
+
+<h3>:Unite giti/branch</h3>
+
+<p>tracking, chckout, deleteなどの操作が簡単ですね。</p>
+
+<p>branchを切るのにわざわざShellを使うなんて。あなた、Vimと触れ合う時間が減ってしまうではないですか。</p>
+
+<h3>:Unite giti/log</h3>
+
+<p>紹介していませんが、普通に便利です。vimdiffなどを見る事も簡単です。</p>
+
+<h2>vim-unite-giti以外のプラグイン</h2>
+
+<h3><em>git-vim</em> :GitDiff, :Git push</h3>
+
+<p>こちらは、特に驚きはないので初めて使う人以外は見なくてもいいです。</p>
+
+<p><iframe width="560" height="420" src="http://www.youtube.com/embed/wWI3Wb-0Vw4?color=white&theme=light"></iframe></p>
+
+<p>言わずもがな、コマンド名の通りです。</p>
+
+<p>git-vimを使って何がうれしいかと言うと、それなりに補完ができる点です。</p>
+
+<h3><em>fugitive</em> :Gcommit, :Gblame</h3>
+
+<p>すでに語り尽くされているので、ここでは取り上げません。</p>
+
+<p>他のプラグインにもにたようなコマンドがありますが、色付きなのと、機能性が優れているのでfugitiveがおすすめです。</p>
+
+<h2>vimrc</h2>
+
+<p>```vim
+&ldquo; コピペで貼付けているので、これで動作しなかったら賢く書き換えてください。
+NeoBundleLazy &lsquo;kmnk/vim-unite-giti&rsquo;, {</p>
+
+<pre><code>  \ 'autoload': {
+  \   'unite_sources': [
+  \     'giti', 'giti/branch', 'giti/branch/new', 'giti/branch_all',
+  \     'giti/config', 'giti/log', 'giti/remote', 'giti/status'
+  \   ]
+  \ }}
+</code></pre>
+
+<p>NeoBundleLazy &lsquo;Shougo/git-vim&rsquo;, {</p>
+
+<pre><code>  \ 'autoload' : {
+  \ 'function_prefix' : 'git',
+  \ 'functions' : 'git#get_current_branch',
+  \ 'commands': [
+  \   { 'name': 'GitDiff',     'complete' : 'customlist,git#list_commits' },
+  \   { 'name': 'GitVimDiff',  'complete' : 'customlist,git#list_commits' },
+  \   { 'name': 'Git',         'complete' : 'customlist,git#list_commits' },
+  \   { 'name': 'GitCheckout', 'complete' : 'customlist,git#list_commits' },
+  \   { 'name': 'GitAdd',      'complete' : 'file' },
+  \   'GitLog', 'GitCommit', 'GitBlame', 'GitPush'] }}
+</code></pre>
+
+<p>NeoBundleLazy &lsquo;tpope/vim-fugitive&rsquo;, { &lsquo;autoload&rsquo;: {</p>
+
+<pre><code>  \ 'functions' : ['fugitive#head', 'fugitive#detect'],
+  \ 'commands': ['Gcommit', 'Gblame', 'Ggrep', 'Gdiff', 'Gcd'] }}
+</code></pre>
+
+<p>&ldquo; git-vim
+let g:git_bin = executable(&lsquo;hub&rsquo;) ? &lsquo;hub&rsquo; : &lsquo;git&rsquo;
+let g:git_command_edit = &lsquo;vnew&rsquo;
+let g:git_no_default_mappings = 1
+nnoremap gA :&lt;C-U>GitAdd<Space>
+nnoremap <silent>ga :&lt;C-U>GitAdd<CR>
+nnoremap gp :&lt;C-U>Git push<Space>
+nnoremap gD :&lt;C-U>GitDiff<Space>
+nnoremap gDD :&lt;C-U>GitDiff HEAD<CR>
+nnoremap git :&lt;C-U>Git<Space></p>
+
+<p>&ldquo; fugitive
+nnoremap <silent>gM :Gcommit &mdash;amend<CR>
+nnoremap <silent>gb :Gblame<CR>
+nnoremap <silent>gB :Gbrowse<CR>
+nnoremap <silent>gm :Gcommit<CR>
+let hooks = neobundle#get_hooks(&lsquo;vim-fugitive&rsquo;)
+function! hooks.on_source(bundle)
+  augroup MyGitCmd</p>
+
+<pre><code>autocmd!
+autocmd FileType fugitiveblame vertical res 25
+autocmd FileType gitcommit,git-diff nnoremap &lt;buffer&gt;q :q&lt;CR&gt;
+</code></pre>
+
+<p>  augroup END</p>
+
+<p>  let g:fugitive_git_executable = executable(&lsquo;hub&rsquo;) ? &lsquo;hub&rsquo; : &lsquo;git&rsquo;
+endfunction
+function! hooks.on_post_source(bundle)
+  call fugitive#detect(expand(&lsquo;<amatch>:p&rsquo;))
+endfunction
+command! FugitiveReload call fugitive#detect(expand(&lsquo;<amatch>:p&rsquo;))
+unlet hooks</p>
+
+<p>&ldquo; vim-unite-giti
+nnoremap <silent>gl :Unite giti/log -no-start-insert -horizontal<CR>
+nnoremap <silent>gP :Unite giti/pull_request/base -no-start-insert -horizontal<CR>
+nnoremap <silent>gs :Unite giti/status -no-start-insert -horizontal<CR>
+nnoremap <silent>gh :Unite giti/branch_all -no-start-insert<CR></p>
+
+<p>augroup MyUniteCmd
+  autocmd!
+  autocmd FileType unite call <SID>unite_my_settings()
+augroup END</p>
+
+<p>function s:unite_my_settings()
+  let profile_name = substitute(unite#get_current_unite().profile_name, &lsquo;[&ndash;/]&rsquo;, &lsquo;_&rsquo;, &lsquo;g&rsquo;)
+  if !empty(profile_name) &amp;&amp; has_key(s:unite_hooks, profile_name)</p>
+
+<pre><code>call s:unite_hooks[profile_name]()
+</code></pre>
+
+<p>  endif
+endfunction</p>
+
+<p>let s:unite_hooks = {}
+function! s:unite_hooks.source_giti_status()
+  &ldquo; nnoremap <silent><buffer><expr>gM unite#do_action(&lsquo;ammend&rsquo;)
+  &rdquo; nnoremap <silent><buffer><expr>gm unite#do_action(&lsquo;commit&rsquo;)
+  nnoremap <silent><buffer><expr>ga unite#do_action(&lsquo;stage&rsquo;)
+  nnoremap <silent><buffer><expr>gc unite#do_action(&lsquo;checkout&rsquo;)
+  nnoremap <silent><buffer><expr>gd unite#do_action(&lsquo;diff&rsquo;)
+  nnoremap <silent><buffer><expr>gu unite#do_action(&lsquo;unstage&rsquo;)
+endfunction</p>
+
+<p>function! s:unite_hooks.source_giti_branch()
+  nnoremap <silent><buffer><expr>d unite#do_action(&lsquo;delete&rsquo;)
+  nnoremap <silent><buffer><expr>D unite#do_action(&lsquo;delete_force&rsquo;)
+endfunction</p>
+
+<p>function! s:unite_hooks.source_giti_branch_all()
+  call s:unite_hooks.source_giti_branch()
+endfunction</p>
+
+<p>function! s:unite_hooks.source_giti_log()
+  nnoremap <silent><buffer><expr>gd unite#do_action(&lsquo;diff&rsquo;)
+  nnoremap <silent><buffer><expr>d unite#do_action(&lsquo;diff&rsquo;)
+endfunction
+```</p>
+
+<h2>まとめ</h2>
+
+<p>ujihisaさんに憧れてのYoutube記事です。笑</p>
+
+<p>余談ですが、作者の<a href="https://github.com/kmnk">kmnk</a>さんのコードは<strong>めちゃくちゃ奇麗</strong>です。</p>
+
+<p>今までで読んできた中で、<em>一番奇麗なVimLのコード</em>でした。ほどよい抽象化、適切な命名、整理されたファイル達。率直に、この人と一緒に仕事出来る人は幸せだろうなぁと感じました。</p>
+
+<p>vim-unite-gitiを作ってくださって感謝します。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Unite.vimとwatsonを使ったワークフロー]]></title>
@@ -471,69 +668,6 @@ if has(&lsquo;python&rsquo;) &amp;&amp; executable(&lsquo;npm&rsquo;)
 ```</p>
 
 <p>まぁ、何はともあれ一度使ってみてください。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Vimを使って新人教育]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/training-of-new-employee.html"/>
-    <updated>2013-11-11T05:21:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/vim/training-of-new-employee</id>
-    <content type="html"><![CDATA[<p>嬉しいことに、一緒に働く仲間が2人増えました。</p>
-
-<p>まだRubyに慣れていないそうなので、はじめの一ヶ月は教育期間を挟みます。</p>
-
-<p>新人の方もvimmerなので、そのためのプラグインを作りました。</p>
-
-<p><img class="image_on_frame center" src="/images/blog/11_11.png" title="Vimのデモ" ></p>
-
-<p><strong><a href="https://github.com/enfactv/assignment">assignment.vim</a></strong></p>
-
-<!-- more -->
-
-
-<p>インストールはごく簡単です。</p>
-
-<p><code>``vim
-NeoBundle 'alpaca-tc/assignment'</code></p>
-
-<p>let g:assignment#path = expand(&lsquo;~/path/to/assignment&rsquo;)
-```</p>
-
-<h3>良かったこと</h3>
-
-<ul>
-<li>GitHubの使い方がわからなくても、Vimから徐々に取り組めること</li>
-<li>問題のやり取りが楽になったこと</li>
-<li>自動テストがあるので、リモート勤務でも採点できること</li>
-</ul>
-
-
-<h3>悪かったこと</h3>
-
-<ul>
-<li>一問一答の形式って効率悪いよね&hellip;</li>
-</ul>
-
-
-<p>とりあえず一ヶ月はこの形式で進めて、Rubyに慣れてもらおうかと思います。</p>
-
-<h2>まとめ</h2>
-
-<p>正直、今日は書くことがなかっただけです。えへ。
-暇だなー、俺初級者かなーと思う方が入れば、試しに問題に挑戦してみてください。</p>
-
-<ol>
-<li>プラグインをインストール</li>
-<li><code>:AssignmentInit ~/インストール先ディレクトリ</code>を実行して初期化</li>
-<li>vimrcに<code>let g:assignment#path = expand('~/path/to/assignment')</code>を追加</li>
-<li><code>:Assignment solve &lt;tab&gt;</code>で問題を選択</li>
-<li>Guardをまわしながら解くのみ！</li>
-</ol>
-
-
-<p>初めは、8クイーン問題や、RubyのDSLを作る問題などです。
-初級者向けですが、少しは暇つぶしにはなると思いますよ！</p>
 ]]></content>
   </entry>
   
