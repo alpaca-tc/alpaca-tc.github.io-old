@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vim | RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca-tc.github.io/blog/vim/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-12-18T02:17:37+09:00</updated>
+  <updated>2013-12-18T02:29:52+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -73,118 +73,9 @@
 
 <h2>vimrc</h2>
 
-<p>```vim
-&ldquo; コピペで貼付けているので、これで動作しなかったら賢く書き換えてください。
-NeoBundleLazy &lsquo;kmnk/vim-unite-giti&rsquo;, {</p>
+<p>今回の動画で使用したvimrcと同じような設定です</p>
 
-<pre><code>  \ 'autoload': {
-  \   'unite_sources': [
-  \     'giti', 'giti/branch', 'giti/branch/new', 'giti/branch_all',
-  \     'giti/config', 'giti/log', 'giti/remote', 'giti/status'
-  \   ]
-  \ }}
-</code></pre>
-
-<p>NeoBundleLazy &lsquo;Shougo/git-vim&rsquo;, {</p>
-
-<pre><code>  \ 'autoload' : {
-  \ 'function_prefix' : 'git',
-  \ 'functions' : 'git#get_current_branch',
-  \ 'commands': [
-  \   { 'name': 'GitDiff',     'complete' : 'customlist,git#list_commits' },
-  \   { 'name': 'GitVimDiff',  'complete' : 'customlist,git#list_commits' },
-  \   { 'name': 'Git',         'complete' : 'customlist,git#list_commits' },
-  \   { 'name': 'GitCheckout', 'complete' : 'customlist,git#list_commits' },
-  \   { 'name': 'GitAdd',      'complete' : 'file' },
-  \   'GitLog', 'GitCommit', 'GitBlame', 'GitPush'] }}
-</code></pre>
-
-<p>NeoBundleLazy &lsquo;tpope/vim-fugitive&rsquo;, { &lsquo;autoload&rsquo;: {</p>
-
-<pre><code>  \ 'functions' : ['fugitive#head', 'fugitive#detect'],
-  \ 'commands': ['Gcommit', 'Gblame', 'Ggrep', 'Gdiff', 'Gcd'] }}
-</code></pre>
-
-<p>&ldquo; git-vim
-let g:git_bin = executable(&lsquo;hub&rsquo;) ? &lsquo;hub&rsquo; : &lsquo;git&rsquo;
-let g:git_command_edit = &lsquo;vnew&rsquo;
-let g:git_no_default_mappings = 1
-nnoremap gA :&lt;C-U>GitAdd<Space>
-nnoremap <silent>ga :&lt;C-U>GitAdd<CR>
-nnoremap gp :&lt;C-U>Git push<Space>
-nnoremap gD :&lt;C-U>GitDiff<Space>
-nnoremap gDD :&lt;C-U>GitDiff HEAD<CR>
-nnoremap git :&lt;C-U>Git<Space></p>
-
-<p>&ldquo; fugitive
-nnoremap <silent>gM :Gcommit &mdash;amend<CR>
-nnoremap <silent>gb :Gblame<CR>
-nnoremap <silent>gB :Gbrowse<CR>
-nnoremap <silent>gm :Gcommit<CR>
-let hooks = neobundle#get_hooks(&lsquo;vim-fugitive&rsquo;)
-function! hooks.on_source(bundle)
-  augroup MyGitCmd</p>
-
-<pre><code>autocmd!
-autocmd FileType fugitiveblame vertical res 25
-autocmd FileType gitcommit,git-diff nnoremap &lt;buffer&gt;q :q&lt;CR&gt;
-</code></pre>
-
-<p>  augroup END</p>
-
-<p>  let g:fugitive_git_executable = executable(&lsquo;hub&rsquo;) ? &lsquo;hub&rsquo; : &lsquo;git&rsquo;
-endfunction
-function! hooks.on_post_source(bundle)
-  call fugitive#detect(expand(&lsquo;<amatch>:p&rsquo;))
-endfunction
-command! FugitiveReload call fugitive#detect(expand(&lsquo;<amatch>:p&rsquo;))
-unlet hooks</p>
-
-<p>&ldquo; vim-unite-giti
-nnoremap <silent>gl :Unite giti/log -no-start-insert -horizontal<CR>
-nnoremap <silent>gP :Unite giti/pull_request/base -no-start-insert -horizontal<CR>
-nnoremap <silent>gs :Unite giti/status -no-start-insert -horizontal<CR>
-nnoremap <silent>gh :Unite giti/branch_all -no-start-insert<CR></p>
-
-<p>augroup MyUniteCmd
-  autocmd!
-  autocmd FileType unite call <SID>unite_my_settings()
-augroup END</p>
-
-<p>function s:unite_my_settings()
-  let profile_name = substitute(unite#get_current_unite().profile_name, &lsquo;[&ndash;/]&rsquo;, &lsquo;_&rsquo;, &lsquo;g&rsquo;)
-  if !empty(profile_name) &amp;&amp; has_key(s:unite_hooks, profile_name)</p>
-
-<pre><code>call s:unite_hooks[profile_name]()
-</code></pre>
-
-<p>  endif
-endfunction</p>
-
-<p>let s:unite_hooks = {}
-function! s:unite_hooks.source_giti_status()
-  &ldquo; nnoremap <silent><buffer><expr>gM unite#do_action(&lsquo;ammend&rsquo;)
-  &rdquo; nnoremap <silent><buffer><expr>gm unite#do_action(&lsquo;commit&rsquo;)
-  nnoremap <silent><buffer><expr>ga unite#do_action(&lsquo;stage&rsquo;)
-  nnoremap <silent><buffer><expr>gc unite#do_action(&lsquo;checkout&rsquo;)
-  nnoremap <silent><buffer><expr>gd unite#do_action(&lsquo;diff&rsquo;)
-  nnoremap <silent><buffer><expr>gu unite#do_action(&lsquo;unstage&rsquo;)
-endfunction</p>
-
-<p>function! s:unite_hooks.source_giti_branch()
-  nnoremap <silent><buffer><expr>d unite#do_action(&lsquo;delete&rsquo;)
-  nnoremap <silent><buffer><expr>D unite#do_action(&lsquo;delete_force&rsquo;)
-endfunction</p>
-
-<p>function! s:unite_hooks.source_giti_branch_all()
-  call s:unite_hooks.source_giti_branch()
-endfunction</p>
-
-<p>function! s:unite_hooks.source_giti_log()
-  nnoremap <silent><buffer><expr>gd unite#do_action(&lsquo;diff&rsquo;)
-  nnoremap <silent><buffer><expr>d unite#do_action(&lsquo;diff&rsquo;)
-endfunction
-```</p>
+<p><a href="https://gist.github.com/qickstarter/8008989">vimrc Gist</a></p>
 
 <h2>まとめ</h2>
 
