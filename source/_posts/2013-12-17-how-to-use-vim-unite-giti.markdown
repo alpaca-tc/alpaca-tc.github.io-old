@@ -14,15 +14,6 @@ categories: vim
 
 <!-- more -->
 
-## vimからgitを使う。
-
-有名なプラグインは次のようなものです。それぞれ、一言でまとめます。
-
-- git-vim　**`:Git`コマンドが便利。それなりに補完してくれる**
-- vim-fugitive(fugitive.vim)　**vim+gitでは一番有名。ただし、コードが糞なのと、操作が難しい**
-- vim-versions(旧vim-vcs)　**git+unite系では結構有名。簡単な操作なら十分かもしれない**
-- gitv　**gitkのvim版。gitk使ったこと無いっていう人には不要**
-
 ## 今回紹介するのはvim-unite-giti!!
 
 何はともあれ、**まずは動画をみてくれ。**
