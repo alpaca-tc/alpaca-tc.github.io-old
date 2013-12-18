@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vim | RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca-tc.github.io/blog/vim/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-12-19T03:52:42+09:00</updated>
+  <updated>2013-12-19T07:40:31+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,82 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[仕事が捗る！VimからGitを使う最適解]]></title>
+    <link href="http://alpaca-tc.github.io/blog/vim/how-to-use-vim-unite-giti.html"/>
+    <updated>2013-12-17T23:36:00+09:00</updated>
+    <id>http://alpaca-tc.github.io/blog/vim/how-to-use-vim-unite-giti</id>
+    <content type="html"><![CDATA[<p>先日の記事でもチラッと出てきた<a href="https://github.com/kmnk/vim-unite-giti">vim-unite-giti</a>というプラグインがあります。</p>
+
+<p><strong>ものすごーーーく便利</strong>なプラグインなんですが、何故かほとんど話を聞かないプラグインです。</p>
+
+<p>先日の記事でも、git系のプラグインは「知らなかった」という話を沢山聞きました。せっかくなので使い方を紹介します。</p>
+
+<!-- more -->
+
+
+<h2>今回紹介するのはvim-unite-giti!!</h2>
+
+<p>何はともあれ、<strong>まずは動画をみてくれ。</strong></p>
+
+<p><iframe width="560" height="420" src="http://www.youtube.com/embed/jCgcpIO9oBs?color=white&theme=light"></iframe></p>
+
+<p>とにかく、uniteインターフェースは操作を覚えることが少ない。</p>
+
+<p>今回も、幾つかのUniteコマンドを使っているけれど、基本的に「選択」→「アクション」の動作しかない。</p>
+
+<h3>:Unite giti/status</h3>
+
+<p>add, unstage, checkoutなどの操作が簡単ですね</p>
+
+<p>conflictがあれば、すぐ見れます。「選択」→「commitアクション」と進めば、指定したファイルだけのコミットもお手軽に作れます(!!)</p>
+
+<h3>:Unite giti/branch</h3>
+
+<p>tracking, chckout, deleteなどの操作が簡単ですね。</p>
+
+<p>branchを切るのにわざわざShellを使うなんて。あなた、Vimと触れ合う時間が減ってしまうではないですか。</p>
+
+<h3>:Unite giti/log</h3>
+
+<p>紹介していませんが、普通に便利です。vimdiffなどを見る事も簡単です。</p>
+
+<h2>vim-unite-giti以外のプラグイン</h2>
+
+<h3><em>git-vim</em> :GitDiff, :Git push</h3>
+
+<p>こちらは、特に驚きはないので初めて使う人以外は見なくてもいいです。</p>
+
+<p><iframe width="560" height="420" src="http://www.youtube.com/embed/wWI3Wb-0Vw4?color=white&theme=light"></iframe></p>
+
+<p>言わずもがな、コマンド名の通りです。</p>
+
+<p>git-vimを使って何がうれしいかと言うと、それなりに補完ができる点です。</p>
+
+<h3><em>fugitive</em> :Gcommit, :Gblame</h3>
+
+<p>すでに語り尽くされているので、ここでは取り上げません。</p>
+
+<p>他のプラグインにもにたようなコマンドがありますが、色付きなのと、機能性が優れているのでfugitiveがおすすめです。</p>
+
+<h2>vimrc</h2>
+
+<p>今回の動画で使用したvimrcと同じような設定です</p>
+
+<p><a href="https://gist.github.com/qickstarter/8008989">vimrc Gist</a></p>
+
+<h2>まとめ</h2>
+
+<p>ujihisaさんに憧れてのYoutube記事です。笑</p>
+
+<p>余談ですが、作者の<a href="https://github.com/kmnk">kmnk</a>さんのコードは<strong>めちゃくちゃ奇麗</strong>です。</p>
+
+<p>今までで読んできた中で、<em>一番奇麗なVimLのコード</em>でした。ほどよい抽象化、適切な命名、整理されたファイル達。率直に、この人と一緒に仕事出来る人は幸せだろうなぁと感じました。</p>
+
+<p>vim-unite-gitiを作ってくださって感謝します。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Unite.vimとwatsonを使ったワークフロー]]></title>
@@ -471,69 +547,6 @@ if has(&lsquo;python&rsquo;) &amp;&amp; executable(&lsquo;npm&rsquo;)
 ```</p>
 
 <p>まぁ、何はともあれ一度使ってみてください。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Vimを使って新人教育]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/training-of-new-employee.html"/>
-    <updated>2013-11-11T05:21:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/vim/training-of-new-employee</id>
-    <content type="html"><![CDATA[<p>嬉しいことに、一緒に働く仲間が2人増えました。</p>
-
-<p>まだRubyに慣れていないそうなので、はじめの一ヶ月は教育期間を挟みます。</p>
-
-<p>新人の方もvimmerなので、そのためのプラグインを作りました。</p>
-
-<p><img class="image_on_frame center" src="/images/blog/11_11.png" title="Vimのデモ" ></p>
-
-<p><strong><a href="https://github.com/enfactv/assignment">assignment.vim</a></strong></p>
-
-<!-- more -->
-
-
-<p>インストールはごく簡単です。</p>
-
-<p><code>``vim
-NeoBundle 'alpaca-tc/assignment'</code></p>
-
-<p>let g:assignment#path = expand(&lsquo;~/path/to/assignment&rsquo;)
-```</p>
-
-<h3>良かったこと</h3>
-
-<ul>
-<li>GitHubの使い方がわからなくても、Vimから徐々に取り組めること</li>
-<li>問題のやり取りが楽になったこと</li>
-<li>自動テストがあるので、リモート勤務でも採点できること</li>
-</ul>
-
-
-<h3>悪かったこと</h3>
-
-<ul>
-<li>一問一答の形式って効率悪いよね&hellip;</li>
-</ul>
-
-
-<p>とりあえず一ヶ月はこの形式で進めて、Rubyに慣れてもらおうかと思います。</p>
-
-<h2>まとめ</h2>
-
-<p>正直、今日は書くことがなかっただけです。えへ。
-暇だなー、俺初級者かなーと思う方が入れば、試しに問題に挑戦してみてください。</p>
-
-<ol>
-<li>プラグインをインストール</li>
-<li><code>:AssignmentInit ~/インストール先ディレクトリ</code>を実行して初期化</li>
-<li>vimrcに<code>let g:assignment#path = expand('~/path/to/assignment')</code>を追加</li>
-<li><code>:Assignment solve &lt;tab&gt;</code>で問題を選択</li>
-<li>Guardをまわしながら解くのみ！</li>
-</ol>
-
-
-<p>初めは、8クイーン問題や、RubyのDSLを作る問題などです。
-初級者向けですが、少しは暇つぶしにはなると思いますよ！</p>
 ]]></content>
   </entry>
   
