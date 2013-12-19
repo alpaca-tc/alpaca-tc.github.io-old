@@ -4,7 +4,7 @@
   <title><![CDATA[RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca-tc.github.io/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-12-19T07:40:31+09:00</updated>
+  <updated>2013-12-19T11:08:17+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,118 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Vim中級者を脱する path編]]></title>
+    <link href="http://alpaca-tc.github.io/blog/vim/jump-to-gem-path.html"/>
+    <updated>2013-12-19T08:02:00+09:00</updated>
+    <id>http://alpaca-tc.github.io/blog/vim/jump-to-gem-path</id>
+    <content type="html"><![CDATA[<p>はい、pathとは<code>:set path</code>で出てくるやつのことです。
+実際にはみなさん<code>gf</code>やファイル補完などでお世話になっていると思います。</p>
+
+<p>今回はpathとは何かを説明して、.rbファイルのクラスからGemの定義元へ飛ぶ方法をやってみましょう。</p>
+
+<!-- more -->
+
+
+<p><strong>方法だけ知りたい人は、一番下までスクロールしてください</strong></p>
+
+<h1>pathとは？</h1>
+
+<p>Vimにおけるpathとは、<code>set path?</code>で出てくるpathです。</p>
+
+<p>適当にファイルを開いてコマンドを打ってみましょう。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="p">:</span><span class="k">set</span> <span class="nb">path</span>?
+</span><span class='line'><span class="nb">path</span><span class="p">=</span>.<span class="p">,</span><span class="sr">/usr/</span><span class="nb">include</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>これを設定しておくことで何が嬉しいかというと、編集中の変数の定義元へ飛べたり、ファイルを検索出来たりします。つまるところ、Vimが<em>何かを探すときの基準になる</em>ディレクトリ達を指定することができます。</p>
+
+<p>補完プラグインや、Vimの基本機能などもpathに依存していることが多いため、裏側では結構活躍している設定でもあります。</p>
+
+<h2><code>gf</code>でGemの定義元に飛ぶ</h2>
+
+<p><code>gf</code>は通常、カーソル</p>
+
+<p>Rubyを編集する際、Vimのビルトインの<code>ftplugin/ruby.vim</code>が読み込まれ、<code>gf</code>が自動的に関数にマッピングされます。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="p">:</span><span class="k">set</span> <span class="k">filetype</span><span class="p">=</span><span class="k">ruby</span>
+</span><span class='line'><span class="p">:</span>nmap gf
+</span><span class='line'><span class="k">n</span>  gf          *@:<span class="p">&lt;</span>C<span class="p">-</span>U<span class="p">&gt;</span>exe <span class="p">&lt;</span>SNR<span class="p">&gt;</span><span class="m">121</span>_gf<span class="p">(</span><span class="k">v</span>:count1<span class="p">,</span><span class="s2">&quot;gf&quot;</span><span class="p">,</span><span class="s1">&#39;edit&#39;</span><span class="p">)&lt;</span>CR<span class="p">&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>このおかげで、通常の<code>gf</code>が拡張されて幾つかのケースで<code>gf</code>が使えるようになります。(Rails.vimも同じ手法を使っていますね。)</p>
+
+<p>具体的には<code>require 'path/to/file'</code>やload, autoloadで書いたファイルパスへ飛ぶことができます。</p>
+
+<p>内部では拡張子を取り除いたり、ファイル名に不要な文字を変換したりしていますが、そのオプションについては、今回は割愛します。</p>
+
+<h3>pathにRubyのload_pathを追加する</h3>
+
+<p>Rubyを編集中に、Gemの定義元へ移動する話をしましょう。</p>
+
+<p>まずRubyについて理解しておく必要があるのは、load_pathの仕組みです。Rubyは<code>require</code>などを使用したときに、指定されたファイルを<code>$LOAD_PATH</code>のディレクトリ一覧の中から探します。</p>
+
+<p>下記のようなコマンドを打つことで、デフォルトの$LOAD_PATHを探すことができます。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">ruby</span> <span class="o">-</span><span class="n">e</span> <span class="s1">&#39;puts $LOAD_PATH&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Gemfileを定義した場合、この$LOAD_PATHにそれらのGemの場所が追加されるので<code>require</code>で使うことがきるようになるんですね。</p>
+
+<p>それでは、VimにもGemfileから取ってきたディレクトリ一覧を与えてやることで、定義元を探し出せるようにしましょう。</p>
+
+<h3>Gemfileから一覧を取り出す</h3>
+
+<p><code>bundle show --paths</code>を使うことで、一覧情報を取り出せます。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">$</span> <span class="n">bundle</span> <span class="n">show</span> <span class="o">--</span><span class="n">paths</span>
+</span><span class='line'><span class="sr">/Users/</span><span class="n">alpaca</span><span class="o">-</span><span class="n">tc</span><span class="o">/.</span><span class="n">rbenv</span><span class="o">/</span><span class="n">versions</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">p247</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ruby</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="no">RedCloth</span><span class="o">-</span><span class="mi">4</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">9</span>
+</span><span class='line'><span class="o">/</span><span class="no">Users</span><span class="o">/</span><span class="n">alpaca</span><span class="o">-</span><span class="n">tc</span><span class="o">/.</span><span class="n">rbenv</span><span class="o">/</span><span class="n">versions</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">p247</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ruby</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="n">bundler</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="mi">3</span><span class="o">.</span><span class="mi">5</span>
+</span><span class='line'><span class="o">/</span><span class="no">Users</span><span class="o">/</span><span class="n">alpaca</span><span class="o">-</span><span class="n">tc</span><span class="o">/.</span><span class="n">rbenv</span><span class="o">/</span><span class="n">versions</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">p247</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ruby</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="n">chunky_png</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">5</span>
+</span><span class='line'><span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>この情報を<code>setl path=...</code>と与えてやれば、<code>gf</code>を使って定義元に飛べるようになります。</p>
+
+<h3><code>set path=</code>を使って定義する</h3>
+
+<p><a href="https://gist.github.com/8031905">こちらのスクリプト</a>をvimrcに貼付けましょう。(unite.vim or neocomplete依存です)</p>
+
+<p>これで、GemPathを読み込む<code>:LoadGem</code>というコマンドが作られます。</p>
+
+<p>下記のような動作で定義元に飛べるのが確認できると思います。</p>
+
+<p><img class="image_on_frame center" src="http://alpaca-tc.github.io/images/blog/jump-to-gem-path/hM4zx40RmT.gif" title="gemジャンプデモ" ></p>
+
+<p>無事動いていますね。</p>
+
+<h2>まとめ</h2>
+
+<p>今回はpathについて、簡単に説明しました。</p>
+
+<p>次回は、pathを活用してさらに<code>include</code>, <code>includeexpr</code>をやります。
+この辺を勉強すると、自分の環境用にファイル補完を作り上げられます。</p>
+
+<p>neocompleteのfile/includeあたりが書けるようになりますよ〜</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[仕事が捗る！VimからGitを使う最適解]]></title>
