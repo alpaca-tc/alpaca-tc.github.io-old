@@ -101,6 +101,15 @@ module Jekyll
       @next_page = @page != @total_pages ? @page_dir + (@page + 1).to_s + '/' : nil
     end
 
+    def surround_with_current_page
+      [1, 2, 3, 4].map do |i|
+        {
+          'url' => "#{@page_dir}#{i}/",
+          'page' => i
+        }
+      end
+    end
+
     # Convert this Pager's data to a Hash suitable for use by Liquid.
     #
     # Returns the Hash representation of this Pager.
@@ -112,7 +121,8 @@ module Jekyll
         'total_posts' => total_posts,
         'total_pages' => total_pages,
         'previous_page' => previous_page,
-        'next_page' => next_page
+        'next_page' => next_page,
+        'range' => surround_with_current_page,
       }
     end
   end

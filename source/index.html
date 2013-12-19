@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<div class="blog-index">
+<div id="index_contents" class="blog-index">
   {% assign index = true %}
   {% for post in paginator.posts %}
     {% assign content = post.content %}
@@ -12,12 +12,36 @@ layout: default
   {% endfor %}
 
   <div class="pagination">
-    {% if paginator.next_page %}
-      <a class="prev" href="{{paginator.next_page}}">&larr; 前の記事へ</a>
+    {% if paginator.previous_page %}
+      <a  data-label="前" class="paging_number prev" href="{{paginator.previous_page}}">&larr; 前の記事へ</a>
     {% endif %}
 
-    {% if paginator.previous_page %}
-      <a class="next" href="{{paginator.previous_page}}">次の記事へ &rarr;</a>
+    {% for page_info in paginator.range %}
+      {% capture current_class %}{% if paginator.page == page_info.page %}current{% else %}{% endif %}{% endcapture %}
+      {% if page_info.page == 1 %}
+        <a class="paging_number {{ current_class }}" href="{{ site.url }}">{{ page_info.page }}</a>
+      {% else %}
+        <a class="paging_number {{ current_class }}" href="{{ page_info.url }}">{{ page_info.page }}</a>
+      {% endif %}
+    {% endfor%}
+
+    {% if paginator.next_page %}
+      <a data-label="次" class="paging_number prev" href="{{paginator.next_page}}">次の記事へ &rarr;</a>
     {% endif %}
   </div>
+
+  <script type="text/javascript" charset="utf-8">
+    (function() {
+      $(function() {
+        var isSmartPhone = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase());
+        if (isSmartPhone) {
+          var $pagination = $('.pagination'),
+          $prev = $pagination.find('.prev'),
+          $next = $pagination.find('.next');
+          $prev.text($prev.data('label'));
+          $next.text($next.data('label'));
+        }
+      });
+    })();
+  </script>
 </div>

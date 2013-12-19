@@ -1,6 +1,8 @@
 @import 'default'
 @import 'sidebar'
-@import 'index'
+@import 'index_contents'
+@import 'page_contents'
+@import 'post_contents'
 
 =blockquote
   +transition(all, 0.3s)
@@ -37,6 +39,8 @@
     display: block
     margin-top: $space_width / 2
     margin-bottom: $space_width / 2
+    a
+      text-decoration: none
   .post_row
     +box-shadow(0px 4px 4px #eee)
     +readable_font
@@ -220,17 +224,6 @@
     //   width: 33%
     // .ft_like_button
     // .google_plus_button_like
-
-  .pagination.clearfix
-    .arrow_block
-      display: block
-      width: 50%
-      &.left_block
-        text-align: left
-        float: left
-      &.right_block
-        text-align: right
-        float: right
 
 // For zenback
 .zenback_wrapper
