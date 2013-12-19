@@ -49,10 +49,8 @@
     <link rel="stylesheet" href="/stylesheets/common.css" type="text/css" media="all"/>
     <link rel="stylesheet" href="/stylesheets/page.css" type="text/css" media="all"/>
     <link rel="stylesheet" href="/stylesheets/multi_screen.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="/stylesheets/screen.css" type="text/css" media="all"/>
 
     <script type="text/javascript" src="//typesquare.com/accessor/script/typesquare.js?l~JsLTo7f1A%3D" charset="utf-8"></script>
-    <script src="/javascripts/modernizr-2.0.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <!-- <script>!window.jQuery &#38;&#38; document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script> -->
     <meta name="google-site-verification" content="thSL3cUT7BV1-AENglRFIF-kv6I85JJ6_iUGAU8GaQI" />
@@ -60,7 +58,6 @@
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    
     
   <script>
     var _gaq = _gaq || [];
@@ -75,9 +72,24 @@
   </script>
 
 
+
+
+
+  <link rel="next" href="/blog/page/4/">
+
+
+
+  <link rel="prev" href="/blog/page/2/">
+
+
+
+  <link rel="canonical" href="http://alpaca-tc.github.io">
+
+
+
   </head>
 
-  <body>
+  <body id="default_contents">
     <div id="header_top" class="outer_envelope clearfix">
       <header>        <div class="inner_wrapper clearfix">
           <div class="inner clearfix">
@@ -115,7 +127,7 @@
           <div class="inner">
             <div class="left_page inner_wrapper">
               <div id="page_contents" class="inner">
-                <div class="blog-index">
+                <div id="index_contents" class="blog-index">
   
   
     
@@ -705,40 +717,56 @@ octopressとセットで入れておきたいVimプラグインまとめ | Rails
 
   <div class="pagination">
     
-      <a class="prev" href="/blog/page/4/">&larr; 前の記事へ</a>
+      <a  data-label="前" class="paging_number prev" href="/blog/page/2/">&larr; 前の記事へ</a>
     
 
     
-      <a class="next" href="/blog/page/2/">次の記事へ &rarr;</a>
+      
+      
+        <a class="paging_number " href="http://alpaca-tc.github.io">1</a>
+      
+    
+      
+      
+        <a class="paging_number " href="/blog/page/2/">2</a>
+      
+    
+      
+      
+        <a class="paging_number current" href="/blog/page/3/">3</a>
+      
+    
+      
+      
+        <a class="paging_number " href="/blog/page/4/">4</a>
+      
+    
+
+    
+      <a data-label="次" class="paging_number prev" href="/blog/page/4/">次の記事へ &rarr;</a>
     
   </div>
+
+  <script type="text/javascript" charset="utf-8">
+    (function() {
+      $(function() {
+        var isSmartPhone = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase());
+        if (isSmartPhone) {
+          var $pagination = $('.pagination'),
+          $prev = $pagination.find('.prev'),
+          $next = $pagination.find('.next');
+          $prev.text($prev.data('label'));
+          $next.text($next.data('label'));
+        }
+      });
+    })();
+  </script>
 </div>
 
               </div>
             </div>
 
             <aside id="sidebar" class="right_page inner_wrapper">
-  
-    <section id="side_about_me" class="sidebar_row">
-      <h1>プロフィール</h1>
-<section>
-  <figure class="image_wrapper">
-    <img src="https://plus.google.com/s2/photos/profile/105581201951227096827?sz=100" alt="石井 浩之">
-    <figcaption>石井 浩之</figcaption>
-  </figure>
-
-  <p>
-    RailsやVimを中心に開発をしている、アルパカ大好きエンジニアです。
-  </p>
-
-  <p class="go_to_aboutme">
-    <a href="/about-me">→詳しく見る</a>
-  </p>
-</section>
-
-    </section>
-  
-
   
 <section id="side_category_posts" class="sidebar_row">
   <div id="blog-archives" class="category">
@@ -762,10 +790,31 @@ octopressとセットで入れておきたいVimプラグインまとめ | Rails
 
 
 
-  <section id="side_twitter_timeline_widget" class="sidebar_row">
-    <a class="twitter-timeline" href="https://twitter.com/alpaca_taichou" data-widget-id="395937677314232320" data-tweet-limit="3" data-height="15px">@alpaca_taichou のツイート</a>
+  
+    <section id="side_about_me" class="sidebar_row">
+  <h1>プロフィール</h1>
+  <section>
+    <figure class="image_wrapper">
+      <img src="https://plus.google.com/s2/photos/profile/105581201951227096827?sz=100" alt="石井 浩之">
+      <figcaption>石井 浩之</figcaption>
+    </figure>
 
+    <p>
+      RailsやVimを中心に開発をしている、アルパカ大好きエンジニアです。
+    </p>
+
+    <p class="go_to_aboutme">
+      <a href="/about-me">→詳しく見る</a>
+    </p>
   </section>
+</section>
+
+  
+
+  <section id="side_twitter_timeline_widget" class="sidebar_row">
+  <a class="twitter-timeline" href="https://twitter.com/alpaca_taichou" data-widget-id="395937677314232320">@alpaca_taichou からのツイート</a>
+</section>
+
 </aside>
 
           </div>
@@ -786,10 +835,17 @@ octopressとセットで入れておきたいVimプラグインまとめ | Rails
               <nav id="footer_nav">
                 <ul class="clearfix">
                   <li>
+                    <a rel="nofollow" href="/about-me">About Me</a>
+                  </li>
+                  <li>
                     <a href="/">Blog</a>
+                  </li>
+                  <li>
+                    <a rel="nofollow" href="/works/">Works</a>
                   </li>
                 </ul>
               </nav>
+
 
               <nav id="footer_social_link">
                 <ul class="clearfix">
