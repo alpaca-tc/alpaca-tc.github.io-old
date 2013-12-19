@@ -95,6 +95,5 @@ $ bundle show --paths
 今回はpathについて、簡単に説明しました。
 
 次回は、pathを活用してさらに`include`, `includeexpr`をやります。
-この辺を勉強すると、自分の環境用にファイル補完を作り上げられます。
 
-neocompleteのfile/includeあたりが書けるようになりますよ〜
+この辺を勉強すると、自分の環境用にファイル補完を作り上げられます。 neocompleteのfile/includeあたりが書けるようになりますよ〜
