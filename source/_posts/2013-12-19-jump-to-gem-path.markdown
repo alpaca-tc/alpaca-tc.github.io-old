@@ -64,7 +64,7 @@ Gemfileを定義した場合、この$LOAD_PATHにそれらのGemの場所が追
 
 それでは、VimにもGemfileから取ってきたディレクトリ一覧を与えてやることで、定義元を探し出せるようにしましょう。
 
-### Gemfileから一覧を取り出す
+### Gemfileからディレクトリ一覧を取り出す
 
 `bundle show --paths`を使うことで、一覧情報を取り出せます。
 
@@ -94,6 +94,6 @@ $ bundle show --paths
 
 今回はpathについて、簡単に説明しました。
 
-次回は、pathを活用してさらに`include`, `includeexpr`をやります。
+次回は、pathを活用してさらに`include`, `includeexpr`あたりをやります。
 
 この辺を勉強すると、自分の環境用にファイル補完を作り上げられます。 neocompleteのfile/includeあたりが書けるようになりますよ〜
