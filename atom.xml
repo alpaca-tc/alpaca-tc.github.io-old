@@ -4,7 +4,7 @@
   <title><![CDATA[RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca-tc.github.io/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-12-19T11:08:17+09:00</updated>
+  <updated>2013-12-19T17:46:45+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -118,10 +118,9 @@
 
 <p>今回はpathについて、簡単に説明しました。</p>
 
-<p>次回は、pathを活用してさらに<code>include</code>, <code>includeexpr</code>をやります。
-この辺を勉強すると、自分の環境用にファイル補完を作り上げられます。</p>
+<p>次回は、pathを活用してさらに<code>include</code>, <code>includeexpr</code>をやります。</p>
 
-<p>neocompleteのfile/includeあたりが書けるようになりますよ〜</p>
+<p>この辺を勉強すると、自分の環境用にファイル補完を作り上げられます。 neocompleteのfile/includeあたりが書けるようになりますよ〜</p>
 ]]></content>
   </entry>
   
