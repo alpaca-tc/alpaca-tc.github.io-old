@@ -80,7 +80,7 @@ $ bundle show --paths
 
 ### `set path=`を使って定義する
 
-[こちらのスクリプト](https://gist.github.com/8031905)をvimrcに貼付けましょう。(unite.vim or neocomplete依存です)
+[こちらのスクリプト](https://gist.github.com/8031905)をvimrcに貼付けましょう。[vital.vim](https://github.com/vim-jp/vital.vim)依存です(unite.vim, neocompleteがあれば動作します)
 
 これで、GemPathを読み込む`:LoadGem`というコマンドが作られます。
 
