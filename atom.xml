@@ -4,7 +4,7 @@
   <title><![CDATA[RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca-tc.github.io/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-12-19T18:28:23+09:00</updated>
+  <updated>2013-12-19T20:08:17+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -104,7 +104,7 @@
 
 <h3><code>set path=</code>を使って定義する</h3>
 
-<p><a href="https://gist.github.com/8031905">こちらのスクリプト</a>をvimrcに貼付けましょう。(unite.vim or neocomplete依存です)</p>
+<p><a href="https://gist.github.com/8031905">こちらのスクリプト</a>をvimrcに貼付けましょう。<a href="https://github.com/vim-jp/vital.vim">vital.vim</a>依存です(unite.vim, neocompleteがあれば動作します)</p>
 
 <p>これで、GemPathを読み込む<code>:LoadGem</code>というコマンドが作られます。</p>
 
