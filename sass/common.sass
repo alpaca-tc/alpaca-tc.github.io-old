@@ -12,9 +12,6 @@ body
     font-family: $font_default
     word-wrap: break-word
 
-  h1, h2, h3, h4, h5, h6, a
-    +clumsy_regular
-
   p > a
     padding-right: 3px
     padding-left: 3px
@@ -36,6 +33,8 @@ body
     margin-bottom: $space_width
     .inner_wrapper
       .inner.clearfix
+        a
+          +clumsy_regular
         #logo
           #site_title
             font-size: 24px
@@ -62,6 +61,8 @@ body
         // .right_page
 
   footer
+    a
+      +clumsy_regular
     #go_to_top
       p
         float: right

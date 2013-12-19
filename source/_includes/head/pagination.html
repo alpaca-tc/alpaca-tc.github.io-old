@@ -1,0 +1,13 @@
+{% capture next_page %}{% if paginator.next_page %}{{ paginator.next_page }}{% else %}{% if page.next.url %}{{ page.next.url }}{% endif %}{% endif %}{% endcapture %}
+{% capture previous_page %}{% if paginator.previous_page %}{{ paginator.previous_page }}{% else %}{% if page.previous.url %}{{ page.previous.url }}{% endif %}{% endif %}{% endcapture %}
+{% unless next_page == '' %}
+  <link rel="next" href="{{ next_page }}">
+{% endunless %}
+
+{% unless previous_page == '' %}
+  <link rel="prev" href="{{ previous_page }}">
+{% endunless %}
+
+{% if paginator %}
+  <link rel="canonical" href="{{ site.url }}">
+{% endif %}
