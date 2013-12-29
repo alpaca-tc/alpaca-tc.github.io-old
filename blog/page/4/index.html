@@ -10,7 +10,7 @@
     <title>RailsとRubyとVimのブログ</title>
 
     
-    <meta name="description" content="octopressとセットで入れておきたいVimプラグインまとめ Nov 1st, 2013 Posted by 石井浩之 | <a href="/blog/vim/octopress_and_vimplugin.html#disqus_thread" data-disqus- &hellip;">
+    <meta name="description" content="Vim中級者を脱する Augroup編 Nov 2nd, 2013 Posted by 石井浩之 | <a href="/blog/vim/break-vim-beginners-augroup.html#disqus_thread" data-disqus-identifier="http &hellip;">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='RailsとRubyとVimのブログ' name='title' />
@@ -27,11 +27,11 @@
 <meta property="og:url" content="http://alpaca-tc.github.io/blog/page/4/index.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
 <meta property="og:email" content="alprhcp666@gmail.com"/>
-<meta property="og:description" content="octopressとセットで入れておきたいVimプラグインまとめ Nov 1st, 2013 Posted by 石井浩之 | <a href="/blog/vim/octopress_and_vimplugin.html#disqus_thread" data-disqus- &hellip;" />
+<meta property="og:description" content="Vim中級者を脱する Augroup編 Nov 2nd, 2013 Posted by 石井浩之 | <a href="/blog/vim/break-vim-beginners-augroup.html#disqus_thread" data-disqus-identifier="http &hellip;" />
 
     <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RailsとRubyとVimのブログ">
-<meta name="twitter:description" content="octopressとセットで入れておきたいVimプラグインまとめ Nov 1st, 2013 Posted by 石井浩之 | <a href="/blog/vim/octopress_and_vimplugin.html#disqus_thread" data-disqus- &hellip;">
+<meta name="twitter:description" content="Vim中級者を脱する Augroup編 Nov 2nd, 2013 Posted by 石井浩之 | <a href="/blog/vim/break-vim-beginners-augroup.html#disqus_thread" data-disqus-identifier="http &hellip;">
 <meta name="twitter:image" content="http://http://alpaca-tc.github.io/images/meta/site_title.png">
 
 <meta name="twitter:site" content="@">
@@ -71,6 +71,8 @@
 
 
 
+
+  <link rel="next" href="/blog/page/5/">
 
 
 
@@ -124,6 +126,133 @@
               <div id="page_contents" class="inner">
                 <div id="index_contents" class="blog-index">
   
+  
+    
+    <div class="blog-articles">
+      <article class="post_row">
+  <div class="inner">
+    <header class="field-items">
+      
+        <h1>
+          
+            <a href="/blog/vim/break-vim-beginners-augroup.html">
+              
+                Vim中級者を脱する Augroup編
+              
+            </a>
+          
+        </h1>
+      
+
+      
+        <section class="meta">
+          <div class="inner">
+            
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2013-11-02T02:30:00+09:00" pubdate data-updated="true">Nov 2<span>nd</span>, 2013</time>
+            
+  
+
+<span class="byline author">Posted by 石井浩之</span>
+
+            
+
+  <span class="categories">
+    
+      
+    
+  </span>
+
+
+            
+   | <a href="/blog/vim/break-vim-beginners-augroup.html#disqus_thread"
+     data-disqus-identifier="http://alpaca-tc.github.io/blog/vim/break-vim-beginners-augroup.html">コメント一覧</a>
+
+
+          </div>
+        </section>
+      
+    </header>
+
+    
+      <section class="entry-content"><h2>augroup, autocmdを理解する</h2>
+
+<p><strong>所要時間 3分</strong></p>
+
+<h3>この記事を読むべき人</h3>
+
+<ul>
+<li><code>augroup</code>を理解していない人</li>
+<li><code>:source</code>コマンドを使う人</li>
+</ul>
+
+
+</section>
+      
+
+      
+        <footer class="article_footer">
+          <div class="read_more">
+  <a href="/blog/vim/break-vim-beginners-augroup.html">続きを読む &rarr;</a>
+</div>
+
+        </footer>
+      
+    
+
+    
+      
+  
+
+
+
+
+
+
+<section class="sharing clearfix">
+  <div class="button ft_like_button">
+    <div class="fb-like" data-href="http://alpaca-tc.github.io/blog/vim/break-vim-beginners-augroup.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
+  </div>
+
+  <div class="button ft_share_button">
+    <div class="fb-share-button" data-href="http://alpaca-tc.github.io/blog/vim/break-vim-beginners-augroup.html" data-type="button_count"></div>
+  </div>
+
+  <div class="button hatena_bookmark_button">
+    <a href="http://b.hatena.ne.jp/entry/http://alpaca-tc.github.io/blog/vim/break-vim-beginners-augroup.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
+Vim中級者を脱する augroup編 | RailsとRubyとVimのブログ 
+" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
+      <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+    </a>
+  </div>
+
+  <div class="button google_plus_button_like">
+    <div data-annotation="none" data-href="http://alpaca-tc.github.io/blog/vim/break-vim-beginners-augroup.html" class="g-plusone" data-size="medium" ></div>
+  </div>
+
+  <div class="button twitter_button">
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca-tc.github.io/blog/vim/break-vim-beginners-augroup.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca-tc.github.io/blog/vim/break-vim-beginners-augroup.html" >Tweet</a>
+  </div>
+</section>
+
+    
+
+    
+  </div>
+</article>
+
+    </div>
   
     
     <div class="blog-articles">
@@ -605,126 +734,6 @@ alpaca_octopressを作っている | RailsとRubyとVimのブログ
 
     </div>
   
-    
-    <div class="blog-articles">
-      <article class="post_row">
-  <div class="inner">
-    <header class="field-items">
-      
-        <h1>
-          
-            <a href="/blog/diary/start_blog.html">
-              
-                初めました
-              
-            </a>
-          
-        </h1>
-      
-
-      
-        <section class="meta">
-          <div class="inner">
-            
-
-
-
-
-
-
-
-
-  
-
-
-
-<time datetime="2013-10-27T23:12:00+09:00" pubdate data-updated="true">Oct 27<span>th</span>, 2013</time>
-            
-  
-
-<span class="byline author">Posted by 石井浩之</span>
-
-            
-
-  <span class="categories">
-    
-      
-    
-  </span>
-
-
-            
-   | <a href="/blog/diary/start_blog.html#disqus_thread"
-     data-disqus-identifier="http://alpaca-tc.github.io/blog/diary/start_blog.html">コメント一覧</a>
-
-
-          </div>
-        </section>
-      
-    </header>
-
-    
-      <section class="entry-content"><p>記念すべき初カキコ。
-さて、技術ブログは今までQiitaを使っていましたが、そちらを辞めて自分のブログを作ることにしました。</p>
-
-<h2>乗り換える2つの理由</h2>
-
-</section>
-      
-
-      
-        <footer class="article_footer">
-          <div class="read_more">
-  <a href="/blog/diary/start_blog.html">続きを読む &rarr;</a>
-</div>
-
-        </footer>
-      
-    
-
-    
-      
-  
-
-
-
-
-
-
-<section class="sharing clearfix">
-  <div class="button ft_like_button">
-    <div class="fb-like" data-href="http://alpaca-tc.github.io/blog/diary/start_blog.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
-  </div>
-
-  <div class="button ft_share_button">
-    <div class="fb-share-button" data-href="http://alpaca-tc.github.io/blog/diary/start_blog.html" data-type="button_count"></div>
-  </div>
-
-  <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca-tc.github.io/blog/diary/start_blog.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
-初めました | RailsとRubyとVimのブログ 
-" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
-      <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
-    </a>
-  </div>
-
-  <div class="button google_plus_button_like">
-    <div data-annotation="none" data-href="http://alpaca-tc.github.io/blog/diary/start_blog.html" class="g-plusone" data-size="medium" ></div>
-  </div>
-
-  <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca-tc.github.io/blog/diary/start_blog.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca-tc.github.io/blog/diary/start_blog.html" >Tweet</a>
-  </div>
-</section>
-
-    
-
-    
-  </div>
-</article>
-
-    </div>
-  
 
   <div class="pagination">
     
@@ -754,6 +763,8 @@ alpaca_octopressを作っている | RailsとRubyとVimのブログ
     
 
     
+      <a data-label="次" class="paging_number prev" href="/blog/page/5/">次の記事へ &rarr;</a>
+    
   </div>
 
   <script type="text/javascript" charset="utf-8">
@@ -782,13 +793,13 @@ alpaca_octopressを作っている | RailsとRubyとVimのブログ
     <h1>最新記事</h1>
     
       <article>
-        <time datetime="2013-12-25T23:23:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>25</span> <span class='year'>2013</span></time>
-        <h1><a href="/blog/diary/gyaku-syuukatsu-1.html">逆就活へ参加するときのノウハウまとめ</a></h1>
+        <time datetime="2013-12-29T22:54:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>29</span> <span class='year'>2013</span></time>
+        <h1><a href="/blog/vim/vim-plugins-2013.html">2013年に作ったVimプラグイン達</a></h1>
       </article>
     
       <article>
-        <time datetime="2013-12-19T08:02:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>19</span> <span class='year'>2013</span></time>
-        <h1><a href="/blog/vim/jump-to-gem-path.html">Vim中級者を脱する path編</a></h1>
+        <time datetime="2013-12-25T23:23:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>25</span> <span class='year'>2013</span></time>
+        <h1><a href="/blog/diary/gyaku-syuukatsu-1.html">逆就活へ参加するときのノウハウまとめ</a></h1>
       </article>
     
   </div>

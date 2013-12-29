@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vim | RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca-tc.github.io/blog/vim/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-12-29T19:03:20+09:00</updated>
+  <updated>2013-12-30T00:38:57+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,111 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[2013年に作ったVimプラグイン達]]></title>
+    <link href="http://alpaca-tc.github.io/blog/vim/vim-plugins-2013.html"/>
+    <updated>2013-12-29T22:54:00+09:00</updated>
+    <id>http://alpaca-tc.github.io/blog/vim/vim-plugins-2013</id>
+    <content type="html"><![CDATA[<p>今年も残すところあと僅か！あぁ、Vimにどっぷりの一年でした。</p>
+
+<p><strong>今年書いたプラグインを紹介しまーす！</strong></p>
+
+<!-- more -->
+
+
+<p>振り返れば、一年で人はここまでVimmerとして成長できるのかと驚くばかりです。(まだまだ未熟者ですが)</p>
+
+<h1>14個のVimプラグイン達</h1>
+
+<p>今年書いたプラグインは14個以上でした。
+1年以内の出来事とは思えないぐらい、それぞれが思い出深いですね。。。</p>
+
+<p>外部に発表していなかったプラグインもあるので、余力があれば試してみてください。</p>
+
+<h2><a href="https://github.com/alpaca-tc/alpaca_powertabline">alpaca_powertabline</a></h2>
+
+<p><img class="image_on_frame center <a" src="href="https://github-camo.global.ssl.fastly.net/8a63810a39b08548c3ce51a796f589b79d9df4be/687474703a2f2f662e636c2e6c792f6974656d732f31443430317630553355306f336733553054306e2f616c706163615f7461626c696e652e706e67">https://github-camo.global.ssl.fastly.net/8a63810a39b08548c3ce51a796f589b79d9df4be/687474703a2f2f662e636c2e6c792f6974656d732f31443430317630553355306f336733553054306e2f616c706163615f7461626c696e652e706e67</a>" title="alpaca_powertabline" ></p>
+
+<p>tablineをpowerline化したプラグインです。</p>
+
+<p>初めてのVim Advent Calendarで<a href="http://qiita.com/alpaca_taichou/items/ab70f914a6a577e25d70">powerlineをいつ使う？今でしょ！</a>という記事を書いて、そこそこ人気な記事となり驚きました。</p>
+
+<p>いやぁ&hellip;<em>「今でしょ！」</em>って、もうさぶいねぇ。笑</p>
+
+<p>今年一年でlightlineやvim-airlineなどが出てきていると思うと、今年はvimのstatusline系の変化が大きかったと思います。</p>
+
+<h2><a href="https://github.com/alpaca-tc/alpaca_english.git">alpaca_english</a></h2>
+
+<p>SQLiteの英和辞書を利用して、英語の補完をするプラグインです。Uniteを通じて、類義語検索や例文検索を行うこともできます。</p>
+
+<p><img class="image_on_frame center <a" src="href="https://github-camo.global.ssl.fastly.net/cb17a71ffad0a656d3a2837fe4c216a50524c2e4/687474703a2f2f636c2e6c792f696d6167652f316c316c306732373249314e2f254533253832254239254533253832254146254533253833254141254533253833254243254533253833254233254533253832254237254533253833254137254533253833253833254533253833253838253230323031332d30342d3231253230382e33372e33392e706e67">https://github-camo.global.ssl.fastly.net/cb17a71ffad0a656d3a2837fe4c216a50524c2e4/687474703a2f2f636c2e6c792f696d6167652f316c316c306732373249314e2f254533253832254239254533253832254146254533253833254141254533253833254243254533253833254233254533253832254237254533253833254137254533253833253833254533253833253838253230323031332d30342d3231253230382e33372e33392e706e67</a>" title="alpaca_english_demo" ></p>
+
+<p>これを書き始めたときに、勇気を出してlingrで発言しはじめました。+Ruby環境のバグをVim-JP報告したのもこのプラグインがきっかけですね。</p>
+
+<p>右も左も分からず、色んな人に助けてもらいました。ありがたや、ありがたや。</p>
+
+<p>Vimプラグインの書き始めだったので、哀愁の漂うコードです。あぁ、そろそろリファクタリングしないと！</p>
+
+<h2><a href="https://github.com/alpaca-tc/beautify.vim.git">Beautify.vim</a></h2>
+
+<p>整形・変換を行うプラグインです。糞便利。</p>
+
+<p><img class="image_on_frame center <a" src="href="https://github.com/alpaca-tc/beautify.vim/blob/master/assets/02.gif?raw=true">https://github.com/alpaca-tc/beautify.vim/blob/master/assets/02.gif?raw=true</a>" title="beautify.vim demo" ></p>
+
+<p>CSS-SCSS, JS-Coffeeなどの相互変換や、圧縮されたJS/CSSの整形などはお手の物です。</p>
+
+<h2><a href="https://github.com/alpaca-tc/alpaca_tags">alpaca_tags</a></h2>
+
+<p>tagsの非同期生成、tag用のunite-sourceなど同封しています。糞便利。</p>
+
+<p><img class="image_on_frame center <a" src="href="https://github-camo.global.ssl.fastly.net/78073a9b0ac11577ea47c5083da6511140968510/687474703a2f2f6769667a6f2e6e65742f744944774866325a41702e676966">https://github-camo.global.ssl.fastly.net/78073a9b0ac11577ea47c5083da6511140968510/687474703a2f2f6769667a6f2e6e65742f744944774866325a41702e676966</a>" title="alpaca_tags.demo" ></p>
+
+<p>京都のCamphorでの勉強会でお披露目したのが初めてだったので、あのメンバーと出会ったのもこれを作った時期だった気がする。いつだっけ。。</p>
+
+<h2><a href="https://github.com/alpaca-tc/alpaca_octopress.vim">alpaca_octopress</a></h2>
+
+<p>最近作った、Octopressの操作を非同期で実行するプラグインです。糞b</p>
+
+<p><code>:Octopress preview</code>や<code>:Octopress gen_deploy</code>といった操作が非同期で行えるのが素晴らしい。</p>
+
+<p>記事を書くのが随分楽になりました^^</p>
+
+<h2><a href="https://github.com/alpaca-tc/vim-unite-watson.vim">vim-unite-watson.vim</a></h2>
+
+<p><a href="http://goosecode.com/watson/">watson</a>用のUnite-sourceです。海外の方にも結構使ってもらえているようです。</p>
+
+<h2>まとめ</h2>
+
+<p>Vimプラグインを通じて、一杯勉強させてもらえていたようです。Vim力もだいぶ上がりました。</p>
+
+<p>来年はVim本体をガシガシいじっていきたいと思います・T・</p>
+
+<p>さて、<strong>自分の作ったVimプラグインを振り返ると、Vimとともに一年の思い出が振り返れる</strong>ようです！</p>
+
+<p><strong>ぜひ、他のVimmerもお試しあれ！</strong></p>
+
+<h3>その他、今年作ったプラグイン</h3>
+
+<ul>
+<li><a href="https://github.com/alpaca-tc/alpaca_remove_dust.vim">alpaca_remove_dust.vim</a></li>
+<li><a href="https://github.com/alpaca-tc/alpaca_window.vim">alpaca_window.vim</a></li>
+<li><a href="https://github.com/alpaca-tc/assignment">assignment</a></li>
+<li><a href="https://github.com/alpaca-tc/neorspec.vim">neorspec.vim</a></li>
+<li><a href="https://github.com/alpaca-tc/lang-8.vim">lang-8.vim</a></li>
+<li><a href="https://github.com/alpaca-tc/rake.vim">rake.vim</a></li>
+<li><a href="https://github.com/alpaca-tc/snail.vim">snail.vim</a></li>
+<li><a href="https://github.com/alpaca-tc/unite-git-aliases">unite-git-aliases</a></li>
+<li><a href="https://github.com/alpaca-tc/documentation">documentation</a></li>
+</ul>
+
+
+<p><em>P.S.</em></p>
+
+<p>ほぼVimの記事だけで、Qiitaのストック数が1,000に到達しました。(正確には現在999)
+わーい。(白目)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Vim中級者を脱する path編]]></title>
@@ -459,157 +564,6 @@ inoremap <expr>&lt;C-X>s      neocomplete#start_manual_complete(&lsquo;neosnippe
 <p>浮気して、彼女の良さに気付くパターンです。</p>
 
 <p>YCMを使って気付きました。なんだかんだ<strong>NeoCompleteが最高</strong>ですね！！</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Vim中級者を脱する スコープ編]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/break-vim-beginners-scope.html"/>
-    <updated>2013-11-13T17:26:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/vim/break-vim-beginners-scope</id>
-    <content type="html"><![CDATA[<p>個人的に、Vimで一番ハマったのが<strong>スコープの問題</strong>でした。</p>
-
-<p>vimrcのコピペばかりの、あなた。</p>
-
-<p>せめて、よく登場するスコープだけでも理解してみましょう。</p>
-
-<!-- more -->
-
-
-<h1>よく見るスコープ一覧</h1>
-
-<ul>
-<li><em>グローバル</em>スコープ　<code>g:</code></li>
-<li><em>関数内</em>スコープ　<code>a:</code></li>
-<li><em>スクリプト</em>スコープ　<code>s:</code></li>
-<li><em>バッファ</em>スコープ　<code>b:</code></li>
-<li><em>接頭辞なし</em>　<code>let huga=...</code>など</li>
-</ul>
-
-
-<h2>グローバル(g:)スコープ</h2>
-
-<p><strong>どこからでも参照できます。</strong></p>
-
-<p>プラグインの設定で見慣れたスコープですね。</p>
-
-<p><code>let g:neocomplete#enable_at_startup = 1</code></p>
-
-<p>変数を初期化するには、次のようにします。
-大量のエラーコードによって操作できなくなるので、<strong>嫌いな人のvimrcの末尾に書き込んでください。</strong></p>
-
-<p><code>vim
-for key in keys(g:)
-  execute 'unlet g:' . key
-endfor
-</code></p>
-
-<h2>関数内(a:)スコープ</h2>
-
-<p><strong>関数内で、引数を参照するときに使用するスコープ</strong></p>
-
-<p>個人的に一番理解しがたいスコープです。</p>
-
-<p>こんな感じで使います。他言語から移ってきた人には、正直使いづらい。</p>
-
-<p>```
-function! Huga(first, second)
-  echo a:first
-  &ldquo;=> &lsquo;a&rsquo;</p>
-
-<p>  echo a:
-  &ldquo;=> {&lsquo;0&rsquo;: 0, &lsquo;000&rsquo;: [], &lsquo;second&rsquo;: &lsquo;b&rsquo;, &lsquo;first&rsquo;: &lsquo;a&rsquo;, &lsquo;firstline&rsquo;: 5, &lsquo;lastline&rsquo;: 5}
-endfunction</p>
-
-<p>call Huga(&lsquo;a&rsquo;, &lsquo;b&rsquo;)
-```</p>
-
-<p>「あーなるほど、<strong>関数内でだけ有効なスコープなのか。</strong>」</p>
-
-<p>と、思っていたら<em>それは間違い。</em></p>
-
-<p>下記のようにすると、<strong>グローバルスコープとして参照できます。</strong></p>
-
-<p>```vim
-function! a:huga()
-  echo &lsquo;Global!?!?!?&rsquo;
-endfunction</p>
-
-<p>call a:huga() &ldquo; => Global!?!?!?
-```</p>
-
-<p>実は、これ関数名に<code>:</code>が許可されているだけです。
-なので実際は<code>a:</code>スコープは関係ないんだけど、分かりづらい。</p>
-
-<h2>スクリプト(s:)スコープ</h2>
-
-<p><strong>ファイル内でのみ有効なスコープ</strong>です。</p>
-
-<p>プラグインで、プライベートなメソッドや定数を作るときによく使います。</p>
-
-<p><code>vim
-let s:script_scope = '外部からは参照できない'
-function! s:script_scope_method()
-  " プライベートメソッドとしてよく使われる
-endfunction
-</code></p>
-
-<p>この<code>s:</code>は、スクリプトがsourceされるときに置き換えられ、<code>&lt;SNR&gt;1_...</code>という感じの形になります。</p>
-
-<p>えぇ、そうです。すると、<strong>グローバルなスコープとして参照できます。</strong></p>
-
-<p>この<code>&lt;SNR&gt;</code>の後にどの数値が割り振られているかは、<code>:scriptnames</code>で参照できます。</p>
-
-<p>また、<code>s:</code>は<code>&lt;SID&gt;</code>として使えばスコープを超えて使用できるようになります。</p>
-
-<p>マッピングの時に、scriptスコープを使う時などは必須ですね。</p>
-
-<p><code>vim
-nnoremap s :echo &lt;SID&gt;SID()&lt;CR&gt;
-</code></p>
-
-<p>ただし、<strong>変数は基本的には聖域</strong>です。</p>
-
-<h2>バッファ(b:)スコープ</h2>
-
-<p><strong>バッファ単位のスコープ</strong>です。</p>
-
-<p>ファイルタイプによる設定や、一時バッファによる変数などに使います。</p>
-
-<ul>
-<li>ファイルタイプの変更で、<code>b:current_syntax</code>などが初期化&amp;格納されます</li>
-<li>Uniteを起動で、<code>b:unite</code>にデータが格納されます。</li>
-</ul>
-
-
-<p>Uniteのデバッグするときには、<code>echo b:unite.candidates</code>などを参照しましょう。</p>
-
-<p>あぁ、ようやくまともなスコープだ。</p>
-
-<h2>接頭辞なし(<code>let huga=</code>)変数</h2>
-
-<p>えぇ。<strong>グローバルなスコープです。</strong></p>
-
-<p>お前もか！</p>
-
-<p>マナーとしては、やはり<code>g:</code>で宣言したいところですが、</p>
-
-<p>Vimにデフォルトで入っているプラグインは、容赦なくこの変数を使ってきます。</p>
-
-<p><code>:echo loaded_*&lt;Tab&gt;</code>などすれば、奴らを見つけられるはずです。</p>
-
-<p>細かいことを言えば、関数内ならばローカルスコープです。。。</p>
-
-<h2>スコープのまとめ</h2>
-
-<ul>
-<li>スコープは<strong>ほとんどグローバルで参照できる</strong></li>
-<li>VimLは枠にハマらない<strong>素敵な</strong>言語仕様を持っている</li>
-<li>getbufvar()などでスコープへアクセス出来るため、<strong>聖域はほとんど無い</strong></li>
-</ul>
-
-
-<p><strong>正直今でも理解出来ていない。</strong></p>
 ]]></content>
   </entry>
   

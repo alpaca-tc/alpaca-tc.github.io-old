@@ -4,7 +4,7 @@
   <title><![CDATA[RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca-tc.github.io/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-12-29T19:03:20+09:00</updated>
+  <updated>2013-12-30T00:38:57+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,111 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[2013年に作ったVimプラグイン達]]></title>
+    <link href="http://alpaca-tc.github.io/blog/vim/vim-plugins-2013.html"/>
+    <updated>2013-12-29T22:54:00+09:00</updated>
+    <id>http://alpaca-tc.github.io/blog/vim/vim-plugins-2013</id>
+    <content type="html"><![CDATA[<p>今年も残すところあと僅か！あぁ、Vimにどっぷりの一年でした。</p>
+
+<p><strong>今年書いたプラグインを紹介しまーす！</strong></p>
+
+<!-- more -->
+
+
+<p>振り返れば、一年で人はここまでVimmerとして成長できるのかと驚くばかりです。(まだまだ未熟者ですが)</p>
+
+<h1>14個のVimプラグイン達</h1>
+
+<p>今年書いたプラグインは14個以上でした。
+1年以内の出来事とは思えないぐらい、それぞれが思い出深いですね。。。</p>
+
+<p>外部に発表していなかったプラグインもあるので、余力があれば試してみてください。</p>
+
+<h2><a href="https://github.com/alpaca-tc/alpaca_powertabline">alpaca_powertabline</a></h2>
+
+<p><img class="image_on_frame center" src="https://github-camo.global.ssl.fastly.net/8a63810a39b08548c3ce51a796f589b79d9df4be/687474703a2f2f662e636c2e6c792f6974656d732f31443430317630553355306f336733553054306e2f616c706163615f7461626c696e652e706e67" title="alpaca_powertabline" ></p>
+
+<p>tablineをpowerline化したプラグインです。</p>
+
+<p>初めてのVim Advent Calendarで<a href="http://qiita.com/alpaca_taichou/items/ab70f914a6a577e25d70">powerlineをいつ使う？今でしょ！</a>という記事を書いて、そこそこ人気な記事となり驚きました。</p>
+
+<p>いやぁ&hellip;<em>「今でしょ！」</em>って、もうさぶいねぇ。笑</p>
+
+<p>今年一年でlightlineやvim-airlineなどが出てきていると思うと、今年はvimのstatusline系の変化が大きかったと思います。</p>
+
+<h2><a href="https://github.com/alpaca-tc/alpaca_english.git">alpaca_english</a></h2>
+
+<p>SQLiteの英和辞書を利用して、英語の補完をするプラグインです。Uniteを通じて、類義語検索や例文検索を行うこともできます。</p>
+
+<p><img class="image_on_frame center" src="https://github-camo.global.ssl.fastly.net/cb17a71ffad0a656d3a2837fe4c216a50524c2e4/687474703a2f2f636c2e6c792f696d6167652f316c316c306732373249314e2f254533253832254239254533253832254146254533253833254141254533253833254243254533253833254233254533253832254237254533253833254137254533253833253833254533253833253838253230323031332d30342d3231253230382e33372e33392e706e67" title="alpaca_english_demo" ></p>
+
+<p>これを書き始めたときに、勇気を出してlingrで発言しはじめました。+Ruby環境のバグをVim-JP報告したのもこのプラグインがきっかけですね。</p>
+
+<p>右も左も分からず、色んな人に助けてもらいました。ありがたや、ありがたや。</p>
+
+<p>Vimプラグインの書き始めだったので、哀愁の漂うコードです。あぁ、そろそろリファクタリングしないと！</p>
+
+<h2><a href="https://github.com/alpaca-tc/beautify.vim.git">Beautify.vim</a></h2>
+
+<p>整形・変換を行うプラグインです。糞便利。</p>
+
+<p><img class="image_on_frame center" src="https://github.com/alpaca-tc/beautify.vim/blob/master/assets/02.gif?raw=true" title="beautify.vim demo" ></p>
+
+<p>CSS-SCSS, JS-Coffeeなどの相互変換や、圧縮されたJS/CSSの整形などはお手の物です。</p>
+
+<h2><a href="https://github.com/alpaca-tc/alpaca_tags">alpaca_tags</a></h2>
+
+<p>tagsの非同期生成、tag用のunite-sourceなど同封しています。糞便利。</p>
+
+<p><img class="image_on_frame center" src="https://github-camo.global.ssl.fastly.net/78073a9b0ac11577ea47c5083da6511140968510/687474703a2f2f6769667a6f2e6e65742f744944774866325a41702e676966" title="alpaca_tags.demo" ></p>
+
+<p>京都のCamphorでの勉強会でお披露目したのが初めてだったので、あのメンバーと出会ったのもこれを作った時期だった気がする。いつだっけ。。</p>
+
+<h2><a href="https://github.com/alpaca-tc/alpaca_octopress.vim">alpaca_octopress</a></h2>
+
+<p>最近作った、Octopressの操作を非同期で実行するプラグインです。糞b</p>
+
+<p><code>:Octopress preview</code>や<code>:Octopress gen_deploy</code>といった操作が非同期で行えるのが素晴らしい。</p>
+
+<p>記事を書くのが随分楽になりました^^</p>
+
+<h2><a href="https://github.com/alpaca-tc/vim-unite-watson.vim">vim-unite-watson.vim</a></h2>
+
+<p><a href="http://goosecode.com/watson/">watson</a>用のUnite-sourceです。海外の方にも結構使ってもらえているようです。</p>
+
+<h2>まとめ</h2>
+
+<p>Vimプラグインを通じて、一杯勉強させてもらえていたようです。Vim力もだいぶ上がりました。</p>
+
+<p>来年はVim本体をガシガシいじっていきたいと思います・T・</p>
+
+<p>さて、<strong>自分の作ったVimプラグインを振り返ると、Vimとともに一年の思い出が振り返れる</strong>ようです！</p>
+
+<p><strong>ぜひ、他のVimmerもお試しあれ！</strong></p>
+
+<h3>その他、今年作ったプラグイン</h3>
+
+<ul>
+<li><a href="https://github.com/alpaca-tc/alpaca_remove_dust.vim">alpaca_remove_dust.vim</a></li>
+<li><a href="https://github.com/alpaca-tc/alpaca_window.vim">alpaca_window.vim</a></li>
+<li><a href="https://github.com/alpaca-tc/assignment">assignment</a></li>
+<li><a href="https://github.com/alpaca-tc/neorspec.vim">neorspec.vim</a></li>
+<li><a href="https://github.com/alpaca-tc/lang-8.vim">lang-8.vim</a></li>
+<li><a href="https://github.com/alpaca-tc/rake.vim">rake.vim</a></li>
+<li><a href="https://github.com/alpaca-tc/snail.vim">snail.vim</a></li>
+<li><a href="https://github.com/alpaca-tc/unite-git-aliases">unite-git-aliases</a></li>
+<li><a href="https://github.com/alpaca-tc/documentation">documentation</a></li>
+</ul>
+
+
+<p><em>P.S.</em></p>
+
+<p>ほぼVimの記事だけで、Qiitaのストック数が1,000に到達しました。(正確には現在999)
+わーい。(白目)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[逆就活へ参加するときのノウハウまとめ]]></title>
@@ -204,12 +309,9 @@ Yahooの方に教えてもらえたような気がします。</p>
 
 <h2>まとめ</h2>
 
-<p>まとめとして言うのなら、<strong>楽しむこと</strong>と<strong>捨てること</strong>が大事だと思います。</p>
+<p>まとめとして言うのなら、<strong>捨てること</strong>が大事だと思います。</p>
 
-<p>まず、楽しまなければいけないですね、何事も。
-たとえそれがネガティブなことでも、どうすれば楽しくなるかと考えれば楽しいものです。</p>
-
-<p>また、もっと色んなものを捨てた方が良かったなと思います。</p>
+<p>もっと色んなものを捨てた方が良かったなと思います。</p>
 
 <p>HPを作るときと一緒で、色んなことを捨象して集中するべきでした。せっかく、自分というコンテンツがあるのに、魅せ方へのこだわりが無かったですね。</p>
 
@@ -1946,49 +2048,6 @@ vimproc周りの動作もおかしいようだし、Vimからプロセス操作�
 <p><code>:Octopress deploy</code>っと！</p>
 
 <p>さて、寝よう。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[初めました]]></title>
-    <link href="http://alpaca-tc.github.io/blog/diary/start_blog.html"/>
-    <updated>2013-10-27T23:12:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/diary/start_blog</id>
-    <content type="html"><![CDATA[<p>記念すべき初カキコ。
-さて、技術ブログは今までQiitaを使っていましたが、そちらを辞めて自分のブログを作ることにしました。</p>
-
-<h2>乗り換える2つの理由</h2>
-
-<!-- more -->
-
-
-<h3>1. Qiitaは使いにくい</h3>
-
-<p>皆さんも薄々感じていると思いますが、QiitaのUIは使いにくいです。だってVimから出るんだもん。</p>
-
-<h3>2. SEOで遊びたい</h3>
-
-<p>そろそろ、「アルパカ エンジニア」や幾つかのキーワードが欲しいです。</p>
-
-<h3>3. 対外アピールできない</h3>
-
-<p>Qiitaで見ても、「この人どんな人？」って分からないですよね。それは楽しくないし、勿体ない。</p>
-
-<p>なので、<strong>Vimで完結</strong> + <strong>アルパカなエンジニア</strong>をアピールするためにブログにしたいと思います。</p>
-
-<h2>Octopress + Vim</h2>
-
-<p>Vimから記事を書いて、Vimからデプロイしてます。
-Octopressを簡単に操作できるように<a href="https://github.com/alpaca-tc/alpaca_octopress.vim">プラグイン</a>を作りました。
-あぁ、簡単でいいですね。</p>
-
-<p><code>:Octopress new_post 新しい記事の名前</code></p>
-
-<h2>アルパカなエンジニアを目指す</h2>
-
-<p>しばらくの目標です。
-半年ぐらいで、「アルパカ + エンジニア」のキーワードで1位取れればなぁと思います。
-そして、HPのデザインもアルパカな感じにしていきます！</p>
 ]]></content>
   </entry>
   
