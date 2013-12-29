@@ -96,11 +96,10 @@ social:
     user:
     count: 3
   disqus:
-    short_name:
-    show_comment_count: false
+    short_name: alpaca-tc
+    show_comment_count: true
   facebook:
     app_id: 224701561024840
-    show_comment: true
     like_button: true
   hatena:
     bookmark_button: true
