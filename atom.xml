@@ -4,7 +4,7 @@
   <title><![CDATA[RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca-tc.github.io/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-12-30T11:46:10+09:00</updated>
+  <updated>2013-12-30T11:50:24+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -25,7 +25,7 @@
 <!-- more -->
 
 
-<p>振り返れば、一年で人はここまでVimmerとして成長できるのかと驚くばかりです。(まだまだ未熟者ですが)</p>
+<p>振り返ると、一年で人はここまでVimmerとして成長できるのかと驚くばかりです。(まだまだ未熟者ですが)</p>
 
 <h1>14個のVimプラグイン達</h1>
 
@@ -58,7 +58,7 @@
 
 <p>右も左も分からず、色んな人に助けてもらいました。ありがたや、ありがたや。</p>
 
-<p>Vimプラグインの書き始めだったので、哀愁の漂うコードです。あぁ、そろそろリファクタリングしないと！</p>
+<p>Vimプラグインを書き始めたときなので、哀愁の漂うコードです。あぁ、そろそろリファクタリングしないと！</p>
 
 <h2><a href="https://github.com/alpaca-tc/beautify.vim.git">Beautify.vim</a></h2>
 
@@ -74,7 +74,7 @@
 
 <p><img class="image_on_frame center" src="https://github-camo.global.ssl.fastly.net/78073a9b0ac11577ea47c5083da6511140968510/687474703a2f2f6769667a6f2e6e65742f744944774866325a41702e676966" title="alpaca_tags.demo" ></p>
 
-<p>京都のCamphorでの勉強会でお披露目したのが初めてだったので、あのメンバーと出会ったのもこれを作った時期だった気がする。いつだっけ。。</p>
+<p>京都のCamphorでの勉強会で初めてお披露目したので、あのメンバーと出会ったのもこれを作った時期だった気がする。いつだっけ。。</p>
 
 <h2><a href="https://github.com/alpaca-tc/alpaca_octopress.vim">alpaca_octopress</a></h2>
 
@@ -94,7 +94,7 @@
 
 <p>来年はVim本体をガシガシいじっていきたいと思います・T・</p>
 
-<p>さて、<strong>自分の作ったVimプラグインを振り返ると、Vimとともに一年の思い出が振り返れる</strong>ようです！</p>
+<p>さて、自分の作ったVimプラグインを振り返ると、Vimとともに一年の思い出が振り返れるようです！</p>
 
 <p><strong>ぜひ、他のVimmerもお試しあれ！</strong></p>
 
@@ -115,8 +115,7 @@
 
 <p><em>P.S.</em></p>
 
-<p>ほぼVimの記事だけで、Qiitaのストック数が1,000に到達しました。(正確には現在999)
-わーい。(白目)</p>
+<p>ほぼVimの記事だけで、Qiitaのストック数が1,000に到達しました。わーい。(白目)</p>
 ]]></content>
   </entry>
   
