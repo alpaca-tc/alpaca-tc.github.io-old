@@ -4,7 +4,7 @@
   <title><![CDATA[RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca-tc.github.io/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-12-30T00:38:57+09:00</updated>
+  <updated>2013-12-30T11:46:10+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -44,7 +44,9 @@
 
 <p>いやぁ&hellip;<em>「今でしょ！」</em>って、もうさぶいねぇ。笑</p>
 
-<p>今年一年でlightlineやvim-airlineなどが出てきていると思うと、今年はvimのstatusline系の変化が大きかったと思います。</p>
+<p>初対面の人で、「使っているよ！」と言ってもらえることもあって嬉しかったです。</p>
+
+<p>今年はlightlineやvim-airlineが登場したので、statusline系の変化が大きかった年だとと思います。</p>
 
 <h2><a href="https://github.com/alpaca-tc/alpaca_english.git">alpaca_english</a></h2>
 
