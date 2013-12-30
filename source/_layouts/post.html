@@ -16,6 +16,13 @@ single: true
             <div class="clearfix">
               <div class="left_page inner_wrapper">
                 {% include article.html %}
+
+                <section class="post_row">
+                  {% unless index %}
+                    {% include post/comment.html %}
+                  {% endunless %}
+                </section>
+
                 {% include post/pagination.html %}
               </div>
 
