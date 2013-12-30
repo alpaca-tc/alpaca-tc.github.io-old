@@ -75,17 +75,6 @@ tagsの非同期生成、tag用のunite-sourceなど同封しています。糞�
 
 [watson](http://goosecode.com/watson/)用のUnite-sourceです。海外の方にも結構使ってもらえているようです。
 
-## まとめ
-
-Vimプラグインを通じて、一杯勉強させてもらえていたようです。Vim力もだいぶ上がりました。
-
-来年はVim本体をガシガシいじっていきたいと思います・T・
-
-
-さて、自分の作ったVimプラグインを振り返ると、Vimとともに一年の思い出が振り返れるようです！
-
-**ぜひ、他のVimmerもお試しあれ！**
-
 ### その他、今年作ったプラグイン
 
 - [alpaca\_remove\_dust.vim]( https://github.com/alpaca-tc/alpaca_remove_dust.vim )
@@ -97,6 +86,17 @@ Vimプラグインを通じて、一杯勉強させてもらえていたよう�
 - [snail.vim]( https://github.com/alpaca-tc/snail.vim )
 - [unite-git-aliases]( https://github.com/alpaca-tc/unite-git-aliases )
 - [documentation]( https://github.com/alpaca-tc/documentation )
+
+## まとめ
+
+Vimプラグインを通じて、一杯勉強させてもらえていたようです。Vim力もだいぶ上がりました。
+
+来年はVim本体をガシガシいじっていきたいと思います・T・
+
+
+さて、自分の作ったVimプラグインを振り返ると、Vimとともに一年の思い出が振り返れるようです！
+
+**ぜひ、他のVimmerもお試しあれ！**
 
 *P.S.*
 
