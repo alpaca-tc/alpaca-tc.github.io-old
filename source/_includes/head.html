@@ -9,7 +9,6 @@
   <head>
     <meta charset="UTF-8">
     <title>{% if page.title %}{{ page.title }} | RailsとRubyとVimのブログ{% else %}{{ site.single_title }}{% endif %}</title>
-
     {% capture description %}{% if page.description %}{{ page.description }}{% else %}{{ content | raw_content }}{% endif %}{% endcapture %}
     <meta name="description" content="{{ description | strip_html | condense_spaces | truncate:150 }}">
     {% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
@@ -20,22 +19,12 @@
     {% include meta/og.html %}
     {% include meta/twitter.html %}
 
-    <link rel="canonical" href="{{ canonical }}">
-    <link href="{{ root_url }}/favicon.png" rel="icon">
-    <!-- <link rel="apple&#45;touch&#45;icon" href="icon.png" /> -->
-    <link href="{{ site.subscribe_rss }}" rel="alternate" title="{{site.title}}" type="application/atom+xml">
-    <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="/stylesheets/common.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="/stylesheets/page.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="/stylesheets/multi_screen.css" type="text/css" media="all"/>
-
-    <script type="text/javascript" src="//typesquare.com/accessor/script/typesquare.js?l~JsLTo7f1A%3D" charset="utf-8"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <!-- <script>!window.jQuery &#38;&#38; document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script> -->
+    <link rel="stylesheet" href="/stylesheets/compression.css" type="text/css" media="all"/>
     <meta name="google-site-verification" content="thSL3cUT7BV1-AENglRFIF-kv6I85JJ6_iUGAU8GaQI" />
+
     <!--[if lte IE 8]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     {% include head/head.html %}
   </head>
