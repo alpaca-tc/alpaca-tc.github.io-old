@@ -4,7 +4,7 @@
   <title><![CDATA[RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca-tc.github.io/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2013-12-30T21:47:05+09:00</updated>
+  <updated>2014-01-01T18:46:11+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,29 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[カヤックのお年玉企画がすげぇ！]]></title>
+    <link href="http://alpaca-tc.github.io/blog/web-service/kayac-2014-otoshidama.html"/>
+    <updated>2014-01-01T18:24:00+09:00</updated>
+    <id>http://alpaca-tc.github.io/blog/web-service/kayac-2014-otoshidama</id>
+    <content type="html"><![CDATA[<h1>2014人まで、「イイネ！」でお金がもらえるよ！</h1>
+
+<p>面白法人カヤックの新年企画だそうです^^</p>
+
+<p>FBの「イイネ！」を押して2014円ゲットしましょう！</p>
+
+<p><a href="http://iine2014.fnobi.com/">お好き玉</a></p>
+
+<p>ちなみに現在519人ぐらいです</p>
+
+<h2>おまけ</h2>
+
+<p>逆就活でカヤックさんからメール来ていました。そういえば、カヤックのVimmerのせいで、僕はVim狂になったんですよね！:p</p>
+
+<p>なんだか面白そうなので社長面談に行ってみたいな！</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[2013年に作ったVimプラグイン達]]></title>
@@ -2000,55 +2023,6 @@ Vimのオプションやコマンド名が、そのまま変数に使われて�
 
 <p>そして今から<code>:OctopressTweet</code>を実行して、この投稿がTweetされることを望みます。
 無事Tweet出来たらまさに完結ですね。うりゃ！</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[alpaca_octopressを作っている]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/alpaca_octopress/create_new_plugin_for_octopress.html"/>
-    <updated>2013-10-29T04:52:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/vim/alpaca_octopress/create_new_plugin_for_octopress</id>
-    <content type="html"><![CDATA[<p>昨日言った通り、今は<a href="https://github.com/alpaca-tc/alpaca_octopress.vim">alpaca_octopress.vim</a>を作っています</p>
-
-<!-- more -->
-
-
-<p>ブランチは<code>v0.3</code>が最新ですね。</p>
-
-<h2>使い方</h2>
-
-<p><code>:Octopress [command] {option}</code></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="c">&quot; 設定はこんな感じ</span>
-</span><span class='line'><span class="k">let</span> <span class="k">g</span>:octopress#rake_command <span class="p">=</span> <span class="s1">&#39;bundle exec rake&#39;</span>
-</span><span class='line'><span class="k">let</span> <span class="k">g</span>:octopress#project_url <span class="p">=</span> expand<span class="p">(</span><span class="s1">&#39;~/project/octopress&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="k">let</span> <span class="k">g</span>:octopress#system#async <span class="p">=</span> <span class="m">1</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Octopress関連で<code>deploy</code>とか<code>async</code>とかをよく使うけど、このプラグインを入れれば非同期で実行できます。
-新しく記事書くときは、<code>:Octopress new_post 新しい記事</code>とやればどのディレクトリに居ても起動出来るので、記事を書くのがちょっと楽になります。</p>
-
-<h2>初めてのvital.vim</h2>
-
-<p>このプラグインを作る上で、初めて<a href="https://github.com/vim-jp/vital.vim">vital.vim</a>さんを使ってみました。
-vitalは、JavaScriptでいうjQueryみたいに、これはベストな書き方！というコードを寄せ集めたスクリプト集です。</p>
-
-<p>今回は、プロセスをオブジェクト化して、非同期で実行&amp;管理するために使ってみました。
-触ってみた感じ、まだまだ人柱感が強いです。。</p>
-
-<p>荒削りというか、汎用的というか、、Process周りのvitalはまだまだ利用者がいないのだろうと思います。
-vimproc周りの動作もおかしいようだし、Vimからプロセス操作するのはやっぱり難しいね！</p>
-
-<hr />
-
-<p><code>:Octopress deploy</code>っと！</p>
-
-<p>さて、寝よう。</p>
 ]]></content>
   </entry>
   

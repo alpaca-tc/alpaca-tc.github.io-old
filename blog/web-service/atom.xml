@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: web-service | RailsとRubyとVimのブログ]]></title>
+  <link href="http://alpaca-tc.github.io/blog/web-service/atom.xml" rel="self"/>
+  <link href="http://alpaca-tc.github.io/"/>
+  <updated>2014-01-01T18:46:11+09:00</updated>
+  <id>http://alpaca-tc.github.io/</id>
+  <author>
+    <name><![CDATA[alpaca-tc]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[カヤックのお年玉企画がすげぇ！]]></title>
+    <link href="http://alpaca-tc.github.io/blog/web-service/kayac-2014-otoshidama.html"/>
+    <updated>2014-01-01T18:24:00+09:00</updated>
+    <id>http://alpaca-tc.github.io/blog/web-service/kayac-2014-otoshidama</id>
+    <content type="html"><![CDATA[<h1>2014人まで、「イイネ！」でお金がもらえるよ！</h1>
+
+<p>面白法人カヤックの新年企画だそうです^^</p>
+
+<p>FBの「イイネ！」を押して2014円ゲットしましょう！</p>
+
+<p><a href="http://iine2014.fnobi.com/">お好き玉</a></p>
+
+<p>ちなみに現在519人ぐらいです</p>
+
+<h2>おまけ</h2>
+
+<p>逆就活でカヤックさんからメール来ていました。そういえば、カヤックのVimmerのせいで、僕はVim狂になったんですよね！:p</p>
+
+<p>なんだか面白そうなので社長面談に行ってみたいな！</p>
+]]></content>
+  </entry>
+  
+</feed>
+
+
+
