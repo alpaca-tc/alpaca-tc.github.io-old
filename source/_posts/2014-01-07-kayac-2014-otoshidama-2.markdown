@@ -69,3 +69,5 @@ JavaScriptを見てみると、`mouseover`と`touchstart`のタイミングで�
 ## まとめ
 
 解説しましたが、つまるところ`#iine`にまつわるものを解除してやればいいので、Developer Toolを開いて、ちょめっとすれば一瞬ですネヾ(\*´∀｀\*)ﾉ
+
+さぁ[「お好き玉」](http://iine2014.fnobi.com/)へ挑戦してみようー！
