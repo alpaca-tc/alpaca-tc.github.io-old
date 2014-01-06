@@ -4,7 +4,7 @@
   <title><![CDATA[RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca-tc.github.io/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2014-01-01T22:52:31+09:00</updated>
+  <updated>2014-01-07T00:46:25+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,102 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[カヤックのお年玉企画「お好き玉」の解説]]></title>
+    <link href="http://alpaca-tc.github.io/blog/web-service/kayac-2014-otoshidama-2.html"/>
+    <updated>2014-01-07T00:07:00+09:00</updated>
+    <id>http://alpaca-tc.github.io/blog/web-service/kayac-2014-otoshidama-2</id>
+    <content type="html"><![CDATA[<p><a href="http://alpaca-tc.github.io/blog/web-service/kayac-2014-otoshidama.html">先日紹介した「お好き玉」</a>ですが、アクセス数が多いはずなのにまだ2014に達していません！</p>
+
+<p>アクセスが足りないのか、みんな諦めるのか分かりませんが<strong>2014に達さないと企画者が寂しいだろう</strong>から、少しだけヒント載せておきます！</p>
+
+<p>素人でも、これをきっかけに少しだけWebエンジニアっぽいことに挑戦できたら楽しいよね:)</p>
+
+<!-- more -->
+
+
+<h2>逃げる「イイネ!!」が押せない仕組み</h2>
+
+<p>このFBイイネが押せない理由は2つあります。</p>
+
+<ol>
+<li>イイネボタンの上にCSSでマスクがかかっている</li>
+<li>カーソルに合わせてボタンが動く</li>
+</ol>
+
+
+<p>この両方を解除しないとボタンは押せません。</p>
+
+<p><a href="https://www.google.com/intl/en/chrome/browser/">Google Chrome</a>の<a href="http://www.buildinsider.net/web/chromedevtools/01">Developer Tool</a>は必須ですヨ:)</p>
+
+<h3>1.イイネボタンの上にCSSでマスクがかかっている</h3>
+
+<p>z-indexの仕業かと思ったら、こんな方法もあるんですねぇ。感心。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="o">//</span> <span class="nt">http</span><span class="o">://</span><span class="nt">iine2014</span><span class="nc">.fnobi.com</span><span class="o">/</span><span class="nt">css</span><span class="o">/</span><span class="nt">iine2014</span><span class="nc">.css</span><span class="nd">:84</span>
+</span><span class='line'><span class="nf">#iine</span><span class="nd">:after</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">content</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">width</span><span class="o">:</span> <span class="m">120px</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">height</span><span class="o">:</span> <span class="m">22px</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">top</span><span class="o">:</span> <span class="m">0px</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">left</span><span class="o">:</span> <span class="m">0px</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Facebookのイイネボタンのidが<code>#iine</code>で、その直後に疑似要素<code>:after</code>が同じサイズでかぶさっています。なので、どんなに頑張ってもボタンは押せません。</p>
+
+<p>この疑似要素を消すか、widthを0にしてしまえばボタンは押せますね。Developer Toolの出番やで！</p>
+
+<h2>2. カーソルに合わせてボタンが動く</h2>
+
+<p>JavaScriptを見てみると、<code>mouseover</code>と<code>touchstart</code>のタイミングで位置を移動させているのが分かります。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// http://iine2014.fnobi.com/js/iine2014.js:9130</span>
+</span><span class='line'><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">win</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">$window</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">);</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">$iine</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#iine&#39;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">// 略</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nx">$iine</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;mouseover touchstart&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>          <span class="c1">// 略</span>
+</span><span class='line'>        <span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>なので、このeventを解除してやれば動かなくなります(・∀・) <code>on</code>の逆をすればいいのです</p>
+
+<h2>まとめ</h2>
+
+<p>解説しましたが、つまるところ<code>#iine</code>にまつわるものを解除してやればいいので、Developer Toolを開いて、ちょめっとすれば一瞬ですネヾ(*´∀｀*)ﾉ</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[カヤックのお年玉企画がすげぇ！]]></title>
@@ -2005,24 +2101,6 @@ Vimのオプションやコマンド名が、そのまま変数に使われて�
 <p>早くも、ブログを始めた目的の一つが終わりましたw</p>
 
 <p>やりたいことのために、他にも幾つかのキーワードで上位に出るようにしたいですね。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[alpaca_octopress続き]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/alpaca_octopress/about_alpaca_complete.html"/>
-    <updated>2013-10-30T04:34:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/vim/alpaca_octopress/about_alpaca_complete</id>
-    <content type="html"><![CDATA[<p>octopress用のプラグイン<em>alpaca_octopress.vim</em>をガシガシ作っています。
-コマンドの非同期実行、サイトのプレビュー、etc&hellip;全てをVimで完結しつつあります！</p>
-
-<p>ある程度完成したら、Vim使いがOctopressを5分で構築出来るようなプラグインも同封するつもり。
-全てVimで完結するのはVimmerにとっては楽でいいなぁ〜。</p>
-
-<h2>OctopressTweet!!</h2>
-
-<p>そして今から<code>:OctopressTweet</code>を実行して、この投稿がTweetされることを望みます。
-無事Tweet出来たらまさに完結ですね。うりゃ！</p>
 ]]></content>
   </entry>
   

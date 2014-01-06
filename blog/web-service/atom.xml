@@ -4,7 +4,7 @@
   <title><![CDATA[Category: web-service | RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca-tc.github.io/blog/web-service/atom.xml" rel="self"/>
   <link href="http://alpaca-tc.github.io/"/>
-  <updated>2014-01-01T22:52:31+09:00</updated>
+  <updated>2014-01-07T00:46:25+09:00</updated>
   <id>http://alpaca-tc.github.io/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,86 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[カヤックのお年玉企画「お好き玉」の解説]]></title>
+    <link href="http://alpaca-tc.github.io/blog/web-service/kayac-2014-otoshidama-2.html"/>
+    <updated>2014-01-07T00:07:00+09:00</updated>
+    <id>http://alpaca-tc.github.io/blog/web-service/kayac-2014-otoshidama-2</id>
+    <content type="html"><![CDATA[<p><a href="http://alpaca-tc.github.io/blog/web-service/kayac-2014-otoshidama.html">先日紹介した「お好き玉」</a>ですが、アクセス数が多いはずなのにまだ2014に達していません！</p>
+
+<p>アクセスが足りないのか、みんな諦めるのか分かりませんが<strong>2014に達さないと企画者が寂しいだろう</strong>から、少しだけヒント載せておきます！</p>
+
+<p>素人でも、これをきっかけに少しだけWebエンジニアっぽいことに挑戦できたら楽しいよね:)</p>
+
+<!-- more -->
+
+
+<h2>逃げる「イイネ!!」が押せない仕組み</h2>
+
+<p>このFBイイネが押せない理由は2つあります。</p>
+
+<ol>
+<li>イイネボタンの上にCSSでマスクがかかっている</li>
+<li>カーソルに合わせてボタンが動く</li>
+</ol>
+
+
+<p>この両方を解除しないとボタンは押せません。</p>
+
+<p><a href="https://www.google.com/intl/en/chrome/browser/">Google Chrome</a>の<a href="http://www.buildinsider.net/web/chromedevtools/01">Developer Tool</a>は必須ですヨ:)</p>
+
+<h3>1.イイネボタンの上にCSSでマスクがかかっている</h3>
+
+<p>z-indexの仕業かと思ったら、こんな方法もあるんですねぇ。感心。</p>
+
+<p>```css
+// <a href="http://iine2014.fnobi.com/css/iine2014.css:84">http://iine2014.fnobi.com/css/iine2014.css:84</a></p>
+
+<h1>iine:after {</h1>
+
+<p>  content: &lsquo;&rsquo;;
+  display: block;
+  width: 120px;
+  height: 22px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+```</p>
+
+<p>Facebookのイイネボタンのidが<code>#iine</code>で、その直後に疑似要素<code>:after</code>が同じサイズでかぶさっています。なので、どんなに頑張ってもボタンは押せません。</p>
+
+<p>この疑似要素を消すか、widthを0にしてしまえばボタンは押せますね。Developer Toolの出番やで！</p>
+
+<h2>2. カーソルに合わせてボタンが動く</h2>
+
+<p>JavaScriptを見てみると、<code>mouseover</code>と<code>touchstart</code>のタイミングで位置を移動させているのが分かります。</p>
+
+<p>```javascript
+// <a href="http://iine2014.fnobi.com/js/iine2014.js:9130">http://iine2014.fnobi.com/js/iine2014.js:9130</a>
+(function (win) {</p>
+
+<pre><code>$(function () {
+    var $window = $(window);
+    var $iine = $('#iine');
+
+    // 略
+
+    $iine.on('mouseover touchstart', function () {
+      // 略
+    });
+</code></pre>
+
+<p>```</p>
+
+<p>なので、このeventを解除してやれば動かなくなります(・∀・) <code>on</code>の逆をすればいいのです</p>
+
+<h2>まとめ</h2>
+
+<p>解説しましたが、つまるところ<code>#iine</code>にまつわるものを解除してやればいいので、Developer Toolを開いて、ちょめっとすれば一瞬ですネヾ(*´∀｀*)ﾉ</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[カヤックのお年玉企画がすげぇ！]]></title>
