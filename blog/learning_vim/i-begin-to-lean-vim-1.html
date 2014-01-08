@@ -496,16 +496,16 @@ Vimを勉強し始めました #1 | RailsとRubyとVimのブログRailsとRuby�
           <small>&nbsp;&copy; 2013, alpaca.tc</small>
         </div>
         <script>
-(
+(function(w, d) {
   window.onload = function () {
-    load_javascript
-  }
+    setTimeout(function() { load_javascript() }, 400);
+  };
 
-  function load_javascript(w, d) {
-    var s, e = d.getElementsByTagName("script")[0],
+  function load_javascript() {
+    var s, e = d.getElementsByTagName('script')[0],
     a = function(u, i) {
       if (!d.getElementById(i)) {
-        s = d.createElement("script");
+        s = d.createElement('script');
         s.src = u;
         if (i) {
           s.id = i;
