@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: alpaca_octopress | RailsとRubyとVimのブログ]]></title>
-  <link href="http://alpaca-tc.github.io/blog/alpaca-octopress/atom.xml" rel="self"/>
-  <link href="http://alpaca-tc.github.io/"/>
-  <updated>2014-01-08T19:46:56+09:00</updated>
-  <id>http://alpaca-tc.github.io/</id>
+  <link href="http://alpaca.tc/blog/alpaca-octopress/atom.xml" rel="self"/>
+  <link href="http://alpaca.tc/"/>
+  <updated>2014-01-08T20:04:34+09:00</updated>
+  <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[alpaca_octopress続き]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/alpaca_octopress/about_alpaca_complete.html"/>
+    <link href="http://alpaca.tc/blog/vim/alpaca_octopress/about_alpaca_complete.html"/>
     <updated>2013-10-30T04:34:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/vim/alpaca_octopress/about_alpaca_complete</id>
+    <id>http://alpaca.tc/blog/vim/alpaca_octopress/about_alpaca_complete</id>
     <content type="html"><![CDATA[<p>octopress用のプラグイン<em>alpaca_octopress.vim</em>をガシガシ作っています。
 コマンドの非同期実行、サイトのプレビュー、etc&hellip;全てをVimで完結しつつあります！</p>
 
@@ -33,9 +33,9 @@
   
   <entry>
     <title type="html"><![CDATA[alpaca_octopressを作っている]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/alpaca_octopress/create_new_plugin_for_octopress.html"/>
+    <link href="http://alpaca.tc/blog/vim/alpaca_octopress/create_new_plugin_for_octopress.html"/>
     <updated>2013-10-29T04:52:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/vim/alpaca_octopress/create_new_plugin_for_octopress</id>
+    <id>http://alpaca.tc/blog/vim/alpaca_octopress/create_new_plugin_for_octopress</id>
     <content type="html"><![CDATA[<p>昨日言った通り、今は<a href="https://github.com/alpaca-tc/alpaca_octopress.vim">alpaca_octopress.vim</a>を作っています</p>
 
 <!-- more -->

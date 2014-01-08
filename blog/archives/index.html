@@ -24,9 +24,9 @@ Dec 29 2013 &hellip;">
 
     <meta property="og:title" content='Blog Archive | RailsとRubyとVimのブログ' />
 <meta property="og:locale" content="ja"/>
-<meta property="og:image" content="http://http://alpaca-tc.github.io/images/meta/site_title.png"/>
+<meta property="og:image" content="http://http://alpaca.tc/images/meta/site_title.png"/>
 <meta property="og:type" content="blog"/>
-<meta property="og:url" content="http://alpaca-tc.github.io/blog/archives/index.html"/>
+<meta property="og:url" content="http://alpaca.tc/blog/archives/index.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
 <meta property="og:email" content="alprhcp666@gmail.com"/>
 <meta property="og:description" content="2014 カヤックのお年玉企画「お好き玉」の解説
@@ -40,7 +40,7 @@ Dec 29 2013 &hellip;" />
 Jan 07 2014 posted in web-service カヤックのお年玉企画がすげぇ！
 Jan 01 2014 posted in web-service 2013 2013年に作ったVimプラグイン達
 Dec 29 2013 &hellip;">
-<meta name="twitter:image" content="http://http://alpaca-tc.github.io/images/meta/site_title.png">
+<meta name="twitter:image" content="http://http://alpaca.tc/images/meta/site_title.png">
 <meta name="twitter:site" content="@alpaca_taichou">
 <meta name="twitter:creator" content="@alpaca_taichou">
 
@@ -499,7 +499,7 @@ Dec 29 2013 &hellip;">
 
   <section id="side_sharing" class="sidebar_row">
   <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca-tc.github.io" class="hatena-bookmark-button" data-hatena-bookmark-title="RailsとRubyとVimのブログ" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このブログをはてなブックマークに追加">
+    <a href="http://b.hatena.ne.jp/entry/http://alpaca.tc" class="hatena-bookmark-button" data-hatena-bookmark-title="RailsとRubyとVimのブログ" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このブログをはてなブックマークに追加">
       <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このブログをはてなブックマークに追加" width="20" height="20" style="border: none;" />
     </a>
   <!-- </div> -->
@@ -566,11 +566,16 @@ Dec 29 2013 &hellip;">
           </div>
         </div>
         <div id="footer_mark">
-          <small>&nbsp;&copy; 2013, alpaca-tc.github.io</small>
+          <small>&nbsp;&copy; 2013, alpaca.tc</small>
         </div>
         <script>
-(function(w, d) {
-  var s, e = d.getElementsByTagName("script")[0],
+(
+  window.onload = function () {
+    load_javascript
+  }
+
+  function load_javascript(w, d) {
+    var s, e = d.getElementsByTagName("script")[0],
     a = function(u, i) {
       if (!d.getElementById(i)) {
         s = d.createElement("script");
@@ -581,11 +586,12 @@ Dec 29 2013 &hellip;">
         e.parentNode.insertBefore(s, e);
       }
     };
-  a("//b.st-hatena.com/js/bookmark_button_wo_al.js");
-  a("//platform.twitter.com/widgets.js", "twitter-wjs");
-  a("//connect.facebook.net/ja_JP/all.js#xfbml=1", "facebook-jssdk");
-  a("//alpaca-tc.disqus.com/embed.js");
-  a("https://apis.google.com/js/plusone.js");
+    a('//b.st-hatena.com/js/bookmark_button_wo_al.js');
+    a('//platform.twitter.com/widgets.js', 'twitter-wjs');
+    a('//connect.facebook.net/ja_JP/all.js#xfbml=1', 'facebook-jssdk');
+    a('//alpaca-tc.disqus.com/embed.js');
+    a('https://apis.google.com/js/plusone.js');
+  }
 })(this, document);
 </script>
 

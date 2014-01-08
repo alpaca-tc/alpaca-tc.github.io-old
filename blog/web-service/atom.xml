@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: web-service | RailsとRubyとVimのブログ]]></title>
-  <link href="http://alpaca-tc.github.io/blog/web-service/atom.xml" rel="self"/>
-  <link href="http://alpaca-tc.github.io/"/>
-  <updated>2014-01-08T19:46:56+09:00</updated>
-  <id>http://alpaca-tc.github.io/</id>
+  <link href="http://alpaca.tc/blog/web-service/atom.xml" rel="self"/>
+  <link href="http://alpaca.tc/"/>
+  <updated>2014-01-08T20:04:34+09:00</updated>
+  <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
     
@@ -15,10 +15,10 @@
   
   <entry>
     <title type="html"><![CDATA[カヤックのお年玉企画「お好き玉」の解説]]></title>
-    <link href="http://alpaca-tc.github.io/blog/web-service/kayac-2014-otoshidama-2.html"/>
+    <link href="http://alpaca.tc/blog/web-service/kayac-2014-otoshidama-2.html"/>
     <updated>2014-01-07T00:07:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/web-service/kayac-2014-otoshidama-2</id>
-    <content type="html"><![CDATA[<p><a href="http://alpaca-tc.github.io/blog/web-service/kayac-2014-otoshidama.html">先日紹介した「お好き玉」</a>ですが、アクセス数が多いはずなのにまだ2014に達していません！</p>
+    <id>http://alpaca.tc/blog/web-service/kayac-2014-otoshidama-2</id>
+    <content type="html"><![CDATA[<p><a href="/blog/web-service/kayac-2014-otoshidama.html">先日紹介した「お好き玉」</a>ですが、アクセス数が多いはずなのにまだ2014に達していません！</p>
 
 <p>アクセスが足りないのか、みんな諦めるのか分かりませんが<strong>2014を超したほうが楽しい</strong>ので、少しだけヒント載せておきます！</p>
 
@@ -97,9 +97,9 @@
   
   <entry>
     <title type="html"><![CDATA[カヤックのお年玉企画がすげぇ！]]></title>
-    <link href="http://alpaca-tc.github.io/blog/web-service/kayac-2014-otoshidama.html"/>
+    <link href="http://alpaca.tc/blog/web-service/kayac-2014-otoshidama.html"/>
     <updated>2014-01-01T18:24:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/web-service/kayac-2014-otoshidama</id>
+    <id>http://alpaca.tc/blog/web-service/kayac-2014-otoshidama</id>
     <content type="html"><![CDATA[<h1>2014人まで、「イイネ！」でお金がもらえるよ！</h1>
 
 <p>面白法人カヤックの新年企画だそうです^^</p>

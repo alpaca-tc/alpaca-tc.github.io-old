@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[RailsとRubyとVimのブログ]]></title>
-  <link href="http://alpaca-tc.github.io/atom.xml" rel="self"/>
-  <link href="http://alpaca-tc.github.io/"/>
-  <updated>2014-01-08T19:46:56+09:00</updated>
-  <id>http://alpaca-tc.github.io/</id>
+  <link href="http://alpaca.tc/atom.xml" rel="self"/>
+  <link href="http://alpaca.tc/"/>
+  <updated>2014-01-08T20:04:34+09:00</updated>
+  <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
     
@@ -15,10 +15,10 @@
   
   <entry>
     <title type="html"><![CDATA[カヤックのお年玉企画「お好き玉」の解説]]></title>
-    <link href="http://alpaca-tc.github.io/blog/web-service/kayac-2014-otoshidama-2.html"/>
+    <link href="http://alpaca.tc/blog/web-service/kayac-2014-otoshidama-2.html"/>
     <updated>2014-01-07T00:07:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/web-service/kayac-2014-otoshidama-2</id>
-    <content type="html"><![CDATA[<p><a href="http://alpaca-tc.github.io/blog/web-service/kayac-2014-otoshidama.html">先日紹介した「お好き玉」</a>ですが、アクセス数が多いはずなのにまだ2014に達していません！</p>
+    <id>http://alpaca.tc/blog/web-service/kayac-2014-otoshidama-2</id>
+    <content type="html"><![CDATA[<p><a href="http://alpaca.tc/blog/web-service/kayac-2014-otoshidama.html">先日紹介した「お好き玉」</a>ですが、アクセス数が多いはずなのにまだ2014に達していません！</p>
 
 <p>アクセスが足りないのか、みんな諦めるのか分かりませんが<strong>2014を超したほうが楽しい</strong>ので、少しだけヒント載せておきます！</p>
 
@@ -113,9 +113,9 @@
   
   <entry>
     <title type="html"><![CDATA[カヤックのお年玉企画がすげぇ！]]></title>
-    <link href="http://alpaca-tc.github.io/blog/web-service/kayac-2014-otoshidama.html"/>
+    <link href="http://alpaca.tc/blog/web-service/kayac-2014-otoshidama.html"/>
     <updated>2014-01-01T18:24:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/web-service/kayac-2014-otoshidama</id>
+    <id>http://alpaca.tc/blog/web-service/kayac-2014-otoshidama</id>
     <content type="html"><![CDATA[<h1>2014人まで、「イイネ！」でお金がもらえるよ！</h1>
 
 <p>面白法人カヤックの新年企画だそうです^^</p>
@@ -136,9 +136,9 @@
   
   <entry>
     <title type="html"><![CDATA[2013年に作ったVimプラグイン達]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/vim-plugins-2013.html"/>
+    <link href="http://alpaca.tc/blog/vim/vim-plugins-2013.html"/>
     <updated>2013-12-29T22:54:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/vim/vim-plugins-2013</id>
+    <id>http://alpaca.tc/blog/vim/vim-plugins-2013</id>
     <content type="html"><![CDATA[<p>今年も残すところあと僅か！あぁ、Vimにどっぷりの一年でした。</p>
 
 <p><strong>今年書いたプラグインを紹介しまーす！</strong></p>
@@ -242,9 +242,9 @@
   
   <entry>
     <title type="html"><![CDATA[逆就活へ参加するときのノウハウまとめ]]></title>
-    <link href="http://alpaca-tc.github.io/blog/diary/gyaku-syuukatsu-1.html"/>
+    <link href="http://alpaca.tc/blog/diary/gyaku-syuukatsu-1.html"/>
     <updated>2013-12-25T23:23:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/diary/gyaku-syuukatsu-1</id>
+    <id>http://alpaca.tc/blog/diary/gyaku-syuukatsu-1</id>
     <content type="html"><![CDATA[<h1>逆就活に参加してきました！</h1>
 
 <p>世の中には<a href="http://www.studenthunting.com/">IT系逆就活</a>というイベントがあります。</p>
@@ -443,9 +443,9 @@ Yahooの方に教えてもらえたような気がします。</p>
   
   <entry>
     <title type="html"><![CDATA[Vim中級者を脱する path編]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/jump-to-gem-path.html"/>
+    <link href="http://alpaca.tc/blog/vim/jump-to-gem-path.html"/>
     <updated>2013-12-19T08:02:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/vim/jump-to-gem-path</id>
+    <id>http://alpaca.tc/blog/vim/jump-to-gem-path</id>
     <content type="html"><![CDATA[<p>はい、pathとは<code>:set path</code>で出てくるやつのことです。
 実際にはみなさん<code>gf</code>やファイル補完などでお世話になっていると思います。</p>
 
@@ -538,7 +538,7 @@ Yahooの方に教えてもらえたような気がします。</p>
 
 <p>下記のような動作で定義元に飛べるのが確認できると思います。</p>
 
-<p><img class="image_on_frame center" src="http://alpaca-tc.github.io/images/blog/jump-to-gem-path/hM4zx40RmT.gif" title="gemジャンプデモ" ></p>
+<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/jump-to-gem-path/hM4zx40RmT.gif" title="gemジャンプデモ" ></p>
 
 <p>無事動いていますね。</p>
 
@@ -554,9 +554,9 @@ Yahooの方に教えてもらえたような気がします。</p>
   
   <entry>
     <title type="html"><![CDATA[仕事が捗る！VimからGitを使う最適解]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/how-to-use-vim-unite-giti.html"/>
+    <link href="http://alpaca.tc/blog/vim/how-to-use-vim-unite-giti.html"/>
     <updated>2013-12-17T23:36:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/vim/how-to-use-vim-unite-giti</id>
+    <id>http://alpaca.tc/blog/vim/how-to-use-vim-unite-giti</id>
     <content type="html"><![CDATA[<p>先日の記事でもチラッと出てきた<a href="https://github.com/kmnk/vim-unite-giti">vim-unite-giti</a>というプラグインがあります。</p>
 
 <p><strong>ものすごーーーく便利</strong>なプラグインなんですが、何故かほとんど話を聞かないプラグインです。</p>
@@ -632,9 +632,9 @@ Yahooの方に教えてもらえたような気がします。</p>
   
   <entry>
     <title type="html"><![CDATA[Rubyのクラス変数について詰まったのでヘルプ]]></title>
-    <link href="http://alpaca-tc.github.io/blog/ruby/ruby-class-variable.html"/>
+    <link href="http://alpaca.tc/blog/ruby/ruby-class-variable.html"/>
     <updated>2013-12-16T01:10:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/ruby/ruby-class-variable</id>
+    <id>http://alpaca.tc/blog/ruby/ruby-class-variable</id>
     <content type="html"><![CDATA[<p>基本的に、仕事でクラス変数を扱うことはほぼ無いです。</p>
 
 <p>今回は遊びのコードを書いていて、悩んだことをまとめました。</p>
@@ -834,9 +834,9 @@ Yahooの方に教えてもらえたような気がします。</p>
   
   <entry>
     <title type="html"><![CDATA[Unite.vimとwatsonを使ったワークフロー]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/using-vim-unite-watson.html"/>
+    <link href="http://alpaca.tc/blog/vim/using-vim-unite-watson.html"/>
     <updated>2013-12-13T02:29:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/vim/using-vim-unite-watson</id>
+    <id>http://alpaca.tc/blog/vim/using-vim-unite-watson</id>
     <content type="html"><![CDATA[<p>最近、vim-unite-watsonを開発しました。</p>
 
 <p>これが、watsonの作者であるnhmoodさんにも好評で、僕自身ワークフローが変化して、だいぶ作業しやすくなりました。</p>
@@ -866,13 +866,13 @@ Yahooの方に教えてもらえたような気がします。</p>
 
 <h3>1-1. TODOをコードに入力する</h3>
 
-<p><img class="image_on_frame center" src="http://alpaca-tc.github.io/images/blog/workflow_1.png" title="本番環境用にViewを作成すると記入する" ></p>
+<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/workflow_1.png" title="本番環境用にViewを作成すると記入する" ></p>
 
 <h3>1-2. IssueをGithubにあげる</h3>
 
-<p>インラインIssue管理の<a href="http://alpaca-tc.github.io/blog/ruby/how-to-use-watson.html">watson</a>を使って、GithubにIssueをあげます</p>
+<p>インラインIssue管理の<a href="http://alpaca.tc/blog/ruby/how-to-use-watson.html">watson</a>を使って、GithubにIssueをあげます</p>
 
-<p><img class="image_on_frame center" src="http://alpaca-tc.github.io/images/blog/workflow_2.png" title=":Watsonのデモ" ></p>
+<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/workflow_2.png" title=":Watsonのデモ" ></p>
 
 <p>Watsonを使えば、Vimから簡単にIssue管理を行うことが出来ますね。</p>
 
@@ -891,7 +891,7 @@ Yahooの方に教えてもらえたような気がします。</p>
 
 <p>新しいブランチの名前を入力して、<code>[checkout branch]</code>の行を選択します。</p>
 
-<p><img class="image_on_frame center" src="http://alpaca-tc.github.io/images/blog/workflow_3.png" title="Unite gitiのデモ" ></p>
+<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/workflow_3.png" title="Unite gitiのデモ" ></p>
 
 <p>すると、新しいブランチが作られました。</p>
 
@@ -901,11 +901,11 @@ Yahooの方に教えてもらえたような気がします。</p>
 
 <p>そのため、経験から作業が必要な箇所に目処をつけて、コメントを書いて行きます。</p>
 
-<p><img class="image_on_frame center" src="http://alpaca-tc.github.io/images/blog/workflow_4.png" title="" ></p>
+<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/workflow_4.png" title="" ></p>
 
-<p><img class="image_on_frame center" src="http://alpaca-tc.github.io/images/blog/workflow_5.png" title="" ></p>
+<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/workflow_5.png" title="" ></p>
 
-<p><img class="image_on_frame center" src="http://alpaca-tc.github.io/images/blog/workflow_6.png" title="" ></p>
+<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/workflow_6.png" title="" ></p>
 
 <p>todoの内容は、watsonによって管理されるので、vim-unite-watsonを使えば一覧としてみることができます。</p>
 
@@ -914,7 +914,7 @@ Yahooの方に教えてもらえたような気がします。</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p><img class="image_on_frame center" src="http://alpaca-tc.github.io/images/blog/workflow_7.png" title="unite-watsonのdemo" ></p>
+<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/workflow_7.png" title="unite-watsonのdemo" ></p>
 
 <p>これで、issueを解決するために必要な作業の一覧を自分で作ることが出来ました。</p>
 
@@ -963,9 +963,9 @@ Yahooの方に教えてもらえたような気がします。</p>
   
   <entry>
     <title type="html"><![CDATA[NeoComplete vs YouCompleteMe]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/neocomplete-vs-youcompleteme.html"/>
+    <link href="http://alpaca.tc/blog/vim/neocomplete-vs-youcompleteme.html"/>
     <updated>2013-12-10T00:04:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/vim/neocomplete-vs-youcompleteme</id>
+    <id>http://alpaca.tc/blog/vim/neocomplete-vs-youcompleteme</id>
     <content type="html"><![CDATA[<p>この記事は<a href="http://atnd.org/events/45072">Vim Advent Calendar 2013</a>の10日目です。</p>
 
 <p>先日は<a href="https://twitter.com/Linda_pp">@Linda</a>さんの<a href="http://rhysd.hatenablog.com/entry/2013/12/09/001219">無数のパッチを組み合わせて君だけの MacVim を作ろう！</a>でした。</p>
@@ -1023,7 +1023,7 @@ Yahooの方に教えてもらえたような気がします。</p>
 
 <p>使ってわかる、YCMのファイル補完の素晴らしさ。</p>
 
-<p><img class="image_on_frame center" src="http://alpaca-tc.github.io/images/blog/file_complete.png" title="YCMのファイル補完機能" ></p>
+<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/file_complete.png" title="YCMのファイル補完機能" ></p>
 
 <ul>
 <li>&ldquo;[Dir], [File]&#8221;で、補完候補の種類を入力している</li>
@@ -1130,15 +1130,15 @@ Yahooの方に教えてもらえたような気がします。</p>
   
   <entry>
     <title type="html"><![CDATA[インラインTODO管理のWatsonを使う]]></title>
-    <link href="http://alpaca-tc.github.io/blog/ruby/how-to-use-watson.html"/>
+    <link href="http://alpaca.tc/blog/ruby/how-to-use-watson.html"/>
     <updated>2013-12-03T23:49:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/ruby/how-to-use-watson</id>
+    <id>http://alpaca.tc/blog/ruby/how-to-use-watson</id>
     <content type="html"><![CDATA[<p>最近、Githubのトレンドにも入っていた<a href="http://goosecode.com/watson/">Watson</a>を紹介します。</p>
 
 <!-- more -->
 
 
-<p><img class="image_on_frame center" src="http://alpaca-tc.github.io/images/blog/watson.png" title="watsonのデモ" ></p>
+<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/watson.png" title="watsonのデモ" ></p>
 
 <h2>インラインTODO管理とは何か</h2>
 
@@ -1232,7 +1232,7 @@ Yahooの方に教えてもらえたような気がします。</p>
 
 <p>処理が終わると、Githubのissueへの登録が完了です。</p>
 
-<p><img class="image_on_frame center" src="http://alpaca-tc.github.io/images/blog/watson_issue_preview.png" title="githubのissueプレビュー" ></p>
+<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/watson_issue_preview.png" title="githubのissueプレビュー" ></p>
 
 <h2>まとめ</h2>
 
@@ -1254,9 +1254,9 @@ Yahooの方に教えてもらえたような気がします。</p>
   
   <entry>
     <title type="html"><![CDATA[Guard-shellが便利だった話]]></title>
-    <link href="http://alpaca-tc.github.io/blog/ruby/the-story-about-guard-shell.html"/>
+    <link href="http://alpaca.tc/blog/ruby/the-story-about-guard-shell.html"/>
     <updated>2013-11-23T01:34:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/ruby/the-story-about-guard-shell</id>
+    <id>http://alpaca.tc/blog/ruby/the-story-about-guard-shell</id>
     <content type="html"><![CDATA[<p><a href="https://github.com/guard/guard">Guard</a>って便利ですよねー。</p>
 
 <p>あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。</p>
@@ -1359,9 +1359,9 @@ Yahooの方に教えてもらえたような気がします。</p>
   
   <entry>
     <title type="html"><![CDATA[Vimを勉強し始めました #1]]></title>
-    <link href="http://alpaca-tc.github.io/blog/learning_vim/i-begin-to-lean-vim-1.html"/>
+    <link href="http://alpaca.tc/blog/learning_vim/i-begin-to-lean-vim-1.html"/>
     <updated>2013-11-21T09:11:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/learning_vim/i-begin-to-lean-vim-1</id>
+    <id>http://alpaca.tc/blog/learning_vim/i-begin-to-lean-vim-1</id>
     <content type="html"><![CDATA[<h1>Vim読書会 #1</h1>
 
 <p>先日から続けているVim読書会(一人)ですが、
@@ -1457,9 +1457,9 @@ Vimのオプションやコマンド名が、そのまま変数に使われて�
   
   <entry>
     <title type="html"><![CDATA[そろそろVimを使いこなせるようになりたい。]]></title>
-    <link href="http://alpaca-tc.github.io/blog/learning_vim/i-begin-to-learn-vim.html"/>
+    <link href="http://alpaca.tc/blog/learning_vim/i-begin-to-learn-vim.html"/>
     <updated>2013-11-15T06:58:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/learning_vim/i-begin-to-learn-vim</id>
+    <id>http://alpaca.tc/blog/learning_vim/i-begin-to-learn-vim</id>
     <content type="html"><![CDATA[<h1><strong>「俺、ちゃんとVimやるわ」</strong></h1>
 
 <p>&hellip;と、夏の途中に宣言してからというもの、</p>
@@ -1477,7 +1477,7 @@ Vimのオプションやコマンド名が、そのまま変数に使われて�
 
 <h2>そして、僕は2歳のころの時代へ&hellip;</h2>
 
-<p><img class="image_on_frame center" src="http://alpaca-tc.github.io/images/blog/2013_11_15.png" title="The version of Vim" ></p>
+<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/2013_11_15.png" title="The version of Vim" ></p>
 
 <p>1994年というと、僕がおもらしをして20万円ぐらいするPCを破壊したぐらいの時期でしょうか。</p>
 
@@ -1487,9 +1487,9 @@ Vimのオプションやコマンド名が、そのまま変数に使われて�
   
   <entry>
     <title type="html"><![CDATA[Vim中級者を脱する スコープ編]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/break-vim-beginners-scope.html"/>
+    <link href="http://alpaca.tc/blog/vim/break-vim-beginners-scope.html"/>
     <updated>2013-11-13T17:26:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/vim/break-vim-beginners-scope</id>
+    <id>http://alpaca.tc/blog/vim/break-vim-beginners-scope</id>
     <content type="html"><![CDATA[<p>個人的に、Vimで一番ハマったのが<strong>スコープの問題</strong>でした。</p>
 
 <p>vimrcのコピペばかりの、あなた。</p>
@@ -1660,9 +1660,9 @@ Vimのオプションやコマンド名が、そのまま変数に使われて�
   
   <entry>
     <title type="html"><![CDATA[JavaScript補完プラグインのTernはすごいヤツ]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/how-to-use-tern-vim.html"/>
+    <link href="http://alpaca.tc/blog/vim/how-to-use-tern-vim.html"/>
     <updated>2013-11-13T14:40:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/vim/how-to-use-tern-vim</id>
+    <id>http://alpaca.tc/blog/vim/how-to-use-tern-vim</id>
     <content type="html"><![CDATA[<p><strong>「え、JavaScriptを書いているのに、Tern使ってないの？」</strong></p>
 
 <p>ダサい。イケてない。
@@ -1702,16 +1702,16 @@ Vimのオプションやコマンド名が、そのまま変数に使われて�
   
   <entry>
     <title type="html"><![CDATA[Vimを使って新人教育]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/training-of-new-employee.html"/>
+    <link href="http://alpaca.tc/blog/vim/training-of-new-employee.html"/>
     <updated>2013-11-11T05:21:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/vim/training-of-new-employee</id>
+    <id>http://alpaca.tc/blog/vim/training-of-new-employee</id>
     <content type="html"><![CDATA[<p>嬉しいことに、一緒に働く仲間が2人増えました。</p>
 
 <p>まだRubyに慣れていないそうなので、はじめの一ヶ月は教育期間を挟みます。</p>
 
 <p>新人の方もvimmerなので、そのためのプラグインを作りました。</p>
 
-<p><img class="image_on_frame center" src="http://alpaca-tc.github.io/images/blog/11_11.png" title="Vimのデモ" ></p>
+<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/11_11.png" title="Vimのデモ" ></p>
 
 <p><strong><a href="https://github.com/enfactv/assignment">assignment.vim</a></strong></p>
 
@@ -1768,9 +1768,9 @@ Vimのオプションやコマンド名が、そのまま変数に使われて�
   
   <entry>
     <title type="html"><![CDATA[オススメなVimのプラグイン紹介]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/plugins-best-of-vim-1.html"/>
+    <link href="http://alpaca.tc/blog/vim/plugins-best-of-vim-1.html"/>
     <updated>2013-11-07T05:22:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/vim/plugins-best-of-vim-1</id>
+    <id>http://alpaca.tc/blog/vim/plugins-best-of-vim-1</id>
     <content type="html"><![CDATA[<p>普段使っているプラグインの中で、<em>これはイケてる！</em>と思ったプラグインを4つ紹介。</p>
 
 <!-- more -->
@@ -1872,9 +1872,9 @@ Vimのオプションやコマンド名が、そのまま変数に使われて�
   
   <entry>
     <title type="html"><![CDATA[Vim中級者を脱する augroup編]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/break-vim-beginners-augroup.html"/>
+    <link href="http://alpaca.tc/blog/vim/break-vim-beginners-augroup.html"/>
     <updated>2013-11-02T02:30:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/vim/break-vim-beginners-augroup</id>
+    <id>http://alpaca.tc/blog/vim/break-vim-beginners-augroup</id>
     <content type="html"><![CDATA[<h2>augroup, autocmdを理解する</h2>
 
 <p><strong>所要時間 3分</strong></p>
@@ -2001,9 +2001,9 @@ Vimのオプションやコマンド名が、そのまま変数に使われて�
   
   <entry>
     <title type="html"><![CDATA[octopressとセットで入れておきたいVimプラグインまとめ]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/octopress_and_vimplugin.html"/>
+    <link href="http://alpaca.tc/blog/vim/octopress_and_vimplugin.html"/>
     <updated>2013-11-01T17:06:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/vim/octopress_and_vimplugin</id>
+    <id>http://alpaca.tc/blog/vim/octopress_and_vimplugin</id>
     <content type="html"><![CDATA[<p>Octopressは利用者が一部なので、デフォルトのVimではなにも対応していません。
 プラグイン無しでも利用することもできますが、正直使いにくいですよね。</p>
 
@@ -2083,9 +2083,9 @@ Vimのオプションやコマンド名が、そのまま変数に使われて�
   
   <entry>
     <title type="html"><![CDATA[３日で検索1位になりました]]></title>
-    <link href="http://alpaca-tc.github.io/blog/seo/no1_alpaca_engineer.html"/>
+    <link href="http://alpaca.tc/blog/seo/no1_alpaca_engineer.html"/>
     <updated>2013-11-01T02:29:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/seo/no1_alpaca_engineer</id>
+    <id>http://alpaca.tc/blog/seo/no1_alpaca_engineer</id>
     <content type="html"><![CDATA[<p>二日前のブログにて
 こんなことを言っていたんですが、</p>
 
@@ -2095,7 +2095,7 @@ Vimのオプションやコマンド名が、そのまま変数に使われて�
 
 <p>ブログを初めて3日目にて、はやくも<strong>検索結果が1位</strong>になりました！</p>
 
-<p><img class="image_on_frame center" src="http://alpaca-tc.github.io/images/blog/seo_no_1.png" title="アルパカエンジニア SEO 1位" ></p>
+<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/seo_no_1.png" title="アルパカエンジニア SEO 1位" ></p>
 
 <p>超ニッチなワードだと、タイトルの一致率高めてやれば一瞬なんですね〜。
 僕の他にもアルパカを名乗るエンジニアブログが居たのですが、順位を抜いたのでやっと胸を張れます。(何に)</p>

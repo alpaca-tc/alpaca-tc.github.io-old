@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: learning_vim | RailsとRubyとVimのブログ]]></title>
-  <link href="http://alpaca-tc.github.io/blog/learning-vim/atom.xml" rel="self"/>
-  <link href="http://alpaca-tc.github.io/"/>
-  <updated>2014-01-08T19:46:56+09:00</updated>
-  <id>http://alpaca-tc.github.io/</id>
+  <link href="http://alpaca.tc/blog/learning-vim/atom.xml" rel="self"/>
+  <link href="http://alpaca.tc/"/>
+  <updated>2014-01-08T20:04:34+09:00</updated>
+  <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Vimを勉強し始めました #1]]></title>
-    <link href="http://alpaca-tc.github.io/blog/learning_vim/i-begin-to-lean-vim-1.html"/>
+    <link href="http://alpaca.tc/blog/learning_vim/i-begin-to-lean-vim-1.html"/>
     <updated>2013-11-21T09:11:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/learning_vim/i-begin-to-lean-vim-1</id>
+    <id>http://alpaca.tc/blog/learning_vim/i-begin-to-lean-vim-1</id>
     <content type="html"><![CDATA[<h1>Vim読書会 #1</h1>
 
 <p>先日から続けているVim読書会(一人)ですが、
@@ -102,9 +102,9 @@ Vimのオプションやコマンド名が、そのまま変数に使われて�
   
   <entry>
     <title type="html"><![CDATA[そろそろVimを使いこなせるようになりたい。]]></title>
-    <link href="http://alpaca-tc.github.io/blog/learning_vim/i-begin-to-learn-vim.html"/>
+    <link href="http://alpaca.tc/blog/learning_vim/i-begin-to-learn-vim.html"/>
     <updated>2013-11-15T06:58:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/learning_vim/i-begin-to-learn-vim</id>
+    <id>http://alpaca.tc/blog/learning_vim/i-begin-to-learn-vim</id>
     <content type="html"><![CDATA[<h1><strong>「俺、ちゃんとVimやるわ」</strong></h1>
 
 <p>&hellip;と、夏の途中に宣言してからというもの、</p>

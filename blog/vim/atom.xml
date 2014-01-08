@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: vim | RailsとRubyとVimのブログ]]></title>
-  <link href="http://alpaca-tc.github.io/blog/vim/atom.xml" rel="self"/>
-  <link href="http://alpaca-tc.github.io/"/>
-  <updated>2014-01-08T19:46:56+09:00</updated>
-  <id>http://alpaca-tc.github.io/</id>
+  <link href="http://alpaca.tc/blog/vim/atom.xml" rel="self"/>
+  <link href="http://alpaca.tc/"/>
+  <updated>2014-01-08T20:04:34+09:00</updated>
+  <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[2013年に作ったVimプラグイン達]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/vim-plugins-2013.html"/>
+    <link href="http://alpaca.tc/blog/vim/vim-plugins-2013.html"/>
     <updated>2013-12-29T22:54:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/vim/vim-plugins-2013</id>
+    <id>http://alpaca.tc/blog/vim/vim-plugins-2013</id>
     <content type="html"><![CDATA[<p>今年も残すところあと僅か！あぁ、Vimにどっぷりの一年でした。</p>
 
 <p><strong>今年書いたプラグインを紹介しまーす！</strong></p>
@@ -121,9 +121,9 @@
   
   <entry>
     <title type="html"><![CDATA[Vim中級者を脱する path編]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/jump-to-gem-path.html"/>
+    <link href="http://alpaca.tc/blog/vim/jump-to-gem-path.html"/>
     <updated>2013-12-19T08:02:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/vim/jump-to-gem-path</id>
+    <id>http://alpaca.tc/blog/vim/jump-to-gem-path</id>
     <content type="html"><![CDATA[<p>はい、pathとは<code>:set path</code>で出てくるやつのことです。
 実際にはみなさん<code>gf</code>やファイル補完などでお世話になっていると思います。</p>
 
@@ -221,9 +221,9 @@ $ bundle show --paths
   
   <entry>
     <title type="html"><![CDATA[仕事が捗る！VimからGitを使う最適解]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/how-to-use-vim-unite-giti.html"/>
+    <link href="http://alpaca.tc/blog/vim/how-to-use-vim-unite-giti.html"/>
     <updated>2013-12-17T23:36:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/vim/how-to-use-vim-unite-giti</id>
+    <id>http://alpaca.tc/blog/vim/how-to-use-vim-unite-giti</id>
     <content type="html"><![CDATA[<p>先日の記事でもチラッと出てきた<a href="https://github.com/kmnk/vim-unite-giti">vim-unite-giti</a>というプラグインがあります。</p>
 
 <p><strong>ものすごーーーく便利</strong>なプラグインなんですが、何故かほとんど話を聞かないプラグインです。</p>
@@ -297,9 +297,9 @@ $ bundle show --paths
   
   <entry>
     <title type="html"><![CDATA[Unite.vimとwatsonを使ったワークフロー]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/using-vim-unite-watson.html"/>
+    <link href="http://alpaca.tc/blog/vim/using-vim-unite-watson.html"/>
     <updated>2013-12-13T02:29:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/vim/using-vim-unite-watson</id>
+    <id>http://alpaca.tc/blog/vim/using-vim-unite-watson</id>
     <content type="html"><![CDATA[<p>最近、vim-unite-watsonを開発しました。</p>
 
 <p>これが、watsonの作者であるnhmoodさんにも好評で、僕自身ワークフローが変化して、だいぶ作業しやすくなりました。</p>
@@ -424,9 +424,9 @@ $ bundle show --paths
   
   <entry>
     <title type="html"><![CDATA[NeoComplete vs YouCompleteMe]]></title>
-    <link href="http://alpaca-tc.github.io/blog/vim/neocomplete-vs-youcompleteme.html"/>
+    <link href="http://alpaca.tc/blog/vim/neocomplete-vs-youcompleteme.html"/>
     <updated>2013-12-10T00:04:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/vim/neocomplete-vs-youcompleteme</id>
+    <id>http://alpaca.tc/blog/vim/neocomplete-vs-youcompleteme</id>
     <content type="html"><![CDATA[<p>この記事は<a href="http://atnd.org/events/45072">Vim Advent Calendar 2013</a>の10日目です。</p>
 
 <p>先日は<a href="https://twitter.com/Linda_pp">@Linda</a>さんの<a href="http://rhysd.hatenablog.com/entry/2013/12/09/001219">無数のパッチを組み合わせて君だけの MacVim を作ろう！</a>でした。</p>

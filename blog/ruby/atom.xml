@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: ruby | RailsとRubyとVimのブログ]]></title>
-  <link href="http://alpaca-tc.github.io/blog/ruby/atom.xml" rel="self"/>
-  <link href="http://alpaca-tc.github.io/"/>
-  <updated>2014-01-08T19:46:56+09:00</updated>
-  <id>http://alpaca-tc.github.io/</id>
+  <link href="http://alpaca.tc/blog/ruby/atom.xml" rel="self"/>
+  <link href="http://alpaca.tc/"/>
+  <updated>2014-01-08T20:04:34+09:00</updated>
+  <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Rubyのクラス変数について詰まったのでヘルプ]]></title>
-    <link href="http://alpaca-tc.github.io/blog/ruby/ruby-class-variable.html"/>
+    <link href="http://alpaca.tc/blog/ruby/ruby-class-variable.html"/>
     <updated>2013-12-16T01:10:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/ruby/ruby-class-variable</id>
+    <id>http://alpaca.tc/blog/ruby/ruby-class-variable</id>
     <content type="html"><![CDATA[<p>基本的に、仕事でクラス変数を扱うことはほぼ無いです。</p>
 
 <p>今回は遊びのコードを書いていて、悩んだことをまとめました。</p>
@@ -158,9 +158,9 @@ p Branch.instance_variable_get(&lsquo;@val&rsquo;) #=> &lsquo;Base&rsquo;
   
   <entry>
     <title type="html"><![CDATA[インラインTODO管理のWatsonを使う]]></title>
-    <link href="http://alpaca-tc.github.io/blog/ruby/how-to-use-watson.html"/>
+    <link href="http://alpaca.tc/blog/ruby/how-to-use-watson.html"/>
     <updated>2013-12-03T23:49:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/ruby/how-to-use-watson</id>
+    <id>http://alpaca.tc/blog/ruby/how-to-use-watson</id>
     <content type="html"><![CDATA[<p>最近、Githubのトレンドにも入っていた<a href="http://goosecode.com/watson/">Watson</a>を紹介します。</p>
 
 <!-- more -->
@@ -275,9 +275,9 @@ $ watson --update
   
   <entry>
     <title type="html"><![CDATA[Guard-shellが便利だった話]]></title>
-    <link href="http://alpaca-tc.github.io/blog/ruby/the-story-about-guard-shell.html"/>
+    <link href="http://alpaca.tc/blog/ruby/the-story-about-guard-shell.html"/>
     <updated>2013-11-23T01:34:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/ruby/the-story-about-guard-shell</id>
+    <id>http://alpaca.tc/blog/ruby/the-story-about-guard-shell</id>
     <content type="html"><![CDATA[<p><a href="https://github.com/guard/guard">Guard</a>って便利ですよねー。</p>
 
 <p>あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。</p>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: seo | RailsとRubyとVimのブログ]]></title>
-  <link href="http://alpaca-tc.github.io/blog/seo/atom.xml" rel="self"/>
-  <link href="http://alpaca-tc.github.io/"/>
-  <updated>2014-01-08T19:46:56+09:00</updated>
-  <id>http://alpaca-tc.github.io/</id>
+  <link href="http://alpaca.tc/blog/seo/atom.xml" rel="self"/>
+  <link href="http://alpaca.tc/"/>
+  <updated>2014-01-08T20:04:34+09:00</updated>
+  <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[３日で検索1位になりました]]></title>
-    <link href="http://alpaca-tc.github.io/blog/seo/no1_alpaca_engineer.html"/>
+    <link href="http://alpaca.tc/blog/seo/no1_alpaca_engineer.html"/>
     <updated>2013-11-01T02:29:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/seo/no1_alpaca_engineer</id>
+    <id>http://alpaca.tc/blog/seo/no1_alpaca_engineer</id>
     <content type="html"><![CDATA[<p>二日前のブログにて
 こんなことを言っていたんですが、</p>
 

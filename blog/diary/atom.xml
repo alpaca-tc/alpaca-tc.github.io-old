@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: diary | RailsとRubyとVimのブログ]]></title>
-  <link href="http://alpaca-tc.github.io/blog/diary/atom.xml" rel="self"/>
-  <link href="http://alpaca-tc.github.io/"/>
-  <updated>2014-01-08T19:46:56+09:00</updated>
-  <id>http://alpaca-tc.github.io/</id>
+  <link href="http://alpaca.tc/blog/diary/atom.xml" rel="self"/>
+  <link href="http://alpaca.tc/"/>
+  <updated>2014-01-08T20:04:34+09:00</updated>
+  <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[逆就活へ参加するときのノウハウまとめ]]></title>
-    <link href="http://alpaca-tc.github.io/blog/diary/gyaku-syuukatsu-1.html"/>
+    <link href="http://alpaca.tc/blog/diary/gyaku-syuukatsu-1.html"/>
     <updated>2013-12-25T23:23:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/diary/gyaku-syuukatsu-1</id>
+    <id>http://alpaca.tc/blog/diary/gyaku-syuukatsu-1</id>
     <content type="html"><![CDATA[<h1>逆就活に参加してきました！</h1>
 
 <p>世の中には<a href="http://www.studenthunting.com/">IT系逆就活</a>というイベントがあります。</p>
@@ -216,9 +216,9 @@ Yahooの方に教えてもらえたような気がします。</p>
   
   <entry>
     <title type="html"><![CDATA[初めました]]></title>
-    <link href="http://alpaca-tc.github.io/blog/diary/start_blog.html"/>
+    <link href="http://alpaca.tc/blog/diary/start_blog.html"/>
     <updated>2013-10-27T23:12:00+09:00</updated>
-    <id>http://alpaca-tc.github.io/blog/diary/start_blog</id>
+    <id>http://alpaca.tc/blog/diary/start_blog</id>
     <content type="html"><![CDATA[<p>記念すべき初カキコ。
 さて、技術ブログは今までQiitaを使っていましたが、そちらを辞めて自分のブログを作ることにしました。</p>
 

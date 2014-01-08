@@ -22,9 +22,9 @@
 
     <meta property="og:title" content='works | RailsとRubyとVimのブログ' />
 <meta property="og:locale" content="ja"/>
-<meta property="og:image" content="http://http://alpaca-tc.github.io/images/meta/site_title.png"/>
+<meta property="og:image" content="http://http://alpaca.tc/images/meta/site_title.png"/>
 <meta property="og:type" content="blog"/>
-<meta property="og:url" content="http://alpaca-tc.github.io/works/index.html"/>
+<meta property="og:url" content="http://alpaca.tc/works/index.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
 <meta property="og:email" content="alprhcp666@gmail.com"/>
 <meta property="og:description" content="最近の活動とか色々 2013 株式会社アントレプレナーファクトリー 企業家向け教育サービスの企画・構築(08/2013 &ndash; present)
@@ -34,7 +34,7 @@
 <meta name="twitter:title" content="works | RailsとRubyとVimのブログ">
 <meta name="twitter:description" content="最近の活動とか色々 2013 株式会社アントレプレナーファクトリー 企業家向け教育サービスの企画・構築(08/2013 &ndash; present)
 株式会社Lang-8 エンジニア。よく利用していて、使いたい機能があったためFBで連絡して少しJoin(06/2013 &ndash; 09/ &hellip;">
-<meta name="twitter:image" content="http://http://alpaca-tc.github.io/images/meta/site_title.png">
+<meta name="twitter:image" content="http://http://alpaca.tc/images/meta/site_title.png">
 <meta name="twitter:site" content="@alpaca_taichou">
 <meta name="twitter:creator" content="@alpaca_taichou">
 
@@ -238,7 +238,7 @@
 
   <section id="side_sharing" class="sidebar_row">
   <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca-tc.github.io" class="hatena-bookmark-button" data-hatena-bookmark-title="RailsとRubyとVimのブログ" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このブログをはてなブックマークに追加">
+    <a href="http://b.hatena.ne.jp/entry/http://alpaca.tc" class="hatena-bookmark-button" data-hatena-bookmark-title="RailsとRubyとVimのブログ" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このブログをはてなブックマークに追加">
       <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このブログをはてなブックマークに追加" width="20" height="20" style="border: none;" />
     </a>
   <!-- </div> -->
@@ -305,11 +305,16 @@
           </div>
         </div>
         <div id="footer_mark">
-          <small>&nbsp;&copy; 2013, alpaca-tc.github.io</small>
+          <small>&nbsp;&copy; 2013, alpaca.tc</small>
         </div>
         <script>
-(function(w, d) {
-  var s, e = d.getElementsByTagName("script")[0],
+(
+  window.onload = function () {
+    load_javascript
+  }
+
+  function load_javascript(w, d) {
+    var s, e = d.getElementsByTagName("script")[0],
     a = function(u, i) {
       if (!d.getElementById(i)) {
         s = d.createElement("script");
@@ -320,11 +325,12 @@
         e.parentNode.insertBefore(s, e);
       }
     };
-  a("//b.st-hatena.com/js/bookmark_button_wo_al.js");
-  a("//platform.twitter.com/widgets.js", "twitter-wjs");
-  a("//connect.facebook.net/ja_JP/all.js#xfbml=1", "facebook-jssdk");
-  a("//alpaca-tc.disqus.com/embed.js");
-  a("https://apis.google.com/js/plusone.js");
+    a('//b.st-hatena.com/js/bookmark_button_wo_al.js');
+    a('//platform.twitter.com/widgets.js', 'twitter-wjs');
+    a('//connect.facebook.net/ja_JP/all.js#xfbml=1', 'facebook-jssdk');
+    a('//alpaca-tc.disqus.com/embed.js');
+    a('https://apis.google.com/js/plusone.js');
+  }
 })(this, document);
 </script>
 
