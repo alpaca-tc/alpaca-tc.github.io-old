@@ -1,9 +1,14 @@
 <script>
 (function(w, d) {
-  var s, e = d.getElementsByTagName("script")[0],
+  window.onload = function () {
+    setTimeout(function() { load_javascript() }, 400);
+  };
+
+  function load_javascript() {
+    var s, e = d.getElementsByTagName('script')[0],
     a = function(u, i) {
       if (!d.getElementById(i)) {
-        s = d.createElement("script");
+        s = d.createElement('script');
         s.src = u;
         if (i) {
           s.id = i;
@@ -11,10 +16,11 @@
         e.parentNode.insertBefore(s, e);
       }
     };
-  a("//b.st-hatena.com/js/bookmark_button_wo_al.js");
-  a("//platform.twitter.com/widgets.js", "twitter-wjs");
-  a("//connect.facebook.net/ja_JP/all.js#xfbml=1", "facebook-jssdk");
-  a("//{{ site.social.disqus.short_name }}.disqus.com/embed.js");
-  a("https://apis.google.com/js/plusone.js");
+    a('//b.st-hatena.com/js/bookmark_button_wo_al.js');
+    a('//platform.twitter.com/widgets.js', 'twitter-wjs');
+    a('//connect.facebook.net/ja_JP/all.js#xfbml=1', 'facebook-jssdk');
+    a('//{{ site.social.disqus.short_name }}.disqus.com/embed.js');
+    a('https://apis.google.com/js/plusone.js');
+  }
 })(this, document);
 </script>

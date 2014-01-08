@@ -6,7 +6,7 @@ comments: true
 categories: web-service
 ---
 
-[先日紹介した「お好き玉」](http://alpaca-tc.github.io/blog/web-service/kayac-2014-otoshidama.html)ですが、アクセス数が多いはずなのにまだ2014に達していません！
+[先日紹介した「お好き玉」](/blog/web-service/kayac-2014-otoshidama.html)ですが、アクセス数が多いはずなのにまだ2014に達していません！
 
 アクセスが足りないのか、みんな諦めるのか分かりませんが**2014を超したほうが楽しい**ので、少しだけヒント載せておきます！
 
