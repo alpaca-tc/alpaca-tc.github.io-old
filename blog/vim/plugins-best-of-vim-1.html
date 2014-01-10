@@ -52,8 +52,8 @@ innoremap ( ()&lt;Left&gt;とか未だにやっているのダサくない？ 1
     <!--[if lte IE 8]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <!-- [todo] - あとで修正するよー -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="//b.st-hatena.com/js/bookmark_button_wo_al.js"></script>
 
     
   <script>
@@ -510,26 +510,33 @@ innoremap ( ()&lt;Left&gt;とか未だにやっているのダサくない？ 1
         </div>
         <script>
 (function(w, d) {
+  load_javascript();
   window.onload = function () {
-    load_javascript();
+    setTimeout(function() { lazy_load_javascript(); }, 100);
   };
 
-  function load_javascript() {
-    var s, e = d.getElementsByTagName('script')[0],
-    a = function(u, i) {
-      if (!d.getElementById(i)) {
-        s = d.createElement('script');
-        s.src = u;
-        if (i) {
-          s.id = i;
-        }
-        e.parentNode.insertBefore(s, e);
+  function insert_javascript(u, i) {
+    var s, e = d.getElementsByTagName('script')[0];
+    if (!d.getElementById(i)) {
+      s = d.createElement('script');
+      s.src = u;
+      s.async = true
+      if (i) {
+        s.id = i;
       }
-    };
-    a('//platform.twitter.com/widgets.js', 'twitter-wjs');
-    a('//connect.facebook.net/ja_JP/all.js#xfbml=1', 'facebook-jssdk');
-    a('//alpaca-tc.disqus.com/embed.js');
-    a('https://apis.google.com/js/plusone.js');
+      e.parentNode.insertBefore(s, e);
+    }
+  };
+
+  function lazy_load_javascript() {
+    insert_javascript('//platform.twitter.com/widgets.js', 'twitter-wjs');
+    insert_javascript('//connect.facebook.net/ja_JP/all.js#xfbml=1', 'facebook-jssdk');
+    insert_javascript('//apis.google.com/js/plusone.js');
+  }
+
+  function load_javascript() {
+    insert_javascript('//b.st-hatena.com/js/bookmark_button_wo_al.js');
+    insert_javascript('//alpaca-tc.disqus.com/embed.js');
   }
 })(this, document);
 </script>
