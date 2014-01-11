@@ -56,7 +56,9 @@ let g:neocomplete#sources#file_include#exts.liquid =
 
 先ほどのコードを読めば、だいたい分かると思います。(あなたがVimmerなら！)
 
-もし、マイナーな言語でfile\_include補完があった方が便利ならば、ぜひ設定をPRしてみてくださいー。
+もし、マイナーな言語でfile\_include補完があった方が便利ならば、拡張してみてくださいー。
+
+あるいは、&l:include, &l:includeexprなどで対応出来ているかもしれませんが。neocomplete.vim自体に設定が少ないのはそういうことです、(よね...？)
 
 個人的には、フレームワーク毎にfile\_includeが使いたい所存です。
 
