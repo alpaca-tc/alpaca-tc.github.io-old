@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vim | RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/blog/vim/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2014-01-11T20:43:26+09:00</updated>
+  <updated>2014-01-11T20:51:21+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -72,7 +72,9 @@ let g:neocomplete#sources#file_include#exts.liquid =
 
 <p>先ほどのコードを読めば、だいたい分かると思います。(あなたがVimmerなら！)</p>
 
-<p>もし、マイナーな言語でfile_include補完があった方が便利ならば、ぜひ設定をPRしてみてくださいー。</p>
+<p>もし、マイナーな言語でfile_include補完があった方が便利ならば、拡張してみてくださいー。</p>
+
+<p>あるいは、&amp;l:include, &amp;l:includeexprなどで対応出来ているかもしれませんが。neocomplete.vim自体に設定が少ないのはそういうことです、(よね&hellip;？)</p>
 
 <p>個人的には、フレームワーク毎にfile_includeが使いたい所存です。</p>
 
