@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vim | RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/blog/vim/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2014-01-11T02:34:57+09:00</updated>
+  <updated>2014-01-11T20:43:26+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,132 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[neocomplete.vimのfile_includeを使いこなす]]></title>
+    <link href="http://alpaca.tc/blog/vim/file-include-by-neocomplete.html"/>
+    <updated>2014-01-11T13:25:00+09:00</updated>
+    <id>http://alpaca.tc/blog/vim/file-include-by-neocomplete</id>
+    <content type="html"><![CDATA[<p>この記事は<a href="http://atnd.org/events/45072">Vim Advent Calendar 2013</a>の42日目の記事になります。</p>
+
+<h1>Neocomplete.vimのfile_includeを使いこなす</h1>
+
+<p>さて、今回の記事ではneocompleteのfile_includeを使いこなしてみます。</p>
+
+<p><img class="image_on_frame center" src="/images/blog/file-include-by-neocomplete/completion_capture.png" title="neocomplete_file_include" ></p>
+
+<!-- more -->
+
+
+<p>file_includeとは、ファイルパスを補完してくれるアレです。file補完との違いは、特定のキーワードや変換を含んだ補完が出来る点です。</p>
+
+<ol>
+<li>キーワード(<code>require</code>や<code>#include</code>)があると補完が始まり</li>
+<li>指定されたパスの中から候補を探し、変換して表示します。(例:<code>system.os</code>)</li>
+</ol>
+
+
+<p>内部では、path, include, includeexprなどが使われています。(pathの参考 &ndash;> <a href="/blog/vim/jump-to-gem-path.html">Vim中級者を脱する Path編</a>)</p>
+
+<h2>neocompleteを拡張する</h2>
+
+<p>file_includeを拡張する際には、neocompleteの設定をしてあげる必要があります。それぞれ、次のように5つ変数をファイルタイプ毎に設定します。</p>
+
+<p>指定しなければ、デフォルトの部分の変数が使用されます</p>
+
+<p>```vim
+&ldquo; Liquidで画像pathを補完する</p>
+
+<p>&ldquo; デフォルト &amp;l:path(検索対象のディレクトリ<code>,</code>区切り)
+let g:neocomplete#sources#include#paths.liquid =
+  \ &lsquo;/Users/alpaca-tc/projects/alpaca-tc.github.io/source&rsquo;</p>
+
+<p>&ldquo; デフォルト &amp;l:include(正規表現にマッチしたら補完を開始)
+let g:neocomplete#sources#include#patterns.liquid =
+  \ &lsquo;({\s<em>%(\s+\w+)+(\s</em>\|\s+[a-zA-Z0-9<em>#\?!]+)\@=\|{\s<em>{(\s+\w+)+(\s</em>\|\s+[a-zA-Z0-9</em>#\?!]+)\@=)&rsquo;</p>
+
+<p>&ldquo; デフォルト &amp;l:includeexpr(ファイルパスを出力する際に変換する)
+let g:neocomplete#sources#include#exprs.liquid =
+  \ &lsquo;substitute(v:fname, &rdquo;^/&ldquo;, &rdquo;&ldquo;, &rdquo;&ldquo;)&rsquo;</p>
+
+<p>&ldquo; デフォルト &lsquo;.&rsquo;(区切り文字の指定)
+let g:neocomplete#sources#file_include#delimiters.liquid = &lsquo;/&rsquo;</p>
+
+<p>&ldquo; デフォルト <a href="%E8%A3%9C%E5%AE%8C%E3%81%99%E3%82%8B%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E6%8B%A1%E5%BC%B5%E5%AD%90%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF%E3%83%BC"></a>
+let g:neocomplete#sources#file_include#exts.liquid =
+  \ [&lsquo;png&rsquo;, &lsquo;jpg&rsquo;, &lsquo;gif&rsquo;, &lsquo;jpeg&rsquo;, &lsquo;ico&rsquo;]
+```</p>
+
+<h2>解説いる？</h2>
+
+<p>先ほどのコードを読めば、だいたい分かると思います。(あなたがVimmerなら！)</p>
+
+<p>もし、マイナーな言語でfile_include補完があった方が便利ならば、ぜひ設定をPRしてみてくださいー。</p>
+
+<p>個人的には、フレームワーク毎にfile_includeが使いたい所存です。</p>
+
+<h2>Railsのimage_pathを補完してみる</h2>
+
+<p>最後です。</p>
+
+<p>Railsでimage_pathを入力する際に、typoが多いので補完で対応してみます。</p>
+
+<p>こんな感じで色々対応出来るはずなので、誰か本格的なRails用カスタマイズを作ってみてくれたらうれしいです！</p>
+
+<p>```vim
+&ldquo; Rails.vimが必須
+function! s:setup_include_file_for_rails()
+  if !exists(&lsquo;b:rails_root&rsquo;) || !exists(&lsquo;g:neocomplete#sources#include#paths&rsquo;)</p>
+
+<pre><code>return
+</code></pre>
+
+<p>  endif</p>
+
+<p>  let g:neocomplete#sources#include#patterns.haml =</p>
+
+<pre><code>    \ '^\s*\&lt;\%(image_path\|image_tag\)\&gt;'
+</code></pre>
+
+<p>  let g:neocomplete#sources#include#paths.haml =</p>
+
+<pre><code>    \ b:rails_root . '/app/assets/images'
+</code></pre>
+
+<p>  let g:neocomplete#sources#include#exprs.haml =</p>
+
+<pre><code>    \ "substitute(substitute(v:fname,'::','/','g'),'$','','')"
+</code></pre>
+
+<p>  let g:neocomplete#sources#file_include#exts.haml =</p>
+
+<pre><code>    \ ['png', 'jpg', 'gif', 'jpeg', 'ico']
+</code></pre>
+
+<p>  let g:neocomplete#sources#file_include#delimiters.haml = &lsquo;/&rsquo;
+endfunction
+command! RailsView call s:setup_include_file_for_rails()
+```</p>
+
+<p><strong>うっほい！</strong></p>
+
+<p><img class="image_on_frame center" src="/images/blog/file-include-by-neocomplete/completion_for_rails_view.png" title="completion_for_rails_view" ></p>
+
+<p>Shougoさんいつもありがとうございます。本当に。</p>
+
+<p>ちなみに、tpopeさんはこんな感じの事を剛腕で捩じ伏せて実現しています。Vimガチ勢怖い&hellip;。</p>
+
+<h2>Vim Advent Calendar 45</h2>
+
+<p>前日は@osyo_mangaさんの<a href="http://d.hatena.ne.jp/osyo-manga/20140110/1389342122">textobj の両端へ移動する operator つくった</a>でした。</p>
+
+<p>は！またosyoさんということは&hellip;!? と思っていたら、やはりVim Advent Calendarの今後の投稿者が居ませんでした;(</p>
+
+<p>このブログを見ているあなた！(特にここまで読み切ったVim狂)</p>
+
+<p>どうせVimmerしか居ない事は分かっています。<strong>ぜひ書いてください</strong> &ndash;> <a href="https://twitter.com/manga_osyo">osyoさん</a>に「記事書きたいですー」とリプライ飛ばしましょうー！</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[2013年に作ったVimプラグイン達]]></title>
@@ -419,152 +545,6 @@ $ bundle show --paths
 <li><a href="https://github.com/alpaca-tc/vim-unite-giti">vim-unite-giti (giti/pull_request追加版)</a></li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[NeoComplete vs YouCompleteMe]]></title>
-    <link href="http://alpaca.tc/blog/vim/neocomplete-vs-youcompleteme.html"/>
-    <updated>2013-12-10T00:04:00+09:00</updated>
-    <id>http://alpaca.tc/blog/vim/neocomplete-vs-youcompleteme</id>
-    <content type="html"><![CDATA[<p>この記事は<a href="http://atnd.org/events/45072">Vim Advent Calendar 2013</a>の10日目です。</p>
-
-<p>先日は<a href="https://twitter.com/Linda_pp">@Linda</a>さんの<a href="http://rhysd.hatenablog.com/entry/2013/12/09/001219">無数のパッチを組み合わせて君だけの MacVim を作ろう！</a>でした。</p>
-
-<p>大学卒業までに、自分専用Vimを作ろうと思っている自分にとって大変参考になる記事でした。</p>
-
-<h1>NeoComplete VS YouCompleteMe</h1>
-
-<p>さてさて、本日のAdvent CalendarではVimの補完プラグインの2大巨頭を比較してみようと思います。</p>
-
-<!-- more -->
-
-
-<ul>
-<li><a href="https://github.com/Shougo/neocomplete.vim">NeoComplete</a> &ndash; (Shougoさん作)</li>
-<li><a href="https://github.com/Valloric/YouCompleteMe">YouCompleteMe</a> &ndash; (Valloricさん作)</li>
-</ul>
-
-
-<p>元々、僕は<strong>大のShougo wareファン</strong>です。(Sourceや、本体への貢献も少ししています)</p>
-
-<p>そんな僕もVimを探求する気持ちから、ついYouCompleteMeに手を出してしまいました!!!</p>
-
-<p><strong>「は&hellip;速いぞこいつ！！」</strong></p>
-
-<p>その補完速度の衝撃さることながら、他にも素晴らしいことが。</p>
-
-<p>つい、NeoCompleteからの乗り換えが脳裏をよぎり、2週間使ってみることにしました。</p>
-
-<h2>何について書くの？</h2>
-
-<p>結論から言うと、NeoCompleteに戻ってきました。</p>
-
-<p>しかし、<strong>NeoCompleteに改善の余地がある</strong>ことに気付きました。</p>
-
-<p>「YCMのここが良かったから、NeoCompleteに取り入れよう！」という話をしたいと思います。</p>
-
-<h2>YouCompleteMeの良かった点</h2>
-
-<ul>
-<li><strong>補完が早い</strong></li>
-<li><strong>ファイル補完</strong>が素晴らしい</li>
-<li>設定がほぼ不要</li>
-<li>jedi.vim / clang-completeとの連携が容易</li>
-<li>fuzzy補完が使いやすい！</li>
-<li>YCM、と略しやすい。←</li>
-</ul>
-
-
-<p>補完スピードに関しては、感動しました。</p>
-
-<h3>ファイル補完機能</h3>
-
-<p>特筆すべきはファイル補完機能についてです。</p>
-
-<p>使ってわかる、YCMのファイル補完の素晴らしさ。</p>
-
-<p><img class="image_on_frame center" src="/images/blog/file_complete.png" title="YCMのファイル補完機能" ></p>
-
-<ul>
-<li>&ldquo;[Dir], [File]"で、補完候補の種類を入力している</li>
-<li>ファイル補完時、バッファ補完などのノイズが入らない</li>
-</ul>
-
-
-<p>今まで、NeoCompleteで満足していたんですが、YCMを使って初めて改善の余地があることに気付きました。</p>
-
-<h2>YouCompleteMeの悪かった点</h2>
-
-<ul>
-<li>補完の種類が少ない</li>
-<li>カスタマイズができない。</li>
-<li>補完候補の<code>dup</code>フラグが全てオン</li>
-</ul>
-
-
-<p>いや、一応カスタマイズしてNeoCompleteの移植できたんですけどね。疲れました。</p>
-
-<h2>NeoCompleteを改善する</h2>
-
-<p>さて、YCMを使って2週間。良いところをいくつか取り入れましょう。</p>
-
-<p><strong>(追記: ファイル補完に関する修正は、本家に取り込まれました)</strong></p>
-
-<h3>1. file補完のノイズを改善する</h3>
-
-<p>デフォルトのNeoCompleteのfile補完のrankが低いため、ファイル補完時に他の候補が上にきてしまいます。</p>
-
-<p>ファイル補完の優先順位をあげましょう。</p>
-
-<p><code>vim
-call neocomplete#custom#source('file', 'rank', 10)
-</code></p>
-
-<p>これに関しては、<strong>元々のファイル補完のrankがなぜ低いのか疑問</strong>です。理由があるのでしょうか。</p>
-
-<h3>2. file補完で[Dir], [File]を表示する</h3>
-
-<p>NeoCompleteに<a href="https://gist.github.com/qickstarter/7872458">パッチ</a>をあてます。</p>
-
-<p>これで、YouCompleteMeと同じファイル補完を実現できます。</p>
-
-<h3>3. 補完速度を向上する</h3>
-
-<p>YCMでは、補完が少し止まる感覚が一切ありませんでした。</p>
-
-<p>NeoCompleteはsourceを駆け巡って、頑張って補完候補を取得しているのである程度は仕方ないです。</p>
-
-<p>ただ、自分の環境にあわせれば、補完スピードはあがるはずです。</p>
-
-<p>```vim
-&ldquo; 極端な例ですが、下記のような操作で補完をチューニングできます</p>
-
-<p>&ldquo; 補完を始めるキーワード長を長くする
-let g:neocomplete#sources#syntax#min_keyword_length = 4
-let g:neocomplete#auto_completion_start_length = 4</p>
-
-<p>&ldquo; 補完が止まった際に、スキップする長さを短くする
-let g:neocomplete#skip_auto_completion_time = &lsquo;0.2&rsquo;</p>
-
-<p>&ldquo; 使用する補完の種類を減らす
-&rdquo; 現在のSourceの取得は <code>:echo keys(neocomplete#variables#get_sources())</code>
-&ldquo; デフォルト: [&lsquo;file&rsquo;, &lsquo;tag&rsquo;, &lsquo;neosnippet&rsquo;, &lsquo;vim&rsquo;, &lsquo;dictionary&rsquo;, &lsquo;omni&rsquo;, &lsquo;member&rsquo;, &lsquo;syntax&rsquo;, &lsquo;include&rsquo;, &lsquo;buffer&rsquo;, &lsquo;file/include&rsquo;]
-let g:neocomplete#sources = {
-  \ &lsquo;_&rsquo; : [&lsquo;vim&rsquo;, &lsquo;omni&rsquo;, &lsquo;include&rsquo;, &lsquo;buffer&rsquo;, &lsquo;file/include&rsquo;]
-  \ }</p>
-
-<p>&ldquo; 特定のタイミングでのみ使う補完は、直接呼び出すようにする
-inoremap <expr>&lt;C-X>&lt;C-F>  neocomplete#start_manual_complete(&lsquo;file&rsquo;)
-inoremap <expr>&lt;C-X>&lt;C-K>  neocomplete#start_manual_complete(&lsquo;dictionary&rsquo;)
-inoremap <expr>&lt;C-X>s      neocomplete#start_manual_complete(&lsquo;neosnippet&rsquo;)
-```</p>
-
-<h2>まとめ</h2>
-
-<p>浮気して、彼女の良さに気付くパターンです。</p>
-
-<p>YCMを使って気付きました。なんだかんだ<strong>NeoCompleteが最高</strong>ですね！！</p>
 ]]></content>
   </entry>
   

@@ -7,42 +7,30 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <title>Vim中級者を脱する スコープ編 - RailsとRubyとVimのブログ</title>
+    <title>neocomplete.vimのfile_includeを使いこなす - RailsとRubyとVimのブログ</title>
     
-    <meta name="description" content="個人的に、Vimで一番ハマったのがスコープの問題でした。 vimrcのコピペばかりの、あなた。 せめて、よく登場するスコープだけでも理解してみましょう。 よく見るスコープ一覧 グローバルスコープ　g:
-関数内スコープ　a:
-スクリプトスコープ　s:
-バッファスコープ　b:
-接頭辞なし　let &hellip;">
+    <meta name="description" content="この記事はVim Advent Calendar 2013の42日目の記事になります。 Neocomplete.vimのfile_includeを使いこなす さて、今回の記事ではneocompleteのfile_includeを使いこなしてみます。 file_includeとは、 &hellip;">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
-    <meta content='Vim中級者を脱する スコープ編 | RailsとRubyとVimのブログ' name='title' />
+    <meta content='neocomplete.vimのfile_includeを使いこなす | RailsとRubyとVimのブログ' name='title' />
 
     
   <link rel="author" href="https://plus.google.com/105581201951227096827" />
   <link rel="publisher" href="https://plus.google.com/105581201951227096827" />
 
 
-    <meta property="og:title" content='Vim中級者を脱する スコープ編 | RailsとRubyとVimのブログ' />
+    <meta property="og:title" content='neocomplete.vimのfile_includeを使いこなす | RailsとRubyとVimのブログ' />
 <meta property="og:locale" content="ja"/>
 <meta property="og:image" content="http://http://alpaca.tc/images/meta/site_title.png"/>
 <meta property="og:type" content="blog"/>
-<meta property="og:url" content="http://alpaca.tc/blog/vim/break-vim-beginners-scope.html"/>
+<meta property="og:url" content="http://alpaca.tc/blog/vim/file-include-by-neocomplete.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
 <meta property="og:email" content="alprhcp666@gmail.com"/>
-<meta property="og:description" content="個人的に、Vimで一番ハマったのがスコープの問題でした。 vimrcのコピペばかりの、あなた。 せめて、よく登場するスコープだけでも理解してみましょう。 よく見るスコープ一覧 グローバルスコープ　g:
-関数内スコープ　a:
-スクリプトスコープ　s:
-バッファスコープ　b:
-接頭辞なし　let &hellip;" />
+<meta property="og:description" content="この記事はVim Advent Calendar 2013の42日目の記事になります。 Neocomplete.vimのfile_includeを使いこなす さて、今回の記事ではneocompleteのfile_includeを使いこなしてみます。 file_includeとは、 &hellip;" />
 
     <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vim中級者を脱する スコープ編 | RailsとRubyとVimのブログ">
-<meta name="twitter:description" content="個人的に、Vimで一番ハマったのがスコープの問題でした。 vimrcのコピペばかりの、あなた。 せめて、よく登場するスコープだけでも理解してみましょう。 よく見るスコープ一覧 グローバルスコープ　g:
-関数内スコープ　a:
-スクリプトスコープ　s:
-バッファスコープ　b:
-接頭辞なし　let &hellip;">
+<meta name="twitter:title" content="neocomplete.vimのfile_includeを使いこなす | RailsとRubyとVimのブログ">
+<meta name="twitter:description" content="この記事はVim Advent Calendar 2013の42日目の記事になります。 Neocomplete.vimのfile_includeを使いこなす さて、今回の記事ではneocompleteのfile_includeを使いこなしてみます。 file_includeとは、 &hellip;">
 <meta name="twitter:image" content="http://http://alpaca.tc/images/meta/site_title.png">
 <meta name="twitter:site" content="@alpaca_taichou">
 <meta name="twitter:creator" content="@alpaca_taichou">
@@ -75,11 +63,9 @@
 
 
 
-  <link rel="next" href="/blog/learning_vim/i-begin-to-learn-vim.html">
 
 
-
-  <link rel="prev" href="/blog/vim/how-to-use-tern-vim.html">
+  <link rel="prev" href="/blog/web-service/kayac-2014-otoshidama-2.html">
 
 
 
@@ -137,7 +123,7 @@
 
   <span typeof="v:Breadcrumb">
     <a href="" rel="v:url" property="v:title">
-      Vim中級者を脱する スコープ編
+      neocomplete.vimのfile_includeを使いこなす
     </a>
   </span>
 </div>
@@ -154,7 +140,7 @@
         <h1>
           
             
-              Vim中級者を脱する スコープ編
+              neocomplete.vimのfile_includeを使いこなす
           
         </h1>
       
@@ -175,7 +161,7 @@
 
 
 
-<time datetime="2013-11-13T17:26:00+09:00" pubdate data-updated="true">Nov 13<span>th</span>, 2013</time>
+<time datetime="2014-01-11T13:25:00+09:00" pubdate data-updated="true">Jan 11<span>th</span>, 2014</time>
             
   
 
@@ -198,53 +184,32 @@
     </header>
 
     
-      <section class="entry-content"><p>個人的に、Vimで一番ハマったのが<strong>スコープの問題</strong>でした。</p>
+      <section class="entry-content"><p>この記事は<a href="http://atnd.org/events/45072">Vim Advent Calendar 2013</a>の42日目の記事になります。</p>
 
-<p>vimrcのコピペばかりの、あなた。</p>
+<h1>Neocomplete.vimのfile_includeを使いこなす</h1>
 
-<p>せめて、よく登場するスコープだけでも理解してみましょう。</p>
+<p>さて、今回の記事ではneocompleteのfile_includeを使いこなしてみます。</p>
+
+<p><img class="image_on_frame center" src="/images/blog/file-include-by-neocomplete/completion_capture.png" title="neocomplete_file_include" ></p>
 
 <!-- more -->
 
 
-<h1>よく見るスコープ一覧</h1>
+<p>file_includeとは、ファイルパスを補完してくれるアレです。file補完との違いは、特定のキーワードや変換を含んだ補完が出来る点です。</p>
 
-<ul>
-<li><em>グローバル</em>スコープ　<code>g:</code></li>
-<li><em>関数内</em>スコープ　<code>a:</code></li>
-<li><em>スクリプト</em>スコープ　<code>s:</code></li>
-<li><em>バッファ</em>スコープ　<code>b:</code></li>
-<li><em>接頭辞なし</em>　<code>let huga=...</code>など</li>
-</ul>
+<ol>
+<li>キーワード(<code>require</code>や<code>#include</code>)があると補完が始まり</li>
+<li>指定されたパスの中から候補を探し、変換して表示します。(例:<code>system.os</code>)</li>
+</ol>
 
 
-<h2>グローバル(g:)スコープ</h2>
+<p>内部では、path, include, includeexprなどが使われています。(pathの参考 &ndash;> <a href="/blog/vim/jump-to-gem-path.html">Vim中級者を脱する Path編</a>)</p>
 
-<p><strong>どこからでも参照できます。</strong></p>
+<h2>neocompleteを拡張する</h2>
 
-<p>プラグインの設定で見慣れたスコープですね。</p>
+<p>file_includeを拡張する際には、neocompleteの設定をしてあげる必要があります。それぞれ、次のように5つ変数をファイルタイプ毎に設定します。</p>
 
-<p><code>let g:neocomplete#enable_at_startup = 1</code></p>
-
-<p>変数を初期化するには、次のようにします。
-大量のエラーコードによって操作できなくなるので、<strong>嫌いな人のvimrcの末尾に書き込んでください。</strong></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">for</span> <span class="nb">key</span> <span class="k">in</span> keys<span class="p">(</span><span class="k">g</span>:<span class="p">)</span>
-</span><span class='line'>  execute <span class="s1">&#39;unlet g:&#39;</span> . <span class="nb">key</span>
-</span><span class='line'><span class="k">endfor</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>関数内(a:)スコープ</h2>
-
-<p><strong>関数内で、引数を参照するときに使用するスコープ</strong></p>
-
-<p>個人的に一番理解しがたいスコープです。</p>
-
-<p>こんな感じで使います。他言語から移ってきた人には、正直使いづらい。</p>
+<p>指定しなければ、デフォルトの部分の変数が使用されます</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -255,114 +220,110 @@
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">function</span><span class="p">!</span> Huga<span class="p">(</span><span class="k">first</span><span class="p">,</span> second<span class="p">)</span>
-</span><span class='line'>  echo <span class="k">a</span>:<span class="k">first</span>
-</span><span class='line'><span class="c">  &quot;=&gt; &#39;a&#39;</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="c">&quot; Liquidで画像pathを補完する</span>
 </span><span class='line'>
-</span><span class='line'>  echo <span class="k">a</span>:
-</span><span class='line'><span class="c">  &quot;=&gt; {&#39;0&#39;: 0, &#39;000&#39;: [], &#39;second&#39;: &#39;b&#39;, &#39;first&#39;: &#39;a&#39;, &#39;firstline&#39;: 5, &#39;lastline&#39;: 5}</span>
-</span><span class='line'><span class="k">endfunction</span>
+</span><span class='line'><span class="c">&quot; デフォルト &amp;l:path(検索対象のディレクトリ`,`区切り)</span>
+</span><span class='line'><span class="k">let</span> <span class="k">g</span>:neocomplete#sources#<span class="nb">include</span>#paths.liquid <span class="p">=</span>
+</span><span class='line'>  \ <span class="s1">&#39;/Users/alpaca-tc/projects/alpaca-tc.github.io/source&#39;</span>
 </span><span class='line'>
-</span><span class='line'><span class="k">call</span> Huga<span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="c">&quot; デフォルト &amp;l:include(正規表現にマッチしたら補完を開始)</span>
+</span><span class='line'><span class="k">let</span> <span class="k">g</span>:neocomplete#sources#<span class="nb">include</span>#patterns.liquid <span class="p">=</span>
+</span><span class='line'>  \ <span class="s1">&#39;\({\s*%\(\s\+\w\+\)\+\(\s*\|\s\+[a-zA-Z0-9_#\?\!]\+\)\@=\|{\s*{\(\s\+\w\+\)\+\(\s*\|\s\+[a-zA-Z0-9_#\?\!]\+\)\@=\)&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">&quot; デフォルト &amp;l:includeexpr(ファイルパスを出力する際に変換する)</span>
+</span><span class='line'><span class="k">let</span> <span class="k">g</span>:neocomplete#sources#<span class="nb">include</span>#exprs.liquid <span class="p">=</span>
+</span><span class='line'>  \ <span class="s1">&#39;substitute(v:fname, &quot;^/&quot;, &quot;&quot;, &quot;&quot;)&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">&quot; デフォルト &#39;.&#39;(区切り文字の指定)</span>
+</span><span class='line'><span class="k">let</span> <span class="k">g</span>:neocomplete#sources#file_include#delimiters.liquid <span class="p">=</span> <span class="s1">&#39;/&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">&quot; デフォルト [](補完するファイル拡張子フィルター)</span>
+</span><span class='line'><span class="k">let</span> <span class="k">g</span>:neocomplete#sources#file_include#exts.liquid <span class="p">=</span>
+</span><span class='line'>  \ [<span class="s1">&#39;png&#39;</span><span class="p">,</span> <span class="s1">&#39;jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;gif&#39;</span><span class="p">,</span> <span class="s1">&#39;jpeg&#39;</span><span class="p">,</span> <span class="s1">&#39;ico&#39;</span>]
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>「あーなるほど、<strong>関数内でだけ有効なスコープなのか。</strong>」</p>
+<h2>解説いる？</h2>
 
-<p>と、思っていたら<em>それは間違い。</em></p>
+<p>先ほどのコードを読めば、だいたい分かると思います。(あなたがVimmerなら！)</p>
 
-<p>下記のようにすると、<strong>グローバルスコープとして参照できます。</strong></p>
+<p>もし、マイナーな言語でfile_include補完があった方が便利ならば、ぜひ設定をPRしてみてくださいー。</p>
+
+<p>個人的には、フレームワーク毎にfile_includeが使いたい所存です。</p>
+
+<h2>Railsのimage_pathを補完してみる</h2>
+
+<p>最後です。</p>
+
+<p>Railsでimage_pathを入力する際に、typoが多いので補完で対応してみます。</p>
+
+<p>こんな感じで色々対応出来るはずなので、誰か本格的なRails用カスタマイズを作ってみてくれたらうれしいです！</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">function</span><span class="p">!</span> <span class="k">a</span>:huga<span class="p">()</span>
-</span><span class='line'>  echo <span class="s1">&#39;Global!?!?!?&#39;</span>
-</span><span class='line'><span class="k">endfunction</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="c">&quot; Rails.vimが必須</span>
+</span><span class='line'><span class="k">function</span><span class="p">!</span> <span class="k">s</span>:setup_include_file_for_rails<span class="p">()</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">!</span>exists<span class="p">(</span><span class="s1">&#39;b:rails_root&#39;</span><span class="p">)</span> <span class="p">||</span> <span class="p">!</span>exists<span class="p">(</span><span class="s1">&#39;g:neocomplete#sources#include#paths&#39;</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">return</span>
+</span><span class='line'>  <span class="k">endif</span>
 </span><span class='line'>
-</span><span class='line'><span class="k">call</span> <span class="k">a</span>:huga<span class="p">()</span> <span class="c">&quot; =&gt; Global!?!?!?</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>実は、これ関数名に<code>:</code>が許可されているだけです。
-なので実際は<code>a:</code>スコープは関係ないんだけど、分かりづらい。</p>
-
-<h2>スクリプト(s:)スコープ</h2>
-
-<p><strong>ファイル内でのみ有効なスコープ</strong>です。</p>
-
-<p>プラグインで、プライベートなメソッドや定数を作るときによく使います。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">let</span> <span class="k">s</span>:script_scope <span class="p">=</span> <span class="s1">&#39;外部からは参照できない&#39;</span>
-</span><span class='line'><span class="k">function</span><span class="p">!</span> <span class="k">s</span>:script_scope_method<span class="p">()</span>
-</span><span class='line'><span class="c">  &quot; プライベートメソッドとしてよく使われる</span>
+</span><span class='line'>  <span class="k">let</span> <span class="k">g</span>:neocomplete#sources#<span class="nb">include</span>#patterns.haml <span class="p">=</span>
+</span><span class='line'>        \ <span class="s1">&#39;^\s*\&lt;\%(image_path\|image_tag\)\&gt;&#39;</span>
+</span><span class='line'>  <span class="k">let</span> <span class="k">g</span>:neocomplete#sources#<span class="nb">include</span>#paths.haml <span class="p">=</span>
+</span><span class='line'>        \ <span class="k">b</span>:rails_root . <span class="s1">&#39;/app/assets/images&#39;</span>
+</span><span class='line'>  <span class="k">let</span> <span class="k">g</span>:neocomplete#sources#<span class="nb">include</span>#exprs.haml <span class="p">=</span>
+</span><span class='line'>        \ <span class="s2">&quot;substitute(substitute(v:fname,&#39;::&#39;,&#39;/&#39;,&#39;g&#39;),&#39;$&#39;,&#39;&#39;,&#39;&#39;)&quot;</span>
+</span><span class='line'>  <span class="k">let</span> <span class="k">g</span>:neocomplete#sources#file_include#exts.haml <span class="p">=</span>
+</span><span class='line'>        \ [<span class="s1">&#39;png&#39;</span><span class="p">,</span> <span class="s1">&#39;jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;gif&#39;</span><span class="p">,</span> <span class="s1">&#39;jpeg&#39;</span><span class="p">,</span> <span class="s1">&#39;ico&#39;</span>]
+</span><span class='line'>  <span class="k">let</span> <span class="k">g</span>:neocomplete#sources#file_include#delimiters.haml <span class="p">=</span> <span class="s1">&#39;/&#39;</span>
 </span><span class='line'><span class="k">endfunction</span>
+</span><span class='line'>command<span class="p">!</span> RailsView <span class="k">call</span> <span class="k">s</span>:setup_include_file_for_rails<span class="p">()</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>この<code>s:</code>は、スクリプトがsourceされるときに置き換えられ、<code>&lt;SNR&gt;1_...</code>という感じの形になります。</p>
+<p><strong>うっほい！</strong></p>
 
-<p>えぇ、そうです。すると、<strong>グローバルなスコープとして参照できます。</strong></p>
+<p><img class="image_on_frame center" src="/images/blog/file-include-by-neocomplete/completion_for_rails_view.png" title="completion_for_rails_view" ></p>
 
-<p>この<code>&lt;SNR&gt;</code>の後にどの数値が割り振られているかは、<code>:scriptnames</code>で参照できます。</p>
+<p>Shougoさんいつもありがとうございます。本当に。</p>
 
-<p>また、<code>s:</code>は<code>&lt;SID&gt;</code>として使えばスコープを超えて使用できるようになります。</p>
+<p>ちなみに、tpopeさんはこんな感じの事を剛腕で捩じ伏せて実現しています。Vimガチ勢怖い&hellip;。</p>
 
-<p>マッピングの時に、scriptスコープを使う時などは必須ですね。</p>
+<h2>Vim Advent Calendar 45</h2>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="nb">nnoremap</span> <span class="k">s</span> :echo <span class="p">&lt;</span>SID<span class="p">&gt;</span>SID<span class="p">()&lt;</span>CR<span class="p">&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
+<p>前日は@osyo_mangaさんの<a href="http://d.hatena.ne.jp/osyo-manga/20140110/1389342122">textobj の両端へ移動する operator つくった</a>でした。</p>
 
+<p>は！またosyoさんということは&hellip;!? と思っていたら、やはりVim Advent Calendarの今後の投稿者が居ませんでした;(</p>
 
-<p>ただし、<strong>変数は基本的には聖域</strong>です。</p>
+<p>このブログを見ているあなた！(特にここまで読み切ったVim狂)</p>
 
-<h2>バッファ(b:)スコープ</h2>
-
-<p><strong>バッファ単位のスコープ</strong>です。</p>
-
-<p>ファイルタイプによる設定や、一時バッファによる変数などに使います。</p>
-
-<ul>
-<li>ファイルタイプの変更で、<code>b:current_syntax</code>などが初期化&amp;格納されます</li>
-<li>Uniteを起動で、<code>b:unite</code>にデータが格納されます。</li>
-</ul>
-
-
-<p>Uniteのデバッグするときには、<code>echo b:unite.candidates</code>などを参照しましょう。</p>
-
-<p>あぁ、ようやくまともなスコープだ。</p>
-
-<h2>接頭辞なし(<code>let huga=</code>)変数</h2>
-
-<p>えぇ。<strong>グローバルなスコープです。</strong></p>
-
-<p>お前もか！</p>
-
-<p>マナーとしては、やはり<code>g:</code>で宣言したいところですが、</p>
-
-<p>Vimにデフォルトで入っているプラグインは、容赦なくこの変数を使ってきます。</p>
-
-<p><code>:echo loaded_*&lt;Tab&gt;</code>などすれば、奴らを見つけられるはずです。</p>
-
-<p>細かいことを言えば、関数内ならばローカルスコープです。。。</p>
-
-<h2>スコープのまとめ</h2>
-
-<ul>
-<li>スコープは<strong>ほとんどグローバルで参照できる</strong></li>
-<li>VimLは枠にハマらない<strong>素敵な</strong>言語仕様を持っている</li>
-<li>getbufvar()などでスコープへアクセス出来るため、<strong>聖域はほとんど無い</strong></li>
-</ul>
-
-
-<p><strong>正直今でも理解出来ていない。</strong></p>
+<p>どうせVimmerしか居ない事は分かっています。<strong>ぜひ書いてください</strong> &ndash;> <a href="https://twitter.com/manga_osyo">osyoさん</a>に「記事書きたいですー」とリプライ飛ばしましょうー！</p>
 </section>
     
 
@@ -377,27 +338,27 @@
 
 <section class="sharing clearfix">
   <div class="button ft_like_button">
-    <div class="fb-like" data-href="http://alpaca.tc/blog/vim/break-vim-beginners-scope.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
+    <div class="fb-like" data-href="http://alpaca.tc/blog/vim/file-include-by-neocomplete.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
   </div>
 
   <div class="button ft_share_button">
-    <div class="fb-share-button" data-href="http://alpaca.tc/blog/vim/break-vim-beginners-scope.html" data-type="button_count"></div>
+    <div class="fb-share-button" data-href="http://alpaca.tc/blog/vim/file-include-by-neocomplete.html" data-type="button_count"></div>
   </div>
 
   <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca.tc/blog/vim/break-vim-beginners-scope.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
-Vim中級者を脱する スコープ編 | RailsとRubyとVimのブログRailsとRubyとVimのブログ
+    <a href="http://b.hatena.ne.jp/entry/http://alpaca.tc/blog/vim/file-include-by-neocomplete.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
+neocomplete.vimのfile_includeを使いこなす | RailsとRubyとVimのブログRailsとRubyとVimのブログ
 " data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
       <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
     </a>
   </div>
 
   <div class="button google_plus_button_like">
-    <div data-annotation="none" data-href="http://alpaca.tc/blog/vim/break-vim-beginners-scope.html" class="g-plusone" data-size="medium" ></div>
+    <div data-annotation="none" data-href="http://alpaca.tc/blog/vim/file-include-by-neocomplete.html" class="g-plusone" data-size="medium" ></div>
   </div>
 
   <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/break-vim-beginners-scope.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/vim/break-vim-beginners-scope.html" >Tweet</a>
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/file-include-by-neocomplete.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/vim/file-include-by-neocomplete.html" >Tweet</a>
   </div>
 </section>
 
@@ -421,14 +382,10 @@ Vim中級者を脱する スコープ編 | RailsとRubyとVimのブログRails�
                 <div class="pagination meta clearfix">
   
     <div class="arrow_block left_block">
-      <a class="basic-alignment" href="/blog/vim/how-to-use-tern-vim.html" title="Previous Post: JavaScript補完プラグインのTernはすごいヤツ">&laquo; JavaScript補完プラグインのTernはすごいヤツ</a>
+      <a class="basic-alignment" href="/blog/web-service/kayac-2014-otoshidama-2.html" title="Previous Post: カヤックのお年玉企画「お好き玉」の解説">&laquo; カヤックのお年玉企画「お好き玉」の解説</a>
     </div>
   
 
-  
-    <div class="arrow_block right_block">
-      <a class="basic-alignment" href="/blog/learning_vim/i-begin-to-learn-vim.html" title="Next Post: そろそろVimを使いこなせるようになりたい。">そろそろVimを使いこなせるようになりたい。 &raquo;</a>
-    </div>
   
 </div>
 
