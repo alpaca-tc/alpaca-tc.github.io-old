@@ -4,7 +4,7 @@
   <title><![CDATA[RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2014-01-11T20:51:21+09:00</updated>
+  <updated>2014-01-14T04:15:58+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,114 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[2014年にやりたい14のこと]]></title>
+    <link href="http://alpaca.tc/blog/diary/somethings-that-i-want-to-do.html"/>
+    <updated>2014-01-14T00:05:00+09:00</updated>
+    <id>http://alpaca.tc/blog/diary/somethings-that-i-want-to-do</id>
+    <content type="html"><![CDATA[<p>Takumi Kaiさんの<a href="http://nature-dot.com/othres/9">2014年にやりたい27のこと</a>を読んで、こういうを記事にするのも良いなぁと思った。</p>
+
+<blockquote><p>思考は現実になる</p></blockquote>
+
+<p>この言葉は僕も好きだし、新しくやることを考えるのは楽しいんだよ！</p>
+
+<!-- more -->
+
+
+<p>今年やることのリストを考えてみた:)</p>
+
+<h2>一人でやることリスト</h2>
+
+<h3>1. 海外に行く</h3>
+
+<p>海外の美術館に凄い興味あります</p>
+
+<h3>2. 美術館に行く</h3>
+
+<p>今年は特に、予約が必要な個人のアトリエとか行きたいなー！</p>
+
+<h3>3. 東京まで散歩する</h3>
+
+<p>散歩が趣味です</p>
+
+<p>東京まで7日かからないみたいなので、就活がてら歩くよー:)</p>
+
+<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/somethings-that-i-want-to-do/IMG_0118.jpg" width="200" title="東京から滋賀まで歩く" ></p>
+
+<h3>4. 岡本太郎の本を3冊読む</h3>
+
+<p>中学生のころからたまらなく好き。</p>
+
+<p>20代の決意を新たにするために、読まないといけない！</p>
+
+<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/somethings-that-i-want-to-do/pic_okamoto.jpg" title="岡本太郎の本" ></p>
+
+<h3>5. 今年も1,000時間以上プログラミングする</h3>
+
+<p>今のところの累計は8,500時間ぐらい。就活早く終われー</p>
+
+<h3>7. Vim Version3を読み切る</h3>
+
+<p>別の言語でVimを再実装する試み。もっとVimを愛さなければ&hellip;。</p>
+
+<h2>人とやる事</h2>
+
+<h3>7. アルパカのはんこを掘る</h3>
+
+<p>祖父がはんこ職人で、僕も家に帰ったら彫刻刀で掘ってます。</p>
+
+<p>文字しか掘らないけれど、せっかくだしイラストのハンコ掘ってみたいなァ</p>
+
+<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/somethings-that-i-want-to-do/pic_hanko.jpg" width="200" title="判子を掘る" ></p>
+
+<h3>8. 前職でお世話になった人に会う</h3>
+
+<p>ドリラボ時代の先輩方に会いたい！</p>
+
+<p>尊敬している杉さんには昨晩会えました(ﾟ∀ﾟ)</p>
+
+<h3>9. 酒蔵に行く</h3>
+
+<p>東京で、<em>まっちゃん</em>という方に日本酒の話を聞いて、感動しました。</p>
+
+<p>さすが酒蔵で働いてだけあって、しぼり方や法律や裏事情まで精通していました。</p>
+
+<p><em>「この方ぐらい勉強しないと日本酒に失礼だ。」</em></p>
+
+<p>と思ったので、日本酒好きな同年代集めて酒蔵に行くよ。</p>
+
+<h3>10. 金沢の芸術家の一家に会いにいく</h3>
+
+<p>昨年、金沢の喫茶店で美味しいコーヒーを飲んでいたら、色々あって<strong>芸術家の家に泊まることになった。</strong></p>
+
+<p>あれは、人生でトップクラスに楽しい一日だった。</p>
+
+<p>一宿一飯の恩があるので、今年中にお礼に行きたい！</p>
+
+<h2>仕事とかやりたいこと</h2>
+
+<p>長々と書いてきたので、少しはしょります。</p>
+
+<ul>
+<li>11.自分のブログ500uu/day アクセス</li>
+<li>12.自分のポートフォリオサイトを作る</li>
+<li>13.仕事の事業を軌道に乗せる</li>
+<li>14.意思決定・事業計画の知識を学ぶ</li>
+</ul>
+
+
+<h2>人生について考える</h2>
+
+<p>2014年にやること・やりたいことを考えるのは楽しいなぁー。</p>
+
+<p>こうやって考えていて思ったけれど、仕事を始めてから「大学で何かしたい」という考えがさっぱり無くなった。</p>
+
+<p>関西学生エンジニアの猛者たちは、思いっきりが良くて凄い。自分は、常識を捨てられないのか、度胸が無いのか、あるいは大学を卒業するのが正しいのか。。</p>
+
+<p>本当は、大学なんてすぐにやめて、またしっかり働きたいよ。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[neocomplete.vimのfile_includeを使いこなす]]></title>
@@ -2146,88 +2254,6 @@ Vimのオプションやコマンド名が、そのまま変数に使われて�
 <h2>本日の脱Vim中級者</h2>
 
 <p>vimrcでファイルタイプの検出をしている方は、<code>~/.vim/ftdetect</code>以下に設定を移してみましょう。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[octopressとセットで入れておきたいVimプラグインまとめ]]></title>
-    <link href="http://alpaca.tc/blog/vim/octopress_and_vimplugin.html"/>
-    <updated>2013-11-01T17:06:00+09:00</updated>
-    <id>http://alpaca.tc/blog/vim/octopress_and_vimplugin</id>
-    <content type="html"><![CDATA[<p>Octopressは利用者が一部なので、デフォルトのVimではなにも対応していません。
-プラグイン無しでも利用することもできますが、正直使いにくいですよね。</p>
-
-<p>最低限下記のプラグインぐらいは入れておきましょう。</p>
-
-<!-- more -->
-
-
-<h2><a href="https://github.com/tpope/vim-liquid">vim-liquid</a></h2>
-
-<p><code>liquid</code>はoctopress(jekyll)で採用されているテンプレートエンジンです。</p>
-
-<p>このプラグインを入れると、ファイルタイプの検知や、キーワードのハイライトをしてくれるようになります。
-何が良いかというと、そのおかげで<code>neocomplete.vim</code>や<code>matchit.vim</code>などの他のプラグインもliquid用に対応してくれるんですよね。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'>NeoBundleLazy <span class="s1">&#39;tpope/vim-liquid&#39;</span><span class="p">,</span> { <span class="s1">&#39;autoload&#39;</span> : {
-</span><span class='line'>      \ <span class="s1">&#39;filetypes&#39;</span> : <span class="s1">&#39;liquid&#39;</span>
-</span><span class='line'>      \ }}
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2><a href="https://github.com/tangledhelix/vim-octopress">vim-octopress</a></h2>
-
-<p>VimからOctopressのコマンド操作をするプラグインです。
-<code>:Octopress [command][{option}]</code>で実行することができます。</p>
-
-<ol>
-<li><code>:Octopress new_post title</code></li>
-<li><code>:Octopress gen_deploy</code></li>
-</ol>
-
-
-<p>この2回の操作で、新しい記事をアップロードできます。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'>NeoBundleLazy <span class="s1">&#39;tangledhelix/vim-octopress&#39;</span><span class="p">,</span> { <span class="s1">&#39;autoload&#39;</span> : {
-</span><span class='line'>      \ <span class="s1">&#39;commands&#39;</span>: <span class="s1">&#39;Octopress&#39;</span><span class="p">,</span>
-</span><span class='line'>      \ }}
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2><a href="https://github.com/alpaca-tc/alpaca_octopress.vim">alpaca_octopress</a></h2>
-
-<p><code>vim-octopress</code>の非同期実行版です。
-人柱属性のある方はこちらをオススメします。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'>NeoBundleLazy <span class="s1">&#39;alpaca-tc/alpaca_octopress.vim&#39;</span><span class="p">,</span> { <span class="s1">&#39;autoload&#39;</span> : {
-</span><span class='line'>      \ <span class="s1">&#39;branch&#39;</span>: <span class="s1">&#39;v0.3&#39;</span><span class="p">,</span>
-</span><span class='line'>      \ <span class="s1">&#39;functions&#39;</span> : <span class="s1">&#39;octopress#complete&#39;</span><span class="p">,</span>
-</span><span class='line'>      \ <span class="s1">&#39;commands&#39;</span>: {
-</span><span class='line'>      \   <span class="s1">&#39;name&#39;</span> : <span class="s1">&#39;Octopress&#39;</span><span class="p">,</span>
-</span><span class='line'>      \   <span class="s1">&#39;complete&#39;</span> : <span class="s1">&#39;customlist,octopress#complete&#39;</span><span class="p">,</span>
-</span><span class='line'>      \ }<span class="p">,</span>
-</span><span class='line'>      \ }}
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>まとめ</h2>
-
-<p>Octopressはかなりエンジニアと相性が良いプロジェクトだと思います。
-ついでにVimmerの方は、これらのプラグインを入れてより親和性を高めましょう！</p>
 ]]></content>
   </entry>
   
