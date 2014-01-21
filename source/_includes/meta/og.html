@@ -1,4 +1,4 @@
-<meta property="og:title" content='{% if page.title %}{{ page.title }} - RailsとRubyとVimのブログ{% else %}{{ site.single_title }}{% endif %}' />
+<meta property="og:title" content='{% if page.title %}{{ page.title }}{% else %}{{ site.single_title }}{% endif %}' />
 <meta property="og:locale" content="ja_JP"/>
 <meta property="og:image" content="http://{{ site.url }}/images/meta/site_title.png"/>
 <meta property="og:type" content="blog"/>
@@ -6,3 +6,5 @@
 <meta property="og:site_name" content="{{ site.title }}"/>
 <meta property="og:email" content="{{ site.author_info.email }}"/>
 <meta property="og:description" content="{{ description | strip_html | condense_spaces | truncate:150 }}" />
+<meta property="fb:app_id" content="{{ site.social.facebook.app_id }}" />
+224701561024840
