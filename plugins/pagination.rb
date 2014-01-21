@@ -53,6 +53,8 @@ module Jekyll
   class Pager
     attr_reader :page, :per_page, :posts, :total_posts, :total_pages, :previous_page, :next_page
 
+    const_set(:PAGE_OFFSET, 3)
+
     # Calculate the number of pages.
     #
     # all_posts - The Array of all Posts.
@@ -102,7 +104,9 @@ module Jekyll
     end
 
     def surround_with_current_page
-      [1, 2, 3, 4].map do |i|
+      init = @page >= 2 ? @page - 1 : 1
+      offset = @total_pages >= @page + PAGE_OFFSET ? @page + PAGE_OFFSET : @total_pages
+      (init...offset).map do |i|
         {
           'url' => "#{@page_dir}#{i}/",
           'page' => i
