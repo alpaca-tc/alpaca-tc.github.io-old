@@ -1,0 +1,53 @@
+---
+single: true
+---
+
+{% capture root_url %}{{ site.root | strip_slash }}{% endcapture %}
+{% include head.html %}
+  <body id="post_contents">
+    <div id="header_top" class="outer_envelope">
+      <header>{% include header.html %}</header>
+
+      <div id="main_contents">
+        <div class="inner_wrapper">
+          <div class="inner">
+            <div class="clearfix">
+              <div class="left_page inner_wrapper">
+
+                <article class="post_row">
+                  <div class="inner">
+                    <header class="field-items">
+                      {% unless page.no_header %}
+                        <h1>
+                          {% if index %}
+                            <a href="{{ root_url }}{{ post.url }}">
+                              {% if site.titlecase %}
+                                {{ post.title | titlecase }}
+                              {% else %}
+                                {{ post.title }}
+                              {% endif %}
+                            </a>
+                          {% else %}
+                            {% if site.titlecase %}
+                              {{ page.title | titlecase }}{% else %}{{ page.title }}
+                            {% endif %}
+                          {% endif %}
+                        </h1>
+                      {% endunless %}
+                    </header>
+
+                    <section class="entry-content">{{ content }}</section>
+                  </div>
+                </article>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- /div#main_contents -->
+
+      <footer role="contentinfo">{% include footer.html %}</footer>
+    </div>
+  </body>
+</html>
+
