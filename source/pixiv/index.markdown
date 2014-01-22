@@ -20,8 +20,6 @@ footer: true
 
 # 自己PR
 
-逆就活資料 - [元資料PDF パスワード: alpaca\_taichou](/images/blog/gyaku-syuukatsu-2/presen20140118.pdf)
-
 ## 将来やりたい事
 
 **10年後も、20年後もベンチャー企業で事業実現をサポートし続ける**
