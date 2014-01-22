@@ -396,32 +396,8 @@
 </script>
 
 </footer>
-
-  <script>
-    (function(w, d) {
-      function insert_javascript(u, i) {
-        var s, e = d.getElementsByTagName('script')[0];
-        if (!d.getElementById(i)) {
-          s = d.createElement('script');
-          s.src = u;
-          if (i) {
-            s.id = i;
-          }
-          e.parentNode.insertBefore(s, e);
-        }
-      };
-      insert_javascript('//f1.nakanohito.jp/lit/index.js');
-
-      try {
-        if (window.console) {
-          console.debug('Start: UserHeat');
-        };
-        var lb = new Vesicomyid.Bivalves('126227');
-        lb.init();
-      } catch(err) {
-      }
-    })(this, document);
-  </script>
+      <script src="http://f1.nakanohito.jp/lit/index.js" type="text/javascript" charset="utf-8"></script>
+      <script type="text/javascript">try { var lb = new Vesicomyid.Bivalves("126227"); lb.init(); } catch(err) {} </script>
     </div>
   </body>
 </html>
