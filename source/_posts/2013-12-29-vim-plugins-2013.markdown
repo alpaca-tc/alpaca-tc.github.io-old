@@ -73,7 +73,9 @@ tagsの非同期生成、tag用のunite-sourceなど同封しています。糞�
 
 ## [vim-unite-watson.vim]( https://github.com/alpaca-tc/vim-unite-watson.vim )
 
-[watson](http://goosecode.com/watson/)用のUnite-sourceです。海外の方にも結構使ってもらえているようです。
+{% img image_on_frame center https://f.cloud.github.com/assets/1688137/1726147/ac9b52fc-628a-11e3-8117-ef4824444729.gif watsonのcapture %}
+
+[watson](http://goosecode.com/watson/)用のUnite-sourceです。watson本体もガッツリ書き換えました。海外の方にも結構使ってもらえているようです。自身がプログラミングするとき、思考を止めないためにこのプラグインを作りました。
 
 ### その他、今年作ったプラグイン
 
