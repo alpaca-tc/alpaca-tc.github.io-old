@@ -4,7 +4,7 @@
   <title><![CDATA[RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2014-01-23T03:38:13+09:00</updated>
+  <updated>2014-01-23T20:55:42+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -610,7 +610,9 @@
 
 <h2><a href="https://github.com/alpaca-tc/vim-unite-watson.vim">vim-unite-watson.vim</a></h2>
 
-<p><a href="http://goosecode.com/watson/">watson</a>用のUnite-sourceです。海外の方にも結構使ってもらえているようです。</p>
+<p><img class="image_on_frame center" src="https://f.cloud.github.com/assets/1688137/1726147/ac9b52fc-628a-11e3-8117-ef4824444729.gif" title="watsonのcapture" ></p>
+
+<p><a href="http://goosecode.com/watson/">watson</a>用のUnite-sourceです。watson本体もガッツリ書き換えました。海外の方にも結構使ってもらえているようです。自身がプログラミングするとき、思考を止めないためにこのプラグインを作りました。</p>
 
 <h3>その他、今年作ったプラグイン</h3>
 
