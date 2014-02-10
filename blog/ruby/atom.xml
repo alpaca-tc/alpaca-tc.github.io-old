@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ruby | RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/blog/ruby/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2014-02-01T15:47:37+09:00</updated>
+  <updated>2014-02-10T12:59:00+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,77 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[久しぶりにGemを書いている]]></title>
+    <link href="http://alpaca.tc/blog/ruby/create-strip-comment.html"/>
+    <updated>2014-02-10T12:33:00+09:00</updated>
+    <id>http://alpaca.tc/blog/ruby/create-strip-comment</id>
+    <content type="html"><![CDATA[<p>最近、久しぶりにGemを書いてます。</p>
+
+<p>去年から<a href="https://github.com/nhmood/watson-ruby">watson-ruby</a>というinline issue manager貢献してます。</p>
+
+<p>watsonは凄い便利なんですが、コードがかなりアレなのです&hellip;。</p>
+
+<p>「全部リファクタリングさせてくれー！」って言っても、まだやりたい作業があるらしく「ブランチ切るから、もう少し待ってて:)」と言われたっきり&hellip;</p>
+
+<p>うーむ、、なかなか全部は触れないので、とりあえず一番やっかいな部分だけ汎用的にすべく自作しました。</p>
+
+<h2>どんなGem?</h2>
+
+<p>あらゆるプログラムソースを読み取って、<strong>コメント行のみを取り出すGem</strong>です。watsonでは、このコメント行を読み取って、todoの管理を行っています。</p>
+
+<p>最近のwatsonのPRを見ても、対応ファイルの追加(正規表現の追記)ばかりなのです。こんなもの、他のGemにくれてしまえ！</p>
+
+<p>どんなファイルタイプであれ、扱うのはコメントという概念なのだから、委譲して抽象化しちゃいましょう。</p>
+
+<h2>何が出来るようになるんだい？</h2>
+
+<p>あらゆるプログラムのソースコードをパースして、コメント行だけを抽象的に扱う事が出来ます。</p>
+
+<p>読み取って、何らかの処理をすることが出来ます。</p>
+
+<p>```ruby</p>
+
+<h1>今のところはこんな感じ。</h1>
+
+<h1>Gem名やmethod名は変更します</h1>
+
+<p>require &lsquo;strip_comment&rsquo;</p>
+
+<p>path = &lsquo;/path/to/file&rsquo;
+file = StripComment::FileObject.new(path)
+parser = StripComment::Parser.for(file)
+parser.scan
+parser.comments # => [StripComment::CodeObject::Comment, &hellip;]
+```</p>
+
+<p>簡単に思いつく限りの用途はこんな感じ。</p>
+
+<ul>
+<li>英語のコメントの文法チェック / 翻訳</li>
+<li><code>[review - @alpaca-tc ここ見ておいて！]</code>というコメントにGit post-hookをかけて、ダイレクトメッセージを送る</li>
+<li>iftttとの連携</li>
+</ul>
+
+
+<p>他にも色々出来そうですね。</p>
+
+<h2>Vimでテスト</h2>
+
+<p>さっそくVimと連携してみました。</p>
+
+<p><img class="image_on_frame center" src="/images/blog/create-strip-comment/comment.gif" title="comment.vimデモ" ></p>
+
+<p>コメント行を取り出して、Gingerで文法チェックしています。</p>
+
+<h2>まとめ</h2>
+
+<p>あとは対応ファイルを増やして、リファクタリングしたら完成です。</p>
+
+<p>終わったら誰か、コードレビューして欲しいなぁ！ヽ(・∀・ )ﾉわーい</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rubyのクラス変数について詰まったのでヘルプ]]></title>

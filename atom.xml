@@ -4,7 +4,7 @@
   <title><![CDATA[RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2014-02-01T15:47:37+09:00</updated>
+  <updated>2014-02-10T12:59:00+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,83 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[久しぶりにGemを書いている]]></title>
+    <link href="http://alpaca.tc/blog/ruby/create-strip-comment.html"/>
+    <updated>2014-02-10T12:33:00+09:00</updated>
+    <id>http://alpaca.tc/blog/ruby/create-strip-comment</id>
+    <content type="html"><![CDATA[<p>最近、久しぶりにGemを書いてます。</p>
+
+<p>去年から<a href="https://github.com/nhmood/watson-ruby">watson-ruby</a>というinline issue manager貢献してます。</p>
+
+<p>watsonは凄い便利なんですが、コードがかなりアレなのです&hellip;。</p>
+
+<p>「全部リファクタリングさせてくれー！」って言っても、まだやりたい作業があるらしく「ブランチ切るから、もう少し待ってて:)」と言われたっきり&hellip;</p>
+
+<p>うーむ、、なかなか全部は触れないので、とりあえず一番やっかいな部分だけ汎用的にすべく自作しました。</p>
+
+<h2>どんなGem?</h2>
+
+<p>あらゆるプログラムソースを読み取って、<strong>コメント行のみを取り出すGem</strong>です。watsonでは、このコメント行を読み取って、todoの管理を行っています。</p>
+
+<p>最近のwatsonのPRを見ても、対応ファイルの追加(正規表現の追記)ばかりなのです。こんなもの、他のGemにくれてしまえ！</p>
+
+<p>どんなファイルタイプであれ、扱うのはコメントという概念なのだから、委譲して抽象化しちゃいましょう。</p>
+
+<h2>何が出来るようになるんだい？</h2>
+
+<p>あらゆるプログラムのソースコードをパースして、コメント行だけを抽象的に扱う事が出来ます。</p>
+
+<p>読み取って、何らかの処理をすることが出来ます。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># 今のところはこんな感じ。</span>
+</span><span class='line'><span class="c1"># Gem名やmethod名は変更します</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;strip_comment&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/path/to/file&#39;</span>
+</span><span class='line'><span class="n">file</span> <span class="o">=</span> <span class="ss">StripComment</span><span class="p">:</span><span class="ss">:FileObject</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</span><span class='line'><span class="n">parser</span> <span class="o">=</span> <span class="ss">StripComment</span><span class="p">:</span><span class="ss">:Parser</span><span class="o">.</span><span class="n">for</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</span><span class='line'><span class="n">parser</span><span class="o">.</span><span class="n">scan</span>
+</span><span class='line'><span class="n">parser</span><span class="o">.</span><span class="n">comments</span> <span class="c1"># =&gt; [StripComment::CodeObject::Comment, ...]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>簡単に思いつく限りの用途はこんな感じ。</p>
+
+<ul>
+<li>英語のコメントの文法チェック / 翻訳</li>
+<li><code>[review - @alpaca-tc ここ見ておいて！]</code>というコメントにGit post-hookをかけて、ダイレクトメッセージを送る</li>
+<li>iftttとの連携</li>
+</ul>
+
+
+<p>他にも色々出来そうですね。</p>
+
+<h2>Vimでテスト</h2>
+
+<p>さっそくVimと連携してみました。</p>
+
+<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/create-strip-comment/comment.gif" title="comment.vimデモ" ></p>
+
+<p>コメント行を取り出して、Gingerで文法チェックしています。</p>
+
+<h2>まとめ</h2>
+
+<p>あとは対応ファイルを増やして、リファクタリングしたら完成です。</p>
+
+<p>終わったら誰か、コードレビューして欲しいなぁ！ヽ(・∀・ )ﾉわーい</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[逆就活へ参加するときのノウハウまとめ 続き]]></title>
@@ -2168,110 +2245,6 @@ Vimのオプションやコマンド名が、そのまま変数に使われて�
 
 <p>初めは、8クイーン問題や、RubyのDSLを作る問題などです。
 初級者向けですが、少しは暇つぶしにはなると思いますよ！</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[オススメなVimのプラグイン紹介]]></title>
-    <link href="http://alpaca.tc/blog/vim/plugins-best-of-vim-1.html"/>
-    <updated>2013-11-07T05:22:00+09:00</updated>
-    <id>http://alpaca.tc/blog/vim/plugins-best-of-vim-1</id>
-    <content type="html"><![CDATA[<p>普段使っているプラグインの中で、<em>これはイケてる！</em>と思ったプラグインを4つ紹介。</p>
-
-<!-- more -->
-
-
-<h2><a href="https://github.com/jiangmiao/auto-pairs">auto-pairs</a></h2>
-
-<ul>
-<li><code>{}</code>、<code>()</code>などの、対応する文字を<em>自働入力</em></li>
-<li>括弧の片方が消えた時や、重複する時に<em>自働で調整してくれる</em></li>
-<li><code>innoremap ( ()&lt;Left&gt;</code>とか未だにやっているのダサくない？</li>
-</ul>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="c">&quot; [本家](https://github.com/jiangmiao/auto-pairs)</span>
-</span><span class='line'><span class="c">&quot; Lazy loading用に修正済み</span>
-</span><span class='line'>NeoBundleLazy <span class="s1">&#39;alpaca-tc/auto-pairs&#39;</span><span class="p">,</span> { <span class="s1">&#39;autoload&#39;</span> : {
-</span><span class='line'>      \ <span class="s1">&#39;insert&#39;</span>: <span class="m">1</span> }}
-</span><span class='line'>
-</span><span class='line'><span class="k">let</span> hooks <span class="p">=</span> neobundle#get_hooks<span class="p">(</span><span class="s1">&#39;auto-pairs&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="k">function</span><span class="p">!</span> hooks.on_post_source<span class="p">(</span>bundle<span class="p">)</span>
-</span><span class='line'>  <span class="k">call</span> auto_pairs#try_init<span class="p">()</span>
-</span><span class='line'><span class="k">endfunction</span>
-</span><span class='line'>unlet hooks
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2><a href="https://github.com/junegunn/vim-easy-align">vim-easy-align</a></h2>
-
-<ul>
-<li>使いやすさ抜群の<em>整列用プラグイン</em></li>
-<li><code>Alignta</code>がメジャーだけど、正直使いにくいよね。</li>
-</ul>
-
-
-<p><img class="image_on_frame center" src="https://raw.github.com/junegunn/i/master/vim-easy-align.gif" title="vim-easy-align DEMO" ></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'>NeoBundleLazy <span class="s1">&#39;junegunn/vim-easy-align&#39;</span><span class="p">,</span> { <span class="s1">&#39;autoload&#39;</span>: {
-</span><span class='line'>      \ <span class="s1">&#39;commands&#39;</span> : [<span class="s1">&#39;EasyAlign&#39;</span>] }}
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2><a href="https://github.com/Yggdroot/indentLine">indentLine</a></h2>
-
-<ul>
-<li>イケてる、<em>インデント表示プラグイン</em></li>
-<li><code>vim-indent-guides</code>は画面がうるさくなるから嫌！っていう人向け</li>
-</ul>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">if</span> has<span class="p">(</span><span class="s1">&#39;conceal&#39;</span><span class="p">)</span>
-</span><span class='line'>  NeoBundleLazy <span class="s1">&#39;Yggdroot/indentLine&#39;</span><span class="p">,</span> { <span class="s1">&#39;autoload&#39;</span> : {
-</span><span class='line'>        \   <span class="s1">&#39;commands&#39;</span> : [<span class="s1">&#39;IndentLinesReset&#39;</span><span class="p">,</span> <span class="s1">&#39;IndentLinesToggle&#39;</span>]<span class="p">,</span>
-</span><span class='line'>        \   <span class="s1">&#39;filetypes&#39;</span>: <span class="k">g</span>:my.<span class="nb">ft</span>.program_files<span class="p">,</span>
-</span><span class='line'>        \ }}
-</span><span class='line'><span class="k">endif</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2><a href="https://github.com/terryma/vim-multiple-cursors">vim-multiple-cursors</a></h2>
-
-<ul>
-<li>SublimeTextの複数マーク&amp;同時編集 の機能を実現するプラグイン</li>
-<li>実装に関しては完全に「こいつ無茶しやがって&hellip;」状態。</li>
-</ul>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'>NeoBundleLazy <span class="s1">&#39;terryma/vim-multiple-cursors&#39;</span><span class="p">,</span> { <span class="s1">&#39;autload&#39;</span>: {
-</span><span class='line'>      \ <span class="s1">&#39;function_prefix&#39;</span>: <span class="s1">&#39;multiple_cursors&#39;</span><span class="p">,</span>
-</span><span class='line'>      \ }}
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>今回紹介したプラグインは、かなりシンプルに洗練されています。
-使っているだけでも、作者の男前さを感じられる。そんなプラグインだと思います。</p>
 ]]></content>
   </entry>
   
