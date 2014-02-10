@@ -183,68 +183,16 @@
 
 <p>うーむ、、なかなか全部は触れないので、とりあえず一番やっかいな部分だけ汎用的にすべく自作しました。</p>
 
-<h2>どんなGem?</h2>
-
-<p>あらゆるプログラムソースを読み取って、<strong>コメント行のみを取り出すGem</strong>です。watsonでは、このコメント行を読み取って、todoの管理を行っています。</p>
-
-<p>最近のwatsonのPRを見ても、対応ファイルの追加(正規表現の追記)ばかりなのです。こんなもの、他のGemにくれてしまえ！</p>
-
-<p>どんなファイルタイプであれ、扱うのはコメントという概念なのだから、委譲して抽象化しちゃいましょう。</p>
-
-<h2>何が出来るようになるんだい？</h2>
-
-<p>あらゆるプログラムのソースコードをパースして、コメント行だけを抽象的に扱う事が出来ます。</p>
-
-<p>読み取って、何らかの処理をすることが出来ます。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># 今のところはこんな感じ。</span>
-</span><span class='line'><span class="c1"># Gem名やmethod名は変更します</span>
-</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;strip_comment&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/path/to/file&#39;</span>
-</span><span class='line'><span class="n">file</span> <span class="o">=</span> <span class="ss">StripComment</span><span class="p">:</span><span class="ss">:FileObject</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-</span><span class='line'><span class="n">parser</span> <span class="o">=</span> <span class="ss">StripComment</span><span class="p">:</span><span class="ss">:Parser</span><span class="o">.</span><span class="n">for</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
-</span><span class='line'><span class="n">parser</span><span class="o">.</span><span class="n">scan</span>
-</span><span class='line'><span class="n">parser</span><span class="o">.</span><span class="n">comments</span> <span class="c1"># =&gt; [StripComment::CodeObject::Comment, ...]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>簡単に思いつく限りの用途はこんな感じ。</p>
-
-<ul>
-<li>英語のコメントの文法チェック / 翻訳</li>
-<li><code>[review - @alpaca-tc ここ見ておいて！]</code>というコメントにGit post-hookをかけて、ダイレクトメッセージを送る</li>
-<li>iftttとの連携</li>
-</ul>
-
-
-<p>他にも色々出来そうですね。</p>
-
-<h2>Vimでテスト</h2>
-
-<p>さっそくVimと連携してみました。</p>
-
-<p><img class="image_on_frame center" src="/images/blog/create-strip-comment/comment.gif" title="comment.vimデモ" ></p>
-
-<p>コメント行を取り出して、Gingerで文法チェックしています。</p>
-
-<h2>まとめ</h2>
-
-<p>あとは対応ファイルを増やして、リファクタリングしたら完成です。</p>
-
-<p>終わったら誰か、コードレビューして欲しいなぁ！ヽ(・∀・ )ﾉわーい</p>
 </section>
       
 
+      
+        <footer class="article_footer">
+          <div class="read_more">
+  <a href="/blog/ruby/create-strip-comment.html">続きを読む &rarr;</a>
+</div>
+
+        </footer>
       
     
 
