@@ -87,7 +87,7 @@ p other #=> [2, 3]
 def hoge(first: 1, second: 2, **others)
   p others #=> { third: 3 }
 end
-hoge(first: 1, second: 2, others: 3)
+hoge(first: 1, second: 2, third: 3)
 ```
 
 多分これはSplat Operatorと呼ばない。
