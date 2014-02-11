@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 意外と知らないRubyのSplat Operatorまとめ
+title: ここまで出来る！RubyのSplat Operatorまとめ
 date: 2014-02-12 04:16
 comments: true
 categories: ruby
