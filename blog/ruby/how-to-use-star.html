@@ -7,42 +7,30 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <title>Rubyのクラス変数について詰まったのでヘルプ - RailsとRubyとVimのブログ</title>
+    <title>ここまで出来る！RubyのSplat Operatorまとめ - RailsとRubyとVimのブログ</title>
     
-    <meta name="description" content="基本的に、仕事でクラス変数を扱うことはほぼ無いです。 今回は遊びのコードを書いていて、悩んだことをまとめました。 Rubyのクラス変数の扱いが難しい&hellip;。 これ、結構Ruby書いている自分でも初めて遭遇して悩む問題だった。 まず、次のような動くコードを書いてみた。 1
-2
-3
-4
-5 &hellip;">
+    <meta name="description" content="Splat Operatorとは、*のことです この前、友人にコードレビューしてもらっていたら 「え、Rubyってこんな書き方出来るんですか？」と言われて、「知らない人もいるんだなぁ」と思ったので簡単なまとめ Splat Operatorの色んな使い方 Splat Operatorは、 &hellip;">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
-    <meta content='Rubyのクラス変数について詰まったのでヘルプ | RailsとRubyとVimのブログ' name='title' />
+    <meta content='ここまで出来る！RubyのSplat Operatorまとめ | RailsとRubyとVimのブログ' name='title' />
 
     
   <link rel="author" href="https://plus.google.com/105581201951227096827" />
   <link rel="publisher" href="https://plus.google.com/105581201951227096827" />
 
 
-    <meta property="og:title" content='Rubyのクラス変数について詰まったのでヘルプ' />
+    <meta property="og:title" content='ここまで出来る！RubyのSplat Operatorまとめ' />
 <meta property="og:locale" content="ja_JP"/>
 <meta property="og:image" content="http://http://alpaca.tc/images/meta/site_title.png"/>
 <meta property="og:type" content="blog"/>
-<meta property="og:url" content="http://alpaca.tc/blog/ruby/ruby-class-variable.html"/>
+<meta property="og:url" content="http://alpaca.tc/blog/ruby/how-to-use-star.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
-<meta property="og:description" content="基本的に、仕事でクラス変数を扱うことはほぼ無いです。 今回は遊びのコードを書いていて、悩んだことをまとめました。 Rubyのクラス変数の扱いが難しい&hellip;。 これ、結構Ruby書いている自分でも初めて遭遇して悩む問題だった。 まず、次のような動くコードを書いてみた。 1
-2
-3
-4
-5 &hellip;" />
+<meta property="og:description" content="Splat Operatorとは、*のことです この前、友人にコードレビューしてもらっていたら 「え、Rubyってこんな書き方出来るんですか？」と言われて、「知らない人もいるんだなぁ」と思ったので簡単なまとめ Splat Operatorの色んな使い方 Splat Operatorは、 &hellip;" />
 <meta property="fb:app_id" content="224701561024840" />
 
     <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Rubyのクラス変数について詰まったのでヘルプ | RailsとRubyとVimのブログ">
-<meta name="twitter:description" content="基本的に、仕事でクラス変数を扱うことはほぼ無いです。 今回は遊びのコードを書いていて、悩んだことをまとめました。 Rubyのクラス変数の扱いが難しい&hellip;。 これ、結構Ruby書いている自分でも初めて遭遇して悩む問題だった。 まず、次のような動くコードを書いてみた。 1
-2
-3
-4
-5 &hellip;">
+<meta name="twitter:title" content="ここまで出来る！RubyのSplat Operatorまとめ | RailsとRubyとVimのブログ">
+<meta name="twitter:description" content="Splat Operatorとは、*のことです この前、友人にコードレビューしてもらっていたら 「え、Rubyってこんな書き方出来るんですか？」と言われて、「知らない人もいるんだなぁ」と思ったので簡単なまとめ Splat Operatorの色んな使い方 Splat Operatorは、 &hellip;">
 <meta name="twitter:image" content="http://http://alpaca.tc/images/meta/twitter.png">
 <meta name="twitter:site" content="@alpaca_taichou">
 <meta name="twitter:creator" content="@alpaca_taichou">
@@ -77,11 +65,9 @@
 
 
 
-  <link rel="next" href="/blog/vim/how-to-use-vim-unite-giti.html">
 
 
-
-  <link rel="prev" href="/blog/vim/using-vim-unite-watson.html">
+  <link rel="prev" href="/blog/ruby/create-strip-comment.html">
 
 
 
@@ -140,7 +126,7 @@
 
   <span typeof="v:Breadcrumb">
     <a href="" rel="v:url" property="v:title">
-      Rubyのクラス変数について詰まったのでヘルプ
+      ここまで出来る！RubyのSplat Operatorまとめ
     </a>
   </span>
 </div>
@@ -157,7 +143,7 @@
         <h1>
           
             
-              Rubyのクラス変数について詰まったのでヘルプ
+              ここまで出来る！RubyのSplat Operatorまとめ
           
         </h1>
       
@@ -178,7 +164,7 @@
 
 
 
-<time datetime="2013-12-16T01:10:00+09:00" pubdate data-updated="true">Dec 16<span>th</span>, 2013</time>
+<time datetime="2014-02-12T04:16:00+09:00" pubdate data-updated="true">Feb 12<span>th</span>, 2014</time>
             
   
 
@@ -201,18 +187,28 @@
     </header>
 
     
-      <section class="entry-content"><p>基本的に、仕事でクラス変数を扱うことはほぼ無いです。</p>
+      <section class="entry-content"><p>Splat Operatorとは、<code>*</code>のことです</p>
 
-<p>今回は遊びのコードを書いていて、悩んだことをまとめました。</p>
+<p><img class="image_on_frame center" src="/images/blog/how-to-use-star/capture.png" title="SplatOperator" ></p>
+
+<p>この前、友人にコードレビューしてもらっていたら</p>
+
+<p>「え、Rubyってこんな書き方出来るんですか？」と言われて、「知らない人もいるんだなぁ」と思ったので簡単なまとめ</p>
 
 <!-- more -->
 
 
-<h1>Rubyのクラス変数の扱いが難しい&hellip;。</h1>
+<h1>Splat Operatorの色んな使い方</h1>
 
-<p>これ、結構Ruby書いている自分でも初めて遭遇して悩む問題だった。</p>
+<p>Splat Operatorは、応用の幅が広いです。</p>
 
-<p>まず、次のような動くコードを書いてみた。</p>
+<p>結構当たり前だと思っていましたが、コード読書しないと見る機会は少ないかも。</p>
+
+<h2>1-1. 配列に変換する</h2>
+
+<p>まずは基本編。配列に変換してやりましょう</p>
+
+<p>文字列やsymbolは<code>.to_a</code>が無いですが、<code>*</code>を使えばどの変数でも配列に出来ちゃいます。</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -225,25 +221,94 @@
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Base</span><span class="p">;</span> <span class="k">end</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">string</span> <span class="o">=</span> <span class="o">*</span><span class="s2">&quot;string&quot;</span>
+</span><span class='line'><span class="nb">p</span> <span class="n">string</span> <span class="c1">#=&gt; [&quot;string&quot;]</span>
 </span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">Node</span> <span class="o">&lt;</span> <span class="no">Base</span>
-</span><span class='line'>  <span class="vc">@@val</span> <span class="o">=</span> <span class="s1">&#39;Node&#39;</span>
-</span><span class='line'><span class="k">end</span>
+</span><span class='line'><span class="n">symbol</span> <span class="o">=</span> <span class="o">*</span><span class="ss">:symbol</span>
+</span><span class='line'><span class="nb">p</span> <span class="n">symbol</span> <span class="c1">#=&gt; [:symbol]</span>
 </span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">Branch</span> <span class="o">&lt;</span> <span class="no">Base</span>
-</span><span class='line'>  <span class="vc">@@val</span> <span class="o">=</span> <span class="s1">&#39;Branch&#39;</span>
-</span><span class='line'><span class="k">end</span>
+</span><span class='line'><span class="nb">hash</span> <span class="o">=</span> <span class="o">*</span><span class="p">{</span> <span class="nb">hash</span><span class="p">:</span> <span class="kp">nil</span> <span class="p">}</span>
+</span><span class='line'><span class="nb">p</span> <span class="nb">hash</span> <span class="c1">#=&gt; [[:hash, nil]]</span>
 </span><span class='line'>
-</span><span class='line'><span class="nb">p</span> <span class="no">Node</span><span class="o">.</span><span class="n">class_variable_get</span><span class="p">(</span><span class="s1">&#39;@@val&#39;</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Node&#39;</span>
-</span><span class='line'><span class="nb">p</span> <span class="no">Branch</span><span class="o">.</span><span class="n">class_variable_get</span><span class="p">(</span><span class="s1">&#39;@@val&#39;</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Branch&#39;</span>
+</span><span class='line'><span class="n">range</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">10</span><span class="p">)</span>
+</span><span class='line'><span class="nb">p</span> <span class="n">range</span> <span class="c1">#=&gt; [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>ふむ、それぞれの派生クラスでクラス変数が使えますね。</p>
+<h2>1-2. 親クラスの引数を気にしない</h2>
 
-<p>では、続いて基底クラスにもクラス変数を与えてみる。</p>
+<p>またまた基本編。<code>*</code>を引数に指定してやれば、親クラスの引数は知らなくても大丈夫。</p>
+
+<p><code>*</code>だけで出来ることを知らない人はいるかも。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Child</span> <span class="o">&lt;</span> <span class="no">Super</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">super</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>1-3. 間の引数をまとめる</h2>
+
+<p>引数の最後にSplat Operatorを使うことはよくありますが、間はなかなか見ないですね。</p>
+
+<p>blockで引数を取るときに、間の引数をまとめる事が出来ます。</p>
+
+<p>メソッドやProc,lambdaでも同様の動作です。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">list</span> <span class="o">=</span> <span class="o">[[</span><span class="ss">:first</span><span class="p">,</span> <span class="ss">:second</span><span class="p">,</span> <span class="ss">:third</span><span class="p">,</span> <span class="ss">:fourth</span><span class="p">,</span> <span class="ss">:fifth</span><span class="o">]]</span>
+</span><span class='line'><span class="n">list</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">mid</span><span class="p">,</span> <span class="n">last</span><span class="o">|</span>
+</span><span class='line'>  <span class="nb">p</span> <span class="n">first</span>  <span class="c1">#=&gt; :first</span>
+</span><span class='line'>  <span class="nb">p</span> <span class="n">mid</span>    <span class="c1">#=&gt; [:second, :third, :fourth]</span>
+</span><span class='line'>  <span class="nb">p</span> <span class="n">last</span>   <span class="c1">#=&gt; :fifth</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># もちろん、こんなことも出来ます</span>
+</span><span class='line'><span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">other</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span>
+</span><span class='line'><span class="nb">p</span> <span class="n">other</span> <span class="c1">#=&gt; [2, 3]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>1-4. <code>**</code>を使う</h2>
+
+<p>キーワード引数って、まだあまり普及してないですね。互換性が気になるからだろうか？</p>
+
+<p><code>**</code>はキーワード引数を取るときに、余った引数をまとめます。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">hoge</span><span class="p">(</span><span class="ss">first</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">second</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="o">**</span><span class="n">others</span><span class="p">)</span>
+</span><span class='line'>  <span class="nb">p</span> <span class="n">others</span> <span class="c1">#=&gt; { third: 3 }</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'><span class="n">hoge</span><span class="p">(</span><span class="ss">first</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">second</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="ss">others</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>多分これはSplat Operatorと呼ばない。</p>
+
+<h2>まとめ</h2>
+
+<p>こんな書き方が出来るSplat Operatorって本当に便利ね！</p>
+
+<p>( ﾟ∀ﾟ)o彡ﾟんぎもぢいい!!</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -258,141 +323,19 @@
 <span class='line-number'>11</span>
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Base</span>
-</span><span class='line'>  <span class="vc">@@val</span> <span class="o">=</span> <span class="kp">nil</span>
-</span><span class='line'><span class="k">end</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Integer</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">upto_with_exception</span><span class="p">(</span><span class="n">to</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">exception_array</span> <span class="o">=</span> <span class="o">*</span><span class="n">options</span><span class="o">[</span><span class="ss">:except</span><span class="o">]</span> <span class="c1">#=&gt; nilでも何でもおかまいなし！</span>
+</span><span class='line'>    <span class="n">exceptions</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">[</span><span class="n">exception_array</span><span class="o">.</span><span class="n">zip</span><span class="o">]</span>
 </span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">Node</span> <span class="o">&lt;</span> <span class="no">Base</span>
-</span><span class='line'>  <span class="vc">@@val</span> <span class="o">=</span> <span class="s1">&#39;Node&#39;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">Branch</span> <span class="o">&lt;</span> <span class="no">Base</span>
-</span><span class='line'>  <span class="vc">@@val</span> <span class="o">=</span> <span class="s1">&#39;Branch&#39;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">p</span> <span class="no">Node</span><span class="o">.</span><span class="n">class_variable_get</span><span class="p">(</span><span class="s1">&#39;@@val&#39;</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Branch&#39;</span>
-</span><span class='line'><span class="nb">p</span> <span class="no">Branch</span><span class="o">.</span><span class="n">class_variable_get</span><span class="p">(</span><span class="s1">&#39;@@val&#39;</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Branch&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Ooops!!! 派性クラス内のクラス変数が、基底クラス変数を参照しよる！！</p>
-
-<h2>解決編</h2>
-
-<p>やりたいことは、派生クラスの子クラスに共通の変数を持たせるということ。</p>
-
-<p>うーん、意外と難しい！</p>
-
-<p>どうもクラス変数という感じではなくなるけれど、こうするしかないのだろうか&hellip;。</p>
-
-<p>メソッドにしてみたら、とっても気持ちが悪い。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Base</span>
-</span><span class='line'>  <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
-</span><span class='line'>    <span class="kp">private</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">def</span> <span class="nf">val</span>
-</span><span class='line'>      <span class="s1">&#39;Base&#39;</span>
-</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">upto</span><span class="p">(</span><span class="n">to</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="nb">p</span> <span class="n">i</span> <span class="k">unless</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">has_key?</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">}</span>
 </span><span class='line'>  <span class="k">end</span>
 </span><span class='line'><span class="k">end</span>
 </span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">Node</span> <span class="o">&lt;</span> <span class="no">Base</span>
-</span><span class='line'>  <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
-</span><span class='line'>    <span class="kp">private</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">def</span> <span class="nf">val</span>
-</span><span class='line'>      <span class="s1">&#39;Node&#39;</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">Branch</span> <span class="o">&lt;</span> <span class="no">Base</span>
-</span><span class='line'>  <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
-</span><span class='line'>    <span class="kp">private</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">def</span> <span class="nf">val</span>
-</span><span class='line'>      <span class="s1">&#39;Branch&#39;</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">p</span> <span class="no">Node</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="ss">:val</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Node&#39;</span>
-</span><span class='line'><span class="nb">p</span> <span class="no">Branch</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="ss">:val</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Branch&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>これだと、一応コードとして動く。 ただ、<strong>これは無いだろ感</strong>あるよね。</p>
-
-<p>しかし、クラスインスタンス変数だと継承されないし、こうするしかないのかなぁ。</p>
-
-<p><strong>だれか正しい方法があれば、教えてください！</strong> >_&lt;</p>
-
-<h3>追記</h3>
-
-<p>思いついたんだけど、継承するときにクラスインスタンス変数を渡せばいいのかな？</p>
-
-<p>どうでしょう。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Base</span>
-</span><span class='line'>  <span class="vi">@val</span> <span class="o">=</span> <span class="s1">&#39;Base&#39;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">inherited</span><span class="p">(</span><span class="n">klass</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">klass</span><span class="o">.</span><span class="n">instance_variable_set</span><span class="p">(</span><span class="s1">&#39;@val&#39;</span><span class="p">,</span> <span class="vi">@val</span><span class="p">)</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">Node</span> <span class="o">&lt;</span> <span class="no">Base</span><span class="p">;</span> <span class="k">end</span>
-</span><span class='line'><span class="k">class</span> <span class="nc">Branch</span> <span class="o">&lt;</span> <span class="no">Base</span><span class="p">;</span> <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">p</span> <span class="no">Node</span><span class="o">.</span><span class="n">instance_variable_get</span><span class="p">(</span><span class="s1">&#39;@val&#39;</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Base&#39;</span>
-</span><span class='line'><span class="nb">p</span> <span class="no">Branch</span><span class="o">.</span><span class="n">instance_variable_get</span><span class="p">(</span><span class="s1">&#39;@val&#39;</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Base&#39;</span>
+</span><span class='line'><span class="mi">1</span><span class="o">.</span><span class="n">upto_with_exception</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1">#=&gt; 1, 2, 3, 4, 5</span>
+</span><span class='line'><span class="mi">1</span><span class="o">.</span><span class="n">upto_with_exception</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="ss">except</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span> <span class="c1">#=&gt; 1, 2, 4, 5</span>
+</span><span class='line'><span class="mi">1</span><span class="o">.</span><span class="n">upto_with_exception</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="ss">except</span><span class="p">:</span> <span class="mi">2</span><span class="o">.</span><span class="n">.</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#=&gt; 1, 4, 5</span>
+</span><span class='line'><span class="mi">1</span><span class="o">.</span><span class="n">upto_with_exception</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="ss">except</span><span class="p">:</span> <span class="o">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span><span class="p">)</span> <span class="c1">#=&gt; 1, 2, 3</span>
 </span></code></pre></td></tr></table></div></figure>
 
 </section>
@@ -409,27 +352,27 @@
 
 <section class="sharing clearfix">
   <div class="button ft_like_button">
-    <div class="fb-like" data-href="http://alpaca.tc/blog/ruby/ruby-class-variable.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
+    <div class="fb-like" data-href="http://alpaca.tc/blog/ruby/how-to-use-star.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
   </div>
 
   <div class="button ft_share_button">
-    <div class="fb-share-button" data-href="http://alpaca.tc/blog/ruby/ruby-class-variable.html" data-type="button_count"></div>
+    <div class="fb-share-button" data-href="http://alpaca.tc/blog/ruby/how-to-use-star.html" data-type="button_count"></div>
   </div>
 
   <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca.tc/blog/ruby/ruby-class-variable.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
-Rubyのクラス変数について詰まったのでヘルプ | RailsとRubyとVimのブログRailsとRubyとVimのブログ
+    <a href="http://b.hatena.ne.jp/entry/http://alpaca.tc/blog/ruby/how-to-use-star.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
+ここまで出来る！RubyのSplat Operatorまとめ | RailsとRubyとVimのブログRailsとRubyとVimのブログ
 " data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
       <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
     </a>
   </div>
 
   <div class="button google_plus_button_like">
-    <div data-annotation="none" data-href="http://alpaca.tc/blog/ruby/ruby-class-variable.html" class="g-plusone" data-size="medium" ></div>
+    <div data-annotation="none" data-href="http://alpaca.tc/blog/ruby/how-to-use-star.html" class="g-plusone" data-size="medium" ></div>
   </div>
 
   <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/ruby/ruby-class-variable.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/ruby/ruby-class-variable.html" >Tweet</a>
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/ruby/how-to-use-star.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/ruby/how-to-use-star.html" >Tweet</a>
   </div>
 </section>
 
@@ -453,14 +396,10 @@ Rubyのクラス変数について詰まったのでヘルプ | RailsとRubyとV
                 <div class="pagination meta clearfix">
   
     <div class="arrow_block left_block">
-      <a class="basic-alignment" href="/blog/vim/using-vim-unite-watson.html" title="Previous Post: Unite.vimとwatsonを使ったワークフロー">&laquo; Unite.vimとwatsonを使ったワークフロー</a>
+      <a class="basic-alignment" href="/blog/ruby/create-strip-comment.html" title="Previous Post: 久しぶりにGemを書いている">&laquo; 久しぶりにGemを書いている</a>
     </div>
   
 
-  
-    <div class="arrow_block right_block">
-      <a class="basic-alignment" href="/blog/vim/how-to-use-vim-unite-giti.html" title="Next Post: 仕事が捗る！VimからGitを使う最適解">仕事が捗る！VimからGitを使う最適解 &raquo;</a>
-    </div>
   
 </div>
 

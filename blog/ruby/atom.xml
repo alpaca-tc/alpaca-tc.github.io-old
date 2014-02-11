@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ruby | RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/blog/ruby/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2014-02-10T13:03:29+09:00</updated>
+  <updated>2014-02-12T05:28:31+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,129 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[ここまで出来る！RubyのSplat Operatorまとめ]]></title>
+    <link href="http://alpaca.tc/blog/ruby/how-to-use-star.html"/>
+    <updated>2014-02-12T04:16:00+09:00</updated>
+    <id>http://alpaca.tc/blog/ruby/how-to-use-star</id>
+    <content type="html"><![CDATA[<p>Splat Operatorとは、<code>*</code>のことです</p>
+
+<p><img class="image_on_frame center" src="/images/blog/how-to-use-star/capture.png" title="SplatOperator" ></p>
+
+<p>この前、友人にコードレビューしてもらっていたら</p>
+
+<p>「え、Rubyってこんな書き方出来るんですか？」と言われて、「知らない人もいるんだなぁ」と思ったので簡単なまとめ</p>
+
+<!-- more -->
+
+
+<h1>Splat Operatorの色んな使い方</h1>
+
+<p>Splat Operatorは、応用の幅が広いです。</p>
+
+<p>結構当たり前だと思っていましたが、コード読書しないと見る機会は少ないかも。</p>
+
+<h2>1-1. 配列に変換する</h2>
+
+<p>まずは基本編。配列に変換してやりましょう</p>
+
+<p>文字列やsymbolは<code>.to_a</code>が無いですが、<code>*</code>を使えばどの変数でも配列に出来ちゃいます。</p>
+
+<p>```ruby
+string = *&ldquo;string&rdquo;
+p string #=> [&ldquo;string&rdquo;]</p>
+
+<p>symbol = *:symbol
+p symbol #=> [:symbol]</p>
+
+<p>hash = *{ hash: nil }
+p hash #=> [[:hash, nil]]</p>
+
+<p>range = *(1..10)
+p range #=> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```</p>
+
+<h2>1-2. 親クラスの引数を気にしない</h2>
+
+<p>またまた基本編。<code>*</code>を引数に指定してやれば、親クラスの引数は知らなくても大丈夫。</p>
+
+<p><code>*</code>だけで出来ることを知らない人はいるかも。</p>
+
+<p>```ruby
+class Child &lt; Super
+  def initialize(*)</p>
+
+<pre><code>super
+</code></pre>
+
+<p>  end
+end
+```</p>
+
+<h2>1-3. 間の引数をまとめる</h2>
+
+<p>引数の最後にSplat Operatorを使うことはよくありますが、間はなかなか見ないですね。</p>
+
+<p>blockで引数を取るときに、間の引数をまとめる事が出来ます。</p>
+
+<p>メソッドやProc,lambdaでも同様の動作です。</p>
+
+<p>```ruby
+list = [[:first, :second, :third, :fourth, :fifth]]
+list.each do |first, *mid, last|
+  p first  #=> :first
+  p mid    #=> [:second, :third, :fourth]
+  p last   #=> :fifth
+end</p>
+
+<h1>もちろん、こんなことも出来ます</h1>
+
+<p>first, *other = [1, 2, 3]
+p other #=> [2, 3]
+```</p>
+
+<h2>1-4. <code>**</code>を使う</h2>
+
+<p>キーワード引数って、まだあまり普及してないですね。互換性が気になるからだろうか？</p>
+
+<p><code>**</code>はキーワード引数を取るときに、余った引数をまとめます。</p>
+
+<p><code>ruby
+def hoge(first: 1, second: 2, **others)
+  p others #=&gt; { third: 3 }
+end
+hoge(first: 1, second: 2, others: 3)
+</code></p>
+
+<p>多分これはSplat Operatorと呼ばない。</p>
+
+<h2>まとめ</h2>
+
+<p>こんな書き方が出来るSplat Operatorって本当に便利ね！</p>
+
+<p>( ﾟ∀ﾟ)o彡ﾟんぎもぢいい!!</p>
+
+<p>```ruby
+class Integer
+  def upto_with_exception(to, **options)</p>
+
+<pre><code>exception_array = *options[:except] #=&gt; nilでも何でもおかまいなし！
+exceptions = Hash[exception_array.zip]
+
+self.upto(to) { |i| p i unless exceptions.has_key?(i) }
+</code></pre>
+
+<p>  end
+end</p>
+
+<p>1.upto_with_exception(5) #=> 1, 2, 3, 4, 5
+1.upto_with_exception(5, except: 3) #=> 1, 2, 4, 5
+1.upto_with_exception(5, except: 2..3) #=> 1, 4, 5
+1.upto_with_exception(5, except: [4, 5]) #=> 1, 2, 3
+```</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[久しぶりにGemを書いている]]></title>

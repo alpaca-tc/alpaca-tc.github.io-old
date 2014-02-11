@@ -4,7 +4,7 @@
   <title><![CDATA[RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2014-02-10T13:03:29+09:00</updated>
+  <updated>2014-02-12T05:28:31+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,165 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[ここまで出来る！RubyのSplat Operatorまとめ]]></title>
+    <link href="http://alpaca.tc/blog/ruby/how-to-use-star.html"/>
+    <updated>2014-02-12T04:16:00+09:00</updated>
+    <id>http://alpaca.tc/blog/ruby/how-to-use-star</id>
+    <content type="html"><![CDATA[<p>Splat Operatorとは、<code>*</code>のことです</p>
+
+<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/how-to-use-star/capture.png" title="SplatOperator" ></p>
+
+<p>この前、友人にコードレビューしてもらっていたら</p>
+
+<p>「え、Rubyってこんな書き方出来るんですか？」と言われて、「知らない人もいるんだなぁ」と思ったので簡単なまとめ</p>
+
+<!-- more -->
+
+
+<h1>Splat Operatorの色んな使い方</h1>
+
+<p>Splat Operatorは、応用の幅が広いです。</p>
+
+<p>結構当たり前だと思っていましたが、コード読書しないと見る機会は少ないかも。</p>
+
+<h2>1-1. 配列に変換する</h2>
+
+<p>まずは基本編。配列に変換してやりましょう</p>
+
+<p>文字列やsymbolは<code>.to_a</code>が無いですが、<code>*</code>を使えばどの変数でも配列に出来ちゃいます。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">string</span> <span class="o">=</span> <span class="o">*</span><span class="s2">&quot;string&quot;</span>
+</span><span class='line'><span class="nb">p</span> <span class="n">string</span> <span class="c1">#=&gt; [&quot;string&quot;]</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">symbol</span> <span class="o">=</span> <span class="o">*</span><span class="ss">:symbol</span>
+</span><span class='line'><span class="nb">p</span> <span class="n">symbol</span> <span class="c1">#=&gt; [:symbol]</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">hash</span> <span class="o">=</span> <span class="o">*</span><span class="p">{</span> <span class="nb">hash</span><span class="p">:</span> <span class="kp">nil</span> <span class="p">}</span>
+</span><span class='line'><span class="nb">p</span> <span class="nb">hash</span> <span class="c1">#=&gt; [[:hash, nil]]</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">range</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">10</span><span class="p">)</span>
+</span><span class='line'><span class="nb">p</span> <span class="n">range</span> <span class="c1">#=&gt; [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>1-2. 親クラスの引数を気にしない</h2>
+
+<p>またまた基本編。<code>*</code>を引数に指定してやれば、親クラスの引数は知らなくても大丈夫。</p>
+
+<p><code>*</code>だけで出来ることを知らない人はいるかも。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Child</span> <span class="o">&lt;</span> <span class="no">Super</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">super</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>1-3. 間の引数をまとめる</h2>
+
+<p>引数の最後にSplat Operatorを使うことはよくありますが、間はなかなか見ないですね。</p>
+
+<p>blockで引数を取るときに、間の引数をまとめる事が出来ます。</p>
+
+<p>メソッドやProc,lambdaでも同様の動作です。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">list</span> <span class="o">=</span> <span class="o">[[</span><span class="ss">:first</span><span class="p">,</span> <span class="ss">:second</span><span class="p">,</span> <span class="ss">:third</span><span class="p">,</span> <span class="ss">:fourth</span><span class="p">,</span> <span class="ss">:fifth</span><span class="o">]]</span>
+</span><span class='line'><span class="n">list</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">mid</span><span class="p">,</span> <span class="n">last</span><span class="o">|</span>
+</span><span class='line'>  <span class="nb">p</span> <span class="n">first</span>  <span class="c1">#=&gt; :first</span>
+</span><span class='line'>  <span class="nb">p</span> <span class="n">mid</span>    <span class="c1">#=&gt; [:second, :third, :fourth]</span>
+</span><span class='line'>  <span class="nb">p</span> <span class="n">last</span>   <span class="c1">#=&gt; :fifth</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># もちろん、こんなことも出来ます</span>
+</span><span class='line'><span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">other</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span>
+</span><span class='line'><span class="nb">p</span> <span class="n">other</span> <span class="c1">#=&gt; [2, 3]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>1-4. <code>**</code>を使う</h2>
+
+<p>キーワード引数って、まだあまり普及してないですね。互換性が気になるからだろうか？</p>
+
+<p><code>**</code>はキーワード引数を取るときに、余った引数をまとめます。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">hoge</span><span class="p">(</span><span class="ss">first</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">second</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="o">**</span><span class="n">others</span><span class="p">)</span>
+</span><span class='line'>  <span class="nb">p</span> <span class="n">others</span> <span class="c1">#=&gt; { third: 3 }</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'><span class="n">hoge</span><span class="p">(</span><span class="ss">first</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">second</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="ss">others</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>多分これはSplat Operatorと呼ばない。</p>
+
+<h2>まとめ</h2>
+
+<p>こんな書き方が出来るSplat Operatorって本当に便利ね！</p>
+
+<p>( ﾟ∀ﾟ)o彡ﾟんぎもぢいい!!</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Integer</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">upto_with_exception</span><span class="p">(</span><span class="n">to</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">exception_array</span> <span class="o">=</span> <span class="o">*</span><span class="n">options</span><span class="o">[</span><span class="ss">:except</span><span class="o">]</span> <span class="c1">#=&gt; nilでも何でもおかまいなし！</span>
+</span><span class='line'>    <span class="n">exceptions</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">[</span><span class="n">exception_array</span><span class="o">.</span><span class="n">zip</span><span class="o">]</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">upto</span><span class="p">(</span><span class="n">to</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="nb">p</span> <span class="n">i</span> <span class="k">unless</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">has_key?</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">}</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="mi">1</span><span class="o">.</span><span class="n">upto_with_exception</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1">#=&gt; 1, 2, 3, 4, 5</span>
+</span><span class='line'><span class="mi">1</span><span class="o">.</span><span class="n">upto_with_exception</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="ss">except</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span> <span class="c1">#=&gt; 1, 2, 4, 5</span>
+</span><span class='line'><span class="mi">1</span><span class="o">.</span><span class="n">upto_with_exception</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="ss">except</span><span class="p">:</span> <span class="mi">2</span><span class="o">.</span><span class="n">.</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#=&gt; 1, 4, 5</span>
+</span><span class='line'><span class="mi">1</span><span class="o">.</span><span class="n">upto_with_exception</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="ss">except</span><span class="p">:</span> <span class="o">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span><span class="p">)</span> <span class="c1">#=&gt; 1, 2, 3</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[久しぶりにGemを書いている]]></title>
@@ -2183,72 +2342,6 @@ Vimのオプションやコマンド名が、そのまま変数に使われて�
 
 
 <p>まぁ、何はともあれ一度使ってみてください。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Vimを使って新人教育]]></title>
-    <link href="http://alpaca.tc/blog/vim/training-of-new-employee.html"/>
-    <updated>2013-11-11T05:21:00+09:00</updated>
-    <id>http://alpaca.tc/blog/vim/training-of-new-employee</id>
-    <content type="html"><![CDATA[<p>嬉しいことに、一緒に働く仲間が2人増えました。</p>
-
-<p>まだRubyに慣れていないそうなので、はじめの一ヶ月は教育期間を挟みます。</p>
-
-<p>新人の方もvimmerなので、そのためのプラグインを作りました。</p>
-
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/11_11.png" title="Vimのデモ" ></p>
-
-<p><strong><a href="https://github.com/enfactv/assignment">assignment.vim</a></strong></p>
-
-<!-- more -->
-
-
-<p>インストールはごく簡単です。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'>NeoBundle <span class="s1">&#39;alpaca-tc/assignment&#39;</span>`
-</span><span class='line'>
-</span><span class='line'><span class="k">let</span> <span class="k">g</span>:assignment#<span class="nb">path</span> <span class="p">=</span> expand<span class="p">(</span><span class="s1">&#39;~/path/to/assignment&#39;</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>良かったこと</h3>
-
-<ul>
-<li>GitHubの使い方がわからなくても、Vimから徐々に取り組めること</li>
-<li>問題のやり取りが楽になったこと</li>
-<li>自動テストがあるので、リモート勤務でも採点できること</li>
-</ul>
-
-
-<h3>悪かったこと</h3>
-
-<ul>
-<li>一問一答の形式って効率悪いよね&hellip;</li>
-</ul>
-
-
-<p>とりあえず一ヶ月はこの形式で進めて、Rubyに慣れてもらおうかと思います。</p>
-
-<h2>まとめ</h2>
-
-<p>正直、今日は書くことがなかっただけです。えへ。
-暇だなー、俺初級者かなーと思う方が入れば、試しに問題に挑戦してみてください。</p>
-
-<ol>
-<li>プラグインをインストール</li>
-<li><code>:AssignmentInit ~/インストール先ディレクトリ</code>を実行して初期化</li>
-<li>vimrcに<code>let g:assignment#path = expand('~/path/to/assignment')</code>を追加</li>
-<li><code>:Assignment solve &lt;tab&gt;</code>で問題を選択</li>
-<li>Guardをまわしながら解くのみ！</li>
-</ol>
-
-
-<p>初めは、8クイーン問題や、RubyのDSLを作る問題などです。
-初級者向けですが、少しは暇つぶしにはなると思いますよ！</p>
 ]]></content>
   </entry>
   
