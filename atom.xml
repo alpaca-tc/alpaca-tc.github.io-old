@@ -4,7 +4,7 @@
   <title><![CDATA[RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2014-02-12T05:34:12+09:00</updated>
+  <updated>2014-02-12T05:43:00+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -129,7 +129,7 @@
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">hoge</span><span class="p">(</span><span class="ss">first</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">second</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="o">**</span><span class="n">others</span><span class="p">)</span>
 </span><span class='line'>  <span class="nb">p</span> <span class="n">others</span> <span class="c1">#=&gt; { third: 3 }</span>
 </span><span class='line'><span class="k">end</span>
-</span><span class='line'><span class="n">hoge</span><span class="p">(</span><span class="ss">first</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">second</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="ss">others</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span>
+</span><span class='line'><span class="n">hoge</span><span class="p">(</span><span class="ss">first</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">second</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="ss">third</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
