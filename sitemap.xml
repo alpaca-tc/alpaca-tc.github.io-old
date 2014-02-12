@@ -113,12 +113,18 @@
         <lastmod>2014-02-12T05:42:39+09:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://alpaca.tc/blog/ruby/i-have-almost-finished-implementing-comment-parser.html
+        </loc>
+        <lastmod>2014-02-13T03:10:04+09:00</lastmod>
+    </url>
+    <url>
         <loc>http://alpaca.tc/about_me/</loc>
         <lastmod>2014-01-24T21:44:33+09:00</lastmod>
     </url>
     <url>
         <loc>http://alpaca.tc/blog/archives/</loc>
-        <lastmod>2014-02-12T05:42:39+09:00</lastmod>
+        <lastmod>2014-02-13T03:10:04+09:00</lastmod>
     </url>
     <url>
         <loc>http://alpaca.tc/blog/</loc>
@@ -126,7 +132,7 @@
     </url>
     <url>
         <loc>http://alpaca.tc/</loc>
-        <lastmod>2014-02-12T05:42:39+09:00</lastmod>
+        <lastmod>2014-02-13T03:10:04+09:00</lastmod>
     </url>
     <url>
         <loc>http://alpaca.tc/pixiv/</loc>

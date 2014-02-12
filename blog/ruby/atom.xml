@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ruby | RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/blog/ruby/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2014-02-12T05:43:00+09:00</updated>
+  <updated>2014-02-13T03:11:13+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,42 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[RubyのGemの正しく作ってみる]]></title>
+    <link href="http://alpaca.tc/blog/ruby/i-have-almost-finished-implementing-comment-parser.html"/>
+    <updated>2014-02-13T02:52:00+09:00</updated>
+    <id>http://alpaca.tc/blog/ruby/i-have-almost-finished-implementing-comment-parser</id>
+    <content type="html"><![CDATA[<p><img class="image_on_frame center" src="/images/blog/i-have-almost-finished-implementing-comment-parser/capture.png" title="コメントを抽象的に扱う" ></p>
+
+<p>先日から書いていたGemですが、ようやく一通りの動作が確認出来ました。</p>
+
+<p>あらゆるソースコードをパースして、コメントを抽象的に扱えるようにするGemです。</p>
+
+<!-- more -->
+
+
+<h2>一旦振り返り</h2>
+
+<p>設計からRubyGemsにあげるまで、44:32:23かかりました。</p>
+
+<p>とりあえず、これからwatson-rubyのnhmoodさんに連絡して、watson-rubyに取り入れてもらう予定です。</p>
+
+<h2>誰かコードレビューを&hellip;</h2>
+
+<p>一人でコード書いていると、これで良いのかと悩みます。</p>
+
+<p>一応、正しく作っているつもりですがプログラミングは文系独学なので、正直自信が無いです。。</p>
+
+<p><a href="https://github.com/alpaca-tc/comment_parser"><strong>comment_parser</strong></a></p>
+
+<p>↑どなたか、コードレビューお願いします！>&lt;↑</p>
+
+<h2>Vimプラグインが捗る</h2>
+
+<p>続いて、コメントの文法チェックや翻訳のプラグインを完成させまする！</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[ここまで出来る！RubyのSplat Operatorまとめ]]></title>
@@ -468,97 +504,6 @@ $ watson --update
 <li>対応しているファイルタイプがまだ少ない</li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Guard-shellが便利だった話]]></title>
-    <link href="http://alpaca.tc/blog/ruby/the-story-about-guard-shell.html"/>
-    <updated>2013-11-23T01:34:00+09:00</updated>
-    <id>http://alpaca.tc/blog/ruby/the-story-about-guard-shell</id>
-    <content type="html"><![CDATA[<p><a href="https://github.com/guard/guard">Guard</a>って便利ですよねー。</p>
-
-<p>あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。</p>
-
-<p>最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。</p>
-
-<p>Guardを使って実現してみました。</p>
-
-<!-- more -->
-
-
-<h1>guard + guard-shell</h1>
-
-<p>おなじみのGuardにshellコマンドを実行できるようにします。</p>
-
-<p><em>GuardでC言語を自動コンパイル！！！</em></p>
-
-<p>```ruby</p>
-
-<h1>Gemfile</h1>
-
-<p>source &lsquo;<a href="https://rubygems.org">https://rubygems.org</a>&rsquo;</p>
-
-<p>gem &lsquo;guard&rsquo;
-gem &lsquo;guard-shell&rsquo;
-```</p>
-
-<p>```ruby</p>
-
-<h1>Guardfile</h1>
-
-<p>group :vim3 do
-  guard :shell do</p>
-
-<pre><code>target_dir = 'vim-3\.0/src'
-watch(%r!^#{target_dir}/(.+)\.(c|h)!) do
-  `cd #{target_dir} &amp;&amp; make`
-  `cd #{target_dir} &amp;&amp; make debug`
-end
-</code></pre>
-
-<p>  end</p>
-
-<p>  &hellip;
-end
-```</p>
-
-<p>ポイントは、<em>group</em>と<em>guard :shell &hellip;</em>ですね。</p>
-
-<h2>guardのDSL <em>group</em></h2>
-
-<p>groupのDSLを使うと、guardの設定を切り替えることができます。</p>
-
-<p>例えば、バージョン毎にgroupで設定をわけておけば、不必要な部分でguardが動作することを防ぐことができます。
-僕の場合は、vimのバージョン毎に設定を切り替えることで不必要なコンパイルを防いでいます。</p>
-
-<p>また、分けてあるgroupを切り替えるときは、guardのコンソールで<code>scope vim3</code>と打てば切り替わります。</p>
-
-<p>(起動時にscopeを指定する場合は、<code>guard --group vim3</code>)</p>
-
-<h2>guard-shellを使う</h2>
-
-<p>guard-shellは、ファイルの変更をフックにしてshellコマンドを実行するgemです。</p>
-
-<p>と、あたかもshellに特化したネーミングですが、実際はただ単にwatchに渡したブロックを評価するだけのシンプルなやつです。</p>
-
-<p>下記のようにすれば、ファイルが保存されたと同時に<code>hogepiyoooooooooooooo</code>と教えてくれます。
-わーい。</p>
-
-<p>```ruby</p>
-
-<h1>Guardfile</h1>
-
-<p>guard :shell do
-  watch(/.*/) { |m| <code>say hogepiyoooooooooooooo</code> }
-end
-```</p>
-
-<h2>まとめ</h2>
-
-<p><em>guard-shell便利。</em></p>
-
-<p>(ホゲピヨーーーーーって言うのかと思ったら、「ホージピュゥ」って何か冷めた感じに返された。。。)</p>
 ]]></content>
   </entry>
   

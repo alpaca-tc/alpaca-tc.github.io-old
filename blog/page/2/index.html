@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <title>RailsとRubyとVimのブログ</title>
     
-    <meta name="description" content="カヤックのお年玉企画「お好き玉」の解説 Jan 7th, 2014 Posted by 石井浩之 先日紹介した「お好き玉」ですが、アクセス数が多いはずなのにまだ2014に達していません！ アクセスが足りないのか、みんな諦めるのか分かりませんが2014を超したほうが楽しいので、 &hellip;">
+    <meta name="description" content="neocomplete.vimのfile_includeを使いこなす Jan 11th, 2014 Posted by 石井浩之 この記事はVim Advent Calendar 2013の42日目の記事になります。 Neocomplete.vimのfile_includeを使いこなす さて、 &hellip;">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='RailsとRubyとVimのブログ' name='title' />
@@ -25,12 +25,12 @@
 <meta property="og:type" content="blog"/>
 <meta property="og:url" content="http://alpaca.tc/blog/page/2/index.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
-<meta property="og:description" content="カヤックのお年玉企画「お好き玉」の解説 Jan 7th, 2014 Posted by 石井浩之 先日紹介した「お好き玉」ですが、アクセス数が多いはずなのにまだ2014に達していません！ アクセスが足りないのか、みんな諦めるのか分かりませんが2014を超したほうが楽しいので、 &hellip;" />
+<meta property="og:description" content="neocomplete.vimのfile_includeを使いこなす Jan 11th, 2014 Posted by 石井浩之 この記事はVim Advent Calendar 2013の42日目の記事になります。 Neocomplete.vimのfile_includeを使いこなす さて、 &hellip;" />
 <meta property="fb:app_id" content="224701561024840" />
 
     <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RailsとRubyとVimのブログ">
-<meta name="twitter:description" content="カヤックのお年玉企画「お好き玉」の解説 Jan 7th, 2014 Posted by 石井浩之 先日紹介した「お好き玉」ですが、アクセス数が多いはずなのにまだ2014に達していません！ アクセスが足りないのか、みんな諦めるのか分かりませんが2014を超したほうが楽しいので、 &hellip;">
+<meta name="twitter:description" content="neocomplete.vimのfile_includeを使いこなす Jan 11th, 2014 Posted by 石井浩之 この記事はVim Advent Calendar 2013の42日目の記事になります。 Neocomplete.vimのfile_includeを使いこなす さて、 &hellip;">
 <meta name="twitter:image" content="http://http://alpaca.tc/images/meta/twitter.png">
 <meta name="twitter:site" content="@alpaca_taichou">
 <meta name="twitter:creator" content="@alpaca_taichou">
@@ -120,6 +120,122 @@
               <div id="page_contents" class="inner">
                 <div id="index_contents" class="blog-index">
   
+  
+    
+    <div class="blog-articles">
+      <article class="post_row">
+  <div class="inner">
+    <header class="field-items">
+      
+        <h1>
+          
+            <a href="/blog/vim/file-include-by-neocomplete.html">
+              
+                neocomplete.vimのfile_includeを使いこなす
+              
+            </a>
+          
+        </h1>
+      
+
+      
+        <section class="meta">
+          <div class="inner">
+            
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2014-01-11T13:25:00+09:00" pubdate data-updated="true">Jan 11<span>th</span>, 2014</time>
+            
+  
+
+<span class="byline author">Posted by 石井浩之</span>
+
+            
+
+  <span class="categories">
+    
+      
+    
+  </span>
+
+
+          </div>
+        </section>
+      
+    </header>
+
+    
+      <section class="entry-content"><p>この記事は<a href="http://atnd.org/events/45072">Vim Advent Calendar 2013</a>の42日目の記事になります。</p>
+
+<h1>Neocomplete.vimのfile_includeを使いこなす</h1>
+
+<p>さて、今回の記事ではneocompleteのfile_includeを使いこなしてみます。</p>
+
+<p><img class="image_on_frame center" src="/images/blog/file-include-by-neocomplete/completion_capture.png" title="neocomplete_file_include" ></p>
+
+</section>
+      
+
+      
+        <footer class="article_footer">
+          <div class="read_more">
+  <a href="/blog/vim/file-include-by-neocomplete.html">続きを読む &rarr;</a>
+</div>
+
+        </footer>
+      
+    
+
+    
+      
+  
+
+
+
+
+
+
+<section class="sharing clearfix">
+  <div class="button ft_like_button">
+    <div class="fb-like" data-href="http://alpaca.tc/blog/vim/file-include-by-neocomplete.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
+  </div>
+
+  <div class="button ft_share_button">
+    <div class="fb-share-button" data-href="http://alpaca.tc/blog/vim/file-include-by-neocomplete.html" data-type="button_count"></div>
+  </div>
+
+  <div class="button hatena_bookmark_button">
+    <a href="http://b.hatena.ne.jp/entry/http://alpaca.tc/blog/vim/file-include-by-neocomplete.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
+neocomplete.vimのfile_includeを使いこなす | RailsとRubyとVimのブログ 
+" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
+      <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+    </a>
+  </div>
+
+  <div class="button google_plus_button_like">
+    <div data-annotation="none" data-href="http://alpaca.tc/blog/vim/file-include-by-neocomplete.html" class="g-plusone" data-size="medium" ></div>
+  </div>
+
+  <div class="button twitter_button">
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/file-include-by-neocomplete.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/vim/file-include-by-neocomplete.html" >Tweet</a>
+  </div>
+</section>
+
+    
+  </div>
+</article>
+
+    </div>
   
     
     <div class="blog-articles">
@@ -577,119 +693,6 @@
 
     </div>
   
-    
-    <div class="blog-articles">
-      <article class="post_row">
-  <div class="inner">
-    <header class="field-items">
-      
-        <h1>
-          
-            <a href="/blog/vim/jump-to-gem-path.html">
-              
-                Vim中級者を脱する Path編
-              
-            </a>
-          
-        </h1>
-      
-
-      
-        <section class="meta">
-          <div class="inner">
-            
-
-
-
-
-
-
-
-
-  
-
-
-
-<time datetime="2013-12-19T08:02:00+09:00" pubdate data-updated="true">Dec 19<span>th</span>, 2013</time>
-            
-  
-
-<span class="byline author">Posted by 石井浩之</span>
-
-            
-
-  <span class="categories">
-    
-      
-    
-  </span>
-
-
-          </div>
-        </section>
-      
-    </header>
-
-    
-      <section class="entry-content"><p>はい、pathとは<code>:set path</code>で出てくるやつのことです。
-実際にはみなさん<code>gf</code>やファイル補完などでお世話になっていると思います。</p>
-
-<p>今回はpathとは何かを説明して、.rbファイルのクラスからGemの定義元へ飛ぶ方法をやってみましょう。</p>
-
-</section>
-      
-
-      
-        <footer class="article_footer">
-          <div class="read_more">
-  <a href="/blog/vim/jump-to-gem-path.html">続きを読む &rarr;</a>
-</div>
-
-        </footer>
-      
-    
-
-    
-      
-  
-
-
-
-
-
-
-<section class="sharing clearfix">
-  <div class="button ft_like_button">
-    <div class="fb-like" data-href="http://alpaca.tc/blog/vim/jump-to-gem-path.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
-  </div>
-
-  <div class="button ft_share_button">
-    <div class="fb-share-button" data-href="http://alpaca.tc/blog/vim/jump-to-gem-path.html" data-type="button_count"></div>
-  </div>
-
-  <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca.tc/blog/vim/jump-to-gem-path.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
-Vim中級者を脱する path編 | RailsとRubyとVimのブログ 
-" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
-      <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
-    </a>
-  </div>
-
-  <div class="button google_plus_button_like">
-    <div data-annotation="none" data-href="http://alpaca.tc/blog/vim/jump-to-gem-path.html" class="g-plusone" data-size="medium" ></div>
-  </div>
-
-  <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/jump-to-gem-path.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/vim/jump-to-gem-path.html" >Tweet</a>
-  </div>
-</section>
-
-    
-  </div>
-</article>
-
-    </div>
-  
 
   <div class="pagination">
     
@@ -749,13 +752,13 @@ Vim中級者を脱する path編 | RailsとRubyとVimのブログ
     <h1>最新記事</h1>
     
       <article>
-        <time datetime="2014-02-12T04:16:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>12</span> <span class='year'>2014</span></time>
-        <h1><a href="/blog/ruby/how-to-use-star.html">ここまで出来る！RubyのSplat Operatorまとめ</a></h1>
+        <time datetime="2014-02-13T02:52:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>13</span> <span class='year'>2014</span></time>
+        <h1><a href="/blog/ruby/i-have-almost-finished-implementing-comment-parser.html">RubyのGemの正しく作ってみる</a></h1>
       </article>
     
       <article>
-        <time datetime="2014-02-10T12:33:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>10</span> <span class='year'>2014</span></time>
-        <h1><a href="/blog/ruby/create-strip-comment.html">久しぶりにGemを書いている</a></h1>
+        <time datetime="2014-02-12T04:16:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>12</span> <span class='year'>2014</span></time>
+        <h1><a href="/blog/ruby/how-to-use-star.html">ここまで出来る！RubyのSplat Operatorまとめ</a></h1>
       </article>
     
   </div>

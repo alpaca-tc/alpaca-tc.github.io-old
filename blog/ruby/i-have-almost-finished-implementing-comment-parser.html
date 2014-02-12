@@ -7,30 +7,30 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <title>Category: vim - RailsとRubyとVimのブログ</title>
+    <title>RubyのGemの正しく作ってみる - RailsとRubyとVimのブログ</title>
     
-    <meta name="description" content="Category: vim">
+    <meta name="description" content="先日から書いていたGemですが、ようやく一通りの動作が確認出来ました。 あらゆるソースコードをパースして、コメントを抽象的に扱えるようにするGemです。 一旦振り返り 設計からRubyGemsにあげるまで、44:32:23かかりました。 とりあえず、これからwatson- &hellip;">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
-    <meta content='Category: vim | RailsとRubyとVimのブログ' name='title' />
+    <meta content='RubyのGemの正しく作ってみる | RailsとRubyとVimのブログ' name='title' />
 
     
   <link rel="author" href="https://plus.google.com/105581201951227096827" />
   <link rel="publisher" href="https://plus.google.com/105581201951227096827" />
 
 
-    <meta property="og:title" content='Category: vim' />
+    <meta property="og:title" content='RubyのGemの正しく作ってみる' />
 <meta property="og:locale" content="ja_JP"/>
 <meta property="og:image" content="http://http://alpaca.tc/images/meta/site_title.png"/>
 <meta property="og:type" content="blog"/>
-<meta property="og:url" content="http://alpaca.tcblog/vim/index.html"/>
+<meta property="og:url" content="http://alpaca.tc/blog/ruby/i-have-almost-finished-implementing-comment-parser.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
-<meta property="og:description" content="Category: vim" />
+<meta property="og:description" content="先日から書いていたGemですが、ようやく一通りの動作が確認出来ました。 あらゆるソースコードをパースして、コメントを抽象的に扱えるようにするGemです。 一旦振り返り 設計からRubyGemsにあげるまで、44:32:23かかりました。 とりあえず、これからwatson- &hellip;" />
 <meta property="fb:app_id" content="224701561024840" />
 
     <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Category: vim | RailsとRubyとVimのブログ">
-<meta name="twitter:description" content="Category: vim">
+<meta name="twitter:title" content="RubyのGemの正しく作ってみる | RailsとRubyとVimのブログ">
+<meta name="twitter:description" content="先日から書いていたGemですが、ようやく一通りの動作が確認出来ました。 あらゆるソースコードをパースして、コメントを抽象的に扱えるようにするGemです。 一旦振り返り 設計からRubyGemsにあげるまで、44:32:23かかりました。 とりあえず、これからwatson- &hellip;">
 <meta name="twitter:image" content="http://http://alpaca.tc/images/meta/twitter.png">
 <meta name="twitter:site" content="@alpaca_taichou">
 <meta name="twitter:creator" content="@alpaca_taichou">
@@ -67,6 +67,8 @@
 
 
 
+  <link rel="prev" href="/blog/ruby/how-to-use-star.html">
+
 
 
 
@@ -74,13 +76,17 @@
   </head>
   <div id="fb-root"></div>
 
-  <body id="page_contents">
+  <body id="post_contents">
     <div id="header_top" class="outer_envelope">
       <header>        <div class="inner_wrapper clearfix">
           <div class="inner clearfix">
             <div id="logo">
               
-                <h1 id="site_title"><a href=".">Category: vim</a><br/><a class="small" href="/">RailsとRubyとVimのブログ</a></h1>
+                <h1>
+                  <a href="/" rel="v:url" property="v:title">
+                    RailsとRubyとVimのブログ
+                  </a>
+                </h1>
               
             </div>
 
@@ -107,236 +113,176 @@
         </div>
 </header>
 
-      <div id="main_contents" class="clearfix">
+      <div id="main_contents">
         <div class="inner_wrapper">
+          <div id="breadcrumb" xmlns:v="http://rdf.data-vocabulary.org/#">
+  
+    <span typeof="v:Breadcrumb">
+      <a href="/blog/ruby/" rel="v:url" property="v:title">
+        ruby
+      </a> ›
+    </span>
+  
+
+  <span typeof="v:Breadcrumb">
+    <a href="" rel="v:url" property="v:title">
+      RubyのGemの正しく作ってみる
+    </a>
+  </span>
+</div>
+
+
+
           <div class="inner">
+            <div class="clearfix">
+              <div class="left_page inner_wrapper">
+                <article class="post_row">
+  <div class="inner">
+    <header class="field-items">
+      
+        <h1>
+          
+            
+              RubyのGemの正しく作ってみる
+          
+        </h1>
+      
 
-            <div class="left_page inner_wrapper">
-              <div id="single_page_contents" class="inner">
-                <div id="blog-archives" class="category">
+      
+        <section class="meta">
+          <div class="inner">
+            
+
+
+
+
+
+
+
+
   
-    
-    
-      
-      <h2>2014</h2>
-    
-
-    <article>
-      
-<h1><a href="/blog/vim/file-include-by-neocomplete.html">neocomplete.vimのfile_includeを使いこなす</a></h1>
-<time datetime="2014-01-11T13:25:00+09:00" pubdate><span class='month'>Jan</span> <span class='day'>11</span> <span class='year'>2014</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/vim/'>vim</a></span>
-</footer>
 
 
-    </article>
+
+<time datetime="2014-02-13T02:52:00+09:00" pubdate data-updated="true">Feb 13<span>th</span>, 2014</time>
+            
   
-    
+
+<span class="byline author">Posted by 石井浩之</span>
+
+            
+
+  <span class="categories">
     
       
-      <h2>2013</h2>
+        <a class='category' href='/blog/ruby/'>ruby</a>
+      
+    
+  </span>
+
+
+          </div>
+        </section>
+      
+    </header>
+
+    
+      <section class="entry-content"><p><img class="image_on_frame center" src="/images/blog/i-have-almost-finished-implementing-comment-parser/capture.png" title="コメントを抽象的に扱う" ></p>
+
+<p>先日から書いていたGemですが、ようやく一通りの動作が確認出来ました。</p>
+
+<p>あらゆるソースコードをパースして、コメントを抽象的に扱えるようにするGemです。</p>
+
+<!-- more -->
+
+
+<h2>一旦振り返り</h2>
+
+<p>設計からRubyGemsにあげるまで、44:32:23かかりました。</p>
+
+<p>とりあえず、これからwatson-rubyのnhmoodさんに連絡して、watson-rubyに取り入れてもらう予定です。</p>
+
+<h2>誰かコードレビューを&hellip;</h2>
+
+<p>一人でコード書いていると、これで良いのかと悩みます。</p>
+
+<p>一応、正しく作っているつもりですがプログラミングは文系独学なので、正直自信が無いです。。</p>
+
+<p><a href="https://github.com/alpaca-tc/comment_parser"><strong>comment_parser</strong></a></p>
+
+<p>↑どなたか、コードレビューお願いします！>&lt;↑</p>
+
+<h2>Vimプラグインが捗る</h2>
+
+<p>続いて、コメントの文法チェックや翻訳のプラグインを完成させまする！</p>
+</section>
     
 
-    <article>
+    
       
-<h1><a href="/blog/vim/vim-plugins-2013.html">2013年に作ったVimプラグイン達</a></h1>
-<time datetime="2013-12-29T22:54:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>29</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/vim/'>vim</a></span>
-</footer>
-
-
-    </article>
   
+
+
+
+
+
+
+<section class="sharing clearfix">
+  <div class="button ft_like_button">
+    <div class="fb-like" data-href="http://alpaca.tc/blog/ruby/i-have-almost-finished-implementing-comment-parser.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
+  </div>
+
+  <div class="button ft_share_button">
+    <div class="fb-share-button" data-href="http://alpaca.tc/blog/ruby/i-have-almost-finished-implementing-comment-parser.html" data-type="button_count"></div>
+  </div>
+
+  <div class="button hatena_bookmark_button">
+    <a href="http://b.hatena.ne.jp/entry/http://alpaca.tc/blog/ruby/i-have-almost-finished-implementing-comment-parser.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
+RubyのGemの正しく作ってみる | RailsとRubyとVimのブログRailsとRubyとVimのブログ
+" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
+      <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+    </a>
+  </div>
+
+  <div class="button google_plus_button_like">
+    <div data-annotation="none" data-href="http://alpaca.tc/blog/ruby/i-have-almost-finished-implementing-comment-parser.html" class="g-plusone" data-size="medium" ></div>
+  </div>
+
+  <div class="button twitter_button">
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/ruby/i-have-almost-finished-implementing-comment-parser.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/ruby/i-have-almost-finished-implementing-comment-parser.html" >Tweet</a>
+  </div>
+</section>
+
     
-    
-
-    <article>
-      
-<h1><a href="/blog/vim/jump-to-gem-path.html">Vim中級者を脱する path編</a></h1>
-<time datetime="2013-12-19T08:02:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>19</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/vim/'>vim</a></span>
-</footer>
+  </div>
+</article>
 
 
-    </article>
+                <section class="post_row">
+                  
+                    
+  <section class="entry-comment">
+    <div id="disqus_thread" aria-live="polite"></div>
+
+  </section>
+
+
+                  
+                </section>
+
+                <div class="pagination meta clearfix">
   
-    
-    
-
-    <article>
-      
-<h1><a href="/blog/vim/how-to-use-vim-unite-giti.html">仕事が捗る！VimからGitを使う最適解</a></h1>
-<time datetime="2013-12-17T23:36:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>17</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/vim/'>vim</a></span>
-</footer>
-
-
-    </article>
+    <div class="arrow_block left_block">
+      <a class="basic-alignment" href="/blog/ruby/how-to-use-star.html" title="Previous Post: ここまで出来る！RubyのSplat Operatorまとめ">&laquo; ここまで出来る！RubyのSplat Operatorまとめ</a>
+    </div>
   
-    
-    
 
-    <article>
-      
-<h1><a href="/blog/vim/using-vim-unite-watson.html">Unite.vimとwatsonを使ったワークフロー</a></h1>
-<time datetime="2013-12-13T02:29:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>13</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/vim/'>vim</a></span>
-</footer>
-
-
-    </article>
-  
-    
-    
-
-    <article>
-      
-<h1><a href="/blog/vim/neocomplete-vs-youcompleteme.html">NeoComplete vs YouCompleteMe</a></h1>
-<time datetime="2013-12-10T00:04:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>10</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/vim/'>vim</a></span>
-</footer>
-
-
-    </article>
-  
-    
-    
-
-    <article>
-      
-<h1><a href="/blog/vim/break-vim-beginners-scope.html">Vim中級者を脱する スコープ編</a></h1>
-<time datetime="2013-11-13T17:26:00+09:00" pubdate><span class='month'>Nov</span> <span class='day'>13</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/vim/'>vim</a></span>
-</footer>
-
-
-    </article>
-  
-    
-    
-
-    <article>
-      
-<h1><a href="/blog/vim/how-to-use-tern-vim.html">JavaScript補完プラグインのTernはすごいヤツ</a></h1>
-<time datetime="2013-11-13T14:40:00+09:00" pubdate><span class='month'>Nov</span> <span class='day'>13</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/vim/'>vim</a></span>
-</footer>
-
-
-    </article>
-  
-    
-    
-
-    <article>
-      
-<h1><a href="/blog/vim/training-of-new-employee.html">Vimを使って新人教育</a></h1>
-<time datetime="2013-11-11T05:21:00+09:00" pubdate><span class='month'>Nov</span> <span class='day'>11</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/vim/'>vim</a></span>
-</footer>
-
-
-    </article>
-  
-    
-    
-
-    <article>
-      
-<h1><a href="/blog/vim/plugins-best-of-vim-1.html">オススメなVimのプラグイン紹介</a></h1>
-<time datetime="2013-11-07T05:22:00+09:00" pubdate><span class='month'>Nov</span> <span class='day'>07</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/vim/'>vim</a></span>
-</footer>
-
-
-    </article>
-  
-    
-    
-
-    <article>
-      
-<h1><a href="/blog/vim/break-vim-beginners-augroup.html">Vim中級者を脱する augroup編</a></h1>
-<time datetime="2013-11-02T02:30:00+09:00" pubdate><span class='month'>Nov</span> <span class='day'>02</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/vim/'>vim</a></span>
-</footer>
-
-
-    </article>
-  
-    
-    
-
-    <article>
-      
-<h1><a href="/blog/vim/octopress_and_vimplugin.html">octopressとセットで入れておきたいVimプラグインまとめ</a></h1>
-<time datetime="2013-11-01T17:06:00+09:00" pubdate><span class='month'>Nov</span> <span class='day'>01</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/vim/'>vim</a></span>
-</footer>
-
-
-    </article>
-  
-    
-    
-
-    <article>
-      
-<h1><a href="/blog/vim/alpaca_octopress/about_alpaca_complete.html">alpaca_octopress続き</a></h1>
-<time datetime="2013-10-30T04:34:00+09:00" pubdate><span class='month'>Oct</span> <span class='day'>30</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/alpaca-octopress/'>alpaca_octopress</a>, <a class='category' href='/blog/vim/'>vim</a></span>
-</footer>
-
-
-    </article>
-  
-    
-    
-
-    <article>
-      
-<h1><a href="/blog/vim/alpaca_octopress/create_new_plugin_for_octopress.html">alpaca_octopressを作っている</a></h1>
-<time datetime="2013-10-29T04:52:00+09:00" pubdate><span class='month'>Oct</span> <span class='day'>29</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/alpaca-octopress/'>alpaca_octopress</a>, <a class='category' href='/blog/vim/'>vim</a></span>
-</footer>
-
-
-    </article>
   
 </div>
 
               </div>
-            </div>
 
-            <aside id="sidebar" class="right_page inner_wrapper">
+              <aside id="sidebar" class="right_page inner_wrapper">
   
 <section id="side_category_posts" class="sidebar_row">
   <div id="blog-archives" class="category">
@@ -357,6 +303,35 @@
 
   
 
+
+  <section id="side_category_posts" class="sidebar_row">
+    <div id="blog-archives" class="category">
+      <h1>rubyカテゴリーの最新記事</h1>
+
+      
+        <article>
+          <time datetime="2014-02-13T02:52:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>13</span> <span class='year'>2014</span></time>
+          <h1><a href="/blog/ruby/i-have-almost-finished-implementing-comment-parser.html">RubyのGemの正しく作ってみる</a></h1>
+        </article>
+      
+        <article>
+          <time datetime="2014-02-12T04:16:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>12</span> <span class='year'>2014</span></time>
+          <h1><a href="/blog/ruby/how-to-use-star.html">ここまで出来る！RubyのSplat Operatorまとめ</a></h1>
+        </article>
+      
+        <article>
+          <time datetime="2014-02-10T12:33:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>10</span> <span class='year'>2014</span></time>
+          <h1><a href="/blog/ruby/create-strip-comment.html">久しぶりにGemを書いている</a></h1>
+        </article>
+      
+
+      <div class="category_link">
+        <span class="categories">
+          <a href="/blog/ruby">→rubyの記事をもっと見る</a>
+        </span>
+      </div>
+    </div>
+  </section>
 
 
 
@@ -396,6 +371,7 @@
 
 </aside>
 
+            </div>
           </div>
         </div>
       </div><!-- /div#main_contents -->
@@ -489,3 +465,4 @@
     </div>
   </body>
 </html>
+

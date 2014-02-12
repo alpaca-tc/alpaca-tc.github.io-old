@@ -4,7 +4,7 @@
   <title><![CDATA[RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2014-02-12T05:43:00+09:00</updated>
+  <updated>2014-02-13T03:11:13+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,42 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[RubyのGemの正しく作ってみる]]></title>
+    <link href="http://alpaca.tc/blog/ruby/i-have-almost-finished-implementing-comment-parser.html"/>
+    <updated>2014-02-13T02:52:00+09:00</updated>
+    <id>http://alpaca.tc/blog/ruby/i-have-almost-finished-implementing-comment-parser</id>
+    <content type="html"><![CDATA[<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/i-have-almost-finished-implementing-comment-parser/capture.png" title="コメントを抽象的に扱う" ></p>
+
+<p>先日から書いていたGemですが、ようやく一通りの動作が確認出来ました。</p>
+
+<p>あらゆるソースコードをパースして、コメントを抽象的に扱えるようにするGemです。</p>
+
+<!-- more -->
+
+
+<h2>一旦振り返り</h2>
+
+<p>設計からRubyGemsにあげるまで、44:32:23かかりました。</p>
+
+<p>とりあえず、これからwatson-rubyのnhmoodさんに連絡して、watson-rubyに取り入れてもらう予定です。</p>
+
+<h2>誰かコードレビューを&hellip;</h2>
+
+<p>一人でコード書いていると、これで良いのかと悩みます。</p>
+
+<p>一応、正しく作っているつもりですがプログラミングは文系独学なので、正直自信が無いです。。</p>
+
+<p><a href="https://github.com/alpaca-tc/comment_parser"><strong>comment_parser</strong></a></p>
+
+<p>↑どなたか、コードレビューお願いします！>&lt;↑</p>
+
+<h2>Vimプラグインが捗る</h2>
+
+<p>続いて、コメントの文法チェックや翻訳のプラグインを完成させまする！</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[ここまで出来る！RubyのSplat Operatorまとめ]]></title>
@@ -2300,48 +2336,6 @@ Vimのオプションやコマンド名が、そのまま変数に使われて�
 
 
 <p><strong>正直今でも理解出来ていない。</strong></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[JavaScript補完プラグインのTernはすごいヤツ]]></title>
-    <link href="http://alpaca.tc/blog/vim/how-to-use-tern-vim.html"/>
-    <updated>2013-11-13T14:40:00+09:00</updated>
-    <id>http://alpaca.tc/blog/vim/how-to-use-tern-vim</id>
-    <content type="html"><![CDATA[<p><strong>「え、JavaScriptを書いているのに、Tern使ってないの？」</strong></p>
-
-<p>ダサい。イケてない。
-あぁ、残念。</p>
-
-<!-- more -->
-
-
-<p><a href="https://github.com/marijnh/tern">Tern</a>は、marijnhという凄いエンジニアの人が作っている<strong>JavaScriptの動的補完プラグイン</strong></p>
-
-<p>コードを動的にパースして、今カーソルがある変数の型まで調べて補完しちゃってくれる。</p>
-
-<p>設定をすれば、jQueryなどのプラグインでの諸々も補完しちゃう凄いやつなのだ。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">if</span> has<span class="p">(</span><span class="s1">&#39;python&#39;</span><span class="p">)</span> &amp;&amp; executable<span class="p">(</span><span class="s1">&#39;npm&#39;</span><span class="p">)</span>
-</span><span class='line'>  NeoBundleLazy <span class="s1">&#39;marijnh/tern_for_vim&#39;</span><span class="p">,</span> {
-</span><span class='line'>        \ <span class="s1">&#39;build&#39;</span> : <span class="s1">&#39;npm install&#39;</span><span class="p">,</span>
-</span><span class='line'>        \ <span class="s1">&#39;autoload&#39;</span> : {
-</span><span class='line'>        \   <span class="s1">&#39;functions&#39;</span>: [<span class="s1">&#39;tern#Complete&#39;</span><span class="p">,</span> <span class="s1">&#39;tern#Enable&#39;</span>]<span class="p">,</span>
-</span><span class='line'>        \   <span class="s1">&#39;filetypes&#39;</span> : <span class="s1">&#39;javascript&#39;</span>
-</span><span class='line'>        \ }}
-</span><span class='line'><span class="k">endif</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>まぁ、何はともあれ一度使ってみてください。</p>
 ]]></content>
   </entry>
   
