@@ -7,30 +7,36 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <title>RubyのGemの正しく作ってみる - RailsとRubyとVimのブログ</title>
+    <title>Gemを書くときに知っておきたい3つの事 - RailsとRubyとVimのブログ</title>
     
-    <meta name="description" content="先日から書いていたGemですが、ようやく一通りの動作が確認出来ました。 あらゆるソースコードをパースして、コメントを抽象的に扱えるようにするGemです。 一旦振り返り 設計からRubyGemsにあげるまで、44:32:23かかりました。 とりあえず、これからwatson- &hellip;">
+    <meta name="description" content="先日から書き続けていたCommentExtractorが、大枠完成しました。 さて、今回Gemを書くときに役に立った、便利なTipsを幾つか紹介します！ 内容はバラバラです。笑 READMEに視覚情報を追加する
+RubyGemsからGemを削除する
+RSpecをキレイに書く 1. &hellip;">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
-    <meta content='RubyのGemの正しく作ってみる | RailsとRubyとVimのブログ' name='title' />
+    <meta content='Gemを書くときに知っておきたい3つの事 | RailsとRubyとVimのブログ' name='title' />
 
     
   <link rel="author" href="https://plus.google.com/105581201951227096827" />
   <link rel="publisher" href="https://plus.google.com/105581201951227096827" />
 
 
-    <meta property="og:title" content='RubyのGemの正しく作ってみる' />
+    <meta property="og:title" content='Gemを書くときに知っておきたい3つの事' />
 <meta property="og:locale" content="ja_JP"/>
 <meta property="og:image" content="http://http://alpaca.tc/images/meta/site_title.png"/>
 <meta property="og:type" content="blog"/>
 <meta property="og:url" content="http://alpaca.tc/blog/ruby/i-have-almost-finished-implementing-comment-parser.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
-<meta property="og:description" content="先日から書いていたGemですが、ようやく一通りの動作が確認出来ました。 あらゆるソースコードをパースして、コメントを抽象的に扱えるようにするGemです。 一旦振り返り 設計からRubyGemsにあげるまで、44:32:23かかりました。 とりあえず、これからwatson- &hellip;" />
+<meta property="og:description" content="先日から書き続けていたCommentExtractorが、大枠完成しました。 さて、今回Gemを書くときに役に立った、便利なTipsを幾つか紹介します！ 内容はバラバラです。笑 READMEに視覚情報を追加する
+RubyGemsからGemを削除する
+RSpecをキレイに書く 1. &hellip;" />
 <meta property="fb:app_id" content="224701561024840" />
 
     <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RubyのGemの正しく作ってみる | RailsとRubyとVimのブログ">
-<meta name="twitter:description" content="先日から書いていたGemですが、ようやく一通りの動作が確認出来ました。 あらゆるソースコードをパースして、コメントを抽象的に扱えるようにするGemです。 一旦振り返り 設計からRubyGemsにあげるまで、44:32:23かかりました。 とりあえず、これからwatson- &hellip;">
+<meta name="twitter:title" content="Gemを書くときに知っておきたい3つの事 | RailsとRubyとVimのブログ">
+<meta name="twitter:description" content="先日から書き続けていたCommentExtractorが、大枠完成しました。 さて、今回Gemを書くときに役に立った、便利なTipsを幾つか紹介します！ 内容はバラバラです。笑 READMEに視覚情報を追加する
+RubyGemsからGemを削除する
+RSpecをキレイに書く 1. &hellip;">
 <meta name="twitter:image" content="http://http://alpaca.tc/images/meta/twitter.png">
 <meta name="twitter:site" content="@alpaca_taichou">
 <meta name="twitter:creator" content="@alpaca_taichou">
@@ -126,7 +132,7 @@
 
   <span typeof="v:Breadcrumb">
     <a href="" rel="v:url" property="v:title">
-      RubyのGemの正しく作ってみる
+      Gemを書くときに知っておきたい3つの事
     </a>
   </span>
 </div>
@@ -143,7 +149,7 @@
         <h1>
           
             
-              RubyのGemの正しく作ってみる
+              Gemを書くときに知っておきたい3つの事
           
         </h1>
       
@@ -164,7 +170,7 @@
 
 
 
-<time datetime="2014-02-13T02:52:00+09:00" pubdate data-updated="true">Feb 13<span>th</span>, 2014</time>
+<time datetime="2014-02-18T20:52:00+09:00" pubdate data-updated="true">Feb 18<span>th</span>, 2014</time>
             
   
 
@@ -187,34 +193,162 @@
     </header>
 
     
-      <section class="entry-content"><p><img class="image_on_frame center" src="/images/blog/i-have-almost-finished-implementing-comment-parser/capture.png" title="コメントを抽象的に扱う" ></p>
+      <section class="entry-content"><p>先日から書き続けていた<a href="https://github.com/alpaca-tc/comment_extractor">CommentExtractor</a>が、大枠完成しました。</p>
 
-<p>先日から書いていたGemですが、ようやく一通りの動作が確認出来ました。</p>
+<p><img class="image_on_frame center" src="/images/blog/i-have-almost-finished-implementing-comment-parser/capture.png" title="CommentExtractor" ></p>
 
-<p>あらゆるソースコードをパースして、コメントを抽象的に扱えるようにするGemです。</p>
+<p>さて、今回Gemを書くときに役に立った、便利なTipsを幾つか紹介します！</p>
 
 <!-- more -->
 
 
-<h2>一旦振り返り</h2>
+<p>内容はバラバラです。笑</p>
 
-<p>設計からRubyGemsにあげるまで、44:32:23かかりました。</p>
+<ol>
+<li>READMEに視覚情報を追加する</li>
+<li>RubyGemsからGemを削除する</li>
+<li>RSpecをキレイに書く</li>
+</ol>
 
-<p>とりあえず、これからwatson-rubyのnhmoodさんに連絡して、watson-rubyに取り入れてもらう予定です。</p>
 
-<h2>誰かコードレビューを&hellip;</h2>
+<h2>1.READMEに視覚情報を追加する</h2>
 
-<p>一人でコード書いていると、これで良いのかと悩みます。</p>
+<p>READMEには視覚的なバッヂを追加出来ます。Gemを書くときには、ぜひとも入れておきたい情報ですね。</p>
 
-<p>一応、正しく作っているつもりですがプログラミングは文系独学なので、正直自信が無いです。。</p>
+<ul>
+<li><a href="http://badge.fury.io/rb/comment_extractor"><img src="https://badge.fury.io/rb/comment_extractor.png" alt="Gem Version" /></a></li>
+<li><a href="https://travis-ci.org/alpaca-tc/comment_parser"><img src="https://travis-ci.org/alpaca-tc/comment_extractor.png?branch=v1.0.0" alt="Build Status" /></a></li>
+<li><a href="https://coveralls.io/r/alpaca-tc/comment_extractor?branch=v1.0.0"><img src="https://coveralls.io/repos/alpaca-tc/comment_extractor/badge.png?branch=v1.0.0" alt="Coverage Status" /></a></li>
+</ul>
 
-<p><a href="https://github.com/alpaca-tc/comment_parser"><strong>comment_parser</strong></a></p>
 
-<p>↑どなたか、コードレビューお願いします！>&lt;↑</p>
+<p>もちろん、登録すれば無料で作ることが出来ます。</p>
 
-<h2>Vimプラグインが捗る</h2>
+<p>詳しくは<a href="http://elgalu.github.io/2013/add-achievement-badges-to-your-gem-readme/">コチラの記事</a>を読んでみましょう。</p>
 
-<p>続いて、コメントの文法チェックや翻訳のプラグインを完成させまする！</p>
+<h2>2.RubyGemsからGemを削除する</h2>
+
+<p>間違えてRubyGemsにPushしてしまった！</p>
+
+<p>そんなときに便利なyankコマンド。意外と知られていない。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>gem yank gem_name -v 1.0.0
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>ただ、これをやっても論理削除されるだけのようですねぇ。多分。</p>
+
+<p>このバージョン使うなよ！新しいの使えよ！ってときに使うコマンドだと思います。</p>
+
+<h2>3.RSpecをキレイに書く</h2>
+
+<p>RSpecをキレイに書く方法は、ある程度伝統があります。</p>
+
+<ul>
+<li><a href="http://betterspecs.org/">BetterSpecs</a></li>
+<li><a href="http://bitfluxx.com/2011/05/23/some-rspec-tips-and-best-practices.html">Some RSpec Tips and Best Practices</a></li>
+</ul>
+
+
+<p>今回は、ある程度RSpecを書ける人向けに、検索してもあまり出てこない情報(検索しにくい？)を提供したいと思います。</p>
+
+<h3>Syntaxについて</h3>
+
+<h4>be_truthy, be_falsy</h4>
+
+<p>RSpecが新しくなって、<code>be_true</code>, <code>be_false</code>→<code>be_truthy</code>, <code>be_falsy</code>となりました。
+今までは、厳密に<code>true</code>で無くてもテストが通っちゃいましたからね。</p>
+
+<h4>現在の主題であるクラスを取得する</h4>
+
+<p>RSpecでは<code>described_class</code>というメソッドを使用出来ます。
+<code>describe KlassName do...</code>で指定したKlassNameが格納されます。</p>
+
+<p>これを使えば、クラス名に依存せずにテストを書く事ができますね。</p>
+
+<h4>ExampleGroupを作る</h4>
+
+<p>ご存知の通り、Railsのテストではcontroller, model, viewで使えるメソッドが大きく異なります。
+それは、RSpecのexample_groupという機能を使って、テストの種類を元にModuleをincludeしているからです。</p>
+
+<p>これを使えば、複数のファイルで共通する内容を簡単に記述する事が出来ます。
+次のような感じですね。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># spec_helper.rb</span>
+</span><span class='line'><span class="no">RSpec</span><span class="o">.</span><span class="n">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">include</span> <span class="no">ExampleGroupModuleName</span><span class="p">,</span> <span class="ss">type</span><span class="p">:</span> <span class="ss">:optional</span><span class="p">,</span> <span class="n">example_group</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>    <span class="n">file_path</span><span class="p">:</span> <span class="no">Regexp</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sx">%w[spec comment_extractor extractor .*.rb]</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;[\\\/]&#39;</span><span class="p">))</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">RSpec</span><span class="o">.</span><span class="n">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">add_setting</span> <span class="ss">:source_code_path</span><span class="p">,</span> <span class="ss">default</span><span class="p">:</span> <span class="s1">&#39;spec/assets/source_code&#39;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">module</span> <span class="nn">ExampleGroupModuleName</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">source_code_path</span><span class="p">(</span><span class="n">file_name</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">dir</span> <span class="o">=</span> <span class="no">RSpec</span><span class="o">.</span><span class="n">configuration</span><span class="o">.</span><span class="n">source_code_path</span>
+</span><span class='line'>    <span class="n">file_name</span> <span class="p">?</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">dir</span><span class="si">}</span><span class="s2">/</span><span class="si">#{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">:</span> <span class="n">dir</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">included</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">k</span><span class="o">.</span><span class="n">class_eval</span> <span class="k">do</span>
+</span><span class='line'>      <span class="n">let</span><span class="p">(</span><span class="ss">:instance</span><span class="p">)</span> <span class="p">{</span> <span class="n">described_class</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">source_code</span><span class="p">)</span> <span class="p">}</span>
+</span><span class='line'>      <span class="n">let</span><span class="p">(</span><span class="ss">:source_code</span><span class="p">)</span> <span class="p">{</span> <span class="n">source_code_path</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="n">describe</span> <span class="s1">&#39;.new&#39;</span> <span class="k">do</span>
+</span><span class='line'>        <span class="n">subject</span> <span class="p">{</span> <span class="n">instance</span> <span class="p">}</span>
+</span><span class='line'>        <span class="n">let</span><span class="p">(</span><span class="ss">:file_name</span><span class="p">)</span> <span class="p">{</span> <span class="s1">&#39;filename.rb&#39;</span> <span class="p">}</span>
+</span><span class='line'>        <span class="n">it</span> <span class="p">{</span> <span class="n">expect</span> <span class="p">{</span> <span class="n">subject</span> <span class="p">}</span><span class="o">.</span><span class="n">to_not</span> <span class="n">raise_error</span> <span class="p">}</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>これを使えば、まとまったテストをスッキリ書く事ができますね。</p>
+
+<h2>まとめ</h2>
+
+<p>ざっくばらんに書きました。
+Gemを作るのは簡単なので、みなさんも作ってみてください！</p>
+
+<p>では！</p>
 </section>
     
 
@@ -238,7 +372,7 @@
 
   <div class="button hatena_bookmark_button">
     <a href="http://b.hatena.ne.jp/entry/http://alpaca.tc/blog/ruby/i-have-almost-finished-implementing-comment-parser.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
-RubyのGemの正しく作ってみる | RailsとRubyとVimのブログRailsとRubyとVimのブログ
+Gemを書くときに知っておきたい3つの事 | RailsとRubyとVimのブログRailsとRubyとVimのブログ
 " data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
       <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
     </a>
@@ -289,8 +423,8 @@ RubyのGemの正しく作ってみる | RailsとRubyとVimのブログRailsとRu
     <h1>最新記事</h1>
     
       <article>
-        <time datetime="2014-02-13T02:52:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>13</span> <span class='year'>2014</span></time>
-        <h1><a href="/blog/ruby/i-have-almost-finished-implementing-comment-parser.html">RubyのGemの正しく作ってみる</a></h1>
+        <time datetime="2014-02-18T20:52:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>18</span> <span class='year'>2014</span></time>
+        <h1><a href="/blog/ruby/i-have-almost-finished-implementing-comment-parser.html">Gemを書くときに知っておきたい3つの事</a></h1>
       </article>
     
       <article>
@@ -310,8 +444,8 @@ RubyのGemの正しく作ってみる | RailsとRubyとVimのブログRailsとRu
 
       
         <article>
-          <time datetime="2014-02-13T02:52:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>13</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/ruby/i-have-almost-finished-implementing-comment-parser.html">RubyのGemの正しく作ってみる</a></h1>
+          <time datetime="2014-02-18T20:52:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>18</span> <span class='year'>2014</span></time>
+          <h1><a href="/blog/ruby/i-have-almost-finished-implementing-comment-parser.html">Gemを書くときに知っておきたい3つの事</a></h1>
         </article>
       
         <article>

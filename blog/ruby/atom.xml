@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ruby | RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/blog/ruby/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2014-02-13T03:11:41+09:00</updated>
+  <updated>2014-02-18T21:02:41+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -14,38 +14,145 @@
 
   
   <entry>
-    <title type="html"><![CDATA[RubyのGemの正しく作ってみる]]></title>
+    <title type="html"><![CDATA[Gemを書くときに知っておきたい3つの事]]></title>
     <link href="http://alpaca.tc/blog/ruby/i-have-almost-finished-implementing-comment-parser.html"/>
-    <updated>2014-02-13T02:52:00+09:00</updated>
+    <updated>2014-02-18T20:52:00+09:00</updated>
     <id>http://alpaca.tc/blog/ruby/i-have-almost-finished-implementing-comment-parser</id>
-    <content type="html"><![CDATA[<p><img class="image_on_frame center" src="/images/blog/i-have-almost-finished-implementing-comment-parser/capture.png" title="コメントを抽象的に扱う" ></p>
+    <content type="html"><![CDATA[<p>先日から書き続けていた<a href="https://github.com/alpaca-tc/comment_extractor">CommentExtractor</a>が、大枠完成しました。</p>
 
-<p>先日から書いていたGemですが、ようやく一通りの動作が確認出来ました。</p>
+<p><img class="image_on_frame center" src="/images/blog/i-have-almost-finished-implementing-comment-parser/capture.png" title="CommentExtractor" ></p>
 
-<p>あらゆるソースコードをパースして、コメントを抽象的に扱えるようにするGemです。</p>
+<p>さて、今回Gemを書くときに役に立った、便利なTipsを幾つか紹介します！</p>
 
 <!-- more -->
 
 
-<h2>一旦振り返り</h2>
+<p>内容はバラバラです。笑</p>
 
-<p>設計からRubyGemsにあげるまで、44:32:23かかりました。</p>
+<ol>
+<li>READMEに視覚情報を追加する</li>
+<li>RubyGemsからGemを削除する</li>
+<li>RSpecをキレイに書く</li>
+</ol>
 
-<p>とりあえず、これからwatson-rubyのnhmoodさんに連絡して、watson-rubyに取り入れてもらう予定です。</p>
 
-<h2>誰かコードレビューを&hellip;</h2>
+<h2>1.READMEに視覚情報を追加する</h2>
 
-<p>一人でコード書いていると、これで良いのかと悩みます。</p>
+<p>READMEには視覚的なバッヂを追加出来ます。Gemを書くときには、ぜひとも入れておきたい情報ですね。</p>
 
-<p>一応、正しく作っているつもりですがプログラミングは文系独学なので、正直自信が無いです。。</p>
+<ul>
+<li><a href="http://badge.fury.io/rb/comment_extractor"><img src="https://badge.fury.io/rb/comment_extractor.png" alt="Gem Version" /></a></li>
+<li><a href="https://travis-ci.org/alpaca-tc/comment_parser"><img src="https://travis-ci.org/alpaca-tc/comment_extractor.png?branch=v1.0.0" alt="Build Status" /></a></li>
+<li><a href="https://coveralls.io/r/alpaca-tc/comment_extractor?branch=v1.0.0"><img src="https://coveralls.io/repos/alpaca-tc/comment_extractor/badge.png?branch=v1.0.0" alt="Coverage Status" /></a></li>
+</ul>
 
-<p><a href="https://github.com/alpaca-tc/comment_parser"><strong>comment_parser</strong></a></p>
 
-<p>↑どなたか、コードレビューお願いします！>&lt;↑</p>
+<p>もちろん、登録すれば無料で作ることが出来ます。</p>
 
-<h2>Vimプラグインが捗る</h2>
+<p>詳しくは<a href="http://elgalu.github.io/2013/add-achievement-badges-to-your-gem-readme/">コチラの記事</a>を読んでみましょう。</p>
 
-<p>続いて、コメントの文法チェックや翻訳のプラグインを完成させまする！</p>
+<h2>2.RubyGemsからGemを削除する</h2>
+
+<p>間違えてRubyGemsにPushしてしまった！</p>
+
+<p>そんなときに便利なyankコマンド。意外と知られていない。</p>
+
+<p><code>sh
+gem yank gem_name -v 1.0.0
+</code></p>
+
+<p>ただ、これをやっても論理削除されるだけのようですねぇ。多分。</p>
+
+<p>このバージョン使うなよ！新しいの使えよ！ってときに使うコマンドだと思います。</p>
+
+<h2>3.RSpecをキレイに書く</h2>
+
+<p>RSpecをキレイに書く方法は、ある程度伝統があります。</p>
+
+<ul>
+<li><a href="http://betterspecs.org/">BetterSpecs</a></li>
+<li><a href="http://bitfluxx.com/2011/05/23/some-rspec-tips-and-best-practices.html">Some RSpec Tips and Best Practices</a></li>
+</ul>
+
+
+<p>今回は、ある程度RSpecを書ける人向けに、検索してもあまり出てこない情報(検索しにくい？)を提供したいと思います。</p>
+
+<h3>Syntaxについて</h3>
+
+<h4>be_truthy, be_falsy</h4>
+
+<p>RSpecが新しくなって、<code>be_true</code>, <code>be_false</code>→<code>be_truthy</code>, <code>be_falsy</code>となりました。
+今までは、厳密に<code>true</code>で無くてもテストが通っちゃいましたからね。</p>
+
+<h4>現在の主題であるクラスを取得する</h4>
+
+<p>RSpecでは<code>described_class</code>というメソッドを使用出来ます。
+<code>describe KlassName do...</code>で指定したKlassNameが格納されます。</p>
+
+<p>これを使えば、クラス名に依存せずにテストを書く事ができますね。</p>
+
+<h4>ExampleGroupを作る</h4>
+
+<p>ご存知の通り、Railsのテストではcontroller, model, viewで使えるメソッドが大きく異なります。
+それは、RSpecのexample_groupという機能を使って、テストの種類を元にModuleをincludeしているからです。</p>
+
+<p>これを使えば、複数のファイルで共通する内容を簡単に記述する事が出来ます。
+次のような感じですね。</p>
+
+<p>```ruby</p>
+
+<h1>spec_helper.rb</h1>
+
+<p>RSpec.configure do |config|
+  config.include ExampleGroupModuleName, type: :optional, example_group: {</p>
+
+<pre><code>file_path: Regexp.compile(%w[spec comment_extractor extractor .*.rb].join('[\\\/]'))
+</code></pre>
+
+<p>  }
+end
+```</p>
+
+<p>```ruby
+RSpec.configure do |config|
+  config.add_setting :source_code_path, default: &lsquo;spec/assets/source_code&rsquo;
+end</p>
+
+<p>module ExampleGroupModuleName
+  def source_code_path(file_name = nil)</p>
+
+<pre><code>dir = RSpec.configuration.source_code_path
+file_name ? "#{dir}/#{file_name}" : dir
+</code></pre>
+
+<p>  end</p>
+
+<p>  def self.included(k)</p>
+
+<pre><code>k.class_eval do
+  let(:instance) { described_class.new(source_code) }
+  let(:source_code) { source_code_path(file_name) }
+
+  describe '.new' do
+    subject { instance }
+    let(:file_name) { 'filename.rb' }
+    it { expect { subject }.to_not raise_error }
+  end
+end
+</code></pre>
+
+<p>  end
+end
+```</p>
+
+<p>これを使えば、まとまったテストをスッキリ書く事ができますね。</p>
+
+<h2>まとめ</h2>
+
+<p>ざっくばらんに書きました。
+Gemを作るのは簡単なので、みなさんも作ってみてください！</p>
+
+<p>では！</p>
 ]]></content>
   </entry>
   
