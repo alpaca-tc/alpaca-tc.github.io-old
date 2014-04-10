@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <title>APIのMockサーバーを構築する「Apiary」を使ってみる - RailsとRubyとVimのブログ</title>
     
-    <meta name="description" content="Apiaryは、美しいAPIのドキュメント(Mockサーバー)が作成できるWebサービスです. Apiaryの特徴 apiaryは、簡単にAPIドキュメントを作ることのできるWebサービスです。 APIのMockサーバーなんて、使うことなかなか無いでしょう。 僕もそう思っていましたが、 &hellip;">
+    <meta name="description" content="Apiaryは、美しいAPIのドキュメント(Mockサーバー)が作成できるWebサービスです. Apiaryの使いどころ 仕事を進める上で、APIの仕様が先に作られることは多々あります. 今関わっている案件でも、APIの仕様表だけ先に届いたので、Mockサーバーを立てて開発を進めることにしました &hellip;">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='APIのMockサーバーを構築する「Apiary」を使ってみる | RailsとRubyとVimのブログ' name='title' />
@@ -25,12 +25,12 @@
 <meta property="og:type" content="blog"/>
 <meta property="og:url" content="http://alpaca.tc/blog/web-service/apiary.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
-<meta property="og:description" content="Apiaryは、美しいAPIのドキュメント(Mockサーバー)が作成できるWebサービスです. Apiaryの特徴 apiaryは、簡単にAPIドキュメントを作ることのできるWebサービスです。 APIのMockサーバーなんて、使うことなかなか無いでしょう。 僕もそう思っていましたが、 &hellip;" />
+<meta property="og:description" content="Apiaryは、美しいAPIのドキュメント(Mockサーバー)が作成できるWebサービスです. Apiaryの使いどころ 仕事を進める上で、APIの仕様が先に作られることは多々あります. 今関わっている案件でも、APIの仕様表だけ先に届いたので、Mockサーバーを立てて開発を進めることにしました &hellip;" />
 <meta property="fb:app_id" content="224701561024840" />
 
     <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="APIのMockサーバーを構築する「Apiary」を使ってみる | RailsとRubyとVimのブログ">
-<meta name="twitter:description" content="Apiaryは、美しいAPIのドキュメント(Mockサーバー)が作成できるWebサービスです. Apiaryの特徴 apiaryは、簡単にAPIドキュメントを作ることのできるWebサービスです。 APIのMockサーバーなんて、使うことなかなか無いでしょう。 僕もそう思っていましたが、 &hellip;">
+<meta name="twitter:description" content="Apiaryは、美しいAPIのドキュメント(Mockサーバー)が作成できるWebサービスです. Apiaryの使いどころ 仕事を進める上で、APIの仕様が先に作られることは多々あります. 今関わっている案件でも、APIの仕様表だけ先に届いたので、Mockサーバーを立てて開発を進めることにしました &hellip;">
 <meta name="twitter:image" content="http://http://alpaca.tc/images/meta/twitter.png">
 <meta name="twitter:site" content="@alpaca_taichou">
 <meta name="twitter:creator" content="@alpaca_taichou">
@@ -196,76 +196,41 @@
 <!-- more -->
 
 
-<h2>Apiaryの特徴</h2>
+<h2>Apiaryの使いどころ</h2>
 
-<p>apiaryは、簡単にAPIドキュメントを作ることのできるWebサービスです。</p>
+<p>仕事を進める上で、APIの仕様が先に作られることは多々あります.</p>
 
-<p>APIのMockサーバーなんて、使うことなかなか無いでしょう。</p>
+<p>今関わっている案件でも、APIの仕様表だけ先に届いたので、Mockサーバーを立てて開発を進めることにしました.</p>
 
-<p>僕もそう思っていましたが、今関わっている案件でAPIの仕様表だけ先に届いたので、Mockサーバーを立てて開発を進めることにしました。</p>
+<h2>ドキュメント(Mockサーバー)を作ってみる</h2>
 
-<h2>Apiaryを使ってみる</h2>
+<p>Githubの連携でアカウントを作り、すぐにドキュメントの作成に取りかかれます.
+markdown(の拡張)でAPIの仕様を書けば、すぐにドキュメントが生成されます.</p>
 
-<p>Githubのアカウントと連携させれば、すぐにMockサーバーの作成に取りかかれます。</p>
+<p><img class="image_on_frame center" src="/images/blog/apiary/apiary_document.png" title="Apiary Document" ></p>
 
-<p>今回は、デモとして簡単なアルパカAPIを実装しました。</p>
+<p><strong>う、美しい&hellip;</strong></p>
+
+<p>その上、Apiaryではドキュメントと同時に、そのドキュメントからMockサーバーを立ててくれます.</p>
+
+<p>今回は、デモとして簡単なアルパカAPIを実装しました.</p>
 
 <ul>
 <li><a href="http://docs.alpaca.apiary.io/">生成されたドキュメント</a></li>
-<li><a href="https://gist.githubusercontent.com/qickstarter/10379925/raw/cbbc082b4866c7005938ab140b9447a8a880c3cd/gistfile1.txt">Blueprintのコード</a></li>
 </ul>
 
 
-<p>10分ぐらいで作成完了。すばらしい！</p>
+<p>10分ぐらいで作成完了.すばらしい！</p>
 
 <h2>レスポンスを見てみる</h2>
 
-<p>作成されたAPIは、<code>API名.apiary-mock.com</code>で見ることができます。</p>
+<p>作成されたAPIのMockサーバーは、<code>API名.apiary-mock.com</code>で見ることができます.</p>
 
 <p>さっそく<code>curl</code>でレスポンスを見てみよう</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>curl http://alpaca.apiary-mock.com/hello
-</span><span class='line'>
-</span><span class='line'><span class="o">{</span>
-</span><span class='line'>    <span class="s2">&quot;status&quot;</span>: 200,
-</span><span class='line'>    <span class="s2">&quot;alpaca&quot;</span> : <span class="o">[</span>
-</span><span class='line'>        <span class="s2">&quot;うるせぇVimぶつけるぞ&quot;</span>
-</span><span class='line'>        <span class="s2">&quot; Δ~~~~Δ&quot;</span>
-</span><span class='line'>        <span class="s2">&quot; ξ ･ェ･ξ&quot;</span>,
-</span><span class='line'>        <span class="s2">&quot; ξ  ~  ξ&quot;</span>,
-</span><span class='line'>        <span class="s2">&quot; ξ     ξ&quot;</span>,
-</span><span class='line'>        <span class="s2">&quot; ξ     “~～~～〇&quot;</span>,
-</span><span class='line'>        <span class="s2">&quot; ξ             ξ&quot;</span>,
-</span><span class='line'>        <span class="s2">&quot; ξ ξ ξ~～~ξ ξ&quot;</span>,
-</span><span class='line'>        <span class="s2">&quot; ξ_ξ_ξ  ξξ_ξ&quot;</span>,
-</span><span class='line'>        <span class="s2">&quot;ヽ(´･ω･)ﾉ&quot;</span>,
-</span><span class='line'>        <span class="s2">&quot;   |    /&quot;</span>,
-</span><span class='line'>        <span class="s2">&quot;   U   U&quot;</span>,
-</span><span class='line'>    <span class="o">]</span>
-</span><span class='line'><span class="o">}</span>%
-</span></code></pre></td></tr></table></div></figure>
+<p><code>$ curl http://alpaca.apiary-mock.com/hello</code></p>
 
-
-<p><a href="http://apiary.io/">Apiary</a></p>
+<p>ヽ(・∀・ )ﾉす&hellip;すげぇ便利！</p>
 </section>
     
 
