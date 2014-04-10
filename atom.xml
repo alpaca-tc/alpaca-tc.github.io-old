@@ -4,7 +4,7 @@
   <title><![CDATA[RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2014-03-26T23:05:44+09:00</updated>
+  <updated>2014-04-10T22:10:45+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,91 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[APIのMockサーバーを構築する「Apiary」を使ってみる]]></title>
+    <link href="http://alpaca.tc/blog/web-service/apiary.html"/>
+    <updated>2014-04-10T21:36:00+09:00</updated>
+    <id>http://alpaca.tc/blog/web-service/apiary</id>
+    <content type="html"><![CDATA[<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/apiary/apiary_top.png" title="apiary Build beautiful APIs" ></p>
+
+<p><a href="http://apiary.io/">Apiary</a>は、美しいAPIのドキュメント(Mockサーバー)が作成できるWebサービスです.</p>
+
+<!-- more -->
+
+
+<h2>Apiaryの特徴</h2>
+
+<p>apiaryは、簡単にAPIドキュメントを作ることのできるWebサービスです。</p>
+
+<p>APIのMockサーバーなんて、使うことなかなか無いでしょう。</p>
+
+<p>僕もそう思っていましたが、今関わっている案件でAPIの仕様表だけ先に届いたので、Mockサーバーを立てて開発を進めることにしました。</p>
+
+<h2>Apiaryを使ってみる</h2>
+
+<p>Githubのアカウントと連携させれば、すぐにMockサーバーの作成に取りかかれます。</p>
+
+<p>今回は、デモとして簡単なアルパカAPIを実装しました。</p>
+
+<ul>
+<li><a href="http://docs.alpaca.apiary.io/">生成されたドキュメント</a></li>
+<li><a href="https://gist.githubusercontent.com/qickstarter/10379925/raw/cbbc082b4866c7005938ab140b9447a8a880c3cd/gistfile1.txt">Blueprintのコード</a></li>
+</ul>
+
+
+<p>10分ぐらいで作成完了。すばらしい！</p>
+
+<h2>レスポンスを見てみる</h2>
+
+<p>作成されたAPIは、<code>API名.apiary-mock.com</code>で見ることができます。</p>
+
+<p>さっそく<code>curl</code>でレスポンスを見てみよう</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>curl http://alpaca.apiary-mock.com/hello
+</span><span class='line'>
+</span><span class='line'><span class="o">{</span>
+</span><span class='line'>    <span class="s2">&quot;status&quot;</span>: 200,
+</span><span class='line'>    <span class="s2">&quot;alpaca&quot;</span> : <span class="o">[</span>
+</span><span class='line'>        <span class="s2">&quot;うるせぇVimぶつけるぞ&quot;</span>
+</span><span class='line'>        <span class="s2">&quot; Δ~~~~Δ&quot;</span>
+</span><span class='line'>        <span class="s2">&quot; ξ ･ェ･ξ&quot;</span>,
+</span><span class='line'>        <span class="s2">&quot; ξ  ~  ξ&quot;</span>,
+</span><span class='line'>        <span class="s2">&quot; ξ     ξ&quot;</span>,
+</span><span class='line'>        <span class="s2">&quot; ξ     “~～~～〇&quot;</span>,
+</span><span class='line'>        <span class="s2">&quot; ξ             ξ&quot;</span>,
+</span><span class='line'>        <span class="s2">&quot; ξ ξ ξ~～~ξ ξ&quot;</span>,
+</span><span class='line'>        <span class="s2">&quot; ξ_ξ_ξ  ξξ_ξ&quot;</span>,
+</span><span class='line'>        <span class="s2">&quot;ヽ(´･ω･)ﾉ&quot;</span>,
+</span><span class='line'>        <span class="s2">&quot;   |    /&quot;</span>,
+</span><span class='line'>        <span class="s2">&quot;   U   U&quot;</span>,
+</span><span class='line'>    <span class="o">]</span>
+</span><span class='line'><span class="o">}</span>%
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a href="http://apiary.io/">Apiary</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Gemを書くときに知っておきたい3つの事]]></title>
@@ -2291,179 +2376,6 @@ Vimのオプションやコマンド名が、そのまま変数に使われて�
 <p>1994年というと、僕がおもらしをして20万円ぐらいするPCを破壊したぐらいの時期でしょうか。</p>
 
 <p>これから、VimをVersion4に向けて再構築していきたいと思います。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Vim中級者を脱する スコープ編]]></title>
-    <link href="http://alpaca.tc/blog/vim/break-vim-beginners-scope.html"/>
-    <updated>2013-11-13T17:26:00+09:00</updated>
-    <id>http://alpaca.tc/blog/vim/break-vim-beginners-scope</id>
-    <content type="html"><![CDATA[<p>個人的に、Vimで一番ハマったのが<strong>スコープの問題</strong>でした。</p>
-
-<p>vimrcのコピペばかりの、あなた。</p>
-
-<p>せめて、よく登場するスコープだけでも理解してみましょう。</p>
-
-<!-- more -->
-
-
-<h1>よく見るスコープ一覧</h1>
-
-<ul>
-<li><em>グローバル</em>スコープ　<code>g:</code></li>
-<li><em>関数内</em>スコープ　<code>a:</code></li>
-<li><em>スクリプト</em>スコープ　<code>s:</code></li>
-<li><em>バッファ</em>スコープ　<code>b:</code></li>
-<li><em>接頭辞なし</em>　<code>let huga=...</code>など</li>
-</ul>
-
-
-<h2>グローバル(g:)スコープ</h2>
-
-<p><strong>どこからでも参照できます。</strong></p>
-
-<p>プラグインの設定で見慣れたスコープですね。</p>
-
-<p><code>let g:neocomplete#enable_at_startup = 1</code></p>
-
-<p>変数を初期化するには、次のようにします。
-大量のエラーコードによって操作できなくなるので、<strong>嫌いな人のvimrcの末尾に書き込んでください。</strong></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">for</span> <span class="nb">key</span> <span class="k">in</span> keys<span class="p">(</span><span class="k">g</span>:<span class="p">)</span>
-</span><span class='line'>  execute <span class="s1">&#39;unlet g:&#39;</span> . <span class="nb">key</span>
-</span><span class='line'><span class="k">endfor</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>関数内(a:)スコープ</h2>
-
-<p><strong>関数内で、引数を参照するときに使用するスコープ</strong></p>
-
-<p>個人的に一番理解しがたいスコープです。</p>
-
-<p>こんな感じで使います。他言語から移ってきた人には、正直使いづらい。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">function</span><span class="p">!</span> Huga<span class="p">(</span><span class="k">first</span><span class="p">,</span> second<span class="p">)</span>
-</span><span class='line'>  echo <span class="k">a</span>:<span class="k">first</span>
-</span><span class='line'><span class="c">  &quot;=&gt; &#39;a&#39;</span>
-</span><span class='line'>
-</span><span class='line'>  echo <span class="k">a</span>:
-</span><span class='line'><span class="c">  &quot;=&gt; {&#39;0&#39;: 0, &#39;000&#39;: [], &#39;second&#39;: &#39;b&#39;, &#39;first&#39;: &#39;a&#39;, &#39;firstline&#39;: 5, &#39;lastline&#39;: 5}</span>
-</span><span class='line'><span class="k">endfunction</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">call</span> Huga<span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>「あーなるほど、<strong>関数内でだけ有効なスコープなのか。</strong>」</p>
-
-<p>と、思っていたら<em>それは間違い。</em></p>
-
-<p>下記のようにすると、<strong>グローバルスコープとして参照できます。</strong></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">function</span><span class="p">!</span> <span class="k">a</span>:huga<span class="p">()</span>
-</span><span class='line'>  echo <span class="s1">&#39;Global!?!?!?&#39;</span>
-</span><span class='line'><span class="k">endfunction</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">call</span> <span class="k">a</span>:huga<span class="p">()</span> <span class="c">&quot; =&gt; Global!?!?!?</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>実は、これ関数名に<code>:</code>が許可されているだけです。
-なので実際は<code>a:</code>スコープは関係ないんだけど、分かりづらい。</p>
-
-<h2>スクリプト(s:)スコープ</h2>
-
-<p><strong>ファイル内でのみ有効なスコープ</strong>です。</p>
-
-<p>プラグインで、プライベートなメソッドや定数を作るときによく使います。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">let</span> <span class="k">s</span>:script_scope <span class="p">=</span> <span class="s1">&#39;外部からは参照できない&#39;</span>
-</span><span class='line'><span class="k">function</span><span class="p">!</span> <span class="k">s</span>:script_scope_method<span class="p">()</span>
-</span><span class='line'><span class="c">  &quot; プライベートメソッドとしてよく使われる</span>
-</span><span class='line'><span class="k">endfunction</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>この<code>s:</code>は、スクリプトがsourceされるときに置き換えられ、<code>&lt;SNR&gt;1_...</code>という感じの形になります。</p>
-
-<p>えぇ、そうです。すると、<strong>グローバルなスコープとして参照できます。</strong></p>
-
-<p>この<code>&lt;SNR&gt;</code>の後にどの数値が割り振られているかは、<code>:scriptnames</code>で参照できます。</p>
-
-<p>また、<code>s:</code>は<code>&lt;SID&gt;</code>として使えばスコープを超えて使用できるようになります。</p>
-
-<p>マッピングの時に、scriptスコープを使う時などは必須ですね。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="nb">nnoremap</span> <span class="k">s</span> :echo <span class="p">&lt;</span>SID<span class="p">&gt;</span>SID<span class="p">()&lt;</span>CR<span class="p">&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>ただし、<strong>変数は基本的には聖域</strong>です。</p>
-
-<h2>バッファ(b:)スコープ</h2>
-
-<p><strong>バッファ単位のスコープ</strong>です。</p>
-
-<p>ファイルタイプによる設定や、一時バッファによる変数などに使います。</p>
-
-<ul>
-<li>ファイルタイプの変更で、<code>b:current_syntax</code>などが初期化&amp;格納されます</li>
-<li>Uniteを起動で、<code>b:unite</code>にデータが格納されます。</li>
-</ul>
-
-
-<p>Uniteのデバッグするときには、<code>echo b:unite.candidates</code>などを参照しましょう。</p>
-
-<p>あぁ、ようやくまともなスコープだ。</p>
-
-<h2>接頭辞なし(<code>let huga=</code>)変数</h2>
-
-<p>えぇ。<strong>グローバルなスコープです。</strong></p>
-
-<p>お前もか！</p>
-
-<p>マナーとしては、やはり<code>g:</code>で宣言したいところですが、</p>
-
-<p>Vimにデフォルトで入っているプラグインは、容赦なくこの変数を使ってきます。</p>
-
-<p><code>:echo loaded_*&lt;Tab&gt;</code>などすれば、奴らを見つけられるはずです。</p>
-
-<p>細かいことを言えば、関数内ならばローカルスコープです。。。</p>
-
-<h2>スコープのまとめ</h2>
-
-<ul>
-<li>スコープは<strong>ほとんどグローバルで参照できる</strong></li>
-<li>VimLは枠にハマらない<strong>素敵な</strong>言語仕様を持っている</li>
-<li>getbufvar()などでスコープへアクセス出来るため、<strong>聖域はほとんど無い</strong></li>
-</ul>
-
-
-<p><strong>正直今でも理解出来ていない。</strong></p>
 ]]></content>
   </entry>
   

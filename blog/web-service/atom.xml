@@ -4,7 +4,7 @@
   <title><![CDATA[Category: web-service | RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/blog/web-service/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2014-03-26T23:05:44+09:00</updated>
+  <updated>2014-04-10T22:10:45+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,75 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[APIのMockサーバーを構築する「Apiary」を使ってみる]]></title>
+    <link href="http://alpaca.tc/blog/web-service/apiary.html"/>
+    <updated>2014-04-10T21:36:00+09:00</updated>
+    <id>http://alpaca.tc/blog/web-service/apiary</id>
+    <content type="html"><![CDATA[<p><img class="image_on_frame center" src="/images/blog/apiary/apiary_top.png" title="apiary Build beautiful APIs" ></p>
+
+<p><a href="http://apiary.io/">Apiary</a>は、美しいAPIのドキュメント(Mockサーバー)が作成できるWebサービスです.</p>
+
+<!-- more -->
+
+
+<h2>Apiaryの特徴</h2>
+
+<p>apiaryは、簡単にAPIドキュメントを作ることのできるWebサービスです。</p>
+
+<p>APIのMockサーバーなんて、使うことなかなか無いでしょう。</p>
+
+<p>僕もそう思っていましたが、今関わっている案件でAPIの仕様表だけ先に届いたので、Mockサーバーを立てて開発を進めることにしました。</p>
+
+<h2>Apiaryを使ってみる</h2>
+
+<p>Githubのアカウントと連携させれば、すぐにMockサーバーの作成に取りかかれます。</p>
+
+<p>今回は、デモとして簡単なアルパカAPIを実装しました。</p>
+
+<ul>
+<li><a href="http://docs.alpaca.apiary.io/">生成されたドキュメント</a></li>
+<li><a href="https://gist.githubusercontent.com/qickstarter/10379925/raw/cbbc082b4866c7005938ab140b9447a8a880c3cd/gistfile1.txt">Blueprintのコード</a></li>
+</ul>
+
+
+<p>10分ぐらいで作成完了。すばらしい！</p>
+
+<h2>レスポンスを見てみる</h2>
+
+<p>作成されたAPIは、<code>API名.apiary-mock.com</code>で見ることができます。</p>
+
+<p>さっそく<code>curl</code>でレスポンスを見てみよう</p>
+
+<p>```sh
+$ curl <a href="http://alpaca.apiary-mock.com/hello">http://alpaca.apiary-mock.com/hello</a></p>
+
+<p>{</p>
+
+<pre><code>"status": 200,
+"alpaca" : [
+    "うるせぇVimぶつけるぞ"
+    " Δ~~~~Δ"
+    " ξ ･ェ･ξ",
+    " ξ  ~  ξ",
+    " ξ     ξ",
+    " ξ     “~～~～〇",
+    " ξ             ξ",
+    " ξ ξ ξ~～~ξ ξ",
+    " ξ_ξ_ξ  ξξ_ξ",
+    "ヽ(´･ω･)ﾉ",
+    "   |    /",
+    "   U   U",
+]
+</code></pre>
+
+<p>}%
+```</p>
+
+<p><a href="http://apiary.io/">Apiary</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[カヤックのお年玉企画「お好き玉」の解説]]></title>

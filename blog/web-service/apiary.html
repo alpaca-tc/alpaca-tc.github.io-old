@@ -7,30 +7,30 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <title>仕事が捗る！VimからGitを使う最適解 - RailsとRubyとVimのブログ</title>
+    <title>APIのMockサーバーを構築する「Apiary」を使ってみる - RailsとRubyとVimのブログ</title>
     
-    <meta name="description" content="先日の記事でもチラッと出てきたvim-unite-gitiというプラグインがあります。 ものすごーーーく便利なプラグインなんですが、何故かほとんど話を聞かないプラグインです。 先日の記事でも、git系のプラグインは「知らなかった」という話を沢山聞きました。せっかくなので使い方を紹介します。 &hellip;">
+    <meta name="description" content="Apiaryは、美しいAPIのドキュメント(Mockサーバー)が作成できるWebサービスです. Apiaryの特徴 apiaryは、簡単にAPIドキュメントを作ることのできるWebサービスです。 APIのMockサーバーなんて、使うことなかなか無いでしょう。 僕もそう思っていましたが、 &hellip;">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
-    <meta content='仕事が捗る！VimからGitを使う最適解 | RailsとRubyとVimのブログ' name='title' />
+    <meta content='APIのMockサーバーを構築する「Apiary」を使ってみる | RailsとRubyとVimのブログ' name='title' />
 
     
   <link rel="author" href="https://plus.google.com/105581201951227096827" />
   <link rel="publisher" href="https://plus.google.com/105581201951227096827" />
 
 
-    <meta property="og:title" content='仕事が捗る！VimからGitを使う最適解' />
+    <meta property="og:title" content='APIのMockサーバーを構築する「Apiary」を使ってみる' />
 <meta property="og:locale" content="ja_JP"/>
 <meta property="og:image" content="http://http://alpaca.tc/images/meta/site_title.png"/>
 <meta property="og:type" content="blog"/>
-<meta property="og:url" content="http://alpaca.tc/blog/vim/how-to-use-vim-unite-giti.html"/>
+<meta property="og:url" content="http://alpaca.tc/blog/web-service/apiary.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
-<meta property="og:description" content="先日の記事でもチラッと出てきたvim-unite-gitiというプラグインがあります。 ものすごーーーく便利なプラグインなんですが、何故かほとんど話を聞かないプラグインです。 先日の記事でも、git系のプラグインは「知らなかった」という話を沢山聞きました。せっかくなので使い方を紹介します。 &hellip;" />
+<meta property="og:description" content="Apiaryは、美しいAPIのドキュメント(Mockサーバー)が作成できるWebサービスです. Apiaryの特徴 apiaryは、簡単にAPIドキュメントを作ることのできるWebサービスです。 APIのMockサーバーなんて、使うことなかなか無いでしょう。 僕もそう思っていましたが、 &hellip;" />
 <meta property="fb:app_id" content="224701561024840" />
 
     <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="仕事が捗る！VimからGitを使う最適解 | RailsとRubyとVimのブログ">
-<meta name="twitter:description" content="先日の記事でもチラッと出てきたvim-unite-gitiというプラグインがあります。 ものすごーーーく便利なプラグインなんですが、何故かほとんど話を聞かないプラグインです。 先日の記事でも、git系のプラグインは「知らなかった」という話を沢山聞きました。せっかくなので使い方を紹介します。 &hellip;">
+<meta name="twitter:title" content="APIのMockサーバーを構築する「Apiary」を使ってみる | RailsとRubyとVimのブログ">
+<meta name="twitter:description" content="Apiaryは、美しいAPIのドキュメント(Mockサーバー)が作成できるWebサービスです. Apiaryの特徴 apiaryは、簡単にAPIドキュメントを作ることのできるWebサービスです。 APIのMockサーバーなんて、使うことなかなか無いでしょう。 僕もそう思っていましたが、 &hellip;">
 <meta name="twitter:image" content="http://http://alpaca.tc/images/meta/twitter.png">
 <meta name="twitter:site" content="@alpaca_taichou">
 <meta name="twitter:creator" content="@alpaca_taichou">
@@ -67,11 +67,9 @@
 
 
 
-  <link rel="next" href="/blog/vim/jump-to-gem-path.html">
 
 
-
-  <link rel="prev" href="/blog/ruby/ruby-class-variable.html">
+  <link rel="prev" href="/blog/ruby/i-have-almost-finished-implementing-comment-parser.html">
 
 
 
@@ -122,15 +120,15 @@
           <div id="breadcrumb" xmlns:v="http://rdf.data-vocabulary.org/#">
   
     <span typeof="v:Breadcrumb">
-      <a href="/blog/vim/" rel="v:url" property="v:title">
-        vim
+      <a href="/blog/web-service/" rel="v:url" property="v:title">
+        web-service
       </a> ›
     </span>
   
 
   <span typeof="v:Breadcrumb">
     <a href="" rel="v:url" property="v:title">
-      仕事が捗る！VimからGitを使う最適解
+      APIのMockサーバーを構築する「Apiary」を使ってみる
     </a>
   </span>
 </div>
@@ -147,7 +145,7 @@
         <h1>
           
             
-              仕事が捗る！VimからGitを使う最適解
+              APIのMockサーバーを構築する「Apiary」を使ってみる
           
         </h1>
       
@@ -168,7 +166,7 @@
 
 
 
-<time datetime="2013-12-17T23:36:00+09:00" pubdate data-updated="true">Dec 17<span>th</span>, 2013</time>
+<time datetime="2014-04-10T21:36:00+09:00" pubdate data-updated="true">Apr 10<span>th</span>, 2014</time>
             
   
 
@@ -179,7 +177,7 @@
   <span class="categories">
     
       
-        <a class='category' href='/blog/vim/'>vim</a>
+        <a class='category' href='/blog/web-service/'>web-service</a>
       
     
   </span>
@@ -191,76 +189,83 @@
     </header>
 
     
-      <section class="entry-content"><p>先日の記事でもチラッと出てきた<a href="https://github.com/kmnk/vim-unite-giti">vim-unite-giti</a>というプラグインがあります。</p>
+      <section class="entry-content"><p><img class="image_on_frame center" src="/images/blog/apiary/apiary_top.png" title="apiary Build beautiful APIs" ></p>
 
-<p><strong>ものすごーーーく便利</strong>なプラグインなんですが、何故かほとんど話を聞かないプラグインです。</p>
-
-<p>先日の記事でも、git系のプラグインは「知らなかった」という話を沢山聞きました。せっかくなので使い方を紹介します。</p>
+<p><a href="http://apiary.io/">Apiary</a>は、美しいAPIのドキュメント(Mockサーバー)が作成できるWebサービスです.</p>
 
 <!-- more -->
 
 
-<h2>今回紹介するのはvim-unite-giti!!</h2>
+<h2>Apiaryの特徴</h2>
 
-<p>何はともあれ、<strong>まずは動画をみてくれ。</strong></p>
+<p>apiaryは、簡単にAPIドキュメントを作ることのできるWebサービスです。</p>
 
-<iframe width="560" height="420" src="http://www.youtube.com/embed/jCgcpIO9oBs?color=white&theme=light"></iframe>
+<p>APIのMockサーバーなんて、使うことなかなか無いでしょう。</p>
 
+<p>僕もそう思っていましたが、今関わっている案件でAPIの仕様表だけ先に届いたので、Mockサーバーを立てて開発を進めることにしました。</p>
 
-<p>とにかく、uniteインターフェースは操作を覚えることが少ない。</p>
+<h2>Apiaryを使ってみる</h2>
 
-<p>今回も、幾つかのUniteコマンドを使っているけれど、基本的に「選択」→「アクション」の動作しかない。</p>
+<p>Githubのアカウントと連携させれば、すぐにMockサーバーの作成に取りかかれます。</p>
 
-<h3>:Unite giti/status</h3>
+<p>今回は、デモとして簡単なアルパカAPIを実装しました。</p>
 
-<p>add, unstage, checkoutなどの操作が簡単ですね</p>
-
-<p>conflictがあれば、すぐ見れます。「選択」→「commitアクション」と進めば、指定したファイルだけのコミットもお手軽に作れます(!!)</p>
-
-<h3>:Unite giti/branch</h3>
-
-<p>tracking, chckout, deleteなどの操作が簡単ですね。</p>
-
-<p>branchを切るのにわざわざShellを使うなんて。あなた、Vimと触れ合う時間が減ってしまうではないですか。</p>
-
-<h3>:Unite giti/log</h3>
-
-<p>紹介していませんが、普通に便利です。vimdiffなどを見る事も簡単です。</p>
-
-<h2>vim-unite-giti以外のプラグイン</h2>
-
-<h3><em>git-vim</em> :GitDiff, :Git push</h3>
-
-<p>こちらは、特に驚きはないので初めて使う人以外は見なくてもいいです。</p>
-
-<iframe width="560" height="420" src="http://www.youtube.com/embed/wWI3Wb-0Vw4?color=white&theme=light"></iframe>
+<ul>
+<li><a href="http://docs.alpaca.apiary.io/">生成されたドキュメント</a></li>
+<li><a href="https://gist.githubusercontent.com/qickstarter/10379925/raw/cbbc082b4866c7005938ab140b9447a8a880c3cd/gistfile1.txt">Blueprintのコード</a></li>
+</ul>
 
 
-<p>言わずもがな、コマンド名の通りです。</p>
+<p>10分ぐらいで作成完了。すばらしい！</p>
 
-<p>git-vimを使って何がうれしいかと言うと、それなりに補完ができる点です。</p>
+<h2>レスポンスを見てみる</h2>
 
-<h3><em>fugitive</em> :Gcommit, :Gblame</h3>
+<p>作成されたAPIは、<code>API名.apiary-mock.com</code>で見ることができます。</p>
 
-<p>すでに語り尽くされているので、ここでは取り上げません。</p>
+<p>さっそく<code>curl</code>でレスポンスを見てみよう</p>
 
-<p>他のプラグインにもにたようなコマンドがありますが、色付きなのと、機能性が優れているのでfugitiveがおすすめです。</p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>curl http://alpaca.apiary-mock.com/hello
+</span><span class='line'>
+</span><span class='line'><span class="o">{</span>
+</span><span class='line'>    <span class="s2">&quot;status&quot;</span>: 200,
+</span><span class='line'>    <span class="s2">&quot;alpaca&quot;</span> : <span class="o">[</span>
+</span><span class='line'>        <span class="s2">&quot;うるせぇVimぶつけるぞ&quot;</span>
+</span><span class='line'>        <span class="s2">&quot; Δ~~~~Δ&quot;</span>
+</span><span class='line'>        <span class="s2">&quot; ξ ･ェ･ξ&quot;</span>,
+</span><span class='line'>        <span class="s2">&quot; ξ  ~  ξ&quot;</span>,
+</span><span class='line'>        <span class="s2">&quot; ξ     ξ&quot;</span>,
+</span><span class='line'>        <span class="s2">&quot; ξ     “~～~～〇&quot;</span>,
+</span><span class='line'>        <span class="s2">&quot; ξ             ξ&quot;</span>,
+</span><span class='line'>        <span class="s2">&quot; ξ ξ ξ~～~ξ ξ&quot;</span>,
+</span><span class='line'>        <span class="s2">&quot; ξ_ξ_ξ  ξξ_ξ&quot;</span>,
+</span><span class='line'>        <span class="s2">&quot;ヽ(´･ω･)ﾉ&quot;</span>,
+</span><span class='line'>        <span class="s2">&quot;   |    /&quot;</span>,
+</span><span class='line'>        <span class="s2">&quot;   U   U&quot;</span>,
+</span><span class='line'>    <span class="o">]</span>
+</span><span class='line'><span class="o">}</span>%
+</span></code></pre></td></tr></table></div></figure>
 
-<h2>vimrc</h2>
 
-<p>今回の動画で使用したvimrcと同じような設定です</p>
-
-<p><a href="https://gist.github.com/qickstarter/8008989">vimrc Gist</a></p>
-
-<h2>まとめ</h2>
-
-<p>ujihisaさんに憧れてのYoutube記事です。笑</p>
-
-<p>余談ですが、作者の<a href="https://github.com/kmnk">kmnk</a>さんのコードは<strong>めちゃくちゃ奇麗</strong>です。</p>
-
-<p>今までで読んできた中で、<em>一番奇麗なVimLのコード</em>でした。ほどよい抽象化、適切な命名、整理されたファイル達。率直に、この人と一緒に仕事出来る人は幸せだろうなぁと感じました。</p>
-
-<p>vim-unite-gitiを作ってくださって感謝します。</p>
+<p><a href="http://apiary.io/">Apiary</a></p>
 </section>
     
 
@@ -275,27 +280,27 @@
 
 <section class="sharing clearfix">
   <div class="button ft_like_button">
-    <div class="fb-like" data-href="http://alpaca.tc/blog/vim/how-to-use-vim-unite-giti.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
+    <div class="fb-like" data-href="http://alpaca.tc/blog/web-service/apiary.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
   </div>
 
   <div class="button ft_share_button">
-    <div class="fb-share-button" data-href="http://alpaca.tc/blog/vim/how-to-use-vim-unite-giti.html" data-type="button_count"></div>
+    <div class="fb-share-button" data-href="http://alpaca.tc/blog/web-service/apiary.html" data-type="button_count"></div>
   </div>
 
   <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca.tc/blog/vim/how-to-use-vim-unite-giti.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
-仕事が捗る！VimからGitを使う最適解 | RailsとRubyとVimのブログRailsとRubyとVimのブログ
+    <a href="http://b.hatena.ne.jp/entry/http://alpaca.tc/blog/web-service/apiary.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
+APIのMockサーバーを構築する「Apiary」を使ってみる | RailsとRubyとVimのブログRailsとRubyとVimのブログ
 " data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
       <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
     </a>
   </div>
 
   <div class="button google_plus_button_like">
-    <div data-annotation="none" data-href="http://alpaca.tc/blog/vim/how-to-use-vim-unite-giti.html" class="g-plusone" data-size="medium" ></div>
+    <div data-annotation="none" data-href="http://alpaca.tc/blog/web-service/apiary.html" class="g-plusone" data-size="medium" ></div>
   </div>
 
   <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/how-to-use-vim-unite-giti.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/vim/how-to-use-vim-unite-giti.html" ></a>
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/web-service/apiary.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/web-service/apiary.html" ></a>
   </div>
 </section>
 
@@ -319,14 +324,10 @@
                 <div class="pagination meta clearfix">
   
     <div class="arrow_block left_block">
-      <a class="basic-alignment" href="/blog/ruby/ruby-class-variable.html" title="Previous Post: Rubyのクラス変数について詰まったのでヘルプ">&laquo; Rubyのクラス変数について詰まったのでヘルプ</a>
+      <a class="basic-alignment" href="/blog/ruby/i-have-almost-finished-implementing-comment-parser.html" title="Previous Post: Gemを書くときに知っておきたい3つの事">&laquo; Gemを書くときに知っておきたい3つの事</a>
     </div>
   
 
-  
-    <div class="arrow_block right_block">
-      <a class="basic-alignment" href="/blog/vim/jump-to-gem-path.html" title="Next Post: Vim中級者を脱する path編">Vim中級者を脱する path編 &raquo;</a>
-    </div>
   
 </div>
 
@@ -356,28 +357,28 @@
 
   <section id="side_category_posts" class="sidebar_row">
     <div id="blog-archives" class="category">
-      <h1>vimカテゴリーの最新記事</h1>
+      <h1>web-serviceカテゴリーの最新記事</h1>
 
       
         <article>
-          <time datetime="2014-01-11T13:25:00+09:00" pubdate><span class='month'>Jan</span> <span class='day'>11</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/vim/file-include-by-neocomplete.html">neocomplete.vimのfile_includeを使いこなす</a></h1>
+          <time datetime="2014-04-10T21:36:00+09:00" pubdate><span class='month'>Apr</span> <span class='day'>10</span> <span class='year'>2014</span></time>
+          <h1><a href="/blog/web-service/apiary.html">APIのMockサーバーを構築する「Apiary」を使ってみる</a></h1>
         </article>
       
         <article>
-          <time datetime="2013-12-29T22:54:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>29</span> <span class='year'>2013</span></time>
-          <h1><a href="/blog/vim/vim-plugins-2013.html">2013年に作ったVimプラグイン達</a></h1>
+          <time datetime="2014-01-07T00:07:00+09:00" pubdate><span class='month'>Jan</span> <span class='day'>07</span> <span class='year'>2014</span></time>
+          <h1><a href="/blog/web-service/kayac-2014-otoshidama-2.html">カヤックのお年玉企画「お好き玉」の解説</a></h1>
         </article>
       
         <article>
-          <time datetime="2013-12-19T08:02:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>19</span> <span class='year'>2013</span></time>
-          <h1><a href="/blog/vim/jump-to-gem-path.html">Vim中級者を脱する path編</a></h1>
+          <time datetime="2014-01-01T18:24:00+09:00" pubdate><span class='month'>Jan</span> <span class='day'>01</span> <span class='year'>2014</span></time>
+          <h1><a href="/blog/web-service/kayac-2014-otoshidama.html">カヤックのお年玉企画がすげぇ！</a></h1>
         </article>
       
 
       <div class="category_link">
         <span class="categories">
-          <a href="/blog/vim">→vimの記事をもっと見る</a>
+          <a href="/blog/web-service">→web-serviceの記事をもっと見る</a>
         </span>
       </div>
     </div>
