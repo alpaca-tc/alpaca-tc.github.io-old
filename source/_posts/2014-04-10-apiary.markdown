@@ -1,0 +1,61 @@
+---
+layout: post
+title: APIのMockサーバーを構築する「Apiary」を使ってみる
+date: 2014-04-10 21:36
+categories: web-service
+---
+
+{% img image_on_frame center /images/blog/apiary/apiary_top.png apiary Build beautiful APIs %}
+
+[Apiary](http://apiary.io/)は、美しいAPIのドキュメント(Mockサーバー)が作成できるWebサービスです.
+
+<!-- more -->
+
+## Apiaryの特徴
+
+apiaryは、簡単にAPIドキュメントを作ることのできるWebサービスです。
+
+APIのMockサーバーなんて、使うことなかなか無いでしょう。
+
+僕もそう思っていましたが、今関わっている案件でAPIの仕様表だけ先に届いたので、Mockサーバーを立てて開発を進めることにしました。
+
+## Apiaryを使ってみる
+
+Githubのアカウントと連携させれば、すぐにMockサーバーの作成に取りかかれます。
+
+今回は、デモとして簡単なアルパカAPIを実装しました。
+
+- [生成されたドキュメント](http://docs.alpaca.apiary.io/)
+- [Blueprintのコード](https://gist.githubusercontent.com/qickstarter/10379925/raw/cbbc082b4866c7005938ab140b9447a8a880c3cd/gistfile1.txt)
+
+10分ぐらいで作成完了。すばらしい！
+
+## レスポンスを見てみる
+
+作成されたAPIは、`API名.apiary-mock.com`で見ることができます。
+
+さっそく`curl`でレスポンスを見てみよう
+
+```sh
+$ curl http://alpaca.apiary-mock.com/hello
+
+{
+    "status": 200,
+    "alpaca" : [
+        "うるせぇVimぶつけるぞ"
+        " Δ~~~~Δ"
+        " ξ ･ェ･ξ",
+        " ξ  ~  ξ",
+        " ξ     ξ",
+        " ξ     “~～~～〇",
+        " ξ             ξ",
+        " ξ ξ ξ~～~ξ ξ",
+        " ξ_ξ_ξ  ξξ_ξ",
+        "ヽ(´･ω･)ﾉ",
+        "   |    /",
+        "   U   U",
+    ]
+}%
+```
+
+[Apiary](http://apiary.io/)
