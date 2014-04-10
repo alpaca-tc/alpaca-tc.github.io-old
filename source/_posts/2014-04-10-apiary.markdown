@@ -11,51 +11,35 @@ categories: web-service
 
 <!-- more -->
 
-## Apiaryの特徴
+## Apiaryの使いどころ
 
-apiaryは、簡単にAPIドキュメントを作ることのできるWebサービスです。
+仕事を進める上で、APIの仕様が先に作られることは多々あります.
 
-APIのMockサーバーなんて、使うことなかなか無いでしょう。
+今関わっている案件でも、APIの仕様表だけ先に届いたので、Mockサーバーを立てて開発を進めることにしました.
 
-僕もそう思っていましたが、今関わっている案件でAPIの仕様表だけ先に届いたので、Mockサーバーを立てて開発を進めることにしました。
+## ドキュメント(Mockサーバー)を作ってみる
 
-## Apiaryを使ってみる
+Githubの連携でアカウントを作り、すぐにドキュメントの作成に取りかかれます.
+markdown(の拡張)でAPIの仕様を書けば、すぐにドキュメントが生成されます.
 
-Githubのアカウントと連携させれば、すぐにMockサーバーの作成に取りかかれます。
+{% img image_on_frame center /images/blog/apiary/apiary_document.png Apiary Document %}
 
-今回は、デモとして簡単なアルパカAPIを実装しました。
+__う、美しい...__
+
+その上、Apiaryではドキュメントと同時に、そのドキュメントからMockサーバーを立ててくれます.
+
+今回は、デモとして簡単なアルパカAPIを実装しました.
 
 - [生成されたドキュメント](http://docs.alpaca.apiary.io/)
-- [Blueprintのコード](https://gist.githubusercontent.com/qickstarter/10379925/raw/cbbc082b4866c7005938ab140b9447a8a880c3cd/gistfile1.txt)
 
-10分ぐらいで作成完了。すばらしい！
+10分ぐらいで作成完了.すばらしい！
 
 ## レスポンスを見てみる
 
-作成されたAPIは、`API名.apiary-mock.com`で見ることができます。
+作成されたAPIのMockサーバーは、`API名.apiary-mock.com`で見ることができます.
 
 さっそく`curl`でレスポンスを見てみよう
 
-```sh
-$ curl http://alpaca.apiary-mock.com/hello
+`$ curl http://alpaca.apiary-mock.com/hello`
 
-{
-    "status": 200,
-    "alpaca" : [
-        "うるせぇVimぶつけるぞ"
-        " Δ~~~~Δ"
-        " ξ ･ェ･ξ",
-        " ξ  ~  ξ",
-        " ξ     ξ",
-        " ξ     “~～~～〇",
-        " ξ             ξ",
-        " ξ ξ ξ~～~ξ ξ",
-        " ξ_ξ_ξ  ξξ_ξ",
-        "ヽ(´･ω･)ﾉ",
-        "   |    /",
-        "   U   U",
-    ]
-}%
-```
-
-[Apiary](http://apiary.io/)
+ヽ(・∀・ )ﾉす...すげぇ便利！
