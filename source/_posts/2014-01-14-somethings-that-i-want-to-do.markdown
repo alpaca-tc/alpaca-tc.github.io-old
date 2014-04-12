@@ -34,7 +34,7 @@ Takumi Kaiさんの[2014年にやりたい27のこと]( http://nature-dot.com/ot
 
 {% img image_on_frame center /images/blog/somethings-that-i-want-to-do/IMG_0118.jpg 200 東京から滋賀まで歩く %}
 
-### 4. 岡本太郎の本を3冊読む
+### 4. 岡本太郎の本を3冊読む(完)
 
 中学生のころからたまらなく好き。
 
@@ -60,7 +60,7 @@ Takumi Kaiさんの[2014年にやりたい27のこと]( http://nature-dot.com/ot
 
 {% img image_on_frame center /images/blog/somethings-that-i-want-to-do/pic_hanko.jpg  200 判子を掘る %}
 
-### 8. 前職でお世話になった人に会う
+### 8. 前職でお世話になった人に会う(完)
 
 ドリラボ時代の先輩方に会いたい！
 
@@ -87,7 +87,7 @@ Takumi Kaiさんの[2014年にやりたい27のこと]( http://nature-dot.com/ot
 長々と書いてきたので、少しはしょります。
 
 - 11.自分のブログ500uu/day アクセス
-- 12.自分のポートフォリオサイトを作る
+- 12.自分のポートフォリオサイトを作る(完)
 - 13.仕事の事業を軌道に乗せる
 - 14.意思決定・事業計画の知識を学ぶ
 
