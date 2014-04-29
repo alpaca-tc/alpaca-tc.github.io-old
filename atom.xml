@@ -4,7 +4,7 @@
   <title><![CDATA[RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2014-04-21T07:00:50+09:00</updated>
+  <updated>2014-04-30T01:59:08+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,89 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Railsの補助プラグインを書いた]]></title>
+    <link href="http://alpaca.tc/blog/vim/alpaca-rails-support.html"/>
+    <updated>2014-04-30T00:46:00+09:00</updated>
+    <id>http://alpaca.tc/blog/vim/alpaca-rails-support</id>
+    <content type="html"><![CDATA[<h1>もうLocaleファイルに迷わない！</h1>
+
+<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/alpaca-rails-support/screen_shot_1.png" title="screen_shot_1" ></p>
+
+<p>休日を利用して、久しぶりにRails関連のVimScriptを書いたよ:)</p>
+
+<!-- more -->
+
+
+<h2>Railsとlocalesファイル</h2>
+
+<p>きっかけは、とあるプロジェクトに立てられたIssueであった。</p>
+
+<blockquote><p><strong>言語ファイルが大きすぎてどこを編集しているのか全く分からなくなる。</strong><br/>
+<strong>もはや人が書くようなファイルじゃない。</strong></p>
+
+<p>便利なエディタがあるならエディタに頼ってもいいけどざっと探した感じ見つけられなかったので、いい解決方法があれば教えて欲しいです。</p></blockquote>
+
+<p>おっしゃる通り、懸念すべき事項である。<br/>
+多国籍に対応したプロジェクトをRailsで作った経験があると分かるが、気をつけていても<strong>localesはカオス</strong>になってしまう。</p>
+
+<p>しかし、次の発言で少し様相が変わる。</p>
+
+<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/alpaca-rails-support/screen_shot_3.png" title="issue" ></p>
+
+<p><strong>SublimeText2が有力&hellip;だと？</strong></p>
+
+<p><del>何を寝ぼけたこt</del></p>
+
+<p>alpaca-tcはVimの人である。Vimで解決しんぜよう。</p>
+
+<h2>Railsの補助プラグイン</h2>
+
+<p>丁度、僕も今Railsで開発をしている。<br/>
+痒いところが幾つかあったので、休日に孫の手を作ることにした。</p>
+
+<p><strong><a href="https://github.com/alpaca-tc/alpaca_rails_support">Alpaca Rails Support</a></strong></p>
+
+<p>といっても、時間があまり無かったので<strong>3つの簡素な機能</strong>でまとめた。</p>
+
+<h3>I18nの探索</h3>
+
+<p>本題の機能である「localesの編集をサポートする」プラグインである。<br/>
+キーを探索して、Uniteにぶち込んでくれる。</p>
+
+<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/alpaca-rails-support/screen_shot_4.png" title="Find_local" ></p>
+
+<p>探索は少し荒いので、Yamlをキレイに書いていなければ動かない。</p>
+
+<h3>Routesの補完</h3>
+
+<p>個人的に一番欲しかった機能である<br/>
+たかだかRoutesのスペルミスで、BetterErrorsと挨拶したくない。</p>
+
+<p><img class="image_on_frame center" src="https://raw.githubusercontent.com/alpaca-tc/alpaca_rails_support/master/assets/routes_completion.png" title="reoute補完" ></p>
+
+<p>ようやく<code>rake routes | grep ...</code>の地獄から解放されるヾ(*´∀｀*)ﾉ</p>
+
+<h3>I18nのプレビュー</h3>
+
+<p>特に必要は無かったけれど、思いついてしまったので作った。</p>
+
+<p><img class="image_on_frame center" src="https://raw.githubusercontent.com/alpaca-tc/alpaca_rails_support/master/assets/preview_locales.gif" title="preview" ></p>
+
+<p><strong>( ﾟ∀ﾟ)o彡ﾟギミックかっけー！</strong></p>
+
+<p>vim-easy-motionやvim-overと同じ方法を取り入れていて<br/>
+<code>while 1</code>と<code>getchar()</code>の組み合わせでkeypressを補足している。</p>
+
+<p>新鮮な方法だったので、一番気に入っている。</p>
+
+<h2>今後</h2>
+
+<p>もう少ししたら、オンラインのlocales探索アルゴリズムを実装しようと思っている。<br/>
+VimScriptでアルゴリズムらしい手法を使ったことは無いので、楽しみである。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[めまぐるしい１年！]]></title>
@@ -2305,104 +2388,6 @@ Yahooの方に教えてもらえたような気がします。</p>
 <p><em>guard-shell便利。</em></p>
 
 <p>(ホゲピヨーーーーーって言うのかと思ったら、「ホージピュゥ」って何か冷めた感じに返された。。。)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Vimを勉強し始めました #1]]></title>
-    <link href="http://alpaca.tc/blog/learning_vim/i-begin-to-lean-vim-1.html"/>
-    <updated>2013-11-21T09:11:00+09:00</updated>
-    <id>http://alpaca.tc/blog/learning_vim/i-begin-to-lean-vim-1</id>
-    <content type="html"><![CDATA[<h1>Vim読書会 #1</h1>
-
-<p>先日から続けているVim読書会(一人)ですが、
-今回からモチベーションのために記事にあげて行おうと思います。</p>
-
-<p><em>本日読むソースコード</em></p>
-
-<p><strong>Vim-0.3</strong></p>
-
-<ul>
-<li>cmdline.c</li>
-<li>cmdtab.h</li>
-<li>cmdcmds.c</li>
-</ul>
-
-
-<!-- more -->
-
-
-<h2>cmdline.c L3723行</h2>
-
-<p>cmdline.c: functions for reading in the command line and executing it</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="c1">// L650:</span>
-</span><span class='line'><span class="k">static</span> <span class="n">char_u</span> <span class="o">*</span> <span class="n">DoOneCmd</span><span class="p">(</span><span class="n">buff</span><span class="p">)</span> <span class="n">char_u</span> <span class="o">*</span><span class="n">buff</span><span class="p">;</span> <span class="p">{</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>この関数で、コマンドラインからの入力を処理してます。
-関数の前半部分で入力をパースして、後半部分でコマンドを分岐しています。</p>
-
-<p>分岐部分はこんな感じですね。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="nl">L1111:</span>
-</span><span class='line'><span class="nl">cmdswitch:</span>
-</span><span class='line'>  <span class="k">switch</span> <span class="p">(</span><span class="n">cmdidx</span><span class="p">)</span>
-</span><span class='line'>  <span class="p">{</span>
-</span><span class='line'>    <span class="cm">/*</span>
-</span><span class='line'><span class="cm">     * quit current window, quit Vim if closed the last window</span>
-</span><span class='line'><span class="cm">     */</span>
-</span><span class='line'>    <span class="k">case</span> <span class="n">CMD_quit</span>:
-</span><span class='line'>      <span class="p">...</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">case</span> <span class="n">CMD_qall</span>:
-</span><span class='line'>      <span class="p">...</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><code>:quit</code>の処理を変更したかったら、<code>case CMD_quit</code>以下を変更すればいいです。</p>
-
-<h2>cmdtab.h L337行</h2>
-
-<p>また、<code>CMD_...</code>といった定数は<code>cmdtab.h</code>で初期化されており、全てのコマンドが定義されています。
-コマンドは、ユニークなID,コマンド名,受け付ける引数がここで定義されます。</p>
-
-<p>そのコマンドの実際の動作は、<code>cmdline.c</code>にべた書きされているという感じでしょうか。</p>
-
-<p>Vim-3.0の書き方だと、コマンドがひとつ増える度に<code>cmdline.c</code>の分岐がひとつ増えるというヘビーな書き方なので、新しいバージョンではリファクタリングされてそう。</p>
-
-<h2>cmdcmds.c L541行</h2>
-
-<p>cmdcmds.c: functions for command line commands</p>
-
-<p><code>cmdcmds.c</code>は、<code>cmdline.c</code>でのコマンドの分岐で重なる部分の関数をまとめたもの、といった印象です。
-Wordpressでいうfunctionsのような感じかな。一応、他の場所でも使える感じに仕上がっています。</p>
-
-<p>この中には、<code>do_align</code>や<code>doshell</code>といった、想像につく名前の関数がありますね。
-<code>CMD_move</code>で分岐した場合は、こちらに飛ばされます。</p>
-
-<h2>まとめ</h2>
-
-<p>コマンド関連の細かい実装を見るのは大変ですが、全体的に見ると読みやすかったです。
-Vimのオプションやコマンド名が、そのまま変数に使われているので読みやすかったです。</p>
-
-<p><code>:echo</code>などのコマンドを追加する場合は、ここら辺を弄るだけでなんとかなりそうですね！
-次回トライしてみます。</p>
 ]]></content>
   </entry>
   
