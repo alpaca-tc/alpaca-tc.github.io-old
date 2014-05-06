@@ -1,21 +1,24 @@
 ---
 layout: page
-title: "AboutMe"
+title: AboutMe
 date: 2013-10-27 19:12
 comments: true
 sharing: true
 footer: true
 ---
 
-# 自己紹介
+## 自己紹介
 
-**アルパカ隊長**
+<figure class="image_wrapper">
+  <img src="//lh4.googleusercontent.com/-lhc7W4Ee-NA/UnDGui7U9RI/AAAAAAAAACI/F95WUPatw7k/w237-h240-no/1001417_394227377345843_948534762_n.jpg" alt="石井 浩之">
+  <figcaption>アルパカ隊長・いっくん</figcaption>
+</figure>
 
-VimやRubyの開発をしています。
-今はEntrepreneur Factory inc.で起業家のための学習サイトの構築・運営をしています。たまに、Lang-8の開発をしています。
-趣味は、ボルダリング・サイクリング・旅行・お酒・料理・温泉・小物屋さん・etc
+Vim使いのはしくれ者。低学歴エンジニア。
 
-## 連絡先など
+好きな焼き肉の部位はハチノスとレバー。
+
+## 連絡先
 
 - [Github](https://github.com/alpaca-tc)
 - [Twitter](https://twitter.com/alpaca_taichou)
