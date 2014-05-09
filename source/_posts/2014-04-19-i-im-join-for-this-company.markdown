@@ -80,9 +80,9 @@ categories: blog
 
 ### これからの話
 
-さて、6月からPixivという会社で働くことになった。
+さて、6月からpixivという会社で働くことになった。
 
-{% img image_on_frame center /images/blog/i-im-join-for-this-company/pixiv.jpg Pixiv %}
+{% img image_on_frame center /images/blog/i-im-join-for-this-company/pixiv.jpg pixiv %}
 
 イラスト系のSNSを運営する会社で、知っている人は知っている会社かもしれない。
 
