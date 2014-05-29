@@ -4,7 +4,7 @@
   <title><![CDATA[RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2014-05-29T22:43:52+09:00</updated>
+  <updated>2014-05-30T03:27:59+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -18,34 +18,7 @@
     <link href="http://alpaca.tc/blog/diary/i-just-quit-my-job-at-kronos.html"/>
     <updated>2014-05-24T01:07:00+09:00</updated>
     <id>http://alpaca.tc/blog/diary/i-just-quit-my-job-at-kronos</id>
-    <content type="html"><![CDATA[<p>書きたい事</p>
-
-<ul>
-<li>ひたすら突き詰めた2ヶ月
-
-<ul>
-<li>180時間</li>
-<li>Java</li>
-<li>pixivで働くため</li>
-</ul>
-</li>
-<li>大阪のエンジニア
-
-<ul>
-<li>1年遅れ</li>
-</ul>
-</li>
-<li>凄いコミュニケーション能力
-
-<ul>
-<li>ホワイト企業</li>
-<li>Ruby中心</li>
-</ul>
-</li>
-</ul>
-
-
-<p>先週、4月から働いていた株式会社クロノスを退社したので流行の退職エントリを書いてみる。</p>
+    <content type="html"><![CDATA[<p>先週、4月から働いていた株式会社クロノスを退社したので流行の退職エントリを書いてみる。</p>
 
 <p>退職エントリといえば、<a href="http://d.hatena.ne.jp/takeda25/touch/20140407/1396864651">いい話(ウェブリオを辞めました)</a>の記事を読んで大変感銘を受けた。<br/>
 同じように、エンジニアとして働く誰かの参考になれば嬉しい:)</p>
