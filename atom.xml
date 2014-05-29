@@ -4,7 +4,7 @@
   <title><![CDATA[RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2014-05-07T00:37:14+09:00</updated>
+  <updated>2014-05-29T22:43:52+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,122 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[クロノスを退社しました！]]></title>
+    <link href="http://alpaca.tc/blog/diary/i-just-quit-my-job-at-kronos.html"/>
+    <updated>2014-05-24T01:07:00+09:00</updated>
+    <id>http://alpaca.tc/blog/diary/i-just-quit-my-job-at-kronos</id>
+    <content type="html"><![CDATA[<p>書きたい事</p>
+
+<ul>
+<li>ひたすら突き詰めた2ヶ月
+
+<ul>
+<li>180時間</li>
+<li>Java</li>
+<li>pixivで働くため</li>
+</ul>
+</li>
+<li>大阪のエンジニア
+
+<ul>
+<li>1年遅れ</li>
+</ul>
+</li>
+<li>凄いコミュニケーション能力
+
+<ul>
+<li>ホワイト企業</li>
+<li>Ruby中心</li>
+</ul>
+</li>
+</ul>
+
+
+<p>先週、4月から働いていた株式会社クロノスを退社したので流行の退職エントリを書いてみる。</p>
+
+<p>退職エントリといえば、<a href="http://d.hatena.ne.jp/takeda25/touch/20140407/1396864651">いい話(ウェブリオを辞めました)</a>の記事を読んで大変感銘を受けた。<br/>
+同じように、エンジニアとして働く誰かの参考になれば嬉しい:)</p>
+
+<h2>会社について</h2>
+
+<p>クロノスは「面白いことを真面目に取り組むIT企業であり続ける」を企業理念に掲げている東京・新大阪にある会社である。</p>
+
+<p>主な業務としてSler支援・IT教育・受託開発を包括的に行っていて、最近は5ヶ年計画を掲げて事業ドメインを自社開発中心へシフトしようと取り組んでいる。</p>
+
+<p>入社のきっかけは、前に働いていた社長による紹介である。<br/>
+<a href="http://alpaca.tc/blog/blog/i-im-join-for-this-company.html">前の記事</a>で書いた通り、僕は大学を辞める決断をした。その際に、先は分からないけれど取り敢えずの勤め先として社長がクロノスを紹介してくださった。</p>
+
+<p>幸いにも僕のスキルを貢献出来る受託案件があったため、二言返事で働かせてもらえることになった。<br/>
+しかし、入れ違いで就職先が決まり、残念ながら2ヶ月だけしか在籍することが出来なかったのが心残りである。</p>
+
+<h2>クロノスの特徴</h2>
+
+<p>今まで僕はWeb系の会社でしか働いたことが無かったので、驚くほど刺激的な時間を過ごすことができた！</p>
+
+<p>僕の直接の業務はとある医療系(？)Webアプリの開発で、マネジメントの高山さんと僕の2人で行なった。</p>
+
+<p>正直なところ、期間も短く業務も一部だったため他の事業ドメインの事情は疎い。<br/>
+そのため情報はとても偏るけれど、目に映った事柄については率直な感想を書いていきたい。</p>
+
+<h3>悪かった点</h3>
+
+<p>良かった点があまりに多かったため、先に悪かった点をざっと書いておく。</p>
+
+<h4>1. Slerの文化がやや浸透している</h4>
+
+<p>いわゆるエクセルを中心としたタスク管理、バグ管理はWeb系で活動してきた僕にとって初めての体験だった。<br/>
+正直なところ、僕はこういったマネジメントが馴染めなかった:(</p>
+
+<p>とはいえかなり融通してもらえたので大した問題では無かった。</p>
+
+<h4>2. Web技術の浸透度</h4>
+
+<p>もともとJavaを中心にしていたため、Web系技術の情報がまだ浸透しきっていないと感じた。<br/>
+現在はRuby/JS中心へ移行しつつあるので、これから浸透していくと思う。</p>
+
+<h3>良かった点</h3>
+
+<p>クロノスで働いてみて、何度も感嘆した。。<br/>
+良かった点が日常に溢れていて書ききれない。</p>
+
+<h4>1. 人間力が高すぎる</h4>
+
+<p>「エンジニア」としてだけではなく、ただひたすらに「人」として尊敬出来る会社だった！</p>
+
+<p>謙虚さや人の良さというのは、身に付けようとしてどうこうなるものではない。ましてや、会社としてそういった文化を根付かせようと思ったら尚更である。<br/>
+前向きな言葉に溢れて、常に人を気遣って笑顔で仕事に取り組んでいた。</p>
+
+<p>努力や技術とは別のベクトルにある要素である分、かけがえの無い感動があった。<br/>
+将来、仕事を依頼することになったら間違いなくクロノスにお願いするだろう。理由は言わずもがな、である。</p>
+
+<p>うーん、もっとあの感動を書き表せる文才が欲しい。笑</p>
+
+<h4>2. ホワイトなIT企業</h4>
+
+<p>とーってもホワイトな環境だった。<br/>
+残業はほとんど無いし、同僚は楽しい人ばかり。最高！</p>
+
+<h4>3. 技術的な向上心</h4>
+
+<p>クロノスには技術本の著者が何人もいる。(一定年齢以上はほとんど？)<br/>
+会社としても、本の執筆や資格取得を推奨しているので、その気があればかなりサポートしてもらえる。</p>
+
+<h4>4. 教育体制</h4>
+
+<p>IT教育を事業ドメインのひとつとして捉えているだけあって、教育環境が素晴らしかった。<br/>
+目の前で新卒の方々がメキメキ上達していく様を見て、かなり焦りを覚えるほどだった。</p>
+
+<p>クロノスは元々エンジニアでなくても、育ててくれる会社なので文系からエンジニアを志望する人にはとてもオススメです。<br/>
+何より、「教育体制」なんて垣根は関係なく全ての先輩が親身になってくれる会社ですし。</p>
+
+<h2>まとめ</h2>
+
+<p>２ヶ月という短い間でしたが、最高な時間を過ごせました:)<br/>
+クロノスという会社はとても良い会社なので、興味があればぜひ転職してみてくださいw</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Railsの補助プラグインを書いた]]></title>
@@ -176,9 +292,9 @@ VimScriptでアルゴリズムらしい手法を使ったことは無いので�
 
 <h3>これからの話</h3>
 
-<p>さて、6月からPixivという会社で働くことになった。</p>
+<p>さて、6月からpixivという会社で働くことになった。</p>
 
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/i-im-join-for-this-company/pixiv.jpg" title="Pixiv" ></p>
+<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/i-im-join-for-this-company/pixiv.jpg" title="pixiv" ></p>
 
 <p>イラスト系のSNSを運営する会社で、知っている人は知っている会社かもしれない。</p>
 
@@ -2283,111 +2399,6 @@ Yahooの方に教えてもらえたような気がします。</p>
 <li>対応しているファイルタイプがまだ少ない</li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Guard-shellが便利だった話]]></title>
-    <link href="http://alpaca.tc/blog/ruby/the-story-about-guard-shell.html"/>
-    <updated>2013-11-23T01:34:00+09:00</updated>
-    <id>http://alpaca.tc/blog/ruby/the-story-about-guard-shell</id>
-    <content type="html"><![CDATA[<p><a href="https://github.com/guard/guard">Guard</a>って便利ですよねー。</p>
-
-<p>あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。</p>
-
-<p>最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。</p>
-
-<p>Guardを使って実現してみました。</p>
-
-<!-- more -->
-
-
-<h1>guard + guard-shell</h1>
-
-<p>おなじみのGuardにshellコマンドを実行できるようにします。</p>
-
-<p><em>GuardでC言語を自動コンパイル！！！</em></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Gemfile</span>
-</span><span class='line'><span class="n">source</span> <span class="s1">&#39;https://rubygems.org&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;guard&#39;</span>
-</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;guard-shell&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Guardfile</span>
-</span><span class='line'><span class="n">group</span> <span class="ss">:vim3</span> <span class="k">do</span>
-</span><span class='line'>  <span class="n">guard</span> <span class="ss">:shell</span> <span class="k">do</span>
-</span><span class='line'>    <span class="n">target_dir</span> <span class="o">=</span> <span class="s1">&#39;vim-3\.0/src&#39;</span>
-</span><span class='line'>    <span class="n">watch</span><span class="p">(</span><span class="sr">%r!^</span><span class="si">#{</span><span class="n">target_dir</span><span class="si">}</span><span class="sr">/(.+)\.(c|h)!</span><span class="p">)</span> <span class="k">do</span>
-</span><span class='line'>      <span class="sb">`cd </span><span class="si">#{</span><span class="n">target_dir</span><span class="si">}</span><span class="sb"> &amp;&amp; make`</span>
-</span><span class='line'>      <span class="sb">`cd </span><span class="si">#{</span><span class="n">target_dir</span><span class="si">}</span><span class="sb"> &amp;&amp; make debug`</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="o">.</span><span class="n">.</span><span class="o">.</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>ポイントは、<em>group</em>と<em>guard :shell &hellip;</em>ですね。</p>
-
-<h2>guardのDSL <em>group</em></h2>
-
-<p>groupのDSLを使うと、guardの設定を切り替えることができます。</p>
-
-<p>例えば、バージョン毎にgroupで設定をわけておけば、不必要な部分でguardが動作することを防ぐことができます。
-僕の場合は、vimのバージョン毎に設定を切り替えることで不必要なコンパイルを防いでいます。</p>
-
-<p>また、分けてあるgroupを切り替えるときは、guardのコンソールで<code>scope vim3</code>と打てば切り替わります。</p>
-
-<p>(起動時にscopeを指定する場合は、<code>guard --group vim3</code>)</p>
-
-<h2>guard-shellを使う</h2>
-
-<p>guard-shellは、ファイルの変更をフックにしてshellコマンドを実行するgemです。</p>
-
-<p>と、あたかもshellに特化したネーミングですが、実際はただ単にwatchに渡したブロックを評価するだけのシンプルなやつです。</p>
-
-<p>下記のようにすれば、ファイルが保存されたと同時に<code>hogepiyoooooooooooooo</code>と教えてくれます。
-わーい。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Guardfile</span>
-</span><span class='line'><span class="n">guard</span> <span class="ss">:shell</span> <span class="k">do</span>
-</span><span class='line'>  <span class="n">watch</span><span class="p">(</span><span class="sr">/.*/</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">m</span><span class="o">|</span> <span class="sb">`say hogepiyoooooooooooooo`</span> <span class="p">}</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>まとめ</h2>
-
-<p><em>guard-shell便利。</em></p>
-
-<p>(ホゲピヨーーーーーって言うのかと思ったら、「ホージピュゥ」って何か冷めた感じに返された。。。)</p>
 ]]></content>
   </entry>
   
