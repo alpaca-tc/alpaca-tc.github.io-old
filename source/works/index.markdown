@@ -9,11 +9,16 @@ footer: true
 
 # 最近の活動とか。
 
+## 2015
+
+- [ピクシブ株式会社 - pixivFACTORY](http://factory.pixiv.net/) メインエンジニア
+
 ## 2014
 
 退学！
 
-- [株式会社ピクシブ](http://www.pixiv.co.jp/) (06/2014 - )
+- [ピクシブ株式会社](http://www.pixiv.co.jp/) pixivFACTORY (08/2014 - )
+- [ピクシブ株式会社](http://www.pixiv.co.jp/) BOOTH (06/2014 - )
 - [株式会社クロノス](http://www.kronos-jp.net/) 受託開発(04/2014 - present)
 - 大学中退(04/2014)
 
