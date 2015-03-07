@@ -4,7 +4,7 @@
   <title><![CDATA[Category: diary | RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/blog/diary/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2014-05-31T00:50:25+09:00</updated>
+  <updated>2015-03-07T15:27:01+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,60 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[東京に慣れてきた]]></title>
+    <link href="http://alpaca.tc/blog/diary/pixiv-year.html"/>
+    <updated>2014-05-24T01:07:00+09:00</updated>
+    <id>http://alpaca.tc/blog/diary/pixiv-year</id>
+    <content type="html"><![CDATA[<p>昨年の6月に越してきて、あと3ヶ月ほどで東京に来て一年！？<br/>
+時間が経つのは早いものですねー&hellip;。</p>
+
+<!-- more -->
+
+
+<h2>今年の一年を振り返って。</h2>
+
+<p>憧れの東京に来て、なんだか目的もなく一年が過ぎかけてました。<br/>
+ずっと東京に憧れていて、夢が叶っちゃったら長い間本当に無目的で生きてましたね:(</p>
+
+<p>あの勉強と仕事のストイックな3ヶ月はどこへやら&hellip;</p>
+
+<h3>お仕事。</h3>
+
+<p>6月に入ってから<a href="http://booth.pm">BOOTH</a>にアサインされて、数ヶ月を過ごし<br/>
+その後、<a href="http:://factory.pixiv.net">pixivFACTORY</a>のメインエンジニアとしてコード書いてました。</p>
+
+<p>pixivFACTORYが出た後に、ユーザーさん達が嬉しい言葉を言ってくださるのをTwitterで眺めていて、</p>
+
+<p>ゆるやかーに&hellip;「ボッ」 っと火が着いた今日この頃です。</p>
+
+<p>最近は、仕事が最高に楽しい。<br/>
+実は入社する前にこの会社に期待していたことはずっとやらせて貰えていて、文句は無いはずなのにイマイチ目的が無くてやる気が出てませんでした。</p>
+
+<p>でも、自分で作ったサービスを使ってくださるユーザーさんの声を聞いて、あーーーーーーやらねば&hellip;！！！とやる気が漲ってきている今日この頃です。</p>
+
+<p>惜しむべくはpixivはホワイト企業なところ。もうブラック企業に生きていきたい。</p>
+
+<h3>プライベート</h3>
+
+<p>アートの趣味がかなり充実していました！</p>
+
+<p>東京ってやっぱりすごいですよ！<br/>
+ギャラリーが多いのでプラ〜っと出かけて適当にオシャレそうなカフェやギャラリーに入っても楽しめる。すごい！</p>
+
+<p>就活前にギャラリーで展示されてた方と仲良くなって、そのままプライベートのお付き合いしてたり、友人伝いで色んな人と会えたり、すごい！！</p>
+
+<p>岐阜や関西に居た頃では考えられないですね。</p>
+
+<p>あと、不意打ちだったんですが、忘年会やなんやらと前職や前々職の方に声を掛けてもらえて嬉しかったです。</p>
+
+<h3>残りちょっと</h3>
+
+<p>もうすぐ入社式です。<br/>
+新卒になるのでまたゆるく頑張ります。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[クロノスを退社しました！]]></title>
@@ -553,49 +607,6 @@ Yahooの方に教えてもらえたような気がします。</p>
 <p>HPを作るときと一緒で、色んなことを捨象して集中するべきでした。せっかく、自分というコンテンツがあるのに、魅せ方へのこだわりが無かったですね。</p>
 
 <p>ということで、次回参加する際には3社ぐらいからしか面談希望が来ないぐらいになれば合格かなぁ、と思います。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[初めました]]></title>
-    <link href="http://alpaca.tc/blog/diary/start_blog.html"/>
-    <updated>2013-10-27T23:12:00+09:00</updated>
-    <id>http://alpaca.tc/blog/diary/start_blog</id>
-    <content type="html"><![CDATA[<p>記念すべき初カキコ。
-さて、技術ブログは今までQiitaを使っていましたが、そちらを辞めて自分のブログを作ることにしました。</p>
-
-<h2>乗り換える2つの理由</h2>
-
-<!-- more -->
-
-
-<h3>1. Qiitaは使いにくい</h3>
-
-<p>皆さんも薄々感じていると思いますが、QiitaのUIは使いにくいです。だってVimから出るんだもん。</p>
-
-<h3>2. SEOで遊びたい</h3>
-
-<p>そろそろ、「アルパカ エンジニア」や幾つかのキーワードが欲しいです。</p>
-
-<h3>3. 対外アピールできない</h3>
-
-<p>Qiitaで見ても、「この人どんな人？」って分からないですよね。それは楽しくないし、勿体ない。</p>
-
-<p>なので、<strong>Vimで完結</strong> + <strong>アルパカなエンジニア</strong>をアピールするためにブログにしたいと思います。</p>
-
-<h2>Octopress + Vim</h2>
-
-<p>Vimから記事を書いて、Vimからデプロイしてます。
-Octopressを簡単に操作できるように<a href="https://github.com/alpaca-tc/alpaca_octopress.vim">プラグイン</a>を作りました。
-あぁ、簡単でいいですね。</p>
-
-<p><code>:Octopress new_post 新しい記事の名前</code></p>
-
-<h2>アルパカなエンジニアを目指す</h2>
-
-<p>しばらくの目標です。
-半年ぐらいで、「アルパカ + エンジニア」のキーワードで1位取れればなぁと思います。
-そして、HPのデザインもアルパカな感じにしていきます！</p>
 ]]></content>
   </entry>
   
