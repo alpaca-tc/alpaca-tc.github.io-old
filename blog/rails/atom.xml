@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: rails | RailsとRubyとVimのブログ]]></title>
+  <link href="http://alpaca.tc/blog/rails/atom.xml" rel="self"/>
+  <link href="http://alpaca.tc/"/>
+  <updated>2015-10-13T21:55:33+09:00</updated>
+  <id>http://alpaca.tc/</id>
+  <author>
+    <name><![CDATA[alpaca-tc]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[シェアリンクの作り方]]></title>
+    <link href="http://alpaca.tc/blog/rails/create-share-link.html"/>
+    <updated>2015-10-13T21:31:00+09:00</updated>
+    <id>http://alpaca.tc/blog/rails/create-share-link</id>
+    <content type="html"><![CDATA[<p>最近Railsでシェアリンクを実装したので紹介します。
+みんなはどうやって実装しているのだろう？</p>
+
+<p>↓こんなURLね</p>
+
+<p><code>
+http://alpaca.tc/shares/uIx90S
+</code></p>
+
+<!-- more -->
+
+
+<p>ちなみに僕の実装方法は、ポリモーフィックなカラムを持つ<code>share_links</code>テーブルを作って、シェアしたいrecordを紐付けることで実現した。</p>
+
+<p>ユニークなキーが必要なため<code>id</code>を使用していてに、2度クエリを発行しているのだけど、パフォーマンスを気にするなら<code>LAST_INSERT_ID</code>を使って一度のクエリで済ます方が良い。</p>
+
+<p>```db/migrate/20151001010101_create_share_links.rb:ruby
+class CreateShareLinks &lt; ActiveRecord::Migration
+  def change</p>
+
+<pre><code>create_table :share_links do |t|
+  t.references :sharable, polymorphic: true, null: false
+  t.string :uuid
+  t.timestamps null: false
+
+  t.index :uuid, unique: true
+  t.index [:sharable_type, :sharable_id], unique: true
+end
+</code></pre>
+
+<p>  end
+end
+```</p>
+
+<p>```:ruby</p>
+
+<h1>lib/share_link_uuid.rb</h1>
+
+<p>require &lsquo;digest/sha2&rsquo;</p>
+
+<p>module ShareLinkUuid
+  # URLで使用可能な文字列
+  HEX64 = [<em>(&lsquo;0&rsquo;..&lsquo;9&rsquo;), </em>(&lsquo;A&rsquo;..&lsquo;Z&rsquo;), *(&lsquo;a&rsquo;..&lsquo;z&rsquo;), &lsquo;_&rsquo;, &lsquo;&ndash;&rsquo;].freeze</p>
+
+<p>  def self.generate(id, length)</p>
+
+<pre><code>digest = Digest::SHA512.hexdigest(id.to_s).to_i(16).to_s(8)
+
+uuid = digest.gsub(/\d{2}/) do |token|
+  HEX64[token.to_i(8).to_s(10).to_i]
+end
+
+uuid[0...length]
+</code></pre>
+
+<p>  end
+end</p>
+
+<h1>app/models/share_link.rb</h1>
+
+<p>class ShareLink &lt; ActiveRecord::Base
+  UUID_LENGTH = 6</p>
+
+<p>  belongs_to :sharable, polymorphic: true, required: true
+  validates :uuid, absence: { if: :new_record? }, presence: { if: :persisted? }
+  validates :sharable_type, inclusion: { in: %w(Item) }
+  after_create :save_uuid</p>
+
+<p>  private</p>
+
+<p>  def save_uuid</p>
+
+<pre><code>@uuid_length ||= UUID_LENGTH
+update_uuid!(@uuid_length)
+</code></pre>
+
+<p>  rescue ActiveRecord::RecordNotUnique</p>
+
+<pre><code># UUIDの長さを増やして再試行
+@uuid_length += 1
+retry
+</code></pre>
+
+<p>  end</p>
+
+<p>  def update_uuid!(length)</p>
+
+<pre><code>uuid = ShareLinkUuid.generate(id, length)
+update!(uuid: uuid)
+</code></pre>
+
+<p>  end</p>
+
+<p>  module Sharable</p>
+
+<pre><code>extend ActiveSupport::Concern
+
+included do
+  has_one :share_link, as: :sharable, dependent: :destroy
+
+  scope :shared, -&gt; { joins(:share_link) }
+  scope :not_shared, -&gt; { where.not(id: shared) }
+end
+</code></pre>
+
+<p>  end
+end</p>
+
+<h1>app/models/item.rb</h1>
+
+<p>class Item
+  include ShareLink::Sharable
+end
+```</p>
+
+<p>```
+Rails.application.routes.draw do
+  resources :shares, only: [:create], controller: :share_links
+end</p>
+
+<p>class ShareLinksController &lt; ApplicationController
+  def create</p>
+
+<pre><code>@share_link = ShareLink.new(share_link_params)
+
+if @share_link.save
+  render format: :json
+else
+  render :error
+end
+</code></pre>
+
+<p>  end</p>
+
+<p>  private</p>
+
+<p>  def share_link_params</p>
+
+<pre><code>params.require(:share_link).permit(
+  :sharable_type, :sharable_id
+).merge(user: current_user)
+</code></pre>
+
+<p>  end
+end
+```</p>
+
+<p>うーん、もっと良い方法ありそうだナ&hellip;</p>
+]]></content>
+  </entry>
+  
+</feed>
+
+
+

@@ -4,7 +4,7 @@
   <title><![CDATA[RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2015-03-07T15:27:01+09:00</updated>
+  <updated>2015-10-13T21:45:17+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -14,459 +14,15 @@
 
   
   <entry>
-    <title type="html"><![CDATA[東京に慣れてきた]]></title>
-    <link href="http://alpaca.tc/blog/diary/pixiv-year.html"/>
-    <updated>2014-05-24T01:07:00+09:00</updated>
-    <id>http://alpaca.tc/blog/diary/pixiv-year</id>
-    <content type="html"><![CDATA[<p>昨年の6月に越してきて、あと3ヶ月ほどで東京に来て一年！？<br/>
-時間が経つのは早いものですねー&hellip;。</p>
-
-<!-- more -->
-
-
-<h2>今年の一年を振り返って。</h2>
-
-<p>憧れの東京に来て、なんだか目的もなく一年が過ぎかけてました。<br/>
-ずっと東京に憧れていて、夢が叶っちゃったら長い間本当に無目的で生きてましたね:(</p>
-
-<p>あの勉強と仕事のストイックな3ヶ月はどこへやら&hellip;</p>
-
-<h3>お仕事。</h3>
-
-<p>6月に入ってから<a href="http://booth.pm">BOOTH</a>にアサインされて、数ヶ月を過ごし<br/>
-その後、<a href="http:://factory.pixiv.net">pixivFACTORY</a>のメインエンジニアとしてコード書いてました。</p>
-
-<p>pixivFACTORYが出た後に、ユーザーさん達が嬉しい言葉を言ってくださるのをTwitterで眺めていて、</p>
-
-<p>ゆるやかーに&hellip;「ボッ」 っと火が着いた今日この頃です。</p>
-
-<p>最近は、仕事が最高に楽しい。<br/>
-実は入社する前にこの会社に期待していたことはずっとやらせて貰えていて、文句は無いはずなのにイマイチ目的が無くてやる気が出てませんでした。</p>
-
-<p>でも、自分で作ったサービスを使ってくださるユーザーさんの声を聞いて、あーーーーーーやらねば&hellip;！！！とやる気が漲ってきている今日この頃です。</p>
-
-<p>惜しむべくはpixivはホワイト企業なところ。もうブラック企業に生きていきたい。</p>
-
-<h3>プライベート</h3>
-
-<p>アートの趣味がかなり充実していました！</p>
-
-<p>東京ってやっぱりすごいですよ！<br/>
-ギャラリーが多いのでプラ〜っと出かけて適当にオシャレそうなカフェやギャラリーに入っても楽しめる。すごい！</p>
-
-<p>就活前にギャラリーで展示されてた方と仲良くなって、そのままプライベートのお付き合いしてたり、友人伝いで色んな人と会えたり、すごい！！</p>
-
-<p>岐阜や関西に居た頃では考えられないですね。</p>
-
-<p>あと、不意打ちだったんですが、忘年会やなんやらと前職や前々職の方に声を掛けてもらえて嬉しかったです。</p>
-
-<h3>残りちょっと</h3>
-
-<p>もうすぐ入社式です。<br/>
-新卒になるのでまたゆるく頑張ります。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[クロノスを退社しました！]]></title>
-    <link href="http://alpaca.tc/blog/diary/i-just-quit-my-job-at-kronos.html"/>
-    <updated>2014-05-24T01:07:00+09:00</updated>
-    <id>http://alpaca.tc/blog/diary/i-just-quit-my-job-at-kronos</id>
-    <content type="html"><![CDATA[<p>先週、4月から働いていた株式会社クロノスを退社した。</p>
-
-<p>流行の退職エントリということだが、<br/>
-退職エントリといえば、<a href="http://d.hatena.ne.jp/takeda25/touch/20140407/1396864651">いい話(ウェブリオを辞めました)</a>の記事を読んで大変感銘を受けた！</p>
-
-<p>同じように、エンジニアとして働く誰かの参考になれば嬉しい:)</p>
-
-<!-- more -->
-
-
-<h2>会社について</h2>
-
-<p>主な業務としてSler支援・IT教育・受託開発を包括的に行っていて、最近は5ヶ年計画を掲げて事業ドメインを自社開発中心へシフトしようと取り組んでいる。</p>
-
-<p>入社のきっかけは、前に働いていた社長による紹介である。<br/>
-<a href="http://alpaca.tc/blog/blog/i-im-join-for-this-company.html">前の記事</a>で書いた通り、僕は大学を辞める決断をした。その際に、先は分からないけれど取り敢えずの勤め先として社長がクロノスを紹介してくださった。</p>
-
-<p>しかし、入れ違いで就職先が決まり、残念ながら2ヶ月だけしか在籍することが出来なかったのが心残りである。</p>
-
-<h2>クロノスの特徴</h2>
-
-<p>今まで僕はWeb系の会社でしか働いたことが無かったので、驚くほど刺激的な時間を過ごすことができた！</p>
-
-<p>僕の直接の業務はとある医療系(？)Webアプリの開発で、マネジメントの高山さんと僕の2人で行なった。</p>
-
-<p>正直なところ、期間も短く業務も一部だったため他の事業ドメインの事情は疎い。<br/>
-そのため情報はとても偏るけれど、目に映った事柄については率直な感想を書いていきたい。</p>
-
-<h3>悪かった点</h3>
-
-<p>良かった点があまりに多かったため、先に悪かった点をざっと書いておく。</p>
-
-<h4>1. Slerの文化がやや浸透している</h4>
-
-<p>いわゆるエクセルを中心としたタスク管理、バグ管理はWeb系で活動してきた僕にとって初めての体験だった。<br/>
-僕にはこういったマネジメントが馴染めなかった:(</p>
-
-<h4>2. Web技術の浸透度</h4>
-
-<p>もともとJavaを中心にしていたため、Web系技術の情報がまだ浸透しきっていないと感じた。<br/>
-現在はRuby/JS中心へ移行しつつあるので、これから浸透していくと思う。</p>
-
-<h3>良かった点</h3>
-
-<p>クロノスで働いてみて、何度も感嘆した。。<br/>
-良かった点が日常に溢れていて書ききれない！</p>
-
-<h4>1. 人間力が高すぎる</h4>
-
-<p>「エンジニア」としてだけではなく、ただひたすらに「人」として尊敬出来る会社だった！</p>
-
-<p>謙虚さや人の良さというのは、身に付けようとしてどうこうなるものではない。ましてや、会社としてそういった文化を根付かせようと思ったら尚更である。<br/>
-前向きな言葉に溢れて、常に人を気遣って笑顔で仕事に取り組んでいた。</p>
-
-<p>努力や技術とは別のベクトルにある要素である分、かけがえの無い感動があった。<br/>
-将来、仕事を依頼することになったら間違いなくクロノスにお願いするだろう。理由は言わずもがな、である。</p>
-
-<p>うーん、もっとあの感動を書き表せる文才が欲しい。笑</p>
-
-<h4>2. ホワイトなIT企業</h4>
-
-<p>とーってもホワイトな環境だった。<br/>
-残業はほとんど無いし、同僚は楽しい人ばかり。最高！</p>
-
-<h4>3. 技術的な向上心</h4>
-
-<p>クロノスには技術本の著者が何人もいる。(一定年齢以上はほとんど？)<br/>
-会社としても、本の執筆や資格取得を推奨しているので、その気があればかなりサポートしてもらえるはず。</p>
-
-<h4>4. 教育体制</h4>
-
-<p>IT教育を事業ドメインのひとつとして捉えているだけあって、教育環境が素晴らしかった。<br/>
-目の前で新卒の方々がメキメキ上達していく様は、かなり焦りを覚えるほどだった。</p>
-
-<p>クロノスは元々エンジニアでなくても、育ててくれる会社なので文系からエンジニアを志望する人にはかなりオススメです。<br/>
-何より、「教育体制」なんて垣根は関係なくて全ての先輩が親身になってくれる会社ですし。</p>
-
-<h2>まとめ</h2>
-
-<p>２ヶ月という短い間でしたが、本当にお世話になりました！<br/>
-クロノスという会社はとても良い会社なので、興味があればぜひ転職してみてくださいw</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Railsの補助プラグインを書いた]]></title>
-    <link href="http://alpaca.tc/blog/vim/alpaca-rails-support.html"/>
-    <updated>2014-04-30T00:46:00+09:00</updated>
-    <id>http://alpaca.tc/blog/vim/alpaca-rails-support</id>
-    <content type="html"><![CDATA[<h1>もうLocaleファイルに迷わない！</h1>
-
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/alpaca-rails-support/screen_shot_1.png" title="screen_shot_1" ></p>
-
-<p>休日を利用して、久しぶりにRails関連のVimScriptを書いたよ:)</p>
-
-<!-- more -->
-
-
-<h2>Railsとlocalesファイル</h2>
-
-<p>きっかけは、とあるプロジェクトに立てられたIssueであった。</p>
-
-<blockquote><p><strong>言語ファイルが大きすぎてどこを編集しているのか全く分からなくなる。</strong><br/>
-<strong>もはや人が書くようなファイルじゃない。</strong></p>
-
-<p>便利なエディタがあるならエディタに頼ってもいいけどざっと探した感じ見つけられなかったので、いい解決方法があれば教えて欲しいです。</p></blockquote>
-
-<p>おっしゃる通り、懸念すべき事項である。<br/>
-多国籍に対応したプロジェクトをRailsで作った経験があると分かるが、気をつけていても<strong>localesはカオス</strong>になってしまう。</p>
-
-<p>しかし、次の発言で少し様相が変わる。</p>
-
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/alpaca-rails-support/screen_shot_3.png" title="issue" ></p>
-
-<p><strong>SublimeText2が有力&hellip;だと？</strong></p>
-
-<p><del>何を寝ぼけたこt</del></p>
-
-<p>alpaca-tcはVimの人である。Vimで解決しんぜよう。</p>
-
-<h2>Railsの補助プラグイン</h2>
-
-<p>丁度、僕も今Railsで開発をしている。<br/>
-痒いところが幾つかあったので、休日に孫の手を作ることにした。</p>
-
-<p><strong><a href="https://github.com/alpaca-tc/alpaca_rails_support">Alpaca Rails Support</a></strong></p>
-
-<p>といっても、時間があまり無かったので<strong>3つの簡素な機能</strong>でまとめた。</p>
-
-<h3>I18nの探索</h3>
-
-<p>本題の機能である「localesの編集をサポートする」プラグインである。<br/>
-キーを探索して、Uniteにぶち込んでくれる。</p>
-
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/alpaca-rails-support/screen_shot_4.png" title="Find_local" ></p>
-
-<p>探索は少し荒いので、Yamlをキレイに書いていなければ動かない。</p>
-
-<h3>Routesの補完</h3>
-
-<p>個人的に一番欲しかった機能である<br/>
-たかだかRoutesのスペルミスで、BetterErrorsと挨拶したくない。</p>
-
-<p><img class="image_on_frame center" src="https://raw.githubusercontent.com/alpaca-tc/alpaca_rails_support/master/assets/routes_completion.png" title="reoute補完" ></p>
-
-<p>ようやく<code>rake routes | grep ...</code>の地獄から解放されるヾ(*´∀｀*)ﾉ</p>
-
-<h3>I18nのプレビュー</h3>
-
-<p>特に必要は無かったけれど、思いついてしまったので作った。</p>
-
-<p><img class="image_on_frame center" src="https://raw.githubusercontent.com/alpaca-tc/alpaca_rails_support/master/assets/preview_locales.gif" title="preview" ></p>
-
-<p><strong>( ﾟ∀ﾟ)o彡ﾟギミックかっけー！</strong></p>
-
-<p>vim-easy-motionやvim-overと同じ方法を取り入れていて<br/>
-<code>while 1</code>と<code>getchar()</code>の組み合わせでkeypressを補足している。</p>
-
-<p>新鮮な方法だったので、一番気に入っている。</p>
-
-<h2>今後</h2>
-
-<p>もう少ししたら、オンラインのlocales探索アルゴリズムを実装しようと思っている。<br/>
-VimScriptでアルゴリズムらしい手法を使ったことは無いので、楽しみである。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[めまぐるしい１年！]]></title>
-    <link href="http://alpaca.tc/blog/blog/i-im-join-for-this-company.html"/>
-    <updated>2014-04-19T02:37:00+09:00</updated>
-    <id>http://alpaca.tc/blog/blog/i-im-join-for-this-company</id>
-    <content type="html"><![CDATA[<h1>退学した！</h1>
-
-<p>昨年の6月、<strong>1年8ヶ月働いていたベンチャー企業を辞めて</strong>、大学に復帰した。</p>
-
-<p>その傍ら、大学と平行して<strong>2社の会社を渡り歩いた。</strong></p>
-
-<p>ふと気付けば冬になり、世間は<strong>就職活動一色</strong>に染まっていたので、思い立って<strong>就職活動を始めるも</strong>、挫折(?)して<strong>1ヶ月休む。</strong></p>
-
-<p>かたや、更に新しい会社で働き始めたかと思えば4月となり、<strong>僕は大学を中退</strong>していた。</p>
-
-<p>めまぐるしい！</p>
-
-<p>今日は簡単に、中退の報告と振り返りをしたい。</p>
-
-<!-- more -->
-
-
-<h2>ベンチャー地獄</h2>
-
-<p>僕は2回生の後期から大阪の会社で、エンジニアとして働き始めた。</p>
-
-<p>さすがに、立ち上げ時期というのもあって<strong>ブラック企業の贅の極みだった</strong>けれど、めちゃくちゃ楽しかった。2年連続で<strong>クリスマスを伊青さんと社畜した</strong>のは、哀し良い思い出である。笑</p>
-
-<p>それから1年8ヶ月働いて昨年退社した。</p>
-
-<p>あの頃は、とにかく<strong>絶望的に刺激的な毎日</strong>で、同僚の方達の考え方は<strong>鋭く僕の仕事観・人生観に影響を与えた</strong>。退社してから、随分と働き方が変わったのでぜひ今一度一緒に働きたいところである。もう、二度と無茶な働き方は出来ないと思うけれど。</p>
-
-<p>会社の方達には、本当に感謝をしている。</p>
-
-<p>怒濤の日々を終えてふと大学に戻ると、大学生の若さが眩しくて、随分と老いを感じた。笑</p>
-
-<h2>就職活動</h2>
-
-<p>大学に戻ってからもせっせと働いていたら、いつの間にか就職活動シーズンに入っていた。</p>
-
-<p>僕も思い立って就活を始めようと思ったけれど、リクナビを見た瞬間に<strong>就職活動を諦めた</strong>。</p>
-
-<p>あの体裁には、本当に吐き気がした。</p>
-
-<p>僕は自分の時間の浪費も、人の時間を奪う行為も、同じく悪だと思っている。リクナビのように、ポチポチと平気で<strong>時間を奪いあう</strong>なんてことは、到底やる気になれなかった。</p>
-
-<p>結局、別の方法で就活するも時間の奪い合いは止められなかった。そして、僕は2月まるまる就活を辞める&hellip;。(つ∀-)</p>
-
-<p><strong>エンジニア志望が毎日コードを書けないなんて、おかしいと思わない？</strong></p>
-
-<h2>決断のとき</h2>
-
-<p>この時期に、問題にぶち当たる。学校に残ることは、<strong>就職のために時間を浪費する</strong>ということに気付いた。というより、確信に変わったというか。</p>
-
-<p>しかし、大学を辞めれば将来は厳しいのだろう。</p>
-
-<h3>信念みたいなもの</h3>
-
-<p>人生はしょっちゅう選択を迫ってくる。けれど、僕は一貫して<strong>シンプルに選ぶことにしている。</strong></p>
-
-<blockquote><p>危険だ、という道は必ず、自分の行きたい道なのだ</p>
-
-<p>怖かったら怖いほど、逆にそこに飛び込むんだ</p></blockquote>
-
-<p>岡本太郎を初めて知ったのは、もう10年ほど前のことだ。</p>
-
-<p>選択を迫られる度に、彼のこの言葉がぐんと盛上がってきて、つき動かされてきた。一度飲み込んでしまえば、これほど強力なおまじないはない。</p>
-
-<p>やりたくないこと、反対されること、厳しいことを選んできたら、ベンチャー社畜を止められなかった。笑 お誘いを断る言い訳が出来ない。</p>
-
-<p>22歳になって、この言葉はますます生命力を帯びている。</p>
-
-<h2>大学を辞める選択</h2>
-
-<p>先日、ついに大学を辞めた。驚くかなぁと思って友人に話したら「ようやくか！」と笑われた。</p>
-
-<p>僕は死ぬまで賢く生きれないだろうなぁと思う。</p>
-
-<h3>これからの話</h3>
-
-<p>さて、6月からpixivという会社で働くことになった。</p>
-
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/i-im-join-for-this-company/pixiv.jpg" title="pixiv" ></p>
-
-<p>イラスト系のSNSを運営する会社で、知っている人は知っている会社かもしれない。</p>
-
-<p>長くなったけれど、これで報告はおしまい！</p>
-
-<p>僕もやっと東京進出するよヽ(・∀・ )ﾉわーい</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[APIのMockサーバーを構築する「Apiary」を使ってみる]]></title>
-    <link href="http://alpaca.tc/blog/web-service/apiary.html"/>
-    <updated>2014-04-10T21:36:00+09:00</updated>
-    <id>http://alpaca.tc/blog/web-service/apiary</id>
-    <content type="html"><![CDATA[<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/apiary/apiary_top.png" title="apiary Build beautiful APIs" ></p>
-
-<p><a href="http://apiary.io/">Apiary</a>は、美しいAPIのドキュメント(Mockサーバー)が作成できるWebサービスです.</p>
-
-<!-- more -->
-
-
-<h2>Apiaryの使いどころ</h2>
-
-<p>仕事を進める上で、APIの仕様が先に作られることは多々あります.</p>
-
-<p>今関わっている案件でも、APIの仕様表だけ先に届いたので、Mockサーバーを立てて開発を進めることにしました.</p>
-
-<h2>ドキュメント(Mockサーバー)を作ってみる</h2>
-
-<p>Githubの連携でアカウントを作り、すぐにドキュメントの作成に取りかかれます.
-markdown(の拡張)でAPIの仕様を書けば、すぐにドキュメントが生成されます.</p>
-
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/apiary/apiary_document.png" title="Apiary Document" ></p>
-
-<p><strong>う、美しい&hellip;</strong></p>
-
-<p>その上、Apiaryではドキュメントと同時に、そのドキュメントからMockサーバーを立ててくれます.</p>
-
-<p>今回は、デモとして簡単なアルパカAPIを実装しました.</p>
-
-<ul>
-<li><a href="http://docs.alpaca.apiary.io/">生成されたドキュメント</a></li>
-</ul>
-
-
-<p>10分ぐらいで作成完了.すばらしい！</p>
-
-<h2>レスポンスを見てみる</h2>
-
-<p>作成されたAPIのMockサーバーは、<code>API名.apiary-mock.com</code>で見ることができます.</p>
-
-<p>さっそく<code>curl</code>でレスポンスを見てみよう</p>
-
-<p><code>$ curl http://alpaca.apiary-mock.com/hello</code></p>
-
-<p>ヽ(・∀・ )ﾉす&hellip;すげぇ便利！</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Gemを書くときに知っておきたい3つの事]]></title>
-    <link href="http://alpaca.tc/blog/ruby/i-have-almost-finished-implementing-comment-parser.html"/>
-    <updated>2014-02-18T20:52:00+09:00</updated>
-    <id>http://alpaca.tc/blog/ruby/i-have-almost-finished-implementing-comment-parser</id>
-    <content type="html"><![CDATA[<p>先日から書き続けていた<a href="https://github.com/alpaca-tc/comment_extractor">CommentExtractor</a>が、大枠完成しました。</p>
-
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/i-have-almost-finished-implementing-comment-parser/capture.png" title="CommentExtractor" ></p>
-
-<p>さて、今回Gemを書くときに役に立った、便利なTipsを幾つか紹介します！</p>
-
-<!-- more -->
-
-
-<p>内容はバラバラです。笑</p>
-
-<ol>
-<li>READMEに視覚情報を追加する</li>
-<li>RubyGemsからGemを削除する</li>
-<li>RSpecをキレイに書く</li>
-</ol>
-
-
-<h2>1.READMEに視覚情報を追加する</h2>
-
-<p>READMEには視覚的なバッヂを追加出来ます。Gemを書くときには、ぜひとも入れておきたい情報ですね。</p>
-
-<ul>
-<li><a href="http://badge.fury.io/rb/comment_extractor"><img src="https://badge.fury.io/rb/comment_extractor.png" alt="Gem Version" /></a></li>
-<li><a href="https://travis-ci.org/alpaca-tc/comment_parser"><img src="https://travis-ci.org/alpaca-tc/comment_extractor.png?branch=v1.0.0" alt="Build Status" /></a></li>
-<li><a href="https://coveralls.io/r/alpaca-tc/comment_extractor?branch=v1.0.0"><img src="https://coveralls.io/repos/alpaca-tc/comment_extractor/badge.png?branch=v1.0.0" alt="Coverage Status" /></a></li>
-</ul>
-
-
-<p>もちろん、登録すれば無料で作ることが出来ます。</p>
-
-<p>詳しくは<a href="http://elgalu.github.io/2013/add-achievement-badges-to-your-gem-readme/">コチラの記事</a>を読んでみましょう。</p>
-
-<h2>2.RubyGemsからGemを削除する</h2>
-
-<p>間違えてRubyGemsにPushしてしまった！</p>
-
-<p>そんなときに便利なyankコマンド。意外と知られていない。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>gem yank gem_name -v 1.0.0
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>ただ、これをやっても論理削除されるだけのようですねぇ。多分。</p>
-
-<p>このバージョン使うなよ！新しいの使えよ！ってときに使うコマンドだと思います。</p>
-
-<h2>3.RSpecをキレイに書く</h2>
-
-<p>RSpecをキレイに書く方法は、ある程度伝統があります。</p>
-
-<ul>
-<li><a href="http://betterspecs.org/">BetterSpecs</a></li>
-<li><a href="http://bitfluxx.com/2011/05/23/some-rspec-tips-and-best-practices.html">Some RSpec Tips and Best Practices</a></li>
-</ul>
-
-
-<p>今回は、ある程度RSpecを書ける人向けに、検索してもあまり出てこない情報(検索しにくい？)を提供したいと思います。</p>
-
-<h3>Syntaxについて</h3>
-
-<h4>be_truthy, be_falsy</h4>
-
-<p>RSpecが新しくなって、<code>be_true</code>, <code>be_false</code>→<code>be_truthy</code>, <code>be_falsy</code>となりました。
-今までは、厳密に<code>true</code>で無くてもテストが通っちゃいましたからね。</p>
-
-<h4>現在の主題であるクラスを取得する</h4>
-
-<p>RSpecでは<code>described_class</code>というメソッドを使用出来ます。
-<code>describe KlassName do...</code>で指定したKlassNameが格納されます。</p>
-
-<p>これを使えば、クラス名に依存せずにテストを書く事ができますね。</p>
-
-<h4>ExampleGroupを作る</h4>
-
-<p>ご存知の通り、Railsのテストではcontroller, model, viewで使えるメソッドが大きく異なります。
-それは、RSpecのexample_groupという機能を使って、テストの種類を元にModuleをincludeしているからです。</p>
-
-<p>これを使えば、複数のファイルで共通する内容を簡単に記述する事が出来ます。
-次のような感じですね。</p>
+    <title type="html"><![CDATA[シェアリンクの作り方]]></title>
+    <link href="http://alpaca.tc/blog/rails/create-share-link.html"/>
+    <updated>2015-10-13T21:31:00+09:00</updated>
+    <id>http://alpaca.tc/blog/rails/create-share-link</id>
+    <content type="html"><![CDATA[<p>最近Railsでシェアリンクを実装したのだけど、みんなはどうやって実装しているのだろう？</p>
+
+<p>ちなみに僕の実装方法は、ポリモーフィックなカラムを持つ<code>share_links</code>テーブルを作って、シェアしたいrecordを紐付けることで実現した。</p>
+
+<p>ユニークなキーが必要なため<code>id</code>を取得するために、2度クエリを発行しているのだけど、パフォーマンスを気にするなら<code>LAST_INSERT_ID</code>を使って一度のクエリで済ます方が良い。</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -474,11 +30,25 @@ markdown(の拡張)でAPIの仕様を書けば、すぐにドキュメントが�
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># spec_helper.rb</span>
-</span><span class='line'><span class="no">RSpec</span><span class="o">.</span><span class="n">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
-</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">include</span> <span class="no">ExampleGroupModuleName</span><span class="p">,</span> <span class="ss">type</span><span class="p">:</span> <span class="ss">:optional</span><span class="p">,</span> <span class="n">example_group</span><span class="p">:</span> <span class="p">{</span>
-</span><span class='line'>    <span class="n">file_path</span><span class="p">:</span> <span class="no">Regexp</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sx">%w[spec comment_extractor extractor .*.rb]</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;[\\\/]&#39;</span><span class="p">))</span>
-</span><span class='line'>  <span class="p">}</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># db/migrate/20150901041734_create_share_links.rb</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">CreateShareLinks</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Migration</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">change</span>
+</span><span class='line'>    <span class="n">create_table</span> <span class="ss">:share_links</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">references</span> <span class="ss">:sharable</span><span class="p">,</span> <span class="ss">polymorphic</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">null</span><span class="p">:</span> <span class="kp">false</span>
+</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">string</span> <span class="ss">:uuid</span>
+</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">timestamps</span> <span class="ss">null</span><span class="p">:</span> <span class="kp">false</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">index</span> <span class="ss">:uuid</span><span class="p">,</span> <span class="ss">unique</span><span class="p">:</span> <span class="kp">true</span>
+</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">index</span> <span class="o">[</span><span class="ss">:sharable_type</span><span class="p">,</span> <span class="ss">:sharable_id</span><span class="o">]</span><span class="p">,</span> <span class="ss">unique</span><span class="p">:</span> <span class="kp">true</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -508,280 +78,101 @@ markdown(の拡張)でAPIの仕様を書けば、すぐにドキュメントが�
 <span class='line-number'>21</span>
 <span class='line-number'>22</span>
 <span class='line-number'>23</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">RSpec</span><span class="o">.</span><span class="n">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
-</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">add_setting</span> <span class="ss">:source_code_path</span><span class="p">,</span> <span class="ss">default</span><span class="p">:</span> <span class="s1">&#39;spec/assets/source_code&#39;</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># lib/share_link_uuid.rb</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;digest/sha2&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">module</span> <span class="nn">ShareLinkUuid</span>
+</span><span class='line'>  <span class="no">HEX64</span> <span class="o">=</span> <span class="o">[*</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;9&#39;</span><span class="p">),</span> <span class="o">*</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;Z&#39;</span><span class="p">),</span> <span class="o">*</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;z&#39;</span><span class="p">),</span> <span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="o">].</span><span class="n">freeze</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">generate</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">digest</span> <span class="o">=</span> <span class="ss">Digest</span><span class="p">:</span><span class="ss">:SHA512</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">(</span><span class="nb">id</span><span class="o">.</span><span class="n">to_s</span><span class="p">)</span><span class="o">.</span><span class="n">to_i</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">uuid</span> <span class="o">=</span> <span class="n">digest</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/\d{2}/</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">token</span><span class="o">|</span>
+</span><span class='line'>      <span class="no">HEX64</span><span class="o">[</span><span class="n">token</span><span class="o">.</span><span class="n">to_i</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">to_i</span><span class="o">]</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">uuid</span><span class="o">[</span><span class="mi">0</span><span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="n">length</span><span class="o">]</span>
+</span><span class='line'>  <span class="k">end</span>
 </span><span class='line'><span class="k">end</span>
 </span><span class='line'>
-</span><span class='line'><span class="k">module</span> <span class="nn">ExampleGroupModuleName</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">source_code_path</span><span class="p">(</span><span class="n">file_name</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">dir</span> <span class="o">=</span> <span class="no">RSpec</span><span class="o">.</span><span class="n">configuration</span><span class="o">.</span><span class="n">source_code_path</span>
-</span><span class='line'>    <span class="n">file_name</span> <span class="p">?</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">dir</span><span class="si">}</span><span class="s2">/</span><span class="si">#{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">:</span> <span class="n">dir</span>
+</span><span class='line'><span class="c1"># app/models/share_link.rb</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">ShareLink</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="no">UUID_LENGTH</span> <span class="o">=</span> <span class="mi">6</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">belongs_to</span> <span class="ss">:sharable</span><span class="p">,</span> <span class="ss">polymorphic</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">required</span><span class="p">:</span> <span class="kp">true</span>
+</span><span class='line'>  <span class="n">validates</span> <span class="ss">:uuid</span><span class="p">,</span> <span class="ss">absence</span><span class="p">:</span> <span class="p">{</span> <span class="k">if</span><span class="p">:</span> <span class="ss">:new_record?</span> <span class="p">},</span> <span class="ss">presence</span><span class="p">:</span> <span class="p">{</span> <span class="k">if</span><span class="p">:</span> <span class="ss">:persisted?</span> <span class="p">}</span>
+</span><span class='line'>  <span class="n">validates</span> <span class="ss">:sharable_type</span><span class="p">,</span> <span class="ss">inclusion</span><span class="p">:</span> <span class="p">{</span> <span class="k">in</span><span class="p">:</span> <span class="sx">%w(Item)</span> <span class="p">}</span>
+</span><span class='line'>  <span class="n">after_create</span> <span class="ss">:save_uuid</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kp">private</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">save_uuid</span>
+</span><span class='line'>    <span class="vi">@uuid_length</span> <span class="o">||=</span> <span class="no">UUID_LENGTH</span>
+</span><span class='line'>    <span class="n">update_uuid!</span><span class="p">(</span><span class="vi">@uuid_length</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">rescue</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:RecordNotUnique</span>
+</span><span class='line'>    <span class="c1"># UUIDの長さを増やして再試行</span>
+</span><span class='line'>    <span class="vi">@uuid_length</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span class='line'>    <span class="k">retry</span>
 </span><span class='line'>  <span class="k">end</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">included</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">k</span><span class="o">.</span><span class="n">class_eval</span> <span class="k">do</span>
-</span><span class='line'>      <span class="n">let</span><span class="p">(</span><span class="ss">:instance</span><span class="p">)</span> <span class="p">{</span> <span class="n">described_class</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">source_code</span><span class="p">)</span> <span class="p">}</span>
-</span><span class='line'>      <span class="n">let</span><span class="p">(</span><span class="ss">:source_code</span><span class="p">)</span> <span class="p">{</span> <span class="n">source_code_path</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span> <span class="p">}</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">update_uuid!</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">uuid</span> <span class="o">=</span> <span class="no">ShareLinkUuid</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">update!</span><span class="p">(</span><span class="ss">uuid</span><span class="p">:</span> <span class="n">uuid</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
 </span><span class='line'>
-</span><span class='line'>      <span class="n">describe</span> <span class="s1">&#39;.new&#39;</span> <span class="k">do</span>
-</span><span class='line'>        <span class="n">subject</span> <span class="p">{</span> <span class="n">instance</span> <span class="p">}</span>
-</span><span class='line'>        <span class="n">let</span><span class="p">(</span><span class="ss">:file_name</span><span class="p">)</span> <span class="p">{</span> <span class="s1">&#39;filename.rb&#39;</span> <span class="p">}</span>
-</span><span class='line'>        <span class="n">it</span> <span class="p">{</span> <span class="n">expect</span> <span class="p">{</span> <span class="n">subject</span> <span class="p">}</span><span class="o">.</span><span class="n">to_not</span> <span class="n">raise_error</span> <span class="p">}</span>
-</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>  <span class="k">module</span> <span class="nn">Sharable</span>
+</span><span class='line'>    <span class="kp">extend</span> <span class="ss">ActiveSupport</span><span class="p">:</span><span class="ss">:Concern</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">included</span> <span class="k">do</span>
+</span><span class='line'>      <span class="n">has_one</span> <span class="ss">:share_link</span><span class="p">,</span> <span class="ss">as</span><span class="p">:</span> <span class="ss">:sharable</span><span class="p">,</span> <span class="ss">dependent</span><span class="p">:</span> <span class="ss">:destroy</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="n">scope</span> <span class="ss">:shared</span><span class="p">,</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="n">joins</span><span class="p">(</span><span class="ss">:share_link</span><span class="p">)</span> <span class="p">}</span>
+</span><span class='line'>      <span class="n">scope</span> <span class="ss">:not_shared</span><span class="p">,</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="n">where</span><span class="o">.</span><span class="n">not</span><span class="p">(</span><span class="nb">id</span><span class="p">:</span> <span class="n">shared</span><span class="p">)</span> <span class="p">}</span>
 </span><span class='line'>    <span class="k">end</span>
 </span><span class='line'>  <span class="k">end</span>
 </span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>これを使えば、まとまったテストをスッキリ書く事ができますね。</p>
-
-<h2>まとめ</h2>
-
-<p>ざっくばらんに書きました。
-Gemを作るのは簡単なので、みなさんも作ってみてください！</p>
-
-<p>では！</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[ここまで出来る！RubyのSplat Operatorまとめ]]></title>
-    <link href="http://alpaca.tc/blog/ruby/how-to-use-star.html"/>
-    <updated>2014-02-12T04:16:00+09:00</updated>
-    <id>http://alpaca.tc/blog/ruby/how-to-use-star</id>
-    <content type="html"><![CDATA[<p>Splat Operatorとは、<code>*</code>のことです</p>
-
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/how-to-use-star/capture.png" title="SplatOperator" ></p>
-
-<p>この前、友人にコードレビューしてもらっていたら</p>
-
-<p>「え、Rubyってこんな書き方出来るんですか？」と言われて、「知らない人もいるんだなぁ」と思ったので簡単なまとめ</p>
-
-<!-- more -->
-
-
-<h1>Splat Operatorの色んな使い方</h1>
-
-<p>Splat Operatorは、応用の幅が広いです。</p>
-
-<p>結構当たり前だと思っていましたが、コード読書しないと見る機会は少ないかも。</p>
-
-<h2>1-1. 配列に変換する</h2>
-
-<p>まずは基本編。配列に変換してやりましょう</p>
-
-<p>文字列やsymbolは<code>.to_a</code>が無いですが、<code>*</code>を使えばどの変数でも配列に出来ちゃいます。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">string</span> <span class="o">=</span> <span class="o">*</span><span class="s2">&quot;string&quot;</span>
-</span><span class='line'><span class="nb">p</span> <span class="n">string</span> <span class="c1">#=&gt; [&quot;string&quot;]</span>
 </span><span class='line'>
-</span><span class='line'><span class="n">symbol</span> <span class="o">=</span> <span class="o">*</span><span class="ss">:symbol</span>
-</span><span class='line'><span class="nb">p</span> <span class="n">symbol</span> <span class="c1">#=&gt; [:symbol]</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">hash</span> <span class="o">=</span> <span class="o">*</span><span class="p">{</span> <span class="nb">hash</span><span class="p">:</span> <span class="kp">nil</span> <span class="p">}</span>
-</span><span class='line'><span class="nb">p</span> <span class="nb">hash</span> <span class="c1">#=&gt; [[:hash, nil]]</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">range</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">10</span><span class="p">)</span>
-</span><span class='line'><span class="nb">p</span> <span class="n">range</span> <span class="c1">#=&gt; [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>1-2. 親クラスの引数を気にしない</h2>
-
-<p>またまた基本編。<code>*</code>を引数に指定してやれば、親クラスの引数は知らなくても大丈夫。</p>
-
-<p><code>*</code>だけで出来ることを知らない人はいるかも。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Child</span> <span class="o">&lt;</span> <span class="no">Super</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
-</span><span class='line'>    <span class="k">super</span>
-</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="c1"># app/models/item.rb</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">Item</span>
+</span><span class='line'>  <span class="kp">include</span> <span class="ss">ShareLink</span><span class="p">:</span><span class="ss">:Sharable</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
-<h2>1-3. 間の引数をまとめる</h2>
-
-<p>引数の最後にSplat Operatorを使うことはよくありますが、間はなかなか見ないですね。</p>
-
-<p>blockで引数を取るときに、間の引数をまとめる事が出来ます。</p>
-
-<p>メソッドやProc,lambdaでも同様の動作です。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">list</span> <span class="o">=</span> <span class="o">[[</span><span class="ss">:first</span><span class="p">,</span> <span class="ss">:second</span><span class="p">,</span> <span class="ss">:third</span><span class="p">,</span> <span class="ss">:fourth</span><span class="p">,</span> <span class="ss">:fifth</span><span class="o">]]</span>
-</span><span class='line'><span class="n">list</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">mid</span><span class="p">,</span> <span class="n">last</span><span class="o">|</span>
-</span><span class='line'>  <span class="nb">p</span> <span class="n">first</span>  <span class="c1">#=&gt; :first</span>
-</span><span class='line'>  <span class="nb">p</span> <span class="n">mid</span>    <span class="c1">#=&gt; [:second, :third, :fourth]</span>
-</span><span class='line'>  <span class="nb">p</span> <span class="n">last</span>   <span class="c1">#=&gt; :fifth</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># もちろん、こんなことも出来ます</span>
-</span><span class='line'><span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">other</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span>
-</span><span class='line'><span class="nb">p</span> <span class="n">other</span> <span class="c1">#=&gt; [2, 3]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>1-4. <code>**</code>を使う</h2>
-
-<p>キーワード引数って、まだあまり普及してないですね。互換性が気になるからだろうか？</p>
-
-<p><code>**</code>はキーワード引数を取るときに、余った引数をまとめます。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">hoge</span><span class="p">(</span><span class="ss">first</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">second</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="o">**</span><span class="n">others</span><span class="p">)</span>
-</span><span class='line'>  <span class="nb">p</span> <span class="n">others</span> <span class="c1">#=&gt; { third: 3 }</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'><span class="n">hoge</span><span class="p">(</span><span class="ss">first</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">second</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="ss">third</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>多分これはSplat Operatorと呼ばない。</p>
-
-<h2>まとめ</h2>
-
-<p>こんな書き方が出来るSplat Operatorって本当に便利ね！</p>
-
-<p>( ﾟ∀ﾟ)o彡ﾟんぎもぢいい!!</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Integer</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">upto_with_exception</span><span class="p">(</span><span class="n">to</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">exception_array</span> <span class="o">=</span> <span class="o">*</span><span class="n">options</span><span class="o">[</span><span class="ss">:except</span><span class="o">]</span> <span class="c1">#=&gt; nilでも何でもおかまいなし！</span>
-</span><span class='line'>    <span class="n">exceptions</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">[</span><span class="n">exception_array</span><span class="o">.</span><span class="n">zip</span><span class="o">]</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">upto</span><span class="p">(</span><span class="n">to</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="nb">p</span> <span class="n">i</span> <span class="k">unless</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">has_key?</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">}</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="mi">1</span><span class="o">.</span><span class="n">upto_with_exception</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1">#=&gt; 1, 2, 3, 4, 5</span>
-</span><span class='line'><span class="mi">1</span><span class="o">.</span><span class="n">upto_with_exception</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="ss">except</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span> <span class="c1">#=&gt; 1, 2, 4, 5</span>
-</span><span class='line'><span class="mi">1</span><span class="o">.</span><span class="n">upto_with_exception</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="ss">except</span><span class="p">:</span> <span class="mi">2</span><span class="o">.</span><span class="n">.</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#=&gt; 1, 4, 5</span>
-</span><span class='line'><span class="mi">1</span><span class="o">.</span><span class="n">upto_with_exception</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="ss">except</span><span class="p">:</span> <span class="o">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span><span class="p">)</span> <span class="c1">#=&gt; 1, 2, 3</span>
-</span></code></pre></td></tr></table></div></figure>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[久しぶりにGemを書いている]]></title>
-    <link href="http://alpaca.tc/blog/ruby/create-strip-comment.html"/>
-    <updated>2014-02-10T12:33:00+09:00</updated>
-    <id>http://alpaca.tc/blog/ruby/create-strip-comment</id>
-    <content type="html"><![CDATA[<p>最近、久しぶりにGemを書いてます。</p>
-
-<p>去年から<a href="https://github.com/nhmood/watson-ruby">watson-ruby</a>というinline issue manager貢献してます。</p>
-
-<p>watsonは凄い便利なんですが、コードがかなりアレなのです&hellip;。</p>
-
-<p>「全部リファクタリングさせてくれー！」って言っても、まだやりたい作業があるらしく「ブランチ切るから、もう少し待ってて:)」と言われたっきり&hellip;</p>
-
-<p>うーむ、、なかなか全部は触れないので、とりあえず一番やっかいな部分だけ汎用的にすべく自作しました。</p>
-
-<!-- more -->
-
-
-<h2>どんなGem?</h2>
-
-<p>あらゆるプログラムソースを読み取って、<strong>コメント行のみを取り出すGem</strong>です。watsonでは、このコメント行を読み取って、todoの管理を行っています。</p>
-
-<p>最近のwatsonのPRを見ても、対応ファイルの追加(正規表現の追記)ばかりなのです。こんなもの、他のGemにくれてしまえ！</p>
-
-<p>どんなファイルタイプであれ、扱うのはコメントという概念なのだから、委譲して抽象化しちゃいましょう。</p>
-
-<h2>何が出来るようになるんだい？</h2>
-
-<p>あらゆるプログラムのソースコードをパースして、コメント行だけを抽象的に扱う事が出来ます。</p>
-
-<p>読み取って、何らかの処理をすることが出来ます。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># 今のところはこんな感じ。</span>
-</span><span class='line'><span class="c1"># Gem名やmethod名は変更します</span>
-</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;strip_comment&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/path/to/file&#39;</span>
-</span><span class='line'><span class="n">file</span> <span class="o">=</span> <span class="ss">StripComment</span><span class="p">:</span><span class="ss">:FileObject</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-</span><span class='line'><span class="n">parser</span> <span class="o">=</span> <span class="ss">StripComment</span><span class="p">:</span><span class="ss">:Parser</span><span class="o">.</span><span class="n">for</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
-</span><span class='line'><span class="n">parser</span><span class="o">.</span><span class="n">scan</span>
-</span><span class='line'><span class="n">parser</span><span class="o">.</span><span class="n">comments</span> <span class="c1"># =&gt; [StripComment::CodeObject::Comment, ...]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>簡単に思いつく限りの用途はこんな感じ。</p>
-
-<ul>
-<li>英語のコメントの文法チェック / 翻訳</li>
-<li><code>[review - @alpaca-tc ここ見ておいて！]</code>というコメントにGit post-hookをかけて、ダイレクトメッセージを送る</li>
-<li>iftttとの連携</li>
-</ul>
-
-
-<p>他にも色々出来そうですね。</p>
-
-<h2>Vimでテスト</h2>
-
-<p>さっそくVimと連携してみました。</p>
-
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/create-strip-comment/comment.gif" title="comment.vimデモ" ></p>
-
-<p>コメント行を取り出して、Gingerで文法チェックしています。</p>
-
-<h2>まとめ</h2>
-
-<p>あとは対応ファイルを増やして、リファクタリングしたら完成です。
-今<code>StripComment</code>という名前なんだけど、絶対違うよね。(´・ω・｀)良い名前が思いつかない</p>
-
-<p>終わったら誰か、コードレビューして欲しいなぁ！ヽ(・∀・ )ﾉわーい</p>
 ]]></content>
   </entry>
   
@@ -966,7 +357,7 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 
 <p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/somethings-that-i-want-to-do/IMG_0118.jpg" width="200" title="東京から滋賀まで歩く" ></p>
 
-<h3>4. 岡本太郎の本を3冊読む(完)</h3>
+<h3>4. 岡本太郎の本を3冊読む</h3>
 
 <p>中学生のころからたまらなく好き。</p>
 
@@ -992,7 +383,7 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 
 <p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/somethings-that-i-want-to-do/pic_hanko.jpg" width="200" title="判子を掘る" ></p>
 
-<h3>8. 前職でお世話になった人に会う(完)</h3>
+<h3>8. 前職でお世話になった人に会う</h3>
 
 <p>ドリラボ時代の先輩方に会いたい！</p>
 
@@ -1020,7 +411,7 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 
 <ul>
 <li>11.自分のブログ500uu/day アクセス</li>
-<li>12.自分のポートフォリオサイトを作る(完)</li>
+<li>12.自分のポートフォリオサイトを作る</li>
 <li>13.仕事の事業を軌道に乗せる</li>
 <li>14.意思決定・事業計画の知識を学ぶ</li>
 </ul>
@@ -1382,9 +773,7 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 
 <h2><a href="https://github.com/alpaca-tc/vim-unite-watson.vim">vim-unite-watson.vim</a></h2>
 
-<p><img class="image_on_frame center" src="https://f.cloud.github.com/assets/1688137/1726147/ac9b52fc-628a-11e3-8117-ef4824444729.gif" title="watsonのcapture" ></p>
-
-<p><a href="http://goosecode.com/watson/">watson</a>用のUnite-sourceです。watson本体もガッツリ書き換えました。海外の方にも結構使ってもらえているようです。自身がプログラミングするとき、思考を止めないためにこのプラグインを作りました。</p>
+<p><a href="http://goosecode.com/watson/">watson</a>用のUnite-sourceです。海外の方にも結構使ってもらえているようです。</p>
 
 <h3>その他、今年作ったプラグイン</h3>
 
@@ -2302,6 +1691,644 @@ Yahooの方に教えてもらえたような気がします。</p>
 <p>浮気して、彼女の良さに気付くパターンです。</p>
 
 <p>YCMを使って気付きました。なんだかんだ<strong>NeoCompleteが最高</strong>ですね！！</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[インラインTODO管理のWatsonを使う]]></title>
+    <link href="http://alpaca.tc/blog/ruby/how-to-use-watson.html"/>
+    <updated>2013-12-03T23:49:00+09:00</updated>
+    <id>http://alpaca.tc/blog/ruby/how-to-use-watson</id>
+    <content type="html"><![CDATA[<p>最近、Githubのトレンドにも入っていた<a href="http://goosecode.com/watson/">Watson</a>を紹介します。</p>
+
+<!-- more -->
+
+
+<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/watson.png" title="watsonのデモ" ></p>
+
+<h2>インラインTODO管理とは何か</h2>
+
+<p>もしあなたがエンジニアなら、次のようなコメントを見たことがあると思います。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="ss">ActionController</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">logged_in?</span>
+</span><span class='line'>    <span class="c1"># TODO 管理ユーザーと処理を分ける</span>
+</span><span class='line'>    <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>このように、コード内には至る所にコメントが書かれています。
+単なるコードの説明に限らず、修正が必要な内容を記述したものも多くあります。</p>
+
+<p>しかしながら、しばしばこういったコメントは放置され、コードの中に埋もれたままになってしまうこともあります。</p>
+
+<p>Watsonは、コード内に書かれたコメントを走査し、近代的な管理ツールに流し込むことでIssueを管理するツールです。</p>
+
+<h2>どうやって使うのか</h2>
+
+<p>watsonを使って、コード内に記述されたコメントを洗い出して、GithubのIssueに登録してみましょう。</p>
+
+<h3>ステップ1: watsonのインストール</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>gem install watson
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>ステップ2: watsonの初期化</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span><span class="nb">cd </span>path/to/project_dir
+</span><span class='line'><span class="nv">$ </span>watson
+</span><span class='line'><span class="c"># 一旦&lt;Ctrl-C&gt;で終了してください。</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>.watsonrc</code>が自動的に作成されるので、プロジェクトに合わせて走査するディレクトリなどを設定します。</p>
+
+<p>例として、Railsプロジェクト用の<a href="https://gist.github.com/7770689">.watsonrc</a>を貼付けておきます。</p>
+
+<h3>ステップ3: watsonの実行！！</h3>
+
+<p>watsonを使うときは、独自のタグを使ってコメントを書いておきます。</p>
+
+<ul>
+<li><code>[todo] - タスクの内容を記入する</code></li>
+<li><code>[review] - 他の人に意見を求めるような内容を記入する</code></li>
+<li><code>[fix] - バグの内容を記入する</code></li>
+</ul>
+
+
+<p>試しに、適当なファイルを開いて、上記のようなフォーマットでコメントを記入してみてください。</p>
+
+<p>後は、再度<code>watson</code>と打って実行！</p>
+
+<p>めでたしめでたし。
+プロジェクト内のTODOなどが、一覧で出力されます。</p>
+
+<h3>ステップ4: githubへIssue登録する</h3>
+
+<p>先ほどの出力した内容を、Githubへ一括同期しましょう。</p>
+
+<p>まず、Githubのリポジトリをwatsonに認識させます</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>watson --remote github
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>英語のコメントに沿って、情報を入力していきましょう。</p>
+
+<p>続いて、Issueを登録します。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>watson --update
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>処理が終わると、Githubのissueへの登録が完了です。</p>
+
+<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/watson_issue_preview.png" title="githubのissueプレビュー" ></p>
+
+<h2>まとめ</h2>
+
+<p>watsonは先月ぐらいに注目され始めた新しいプロジェクトです。</p>
+
+<p>今後は、コメントを活用して様々な処理を行えるように拡張されると思うので、動向が楽しみですね。</p>
+
+<h3>watsonの現状</h3>
+
+<ul>
+<li>Ruby初心者の人が作ったため、コードがよろしくない(PR中)</li>
+<li>今のところ対応している管理ツールは、githubとbitbucket。</li>
+<li>安定版に必要な機能が未実装。なので、新機能のPRがなかなか取り入れられない状況。数ヶ月待たないといけなさそう。</li>
+<li>対応しているファイルタイプがまだ少ない</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Guard-shellが便利だった話]]></title>
+    <link href="http://alpaca.tc/blog/ruby/the-story-about-guard-shell.html"/>
+    <updated>2013-11-23T01:34:00+09:00</updated>
+    <id>http://alpaca.tc/blog/ruby/the-story-about-guard-shell</id>
+    <content type="html"><![CDATA[<p><a href="https://github.com/guard/guard">Guard</a>って便利ですよねー。</p>
+
+<p>あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。</p>
+
+<p>最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。</p>
+
+<p>Guardを使って実現してみました。</p>
+
+<!-- more -->
+
+
+<h1>guard + guard-shell</h1>
+
+<p>おなじみのGuardにshellコマンドを実行できるようにします。</p>
+
+<p><em>GuardでC言語を自動コンパイル！！！</em></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Gemfile</span>
+</span><span class='line'><span class="n">source</span> <span class="s1">&#39;https://rubygems.org&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;guard&#39;</span>
+</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;guard-shell&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Guardfile</span>
+</span><span class='line'><span class="n">group</span> <span class="ss">:vim3</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">guard</span> <span class="ss">:shell</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">target_dir</span> <span class="o">=</span> <span class="s1">&#39;vim-3\.0/src&#39;</span>
+</span><span class='line'>    <span class="n">watch</span><span class="p">(</span><span class="sr">%r!^</span><span class="si">#{</span><span class="n">target_dir</span><span class="si">}</span><span class="sr">/(.+)\.(c|h)!</span><span class="p">)</span> <span class="k">do</span>
+</span><span class='line'>      <span class="sb">`cd </span><span class="si">#{</span><span class="n">target_dir</span><span class="si">}</span><span class="sb"> &amp;&amp; make`</span>
+</span><span class='line'>      <span class="sb">`cd </span><span class="si">#{</span><span class="n">target_dir</span><span class="si">}</span><span class="sb"> &amp;&amp; make debug`</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>ポイントは、<em>group</em>と<em>guard :shell &hellip;</em>ですね。</p>
+
+<h2>guardのDSL <em>group</em></h2>
+
+<p>groupのDSLを使うと、guardの設定を切り替えることができます。</p>
+
+<p>例えば、バージョン毎にgroupで設定をわけておけば、不必要な部分でguardが動作することを防ぐことができます。
+僕の場合は、vimのバージョン毎に設定を切り替えることで不必要なコンパイルを防いでいます。</p>
+
+<p>また、分けてあるgroupを切り替えるときは、guardのコンソールで<code>scope vim3</code>と打てば切り替わります。</p>
+
+<p>(起動時にscopeを指定する場合は、<code>guard --group vim3</code>)</p>
+
+<h2>guard-shellを使う</h2>
+
+<p>guard-shellは、ファイルの変更をフックにしてshellコマンドを実行するgemです。</p>
+
+<p>と、あたかもshellに特化したネーミングですが、実際はただ単にwatchに渡したブロックを評価するだけのシンプルなやつです。</p>
+
+<p>下記のようにすれば、ファイルが保存されたと同時に<code>hogepiyoooooooooooooo</code>と教えてくれます。
+わーい。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Guardfile</span>
+</span><span class='line'><span class="n">guard</span> <span class="ss">:shell</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">watch</span><span class="p">(</span><span class="sr">/.*/</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">m</span><span class="o">|</span> <span class="sb">`say hogepiyoooooooooooooo`</span> <span class="p">}</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>まとめ</h2>
+
+<p><em>guard-shell便利。</em></p>
+
+<p>(ホゲピヨーーーーーって言うのかと思ったら、「ホージピュゥ」って何か冷めた感じに返された。。。)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Vimを勉強し始めました #1]]></title>
+    <link href="http://alpaca.tc/blog/learning_vim/i-begin-to-lean-vim-1.html"/>
+    <updated>2013-11-21T09:11:00+09:00</updated>
+    <id>http://alpaca.tc/blog/learning_vim/i-begin-to-lean-vim-1</id>
+    <content type="html"><![CDATA[<h1>Vim読書会 #1</h1>
+
+<p>先日から続けているVim読書会(一人)ですが、
+今回からモチベーションのために記事にあげて行おうと思います。</p>
+
+<p><em>本日読むソースコード</em></p>
+
+<p><strong>Vim-0.3</strong></p>
+
+<ul>
+<li>cmdline.c</li>
+<li>cmdtab.h</li>
+<li>cmdcmds.c</li>
+</ul>
+
+
+<!-- more -->
+
+
+<h2>cmdline.c L3723行</h2>
+
+<p>cmdline.c: functions for reading in the command line and executing it</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="c1">// L650:</span>
+</span><span class='line'><span class="k">static</span> <span class="n">char_u</span> <span class="o">*</span> <span class="n">DoOneCmd</span><span class="p">(</span><span class="n">buff</span><span class="p">)</span> <span class="n">char_u</span> <span class="o">*</span><span class="n">buff</span><span class="p">;</span> <span class="p">{</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>この関数で、コマンドラインからの入力を処理してます。
+関数の前半部分で入力をパースして、後半部分でコマンドを分岐しています。</p>
+
+<p>分岐部分はこんな感じですね。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="nl">L1111:</span>
+</span><span class='line'><span class="nl">cmdswitch:</span>
+</span><span class='line'>  <span class="k">switch</span> <span class="p">(</span><span class="n">cmdidx</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">{</span>
+</span><span class='line'>    <span class="cm">/*</span>
+</span><span class='line'><span class="cm">     * quit current window, quit Vim if closed the last window</span>
+</span><span class='line'><span class="cm">     */</span>
+</span><span class='line'>    <span class="k">case</span> <span class="n">CMD_quit</span>:
+</span><span class='line'>      <span class="p">...</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">case</span> <span class="n">CMD_qall</span>:
+</span><span class='line'>      <span class="p">...</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>:quit</code>の処理を変更したかったら、<code>case CMD_quit</code>以下を変更すればいいです。</p>
+
+<h2>cmdtab.h L337行</h2>
+
+<p>また、<code>CMD_...</code>といった定数は<code>cmdtab.h</code>で初期化されており、全てのコマンドが定義されています。
+コマンドは、ユニークなID,コマンド名,受け付ける引数がここで定義されます。</p>
+
+<p>そのコマンドの実際の動作は、<code>cmdline.c</code>にべた書きされているという感じでしょうか。</p>
+
+<p>Vim-3.0の書き方だと、コマンドがひとつ増える度に<code>cmdline.c</code>の分岐がひとつ増えるというヘビーな書き方なので、新しいバージョンではリファクタリングされてそう。</p>
+
+<h2>cmdcmds.c L541行</h2>
+
+<p>cmdcmds.c: functions for command line commands</p>
+
+<p><code>cmdcmds.c</code>は、<code>cmdline.c</code>でのコマンドの分岐で重なる部分の関数をまとめたもの、といった印象です。
+Wordpressでいうfunctionsのような感じかな。一応、他の場所でも使える感じに仕上がっています。</p>
+
+<p>この中には、<code>do_align</code>や<code>doshell</code>といった、想像につく名前の関数がありますね。
+<code>CMD_move</code>で分岐した場合は、こちらに飛ばされます。</p>
+
+<h2>まとめ</h2>
+
+<p>コマンド関連の細かい実装を見るのは大変ですが、全体的に見ると読みやすかったです。
+Vimのオプションやコマンド名が、そのまま変数に使われているので読みやすかったです。</p>
+
+<p><code>:echo</code>などのコマンドを追加する場合は、ここら辺を弄るだけでなんとかなりそうですね！
+次回トライしてみます。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[そろそろVimを使いこなせるようになりたい。]]></title>
+    <link href="http://alpaca.tc/blog/learning_vim/i-begin-to-learn-vim.html"/>
+    <updated>2013-11-15T06:58:00+09:00</updated>
+    <id>http://alpaca.tc/blog/learning_vim/i-begin-to-learn-vim</id>
+    <content type="html"><![CDATA[<h1><strong>「俺、ちゃんとVimやるわ」</strong></h1>
+
+<p>&hellip;と、夏の途中に宣言してからというもの、</p>
+
+<p>「仕事がー」、「友達がー」、「本をー」と、何かと理由をつけて結局やってませんでした。。。</p>
+
+<p>m(_ _)m &lt; 怠惰な人間です。クズです。生きててすみません。。。</p>
+
+<p>はい。</p>
+
+<p>今日からちゃんとVimと向き合いたいと思います。</p>
+
+<!-- more -->
+
+
+<h2>そして、僕は2歳のころの時代へ&hellip;</h2>
+
+<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/2013_11_15.png" title="The version of Vim" ></p>
+
+<p>1994年というと、僕がおもらしをして20万円ぐらいするPCを破壊したぐらいの時期でしょうか。</p>
+
+<p>これから、VimをVersion4に向けて再構築していきたいと思います。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Vim中級者を脱する スコープ編]]></title>
+    <link href="http://alpaca.tc/blog/vim/break-vim-beginners-scope.html"/>
+    <updated>2013-11-13T17:26:00+09:00</updated>
+    <id>http://alpaca.tc/blog/vim/break-vim-beginners-scope</id>
+    <content type="html"><![CDATA[<p>個人的に、Vimで一番ハマったのが<strong>スコープの問題</strong>でした。</p>
+
+<p>vimrcのコピペばかりの、あなた。</p>
+
+<p>せめて、よく登場するスコープだけでも理解してみましょう。</p>
+
+<!-- more -->
+
+
+<h1>よく見るスコープ一覧</h1>
+
+<ul>
+<li><em>グローバル</em>スコープ　<code>g:</code></li>
+<li><em>関数内</em>スコープ　<code>a:</code></li>
+<li><em>スクリプト</em>スコープ　<code>s:</code></li>
+<li><em>バッファ</em>スコープ　<code>b:</code></li>
+<li><em>接頭辞なし</em>　<code>let huga=...</code>など</li>
+</ul>
+
+
+<h2>グローバル(g:)スコープ</h2>
+
+<p><strong>どこからでも参照できます。</strong></p>
+
+<p>プラグインの設定で見慣れたスコープですね。</p>
+
+<p><code>let g:neocomplete#enable_at_startup = 1</code></p>
+
+<p>変数を初期化するには、次のようにします。
+大量のエラーコードによって操作できなくなるので、<strong>嫌いな人のvimrcの末尾に書き込んでください。</strong></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">for</span> <span class="nb">key</span> <span class="k">in</span> keys<span class="p">(</span><span class="k">g</span>:<span class="p">)</span>
+</span><span class='line'>  execute <span class="s1">&#39;unlet g:&#39;</span> . <span class="nb">key</span>
+</span><span class='line'><span class="k">endfor</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>関数内(a:)スコープ</h2>
+
+<p><strong>関数内で、引数を参照するときに使用するスコープ</strong></p>
+
+<p>個人的に一番理解しがたいスコープです。</p>
+
+<p>こんな感じで使います。他言語から移ってきた人には、正直使いづらい。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">function</span><span class="p">!</span> Huga<span class="p">(</span><span class="k">first</span><span class="p">,</span> second<span class="p">)</span>
+</span><span class='line'>  echo <span class="k">a</span>:<span class="k">first</span>
+</span><span class='line'><span class="c">  &quot;=&gt; &#39;a&#39;</span>
+</span><span class='line'>
+</span><span class='line'>  echo <span class="k">a</span>:
+</span><span class='line'><span class="c">  &quot;=&gt; {&#39;0&#39;: 0, &#39;000&#39;: [], &#39;second&#39;: &#39;b&#39;, &#39;first&#39;: &#39;a&#39;, &#39;firstline&#39;: 5, &#39;lastline&#39;: 5}</span>
+</span><span class='line'><span class="k">endfunction</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">call</span> Huga<span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>「あーなるほど、<strong>関数内でだけ有効なスコープなのか。</strong>」</p>
+
+<p>と、思っていたら<em>それは間違い。</em></p>
+
+<p>下記のようにすると、<strong>グローバルスコープとして参照できます。</strong></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">function</span><span class="p">!</span> <span class="k">a</span>:huga<span class="p">()</span>
+</span><span class='line'>  echo <span class="s1">&#39;Global!?!?!?&#39;</span>
+</span><span class='line'><span class="k">endfunction</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">call</span> <span class="k">a</span>:huga<span class="p">()</span> <span class="c">&quot; =&gt; Global!?!?!?</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>実は、これ関数名に<code>:</code>が許可されているだけです。
+なので実際は<code>a:</code>スコープは関係ないんだけど、分かりづらい。</p>
+
+<h2>スクリプト(s:)スコープ</h2>
+
+<p><strong>ファイル内でのみ有効なスコープ</strong>です。</p>
+
+<p>プラグインで、プライベートなメソッドや定数を作るときによく使います。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">let</span> <span class="k">s</span>:script_scope <span class="p">=</span> <span class="s1">&#39;外部からは参照できない&#39;</span>
+</span><span class='line'><span class="k">function</span><span class="p">!</span> <span class="k">s</span>:script_scope_method<span class="p">()</span>
+</span><span class='line'><span class="c">  &quot; プライベートメソッドとしてよく使われる</span>
+</span><span class='line'><span class="k">endfunction</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>この<code>s:</code>は、スクリプトがsourceされるときに置き換えられ、<code>&lt;SNR&gt;1_...</code>という感じの形になります。</p>
+
+<p>えぇ、そうです。すると、<strong>グローバルなスコープとして参照できます。</strong></p>
+
+<p>この<code>&lt;SNR&gt;</code>の後にどの数値が割り振られているかは、<code>:scriptnames</code>で参照できます。</p>
+
+<p>また、<code>s:</code>は<code>&lt;SID&gt;</code>として使えばスコープを超えて使用できるようになります。</p>
+
+<p>マッピングの時に、scriptスコープを使う時などは必須ですね。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="nb">nnoremap</span> <span class="k">s</span> :echo <span class="p">&lt;</span>SID<span class="p">&gt;</span>SID<span class="p">()&lt;</span>CR<span class="p">&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>ただし、<strong>変数は基本的には聖域</strong>です。</p>
+
+<h2>バッファ(b:)スコープ</h2>
+
+<p><strong>バッファ単位のスコープ</strong>です。</p>
+
+<p>ファイルタイプによる設定や、一時バッファによる変数などに使います。</p>
+
+<ul>
+<li>ファイルタイプの変更で、<code>b:current_syntax</code>などが初期化&amp;格納されます</li>
+<li>Uniteを起動で、<code>b:unite</code>にデータが格納されます。</li>
+</ul>
+
+
+<p>Uniteのデバッグするときには、<code>echo b:unite.candidates</code>などを参照しましょう。</p>
+
+<p>あぁ、ようやくまともなスコープだ。</p>
+
+<h2>接頭辞なし(<code>let huga=</code>)変数</h2>
+
+<p>えぇ。<strong>グローバルなスコープです。</strong></p>
+
+<p>お前もか！</p>
+
+<p>マナーとしては、やはり<code>g:</code>で宣言したいところですが、</p>
+
+<p>Vimにデフォルトで入っているプラグインは、容赦なくこの変数を使ってきます。</p>
+
+<p><code>:echo loaded_*&lt;Tab&gt;</code>などすれば、奴らを見つけられるはずです。</p>
+
+<p>細かいことを言えば、関数内ならばローカルスコープです。。。</p>
+
+<h2>スコープのまとめ</h2>
+
+<ul>
+<li>スコープは<strong>ほとんどグローバルで参照できる</strong></li>
+<li>VimLは枠にハマらない<strong>素敵な</strong>言語仕様を持っている</li>
+<li>getbufvar()などでスコープへアクセス出来るため、<strong>聖域はほとんど無い</strong></li>
+</ul>
+
+
+<p><strong>正直今でも理解出来ていない。</strong></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[JavaScript補完プラグインのTernはすごいヤツ]]></title>
+    <link href="http://alpaca.tc/blog/vim/how-to-use-tern-vim.html"/>
+    <updated>2013-11-13T14:40:00+09:00</updated>
+    <id>http://alpaca.tc/blog/vim/how-to-use-tern-vim</id>
+    <content type="html"><![CDATA[<p><strong>「え、JavaScriptを書いているのに、Tern使ってないの？」</strong></p>
+
+<p>ダサい。イケてない。
+あぁ、残念。</p>
+
+<!-- more -->
+
+
+<p><a href="https://github.com/marijnh/tern">Tern</a>は、marijnhという凄いエンジニアの人が作っている<strong>JavaScriptの動的補完プラグイン</strong></p>
+
+<p>コードを動的にパースして、今カーソルがある変数の型まで調べて補完しちゃってくれる。</p>
+
+<p>設定をすれば、jQueryなどのプラグインでの諸々も補完しちゃう凄いやつなのだ。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">if</span> has<span class="p">(</span><span class="s1">&#39;python&#39;</span><span class="p">)</span> &amp;&amp; executable<span class="p">(</span><span class="s1">&#39;npm&#39;</span><span class="p">)</span>
+</span><span class='line'>  NeoBundleLazy <span class="s1">&#39;marijnh/tern_for_vim&#39;</span><span class="p">,</span> {
+</span><span class='line'>        \ <span class="s1">&#39;build&#39;</span> : <span class="s1">&#39;npm install&#39;</span><span class="p">,</span>
+</span><span class='line'>        \ <span class="s1">&#39;autoload&#39;</span> : {
+</span><span class='line'>        \   <span class="s1">&#39;functions&#39;</span>: [<span class="s1">&#39;tern#Complete&#39;</span><span class="p">,</span> <span class="s1">&#39;tern#Enable&#39;</span>]<span class="p">,</span>
+</span><span class='line'>        \   <span class="s1">&#39;filetypes&#39;</span> : <span class="s1">&#39;javascript&#39;</span>
+</span><span class='line'>        \ }}
+</span><span class='line'><span class="k">endif</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>まぁ、何はともあれ一度使ってみてください。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Vimを使って新人教育]]></title>
+    <link href="http://alpaca.tc/blog/vim/training-of-new-employee.html"/>
+    <updated>2013-11-11T05:21:00+09:00</updated>
+    <id>http://alpaca.tc/blog/vim/training-of-new-employee</id>
+    <content type="html"><![CDATA[<p>嬉しいことに、一緒に働く仲間が2人増えました。</p>
+
+<p>まだRubyに慣れていないそうなので、はじめの一ヶ月は教育期間を挟みます。</p>
+
+<p>新人の方もvimmerなので、そのためのプラグインを作りました。</p>
+
+<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/11_11.png" title="Vimのデモ" ></p>
+
+<p><strong><a href="https://github.com/enfactv/assignment">assignment.vim</a></strong></p>
+
+<!-- more -->
+
+
+<p>インストールはごく簡単です。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'>NeoBundle <span class="s1">&#39;alpaca-tc/assignment&#39;</span>`
+</span><span class='line'>
+</span><span class='line'><span class="k">let</span> <span class="k">g</span>:assignment#<span class="nb">path</span> <span class="p">=</span> expand<span class="p">(</span><span class="s1">&#39;~/path/to/assignment&#39;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>良かったこと</h3>
+
+<ul>
+<li>GitHubの使い方がわからなくても、Vimから徐々に取り組めること</li>
+<li>問題のやり取りが楽になったこと</li>
+<li>自動テストがあるので、リモート勤務でも採点できること</li>
+</ul>
+
+
+<h3>悪かったこと</h3>
+
+<ul>
+<li>一問一答の形式って効率悪いよね&hellip;</li>
+</ul>
+
+
+<p>とりあえず一ヶ月はこの形式で進めて、Rubyに慣れてもらおうかと思います。</p>
+
+<h2>まとめ</h2>
+
+<p>正直、今日は書くことがなかっただけです。えへ。
+暇だなー、俺初級者かなーと思う方が入れば、試しに問題に挑戦してみてください。</p>
+
+<ol>
+<li>プラグインをインストール</li>
+<li><code>:AssignmentInit ~/インストール先ディレクトリ</code>を実行して初期化</li>
+<li>vimrcに<code>let g:assignment#path = expand('~/path/to/assignment')</code>を追加</li>
+<li><code>:Assignment solve &lt;tab&gt;</code>で問題を選択</li>
+<li>Guardをまわしながら解くのみ！</li>
+</ol>
+
+
+<p>初めは、8クイーン問題や、RubyのDSLを作る問題などです。
+初級者向けですが、少しは暇つぶしにはなると思いますよ！</p>
 ]]></content>
   </entry>
   
