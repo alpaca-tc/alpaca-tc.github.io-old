@@ -15,13 +15,15 @@ categories: rails
 http://alpaca.tc/shares/uIx90S
 ```
 
+実装面白かったので紹介してみます＞＜
+
 <!-- more -->
 
 ちなみに僕の実装方法は、ポリモーフィックなカラムを持つ`share_links`テーブルを作って、シェアしたいrecordを紐付けることで実現した。  
 
 ユニークなキーが必要なため`id`を使用していてに、2度クエリを発行しているのだけど、パフォーマンスを気にするなら`LAST_INSERT_ID`を使って一度のクエリで済ます方が良い。
 
-```db/migrate/20151001010101_create_share_links.rb:ruby
+```ruby
 class CreateShareLinks < ActiveRecord::Migration
   def change
     create_table :share_links do |t|
@@ -36,7 +38,7 @@ class CreateShareLinks < ActiveRecord::Migration
 end
 ```
 
-```:ruby
+```ruby
 # lib/share_link_uuid.rb
 require 'digest/sha2'
 
