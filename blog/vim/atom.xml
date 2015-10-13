@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vim | RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/blog/vim/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2015-10-13T21:57:45+09:00</updated>
+  <updated>2015-10-13T21:59:12+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -20,7 +20,7 @@
     <id>http://alpaca.tc/blog/vim/alpaca-rails-support</id>
     <content type="html"><![CDATA[<h1>もうLocaleファイルに迷わない！</h1>
 
-<p>{% img image_on_frame center /images/blog/alpaca-rails-support/screen_shot_1.png screen_shot_1 %}</p>
+<p><img class="image_on_frame center" src="/images/blog/alpaca-rails-support/screen_shot_1.png" title="screen_shot_1" ></p>
 
 <p>休日を利用して、久しぶりにRails関連のVimScriptを書いたよ:)</p>
 
@@ -41,7 +41,7 @@
 
 <p>しかし、次の発言で少し様相が変わる。</p>
 
-<p>{% img image_on_frame center /images/blog/alpaca-rails-support/screen_shot_3.png issue %}</p>
+<p><img class="image_on_frame center" src="/images/blog/alpaca-rails-support/screen_shot_3.png" title="issue" ></p>
 
 <p><strong>SublimeText2が有力&hellip;だと？</strong></p>
 
@@ -63,7 +63,7 @@
 <p>本題の機能である「localesの編集をサポートする」プラグインである。<br/>
 キーを探索して、Uniteにぶち込んでくれる。</p>
 
-<p>{% img image_on_frame center /images/blog/alpaca-rails-support/screen_shot_4.png Find_local %}</p>
+<p><img class="image_on_frame center" src="/images/blog/alpaca-rails-support/screen_shot_4.png" title="Find_local" ></p>
 
 <p>探索は少し荒いので、Yamlをキレイに書いていなければ動かない。</p>
 
@@ -72,7 +72,7 @@
 <p>個人的に一番欲しかった機能である<br/>
 たかだかRoutesのスペルミスで、BetterErrorsと挨拶したくない。</p>
 
-<p>{% img image_on_frame center <a href="https://raw.githubusercontent.com/alpaca-tc/alpaca_rails_support/master/assets/routes_completion.png">https://raw.githubusercontent.com/alpaca-tc/alpaca_rails_support/master/assets/routes_completion.png</a> reoute補完 %}</p>
+<p><img class="image_on_frame center <a" src="href="https://raw.githubusercontent.com/alpaca-tc/alpaca_rails_support/master/assets/routes_completion.png">https://raw.githubusercontent.com/alpaca-tc/alpaca_rails_support/master/assets/routes_completion.png</a>" title="reoute補完" ></p>
 
 <p>ようやく<code>rake routes | grep ...</code>の地獄から解放されるヾ(*´∀｀*)ﾉ</p>
 
@@ -80,7 +80,7 @@
 
 <p>特に必要は無かったけれど、思いついてしまったので作った。</p>
 
-<p>{% img image_on_frame center <a href="https://raw.githubusercontent.com/alpaca-tc/alpaca_rails_support/master/assets/preview_locales.gif">https://raw.githubusercontent.com/alpaca-tc/alpaca_rails_support/master/assets/preview_locales.gif</a> preview %}</p>
+<p><img class="image_on_frame center <a" src="href="https://raw.githubusercontent.com/alpaca-tc/alpaca_rails_support/master/assets/preview_locales.gif">https://raw.githubusercontent.com/alpaca-tc/alpaca_rails_support/master/assets/preview_locales.gif</a>" title="preview" ></p>
 
 <p><strong>( ﾟ∀ﾟ)o彡ﾟギミックかっけー！</strong></p>
 
@@ -107,7 +107,7 @@ VimScriptでアルゴリズムらしい手法を使ったことは無いので�
 
 <p>さて、今回の記事ではneocompleteのfile_includeを使いこなしてみます。</p>
 
-<p>{% img image_on_frame center /images/blog/file-include-by-neocomplete/completion_capture.png neocomplete_file_include %}</p>
+<p><img class="image_on_frame center" src="/images/blog/file-include-by-neocomplete/completion_capture.png" title="neocomplete_file_include" ></p>
 
 <!-- more -->
 
@@ -206,7 +206,7 @@ command! RailsView call s:setup_include_file_for_rails()
 
 <p><strong>うっほい！</strong></p>
 
-<p>{% img image_on_frame center /images/blog/file-include-by-neocomplete/completion_for_rails_view.png completion_for_rails_view %}</p>
+<p><img class="image_on_frame center" src="/images/blog/file-include-by-neocomplete/completion_for_rails_view.png" title="completion_for_rails_view" ></p>
 
 <p>Shougoさんいつもありがとうございます。本当に。</p>
 
@@ -247,7 +247,7 @@ command! RailsView call s:setup_include_file_for_rails()
 
 <h2><a href="https://github.com/alpaca-tc/alpaca_powertabline">alpaca_powertabline</a></h2>
 
-<p>{% img image_on_frame center <a href="https://github-camo.global.ssl.fastly.net/8a63810a39b08548c3ce51a796f589b79d9df4be/687474703a2f2f662e636c2e6c792f6974656d732f31443430317630553355306f336733553054306e2f616c706163615f7461626c696e652e706e67">https://github-camo.global.ssl.fastly.net/8a63810a39b08548c3ce51a796f589b79d9df4be/687474703a2f2f662e636c2e6c792f6974656d732f31443430317630553355306f336733553054306e2f616c706163615f7461626c696e652e706e67</a>  alpaca_powertabline %}</p>
+<p><img class="image_on_frame center <a" src="href="https://github-camo.global.ssl.fastly.net/8a63810a39b08548c3ce51a796f589b79d9df4be/687474703a2f2f662e636c2e6c792f6974656d732f31443430317630553355306f336733553054306e2f616c706163615f7461626c696e652e706e67">https://github-camo.global.ssl.fastly.net/8a63810a39b08548c3ce51a796f589b79d9df4be/687474703a2f2f662e636c2e6c792f6974656d732f31443430317630553355306f336733553054306e2f616c706163615f7461626c696e652e706e67</a>" title="alpaca_powertabline" ></p>
 
 <p>tablineをpowerline化したプラグインです。</p>
 
@@ -263,7 +263,7 @@ command! RailsView call s:setup_include_file_for_rails()
 
 <p>SQLiteの英和辞書を利用して、英語の補完をするプラグインです。Uniteを通じて、類義語検索や例文検索を行うこともできます。</p>
 
-<p>{% img image_on_frame center <a href="https://github-camo.global.ssl.fastly.net/cb17a71ffad0a656d3a2837fe4c216a50524c2e4/687474703a2f2f636c2e6c792f696d6167652f316c316c306732373249314e2f254533253832254239254533253832254146254533253833254141254533253833254243254533253833254233254533253832254237254533253833254137254533253833253833254533253833253838253230323031332d30342d3231253230382e33372e33392e706e67">https://github-camo.global.ssl.fastly.net/cb17a71ffad0a656d3a2837fe4c216a50524c2e4/687474703a2f2f636c2e6c792f696d6167652f316c316c306732373249314e2f254533253832254239254533253832254146254533253833254141254533253833254243254533253833254233254533253832254237254533253833254137254533253833253833254533253833253838253230323031332d30342d3231253230382e33372e33392e706e67</a> alpaca_english_demo %}</p>
+<p><img class="image_on_frame center <a" src="href="https://github-camo.global.ssl.fastly.net/cb17a71ffad0a656d3a2837fe4c216a50524c2e4/687474703a2f2f636c2e6c792f696d6167652f316c316c306732373249314e2f254533253832254239254533253832254146254533253833254141254533253833254243254533253833254233254533253832254237254533253833254137254533253833253833254533253833253838253230323031332d30342d3231253230382e33372e33392e706e67">https://github-camo.global.ssl.fastly.net/cb17a71ffad0a656d3a2837fe4c216a50524c2e4/687474703a2f2f636c2e6c792f696d6167652f316c316c306732373249314e2f254533253832254239254533253832254146254533253833254141254533253833254243254533253833254233254533253832254237254533253833254137254533253833253833254533253833253838253230323031332d30342d3231253230382e33372e33392e706e67</a>" title="alpaca_english_demo" ></p>
 
 <p>これを書き始めたときに、勇気を出してlingrで発言しはじめました。+Ruby環境のバグをVim-JP報告したのもこのプラグインがきっかけですね。</p>
 
@@ -275,7 +275,7 @@ command! RailsView call s:setup_include_file_for_rails()
 
 <p>整形・変換を行うプラグインです。糞便利。</p>
 
-<p>{% img image_on_frame center <a href="https://github.com/alpaca-tc/beautify.vim/blob/master/assets/02.gif?raw=true">https://github.com/alpaca-tc/beautify.vim/blob/master/assets/02.gif?raw=true</a> beautify.vim demo %}</p>
+<p><img class="image_on_frame center <a" src="href="https://github.com/alpaca-tc/beautify.vim/blob/master/assets/02.gif?raw=true">https://github.com/alpaca-tc/beautify.vim/blob/master/assets/02.gif?raw=true</a>" title="beautify.vim demo" ></p>
 
 <p>CSS-SCSS, JS-Coffeeなどの相互変換や、圧縮されたJS/CSSの整形などはお手の物です。</p>
 
@@ -283,7 +283,7 @@ command! RailsView call s:setup_include_file_for_rails()
 
 <p>tagsの非同期生成、tag用のunite-sourceなど同封しています。糞便利。</p>
 
-<p>{% img image_on_frame center <a href="https://github-camo.global.ssl.fastly.net/78073a9b0ac11577ea47c5083da6511140968510/687474703a2f2f6769667a6f2e6e65742f744944774866325a41702e676966">https://github-camo.global.ssl.fastly.net/78073a9b0ac11577ea47c5083da6511140968510/687474703a2f2f6769667a6f2e6e65742f744944774866325a41702e676966</a> alpaca_tags.demo %}</p>
+<p><img class="image_on_frame center <a" src="href="https://github-camo.global.ssl.fastly.net/78073a9b0ac11577ea47c5083da6511140968510/687474703a2f2f6769667a6f2e6e65742f744944774866325a41702e676966">https://github-camo.global.ssl.fastly.net/78073a9b0ac11577ea47c5083da6511140968510/687474703a2f2f6769667a6f2e6e65742f744944774866325a41702e676966</a>" title="alpaca_tags.demo" ></p>
 
 <p>京都のCamphorでの勉強会で初めてお披露目したので、あのメンバーと出会ったのもこれを作った時期だった気がする。いつだっけ。。</p>
 
@@ -297,7 +297,7 @@ command! RailsView call s:setup_include_file_for_rails()
 
 <h2><a href="https://github.com/alpaca-tc/vim-unite-watson.vim">vim-unite-watson.vim</a></h2>
 
-<p>{% img image_on_frame center <a href="https://f.cloud.github.com/assets/1688137/1726147/ac9b52fc-628a-11e3-8117-ef4824444729.gif">https://f.cloud.github.com/assets/1688137/1726147/ac9b52fc-628a-11e3-8117-ef4824444729.gif</a> watsonのcapture %}</p>
+<p><img class="image_on_frame center <a" src="href="https://f.cloud.github.com/assets/1688137/1726147/ac9b52fc-628a-11e3-8117-ef4824444729.gif">https://f.cloud.github.com/assets/1688137/1726147/ac9b52fc-628a-11e3-8117-ef4824444729.gif</a>" title="watsonのcapture" ></p>
 
 <p><a href="http://goosecode.com/watson/">watson</a>用のUnite-sourceです。watson本体もガッツリ書き換えました。海外の方にも結構使ってもらえているようです。自身がプログラミングするとき、思考を止めないためにこのプラグインを作りました。</p>
 
@@ -418,7 +418,7 @@ $ bundle show --paths
 
 <p>下記のような動作で定義元に飛べるのが確認できると思います。</p>
 
-<p>{% img image_on_frame center /images/blog/jump-to-gem-path/hM4zx40RmT.gif gemジャンプデモ %}</p>
+<p><img class="image_on_frame center" src="/images/blog/jump-to-gem-path/hM4zx40RmT.gif" title="gemジャンプデモ" ></p>
 
 <p>無事動いていますね。</p>
 
@@ -450,7 +450,7 @@ $ bundle show --paths
 
 <p>何はともあれ、<strong>まずは動画をみてくれ。</strong></p>
 
-<p>{% youtube jCgcpIO9oBs %}</p>
+<p><iframe width="560" height="420" src="http://www.youtube.com/embed/jCgcpIO9oBs?color=white&theme=light"></iframe></p>
 
 <p>とにかく、uniteインターフェースは操作を覚えることが少ない。</p>
 
@@ -478,7 +478,7 @@ $ bundle show --paths
 
 <p>こちらは、特に驚きはないので初めて使う人以外は見なくてもいいです。</p>
 
-<p>{% youtube wWI3Wb-0Vw4 %}</p>
+<p><iframe width="560" height="420" src="http://www.youtube.com/embed/wWI3Wb-0Vw4?color=white&theme=light"></iframe></p>
 
 <p>言わずもがな、コマンド名の通りです。</p>
 

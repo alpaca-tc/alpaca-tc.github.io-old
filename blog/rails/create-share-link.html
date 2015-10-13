@@ -9,7 +9,9 @@
     <meta charset="UTF-8">
     <title>シェアリンクの作り方 - RailsとRubyとVimのブログ</title>
     
-    <meta name="description" content="最近Railsでシェアリンクを実装したのだけど、みんなはどうやって実装しているのだろう？ ちなみに僕の実装方法は、ポリモーフィックなカラムを持つshare_linksテーブルを作って、シェアしたいrecordを紐付けることで実現した。 ユニークなキーが必要なためidを取得するために、 &hellip;">
+    <meta name="description" content="最近Railsでシェアリンクを実装したので紹介します。
+みんなはどうやって実装しているのだろう？ ↓こんなURLね 1
+http://alpaca.tc/shares/uIx90S 実装面白かったので紹介してみます＞＜ ちなみに僕の実装方法は、 &hellip;">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='シェアリンクの作り方 | RailsとRubyとVimのブログ' name='title' />
@@ -25,16 +27,22 @@
 <meta property="og:type" content="blog"/>
 <meta property="og:url" content="http://alpaca.tc/blog/rails/create-share-link.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
-<meta property="og:description" content="最近Railsでシェアリンクを実装したのだけど、みんなはどうやって実装しているのだろう？ ちなみに僕の実装方法は、ポリモーフィックなカラムを持つshare_linksテーブルを作って、シェアしたいrecordを紐付けることで実現した。 ユニークなキーが必要なためidを取得するために、 &hellip;" />
+<meta property="og:description" content="最近Railsでシェアリンクを実装したので紹介します。
+みんなはどうやって実装しているのだろう？ ↓こんなURLね 1
+http://alpaca.tc/shares/uIx90S 実装面白かったので紹介してみます＞＜ ちなみに僕の実装方法は、 &hellip;" />
 <meta property="fb:app_id" content="224701561024840" />
 
     <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="シェアリンクの作り方 | RailsとRubyとVimのブログ">
-<meta name="twitter:description" content="最近Railsでシェアリンクを実装したのだけど、みんなはどうやって実装しているのだろう？ ちなみに僕の実装方法は、ポリモーフィックなカラムを持つshare_linksテーブルを作って、シェアしたいrecordを紐付けることで実現した。 ユニークなキーが必要なためidを取得するために、 &hellip;">
+<meta name="twitter:description" content="最近Railsでシェアリンクを実装したので紹介します。
+みんなはどうやって実装しているのだろう？ ↓こんなURLね 1
+http://alpaca.tc/shares/uIx90S 実装面白かったので紹介してみます＞＜ ちなみに僕の実装方法は、 &hellip;">
 <meta name="twitter:image" content="http://http://alpaca.tc/images/meta/twitter.png">
 <meta name="twitter:site" content="@alpaca_taichou">
 <meta name="twitter:creator" content="@alpaca_taichou">
 
+
+    <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
 
     <script type="text/javascript">window._pt_lt = new Date().getTime();</script>
 
@@ -67,7 +75,7 @@
 
 
 
-  <link rel="prev" href="/blog/diary/gyaku-syuukatsu-2.html">
+  <link rel="prev" href="/blog/diary/pixiv-year.html">
 
 
 
@@ -187,11 +195,23 @@
     </header>
 
     
-      <section class="entry-content"><p>最近Railsでシェアリンクを実装したのだけど、みんなはどうやって実装しているのだろう？</p>
+      <section class="entry-content"><p>最近Railsでシェアリンクを実装したので紹介します。
+みんなはどうやって実装しているのだろう？</p>
+
+<p>↓こんなURLね</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>http://alpaca.tc/shares/uIx90S</span></code></pre></td></tr></table></div></figure>
+
+
+<p>実装面白かったので紹介してみます＞＜</p>
+
+<!-- more -->
+
 
 <p>ちなみに僕の実装方法は、ポリモーフィックなカラムを持つ<code>share_links</code>テーブルを作って、シェアしたいrecordを紐付けることで実現した。</p>
 
-<p>ユニークなキーが必要なため<code>id</code>を取得するために、2度クエリを発行しているのだけど、パフォーマンスを気にするなら<code>LAST_INSERT_ID</code>を使って一度のクエリで済ます方が良い。</p>
+<p>ユニークなキーが必要なため<code>id</code>を使用していてに、2度クエリを発行しているのだけど、パフォーマンスを気にするなら<code>LAST_INSERT_ID</code>を使って一度のクエリで済ます方が良い。</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -205,9 +225,7 @@
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
 <span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># db/migrate/20150901041734_create_share_links.rb</span>
-</span><span class='line'><span class="k">class</span> <span class="nc">CreateShareLinks</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Migration</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">CreateShareLinks</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Migration</span>
 </span><span class='line'>  <span class="k">def</span> <span class="nf">change</span>
 </span><span class='line'>    <span class="n">create_table</span> <span class="ss">:share_links</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
 </span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">references</span> <span class="ss">:sharable</span><span class="p">,</span> <span class="ss">polymorphic</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">null</span><span class="p">:</span> <span class="kp">false</span>
@@ -282,10 +300,12 @@
 <span class='line-number'>56</span>
 <span class='line-number'>57</span>
 <span class='line-number'>58</span>
+<span class='line-number'>59</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># lib/share_link_uuid.rb</span>
 </span><span class='line'><span class="nb">require</span> <span class="s1">&#39;digest/sha2&#39;</span>
 </span><span class='line'>
 </span><span class='line'><span class="k">module</span> <span class="nn">ShareLinkUuid</span>
+</span><span class='line'>  <span class="c1"># URLで使用可能な文字列</span>
 </span><span class='line'>  <span class="no">HEX64</span> <span class="o">=</span> <span class="o">[*</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;9&#39;</span><span class="p">),</span> <span class="o">*</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;Z&#39;</span><span class="p">),</span> <span class="o">*</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;z&#39;</span><span class="p">),</span> <span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="o">].</span><span class="n">freeze</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">generate</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span>
@@ -342,6 +362,59 @@
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Rails</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">routes</span><span class="o">.</span><span class="n">draw</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">resources</span> <span class="ss">:shares</span><span class="p">,</span> <span class="ss">only</span><span class="p">:</span> <span class="o">[</span><span class="ss">:create</span><span class="o">]</span><span class="p">,</span> <span class="ss">controller</span><span class="p">:</span> <span class="ss">:share_links</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">ShareLinksController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">create</span>
+</span><span class='line'>    <span class="vi">@share_link</span> <span class="o">=</span> <span class="no">ShareLink</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">share_link_params</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">if</span> <span class="vi">@share_link</span><span class="o">.</span><span class="n">save</span>
+</span><span class='line'>      <span class="n">render</span> <span class="nb">format</span><span class="p">:</span> <span class="ss">:json</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>      <span class="n">render</span> <span class="ss">:error</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kp">private</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">share_link_params</span>
+</span><span class='line'>    <span class="n">params</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="ss">:share_link</span><span class="p">)</span><span class="o">.</span><span class="n">permit</span><span class="p">(</span>
+</span><span class='line'>      <span class="ss">:sharable_type</span><span class="p">,</span> <span class="ss">:sharable_id</span>
+</span><span class='line'>    <span class="p">)</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="ss">user</span><span class="p">:</span> <span class="n">current_user</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>うーん、もっと良い方法ありそうだナ&hellip;</p>
 </section>
     
 
@@ -376,7 +449,7 @@
   </div>
 
   <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/rails/create-share-link.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/rails/create-share-link.html" >Tweet</a>
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/rails/create-share-link.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/rails/create-share-link.html" ></a>
   </div>
 </section>
 
@@ -400,7 +473,7 @@
                 <div class="pagination meta clearfix">
   
     <div class="arrow_block left_block">
-      <a class="basic-alignment" href="/blog/diary/gyaku-syuukatsu-2.html" title="Previous Post: 逆就活へ参加するときのノウハウまとめ 続き">&laquo; 逆就活へ参加するときのノウハウまとめ 続き</a>
+      <a class="basic-alignment" href="/blog/diary/pixiv-year.html" title="Previous Post: 東京に慣れてきた">&laquo; 東京に慣れてきた</a>
     </div>
   
 
@@ -421,8 +494,8 @@
       </article>
     
       <article>
-        <time datetime="2014-01-20T16:28:00+09:00" pubdate><span class='month'>Jan</span> <span class='day'>20</span> <span class='year'>2014</span></time>
-        <h1><a href="/blog/diary/gyaku-syuukatsu-2.html">逆就活へ参加するときのノウハウまとめ 続き</a></h1>
+        <time datetime="2014-05-24T01:07:00+09:00" pubdate><span class='month'>May</span> <span class='day'>24</span> <span class='year'>2014</span></time>
+        <h1><a href="/blog/diary/pixiv-year.html">東京に慣れてきた</a></h1>
       </article>
     
   </div>
@@ -457,12 +530,12 @@
   <h1>プロフィール</h1>
   <section>
     <figure class="image_wrapper">
-      <img src="https://plus.google.com/s2/photos/profile/105581201951227096827?sz=100" alt="石井 浩之">
+      <img src="//lh4.googleusercontent.com/-lhc7W4Ee-NA/UnDGui7U9RI/AAAAAAAAACI/F95WUPatw7k/w237-h240-no/1001417_394227377345843_948534762_n.jpg" alt="石井 浩之">
       <figcaption>石井 浩之</figcaption>
     </figure>
 
     <p>
-      RailsやVimを中心に開発をしている、アルパカ大好きエンジニアです。
+      アルパカ大好きエンジニア
     </p>
 
     <p class="go_to_aboutme">

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: rails | RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/blog/rails/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2015-10-13T21:57:45+09:00</updated>
+  <updated>2015-10-13T21:59:12+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -27,6 +27,8 @@
 http://alpaca.tc/shares/uIx90S
 </code></p>
 
+<p>実装面白かったので紹介してみます＞＜</p>
+
 <!-- more -->
 
 
@@ -34,7 +36,7 @@ http://alpaca.tc/shares/uIx90S
 
 <p>ユニークなキーが必要なため<code>id</code>を使用していてに、2度クエリを発行しているのだけど、パフォーマンスを気にするなら<code>LAST_INSERT_ID</code>を使って一度のクエリで済ます方が良い。</p>
 
-<p>```:ruby
+<p>```ruby
 class CreateShareLinks &lt; ActiveRecord::Migration
   def change</p>
 
@@ -52,7 +54,7 @@ end
 end
 ```</p>
 
-<p>```:ruby</p>
+<p>```ruby</p>
 
 <h1>lib/share_link_uuid.rb</h1>
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: blog | RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/blog/blog/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2015-10-13T21:57:45+09:00</updated>
+  <updated>2015-10-13T21:59:12+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -95,7 +95,7 @@
 
 <p>さて、6月からpixivという会社で働くことになった。</p>
 
-<p>{% img image_on_frame center /images/blog/i-im-join-for-this-company/pixiv.jpg pixiv %}</p>
+<p><img class="image_on_frame center" src="/images/blog/i-im-join-for-this-company/pixiv.jpg" title="pixiv" ></p>
 
 <p>イラスト系のSNSを運営する会社で、知っている人は知っている会社かもしれない。</p>
 

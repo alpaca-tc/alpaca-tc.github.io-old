@@ -9,7 +9,9 @@
     <meta charset="UTF-8">
     <title>RailsとRubyとVimのブログ</title>
     
-    <meta name="description" content="シェアリンクの作り方 Oct 13th, 2015 Posted by 石井浩之 最近Railsでシェアリンクを実装したのだけど、みんなはどうやって実装しているのだろう？ ちなみに僕の実装方法は、ポリモーフィックなカラムを持つshare_linksテーブルを作って、 &hellip;">
+    <meta name="description" content="シェアリンクの作り方 Oct 13th, 2015 Posted by 石井浩之 最近Railsでシェアリンクを実装したので紹介します。
+みんなはどうやって実装しているのだろう？ ↓こんなURLね 1
+http://alpaca.tc/shares/uIx90S 実装面白かったので紹介してみます &hellip;">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='RailsとRubyとVimのブログ' name='title' />
@@ -25,16 +27,22 @@
 <meta property="og:type" content="blog"/>
 <meta property="og:url" content="http://alpaca.tc/index.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
-<meta property="og:description" content="シェアリンクの作り方 Oct 13th, 2015 Posted by 石井浩之 最近Railsでシェアリンクを実装したのだけど、みんなはどうやって実装しているのだろう？ ちなみに僕の実装方法は、ポリモーフィックなカラムを持つshare_linksテーブルを作って、 &hellip;" />
+<meta property="og:description" content="シェアリンクの作り方 Oct 13th, 2015 Posted by 石井浩之 最近Railsでシェアリンクを実装したので紹介します。
+みんなはどうやって実装しているのだろう？ ↓こんなURLね 1
+http://alpaca.tc/shares/uIx90S 実装面白かったので紹介してみます &hellip;" />
 <meta property="fb:app_id" content="224701561024840" />
 
     <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RailsとRubyとVimのブログ">
-<meta name="twitter:description" content="シェアリンクの作り方 Oct 13th, 2015 Posted by 石井浩之 最近Railsでシェアリンクを実装したのだけど、みんなはどうやって実装しているのだろう？ ちなみに僕の実装方法は、ポリモーフィックなカラムを持つshare_linksテーブルを作って、 &hellip;">
+<meta name="twitter:description" content="シェアリンクの作り方 Oct 13th, 2015 Posted by 石井浩之 最近Railsでシェアリンクを実装したので紹介します。
+みんなはどうやって実装しているのだろう？ ↓こんなURLね 1
+http://alpaca.tc/shares/uIx90S 実装面白かったので紹介してみます &hellip;">
 <meta name="twitter:image" content="http://http://alpaca.tc/images/meta/twitter.png">
 <meta name="twitter:site" content="@alpaca_taichou">
 <meta name="twitter:creator" content="@alpaca_taichou">
 
+
+    <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
 
     <script type="text/javascript">window._pt_lt = new Date().getTime();</script>
 
@@ -173,164 +181,27 @@
     </header>
 
     
-      <section class="entry-content"><p>最近Railsでシェアリンクを実装したのだけど、みんなはどうやって実装しているのだろう？</p>
+      <section class="entry-content"><p>最近Railsでシェアリンクを実装したので紹介します。
+みんなはどうやって実装しているのだろう？</p>
 
-<p>ちなみに僕の実装方法は、ポリモーフィックなカラムを持つ<code>share_links</code>テーブルを作って、シェアしたいrecordを紐付けることで実現した。</p>
+<p>↓こんなURLね</p>
 
-<p>ユニークなキーが必要なため<code>id</code>を取得するために、2度クエリを発行しているのだけど、パフォーマンスを気にするなら<code>LAST_INSERT_ID</code>を使って一度のクエリで済ます方が良い。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># db/migrate/20150901041734_create_share_links.rb</span>
-</span><span class='line'><span class="k">class</span> <span class="nc">CreateShareLinks</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Migration</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">change</span>
-</span><span class='line'>    <span class="n">create_table</span> <span class="ss">:share_links</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
-</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">references</span> <span class="ss">:sharable</span><span class="p">,</span> <span class="ss">polymorphic</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">null</span><span class="p">:</span> <span class="kp">false</span>
-</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">string</span> <span class="ss">:uuid</span>
-</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">timestamps</span> <span class="ss">null</span><span class="p">:</span> <span class="kp">false</span>
-</span><span class='line'>
-</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">index</span> <span class="ss">:uuid</span><span class="p">,</span> <span class="ss">unique</span><span class="p">:</span> <span class="kp">true</span>
-</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">index</span> <span class="o">[</span><span class="ss">:sharable_type</span><span class="p">,</span> <span class="ss">:sharable_id</span><span class="o">]</span><span class="p">,</span> <span class="ss">unique</span><span class="p">:</span> <span class="kp">true</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>http://alpaca.tc/shares/uIx90S</span></code></pre></td></tr></table></div></figure>
 
 
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># lib/share_link_uuid.rb</span>
-</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;digest/sha2&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">module</span> <span class="nn">ShareLinkUuid</span>
-</span><span class='line'>  <span class="no">HEX64</span> <span class="o">=</span> <span class="o">[*</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;9&#39;</span><span class="p">),</span> <span class="o">*</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;Z&#39;</span><span class="p">),</span> <span class="o">*</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;z&#39;</span><span class="p">),</span> <span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="o">].</span><span class="n">freeze</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">generate</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">digest</span> <span class="o">=</span> <span class="ss">Digest</span><span class="p">:</span><span class="ss">:SHA512</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">(</span><span class="nb">id</span><span class="o">.</span><span class="n">to_s</span><span class="p">)</span><span class="o">.</span><span class="n">to_i</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">uuid</span> <span class="o">=</span> <span class="n">digest</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/\d{2}/</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">token</span><span class="o">|</span>
-</span><span class='line'>      <span class="no">HEX64</span><span class="o">[</span><span class="n">token</span><span class="o">.</span><span class="n">to_i</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">to_i</span><span class="o">]</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">uuid</span><span class="o">[</span><span class="mi">0</span><span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="n">length</span><span class="o">]</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># app/models/share_link.rb</span>
-</span><span class='line'><span class="k">class</span> <span class="nc">ShareLink</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
-</span><span class='line'>  <span class="no">UUID_LENGTH</span> <span class="o">=</span> <span class="mi">6</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="n">belongs_to</span> <span class="ss">:sharable</span><span class="p">,</span> <span class="ss">polymorphic</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">required</span><span class="p">:</span> <span class="kp">true</span>
-</span><span class='line'>  <span class="n">validates</span> <span class="ss">:uuid</span><span class="p">,</span> <span class="ss">absence</span><span class="p">:</span> <span class="p">{</span> <span class="k">if</span><span class="p">:</span> <span class="ss">:new_record?</span> <span class="p">},</span> <span class="ss">presence</span><span class="p">:</span> <span class="p">{</span> <span class="k">if</span><span class="p">:</span> <span class="ss">:persisted?</span> <span class="p">}</span>
-</span><span class='line'>  <span class="n">validates</span> <span class="ss">:sharable_type</span><span class="p">,</span> <span class="ss">inclusion</span><span class="p">:</span> <span class="p">{</span> <span class="k">in</span><span class="p">:</span> <span class="sx">%w(Item)</span> <span class="p">}</span>
-</span><span class='line'>  <span class="n">after_create</span> <span class="ss">:save_uuid</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="kp">private</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">save_uuid</span>
-</span><span class='line'>    <span class="vi">@uuid_length</span> <span class="o">||=</span> <span class="no">UUID_LENGTH</span>
-</span><span class='line'>    <span class="n">update_uuid!</span><span class="p">(</span><span class="vi">@uuid_length</span><span class="p">)</span>
-</span><span class='line'>  <span class="k">rescue</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:RecordNotUnique</span>
-</span><span class='line'>    <span class="c1"># UUIDの長さを増やして再試行</span>
-</span><span class='line'>    <span class="vi">@uuid_length</span> <span class="o">+=</span> <span class="mi">1</span>
-</span><span class='line'>    <span class="k">retry</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">update_uuid!</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">uuid</span> <span class="o">=</span> <span class="no">ShareLinkUuid</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">update!</span><span class="p">(</span><span class="ss">uuid</span><span class="p">:</span> <span class="n">uuid</span><span class="p">)</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">module</span> <span class="nn">Sharable</span>
-</span><span class='line'>    <span class="kp">extend</span> <span class="ss">ActiveSupport</span><span class="p">:</span><span class="ss">:Concern</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">included</span> <span class="k">do</span>
-</span><span class='line'>      <span class="n">has_one</span> <span class="ss">:share_link</span><span class="p">,</span> <span class="ss">as</span><span class="p">:</span> <span class="ss">:sharable</span><span class="p">,</span> <span class="ss">dependent</span><span class="p">:</span> <span class="ss">:destroy</span>
-</span><span class='line'>
-</span><span class='line'>      <span class="n">scope</span> <span class="ss">:shared</span><span class="p">,</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="n">joins</span><span class="p">(</span><span class="ss">:share_link</span><span class="p">)</span> <span class="p">}</span>
-</span><span class='line'>      <span class="n">scope</span> <span class="ss">:not_shared</span><span class="p">,</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="n">where</span><span class="o">.</span><span class="n">not</span><span class="p">(</span><span class="nb">id</span><span class="p">:</span> <span class="n">shared</span><span class="p">)</span> <span class="p">}</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># app/models/item.rb</span>
-</span><span class='line'><span class="k">class</span> <span class="nc">Item</span>
-</span><span class='line'>  <span class="kp">include</span> <span class="ss">ShareLink</span><span class="p">:</span><span class="ss">:Sharable</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
+<p>実装面白かったので紹介してみます＞＜</p>
 
 </section>
       
 
+      
+        <footer class="article_footer">
+          <div class="read_more">
+  <a href="/blog/rails/create-share-link.html">続きを読む &rarr;</a>
+</div>
+
+        </footer>
       
     
 
@@ -365,7 +236,7 @@
   </div>
 
   <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/rails/create-share-link.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/rails/create-share-link.html" >Tweet</a>
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/rails/create-share-link.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/rails/create-share-link.html" ></a>
   </div>
 </section>
 
@@ -383,9 +254,9 @@
       
         <h1>
           
-            <a href="/blog/diary/gyaku-syuukatsu-2.html">
+            <a href="/blog/diary/pixiv-year.html">
               
-                逆就活へ参加するときのノウハウまとめ 続き
+                東京に慣れてきた
               
             </a>
           
@@ -408,7 +279,7 @@
 
 
 
-<time datetime="2014-01-20T16:28:00+09:00" pubdate data-updated="true">Jan 20<span>th</span>, 2014</time>
+<time datetime="2014-05-24T01:07:00+09:00" pubdate data-updated="true">May 24<span>th</span>, 2014</time>
             
   
 
@@ -429,11 +300,8 @@
     </header>
 
     
-      <section class="entry-content"><h1>再び逆就活に参加してきました！</h1>
-
-<p>逆就活へ初めて参加される方は、前の記事から見ると良いと思います。-> <a href="/blog/diary/gyaku-syuukatsu-1">逆就活へ参加するときのノウハウまとめ</a></p>
-
-<p>1/18(土)に参加した<a href="http://www.studenthunting.com/">ITエンジニア逆求人</a>についての報告です:)</p>
+      <section class="entry-content"><p>昨年の6月に越してきて、あと3ヶ月ほどで東京に来て一年！？<br/>
+時間が経つのは早いものですねー&hellip;。</p>
 
 </section>
       
@@ -441,7 +309,7 @@
       
         <footer class="article_footer">
           <div class="read_more">
-  <a href="/blog/diary/gyaku-syuukatsu-2.html">続きを読む &rarr;</a>
+  <a href="/blog/diary/pixiv-year.html">続きを読む &rarr;</a>
 </div>
 
         </footer>
@@ -459,27 +327,27 @@
 
 <section class="sharing clearfix">
   <div class="button ft_like_button">
-    <div class="fb-like" data-href="http://alpaca.tc/blog/diary/gyaku-syuukatsu-2.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
+    <div class="fb-like" data-href="http://alpaca.tc/blog/diary/pixiv-year.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
   </div>
 
   <div class="button ft_share_button">
-    <div class="fb-share-button" data-href="http://alpaca.tc/blog/diary/gyaku-syuukatsu-2.html" data-type="button_count"></div>
+    <div class="fb-share-button" data-href="http://alpaca.tc/blog/diary/pixiv-year.html" data-type="button_count"></div>
   </div>
 
   <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca.tc/blog/diary/gyaku-syuukatsu-2.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
-逆就活へ参加するときのノウハウまとめ 続き | RailsとRubyとVimのブログ 
+    <a href="http://b.hatena.ne.jp/entry/http://alpaca.tc/blog/diary/pixiv-year.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
+東京に慣れてきた | RailsとRubyとVimのブログ 
 " data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
       <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
     </a>
   </div>
 
   <div class="button google_plus_button_like">
-    <div data-annotation="none" data-href="http://alpaca.tc/blog/diary/gyaku-syuukatsu-2.html" class="g-plusone" data-size="medium" ></div>
+    <div data-annotation="none" data-href="http://alpaca.tc/blog/diary/pixiv-year.html" class="g-plusone" data-size="medium" ></div>
   </div>
 
   <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/diary/gyaku-syuukatsu-2.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/diary/gyaku-syuukatsu-2.html" >Tweet</a>
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/diary/pixiv-year.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/diary/pixiv-year.html" ></a>
   </div>
 </section>
 
@@ -497,9 +365,9 @@
       
         <h1>
           
-            <a href="/blog/diary/somethings-that-i-want-to-do.html">
+            <a href="/blog/diary/i-just-quit-my-job-at-kronos.html">
               
-                2014年にやりたい14のこと
+                クロノスを退社しました！
               
             </a>
           
@@ -522,7 +390,7 @@
 
 
 
-<time datetime="2014-01-14T00:05:00+09:00" pubdate data-updated="true">Jan 14<span>th</span>, 2014</time>
+<time datetime="2014-05-24T01:07:00+09:00" pubdate data-updated="true">May 24<span>th</span>, 2014</time>
             
   
 
@@ -543,13 +411,12 @@
     </header>
 
     
-      <section class="entry-content"><p>Takumi Kaiさんの<a href="http://nature-dot.com/othres/9">2014年にやりたい27のこと</a>を読んで、こういうのを記事にするのも良いなぁと思った。</p>
+      <section class="entry-content"><p>先週、4月から働いていた株式会社クロノスを退社した。</p>
 
-<blockquote><p>思考は現実になる</p></blockquote>
+<p>流行の退職エントリということだが、<br/>
+退職エントリといえば、<a href="http://d.hatena.ne.jp/takeda25/touch/20140407/1396864651">いい話(ウェブリオを辞めました)</a>の記事を読んで大変感銘を受けた！</p>
 
-<p>この言葉は僕も好きだし、新しくやることを考えるのは楽しいんだよ！</p>
-
-<p>今年やることのリストを考えてみた:)</p>
+<p>同じように、エンジニアとして働く誰かの参考になれば嬉しい:)</p>
 
 </section>
       
@@ -557,7 +424,7 @@
       
         <footer class="article_footer">
           <div class="read_more">
-  <a href="/blog/diary/somethings-that-i-want-to-do.html">続きを読む &rarr;</a>
+  <a href="/blog/diary/i-just-quit-my-job-at-kronos.html">続きを読む &rarr;</a>
 </div>
 
         </footer>
@@ -575,27 +442,27 @@
 
 <section class="sharing clearfix">
   <div class="button ft_like_button">
-    <div class="fb-like" data-href="http://alpaca.tc/blog/diary/somethings-that-i-want-to-do.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
+    <div class="fb-like" data-href="http://alpaca.tc/blog/diary/i-just-quit-my-job-at-kronos.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
   </div>
 
   <div class="button ft_share_button">
-    <div class="fb-share-button" data-href="http://alpaca.tc/blog/diary/somethings-that-i-want-to-do.html" data-type="button_count"></div>
+    <div class="fb-share-button" data-href="http://alpaca.tc/blog/diary/i-just-quit-my-job-at-kronos.html" data-type="button_count"></div>
   </div>
 
   <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca.tc/blog/diary/somethings-that-i-want-to-do.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
-2014年にやりたい14のこと | RailsとRubyとVimのブログ 
+    <a href="http://b.hatena.ne.jp/entry/http://alpaca.tc/blog/diary/i-just-quit-my-job-at-kronos.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
+クロノスを退社しました！ | RailsとRubyとVimのブログ 
 " data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
       <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
     </a>
   </div>
 
   <div class="button google_plus_button_like">
-    <div data-annotation="none" data-href="http://alpaca.tc/blog/diary/somethings-that-i-want-to-do.html" class="g-plusone" data-size="medium" ></div>
+    <div data-annotation="none" data-href="http://alpaca.tc/blog/diary/i-just-quit-my-job-at-kronos.html" class="g-plusone" data-size="medium" ></div>
   </div>
 
   <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/diary/somethings-that-i-want-to-do.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/diary/somethings-that-i-want-to-do.html" >Tweet</a>
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/diary/i-just-quit-my-job-at-kronos.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/diary/i-just-quit-my-job-at-kronos.html" ></a>
   </div>
 </section>
 
@@ -613,9 +480,9 @@
       
         <h1>
           
-            <a href="/blog/vim/file-include-by-neocomplete.html">
+            <a href="/blog/vim/alpaca-rails-support.html">
               
-                neocomplete.vimのfile_includeを使いこなす
+                Railsの補助プラグインを書いた
               
             </a>
           
@@ -638,7 +505,7 @@
 
 
 
-<time datetime="2014-01-11T13:25:00+09:00" pubdate data-updated="true">Jan 11<span>th</span>, 2014</time>
+<time datetime="2014-04-30T00:46:00+09:00" pubdate data-updated="true">Apr 30<span>th</span>, 2014</time>
             
   
 
@@ -659,13 +526,11 @@
     </header>
 
     
-      <section class="entry-content"><p>この記事は<a href="http://atnd.org/events/45072">Vim Advent Calendar 2013</a>の42日目の記事になります。</p>
+      <section class="entry-content"><h1>もうLocaleファイルに迷わない！</h1>
 
-<h1>Neocomplete.vimのfile_includeを使いこなす</h1>
+<p><img class="image_on_frame center" src="/images/blog/alpaca-rails-support/screen_shot_1.png" title="screen_shot_1" ></p>
 
-<p>さて、今回の記事ではneocompleteのfile_includeを使いこなしてみます。</p>
-
-<p><img class="image_on_frame center" src="/images/blog/file-include-by-neocomplete/completion_capture.png" title="neocomplete_file_include" ></p>
+<p>休日を利用して、久しぶりにRails関連のVimScriptを書いたよ:)</p>
 
 </section>
       
@@ -673,7 +538,7 @@
       
         <footer class="article_footer">
           <div class="read_more">
-  <a href="/blog/vim/file-include-by-neocomplete.html">続きを読む &rarr;</a>
+  <a href="/blog/vim/alpaca-rails-support.html">続きを読む &rarr;</a>
 </div>
 
         </footer>
@@ -691,27 +556,27 @@
 
 <section class="sharing clearfix">
   <div class="button ft_like_button">
-    <div class="fb-like" data-href="http://alpaca.tc/blog/vim/file-include-by-neocomplete.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
+    <div class="fb-like" data-href="http://alpaca.tc/blog/vim/alpaca-rails-support.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
   </div>
 
   <div class="button ft_share_button">
-    <div class="fb-share-button" data-href="http://alpaca.tc/blog/vim/file-include-by-neocomplete.html" data-type="button_count"></div>
+    <div class="fb-share-button" data-href="http://alpaca.tc/blog/vim/alpaca-rails-support.html" data-type="button_count"></div>
   </div>
 
   <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca.tc/blog/vim/file-include-by-neocomplete.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
-neocomplete.vimのfile_includeを使いこなす | RailsとRubyとVimのブログ 
+    <a href="http://b.hatena.ne.jp/entry/http://alpaca.tc/blog/vim/alpaca-rails-support.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
+Railsの補助プラグインを書いた | RailsとRubyとVimのブログ 
 " data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
       <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
     </a>
   </div>
 
   <div class="button google_plus_button_like">
-    <div data-annotation="none" data-href="http://alpaca.tc/blog/vim/file-include-by-neocomplete.html" class="g-plusone" data-size="medium" ></div>
+    <div data-annotation="none" data-href="http://alpaca.tc/blog/vim/alpaca-rails-support.html" class="g-plusone" data-size="medium" ></div>
   </div>
 
   <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/file-include-by-neocomplete.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/vim/file-include-by-neocomplete.html" >Tweet</a>
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/alpaca-rails-support.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/vim/alpaca-rails-support.html" ></a>
   </div>
 </section>
 
@@ -729,9 +594,9 @@ neocomplete.vimのfile_includeを使いこなす | RailsとRubyとVimのブロ�
       
         <h1>
           
-            <a href="/blog/web-service/kayac-2014-otoshidama-2.html">
+            <a href="/blog/blog/i-im-join-for-this-company.html">
               
-                カヤックのお年玉企画「お好き玉」の解説
+                めまぐるしい１年！
               
             </a>
           
@@ -754,7 +619,7 @@ neocomplete.vimのfile_includeを使いこなす | RailsとRubyとVimのブロ�
 
 
 
-<time datetime="2014-01-07T00:07:00+09:00" pubdate data-updated="true">Jan 7<span>th</span>, 2014</time>
+<time datetime="2014-04-19T02:37:00+09:00" pubdate data-updated="true">Apr 19<span>th</span>, 2014</time>
             
   
 
@@ -775,11 +640,19 @@ neocomplete.vimのfile_includeを使いこなす | RailsとRubyとVimのブロ�
     </header>
 
     
-      <section class="entry-content"><p><a href="/blog/web-service/kayac-2014-otoshidama.html">先日紹介した「お好き玉」</a>ですが、アクセス数が多いはずなのにまだ2014に達していません！</p>
+      <section class="entry-content"><h1>退学した！</h1>
 
-<p>アクセスが足りないのか、みんな諦めるのか分かりませんが<strong>2014を超したほうが楽しい</strong>ので、少しだけヒント載せておきます！</p>
+<p>昨年の6月、<strong>1年8ヶ月働いていたベンチャー企業を辞めて</strong>、大学に復帰した。</p>
 
-<p>素人でも、これをきっかけに少しだけWebエンジニアっぽいことに挑戦できたら楽しいよね:)</p>
+<p>その傍ら、大学と平行して<strong>2社の会社を渡り歩いた。</strong></p>
+
+<p>ふと気付けば冬になり、世間は<strong>就職活動一色</strong>に染まっていたので、思い立って<strong>就職活動を始めるも</strong>、挫折(?)して<strong>1ヶ月休む。</strong></p>
+
+<p>かたや、更に新しい会社で働き始めたかと思えば4月となり、<strong>僕は大学を中退</strong>していた。</p>
+
+<p>めまぐるしい！</p>
+
+<p>今日は簡単に、中退の報告と振り返りをしたい。</p>
 
 </section>
       
@@ -787,7 +660,7 @@ neocomplete.vimのfile_includeを使いこなす | RailsとRubyとVimのブロ�
       
         <footer class="article_footer">
           <div class="read_more">
-  <a href="/blog/web-service/kayac-2014-otoshidama-2.html">続きを読む &rarr;</a>
+  <a href="/blog/blog/i-im-join-for-this-company.html">続きを読む &rarr;</a>
 </div>
 
         </footer>
@@ -805,27 +678,27 @@ neocomplete.vimのfile_includeを使いこなす | RailsとRubyとVimのブロ�
 
 <section class="sharing clearfix">
   <div class="button ft_like_button">
-    <div class="fb-like" data-href="http://alpaca.tc/blog/web-service/kayac-2014-otoshidama-2.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
+    <div class="fb-like" data-href="http://alpaca.tc/blog/blog/i-im-join-for-this-company.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
   </div>
 
   <div class="button ft_share_button">
-    <div class="fb-share-button" data-href="http://alpaca.tc/blog/web-service/kayac-2014-otoshidama-2.html" data-type="button_count"></div>
+    <div class="fb-share-button" data-href="http://alpaca.tc/blog/blog/i-im-join-for-this-company.html" data-type="button_count"></div>
   </div>
 
   <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca.tc/blog/web-service/kayac-2014-otoshidama-2.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
-カヤックのお年玉企画「お好き玉」の解説 | RailsとRubyとVimのブログ 
+    <a href="http://b.hatena.ne.jp/entry/http://alpaca.tc/blog/blog/i-im-join-for-this-company.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
+めまぐるしい１年！ | RailsとRubyとVimのブログ 
 " data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
       <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
     </a>
   </div>
 
   <div class="button google_plus_button_like">
-    <div data-annotation="none" data-href="http://alpaca.tc/blog/web-service/kayac-2014-otoshidama-2.html" class="g-plusone" data-size="medium" ></div>
+    <div data-annotation="none" data-href="http://alpaca.tc/blog/blog/i-im-join-for-this-company.html" class="g-plusone" data-size="medium" ></div>
   </div>
 
   <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/web-service/kayac-2014-otoshidama-2.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/web-service/kayac-2014-otoshidama-2.html" >Tweet</a>
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/blog/i-im-join-for-this-company.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/blog/i-im-join-for-this-company.html" ></a>
   </div>
 </section>
 
@@ -857,7 +730,7 @@ neocomplete.vimのfile_includeを使いこなす | RailsとRubyとVimのブロ�
     
 
     
-      <a data-label="次" class="paging_number prev" href="/blog/page/2/">次の記事へ &rarr;</a>
+      <a data-label="次" class="paging_number next" href="/blog/page/2/">次の記事へ &rarr;</a>
     
   </div>
 
@@ -892,8 +765,8 @@ neocomplete.vimのfile_includeを使いこなす | RailsとRubyとVimのブロ�
       </article>
     
       <article>
-        <time datetime="2014-01-20T16:28:00+09:00" pubdate><span class='month'>Jan</span> <span class='day'>20</span> <span class='year'>2014</span></time>
-        <h1><a href="/blog/diary/gyaku-syuukatsu-2.html">逆就活へ参加するときのノウハウまとめ 続き</a></h1>
+        <time datetime="2014-05-24T01:07:00+09:00" pubdate><span class='month'>May</span> <span class='day'>24</span> <span class='year'>2014</span></time>
+        <h1><a href="/blog/diary/pixiv-year.html">東京に慣れてきた</a></h1>
       </article>
     
   </div>
@@ -909,12 +782,12 @@ neocomplete.vimのfile_includeを使いこなす | RailsとRubyとVimのブロ�
   <h1>プロフィール</h1>
   <section>
     <figure class="image_wrapper">
-      <img src="https://plus.google.com/s2/photos/profile/105581201951227096827?sz=100" alt="石井 浩之">
+      <img src="//lh4.googleusercontent.com/-lhc7W4Ee-NA/UnDGui7U9RI/AAAAAAAAACI/F95WUPatw7k/w237-h240-no/1001417_394227377345843_948534762_n.jpg" alt="石井 浩之">
       <figcaption>石井 浩之</figcaption>
     </figure>
 
     <p>
-      RailsやVimを中心に開発をしている、アルパカ大好きエンジニアです。
+      アルパカ大好きエンジニア
     </p>
 
     <p class="go_to_aboutme">

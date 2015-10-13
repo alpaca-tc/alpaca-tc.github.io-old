@@ -4,7 +4,7 @@
   <title><![CDATA[Category: diary | RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/blog/diary/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2015-10-13T21:57:45+09:00</updated>
+  <updated>2015-10-13T21:59:12+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -188,7 +188,7 @@
 
 <p>さて、前回と今回の結果を比べるため、Gvalueという数値を挙げます。これは、イベント後に企業から送られてくる評価シートで、面談した企業からの評価が全て分かります。</p>
 
-<p>{% img image_on_frame center /images/blog/gyaku-syuukatsu-2/gvalue.jpg G-valueの比較 %}</p>
+<p><img class="image_on_frame center" src="/images/blog/gyaku-syuukatsu-2/gvalue.jpg" title="G-valueの比較" ></p>
 
 <h3>1. 名刺交換の段階で、合わない企業さんは断る</h3>
 
@@ -335,7 +335,7 @@
 
 <p>東京まで7日かからないみたいなので、就活がてら歩くよー:)</p>
 
-<p>{% img image_on_frame center /images/blog/somethings-that-i-want-to-do/IMG_0118.jpg 200 東京から滋賀まで歩く %}</p>
+<p><img class="image_on_frame center" src="/images/blog/somethings-that-i-want-to-do/IMG_0118.jpg" width="200" title="東京から滋賀まで歩く" ></p>
 
 <h3>4. 岡本太郎の本を3冊読む(完)</h3>
 
@@ -343,7 +343,7 @@
 
 <p>20代の決意を新たにするために、読まないといけない！</p>
 
-<p>{% img image_on_frame center /images/blog/somethings-that-i-want-to-do/pic_okamoto.jpg 岡本太郎の本 %}</p>
+<p><img class="image_on_frame center" src="/images/blog/somethings-that-i-want-to-do/pic_okamoto.jpg" title="岡本太郎の本" ></p>
 
 <h3>5. 今年も1,000時間以上プログラミングする</h3>
 
@@ -361,7 +361,7 @@
 
 <p>文字しか掘らないけれど、せっかくだしイラストのハンコ掘ってみたいなァ</p>
 
-<p>{% img image_on_frame center /images/blog/somethings-that-i-want-to-do/pic_hanko.jpg  200 判子を掘る %}</p>
+<p><img class="image_on_frame center" src="/images/blog/somethings-that-i-want-to-do/pic_hanko.jpg" width="200" title="判子を掘る" ></p>
 
 <h3>8. 前職でお世話になった人に会う(完)</h3>
 

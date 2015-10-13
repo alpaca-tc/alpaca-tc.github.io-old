@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ruby | RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/blog/ruby/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2015-10-13T21:57:45+09:00</updated>
+  <updated>2015-10-13T21:59:12+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -20,7 +20,7 @@
     <id>http://alpaca.tc/blog/ruby/i-have-almost-finished-implementing-comment-parser</id>
     <content type="html"><![CDATA[<p>先日から書き続けていた<a href="https://github.com/alpaca-tc/comment_extractor">CommentExtractor</a>が、大枠完成しました。</p>
 
-<p>{% img image_on_frame center /images/blog/i-have-almost-finished-implementing-comment-parser/capture.png CommentExtractor %}</p>
+<p><img class="image_on_frame center" src="/images/blog/i-have-almost-finished-implementing-comment-parser/capture.png" title="CommentExtractor" ></p>
 
 <p>さて、今回Gemを書くときに役に立った、便利なTipsを幾つか紹介します！</p>
 
@@ -163,7 +163,7 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
     <id>http://alpaca.tc/blog/ruby/how-to-use-star</id>
     <content type="html"><![CDATA[<p>Splat Operatorとは、<code>*</code>のことです</p>
 
-<p>{% img image_on_frame center /images/blog/how-to-use-star/capture.png SplatOperator %}</p>
+<p><img class="image_on_frame center" src="/images/blog/how-to-use-star/capture.png" title="SplatOperator" ></p>
 
 <p>この前、友人にコードレビューしてもらっていたら</p>
 
@@ -341,7 +341,7 @@ parser.comments # => [StripComment::CodeObject::Comment, &hellip;]
 
 <p>さっそくVimと連携してみました。</p>
 
-<p>{% img image_on_frame center /images/blog/create-strip-comment/comment.gif comment.vimデモ %}</p>
+<p><img class="image_on_frame center" src="/images/blog/create-strip-comment/comment.gif" title="comment.vimデモ" ></p>
 
 <p>コメント行を取り出して、Gingerで文法チェックしています。</p>
 
@@ -507,7 +507,7 @@ p Branch.instance_variable_get(&lsquo;@val&rsquo;) #=> &lsquo;Base&rsquo;
 <!-- more -->
 
 
-<p>{% img image_on_frame center /images/blog/watson.png watsonのデモ %}</p>
+<p><img class="image_on_frame center" src="/images/blog/watson.png" title="watsonのデモ" ></p>
 
 <h2>インラインTODO管理とは何か</h2>
 
@@ -594,7 +594,7 @@ $ watson --update
 
 <p>処理が終わると、Githubのissueへの登録が完了です。</p>
 
-<p>{% img image_on_frame center /images/blog/watson_issue_preview.png githubのissueプレビュー %}</p>
+<p><img class="image_on_frame center" src="/images/blog/watson_issue_preview.png" title="githubのissueプレビュー" ></p>
 
 <h2>まとめ</h2>
 
