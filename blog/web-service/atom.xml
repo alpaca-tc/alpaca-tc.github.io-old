@@ -4,7 +4,7 @@
   <title><![CDATA[Category: web-service | RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/blog/web-service/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2015-10-13T21:55:33+09:00</updated>
+  <updated>2015-10-13T21:56:54+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,56 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[APIのMockサーバーを構築する「Apiary」を使ってみる]]></title>
+    <link href="http://alpaca.tc/blog/web-service/apiary.html"/>
+    <updated>2014-04-10T21:36:00+09:00</updated>
+    <id>http://alpaca.tc/blog/web-service/apiary</id>
+    <content type="html"><![CDATA[<p>{% img image_on_frame center /images/blog/apiary/apiary_top.png apiary Build beautiful APIs %}</p>
+
+<p><a href="http://apiary.io/">Apiary</a>は、美しいAPIのドキュメント(Mockサーバー)が作成できるWebサービスです.</p>
+
+<!-- more -->
+
+
+<h2>Apiaryの使いどころ</h2>
+
+<p>仕事を進める上で、APIの仕様が先に作られることは多々あります.</p>
+
+<p>今関わっている案件でも、APIの仕様表だけ先に届いたので、Mockサーバーを立てて開発を進めることにしました.</p>
+
+<h2>ドキュメント(Mockサーバー)を作ってみる</h2>
+
+<p>Githubの連携でアカウントを作り、すぐにドキュメントの作成に取りかかれます.
+markdown(の拡張)でAPIの仕様を書けば、すぐにドキュメントが生成されます.</p>
+
+<p>{% img image_on_frame center /images/blog/apiary/apiary_document.png Apiary Document %}</p>
+
+<p><strong>う、美しい&hellip;</strong></p>
+
+<p>その上、Apiaryではドキュメントと同時に、そのドキュメントからMockサーバーを立ててくれます.</p>
+
+<p>今回は、デモとして簡単なアルパカAPIを実装しました.</p>
+
+<ul>
+<li><a href="http://docs.alpaca.apiary.io/">生成されたドキュメント</a></li>
+</ul>
+
+
+<p>10分ぐらいで作成完了.すばらしい！</p>
+
+<h2>レスポンスを見てみる</h2>
+
+<p>作成されたAPIのMockサーバーは、<code>API名.apiary-mock.com</code>で見ることができます.</p>
+
+<p>さっそく<code>curl</code>でレスポンスを見てみよう</p>
+
+<p><code>$ curl http://alpaca.apiary-mock.com/hello</code></p>
+
+<p>ヽ(・∀・ )ﾉす&hellip;すげぇ便利！</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[カヤックのお年玉企画「お好き玉」の解説]]></title>

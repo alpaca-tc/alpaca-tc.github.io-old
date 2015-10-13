@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vim | RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/blog/vim/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2015-10-13T21:55:33+09:00</updated>
+  <updated>2015-10-13T21:56:54+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,89 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Railsの補助プラグインを書いた]]></title>
+    <link href="http://alpaca.tc/blog/vim/alpaca-rails-support.html"/>
+    <updated>2014-04-30T00:46:00+09:00</updated>
+    <id>http://alpaca.tc/blog/vim/alpaca-rails-support</id>
+    <content type="html"><![CDATA[<h1>もうLocaleファイルに迷わない！</h1>
+
+<p>{% img image_on_frame center /images/blog/alpaca-rails-support/screen_shot_1.png screen_shot_1 %}</p>
+
+<p>休日を利用して、久しぶりにRails関連のVimScriptを書いたよ:)</p>
+
+<!-- more -->
+
+
+<h2>Railsとlocalesファイル</h2>
+
+<p>きっかけは、とあるプロジェクトに立てられたIssueであった。</p>
+
+<blockquote><p><strong>言語ファイルが大きすぎてどこを編集しているのか全く分からなくなる。</strong><br/>
+<strong>もはや人が書くようなファイルじゃない。</strong></p>
+
+<p>便利なエディタがあるならエディタに頼ってもいいけどざっと探した感じ見つけられなかったので、いい解決方法があれば教えて欲しいです。</p></blockquote>
+
+<p>おっしゃる通り、懸念すべき事項である。<br/>
+多国籍に対応したプロジェクトをRailsで作った経験があると分かるが、気をつけていても<strong>localesはカオス</strong>になってしまう。</p>
+
+<p>しかし、次の発言で少し様相が変わる。</p>
+
+<p>{% img image_on_frame center /images/blog/alpaca-rails-support/screen_shot_3.png issue %}</p>
+
+<p><strong>SublimeText2が有力&hellip;だと？</strong></p>
+
+<p><del>何を寝ぼけたこt</del></p>
+
+<p>alpaca-tcはVimの人である。Vimで解決しんぜよう。</p>
+
+<h2>Railsの補助プラグイン</h2>
+
+<p>丁度、僕も今Railsで開発をしている。<br/>
+痒いところが幾つかあったので、休日に孫の手を作ることにした。</p>
+
+<p><strong><a href="https://github.com/alpaca-tc/alpaca_rails_support">Alpaca Rails Support</a></strong></p>
+
+<p>といっても、時間があまり無かったので<strong>3つの簡素な機能</strong>でまとめた。</p>
+
+<h3>I18nの探索</h3>
+
+<p>本題の機能である「localesの編集をサポートする」プラグインである。<br/>
+キーを探索して、Uniteにぶち込んでくれる。</p>
+
+<p>{% img image_on_frame center /images/blog/alpaca-rails-support/screen_shot_4.png Find_local %}</p>
+
+<p>探索は少し荒いので、Yamlをキレイに書いていなければ動かない。</p>
+
+<h3>Routesの補完</h3>
+
+<p>個人的に一番欲しかった機能である<br/>
+たかだかRoutesのスペルミスで、BetterErrorsと挨拶したくない。</p>
+
+<p>{% img image_on_frame center <a href="https://raw.githubusercontent.com/alpaca-tc/alpaca_rails_support/master/assets/routes_completion.png">https://raw.githubusercontent.com/alpaca-tc/alpaca_rails_support/master/assets/routes_completion.png</a> reoute補完 %}</p>
+
+<p>ようやく<code>rake routes | grep ...</code>の地獄から解放されるヾ(*´∀｀*)ﾉ</p>
+
+<h3>I18nのプレビュー</h3>
+
+<p>特に必要は無かったけれど、思いついてしまったので作った。</p>
+
+<p>{% img image_on_frame center <a href="https://raw.githubusercontent.com/alpaca-tc/alpaca_rails_support/master/assets/preview_locales.gif">https://raw.githubusercontent.com/alpaca-tc/alpaca_rails_support/master/assets/preview_locales.gif</a> preview %}</p>
+
+<p><strong>( ﾟ∀ﾟ)o彡ﾟギミックかっけー！</strong></p>
+
+<p>vim-easy-motionやvim-overと同じ方法を取り入れていて<br/>
+<code>while 1</code>と<code>getchar()</code>の組み合わせでkeypressを補足している。</p>
+
+<p>新鮮な方法だったので、一番気に入っている。</p>
+
+<h2>今後</h2>
+
+<p>もう少ししたら、オンラインのlocales探索アルゴリズムを実装しようと思っている。<br/>
+VimScriptでアルゴリズムらしい手法を使ったことは無いので、楽しみである。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[neocomplete.vimのfile_includeを使いこなす]]></title>
@@ -214,7 +297,9 @@ command! RailsView call s:setup_include_file_for_rails()
 
 <h2><a href="https://github.com/alpaca-tc/vim-unite-watson.vim">vim-unite-watson.vim</a></h2>
 
-<p><a href="http://goosecode.com/watson/">watson</a>用のUnite-sourceです。海外の方にも結構使ってもらえているようです。</p>
+<p>{% img image_on_frame center <a href="https://f.cloud.github.com/assets/1688137/1726147/ac9b52fc-628a-11e3-8117-ef4824444729.gif">https://f.cloud.github.com/assets/1688137/1726147/ac9b52fc-628a-11e3-8117-ef4824444729.gif</a> watsonのcapture %}</p>
+
+<p><a href="http://goosecode.com/watson/">watson</a>用のUnite-sourceです。watson本体もガッツリ書き換えました。海外の方にも結構使ってもらえているようです。自身がプログラミングするとき、思考を止めないためにこのプラグインを作りました。</p>
 
 <h3>その他、今年作ったプラグイン</h3>
 
@@ -420,133 +505,6 @@ $ bundle show --paths
 <p>今までで読んできた中で、<em>一番奇麗なVimLのコード</em>でした。ほどよい抽象化、適切な命名、整理されたファイル達。率直に、この人と一緒に仕事出来る人は幸せだろうなぁと感じました。</p>
 
 <p>vim-unite-gitiを作ってくださって感謝します。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Unite.vimとwatsonを使ったワークフロー]]></title>
-    <link href="http://alpaca.tc/blog/vim/using-vim-unite-watson.html"/>
-    <updated>2013-12-13T02:29:00+09:00</updated>
-    <id>http://alpaca.tc/blog/vim/using-vim-unite-watson</id>
-    <content type="html"><![CDATA[<p>最近、vim-unite-watsonを開発しました。</p>
-
-<p>これが、watsonの作者であるnhmoodさんにも好評で、僕自身ワークフローが変化して、だいぶ作業しやすくなりました。</p>
-
-<p>今回は、タスク管理をしたい人向けに、僕なりのワークフロー管理を紹介します。</p>
-
-<!-- more -->
-
-
-<h1>ワークフローとVim</h1>
-
-<p>僕は普段、Webサービスの構築・保守を行う仕事をしています。</p>
-
-<p>そこでは、基本的なフローは次のような流れです。</p>
-
-<ol>
-<li>新機能・バグに対してIssueを発行する(あるいは既にTODOリストにある)</li>
-<li>トピックブランチを作る</li>
-<li>コードを書く</li>
-<li>コミット &ndash;> Pull-Requestを送る &ndash;> マージする</li>
-</ol>
-
-
-<p>では、Vimを一度も閉じることなくこれらの作業をしてみます。</p>
-
-<h2>1. Issueの発行</h2>
-
-<h3>1-1. TODOをコードに入力する</h3>
-
-<p>{% img image_on_frame center /images/blog/workflow_1.png 本番環境用にViewを作成すると記入する %}</p>
-
-<h3>1-2. IssueをGithubにあげる</h3>
-
-<p>インラインIssue管理の<a href="/blog/ruby/how-to-use-watson.html">watson</a>を使って、GithubにIssueをあげます</p>
-
-<p>{% img image_on_frame center /images/blog/workflow_2.png :Watsonのデモ %}</p>
-
-<p>Watsonを使えば、Vimから簡単にIssue管理を行うことが出来ますね。</p>
-
-<h2>2. 作業の目処を立てる</h2>
-
-<p>さて、これでIssueは挙げられたので、次はコードの改修をしていきます。</p>
-
-<h3>2-1. トピックブランチを作る</h3>
-
-<p>ブランチの作業は、<a href="https://github.com/alpaca-tc/vim-unite-giti">vim-unite-giti</a>を使います。</p>
-
-<p><code>vim
-:Unite giti/branch
-</code></p>
-
-<p>新しいブランチの名前を入力して、<code>[checkout branch]</code>の行を選択します。</p>
-
-<p>{% img image_on_frame center /images/blog/workflow_3.png Unite gitiのデモ %}</p>
-
-<p>すると、新しいブランチが作られました。</p>
-
-<h3>2-2. コードの改修を行う場所に印をつけて行く</h3>
-
-<p>コードの改修は、多くの場合幾つかのファイルに跨がります。</p>
-
-<p>そのため、経験から作業が必要な箇所に目処をつけて、コメントを書いて行きます。</p>
-
-<p>{% img image_on_frame center /images/blog/workflow_4.png  %}</p>
-
-<p>{% img image_on_frame center /images/blog/workflow_5.png  %}</p>
-
-<p>{% img image_on_frame center /images/blog/workflow_6.png  %}</p>
-
-<p>todoの内容は、watsonによって管理されるので、vim-unite-watsonを使えば一覧としてみることができます。</p>
-
-<p><code>vim
-:Unite watson/dirty
-</code></p>
-
-<p>{% img image_on_frame center /images/blog/workflow_7.png unite-watsonのdemo %}</p>
-
-<p>これで、issueを解決するために必要な作業の一覧を自分で作ることが出来ました。</p>
-
-<p>Unite上のコメントを選択すると、該当箇所に飛べます。</p>
-
-<p>後は、</p>
-
-<ol>
-<li>該当箇所に飛ぶ</li>
-<li>コードを修正する</li>
-<li>解決したら、コメントを削除する</li>
-</ol>
-
-
-<p>を<code>:Unite watson/dirty</code>が空になるまで繰り返します。</p>
-
-<p>watsonの結果リストが空になれば、issueの問題を解決したことになり、次の作業に移ります。</p>
-
-<h3>3. GithubにPull-Requestする</h3>
-
-<p>これは、各々方法が分かれるかと思います。</p>
-
-<p>Vimから出ないでPull-Requestを送るには、<code>:!git push</code> &amp;&amp; <code>:!hub pull-request -h ...</code>というのが一番分かりやすいでしょうか。</p>
-
-<p>僕は、<code>:Unite giti/pull_request</code>で送るようにしています。</p>
-
-<h2>まとめ</h2>
-
-<p>Watsonやgitiはかなり便利です。</p>
-
-<p>特に、watsonはコーディング作業をマネジメントしたい人に向いていると思います。
-作業時間の見積もりや、タスク管理を考えながらコーディングする人には向いているプラグインなのではないでしょうか。</p>
-
-<p>僕は経営学部にいるので、すっかりタスク管理や時間計測を気にしちゃうようになりました。。</p>
-
-<p><strong>今回紹介したプラグイン</strong></p>
-
-<ul>
-<li><a href="https://github.com/alpaca-tc/vim-unite-watson.vim">vim-unite-watson</a></li>
-<li><a href="https://github.com/kmnk/vim-unite-giti">vim-unite-giti (本家)</a></li>
-<li><a href="https://github.com/alpaca-tc/vim-unite-giti">vim-unite-giti (giti/pull_request追加版)</a></li>
-</ul>
-
 ]]></content>
   </entry>
   
