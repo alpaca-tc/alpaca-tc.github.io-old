@@ -21,7 +21,7 @@ categories: diary
 
 ### お仕事。  
 
-6月に入ってから[BOOTH](http://booth.pm)にアサインされて、数ヶ月を過ごし  
+6月に入ってから[BOOTH](https://booth.pm)にアサインされて、数ヶ月を過ごし  
 その後、[pixivFACTORY](http:://factory.pixiv.net)のメインエンジニアとしてコード書いてました。 
 
 

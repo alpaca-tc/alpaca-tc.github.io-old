@@ -12,7 +12,7 @@ categories: web-service
 
 FBの「イイネ！」を押して2014円ゲットしましょう！
 
-[お好き玉](http://iine2014.fnobi.com/)
+[お好き玉](https://iine2014.fnobi.com/)
 
 ちなみに現在519人ぐらいです
 

@@ -8,7 +8,7 @@ categories: diary
 
 # 逆就活に参加してきました！
 
-世の中には[IT系逆就活]( http://www.studenthunting.com/ )というイベントがあります。
+世の中には[IT系逆就活]( https://www.studenthunting.com/ )というイベントがあります。
 
 東京で開催された*23,24日*にイベントに参加してきました。
 

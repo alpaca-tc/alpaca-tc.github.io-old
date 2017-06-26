@@ -6,7 +6,7 @@ comments: true
 categories: ruby
 ---
 
-最近、Githubのトレンドにも入っていた[Watson]( http://goosecode.com/watson/ )を紹介します。
+最近、Githubのトレンドにも入っていた[Watson]( https://goosecode.com/watson/ )を紹介します。
 
 <!-- more -->
 

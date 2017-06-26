@@ -24,13 +24,13 @@ categories: ruby
 
 READMEには視覚的なバッヂを追加出来ます。Gemを書くときには、ぜひとも入れておきたい情報ですね。
 
-- [![Gem Version](https://badge.fury.io/rb/comment_extractor.png)](http://badge.fury.io/rb/comment\_extractor)
+- [![Gem Version](https://badge.fury.io/rb/comment_extractor.png)](https://badge.fury.io/rb/comment\_extractor)
 - [![Build Status](https://travis-ci.org/alpaca-tc/comment_extractor.png?branch=v1.0.0)](https://travis-ci.org/alpaca-tc/comment\_parser)
 - [![Coverage Status](https://coveralls.io/repos/alpaca-tc/comment_extractor/badge.png?branch=v1.0.0)](https://coveralls.io/r/alpaca-tc/comment\_extractor?branch=v1.0.0)
 
 もちろん、登録すれば無料で作ることが出来ます。
 
-詳しくは[コチラの記事](http://elgalu.github.io/2013/add-achievement-badges-to-your-gem-readme/)を読んでみましょう。
+詳しくは[コチラの記事](https://elgalu.github.io/2013/add-achievement-badges-to-your-gem-readme/)を読んでみましょう。
 
 ## 2.RubyGemsからGemを削除する
 
@@ -50,8 +50,8 @@ gem yank gem_name -v 1.0.0
 
 RSpecをキレイに書く方法は、ある程度伝統があります。
 
-- [BetterSpecs](http://betterspecs.org/)
-- [Some RSpec Tips and Best Practices](http://bitfluxx.com/2011/05/23/some-rspec-tips-and-best-practices.html)
+- [BetterSpecs](https://betterspecs.org/)
+- [Some RSpec Tips and Best Practices](https://bitfluxx.com/2011/05/23/some-rspec-tips-and-best-practices.html)
 
 今回は、ある程度RSpecを書ける人向けに、検索してもあまり出てこない情報(検索しにくい？)を提供したいと思います。
 

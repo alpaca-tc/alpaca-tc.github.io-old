@@ -6,7 +6,7 @@ comments: true
 categories: diary
 ---
 
-Takumi Kaiさんの[2014年にやりたい27のこと]( http://nature-dot.com/othres/9 )を読んで、こういうのを記事にするのも良いなぁと思った。
+Takumi Kaiさんの[2014年にやりたい27のこと]( https://nature-dot.com/othres/9 )を読んで、こういうのを記事にするのも良いなぁと思った。
 
 > 思考は現実になる
 

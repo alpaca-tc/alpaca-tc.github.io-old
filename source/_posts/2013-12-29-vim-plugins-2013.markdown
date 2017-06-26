@@ -27,7 +27,7 @@ categories: vim
 
 tablineをpowerline化したプラグインです。
 
-初めてのVim Advent Calendarで[powerlineをいつ使う？今でしょ！](http://qiita.com/alpaca_taichou/items/ab70f914a6a577e25d70)という記事を書いて、そこそこ人気な記事となり驚きました。
+初めてのVim Advent Calendarで[powerlineをいつ使う？今でしょ！](https://qiita.com/alpaca_taichou/items/ab70f914a6a577e25d70)という記事を書いて、そこそこ人気な記事となり驚きました。
 
 いやぁ...*「今でしょ！」*って、もうさぶいねぇ。笑
 
@@ -75,7 +75,7 @@ tagsの非同期生成、tag用のunite-sourceなど同封しています。糞�
 
 {% img image_on_frame center https://f.cloud.github.com/assets/1688137/1726147/ac9b52fc-628a-11e3-8117-ef4824444729.gif watsonのcapture %}
 
-[watson](http://goosecode.com/watson/)用のUnite-sourceです。watson本体もガッツリ書き換えました。海外の方にも結構使ってもらえているようです。自身がプログラミングするとき、思考を止めないためにこのプラグインを作りました。
+[watson](https://goosecode.com/watson/)用のUnite-sourceです。watson本体もガッツリ書き換えました。海外の方にも結構使ってもらえているようです。自身がプログラミングするとき、思考を止めないためにこのプラグインを作りました。
 
 ### その他、今年作ったプラグイン
 

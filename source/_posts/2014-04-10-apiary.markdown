@@ -7,7 +7,7 @@ categories: web-service
 
 {% img image_on_frame center /images/blog/apiary/apiary_top.png apiary Build beautiful APIs %}
 
-[Apiary](http://apiary.io/)は、美しいAPIのドキュメント(Mockサーバー)が作成できるWebサービスです.
+[Apiary](https://apiary.io/)は、美しいAPIのドキュメント(Mockサーバー)が作成できるWebサービスです.
 
 <!-- more -->
 
@@ -30,7 +30,7 @@ __う、美しい...__
 
 今回は、デモとして簡単なアルパカAPIを実装しました.
 
-- [生成されたドキュメント](http://docs.alpaca.apiary.io/)
+- [生成されたドキュメント](https://docs.alpaca.apiary.io/)
 
 10分ぐらいで作成完了.すばらしい！
 
@@ -40,6 +40,6 @@ __う、美しい...__
 
 さっそく`curl`でレスポンスを見てみよう
 
-`$ curl http://alpaca.apiary-mock.com/hello`
+`$ curl https://alpaca.apiary-mock.com/hello`
 
 ヽ(・∀・ )ﾉす...すげぇ便利！

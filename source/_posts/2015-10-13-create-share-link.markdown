@@ -12,7 +12,7 @@ categories: rails
 ↓こんなURLね
 
 ```
-http://alpaca.tc/shares/uIx90S
+https://alpaca.tc/shares/uIx90S
 ```
 
 実装面白かったので紹介してみます＞＜

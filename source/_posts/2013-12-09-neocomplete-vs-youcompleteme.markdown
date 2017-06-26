@@ -6,7 +6,7 @@ comments: true
 categories: vim
 ---
 
-この記事は[Vim Advent Calendar 2013](http://atnd.org/events/45072)の10日目です。
+この記事は[Vim Advent Calendar 2013](https://atnd.org/events/45072)の10日目です。
 
 先日は[@Linda](https://twitter.com/Linda_pp)さんの[無数のパッチを組み合わせて君だけの MacVim を作ろう！](http://rhysd.hatenablog.com/entry/2013/12/09/001219)でした。
 

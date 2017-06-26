@@ -23,14 +23,14 @@ categories: web-service
 
 この両方を解除しないとボタンは押せません。
 
-[Google Chrome](https://www.google.com/intl/en/chrome/browser/)の[Developer Tool](http://www.buildinsider.net/web/chromedevtools/01)は必須ですヨ:)
+[Google Chrome](https://www.google.com/intl/en/chrome/browser/)の[Developer Tool](https://www.buildinsider.net/web/chromedevtools/01)は必須ですヨ:)
 
 ### 1.イイネボタンの上にCSSでマスクがかかっている
 
 z-indexの仕業かと思ったら、こんな方法もあるんですねぇ。感心。
 
 ```css
-// http://iine2014.fnobi.com/css/iine2014.css:84
+// https://iine2014.fnobi.com/css/iine2014.css:84
 #iine:after {
   content: '';
   display: block;
@@ -51,7 +51,7 @@ Facebookのイイネボタンのidが`#iine`で、その直後に疑似要素`:a
 JavaScriptを見てみると、`mouseover`と`touchstart`のタイミングで位置を移動させているのが分かります。
 
 ```javascript
-// http://iine2014.fnobi.com/js/iine2014.js:9130
+// https://iine2014.fnobi.com/js/iine2014.js:9130
 (function (win) {
     $(function () {
         var $window = $(window);
@@ -70,4 +70,4 @@ JavaScriptを見てみると、`mouseover`と`touchstart`のタイミングで�
 
 解説しましたが、つまるところ`#iine`にまつわるものを解除してやればいいので、Developer Toolを開いて、ちょめっとすれば一瞬ですネヾ(\*´∀｀\*)ﾉ
 
-さぁ[「お好き玉」](http://iine2014.fnobi.com/)へ挑戦してみようー！
+さぁ[「お好き玉」](https://iine2014.fnobi.com/)へ挑戦してみようー！

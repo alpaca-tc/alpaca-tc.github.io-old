@@ -6,7 +6,7 @@ comments: true
 categories: vim
 ---
 
-この記事は[Vim Advent Calendar 2013](http://atnd.org/events/45072)の42日目の記事になります。
+この記事は[Vim Advent Calendar 2013](https://atnd.org/events/45072)の42日目の記事になります。
 
 # Neocomplete.vimのfile\_includeを使いこなす
 
@@ -100,7 +100,7 @@ Shougoさんいつもありがとうございます。本当に。
 
 ## Vim Advent Calendar 45
 
-前日は@osyo\_mangaさんの[textobj の両端へ移動する operator つくった](http://d.hatena.ne.jp/osyo-manga/20140110/1389342122)でした。
+前日は@osyo\_mangaさんの[textobj の両端へ移動する operator つくった](https://d.hatena.ne.jp/osyo-manga/20140110/1389342122)でした。
 
 は！またosyoさんということは...!? と思っていたら、やはりVim Advent Calendarの今後の投稿者が居ませんでした;(
 
