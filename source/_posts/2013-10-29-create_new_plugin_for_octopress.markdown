@@ -16,7 +16,7 @@ categories: [vim, alpaca_octopress]
 
 `:Octopress [command] {option}`
 
-```vim
+```
 " 設定はこんな感じ
 let g:octopress#rake_command = 'bundle exec rake'
 let g:octopress#project_url = expand('~/project/octopress')

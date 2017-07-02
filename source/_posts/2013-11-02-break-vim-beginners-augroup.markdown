@@ -21,7 +21,7 @@ categories: vim
 
 これは何をしているコマンドなのか分解してみましょう。
 
-```vim
+```
 autocmd BufNewFile * echo 'This is new file'
 ```
 
@@ -37,7 +37,7 @@ autocmd BufNewFile * echo 'This is new file'
 
 `augroup`は、`autocmd`をグループでまとめるためのコマンドです。こんな感じて使われます。
 
-```vim
+```
 augroup EditNewFile
   autocmd!
   autocmd BufNewFile * echo 'This is new file'
@@ -56,7 +56,7 @@ augroup END
 つまるところ、`augroup`は`autocmd`をまとめて初期化する場合に使用します。
 具体例を上げると、下記のような形になります。
 
-```vim
+```
 augroup MyAutoCmd
   autocmd! " => このaugroupに紐づいたautocmdを消し去ります
 augroup END
@@ -75,7 +75,7 @@ augroup END
 
 autocmdの設定方法をVimのRuntimeから学んでみましょう。
 
-```vim
+```
 :edit $VIMRUNTIME/filetype.vim
 ```
 
@@ -91,7 +91,7 @@ filetype.vimにて`runtime! ftdetect/*.vim`と書かれており、`~/.vim/ftdet
 
 つまり、ファイルタイプの設定は`ftdetect`以下で設定するのがベターとされています。
 
-```vim
+```
 " ~/.vim/ftdetect/coffee.vim
 autocmd BufNewFile,BufRead *.coffee    setf coffee
 ```

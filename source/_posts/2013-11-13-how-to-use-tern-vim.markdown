@@ -19,7 +19,7 @@ categories: vim
 
 設定をすれば、jQueryなどのプラグインでの諸々も補完しちゃう凄いやつなのだ。
 
-```vim
+```
 if has('python') && executable('npm')
   NeoBundleLazy 'marijnh/tern_for_vim', {
         \ 'build' : 'npm install',

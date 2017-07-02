@@ -20,7 +20,7 @@ categories: vim
 
 インストールはごく簡単です。
 
-```vim
+```
 NeoBundle 'alpaca-tc/assignment'`
 
 let g:assignment#path = expand('~/path/to/assignment')

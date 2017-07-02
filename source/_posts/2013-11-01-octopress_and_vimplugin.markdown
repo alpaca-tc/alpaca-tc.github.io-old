@@ -20,7 +20,7 @@ Octopressは利用者が一部なので、デフォルトのVimではなにも�
 このプラグインを入れると、ファイルタイプの検知や、キーワードのハイライトをしてくれるようになります。
 何が良いかというと、そのおかげで`neocomplete.vim`や`matchit.vim`などの他のプラグインもliquid用に対応してくれるんですよね。
 
-```vim
+```
 NeoBundleLazy 'tpope/vim-liquid', { 'autoload' : {
       \ 'filetypes' : 'liquid'
       \ }}
@@ -36,7 +36,7 @@ VimからOctopressのコマンド操作をするプラグインです。
 
 この2回の操作で、新しい記事をアップロードできます。
 
-```vim
+```
 NeoBundleLazy 'tangledhelix/vim-octopress', { 'autoload' : {
       \ 'commands': 'Octopress',
       \ }}
@@ -47,7 +47,7 @@ NeoBundleLazy 'tangledhelix/vim-octopress', { 'autoload' : {
 `vim-octopress`の非同期実行版です。
 人柱属性のある方はこちらをオススメします。
 
-```vim
+```
 NeoBundleLazy 'alpaca-tc/alpaca_octopress.vim', { 'autoload' : {
       \ 'branch': 'v0.3',
       \ 'functions' : 'octopress#complete',

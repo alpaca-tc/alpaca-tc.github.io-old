@@ -33,7 +33,7 @@ vimrcのコピペばかりの、あなた。
 変数を初期化するには、次のようにします。
 大量のエラーコードによって操作できなくなるので、**嫌いな人のvimrcの末尾に書き込んでください。**
 
-```vim
+```
 for key in keys(g:)
   execute 'unlet g:' . key
 endfor
@@ -67,7 +67,7 @@ call Huga('a', 'b')
 
 下記のようにすると、**グローバルスコープとして参照できます。**
 
-```vim
+```
 function! a:huga()
   echo 'Global!?!?!?'
 endfunction
@@ -84,7 +84,7 @@ call a:huga() " => Global!?!?!?
 
 プラグインで、プライベートなメソッドや定数を作るときによく使います。
 
-```vim
+```
 let s:script_scope = '外部からは参照できない'
 function! s:script_scope_method()
   " プライベートメソッドとしてよく使われる
@@ -102,7 +102,7 @@ endfunction
 
 マッピングの時に、scriptスコープを使う時などは必須ですね。
 
-```vim
+```
 nnoremap s :echo <SID>SID()<CR>
 ```
 

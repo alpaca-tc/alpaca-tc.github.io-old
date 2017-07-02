@@ -49,7 +49,7 @@ Watsonを使えば、Vimから簡単にIssue管理を行うことが出来ます
 
 ブランチの作業は、[vim-unite-giti](https://github.com/alpaca-tc/vim-unite-giti)を使います。
 
-```vim
+```
 :Unite giti/branch
 ```
 
@@ -73,7 +73,7 @@ Watsonを使えば、Vimから簡単にIssue管理を行うことが出来ます
 
 todoの内容は、watsonによって管理されるので、vim-unite-watsonを使えば一覧としてみることができます。
 
-```vim
+```
 :Unite watson/dirty
 ```
 

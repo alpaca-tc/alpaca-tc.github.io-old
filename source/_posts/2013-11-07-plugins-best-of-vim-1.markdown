@@ -16,7 +16,7 @@ categories: vim
 - 括弧の片方が消えた時や、重複する時に*自働で調整してくれる*
 - `innoremap ( ()<Left>`とか未だにやっているのダサくない？
 
-```vim
+```
 " [本家](https://github.com/jiangmiao/auto-pairs)
 " Lazy loading用に修正済み
 NeoBundleLazy 'alpaca-tc/auto-pairs', { 'autoload' : {
@@ -36,7 +36,7 @@ unlet hooks
 
 {% img image_on_frame center https://raw.github.com/junegunn/i/master/vim-easy-align.gif vim-easy-align DEMO %}
 
-```vim
+```
 NeoBundleLazy 'junegunn/vim-easy-align', { 'autoload': {
       \ 'commands' : ['EasyAlign'] }}
 ```
@@ -46,7 +46,7 @@ NeoBundleLazy 'junegunn/vim-easy-align', { 'autoload': {
 - イケてる、*インデント表示プラグイン*
 - `vim-indent-guides`は画面がうるさくなるから嫌！っていう人向け
 
-```vim
+```
 if has('conceal')
   NeoBundleLazy 'Yggdroot/indentLine', { 'autoload' : {
         \   'commands' : ['IndentLinesReset', 'IndentLinesToggle'],
@@ -60,7 +60,7 @@ endif
 - SublimeTextの複数マーク&同時編集 の機能を実現するプラグイン
 - 実装に関しては完全に「こいつ無茶しやがって...」状態。
 
-```vim
+```
 NeoBundleLazy 'terryma/vim-multiple-cursors', { 'autload': {
       \ 'function_prefix': 'multiple_cursors',
       \ }}

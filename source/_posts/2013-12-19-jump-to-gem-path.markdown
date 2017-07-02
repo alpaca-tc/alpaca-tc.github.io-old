@@ -21,7 +21,7 @@ Vimにおけるpathとは、`set path?`で出てくるpathです。
 
 適当にファイルを開いてコマンドを打ってみましょう。
 
-```vim
+```
 :set path?
 path=.,/usr/include
 ```
@@ -36,7 +36,7 @@ path=.,/usr/include
 
 Rubyを編集する際、Vimのビルトインの`ftplugin/ruby.vim`が読み込まれ、`gf`が自動的に関数にマッピングされます。
 
-```vim
+```
 :set filetype=ruby
 :nmap gf
 n  gf          *@:<C-U>exe <SNR>121_gf(v:count1,"gf",'edit')<CR>

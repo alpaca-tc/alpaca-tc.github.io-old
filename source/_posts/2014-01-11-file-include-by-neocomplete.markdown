@@ -29,7 +29,7 @@ file\_includeを拡張する際には、neocompleteの設定をしてあげる�
 
 指定しなければ、デフォルトの部分の変数が使用されます
 
-```vim
+```
 " Liquidで画像pathを補完する
 
 " デフォルト &l:path(検索対象のディレクトリ`,`区切り)
@@ -70,7 +70,7 @@ Railsでimage\_pathを入力する際に、typoが多いので補完で対応し
 
 こんな感じで色々対応出来るはずなので、誰か本格的なRails用カスタマイズを作ってみてくれたらうれしいです！
 
-```vim
+```
 " Rails.vimが必須
 function! s:setup_include_file_for_rails()
   if !exists('b:rails_root') || !exists('g:neocomplete#sources#include#paths')
