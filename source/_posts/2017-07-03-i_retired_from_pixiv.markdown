@@ -1,6 +1,6 @@
 ---
 layout: post
-title: pixivを退職しました！
+title: ピクシブを退職しました！
 date: 2017-07-03 00:03
 comments: true
 categories: pixiv job
