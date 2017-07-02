@@ -9,7 +9,7 @@ categories: pixiv job
 6月末で株式会社ピクシブを退社したので、退職エントリを書くゾヽ(・∀・ )ﾉ  
 エントリを通じて、エンジニアとして働く誰かの参考になれば嬉しいゾ
 
-{% img image_on_frame center /images/blog/pixiv/last.jpg %}
+{% img image_on_frame center /images/blog/pixiv/face.jpg %}
 
 <!-- more -->
 
@@ -83,5 +83,7 @@ __あんなに楽しい会社もなかなかない__ ので、本当にオスス
 
 [財布を無くして絶望マンのウィッシュリスト](http://amzn.asia/8lJqzlJ)  
 (旅行初日の本日、9万ぐらい入った財布とカードを落として地方で死に絶えそうです。マジで...。)
+
+{% img image_on_frame center /images/blog/pixiv/last.jpg %}
 
 3年間、本当にありがとうございました。
