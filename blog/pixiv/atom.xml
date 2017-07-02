@@ -4,7 +4,7 @@
   <title><![CDATA[Category: pixiv | RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/blog/pixiv/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2017-07-03T01:50:28+09:00</updated>
+  <updated>2017-07-03T01:51:39+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -20,6 +20,9 @@
     <id>http://alpaca.tc/blog/pixiv/job/i_retired_from_pixiv</id>
     <content type="html"><![CDATA[<p>6月末で株式会社ピクシブを退社したので、退職エントリを書くゾヽ(・∀・ )ﾉ<br/>
 エントリを通じて、エンジニアとして働く誰かの参考になれば嬉しいゾ</p>
+
+<!-- more -->
+
 
 <h2>会社について</h2>
 
