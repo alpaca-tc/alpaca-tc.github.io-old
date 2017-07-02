@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<feed xmlns="https://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: diary | RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/blog/diary/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2015-10-13T21:59:12+09:00</updated>
+  <updated>2017-07-03T01:50:28+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
     
   </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+  <generator uri="https://octopress.org/">Octopress</generator>
 
   
   <entry>
@@ -33,7 +33,7 @@
 
 <h3>お仕事。</h3>
 
-<p>6月に入ってから<a href="http://booth.pm">BOOTH</a>にアサインされて、数ヶ月を過ごし<br/>
+<p>6月に入ってから<a href="https://booth.pm">BOOTH</a>にアサインされて、数ヶ月を過ごし<br/>
 その後、<a href="http:://factory.pixiv.net">pixivFACTORY</a>のメインエンジニアとしてコード書いてました。</p>
 
 <p>pixivFACTORYが出た後に、ユーザーさん達が嬉しい言葉を言ってくださるのをTwitterで眺めていて、</p>
@@ -75,7 +75,7 @@
     <content type="html"><![CDATA[<p>先週、4月から働いていた株式会社クロノスを退社した。</p>
 
 <p>流行の退職エントリということだが、<br/>
-退職エントリといえば、<a href="http://d.hatena.ne.jp/takeda25/touch/20140407/1396864651">いい話(ウェブリオを辞めました)</a>の記事を読んで大変感銘を受けた！</p>
+退職エントリといえば、<a href="https://d.hatena.ne.jp/takeda25/touch/20140407/1396864651">いい話(ウェブリオを辞めました)</a>の記事を読んで大変感銘を受けた！</p>
 
 <p>同じように、エンジニアとして働く誰かの参考になれば嬉しい:)</p>
 
@@ -165,7 +165,7 @@
 
 <p>逆就活へ初めて参加される方は、前の記事から見ると良いと思います。-> <a href="/blog/diary/gyaku-syuukatsu-1">逆就活へ参加するときのノウハウまとめ</a></p>
 
-<p>1/18(土)に参加した<a href="http://www.studenthunting.com/">ITエンジニア逆求人</a>についての報告です:)</p>
+<p>1/18(土)に参加した<a href="https://www.studenthunting.com/">ITエンジニア逆求人</a>についての報告です:)</p>
 
 <!-- more -->
 
@@ -207,7 +207,7 @@
 </ol>
 
 
-<p>残りを振り分ける方法としては、有価証券報告書、取締役の人の書いた本、<a href="http://jobtalk.jp/">転職会議</a>の情報を横断的に見て、自分と合うか考えると良いと思います。</p>
+<p>残りを振り分ける方法としては、有価証券報告書、取締役の人の書いた本、<a href="https://jobtalk.jp/">転職会議</a>の情報を横断的に見て、自分と合うか考えると良いと思います。</p>
 
 <p>最終的に、ターゲットを3社に絞ります。今回は、捨てるターゲットに選んだ企業さんは名刺交換会の段階で断りました。</p>
 
@@ -308,7 +308,7 @@
     <link href="http://alpaca.tc/blog/diary/somethings-that-i-want-to-do.html"/>
     <updated>2014-01-14T00:05:00+09:00</updated>
     <id>http://alpaca.tc/blog/diary/somethings-that-i-want-to-do</id>
-    <content type="html"><![CDATA[<p>Takumi Kaiさんの<a href="http://nature-dot.com/othres/9">2014年にやりたい27のこと</a>を読んで、こういうのを記事にするのも良いなぁと思った。</p>
+    <content type="html"><![CDATA[<p>Takumi Kaiさんの<a href="https://nature-dot.com/othres/9">2014年にやりたい27のこと</a>を読んで、こういうのを記事にするのも良いなぁと思った。</p>
 
 <blockquote><p>思考は現実になる</p></blockquote>
 
@@ -416,7 +416,7 @@
     <id>http://alpaca.tc/blog/diary/gyaku-syuukatsu-1</id>
     <content type="html"><![CDATA[<h1>逆就活に参加してきました！</h1>
 
-<p>世の中には<a href="http://www.studenthunting.com/">IT系逆就活</a>というイベントがあります。</p>
+<p>世の中には<a href="https://www.studenthunting.com/">IT系逆就活</a>というイベントがあります。</p>
 
 <p>東京で開催された<em>23,24日</em>にイベントに参加してきました。</p>
 

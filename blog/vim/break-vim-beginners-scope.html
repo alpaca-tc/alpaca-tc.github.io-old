@@ -25,7 +25,7 @@
 
     <meta property="og:title" content='Vim中級者を脱する スコープ編' />
 <meta property="og:locale" content="ja_JP"/>
-<meta property="og:image" content="http://http://alpaca.tc/images/meta/site_title.png"/>
+<meta property="og:image" content="https://http://alpaca.tc/images/meta/site_title.png"/>
 <meta property="og:type" content="blog"/>
 <meta property="og:url" content="http://alpaca.tc/blog/vim/break-vim-beginners-scope.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
@@ -43,7 +43,7 @@
 スクリプトスコープ　s:
 バッファスコープ　b:
 接頭辞なし　let &hellip;">
-<meta name="twitter:image" content="http://http://alpaca.tc/images/meta/twitter.png">
+<meta name="twitter:image" content="https://http://alpaca.tc/images/meta/twitter.png">
 <meta name="twitter:site" content="@alpaca_taichou">
 <meta name="twitter:creator" content="@alpaca_taichou">
 
@@ -57,7 +57,7 @@
     <meta name="google-site-verification" content="thSL3cUT7BV1-AENglRFIF-kv6I85JJ6_iUGAU8GaQI" />
 
     <!--[if lte IE 8]>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <!-- [todo] - あとで修正するよー -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -70,7 +70,7 @@
     _gaq.push(['_trackPageview']);
     (function() {
       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+      ga.src = ('https:' == document.location.protocol ? 'https://' : 'https://') + 'stats.g.doubleclick.net/dc.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
   </script>
@@ -131,7 +131,7 @@
 
       <div id="main_contents">
         <div class="inner_wrapper">
-          <div id="breadcrumb" xmlns:v="http://rdf.data-vocabulary.org/#">
+          <div id="breadcrumb" xmlns:v="https://rdf.data-vocabulary.org/#">
   
     <span typeof="v:Breadcrumb">
       <a href="/blog/vim/" rel="v:url" property="v:title">
@@ -234,13 +234,12 @@
 <p>変数を初期化するには、次のようにします。
 大量のエラーコードによって操作できなくなるので、<strong>嫌いな人のvimrcの末尾に書き込んでください。</strong></p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">for</span> <span class="nb">key</span> <span class="k">in</span> keys<span class="p">(</span><span class="k">g</span>:<span class="p">)</span>
-</span><span class='line'>  execute <span class="s1">&#39;unlet g:&#39;</span> . <span class="nb">key</span>
-</span><span class='line'><span class="k">endfor</span>
-</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>for key in keys(g:)
+</span><span class='line'>  execute 'unlet g:' . key
+</span><span class='line'>endfor</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>関数内(a:)スコープ</h2>
@@ -251,7 +250,7 @@
 
 <p>こんな感じで使います。他言語から移ってきた人には、正直使いづらい。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -260,16 +259,15 @@
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">function</span><span class="p">!</span> Huga<span class="p">(</span><span class="k">first</span><span class="p">,</span> second<span class="p">)</span>
-</span><span class='line'>  echo <span class="k">a</span>:<span class="k">first</span>
-</span><span class='line'><span class="c">  &quot;=&gt; &#39;a&#39;</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function! Huga(first, second)
+</span><span class='line'>  echo a:first
+</span><span class='line'>  "=&gt; 'a'
 </span><span class='line'>
-</span><span class='line'>  echo <span class="k">a</span>:
-</span><span class='line'><span class="c">  &quot;=&gt; {&#39;0&#39;: 0, &#39;000&#39;: [], &#39;second&#39;: &#39;b&#39;, &#39;first&#39;: &#39;a&#39;, &#39;firstline&#39;: 5, &#39;lastline&#39;: 5}</span>
-</span><span class='line'><span class="k">endfunction</span>
+</span><span class='line'>  echo a:
+</span><span class='line'>  "=&gt; {'0': 0, '000': [], 'second': 'b', 'first': 'a', 'firstline': 5, 'lastline': 5}
+</span><span class='line'>endfunction
 </span><span class='line'>
-</span><span class='line'><span class="k">call</span> Huga<span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>call Huga('a', 'b')</span></code></pre></td></tr></table></div></figure>
 
 
 <p>「あーなるほど、<strong>関数内でだけ有効なスコープなのか。</strong>」</p>
@@ -278,17 +276,16 @@
 
 <p>下記のようにすると、<strong>グローバルスコープとして参照できます。</strong></p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">function</span><span class="p">!</span> <span class="k">a</span>:huga<span class="p">()</span>
-</span><span class='line'>  echo <span class="s1">&#39;Global!?!?!?&#39;</span>
-</span><span class='line'><span class="k">endfunction</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function! a:huga()
+</span><span class='line'>  echo 'Global!?!?!?'
+</span><span class='line'>endfunction
 </span><span class='line'>
-</span><span class='line'><span class="k">call</span> <span class="k">a</span>:huga<span class="p">()</span> <span class="c">&quot; =&gt; Global!?!?!?</span>
-</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>call a:huga() " =&gt; Global!?!?!?</span></code></pre></td></tr></table></div></figure>
 
 
 <p>実は、これ関数名に<code>:</code>が許可されているだけです。
@@ -300,15 +297,14 @@
 
 <p>プラグインで、プライベートなメソッドや定数を作るときによく使います。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">let</span> <span class="k">s</span>:script_scope <span class="p">=</span> <span class="s1">&#39;外部からは参照できない&#39;</span>
-</span><span class='line'><span class="k">function</span><span class="p">!</span> <span class="k">s</span>:script_scope_method<span class="p">()</span>
-</span><span class='line'><span class="c">  &quot; プライベートメソッドとしてよく使われる</span>
-</span><span class='line'><span class="k">endfunction</span>
-</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>let s:script_scope = '外部からは参照できない'
+</span><span class='line'>function! s:script_scope_method()
+</span><span class='line'>  " プライベートメソッドとしてよく使われる
+</span><span class='line'>endfunction</span></code></pre></td></tr></table></div></figure>
 
 
 <p>この<code>s:</code>は、スクリプトがsourceされるときに置き換えられ、<code>&lt;SNR&gt;1_...</code>という感じの形になります。</p>
@@ -321,9 +317,8 @@
 
 <p>マッピングの時に、scriptスコープを使う時などは必須ですね。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="nb">nnoremap</span> <span class="k">s</span> :echo <span class="p">&lt;</span>SID<span class="p">&gt;</span>SID<span class="p">()&lt;</span>CR<span class="p">&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>nnoremap s :echo &lt;SID&gt;SID()&lt;CR&gt;</span></code></pre></td></tr></table></div></figure>
 
 
 <p>ただし、<strong>変数は基本的には聖域</strong>です。</p>
@@ -390,10 +385,10 @@
   </div>
 
   <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca.tc/blog/vim/break-vim-beginners-scope.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
+    <a href="https://b.hatena.ne.jp/entry/http://alpaca.tc/blog/vim/break-vim-beginners-scope.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
 Vim中級者を脱する スコープ編 | RailsとRubyとVimのブログRailsとRubyとVimのブログ
 " data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
-      <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+      <img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
     </a>
   </div>
 
@@ -446,13 +441,13 @@ Vim中級者を脱する スコープ編 | RailsとRubyとVimのブログRails�
     <h1>最新記事</h1>
     
       <article>
-        <time datetime="2015-10-13T21:31:00+09:00" pubdate><span class='month'>Oct</span> <span class='day'>13</span> <span class='year'>2015</span></time>
-        <h1><a href="/blog/rails/create-share-link.html">シェアリンクの作り方</a></h1>
+        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
+        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
       </article>
     
       <article>
-        <time datetime="2014-05-24T01:07:00+09:00" pubdate><span class='month'>May</span> <span class='day'>24</span> <span class='year'>2014</span></time>
-        <h1><a href="/blog/diary/pixiv-year.html">東京に慣れてきた</a></h1>
+        <time datetime="2015-10-13T21:31:00+09:00" pubdate><span class='month'>Oct</span> <span class='day'>13</span> <span class='year'>2015</span></time>
+        <h1><a href="/blog/rails/create-share-link.html">シェアリンクの作り方</a></h1>
       </article>
     
   </div>
@@ -515,8 +510,8 @@ Vim中級者を脱する スコープ編 | RailsとRubyとVimのブログRails�
 
   <section id="side_sharing" class="sidebar_row">
   <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca.tc" class="hatena-bookmark-button" data-hatena-bookmark-title="RailsとRubyとVimのブログ" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このブログをはてなブックマークに追加">
-      <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このブログをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+    <a href="https://b.hatena.ne.jp/entry/http://alpaca.tc" class="hatena-bookmark-button" data-hatena-bookmark-title="RailsとRubyとVimのブログ" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このブログをはてなブックマークに追加">
+      <img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このブログをはてなブックマークに追加" width="20" height="20" style="border: none;" />
     </a>
   <!-- </div> -->
 </section>

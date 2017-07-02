@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<feed xmlns="https://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: vim | RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/blog/vim/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2015-10-13T21:59:12+09:00</updated>
+  <updated>2017-07-03T01:50:28+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
     
   </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+  <generator uri="https://octopress.org/">Octopress</generator>
 
   
   <entry>
@@ -101,7 +101,7 @@ VimScriptでアルゴリズムらしい手法を使ったことは無いので�
     <link href="http://alpaca.tc/blog/vim/file-include-by-neocomplete.html"/>
     <updated>2014-01-11T13:25:00+09:00</updated>
     <id>http://alpaca.tc/blog/vim/file-include-by-neocomplete</id>
-    <content type="html"><![CDATA[<p>この記事は<a href="http://atnd.org/events/45072">Vim Advent Calendar 2013</a>の42日目の記事になります。</p>
+    <content type="html"><![CDATA[<p>この記事は<a href="https://atnd.org/events/45072">Vim Advent Calendar 2013</a>の42日目の記事になります。</p>
 
 <h1>Neocomplete.vimのfile_includeを使いこなす</h1>
 
@@ -128,7 +128,7 @@ VimScriptでアルゴリズムらしい手法を使ったことは無いので�
 
 <p>指定しなければ、デフォルトの部分の変数が使用されます</p>
 
-<p>```vim
+<p>```
 &ldquo; Liquidで画像pathを補完する</p>
 
 <p>&ldquo; デフォルト &amp;l:path(検索対象のディレクトリ<code>,</code>区切り)
@@ -169,7 +169,7 @@ let g:neocomplete#sources#file_include#exts.liquid =
 
 <p>こんな感じで色々対応出来るはずなので、誰か本格的なRails用カスタマイズを作ってみてくれたらうれしいです！</p>
 
-<p>```vim
+<p>```
 &ldquo; Rails.vimが必須
 function! s:setup_include_file_for_rails()
   if !exists(&lsquo;b:rails_root&rsquo;) || !exists(&lsquo;g:neocomplete#sources#include#paths&rsquo;)</p>
@@ -214,7 +214,7 @@ command! RailsView call s:setup_include_file_for_rails()
 
 <h2>Vim Advent Calendar 45</h2>
 
-<p>前日は@osyo_mangaさんの<a href="http://d.hatena.ne.jp/osyo-manga/20140110/1389342122">textobj の両端へ移動する operator つくった</a>でした。</p>
+<p>前日は@osyo_mangaさんの<a href="https://d.hatena.ne.jp/osyo-manga/20140110/1389342122">textobj の両端へ移動する operator つくった</a>でした。</p>
 
 <p>は！またosyoさんということは&hellip;!? と思っていたら、やはりVim Advent Calendarの今後の投稿者が居ませんでした;(</p>
 
@@ -251,7 +251,7 @@ command! RailsView call s:setup_include_file_for_rails()
 
 <p>tablineをpowerline化したプラグインです。</p>
 
-<p>初めてのVim Advent Calendarで<a href="http://qiita.com/alpaca_taichou/items/ab70f914a6a577e25d70">powerlineをいつ使う？今でしょ！</a>という記事を書いて、そこそこ人気な記事となり驚きました。</p>
+<p>初めてのVim Advent Calendarで<a href="https://qiita.com/alpaca_taichou/items/ab70f914a6a577e25d70">powerlineをいつ使う？今でしょ！</a>という記事を書いて、そこそこ人気な記事となり驚きました。</p>
 
 <p>いやぁ&hellip;<em>「今でしょ！」</em>って、もうさぶいねぇ。笑</p>
 
@@ -299,7 +299,7 @@ command! RailsView call s:setup_include_file_for_rails()
 
 <p><img class="image_on_frame center <a" src="href="https://f.cloud.github.com/assets/1688137/1726147/ac9b52fc-628a-11e3-8117-ef4824444729.gif">https://f.cloud.github.com/assets/1688137/1726147/ac9b52fc-628a-11e3-8117-ef4824444729.gif</a>" title="watsonのcapture" ></p>
 
-<p><a href="http://goosecode.com/watson/">watson</a>用のUnite-sourceです。watson本体もガッツリ書き換えました。海外の方にも結構使ってもらえているようです。自身がプログラミングするとき、思考を止めないためにこのプラグインを作りました。</p>
+<p><a href="https://goosecode.com/watson/">watson</a>用のUnite-sourceです。watson本体もガッツリ書き換えました。海外の方にも結構使ってもらえているようです。自身がプログラミングするとき、思考を止めないためにこのプラグインを作りました。</p>
 
 <h3>その他、今年作ったプラグイン</h3>
 
@@ -353,7 +353,7 @@ command! RailsView call s:setup_include_file_for_rails()
 
 <p>適当にファイルを開いてコマンドを打ってみましょう。</p>
 
-<p><code>vim
+<p><code>
 :set path?
 path=.,/usr/include
 </code></p>
@@ -368,7 +368,7 @@ path=.,/usr/include
 
 <p>Rubyを編集する際、Vimのビルトインの<code>ftplugin/ruby.vim</code>が読み込まれ、<code>gf</code>が自動的に関数にマッピングされます。</p>
 
-<p><code>vim
+<p><code>
 :set filetype=ruby
 :nmap gf
 n  gf          *@:&lt;C-U&gt;exe &lt;SNR&gt;121_gf(v:count1,"gf",'edit')&lt;CR&gt;
@@ -450,7 +450,7 @@ $ bundle show --paths
 
 <p>何はともあれ、<strong>まずは動画をみてくれ。</strong></p>
 
-<p><iframe width="560" height="420" src="http://www.youtube.com/embed/jCgcpIO9oBs?color=white&theme=light"></iframe></p>
+<p><iframe width="560" height="420" src="https://www.youtube.com/embed/jCgcpIO9oBs?color=white&theme=light"></iframe></p>
 
 <p>とにかく、uniteインターフェースは操作を覚えることが少ない。</p>
 
@@ -478,7 +478,7 @@ $ bundle show --paths
 
 <p>こちらは、特に驚きはないので初めて使う人以外は見なくてもいいです。</p>
 
-<p><iframe width="560" height="420" src="http://www.youtube.com/embed/wWI3Wb-0Vw4?color=white&theme=light"></iframe></p>
+<p><iframe width="560" height="420" src="https://www.youtube.com/embed/wWI3Wb-0Vw4?color=white&theme=light"></iframe></p>
 
 <p>言わずもがな、コマンド名の通りです。</p>
 

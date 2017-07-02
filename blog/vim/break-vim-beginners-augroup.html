@@ -11,7 +11,7 @@
     
     <meta name="description" content="augroup, autocmdを理解する 所要時間 3分 この記事を読むべき人 augroupを理解していない人
 :sourceコマンドを使う人 そもそもautocmdって？ これは何をしているコマンドなのか分解してみましょう。 1
-autocmd BufNewFile * echo &#39; &hellip;">
+autocmd BufNewFile * echo 'This &hellip;">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='Vim中級者を脱する augroup編 | RailsとRubyとVimのブログ' name='title' />
@@ -23,21 +23,21 @@ autocmd BufNewFile * echo &#39; &hellip;">
 
     <meta property="og:title" content='Vim中級者を脱する augroup編' />
 <meta property="og:locale" content="ja_JP"/>
-<meta property="og:image" content="http://http://alpaca.tc/images/meta/site_title.png"/>
+<meta property="og:image" content="https://http://alpaca.tc/images/meta/site_title.png"/>
 <meta property="og:type" content="blog"/>
 <meta property="og:url" content="http://alpaca.tc/blog/vim/break-vim-beginners-augroup.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
 <meta property="og:description" content="augroup, autocmdを理解する 所要時間 3分 この記事を読むべき人 augroupを理解していない人
 :sourceコマンドを使う人 そもそもautocmdって？ これは何をしているコマンドなのか分解してみましょう。 1
-autocmd BufNewFile * echo &#39; &hellip;" />
+autocmd BufNewFile * echo 'This &hellip;" />
 <meta property="fb:app_id" content="224701561024840" />
 
     <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vim中級者を脱する augroup編 | RailsとRubyとVimのブログ">
 <meta name="twitter:description" content="augroup, autocmdを理解する 所要時間 3分 この記事を読むべき人 augroupを理解していない人
 :sourceコマンドを使う人 そもそもautocmdって？ これは何をしているコマンドなのか分解してみましょう。 1
-autocmd BufNewFile * echo &#39; &hellip;">
-<meta name="twitter:image" content="http://http://alpaca.tc/images/meta/twitter.png">
+autocmd BufNewFile * echo 'This &hellip;">
+<meta name="twitter:image" content="https://http://alpaca.tc/images/meta/twitter.png">
 <meta name="twitter:site" content="@alpaca_taichou">
 <meta name="twitter:creator" content="@alpaca_taichou">
 
@@ -51,7 +51,7 @@ autocmd BufNewFile * echo &#39; &hellip;">
     <meta name="google-site-verification" content="thSL3cUT7BV1-AENglRFIF-kv6I85JJ6_iUGAU8GaQI" />
 
     <!--[if lte IE 8]>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <!-- [todo] - あとで修正するよー -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -64,7 +64,7 @@ autocmd BufNewFile * echo &#39; &hellip;">
     _gaq.push(['_trackPageview']);
     (function() {
       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+      ga.src = ('https:' == document.location.protocol ? 'https://' : 'https://') + 'stats.g.doubleclick.net/dc.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
   </script>
@@ -125,7 +125,7 @@ autocmd BufNewFile * echo &#39; &hellip;">
 
       <div id="main_contents">
         <div class="inner_wrapper">
-          <div id="breadcrumb" xmlns:v="http://rdf.data-vocabulary.org/#">
+          <div id="breadcrumb" xmlns:v="https://rdf.data-vocabulary.org/#">
   
     <span typeof="v:Breadcrumb">
       <a href="/blog/vim/" rel="v:url" property="v:title">
@@ -216,9 +216,8 @@ autocmd BufNewFile * echo &#39; &hellip;">
 
 <p>これは何をしているコマンドなのか分解してみましょう。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'>autocmd <span class="nb">BufNewFile</span> * echo <span class="s1">&#39;This is new file&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>autocmd BufNewFile * echo 'This is new file'</span></code></pre></td></tr></table></div></figure>
 
 
 <ol>
@@ -236,15 +235,14 @@ autocmd BufNewFile * echo &#39; &hellip;">
 
 <p><code>augroup</code>は、<code>autocmd</code>をグループでまとめるためのコマンドです。こんな感じて使われます。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'>augroup EditNewFile
-</span><span class='line'>  autocmd<span class="p">!</span>
-</span><span class='line'>  autocmd <span class="nb">BufNewFile</span> * echo <span class="s1">&#39;This is new file&#39;</span>
-</span><span class='line'>augroup END
-</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>augroup EditNewFile
+</span><span class='line'>  autocmd!
+</span><span class='line'>  autocmd BufNewFile * echo 'This is new file'
+</span><span class='line'>augroup END</span></code></pre></td></tr></table></div></figure>
 
 
 <p>例えば、<code>autocmd</code>が設定されているvimrcを、<code>:source ~/.vimrc</code>で再度読み込むとしましょう。</p>
@@ -259,7 +257,7 @@ autocmd BufNewFile * echo &#39; &hellip;">
 <p>つまるところ、<code>augroup</code>は<code>autocmd</code>をまとめて初期化する場合に使用します。
 具体例を上げると、下記のような形になります。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -269,17 +267,16 @@ autocmd BufNewFile * echo &#39; &hellip;">
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'>augroup MyAutoCmd
-</span><span class='line'>  autocmd<span class="p">!</span> <span class="c">&quot; =&gt; このaugroupに紐づいたautocmdを消し去ります</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>augroup MyAutoCmd
+</span><span class='line'>  autocmd! " =&gt; このaugroupに紐づいたautocmdを消し去ります
 </span><span class='line'>augroup END
 </span><span class='line'>
 </span><span class='line'>...
 </span><span class='line'>
 </span><span class='line'>augroup MyAutoCmd
-</span><span class='line'>  autocmd <span class="nb">BufNewFile</span> * echo <span class="s1">&#39;This is new file&#39;</span>
-</span><span class='line'>  autocmd <span class="nb">BufNewFile</span><span class="p">,</span><span class="nb">BufRead</span> *.haml <span class="k">setf</span> haml
-</span><span class='line'>augroup END
-</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>  autocmd BufNewFile * echo 'This is new file'
+</span><span class='line'>  autocmd BufNewFile,BufRead *.haml setf haml
+</span><span class='line'>augroup END</span></code></pre></td></tr></table></div></figure>
 
 
 <p>こうすることで、2重に設定されることのない設定になります。</p>
@@ -288,9 +285,8 @@ autocmd BufNewFile * echo &#39; &hellip;">
 
 <p>autocmdの設定方法をVimのRuntimeから学んでみましょう。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="p">:</span>edit $VIMRUNTIME/<span class="k">filetype</span>.<span class="k">vim</span>
-</span></code></pre></td></tr></table></div></figure>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>:edit $VIMRUNTIME/filetype.vim</span></code></pre></td></tr></table></div></figure>
 
 
 <p>これはファイルタイプの定義を行っているファイルです。</p>
@@ -305,11 +301,10 @@ autocmd BufNewFile * echo &#39; &hellip;">
 
 <p>つまり、ファイルタイプの設定は<code>ftdetect</code>以下で設定するのがベターとされています。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="c">&quot; ~/.vim/ftdetect/coffee.vim</span>
-</span><span class='line'>autocmd <span class="nb">BufNewFile</span><span class="p">,</span><span class="nb">BufRead</span> *.coffee    <span class="k">setf</span> coffee
-</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>" ~/.vim/ftdetect/coffee.vim
+</span><span class='line'>autocmd BufNewFile,BufRead *.coffee    setf coffee</span></code></pre></td></tr></table></div></figure>
 
 
 <p>といった設定にて、ファイルタイプを検出できるようになります。
@@ -340,10 +335,10 @@ autocmd BufNewFile * echo &#39; &hellip;">
   </div>
 
   <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca.tc/blog/vim/break-vim-beginners-augroup.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
+    <a href="https://b.hatena.ne.jp/entry/http://alpaca.tc/blog/vim/break-vim-beginners-augroup.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
 Vim中級者を脱する augroup編 | RailsとRubyとVimのブログRailsとRubyとVimのブログ
 " data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
-      <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+      <img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
     </a>
   </div>
 
@@ -396,13 +391,13 @@ Vim中級者を脱する augroup編 | RailsとRubyとVimのブログRailsとRuby
     <h1>最新記事</h1>
     
       <article>
-        <time datetime="2015-10-13T21:31:00+09:00" pubdate><span class='month'>Oct</span> <span class='day'>13</span> <span class='year'>2015</span></time>
-        <h1><a href="/blog/rails/create-share-link.html">シェアリンクの作り方</a></h1>
+        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
+        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
       </article>
     
       <article>
-        <time datetime="2014-05-24T01:07:00+09:00" pubdate><span class='month'>May</span> <span class='day'>24</span> <span class='year'>2014</span></time>
-        <h1><a href="/blog/diary/pixiv-year.html">東京に慣れてきた</a></h1>
+        <time datetime="2015-10-13T21:31:00+09:00" pubdate><span class='month'>Oct</span> <span class='day'>13</span> <span class='year'>2015</span></time>
+        <h1><a href="/blog/rails/create-share-link.html">シェアリンクの作り方</a></h1>
       </article>
     
   </div>
@@ -465,8 +460,8 @@ Vim中級者を脱する augroup編 | RailsとRubyとVimのブログRailsとRuby
 
   <section id="side_sharing" class="sidebar_row">
   <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca.tc" class="hatena-bookmark-button" data-hatena-bookmark-title="RailsとRubyとVimのブログ" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このブログをはてなブックマークに追加">
-      <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このブログをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+    <a href="https://b.hatena.ne.jp/entry/http://alpaca.tc" class="hatena-bookmark-button" data-hatena-bookmark-title="RailsとRubyとVimのブログ" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このブログをはてなブックマークに追加">
+      <img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このブログをはてなブックマークに追加" width="20" height="20" style="border: none;" />
     </a>
   <!-- </div> -->
 </section>

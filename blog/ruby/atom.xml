@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<feed xmlns="https://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: ruby | RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/blog/ruby/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2015-10-13T21:59:12+09:00</updated>
+  <updated>2017-07-03T01:50:28+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
     
   </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+  <generator uri="https://octopress.org/">Octopress</generator>
 
   
   <entry>
@@ -41,7 +41,7 @@
 <p>READMEには視覚的なバッヂを追加出来ます。Gemを書くときには、ぜひとも入れておきたい情報ですね。</p>
 
 <ul>
-<li><a href="http://badge.fury.io/rb/comment_extractor"><img src="https://badge.fury.io/rb/comment_extractor.png" alt="Gem Version" /></a></li>
+<li><a href="https://badge.fury.io/rb/comment_extractor"><img src="https://badge.fury.io/rb/comment_extractor.png" alt="Gem Version" /></a></li>
 <li><a href="https://travis-ci.org/alpaca-tc/comment_parser"><img src="https://travis-ci.org/alpaca-tc/comment_extractor.png?branch=v1.0.0" alt="Build Status" /></a></li>
 <li><a href="https://coveralls.io/r/alpaca-tc/comment_extractor?branch=v1.0.0"><img src="https://coveralls.io/repos/alpaca-tc/comment_extractor/badge.png?branch=v1.0.0" alt="Coverage Status" /></a></li>
 </ul>
@@ -49,7 +49,7 @@
 
 <p>もちろん、登録すれば無料で作ることが出来ます。</p>
 
-<p>詳しくは<a href="http://elgalu.github.io/2013/add-achievement-badges-to-your-gem-readme/">コチラの記事</a>を読んでみましょう。</p>
+<p>詳しくは<a href="https://elgalu.github.io/2013/add-achievement-badges-to-your-gem-readme/">コチラの記事</a>を読んでみましょう。</p>
 
 <h2>2.RubyGemsからGemを削除する</h2>
 
@@ -70,8 +70,8 @@ gem yank gem_name -v 1.0.0
 <p>RSpecをキレイに書く方法は、ある程度伝統があります。</p>
 
 <ul>
-<li><a href="http://betterspecs.org/">BetterSpecs</a></li>
-<li><a href="http://bitfluxx.com/2011/05/23/some-rspec-tips-and-best-practices.html">Some RSpec Tips and Best Practices</a></li>
+<li><a href="https://betterspecs.org/">BetterSpecs</a></li>
+<li><a href="https://bitfluxx.com/2011/05/23/some-rspec-tips-and-best-practices.html">Some RSpec Tips and Best Practices</a></li>
 </ul>
 
 
@@ -502,7 +502,7 @@ p Branch.instance_variable_get(&lsquo;@val&rsquo;) #=> &lsquo;Base&rsquo;
     <link href="http://alpaca.tc/blog/ruby/how-to-use-watson.html"/>
     <updated>2013-12-03T23:49:00+09:00</updated>
     <id>http://alpaca.tc/blog/ruby/how-to-use-watson</id>
-    <content type="html"><![CDATA[<p>最近、Githubのトレンドにも入っていた<a href="http://goosecode.com/watson/">Watson</a>を紹介します。</p>
+    <content type="html"><![CDATA[<p>最近、Githubのトレンドにも入っていた<a href="https://goosecode.com/watson/">Watson</a>を紹介します。</p>
 
 <!-- more -->
 

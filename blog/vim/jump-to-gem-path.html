@@ -22,7 +22,7 @@
 
     <meta property="og:title" content='Vim中級者を脱する path編' />
 <meta property="og:locale" content="ja_JP"/>
-<meta property="og:image" content="http://http://alpaca.tc/images/meta/site_title.png"/>
+<meta property="og:image" content="https://http://alpaca.tc/images/meta/site_title.png"/>
 <meta property="og:type" content="blog"/>
 <meta property="og:url" content="http://alpaca.tc/blog/vim/jump-to-gem-path.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
@@ -34,7 +34,7 @@
 <meta name="twitter:title" content="Vim中級者を脱する path編 | RailsとRubyとVimのブログ">
 <meta name="twitter:description" content="はい、pathとは:set pathで出てくるやつのことです。
 実際にはみなさんgfやファイル補完などでお世話になっていると思います。 今回はpathとは何かを説明して、.rbファイルのクラスからGemの定義元へ飛ぶ方法をやってみましょう。 方法だけ知りたい人は、一番下までスクロールしてください &hellip;">
-<meta name="twitter:image" content="http://http://alpaca.tc/images/meta/twitter.png">
+<meta name="twitter:image" content="https://http://alpaca.tc/images/meta/twitter.png">
 <meta name="twitter:site" content="@alpaca_taichou">
 <meta name="twitter:creator" content="@alpaca_taichou">
 
@@ -48,7 +48,7 @@
     <meta name="google-site-verification" content="thSL3cUT7BV1-AENglRFIF-kv6I85JJ6_iUGAU8GaQI" />
 
     <!--[if lte IE 8]>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <!-- [todo] - あとで修正するよー -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -61,7 +61,7 @@
     _gaq.push(['_trackPageview']);
     (function() {
       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+      ga.src = ('https:' == document.location.protocol ? 'https://' : 'https://') + 'stats.g.doubleclick.net/dc.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
   </script>
@@ -122,7 +122,7 @@
 
       <div id="main_contents">
         <div class="inner_wrapper">
-          <div id="breadcrumb" xmlns:v="http://rdf.data-vocabulary.org/#">
+          <div id="breadcrumb" xmlns:v="https://rdf.data-vocabulary.org/#">
   
     <span typeof="v:Breadcrumb">
       <a href="/blog/vim/" rel="v:url" property="v:title">
@@ -210,11 +210,10 @@
 
 <p>適当にファイルを開いてコマンドを打ってみましょう。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="p">:</span><span class="k">set</span> <span class="nb">path</span>?
-</span><span class='line'><span class="nb">path</span><span class="p">=</span>.<span class="p">,</span><span class="sr">/usr/</span><span class="nb">include</span>
-</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>:set path?
+</span><span class='line'>path=.,/usr/include</span></code></pre></td></tr></table></div></figure>
 
 
 <p>これを設定しておくことで何が嬉しいかというと、編集中の変数の定義元へ飛べたり、ファイルを検索出来たりします。つまるところ、Vimが<em>何かを探すときの基準になる</em>ディレクトリ達を指定することができます。</p>
@@ -227,13 +226,12 @@
 
 <p>Rubyを編集する際、Vimのビルトインの<code>ftplugin/ruby.vim</code>が読み込まれ、<code>gf</code>が自動的に関数にマッピングされます。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="p">:</span><span class="k">set</span> <span class="k">filetype</span><span class="p">=</span><span class="k">ruby</span>
-</span><span class='line'><span class="p">:</span>nmap gf
-</span><span class='line'><span class="k">n</span>  gf          *@:<span class="p">&lt;</span>C<span class="p">-</span>U<span class="p">&gt;</span>exe <span class="p">&lt;</span>SNR<span class="p">&gt;</span><span class="m">121</span>_gf<span class="p">(</span><span class="k">v</span>:count1<span class="p">,</span><span class="s2">&quot;gf&quot;</span><span class="p">,</span><span class="s1">&#39;edit&#39;</span><span class="p">)&lt;</span>CR<span class="p">&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>:set filetype=ruby
+</span><span class='line'>:nmap gf
+</span><span class='line'>n  gf          *@:&lt;C-U&gt;exe &lt;SNR&gt;121_gf(v:count1,"gf",'edit')&lt;CR&gt;</span></code></pre></td></tr></table></div></figure>
 
 
 <p>このおかげで、通常の<code>gf</code>が拡張されて幾つかのケースで<code>gf</code>が使えるようになります。(Rails.vimも同じ手法を使っていますね。)</p>
@@ -319,10 +317,10 @@
   </div>
 
   <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca.tc/blog/vim/jump-to-gem-path.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
+    <a href="https://b.hatena.ne.jp/entry/http://alpaca.tc/blog/vim/jump-to-gem-path.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
 Vim中級者を脱する path編 | RailsとRubyとVimのブログRailsとRubyとVimのブログ
 " data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
-      <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+      <img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
     </a>
   </div>
 
@@ -375,13 +373,13 @@ Vim中級者を脱する path編 | RailsとRubyとVimのブログRailsとRubyと
     <h1>最新記事</h1>
     
       <article>
-        <time datetime="2015-10-13T21:31:00+09:00" pubdate><span class='month'>Oct</span> <span class='day'>13</span> <span class='year'>2015</span></time>
-        <h1><a href="/blog/rails/create-share-link.html">シェアリンクの作り方</a></h1>
+        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
+        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
       </article>
     
       <article>
-        <time datetime="2014-05-24T01:07:00+09:00" pubdate><span class='month'>May</span> <span class='day'>24</span> <span class='year'>2014</span></time>
-        <h1><a href="/blog/diary/pixiv-year.html">東京に慣れてきた</a></h1>
+        <time datetime="2015-10-13T21:31:00+09:00" pubdate><span class='month'>Oct</span> <span class='day'>13</span> <span class='year'>2015</span></time>
+        <h1><a href="/blog/rails/create-share-link.html">シェアリンクの作り方</a></h1>
       </article>
     
   </div>
@@ -444,8 +442,8 @@ Vim中級者を脱する path編 | RailsとRubyとVimのブログRailsとRubyと
 
   <section id="side_sharing" class="sidebar_row">
   <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca.tc" class="hatena-bookmark-button" data-hatena-bookmark-title="RailsとRubyとVimのブログ" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このブログをはてなブックマークに追加">
-      <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このブログをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+    <a href="https://b.hatena.ne.jp/entry/http://alpaca.tc" class="hatena-bookmark-button" data-hatena-bookmark-title="RailsとRubyとVimのブログ" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このブログをはてなブックマークに追加">
+      <img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このブログをはてなブックマークに追加" width="20" height="20" style="border: none;" />
     </a>
   <!-- </div> -->
 </section>

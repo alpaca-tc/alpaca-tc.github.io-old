@@ -21,7 +21,7 @@
 
     <meta property="og:title" content='neocomplete.vimのfile_includeを使いこなす' />
 <meta property="og:locale" content="ja_JP"/>
-<meta property="og:image" content="http://http://alpaca.tc/images/meta/site_title.png"/>
+<meta property="og:image" content="https://http://alpaca.tc/images/meta/site_title.png"/>
 <meta property="og:type" content="blog"/>
 <meta property="og:url" content="http://alpaca.tc/blog/vim/file-include-by-neocomplete.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
@@ -31,7 +31,7 @@
     <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="neocomplete.vimのfile_includeを使いこなす | RailsとRubyとVimのブログ">
 <meta name="twitter:description" content="この記事はVim Advent Calendar 2013の42日目の記事になります。 Neocomplete.vimのfile_includeを使いこなす さて、今回の記事ではneocompleteのfile_includeを使いこなしてみます。 file_includeとは、 &hellip;">
-<meta name="twitter:image" content="http://http://alpaca.tc/images/meta/twitter.png">
+<meta name="twitter:image" content="https://http://alpaca.tc/images/meta/twitter.png">
 <meta name="twitter:site" content="@alpaca_taichou">
 <meta name="twitter:creator" content="@alpaca_taichou">
 
@@ -45,7 +45,7 @@
     <meta name="google-site-verification" content="thSL3cUT7BV1-AENglRFIF-kv6I85JJ6_iUGAU8GaQI" />
 
     <!--[if lte IE 8]>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <!-- [todo] - あとで修正するよー -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -58,7 +58,7 @@
     _gaq.push(['_trackPageview']);
     (function() {
       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+      ga.src = ('https:' == document.location.protocol ? 'https://' : 'https://') + 'stats.g.doubleclick.net/dc.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
   </script>
@@ -119,7 +119,7 @@
 
       <div id="main_contents">
         <div class="inner_wrapper">
-          <div id="breadcrumb" xmlns:v="http://rdf.data-vocabulary.org/#">
+          <div id="breadcrumb" xmlns:v="https://rdf.data-vocabulary.org/#">
   
     <span typeof="v:Breadcrumb">
       <a href="/blog/vim/" rel="v:url" property="v:title">
@@ -191,7 +191,7 @@
     </header>
 
     
-      <section class="entry-content"><p>この記事は<a href="http://atnd.org/events/45072">Vim Advent Calendar 2013</a>の42日目の記事になります。</p>
+      <section class="entry-content"><p>この記事は<a href="https://atnd.org/events/45072">Vim Advent Calendar 2013</a>の42日目の記事になります。</p>
 
 <h1>Neocomplete.vimのfile_includeを使いこなす</h1>
 
@@ -218,7 +218,7 @@
 
 <p>指定しなければ、デフォルトの部分の変数が使用されます</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -238,27 +238,26 @@
 <span class='line-number'>18</span>
 <span class='line-number'>19</span>
 <span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="c">&quot; Liquidで画像pathを補完する</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>" Liquidで画像pathを補完する
 </span><span class='line'>
-</span><span class='line'><span class="c">&quot; デフォルト &amp;l:path(検索対象のディレクトリ`,`区切り)</span>
-</span><span class='line'><span class="k">let</span> <span class="k">g</span>:neocomplete#sources#<span class="nb">include</span>#paths.liquid <span class="p">=</span>
-</span><span class='line'>  \ <span class="s1">&#39;/Users/alpaca-tc/projects/alpaca-tc.github.io/source&#39;</span>
+</span><span class='line'>" デフォルト &l:path(検索対象のディレクトリ`,`区切り)
+</span><span class='line'>let g:neocomplete#sources#include#paths.liquid =
+</span><span class='line'>  \ '/Users/alpaca-tc/projects/alpaca-tc.github.io/source'
 </span><span class='line'>
-</span><span class='line'><span class="c">&quot; デフォルト &amp;l:include(正規表現にマッチしたら補完を開始)</span>
-</span><span class='line'><span class="k">let</span> <span class="k">g</span>:neocomplete#sources#<span class="nb">include</span>#patterns.liquid <span class="p">=</span>
-</span><span class='line'>  \ <span class="s1">&#39;\({\s*%\(\s\+\w\+\)\+\(\s*\|\s\+[a-zA-Z0-9_#\?\!]\+\)\@=\|{\s*{\(\s\+\w\+\)\+\(\s*\|\s\+[a-zA-Z0-9_#\?\!]\+\)\@=\)&#39;</span>
+</span><span class='line'>" デフォルト &l:include(正規表現にマッチしたら補完を開始)
+</span><span class='line'>let g:neocomplete#sources#include#patterns.liquid =
+</span><span class='line'>  \ '\({\s*%\(\s\+\w\+\)\+\(\s*\|\s\+[a-zA-Z0-9_#\?\!]\+\)\@=\|{\s*{\(\s\+\w\+\)\+\(\s*\|\s\+[a-zA-Z0-9_#\?\!]\+\)\@=\)'
 </span><span class='line'>
-</span><span class='line'><span class="c">&quot; デフォルト &amp;l:includeexpr(ファイルパスを出力する際に変換する)</span>
-</span><span class='line'><span class="k">let</span> <span class="k">g</span>:neocomplete#sources#<span class="nb">include</span>#exprs.liquid <span class="p">=</span>
-</span><span class='line'>  \ <span class="s1">&#39;substitute(v:fname, &quot;^/&quot;, &quot;&quot;, &quot;&quot;)&#39;</span>
+</span><span class='line'>" デフォルト &l:includeexpr(ファイルパスを出力する際に変換する)
+</span><span class='line'>let g:neocomplete#sources#include#exprs.liquid =
+</span><span class='line'>  \ 'substitute(v:fname, "^/", "", "")'
 </span><span class='line'>
-</span><span class='line'><span class="c">&quot; デフォルト &#39;.&#39;(区切り文字の指定)</span>
-</span><span class='line'><span class="k">let</span> <span class="k">g</span>:neocomplete#sources#file_include#delimiters.liquid <span class="p">=</span> <span class="s1">&#39;/&#39;</span>
+</span><span class='line'>" デフォルト '.'(区切り文字の指定)
+</span><span class='line'>let g:neocomplete#sources#file_include#delimiters.liquid = '/'
 </span><span class='line'>
-</span><span class='line'><span class="c">&quot; デフォルト [](補完するファイル拡張子フィルター)</span>
-</span><span class='line'><span class="k">let</span> <span class="k">g</span>:neocomplete#sources#file_include#exts.liquid <span class="p">=</span>
-</span><span class='line'>  \ [<span class="s1">&#39;png&#39;</span><span class="p">,</span> <span class="s1">&#39;jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;gif&#39;</span><span class="p">,</span> <span class="s1">&#39;jpeg&#39;</span><span class="p">,</span> <span class="s1">&#39;ico&#39;</span>]
-</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>" デフォルト [](補完するファイル拡張子フィルター)
+</span><span class='line'>let g:neocomplete#sources#file_include#exts.liquid =
+</span><span class='line'>  \ ['png', 'jpg', 'gif', 'jpeg', 'ico']</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>解説いる？</h2>
@@ -279,7 +278,7 @@
 
 <p>こんな感じで色々対応出来るはずなので、誰か本格的なRails用カスタマイズを作ってみてくれたらうれしいです！</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -296,24 +295,23 @@
 <span class='line-number'>15</span>
 <span class='line-number'>16</span>
 <span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="c">&quot; Rails.vimが必須</span>
-</span><span class='line'><span class="k">function</span><span class="p">!</span> <span class="k">s</span>:setup_include_file_for_rails<span class="p">()</span>
-</span><span class='line'>  <span class="k">if</span> <span class="p">!</span>exists<span class="p">(</span><span class="s1">&#39;b:rails_root&#39;</span><span class="p">)</span> <span class="p">||</span> <span class="p">!</span>exists<span class="p">(</span><span class="s1">&#39;g:neocomplete#sources#include#paths&#39;</span><span class="p">)</span>
-</span><span class='line'>    <span class="k">return</span>
-</span><span class='line'>  <span class="k">endif</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>" Rails.vimが必須
+</span><span class='line'>function! s:setup_include_file_for_rails()
+</span><span class='line'>  if !exists('b:rails_root') || !exists('g:neocomplete#sources#include#paths')
+</span><span class='line'>    return
+</span><span class='line'>  endif
 </span><span class='line'>
-</span><span class='line'>  <span class="k">let</span> <span class="k">g</span>:neocomplete#sources#<span class="nb">include</span>#patterns.haml <span class="p">=</span>
-</span><span class='line'>        \ <span class="s1">&#39;^\s*\&lt;\%(image_path\|image_tag\)\&gt;&#39;</span>
-</span><span class='line'>  <span class="k">let</span> <span class="k">g</span>:neocomplete#sources#<span class="nb">include</span>#paths.haml <span class="p">=</span>
-</span><span class='line'>        \ <span class="k">b</span>:rails_root . <span class="s1">&#39;/app/assets/images&#39;</span>
-</span><span class='line'>  <span class="k">let</span> <span class="k">g</span>:neocomplete#sources#<span class="nb">include</span>#exprs.haml <span class="p">=</span>
-</span><span class='line'>        \ <span class="s2">&quot;substitute(substitute(v:fname,&#39;::&#39;,&#39;/&#39;,&#39;g&#39;),&#39;$&#39;,&#39;&#39;,&#39;&#39;)&quot;</span>
-</span><span class='line'>  <span class="k">let</span> <span class="k">g</span>:neocomplete#sources#file_include#exts.haml <span class="p">=</span>
-</span><span class='line'>        \ [<span class="s1">&#39;png&#39;</span><span class="p">,</span> <span class="s1">&#39;jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;gif&#39;</span><span class="p">,</span> <span class="s1">&#39;jpeg&#39;</span><span class="p">,</span> <span class="s1">&#39;ico&#39;</span>]
-</span><span class='line'>  <span class="k">let</span> <span class="k">g</span>:neocomplete#sources#file_include#delimiters.haml <span class="p">=</span> <span class="s1">&#39;/&#39;</span>
-</span><span class='line'><span class="k">endfunction</span>
-</span><span class='line'>command<span class="p">!</span> RailsView <span class="k">call</span> <span class="k">s</span>:setup_include_file_for_rails<span class="p">()</span>
-</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>  let g:neocomplete#sources#include#patterns.haml =
+</span><span class='line'>        \ '^\s*\&lt;\%(image_path\|image_tag\)\&gt;'
+</span><span class='line'>  let g:neocomplete#sources#include#paths.haml =
+</span><span class='line'>        \ b:rails_root . '/app/assets/images'
+</span><span class='line'>  let g:neocomplete#sources#include#exprs.haml =
+</span><span class='line'>        \ "substitute(substitute(v:fname,'::','/','g'),'$','','')"
+</span><span class='line'>  let g:neocomplete#sources#file_include#exts.haml =
+</span><span class='line'>        \ ['png', 'jpg', 'gif', 'jpeg', 'ico']
+</span><span class='line'>  let g:neocomplete#sources#file_include#delimiters.haml = '/'
+</span><span class='line'>endfunction
+</span><span class='line'>command! RailsView call s:setup_include_file_for_rails()</span></code></pre></td></tr></table></div></figure>
 
 
 <p><strong>うっほい！</strong></p>
@@ -326,7 +324,7 @@
 
 <h2>Vim Advent Calendar 45</h2>
 
-<p>前日は@osyo_mangaさんの<a href="http://d.hatena.ne.jp/osyo-manga/20140110/1389342122">textobj の両端へ移動する operator つくった</a>でした。</p>
+<p>前日は@osyo_mangaさんの<a href="https://d.hatena.ne.jp/osyo-manga/20140110/1389342122">textobj の両端へ移動する operator つくった</a>でした。</p>
 
 <p>は！またosyoさんということは&hellip;!? と思っていたら、やはりVim Advent Calendarの今後の投稿者が居ませんでした;(</p>
 
@@ -355,10 +353,10 @@
   </div>
 
   <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca.tc/blog/vim/file-include-by-neocomplete.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
+    <a href="https://b.hatena.ne.jp/entry/http://alpaca.tc/blog/vim/file-include-by-neocomplete.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
 neocomplete.vimのfile_includeを使いこなす | RailsとRubyとVimのブログRailsとRubyとVimのブログ
 " data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
-      <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+      <img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
     </a>
   </div>
 
@@ -411,13 +409,13 @@ neocomplete.vimのfile_includeを使いこなす | RailsとRubyとVimのブロ�
     <h1>最新記事</h1>
     
       <article>
-        <time datetime="2015-10-13T21:31:00+09:00" pubdate><span class='month'>Oct</span> <span class='day'>13</span> <span class='year'>2015</span></time>
-        <h1><a href="/blog/rails/create-share-link.html">シェアリンクの作り方</a></h1>
+        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
+        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
       </article>
     
       <article>
-        <time datetime="2014-05-24T01:07:00+09:00" pubdate><span class='month'>May</span> <span class='day'>24</span> <span class='year'>2014</span></time>
-        <h1><a href="/blog/diary/pixiv-year.html">東京に慣れてきた</a></h1>
+        <time datetime="2015-10-13T21:31:00+09:00" pubdate><span class='month'>Oct</span> <span class='day'>13</span> <span class='year'>2015</span></time>
+        <h1><a href="/blog/rails/create-share-link.html">シェアリンクの作り方</a></h1>
       </article>
     
   </div>
@@ -480,8 +478,8 @@ neocomplete.vimのfile_includeを使いこなす | RailsとRubyとVimのブロ�
 
   <section id="side_sharing" class="sidebar_row">
   <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca.tc" class="hatena-bookmark-button" data-hatena-bookmark-title="RailsとRubyとVimのブログ" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このブログをはてなブックマークに追加">
-      <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このブログをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+    <a href="https://b.hatena.ne.jp/entry/http://alpaca.tc" class="hatena-bookmark-button" data-hatena-bookmark-title="RailsとRubyとVimのブログ" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このブログをはてなブックマークに追加">
+      <img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このブログをはてなブックマークに追加" width="20" height="20" style="border: none;" />
     </a>
   <!-- </div> -->
 </section>

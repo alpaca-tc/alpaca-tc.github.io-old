@@ -21,7 +21,7 @@
 
     <meta property="og:title" content='NeoComplete vs YouCompleteMe' />
 <meta property="og:locale" content="ja_JP"/>
-<meta property="og:image" content="http://http://alpaca.tc/images/meta/site_title.png"/>
+<meta property="og:image" content="https://http://alpaca.tc/images/meta/site_title.png"/>
 <meta property="og:type" content="blog"/>
 <meta property="og:url" content="http://alpaca.tc/blog/vim/neocomplete-vs-youcompleteme.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
@@ -31,7 +31,7 @@
     <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NeoComplete vs YouCompleteMe | RailsとRubyとVimのブログ">
 <meta name="twitter:description" content="この記事はVim Advent Calendar 2013の10日目です。 先日は@Lindaさんの無数のパッチを組み合わせて君だけの MacVim を作ろう！でした。 大学卒業までに、自分専用Vimを作ろうと思っている自分にとって大変参考になる記事でした。 NeoComplete VS &hellip;">
-<meta name="twitter:image" content="http://http://alpaca.tc/images/meta/twitter.png">
+<meta name="twitter:image" content="https://http://alpaca.tc/images/meta/twitter.png">
 <meta name="twitter:site" content="@alpaca_taichou">
 <meta name="twitter:creator" content="@alpaca_taichou">
 
@@ -45,7 +45,7 @@
     <meta name="google-site-verification" content="thSL3cUT7BV1-AENglRFIF-kv6I85JJ6_iUGAU8GaQI" />
 
     <!--[if lte IE 8]>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <!-- [todo] - あとで修正するよー -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -58,7 +58,7 @@
     _gaq.push(['_trackPageview']);
     (function() {
       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+      ga.src = ('https:' == document.location.protocol ? 'https://' : 'https://') + 'stats.g.doubleclick.net/dc.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
   </script>
@@ -119,7 +119,7 @@
 
       <div id="main_contents">
         <div class="inner_wrapper">
-          <div id="breadcrumb" xmlns:v="http://rdf.data-vocabulary.org/#">
+          <div id="breadcrumb" xmlns:v="https://rdf.data-vocabulary.org/#">
   
     <span typeof="v:Breadcrumb">
       <a href="/blog/vim/" rel="v:url" property="v:title">
@@ -191,7 +191,7 @@
     </header>
 
     
-      <section class="entry-content"><p>この記事は<a href="http://atnd.org/events/45072">Vim Advent Calendar 2013</a>の10日目です。</p>
+      <section class="entry-content"><p>この記事は<a href="https://atnd.org/events/45072">Vim Advent Calendar 2013</a>の10日目です。</p>
 
 <p>先日は<a href="https://twitter.com/Linda_pp">@Linda</a>さんの<a href="http://rhysd.hatenablog.com/entry/2013/12/09/001219">無数のパッチを組み合わせて君だけの MacVim を作ろう！</a>でした。</p>
 
@@ -281,9 +281,8 @@
 
 <p>ファイル補完の優先順位をあげましょう。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="k">call</span> neocomplete#custom#source<span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="s1">&#39;rank&#39;</span><span class="p">,</span> <span class="m">10</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>call neocomplete#custom#source('file', 'rank', 10)</span></code></pre></td></tr></table></div></figure>
 
 
 <p>これに関しては、<strong>元々のファイル補完のrankがなぜ低いのか疑問</strong>です。理由があるのでしょうか。</p>
@@ -302,7 +301,7 @@
 
 <p>ただ、自分の環境にあわせれば、補完スピードはあがるはずです。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -322,27 +321,26 @@
 <span class='line-number'>18</span>
 <span class='line-number'>19</span>
 <span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="c">&quot; 極端な例ですが、下記のような操作で補完をチューニングできます</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>" 極端な例ですが、下記のような操作で補完をチューニングできます
 </span><span class='line'>
-</span><span class='line'><span class="c">&quot; 補完を始めるキーワード長を長くする</span>
-</span><span class='line'><span class="k">let</span> <span class="k">g</span>:neocomplete#sources#<span class="nb">syntax</span>#min_keyword_length <span class="p">=</span> <span class="m">4</span>
-</span><span class='line'><span class="k">let</span> <span class="k">g</span>:neocomplete#auto_completion_start_length <span class="p">=</span> <span class="m">4</span>
+</span><span class='line'>" 補完を始めるキーワード長を長くする
+</span><span class='line'>let g:neocomplete#sources#syntax#min_keyword_length = 4
+</span><span class='line'>let g:neocomplete#auto_completion_start_length = 4
 </span><span class='line'>
-</span><span class='line'><span class="c">&quot; 補完が止まった際に、スキップする長さを短くする</span>
-</span><span class='line'><span class="k">let</span> <span class="k">g</span>:neocomplete#skip_auto_completion_time <span class="p">=</span> <span class="s1">&#39;0.2&#39;</span>
+</span><span class='line'>" 補完が止まった際に、スキップする長さを短くする
+</span><span class='line'>let g:neocomplete#skip_auto_completion_time = '0.2'
 </span><span class='line'>
-</span><span class='line'><span class="c">&quot; 使用する補完の種類を減らす</span>
-</span><span class='line'><span class="c">&quot; 現在のSourceの取得は `:echo keys(neocomplete#variables#get_sources())`</span>
-</span><span class='line'><span class="c">&quot; デフォルト: [&#39;file&#39;, &#39;tag&#39;, &#39;neosnippet&#39;, &#39;vim&#39;, &#39;dictionary&#39;, &#39;omni&#39;, &#39;member&#39;, &#39;syntax&#39;, &#39;include&#39;, &#39;buffer&#39;, &#39;file/include&#39;]</span>
-</span><span class='line'><span class="k">let</span> <span class="k">g</span>:neocomplete#sources <span class="p">=</span> {
-</span><span class='line'>  \ <span class="s1">&#39;_&#39;</span> : [<span class="s1">&#39;vim&#39;</span><span class="p">,</span> <span class="s1">&#39;omni&#39;</span><span class="p">,</span> <span class="s1">&#39;include&#39;</span><span class="p">,</span> <span class="s1">&#39;buffer&#39;</span><span class="p">,</span> <span class="s1">&#39;file/include&#39;</span>]
+</span><span class='line'>" 使用する補完の種類を減らす
+</span><span class='line'>" 現在のSourceの取得は `:echo keys(neocomplete#variables#get_sources())`
+</span><span class='line'>" デフォルト: ['file', 'tag', 'neosnippet', 'vim', 'dictionary', 'omni', 'member', 'syntax', 'include', 'buffer', 'file/include']
+</span><span class='line'>let g:neocomplete#sources = {
+</span><span class='line'>  \ '_' : ['vim', 'omni', 'include', 'buffer', 'file/include']
 </span><span class='line'>  \ }
 </span><span class='line'>
-</span><span class='line'><span class="c">&quot; 特定のタイミングでのみ使う補完は、直接呼び出すようにする</span>
-</span><span class='line'><span class="nb">inoremap</span> <span class="p">&lt;</span>expr<span class="p">&gt;&lt;</span>C<span class="p">-</span><span class="k">X</span><span class="p">&gt;&lt;</span>C<span class="p">-</span>F<span class="p">&gt;</span>  neocomplete#start_manual_complete<span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="nb">inoremap</span> <span class="p">&lt;</span>expr<span class="p">&gt;&lt;</span>C<span class="p">-</span><span class="k">X</span><span class="p">&gt;&lt;</span>C<span class="p">-</span>K<span class="p">&gt;</span>  neocomplete#start_manual_complete<span class="p">(</span><span class="s1">&#39;dictionary&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="nb">inoremap</span> <span class="p">&lt;</span>expr<span class="p">&gt;&lt;</span>C<span class="p">-</span><span class="k">X</span><span class="p">&gt;</span><span class="k">s</span>      neocomplete#start_manual_complete<span class="p">(</span><span class="s1">&#39;neosnippet&#39;</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>" 特定のタイミングでのみ使う補完は、直接呼び出すようにする
+</span><span class='line'>inoremap &lt;expr&gt;&lt;C-X&gt;&lt;C-F&gt;  neocomplete#start_manual_complete('file')
+</span><span class='line'>inoremap &lt;expr&gt;&lt;C-X&gt;&lt;C-K&gt;  neocomplete#start_manual_complete('dictionary')
+</span><span class='line'>inoremap &lt;expr&gt;&lt;C-X&gt;s      neocomplete#start_manual_complete('neosnippet')</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>まとめ</h2>
@@ -372,10 +370,10 @@
   </div>
 
   <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca.tc/blog/vim/neocomplete-vs-youcompleteme.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
+    <a href="https://b.hatena.ne.jp/entry/http://alpaca.tc/blog/vim/neocomplete-vs-youcompleteme.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
 NeoComplete vs YouCompleteMe | RailsとRubyとVimのブログRailsとRubyとVimのブログ
 " data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
-      <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+      <img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
     </a>
   </div>
 
@@ -428,13 +426,13 @@ NeoComplete vs YouCompleteMe | RailsとRubyとVimのブログRailsとRubyとVim�
     <h1>最新記事</h1>
     
       <article>
-        <time datetime="2015-10-13T21:31:00+09:00" pubdate><span class='month'>Oct</span> <span class='day'>13</span> <span class='year'>2015</span></time>
-        <h1><a href="/blog/rails/create-share-link.html">シェアリンクの作り方</a></h1>
+        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
+        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
       </article>
     
       <article>
-        <time datetime="2014-05-24T01:07:00+09:00" pubdate><span class='month'>May</span> <span class='day'>24</span> <span class='year'>2014</span></time>
-        <h1><a href="/blog/diary/pixiv-year.html">東京に慣れてきた</a></h1>
+        <time datetime="2015-10-13T21:31:00+09:00" pubdate><span class='month'>Oct</span> <span class='day'>13</span> <span class='year'>2015</span></time>
+        <h1><a href="/blog/rails/create-share-link.html">シェアリンクの作り方</a></h1>
       </article>
     
   </div>
@@ -497,8 +495,8 @@ NeoComplete vs YouCompleteMe | RailsとRubyとVimのブログRailsとRubyとVim�
 
   <section id="side_sharing" class="sidebar_row">
   <div class="button hatena_bookmark_button">
-    <a href="http://b.hatena.ne.jp/entry/http://alpaca.tc" class="hatena-bookmark-button" data-hatena-bookmark-title="RailsとRubyとVimのブログ" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このブログをはてなブックマークに追加">
-      <img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このブログをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+    <a href="https://b.hatena.ne.jp/entry/http://alpaca.tc" class="hatena-bookmark-button" data-hatena-bookmark-title="RailsとRubyとVimのブログ" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このブログをはてなブックマークに追加">
+      <img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このブログをはてなブックマークに追加" width="20" height="20" style="border: none;" />
     </a>
   <!-- </div> -->
 </section>

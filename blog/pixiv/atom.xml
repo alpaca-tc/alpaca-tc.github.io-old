@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="https://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: pixiv | RailsとRubyとVimのブログ]]></title>
+  <link href="http://alpaca.tc/blog/pixiv/atom.xml" rel="self"/>
+  <link href="http://alpaca.tc/"/>
+  <updated>2017-07-03T01:50:28+09:00</updated>
+  <id>http://alpaca.tc/</id>
+  <author>
+    <name><![CDATA[alpaca-tc]]></name>
+    
+  </author>
+  <generator uri="https://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[ピクシブを退職しました！]]></title>
+    <link href="http://alpaca.tc/blog/pixiv/job/i_retired_from_pixiv.html"/>
+    <updated>2017-07-03T00:03:00+09:00</updated>
+    <id>http://alpaca.tc/blog/pixiv/job/i_retired_from_pixiv</id>
+    <content type="html"><![CDATA[<p>6月末で株式会社ピクシブを退社したので、退職エントリを書くゾヽ(・∀・ )ﾉ<br/>
+エントリを通じて、エンジニアとして働く誰かの参考になれば嬉しいゾ</p>
+
+<h2>会社について</h2>
+
+<p>ピクシブは「お絵かきがもっと楽しめる場所を作ること」を基本理念として、<br/>
+<a href="https://www.pixiv.net">pixiv.net</a>を中心とした創作活動にまつわるWebサービスを運営する会社です。</p>
+
+<p>入社したタイミングは、 <strong>これから新規事業をどんどんやる！</strong> というタイミングでした。<br/>
+(入社当時のエントリはこちら→<a href="/blog/blog/i-im-join-for-this-company.html">めまぐるしい１年！</a>)</p>
+
+<h2>これまでやってきたこと</h2>
+
+<p>イラストやアニメといった文化に全く触れてこなかった僕にとって、<br/>
+ピクシブで過ごした３年間は全てが新鮮で楽しいものでした( ﾟ∀ﾟ)o彡</p>
+
+<p>入社してすぐに<a href="https://factory.pixiv.net">pixivFACTORY</a>の立ち上げをしました。<br/>
+開発リーダーになってから３年間で、pixivFACTORYの大きな機能の多くを担当させてもらいました。</p>
+
+<p><img class="image_on_frame center" src="/images/blog/pixiv/contribute.png"></p>
+
+<p>我が子のような可愛い可愛いサービスですね。</p>
+
+<p>新卒2年目ごろからは、Railsおじさんとして<br/>
+レガシー殺すマン、Rails-Wayマンとして、社内のプロジェクトに関わってきました。</p>
+
+<ul>
+<li><a href="https://booth.pm">BOOTH</a></li>
+<li><a href="https://factory.pixiv.net">pixivFACTORY</a></li>
+<li><a href="https://comic.pixiv.net">pixivコミック</a></li>
+<li><a href="https://novel.pixiv.net">pixivノベル</a></li>
+<li><a href="https://pawoo.net">pawoo</a></li>
+</ul>
+
+
+<p>退職が決まってからの最後の3ヶ月は、pixivFACTORYを離れて<a href="https://pawoo.net">pawoo</a>の開発をしていました。<br/>
+Mastodon本家に高速化やバグ修正のパッチを投げていたら、GithubのGraphでトップ4に入るぐらいだったので、退社直前までそれなりにはやっていたと思います。</p>
+
+<h2>なんで辞めるの？</h2>
+
+<p>タイミングがたまたま良かったからです。</p>
+
+<p>引き継ぎをして新しい挑戦をしようというタイミングで、お話をいただきました。<br/>
+その事業ドメインが魅力的だったので、エイヤッと転職することにしました。</p>
+
+<h2>転職は何を期待しているの？</h2>
+
+<p>次は、いわゆるFintechの会社にいきます。<br/>
+pixivに入った時と同じように、何も前提知識を知らない業界だったというところに惹かれました。</p>
+
+<p><strong>何も知らない、分からないというのは、なんでもできることの裏返しなのできっと面白いですね。</strong></p>
+
+<p>何をするかは決まってませんが、きっと新しい会社でも楽しめるかなと思います。(´・ω・)</p>
+
+<h2>これから何するの？</h2>
+
+<p>8月まで1ヶ月のお休みをいただいています！<br/>
+元同僚がやっているアフリカの事業をお手伝いしつつ、 7/21からはSplatoonに費やしたいと思っております。</p>
+
+<p>また、日本でまだ行ったことがない都道府県が残り5県なので<br/>
+各地をまわり、地元のおっちゃんと地酒を飲み語らいながら過ごしたいと思います。</p>
+
+<h2>おわりに</h2>
+
+<p>新卒として東京に出てきて、<br/>
+この3年間を、pixivで働けたことは最高の日々でした。</p>
+
+<p>学生時代から何社も経験していますが<br/>
+<strong>あんなに楽しい会社もなかなかない</strong> ので、本当にオススメします！</p>
+
+<p>最後に例のもの貼っておきます。何かいただけたら飛び跳ねて喜びます。ヽ(・∀・ )ﾉ</p>
+
+<p><a href="http://amzn.asia/8lJqzlJ">財布を無くして絶望マンのウィッシュリスト</a><br/>
+(旅行初日の本日、9万ぐらい入った財布とカードを落として地方で死に絶えそうです。マジで&hellip;。)</p>
+
+<p><img class="image_on_frame center" src="/images/blog/pixiv/last.jpg"></p>
+
+<p>3年間、本当にありがとうございました。</p>
+]]></content>
+  </entry>
+  
+</feed>
+
+
+

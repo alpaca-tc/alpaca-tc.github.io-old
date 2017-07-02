@@ -1,17 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<feed xmlns="https://www.w3.org/2005/Atom">
 
   <title><![CDATA[RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2015-10-13T21:59:12+09:00</updated>
+  <updated>2017-07-03T01:50:28+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
     
   </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+  <generator uri="https://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[ピクシブを退職しました！]]></title>
+    <link href="http://alpaca.tc/blog/pixiv/job/i_retired_from_pixiv.html"/>
+    <updated>2017-07-03T00:03:00+09:00</updated>
+    <id>http://alpaca.tc/blog/pixiv/job/i_retired_from_pixiv</id>
+    <content type="html"><![CDATA[<p>6月末で株式会社ピクシブを退社したので、退職エントリを書くゾヽ(・∀・ )ﾉ<br/>
+エントリを通じて、エンジニアとして働く誰かの参考になれば嬉しいゾ</p>
+
+<h2>会社について</h2>
+
+<p>ピクシブは「お絵かきがもっと楽しめる場所を作ること」を基本理念として、<br/>
+<a href="https://www.pixiv.net">pixiv.net</a>を中心とした創作活動にまつわるWebサービスを運営する会社です。</p>
+
+<p>入社したタイミングは、 <strong>これから新規事業をどんどんやる！</strong> というタイミングでした。<br/>
+(入社当時のエントリはこちら→<a href="http://alpaca.tc/blog/blog/i-im-join-for-this-company.html">めまぐるしい１年！</a>)</p>
+
+<h2>これまでやってきたこと</h2>
+
+<p>イラストやアニメといった文化に全く触れてこなかった僕にとって、<br/>
+ピクシブで過ごした３年間は全てが新鮮で楽しいものでした( ﾟ∀ﾟ)o彡</p>
+
+<p>入社してすぐに<a href="https://factory.pixiv.net">pixivFACTORY</a>の立ち上げをしました。<br/>
+開発リーダーになってから３年間で、pixivFACTORYの大きな機能の多くを担当させてもらいました。</p>
+
+<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/pixiv/contribute.png"></p>
+
+<p>我が子のような可愛い可愛いサービスですね。</p>
+
+<p>新卒2年目ごろからは、Railsおじさんとして<br/>
+レガシー殺すマン、Rails-Wayマンとして、社内のプロジェクトに関わってきました。</p>
+
+<ul>
+<li><a href="https://booth.pm">BOOTH</a></li>
+<li><a href="https://factory.pixiv.net">pixivFACTORY</a></li>
+<li><a href="https://comic.pixiv.net">pixivコミック</a></li>
+<li><a href="https://novel.pixiv.net">pixivノベル</a></li>
+<li><a href="https://pawoo.net">pawoo</a></li>
+</ul>
+
+
+<p>退職が決まってからの最後の3ヶ月は、pixivFACTORYを離れて<a href="https://pawoo.net">pawoo</a>の開発をしていました。<br/>
+Mastodon本家に高速化やバグ修正のパッチを投げていたら、GithubのGraphでトップ4に入るぐらいだったので、退社直前までそれなりにはやっていたと思います。</p>
+
+<h2>なんで辞めるの？</h2>
+
+<p>タイミングがたまたま良かったからです。</p>
+
+<p>引き継ぎをして新しい挑戦をしようというタイミングで、お話をいただきました。<br/>
+その事業ドメインが魅力的だったので、エイヤッと転職することにしました。</p>
+
+<h2>転職は何を期待しているの？</h2>
+
+<p>次は、いわゆるFintechの会社にいきます。<br/>
+pixivに入った時と同じように、何も前提知識を知らない業界だったというところに惹かれました。</p>
+
+<p><strong>何も知らない、分からないというのは、なんでもできることの裏返しなのできっと面白いですね。</strong></p>
+
+<p>何をするかは決まってませんが、きっと新しい会社でも楽しめるかなと思います。(´・ω・)</p>
+
+<h2>これから何するの？</h2>
+
+<p>8月まで1ヶ月のお休みをいただいています！<br/>
+元同僚がやっているアフリカの事業をお手伝いしつつ、 7/21からはSplatoonに費やしたいと思っております。</p>
+
+<p>また、日本でまだ行ったことがない都道府県が残り5県なので<br/>
+各地をまわり、地元のおっちゃんと地酒を飲み語らいながら過ごしたいと思います。</p>
+
+<h2>おわりに</h2>
+
+<p>新卒として東京に出てきて、<br/>
+この3年間を、pixivで働けたことは最高の日々でした。</p>
+
+<p>学生時代から何社も経験していますが<br/>
+<strong>あんなに楽しい会社もなかなかない</strong> ので、本当にオススメします！</p>
+
+<p>最後に例のもの貼っておきます。何かいただけたら飛び跳ねて喜びます。ヽ(・∀・ )ﾉ</p>
+
+<p><a href="http://amzn.asia/8lJqzlJ">財布を無くして絶望マンのウィッシュリスト</a><br/>
+(旅行初日の本日、9万ぐらい入った財布とカードを落として地方で死に絶えそうです。マジで&hellip;。)</p>
+
+<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/pixiv/last.jpg"></p>
+
+<p>3年間、本当にありがとうございました。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[シェアリンクの作り方]]></title>
@@ -24,7 +110,7 @@
 <p>↓こんなURLね</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>http://alpaca.tc/shares/uIx90S</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>https://alpaca.tc/shares/uIx90S</span></code></pre></td></tr></table></div></figure>
 
 
 <p>実装面白かったので紹介してみます＞＜</p>
@@ -261,7 +347,7 @@
 
 <h3>お仕事。</h3>
 
-<p>6月に入ってから<a href="http://booth.pm">BOOTH</a>にアサインされて、数ヶ月を過ごし<br/>
+<p>6月に入ってから<a href="https://booth.pm">BOOTH</a>にアサインされて、数ヶ月を過ごし<br/>
 その後、<a href="http:://factory.pixiv.net">pixivFACTORY</a>のメインエンジニアとしてコード書いてました。</p>
 
 <p>pixivFACTORYが出た後に、ユーザーさん達が嬉しい言葉を言ってくださるのをTwitterで眺めていて、</p>
@@ -303,7 +389,7 @@
     <content type="html"><![CDATA[<p>先週、4月から働いていた株式会社クロノスを退社した。</p>
 
 <p>流行の退職エントリということだが、<br/>
-退職エントリといえば、<a href="http://d.hatena.ne.jp/takeda25/touch/20140407/1396864651">いい話(ウェブリオを辞めました)</a>の記事を読んで大変感銘を受けた！</p>
+退職エントリといえば、<a href="https://d.hatena.ne.jp/takeda25/touch/20140407/1396864651">いい話(ウェブリオを辞めました)</a>の記事を読んで大変感銘を受けた！</p>
 
 <p>同じように、エンジニアとして働く誰かの参考になれば嬉しい:)</p>
 
@@ -566,7 +652,7 @@ VimScriptでアルゴリズムらしい手法を使ったことは無いので�
     <id>http://alpaca.tc/blog/web-service/apiary</id>
     <content type="html"><![CDATA[<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/apiary/apiary_top.png" title="apiary Build beautiful APIs" ></p>
 
-<p><a href="http://apiary.io/">Apiary</a>は、美しいAPIのドキュメント(Mockサーバー)が作成できるWebサービスです.</p>
+<p><a href="https://apiary.io/">Apiary</a>は、美しいAPIのドキュメント(Mockサーバー)が作成できるWebサービスです.</p>
 
 <!-- more -->
 
@@ -591,7 +677,7 @@ markdown(の拡張)でAPIの仕様を書けば、すぐにドキュメントが�
 <p>今回は、デモとして簡単なアルパカAPIを実装しました.</p>
 
 <ul>
-<li><a href="http://docs.alpaca.apiary.io/">生成されたドキュメント</a></li>
+<li><a href="https://docs.alpaca.apiary.io/">生成されたドキュメント</a></li>
 </ul>
 
 
@@ -603,7 +689,7 @@ markdown(の拡張)でAPIの仕様を書けば、すぐにドキュメントが�
 
 <p>さっそく<code>curl</code>でレスポンスを見てみよう</p>
 
-<p><code>$ curl http://alpaca.apiary-mock.com/hello</code></p>
+<p><code>$ curl https://alpaca.apiary-mock.com/hello</code></p>
 
 <p>ヽ(・∀・ )ﾉす&hellip;すげぇ便利！</p>
 ]]></content>
@@ -637,7 +723,7 @@ markdown(の拡張)でAPIの仕様を書けば、すぐにドキュメントが�
 <p>READMEには視覚的なバッヂを追加出来ます。Gemを書くときには、ぜひとも入れておきたい情報ですね。</p>
 
 <ul>
-<li><a href="http://badge.fury.io/rb/comment_extractor"><img src="https://badge.fury.io/rb/comment_extractor.png" alt="Gem Version" /></a></li>
+<li><a href="https://badge.fury.io/rb/comment_extractor"><img src="https://badge.fury.io/rb/comment_extractor.png" alt="Gem Version" /></a></li>
 <li><a href="https://travis-ci.org/alpaca-tc/comment_parser"><img src="https://travis-ci.org/alpaca-tc/comment_extractor.png?branch=v1.0.0" alt="Build Status" /></a></li>
 <li><a href="https://coveralls.io/r/alpaca-tc/comment_extractor?branch=v1.0.0"><img src="https://coveralls.io/repos/alpaca-tc/comment_extractor/badge.png?branch=v1.0.0" alt="Coverage Status" /></a></li>
 </ul>
@@ -645,7 +731,7 @@ markdown(の拡張)でAPIの仕様を書けば、すぐにドキュメントが�
 
 <p>もちろん、登録すれば無料で作ることが出来ます。</p>
 
-<p>詳しくは<a href="http://elgalu.github.io/2013/add-achievement-badges-to-your-gem-readme/">コチラの記事</a>を読んでみましょう。</p>
+<p>詳しくは<a href="https://elgalu.github.io/2013/add-achievement-badges-to-your-gem-readme/">コチラの記事</a>を読んでみましょう。</p>
 
 <h2>2.RubyGemsからGemを削除する</h2>
 
@@ -667,8 +753,8 @@ markdown(の拡張)でAPIの仕様を書けば、すぐにドキュメントが�
 <p>RSpecをキレイに書く方法は、ある程度伝統があります。</p>
 
 <ul>
-<li><a href="http://betterspecs.org/">BetterSpecs</a></li>
-<li><a href="http://bitfluxx.com/2011/05/23/some-rspec-tips-and-best-practices.html">Some RSpec Tips and Best Practices</a></li>
+<li><a href="https://betterspecs.org/">BetterSpecs</a></li>
+<li><a href="https://bitfluxx.com/2011/05/23/some-rspec-tips-and-best-practices.html">Some RSpec Tips and Best Practices</a></li>
 </ul>
 
 
@@ -1022,7 +1108,7 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 
 <p>逆就活へ初めて参加される方は、前の記事から見ると良いと思います。-> <a href="http://alpaca.tc/blog/diary/gyaku-syuukatsu-1">逆就活へ参加するときのノウハウまとめ</a></p>
 
-<p>1/18(土)に参加した<a href="http://www.studenthunting.com/">ITエンジニア逆求人</a>についての報告です:)</p>
+<p>1/18(土)に参加した<a href="https://www.studenthunting.com/">ITエンジニア逆求人</a>についての報告です:)</p>
 
 <!-- more -->
 
@@ -1064,7 +1150,7 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 </ol>
 
 
-<p>残りを振り分ける方法としては、有価証券報告書、取締役の人の書いた本、<a href="http://jobtalk.jp/">転職会議</a>の情報を横断的に見て、自分と合うか考えると良いと思います。</p>
+<p>残りを振り分ける方法としては、有価証券報告書、取締役の人の書いた本、<a href="https://jobtalk.jp/">転職会議</a>の情報を横断的に見て、自分と合うか考えると良いと思います。</p>
 
 <p>最終的に、ターゲットを3社に絞ります。今回は、捨てるターゲットに選んだ企業さんは名刺交換会の段階で断りました。</p>
 
@@ -1165,7 +1251,7 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
     <link href="http://alpaca.tc/blog/diary/somethings-that-i-want-to-do.html"/>
     <updated>2014-01-14T00:05:00+09:00</updated>
     <id>http://alpaca.tc/blog/diary/somethings-that-i-want-to-do</id>
-    <content type="html"><![CDATA[<p>Takumi Kaiさんの<a href="http://nature-dot.com/othres/9">2014年にやりたい27のこと</a>を読んで、こういうのを記事にするのも良いなぁと思った。</p>
+    <content type="html"><![CDATA[<p>Takumi Kaiさんの<a href="https://nature-dot.com/othres/9">2014年にやりたい27のこと</a>を読んで、こういうのを記事にするのも良いなぁと思った。</p>
 
 <blockquote><p>思考は現実になる</p></blockquote>
 
@@ -1271,7 +1357,7 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
     <link href="http://alpaca.tc/blog/vim/file-include-by-neocomplete.html"/>
     <updated>2014-01-11T13:25:00+09:00</updated>
     <id>http://alpaca.tc/blog/vim/file-include-by-neocomplete</id>
-    <content type="html"><![CDATA[<p>この記事は<a href="http://atnd.org/events/45072">Vim Advent Calendar 2013</a>の42日目の記事になります。</p>
+    <content type="html"><![CDATA[<p>この記事は<a href="https://atnd.org/events/45072">Vim Advent Calendar 2013</a>の42日目の記事になります。</p>
 
 <h1>Neocomplete.vimのfile_includeを使いこなす</h1>
 
@@ -1298,7 +1384,7 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 
 <p>指定しなければ、デフォルトの部分の変数が使用されます</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1318,27 +1404,26 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 <span class='line-number'>18</span>
 <span class='line-number'>19</span>
 <span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="c">&quot; Liquidで画像pathを補完する</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>" Liquidで画像pathを補完する
 </span><span class='line'>
-</span><span class='line'><span class="c">&quot; デフォルト &amp;l:path(検索対象のディレクトリ`,`区切り)</span>
-</span><span class='line'><span class="k">let</span> <span class="k">g</span>:neocomplete#sources#<span class="nb">include</span>#paths.liquid <span class="p">=</span>
-</span><span class='line'>  \ <span class="s1">&#39;/Users/alpaca-tc/projects/alpaca-tc.github.io/source&#39;</span>
+</span><span class='line'>" デフォルト &l:path(検索対象のディレクトリ`,`区切り)
+</span><span class='line'>let g:neocomplete#sources#include#paths.liquid =
+</span><span class='line'>  \ '/Users/alpaca-tc/projects/alpaca-tc.github.io/source'
 </span><span class='line'>
-</span><span class='line'><span class="c">&quot; デフォルト &amp;l:include(正規表現にマッチしたら補完を開始)</span>
-</span><span class='line'><span class="k">let</span> <span class="k">g</span>:neocomplete#sources#<span class="nb">include</span>#patterns.liquid <span class="p">=</span>
-</span><span class='line'>  \ <span class="s1">&#39;\({\s*%\(\s\+\w\+\)\+\(\s*\|\s\+[a-zA-Z0-9_#\?\!]\+\)\@=\|{\s*{\(\s\+\w\+\)\+\(\s*\|\s\+[a-zA-Z0-9_#\?\!]\+\)\@=\)&#39;</span>
+</span><span class='line'>" デフォルト &l:include(正規表現にマッチしたら補完を開始)
+</span><span class='line'>let g:neocomplete#sources#include#patterns.liquid =
+</span><span class='line'>  \ '\({\s*%\(\s\+\w\+\)\+\(\s*\|\s\+[a-zA-Z0-9_#\?\!]\+\)\@=\|{\s*{\(\s\+\w\+\)\+\(\s*\|\s\+[a-zA-Z0-9_#\?\!]\+\)\@=\)'
 </span><span class='line'>
-</span><span class='line'><span class="c">&quot; デフォルト &amp;l:includeexpr(ファイルパスを出力する際に変換する)</span>
-</span><span class='line'><span class="k">let</span> <span class="k">g</span>:neocomplete#sources#<span class="nb">include</span>#exprs.liquid <span class="p">=</span>
-</span><span class='line'>  \ <span class="s1">&#39;substitute(v:fname, &quot;^/&quot;, &quot;&quot;, &quot;&quot;)&#39;</span>
+</span><span class='line'>" デフォルト &l:includeexpr(ファイルパスを出力する際に変換する)
+</span><span class='line'>let g:neocomplete#sources#include#exprs.liquid =
+</span><span class='line'>  \ 'substitute(v:fname, "^/", "", "")'
 </span><span class='line'>
-</span><span class='line'><span class="c">&quot; デフォルト &#39;.&#39;(区切り文字の指定)</span>
-</span><span class='line'><span class="k">let</span> <span class="k">g</span>:neocomplete#sources#file_include#delimiters.liquid <span class="p">=</span> <span class="s1">&#39;/&#39;</span>
+</span><span class='line'>" デフォルト '.'(区切り文字の指定)
+</span><span class='line'>let g:neocomplete#sources#file_include#delimiters.liquid = '/'
 </span><span class='line'>
-</span><span class='line'><span class="c">&quot; デフォルト [](補完するファイル拡張子フィルター)</span>
-</span><span class='line'><span class="k">let</span> <span class="k">g</span>:neocomplete#sources#file_include#exts.liquid <span class="p">=</span>
-</span><span class='line'>  \ [<span class="s1">&#39;png&#39;</span><span class="p">,</span> <span class="s1">&#39;jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;gif&#39;</span><span class="p">,</span> <span class="s1">&#39;jpeg&#39;</span><span class="p">,</span> <span class="s1">&#39;ico&#39;</span>]
-</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>" デフォルト [](補完するファイル拡張子フィルター)
+</span><span class='line'>let g:neocomplete#sources#file_include#exts.liquid =
+</span><span class='line'>  \ ['png', 'jpg', 'gif', 'jpeg', 'ico']</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>解説いる？</h2>
@@ -1359,7 +1444,7 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 
 <p>こんな感じで色々対応出来るはずなので、誰か本格的なRails用カスタマイズを作ってみてくれたらうれしいです！</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1376,24 +1461,23 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 <span class='line-number'>15</span>
 <span class='line-number'>16</span>
 <span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="c">&quot; Rails.vimが必須</span>
-</span><span class='line'><span class="k">function</span><span class="p">!</span> <span class="k">s</span>:setup_include_file_for_rails<span class="p">()</span>
-</span><span class='line'>  <span class="k">if</span> <span class="p">!</span>exists<span class="p">(</span><span class="s1">&#39;b:rails_root&#39;</span><span class="p">)</span> <span class="p">||</span> <span class="p">!</span>exists<span class="p">(</span><span class="s1">&#39;g:neocomplete#sources#include#paths&#39;</span><span class="p">)</span>
-</span><span class='line'>    <span class="k">return</span>
-</span><span class='line'>  <span class="k">endif</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>" Rails.vimが必須
+</span><span class='line'>function! s:setup_include_file_for_rails()
+</span><span class='line'>  if !exists('b:rails_root') || !exists('g:neocomplete#sources#include#paths')
+</span><span class='line'>    return
+</span><span class='line'>  endif
 </span><span class='line'>
-</span><span class='line'>  <span class="k">let</span> <span class="k">g</span>:neocomplete#sources#<span class="nb">include</span>#patterns.haml <span class="p">=</span>
-</span><span class='line'>        \ <span class="s1">&#39;^\s*\&lt;\%(image_path\|image_tag\)\&gt;&#39;</span>
-</span><span class='line'>  <span class="k">let</span> <span class="k">g</span>:neocomplete#sources#<span class="nb">include</span>#paths.haml <span class="p">=</span>
-</span><span class='line'>        \ <span class="k">b</span>:rails_root . <span class="s1">&#39;/app/assets/images&#39;</span>
-</span><span class='line'>  <span class="k">let</span> <span class="k">g</span>:neocomplete#sources#<span class="nb">include</span>#exprs.haml <span class="p">=</span>
-</span><span class='line'>        \ <span class="s2">&quot;substitute(substitute(v:fname,&#39;::&#39;,&#39;/&#39;,&#39;g&#39;),&#39;$&#39;,&#39;&#39;,&#39;&#39;)&quot;</span>
-</span><span class='line'>  <span class="k">let</span> <span class="k">g</span>:neocomplete#sources#file_include#exts.haml <span class="p">=</span>
-</span><span class='line'>        \ [<span class="s1">&#39;png&#39;</span><span class="p">,</span> <span class="s1">&#39;jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;gif&#39;</span><span class="p">,</span> <span class="s1">&#39;jpeg&#39;</span><span class="p">,</span> <span class="s1">&#39;ico&#39;</span>]
-</span><span class='line'>  <span class="k">let</span> <span class="k">g</span>:neocomplete#sources#file_include#delimiters.haml <span class="p">=</span> <span class="s1">&#39;/&#39;</span>
-</span><span class='line'><span class="k">endfunction</span>
-</span><span class='line'>command<span class="p">!</span> RailsView <span class="k">call</span> <span class="k">s</span>:setup_include_file_for_rails<span class="p">()</span>
-</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>  let g:neocomplete#sources#include#patterns.haml =
+</span><span class='line'>        \ '^\s*\&lt;\%(image_path\|image_tag\)\&gt;'
+</span><span class='line'>  let g:neocomplete#sources#include#paths.haml =
+</span><span class='line'>        \ b:rails_root . '/app/assets/images'
+</span><span class='line'>  let g:neocomplete#sources#include#exprs.haml =
+</span><span class='line'>        \ "substitute(substitute(v:fname,'::','/','g'),'$','','')"
+</span><span class='line'>  let g:neocomplete#sources#file_include#exts.haml =
+</span><span class='line'>        \ ['png', 'jpg', 'gif', 'jpeg', 'ico']
+</span><span class='line'>  let g:neocomplete#sources#file_include#delimiters.haml = '/'
+</span><span class='line'>endfunction
+</span><span class='line'>command! RailsView call s:setup_include_file_for_rails()</span></code></pre></td></tr></table></div></figure>
 
 
 <p><strong>うっほい！</strong></p>
@@ -1406,7 +1490,7 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 
 <h2>Vim Advent Calendar 45</h2>
 
-<p>前日は@osyo_mangaさんの<a href="http://d.hatena.ne.jp/osyo-manga/20140110/1389342122">textobj の両端へ移動する operator つくった</a>でした。</p>
+<p>前日は@osyo_mangaさんの<a href="https://d.hatena.ne.jp/osyo-manga/20140110/1389342122">textobj の両端へ移動する operator つくった</a>でした。</p>
 
 <p>は！またosyoさんということは&hellip;!? と思っていたら、やはりVim Advent Calendarの今後の投稿者が居ませんでした;(</p>
 
@@ -1442,7 +1526,7 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 
 <p>この両方を解除しないとボタンは押せません。</p>
 
-<p><a href="https://www.google.com/intl/en/chrome/browser/">Google Chrome</a>の<a href="http://www.buildinsider.net/web/chromedevtools/01">Developer Tool</a>は必須ですヨ:)</p>
+<p><a href="https://www.google.com/intl/en/chrome/browser/">Google Chrome</a>の<a href="https://www.buildinsider.net/web/chromedevtools/01">Developer Tool</a>は必須ですヨ:)</p>
 
 <h3>1.イイネボタンの上にCSSでマスクがかかっている</h3>
 
@@ -1458,7 +1542,7 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="o">//</span> <span class="nt">http</span><span class="o">://</span><span class="nt">iine2014</span><span class="nc">.fnobi.com</span><span class="o">/</span><span class="nt">css</span><span class="o">/</span><span class="nt">iine2014</span><span class="nc">.css</span><span class="nd">:84</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="o">//</span> <span class="nt">https</span><span class="o">://</span><span class="nt">iine2014</span><span class="nc">.fnobi.com</span><span class="o">/</span><span class="nt">css</span><span class="o">/</span><span class="nt">iine2014</span><span class="nc">.css</span><span class="nd">:84</span>
 </span><span class='line'><span class="nf">#iine</span><span class="nd">:after</span> <span class="p">{</span>
 </span><span class='line'>  <span class="k">content</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
 </span><span class='line'>  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
@@ -1490,7 +1574,7 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// http://iine2014.fnobi.com/js/iine2014.js:9130</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// https://iine2014.fnobi.com/js/iine2014.js:9130</span>
 </span><span class='line'><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">win</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
 </span><span class='line'>        <span class="kd">var</span> <span class="nx">$window</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">);</span>
@@ -1510,7 +1594,7 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 
 <p>解説しましたが、つまるところ<code>#iine</code>にまつわるものを解除してやればいいので、Developer Toolを開いて、ちょめっとすれば一瞬ですネヾ(*´∀｀*)ﾉ</p>
 
-<p>さぁ<a href="http://iine2014.fnobi.com/">「お好き玉」</a>へ挑戦してみようー！</p>
+<p>さぁ<a href="https://iine2014.fnobi.com/">「お好き玉」</a>へ挑戦してみようー！</p>
 ]]></content>
   </entry>
   
@@ -1525,7 +1609,7 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 
 <p>FBの「イイネ！」を押して2014円ゲットしましょう！</p>
 
-<p><a href="http://iine2014.fnobi.com/">お好き玉</a></p>
+<p><a href="https://iine2014.fnobi.com/">お好き玉</a></p>
 
 <p>ちなみに現在519人ぐらいです</p>
 
@@ -1564,7 +1648,7 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 
 <p>tablineをpowerline化したプラグインです。</p>
 
-<p>初めてのVim Advent Calendarで<a href="http://qiita.com/alpaca_taichou/items/ab70f914a6a577e25d70">powerlineをいつ使う？今でしょ！</a>という記事を書いて、そこそこ人気な記事となり驚きました。</p>
+<p>初めてのVim Advent Calendarで<a href="https://qiita.com/alpaca_taichou/items/ab70f914a6a577e25d70">powerlineをいつ使う？今でしょ！</a>という記事を書いて、そこそこ人気な記事となり驚きました。</p>
 
 <p>いやぁ&hellip;<em>「今でしょ！」</em>って、もうさぶいねぇ。笑</p>
 
@@ -1612,7 +1696,7 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 
 <p><img class="image_on_frame center" src="https://f.cloud.github.com/assets/1688137/1726147/ac9b52fc-628a-11e3-8117-ef4824444729.gif" title="watsonのcapture" ></p>
 
-<p><a href="http://goosecode.com/watson/">watson</a>用のUnite-sourceです。watson本体もガッツリ書き換えました。海外の方にも結構使ってもらえているようです。自身がプログラミングするとき、思考を止めないためにこのプラグインを作りました。</p>
+<p><a href="https://goosecode.com/watson/">watson</a>用のUnite-sourceです。watson本体もガッツリ書き換えました。海外の方にも結構使ってもらえているようです。自身がプログラミングするとき、思考を止めないためにこのプラグインを作りました。</p>
 
 <h3>その他、今年作ったプラグイン</h3>
 
@@ -1652,7 +1736,7 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
     <id>http://alpaca.tc/blog/diary/gyaku-syuukatsu-1</id>
     <content type="html"><![CDATA[<h1>逆就活に参加してきました！</h1>
 
-<p>世の中には<a href="http://www.studenthunting.com/">IT系逆就活</a>というイベントがあります。</p>
+<p>世の中には<a href="https://www.studenthunting.com/">IT系逆就活</a>というイベントがあります。</p>
 
 <p>東京で開催された<em>23,24日</em>にイベントに参加してきました。</p>
 
@@ -1867,11 +1951,10 @@ Yahooの方に教えてもらえたような気がします。</p>
 
 <p>適当にファイルを開いてコマンドを打ってみましょう。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="p">:</span><span class="k">set</span> <span class="nb">path</span>?
-</span><span class='line'><span class="nb">path</span><span class="p">=</span>.<span class="p">,</span><span class="sr">/usr/</span><span class="nb">include</span>
-</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>:set path?
+</span><span class='line'>path=.,/usr/include</span></code></pre></td></tr></table></div></figure>
 
 
 <p>これを設定しておくことで何が嬉しいかというと、編集中の変数の定義元へ飛べたり、ファイルを検索出来たりします。つまるところ、Vimが<em>何かを探すときの基準になる</em>ディレクトリ達を指定することができます。</p>
@@ -1884,13 +1967,12 @@ Yahooの方に教えてもらえたような気がします。</p>
 
 <p>Rubyを編集する際、Vimのビルトインの<code>ftplugin/ruby.vim</code>が読み込まれ、<code>gf</code>が自動的に関数にマッピングされます。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="p">:</span><span class="k">set</span> <span class="k">filetype</span><span class="p">=</span><span class="k">ruby</span>
-</span><span class='line'><span class="p">:</span>nmap gf
-</span><span class='line'><span class="k">n</span>  gf          *@:<span class="p">&lt;</span>C<span class="p">-</span>U<span class="p">&gt;</span>exe <span class="p">&lt;</span>SNR<span class="p">&gt;</span><span class="m">121</span>_gf<span class="p">(</span><span class="k">v</span>:count1<span class="p">,</span><span class="s2">&quot;gf&quot;</span><span class="p">,</span><span class="s1">&#39;edit&#39;</span><span class="p">)&lt;</span>CR<span class="p">&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>:set filetype=ruby
+</span><span class='line'>:nmap gf
+</span><span class='line'>n  gf          *@:&lt;C-U&gt;exe &lt;SNR&gt;121_gf(v:count1,"gf",'edit')&lt;CR&gt;</span></code></pre></td></tr></table></div></figure>
 
 
 <p>このおかげで、通常の<code>gf</code>が拡張されて幾つかのケースで<code>gf</code>が使えるようになります。(Rails.vimも同じ手法を使っていますね。)</p>
@@ -1975,7 +2057,7 @@ Yahooの方に教えてもらえたような気がします。</p>
 
 <p>何はともあれ、<strong>まずは動画をみてくれ。</strong></p>
 
-<iframe width="560" height="420" src="http://www.youtube.com/embed/jCgcpIO9oBs?color=white&theme=light"></iframe>
+<iframe width="560" height="420" src="https://www.youtube.com/embed/jCgcpIO9oBs?color=white&theme=light"></iframe>
 
 
 <p>とにかく、uniteインターフェースは操作を覚えることが少ない。</p>
@@ -2004,7 +2086,7 @@ Yahooの方に教えてもらえたような気がします。</p>
 
 <p>こちらは、特に驚きはないので初めて使う人以外は見なくてもいいです。</p>
 
-<iframe width="560" height="420" src="http://www.youtube.com/embed/wWI3Wb-0Vw4?color=white&theme=light"></iframe>
+<iframe width="560" height="420" src="https://www.youtube.com/embed/wWI3Wb-0Vw4?color=white&theme=light"></iframe>
 
 
 <p>言わずもがな、コマンド名の通りです。</p>
@@ -2233,135 +2315,6 @@ Yahooの方に教えてもらえたような気がします。</p>
 </span><span class='line'><span class="nb">p</span> <span class="no">Node</span><span class="o">.</span><span class="n">instance_variable_get</span><span class="p">(</span><span class="s1">&#39;@val&#39;</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Base&#39;</span>
 </span><span class='line'><span class="nb">p</span> <span class="no">Branch</span><span class="o">.</span><span class="n">instance_variable_get</span><span class="p">(</span><span class="s1">&#39;@val&#39;</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Base&#39;</span>
 </span></code></pre></td></tr></table></div></figure>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Unite.vimとwatsonを使ったワークフロー]]></title>
-    <link href="http://alpaca.tc/blog/vim/using-vim-unite-watson.html"/>
-    <updated>2013-12-13T02:29:00+09:00</updated>
-    <id>http://alpaca.tc/blog/vim/using-vim-unite-watson</id>
-    <content type="html"><![CDATA[<p>最近、vim-unite-watsonを開発しました。</p>
-
-<p>これが、watsonの作者であるnhmoodさんにも好評で、僕自身ワークフローが変化して、だいぶ作業しやすくなりました。</p>
-
-<p>今回は、タスク管理をしたい人向けに、僕なりのワークフロー管理を紹介します。</p>
-
-<!-- more -->
-
-
-<h1>ワークフローとVim</h1>
-
-<p>僕は普段、Webサービスの構築・保守を行う仕事をしています。</p>
-
-<p>そこでは、基本的なフローは次のような流れです。</p>
-
-<ol>
-<li>新機能・バグに対してIssueを発行する(あるいは既にTODOリストにある)</li>
-<li>トピックブランチを作る</li>
-<li>コードを書く</li>
-<li>コミット &ndash;> Pull-Requestを送る &ndash;> マージする</li>
-</ol>
-
-
-<p>では、Vimを一度も閉じることなくこれらの作業をしてみます。</p>
-
-<h2>1. Issueの発行</h2>
-
-<h3>1-1. TODOをコードに入力する</h3>
-
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/workflow_1.png" title="本番環境用にViewを作成すると記入する" ></p>
-
-<h3>1-2. IssueをGithubにあげる</h3>
-
-<p>インラインIssue管理の<a href="http://alpaca.tc/blog/ruby/how-to-use-watson.html">watson</a>を使って、GithubにIssueをあげます</p>
-
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/workflow_2.png" title=":Watsonのデモ" ></p>
-
-<p>Watsonを使えば、Vimから簡単にIssue管理を行うことが出来ますね。</p>
-
-<h2>2. 作業の目処を立てる</h2>
-
-<p>さて、これでIssueは挙げられたので、次はコードの改修をしていきます。</p>
-
-<h3>2-1. トピックブランチを作る</h3>
-
-<p>ブランチの作業は、<a href="https://github.com/alpaca-tc/vim-unite-giti">vim-unite-giti</a>を使います。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="p">:</span>Unite giti/branch
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>新しいブランチの名前を入力して、<code>[checkout branch]</code>の行を選択します。</p>
-
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/workflow_3.png" title="Unite gitiのデモ" ></p>
-
-<p>すると、新しいブランチが作られました。</p>
-
-<h3>2-2. コードの改修を行う場所に印をつけて行く</h3>
-
-<p>コードの改修は、多くの場合幾つかのファイルに跨がります。</p>
-
-<p>そのため、経験から作業が必要な箇所に目処をつけて、コメントを書いて行きます。</p>
-
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/workflow_4.png" title="" ></p>
-
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/workflow_5.png" title="" ></p>
-
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/workflow_6.png" title="" ></p>
-
-<p>todoの内容は、watsonによって管理されるので、vim-unite-watsonを使えば一覧としてみることができます。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="p">:</span>Unite watson/dirty
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/workflow_7.png" title="unite-watsonのdemo" ></p>
-
-<p>これで、issueを解決するために必要な作業の一覧を自分で作ることが出来ました。</p>
-
-<p>Unite上のコメントを選択すると、該当箇所に飛べます。</p>
-
-<p>後は、</p>
-
-<ol>
-<li>該当箇所に飛ぶ</li>
-<li>コードを修正する</li>
-<li>解決したら、コメントを削除する</li>
-</ol>
-
-
-<p>を<code>:Unite watson/dirty</code>が空になるまで繰り返します。</p>
-
-<p>watsonの結果リストが空になれば、issueの問題を解決したことになり、次の作業に移ります。</p>
-
-<h3>3. GithubにPull-Requestする</h3>
-
-<p>これは、各々方法が分かれるかと思います。</p>
-
-<p>Vimから出ないでPull-Requestを送るには、<code>:!git push</code> &amp;&amp; <code>:!hub pull-request -h ...</code>というのが一番分かりやすいでしょうか。</p>
-
-<p>僕は、<code>:Unite giti/pull_request</code>で送るようにしています。</p>
-
-<h2>まとめ</h2>
-
-<p>Watsonやgitiはかなり便利です。</p>
-
-<p>特に、watsonはコーディング作業をマネジメントしたい人に向いていると思います。
-作業時間の見積もりや、タスク管理を考えながらコーディングする人には向いているプラグインなのではないでしょうか。</p>
-
-<p>僕は経営学部にいるので、すっかりタスク管理や時間計測を気にしちゃうようになりました。。</p>
-
-<p><strong>今回紹介したプラグイン</strong></p>
-
-<ul>
-<li><a href="https://github.com/alpaca-tc/vim-unite-watson.vim">vim-unite-watson</a></li>
-<li><a href="https://github.com/kmnk/vim-unite-giti">vim-unite-giti (本家)</a></li>
-<li><a href="https://github.com/alpaca-tc/vim-unite-giti">vim-unite-giti (giti/pull_request追加版)</a></li>
-</ul>
 
 ]]></content>
   </entry>

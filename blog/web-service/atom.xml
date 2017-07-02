@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<feed xmlns="https://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: web-service | RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/blog/web-service/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2015-10-13T21:59:12+09:00</updated>
+  <updated>2017-07-03T01:50:28+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
     
   </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+  <generator uri="https://octopress.org/">Octopress</generator>
 
   
   <entry>
@@ -20,7 +20,7 @@
     <id>http://alpaca.tc/blog/web-service/apiary</id>
     <content type="html"><![CDATA[<p><img class="image_on_frame center" src="/images/blog/apiary/apiary_top.png" title="apiary Build beautiful APIs" ></p>
 
-<p><a href="http://apiary.io/">Apiary</a>は、美しいAPIのドキュメント(Mockサーバー)が作成できるWebサービスです.</p>
+<p><a href="https://apiary.io/">Apiary</a>は、美しいAPIのドキュメント(Mockサーバー)が作成できるWebサービスです.</p>
 
 <!-- more -->
 
@@ -45,7 +45,7 @@ markdown(の拡張)でAPIの仕様を書けば、すぐにドキュメントが�
 <p>今回は、デモとして簡単なアルパカAPIを実装しました.</p>
 
 <ul>
-<li><a href="http://docs.alpaca.apiary.io/">生成されたドキュメント</a></li>
+<li><a href="https://docs.alpaca.apiary.io/">生成されたドキュメント</a></li>
 </ul>
 
 
@@ -57,7 +57,7 @@ markdown(の拡張)でAPIの仕様を書けば、すぐにドキュメントが�
 
 <p>さっそく<code>curl</code>でレスポンスを見てみよう</p>
 
-<p><code>$ curl http://alpaca.apiary-mock.com/hello</code></p>
+<p><code>$ curl https://alpaca.apiary-mock.com/hello</code></p>
 
 <p>ヽ(・∀・ )ﾉす&hellip;すげぇ便利！</p>
 ]]></content>
@@ -89,14 +89,14 @@ markdown(の拡張)でAPIの仕様を書けば、すぐにドキュメントが�
 
 <p>この両方を解除しないとボタンは押せません。</p>
 
-<p><a href="https://www.google.com/intl/en/chrome/browser/">Google Chrome</a>の<a href="http://www.buildinsider.net/web/chromedevtools/01">Developer Tool</a>は必須ですヨ:)</p>
+<p><a href="https://www.google.com/intl/en/chrome/browser/">Google Chrome</a>の<a href="https://www.buildinsider.net/web/chromedevtools/01">Developer Tool</a>は必須ですヨ:)</p>
 
 <h3>1.イイネボタンの上にCSSでマスクがかかっている</h3>
 
 <p>z-indexの仕業かと思ったら、こんな方法もあるんですねぇ。感心。</p>
 
 <p>```css
-// <a href="http://iine2014.fnobi.com/css/iine2014.css:84">http://iine2014.fnobi.com/css/iine2014.css:84</a></p>
+// <a href="https://iine2014.fnobi.com/css/iine2014.css:84">https://iine2014.fnobi.com/css/iine2014.css:84</a></p>
 
 <h1>iine:after {</h1>
 
@@ -119,7 +119,7 @@ markdown(の拡張)でAPIの仕様を書けば、すぐにドキュメントが�
 <p>JavaScriptを見てみると、<code>mouseover</code>と<code>touchstart</code>のタイミングで位置を移動させているのが分かります。</p>
 
 <p>```javascript
-// <a href="http://iine2014.fnobi.com/js/iine2014.js:9130">http://iine2014.fnobi.com/js/iine2014.js:9130</a>
+// <a href="https://iine2014.fnobi.com/js/iine2014.js:9130">https://iine2014.fnobi.com/js/iine2014.js:9130</a>
 (function (win) {</p>
 
 <pre><code>$(function () {
@@ -141,7 +141,7 @@ markdown(の拡張)でAPIの仕様を書けば、すぐにドキュメントが�
 
 <p>解説しましたが、つまるところ<code>#iine</code>にまつわるものを解除してやればいいので、Developer Toolを開いて、ちょめっとすれば一瞬ですネヾ(*´∀｀*)ﾉ</p>
 
-<p>さぁ<a href="http://iine2014.fnobi.com/">「お好き玉」</a>へ挑戦してみようー！</p>
+<p>さぁ<a href="https://iine2014.fnobi.com/">「お好き玉」</a>へ挑戦してみようー！</p>
 ]]></content>
   </entry>
   
@@ -156,7 +156,7 @@ markdown(の拡張)でAPIの仕様を書けば、すぐにドキュメントが�
 
 <p>FBの「イイネ！」を押して2014円ゲットしましょう！</p>
 
-<p><a href="http://iine2014.fnobi.com/">お好き玉</a></p>
+<p><a href="https://iine2014.fnobi.com/">お好き玉</a></p>
 
 <p>ちなみに現在519人ぐらいです</p>
 
