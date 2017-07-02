@@ -9,7 +9,6 @@ group :development do
   gem 'RedCloth'
   gem 'haml'
   gem 'compass'
-  gem 'compass-blueprint'
   gem 'sass'
   gem 'sass-globbing'
   gem 'rubypants'
