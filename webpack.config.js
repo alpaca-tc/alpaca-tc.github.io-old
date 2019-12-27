@@ -7,12 +7,12 @@ const { resolve } = require('path')
 // const CompressionPlugin = require('compression-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
-const TerserPlugin = require('terser-webpack-plugin')
+// const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = {
   entry: './src/index.js',
   output: {
-    filename: '[name].js',
+    filename: 'index.js',
     path: resolve(__dirname, 'source/stylesheets'),
     pathinfo: true
   },
@@ -46,7 +46,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin({ filename: '[name].css' })
+    new MiniCssExtractPlugin()
     // new webpack.optimize.ModuleConcatenationPlugin(),
     // new OptimizeCSSAssetsPlugin(),
     // new CompressionPlugin({
@@ -55,20 +55,20 @@ module.exports = {
     //   test: /\.(js|css|html|json|ico|svg|eot|otf|ttf)$/
     // })
   ],
-  optimization: {
-    minimizer: [
-      new TerserPlugin({
-        extractComments: true,
-        cache: true,
-        parallel: true,
-        sourceMap: true,
-        terserOptions: {
-          // https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
-          compress: {
-            drop_console: true,
-          },
-        }
-      })
-    ],
-  }
+  // optimization: {
+  //   minimizer: [
+  //     new TerserPlugin({
+  //       extractComments: true,
+  //       cache: true,
+  //       parallel: true,
+  //       sourceMap: true,
+  //       terserOptions: {
+  //         // https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
+  //         compress: {
+  //           drop_console: true,
+  //         },
+  //       }
+  //     })
+  //   ],
+  // }
 }

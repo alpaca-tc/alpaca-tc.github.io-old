@@ -1,5 +1,4 @@
 @import 'default'
-@import 'compass/utilities/color/contrast'
 @import 'single_page_contents'
 
 body
@@ -26,7 +25,7 @@ body
       font-size: $fz_normal
 
 .outer_envelope
-  +container
+  // +container
   padding-top: $space_width
 
   header
@@ -47,11 +46,11 @@ body
           ul.clearfix
             li
               +center
-              +box-align(center)
-              width: span(3)
+              box-align: center
+              width: 100px
               float: left
             li.last
-              +last
+              margin-right: auto
 
   footer
     a
@@ -84,10 +83,10 @@ body
           li
             & a img
               $contrasted-dark-default: #CCC
-              background: contrast-color($cl_background)
-              +box-shadow(0px 2px 3px #CCC)
-              +opacity(1)
-              +border-radius($icon_size / 2 + 3px)
+              background: #ccc
+              box-shadow: 0px 2px 3px #CCC
+              opacity: 1
+              border-radius: $icon_size / 2 + 3px
             &, & a img
               width: $icon_size
               height: $icon_size

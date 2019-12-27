@@ -1,9 +1,7 @@
 @import 'font/clumsy_regular.sass'
 @import 'font/courier_10bt_roman.sass'
 @import 'font/lietz_lindau_hamburg_regular.sass'
-@import 'blueprint/grid'
-@import 'compass'
-@import 'plugins'
+@import 'solarized'
 
 $cl_background: #fAfAfA
 $cl_lake: #0062A0
@@ -27,7 +25,7 @@ $default_line_height: 1.6em
 $large_line_height: 1.8em
 
 $blueprint-grid-outer-width: 40.40px
-$blueprint-container-size: $blueprint-grid-outer-width * $blueprint-grid-columns - $blueprint-grid-margin
+$blueprint-container-size: 40px * 24 - 10px
 
 $font_default: 'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, sans-serif
 $font_cool_alpha: ClumsyRegular,serif
@@ -51,6 +49,6 @@ $font_cool_alpha: ClumsyRegular,serif
   color: $cl_fresh_water
 
 =fadehover($speed: 0.4s, $opacity: 0.8)
-  +transition( all $speed ease )
+  transition: all $speed ease
   &:hover
-    +opacity($opacity)
+    opacity: $opacity
