@@ -13,20 +13,20 @@ layout: default
 
   <div class="pagination">
     {% if paginator.previous_page %}
-      <a  data-label="前" class="paging_number prev" href="{{paginator.previous_page}}">&larr; 前の記事へ</a>
+      <a  data-label="前" class="paging_number prev" href="{{paginator.previous_page_path}}">&larr; 前の記事へ</a>
     {% endif %}
 
-    {% for page_info in paginator.range %}
-      {% capture current_class %}{% if paginator.page == page_info.page %}current{% else %}{% endif %}{% endcapture %}
-      {% if page_info.page == 1 %}
-        <a class="paging_number {{ current_class }}" href="{{ site.url }}">{{ page_info.page }}</a>
-      {% else %}
-        <a class="paging_number {{ current_class }}" href="{{ page_info.url }}">{{ page_info.page }}</a>
+    {% for page in (1..paginator.total_pages) %}
+      {% capture current_class %}{% if paginator.page == page %}current{% else %}{% endif %}{% endcapture %}
+      {% assign two_behind_page = paginator.page | minus: 2 %}
+      {% assign two_ahead_page = paginator.page | plus: 2 %}
+      {% if two_behind_page <= page and page <= two_ahead_page %}
+        <a class="paging_number {{ current_class }}" href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
       {% endif %}
     {% endfor%}
 
     {% if paginator.next_page %}
-      <a data-label="次" class="paging_number next" href="{{paginator.next_page}}">次の記事へ &rarr;</a>
+      <a data-label="次" class="paging_number next" href="{{paginator.next_page_path}}">次の記事へ &rarr;</a>
     {% endif %}
   </div>
 

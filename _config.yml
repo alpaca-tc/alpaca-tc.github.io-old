@@ -22,8 +22,8 @@ description: Vim, Rails/Ruby, JavaScript、などWeb開発に関する技術ブ�
 date_format: 'ordinal'
 
 # RSS / Email (optional) subscription links (change if using something like Feedburner)
-subscribe_rss: /atom.xml
-subscribe_email:
+# subscribe_rss: /atom.xml
+# subscribe_email:
 # RSS feeds can list your email address if you like
 email:
 
@@ -36,11 +36,12 @@ root: /
 permalink: /blog/:categories/:title.html
 source: source
 destination: public
-plugins: plugins
-code_dir: downloads/code
+plugins:
+  - jekyll-paginate
+# code_dir: downloads/code
 category_dir: blog
-markdown: rdiscount
-# markdown: kramdown
+# markdown: rdiscount
+markdown: kramdown
 # kramdown:
 #   use_coderay: true
 #   coderay:
