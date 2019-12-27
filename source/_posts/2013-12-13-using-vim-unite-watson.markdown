@@ -31,13 +31,13 @@ categories: vim
 
 ### 1-1. TODOをコードに入力する
 
-{% img image_on_frame center /images/blog/workflow_1.png 本番環境用にViewを作成すると記入する %}
+<img class="image_on_frame center" src="/images/blog/workflow_1.png" alt="本番環境用にViewを作成すると記入する" />
 
 ### 1-2. IssueをGithubにあげる
 
 インラインIssue管理の[watson](/blog/ruby/how-to-use-watson.html)を使って、GithubにIssueをあげます
 
-{% img image_on_frame center /images/blog/workflow_2.png :Watsonのデモ %}
+<img class="image_on_frame center" src="/images/blog/workflow_2.png" alt=":Watsonのデモ" />
 
 Watsonを使えば、Vimから簡単にIssue管理を行うことが出来ますね。
 
@@ -55,7 +55,7 @@ Watsonを使えば、Vimから簡単にIssue管理を行うことが出来ます
 
 新しいブランチの名前を入力して、`[checkout branch]`の行を選択します。
 
-{% img image_on_frame center /images/blog/workflow_3.png Unite gitiのデモ %}
+<img class="image_on_frame center" src="/images/blog/workflow_3.png" alt="Unite gitiのデモ" />
 
 すると、新しいブランチが作られました。
 
@@ -65,11 +65,11 @@ Watsonを使えば、Vimから簡単にIssue管理を行うことが出来ます
 
 そのため、経験から作業が必要な箇所に目処をつけて、コメントを書いて行きます。
 
-{% img image_on_frame center /images/blog/workflow_4.png  %}
+<img class="image_on_frame center" src="/images/blog/workflow_4.png" alt="" />
 
-{% img image_on_frame center /images/blog/workflow_5.png  %}
+<img class="image_on_frame center" src="/images/blog/workflow_5.png" alt="" />
 
-{% img image_on_frame center /images/blog/workflow_6.png  %}
+<img class="image_on_frame center" src="/images/blog/workflow_6.png" alt="" />
 
 todoの内容は、watsonによって管理されるので、vim-unite-watsonを使えば一覧としてみることができます。
 
@@ -77,7 +77,7 @@ todoの内容は、watsonによって管理されるので、vim-unite-watsonを
 :Unite watson/dirty
 ```
 
-{% img image_on_frame center /images/blog/workflow_7.png unite-watsonのdemo %}
+<img class="image_on_frame center" src="/images/blog/workflow_7.png" alt="unite-watsonのdemo" />
 
 これで、issueを解決するために必要な作業の一覧を自分で作ることが出来ました。
 

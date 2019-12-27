@@ -32,7 +32,7 @@ categories: diary
 
 さて、前回と今回の結果を比べるため、Gvalueという数値を挙げます。これは、イベント後に企業から送られてくる評価シートで、面談した企業からの評価が全て分かります。
 
-{% img image_on_frame center /images/blog/gyaku-syuukatsu-2/gvalue.jpg G-valueの比較 %}
+<img class="image_on_frame center" src="/images/blog/gyaku-syuukatsu-2/gvalue.jpg" alt="G-valueの比較" />
 
 ### 1. 名刺交換の段階で、合わない企業さんは断る
 

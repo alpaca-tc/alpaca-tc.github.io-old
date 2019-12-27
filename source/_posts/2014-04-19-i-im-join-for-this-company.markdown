@@ -82,7 +82,7 @@ categories: blog
 
 さて、6月からpixivという会社で働くことになった。
 
-{% img image_on_frame center /images/blog/i-im-join-for-this-company/pixiv.jpg pixiv %}
+<img class="image_on_frame center" src="/images/blog/i-im-join-for-this-company/pixiv.jpg" alt="pixiv" />
 
 イラスト系のSNSを運営する会社で、知っている人は知っている会社かもしれない。
 

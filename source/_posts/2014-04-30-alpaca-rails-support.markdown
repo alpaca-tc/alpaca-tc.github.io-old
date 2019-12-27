@@ -8,7 +8,7 @@ categories: vim
 
 # もうLocaleファイルに迷わない！
 
-{% img image_on_frame center /images/blog/alpaca-rails-support/screen_shot_1.png screen_shot_1 %}
+<img class="image_on_frame center" src="/images/blog/alpaca-rails-support/screen_shot_1.png" alt="screen_shot_1" />
 
 休日を利用して、久しぶりにRails関連のVimScriptを書いたよ:)
 
@@ -28,7 +28,7 @@ categories: vim
 
 しかし、次の発言で少し様相が変わる。
 
-{% img image_on_frame center /images/blog/alpaca-rails-support/screen_shot_3.png issue %}
+<img class="image_on_frame center" src="/images/blog/alpaca-rails-support/screen_shot_3.png" alt="issue" />
 
 **SublimeText2が有力...だと？**
 
@@ -50,7 +50,7 @@ alpaca-tcはVimの人である。Vimで解決しんぜよう。
 本題の機能である「localesの編集をサポートする」プラグインである。  
 キーを探索して、Uniteにぶち込んでくれる。
 
-{% img image_on_frame center /images/blog/alpaca-rails-support/screen_shot_4.png Find_local %}
+<img class="image_on_frame center" src="/images/blog/alpaca-rails-support/screen_shot_4.png" alt="Find_local" />
 
 探索は少し荒いので、Yamlをキレイに書いていなければ動かない。
 
@@ -59,7 +59,7 @@ alpaca-tcはVimの人である。Vimで解決しんぜよう。
 個人的に一番欲しかった機能である  
 たかだかRoutesのスペルミスで、BetterErrorsと挨拶したくない。
 
-{% img image_on_frame center https://raw.githubusercontent.com/alpaca-tc/alpaca_rails_support/master/assets/routes_completion.png reoute補完 %}
+<img class="image_on_frame center" src="https://raw.githubusercontent.com/alpaca-tc/alpaca_rails_support/master/assets/routes_completion.png" alt="reoute補完" />
 
 ようやく`rake routes | grep ...`の地獄から解放されるヾ(\*´∀｀\*)ﾉ
 
@@ -67,7 +67,7 @@ alpaca-tcはVimの人である。Vimで解決しんぜよう。
 
 特に必要は無かったけれど、思いついてしまったので作った。
 
-{% img image_on_frame center https://raw.githubusercontent.com/alpaca-tc/alpaca_rails_support/master/assets/preview_locales.gif preview %}
+<img class="image_on_frame center" src="https://raw.githubusercontent.com/alpaca-tc/alpaca_rails_support/master/assets/preview_locales.gif" alt="preview" />
 
 **( ﾟ∀ﾟ)o彡ﾟギミックかっけー！**
 

@@ -23,7 +23,7 @@ m(\_ \_)m < 怠惰な人間です。クズです。生きててすみません�
 
 ## そして、僕は2歳のころの時代へ...
 
-{% img image_on_frame center /images/blog/2013_11_15.png The version of Vim %}
+<img class="image_on_frame center" src="/images/blog/2013_11_15.png" alt="The version of Vim" />
 
 1994年というと、僕がおもらしをして20万円ぐらいするPCを破壊したぐらいの時期でしょうか。
 

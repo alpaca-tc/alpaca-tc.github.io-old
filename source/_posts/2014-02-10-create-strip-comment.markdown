@@ -56,7 +56,7 @@ parser.comments # => [StripComment::CodeObject::Comment, ...]
 
 さっそくVimと連携してみました。
 
-{% img image_on_frame center /images/blog/create-strip-comment/comment.gif comment.vimデモ %}
+<img class="image_on_frame center" src="/images/blog/create-strip-comment/comment.gif" alt="comment.vimデモ" />
 
 コメント行を取り出して、Gingerで文法チェックしています。
 

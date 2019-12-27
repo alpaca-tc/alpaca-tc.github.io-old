@@ -12,7 +12,7 @@ categories: vim
 
 さて、今回の記事ではneocompleteのfile\_includeを使いこなしてみます。
 
-{% img image_on_frame center /images/blog/file-include-by-neocomplete/completion_capture.png neocomplete_file_include %}
+<img class="image_on_frame center" src="/images/blog/file-include-by-neocomplete/completion_capture.png" alt="neocomplete_file_include" />
 
 <!-- more -->
 
@@ -92,7 +92,7 @@ command! RailsView call s:setup_include_file_for_rails()
 
 **うっほい！**
 
-{% img image_on_frame center /images/blog/file-include-by-neocomplete/completion_for_rails_view.png completion_for_rails_view %}
+<img class="image_on_frame center" src="/images/blog/file-include-by-neocomplete/completion_for_rails_view.png" alt="completion_for_rails_view" />
 
 Shougoさんいつもありがとうございます。本当に。
 

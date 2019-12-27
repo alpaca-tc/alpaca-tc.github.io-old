@@ -32,7 +32,7 @@ Takumi Kaiさんの[2014年にやりたい27のこと]( https://nature-dot.com/o
 
 東京まで7日かからないみたいなので、就活がてら歩くよー:)
 
-{% img image_on_frame center /images/blog/somethings-that-i-want-to-do/IMG_0118.jpg 200 東京から滋賀まで歩く %}
+<img class="image_on_frame center" src="/images/blog/somethings-that-i-want-to-do/IMG_0118.jpg" alt="200 東京から滋賀まで歩く" />
 
 ### 4. 岡本太郎の本を3冊読む(完)
 
@@ -40,7 +40,7 @@ Takumi Kaiさんの[2014年にやりたい27のこと]( https://nature-dot.com/o
 
 20代の決意を新たにするために、読まないといけない！
 
-{% img image_on_frame center /images/blog/somethings-that-i-want-to-do/pic_okamoto.jpg 岡本太郎の本 %}
+<img class="image_on_frame center" src="/images/blog/somethings-that-i-want-to-do/pic_okamoto.jpg" alt="岡本太郎の本" />
 
 ### 5. 今年も1,000時間以上プログラミングする
 
@@ -58,7 +58,7 @@ Takumi Kaiさんの[2014年にやりたい27のこと]( https://nature-dot.com/o
 
 文字しか掘らないけれど、せっかくだしイラストのハンコ掘ってみたいなァ
 
-{% img image_on_frame center /images/blog/somethings-that-i-want-to-do/pic_hanko.jpg  200 判子を掘る %}
+<img class="image_on_frame center" src="/images/blog/somethings-that-i-want-to-do/pic_hanko.jpg" alt=" 200 判子を掘る" />
 
 ### 8. 前職でお世話になった人に会う(完)
 
