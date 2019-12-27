@@ -18,7 +18,7 @@ categories: vim
 
 何はともあれ、**まずは動画をみてくれ。**
 
-{% youtube jCgcpIO9oBs %}
+<iframe src="https://www.youtube.com/embed/jCgcpIO9oBs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 とにかく、uniteインターフェースは操作を覚えることが少ない。
 
@@ -46,7 +46,7 @@ branchを切るのにわざわざShellを使うなんて。あなた、Vimと触
 
 こちらは、特に驚きはないので初めて使う人以外は見なくてもいいです。
 
-{% youtube wWI3Wb-0Vw4 %}
+<iframe src="https://www.youtube.com/embed/wWI3Wb-0Vw4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 言わずもがな、コマンド名の通りです。
 
