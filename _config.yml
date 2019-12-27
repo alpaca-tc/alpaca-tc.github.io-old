@@ -84,7 +84,7 @@ social:
     show_profile_link: true
     skip_forks: true
   twitter:
-    user: alpaca_taichou
+    user: alpaca_tc
     enable: true
   google_plus:
     id: 105581201951227096827

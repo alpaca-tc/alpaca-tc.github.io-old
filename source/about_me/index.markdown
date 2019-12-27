@@ -20,4 +20,4 @@ footer: true
 ## 連絡先
 
 - [Github](https://github.com/alpaca-tc)
-- [Twitter](https://twitter.com/alpaca_taichou)
+- [Twitter](https://twitter.com/alpaca_tc)
