@@ -6,6 +6,7 @@
   "author": "alpaca-tc <alpaca-tc@alpaca.tc>",
   "license": "MIT",
   "private": true,
+  "browserslist": "> 5%",
   "dependencies": {
     "css-loader": "^3.4.0",
     "file-loader": "^5.0.2",
