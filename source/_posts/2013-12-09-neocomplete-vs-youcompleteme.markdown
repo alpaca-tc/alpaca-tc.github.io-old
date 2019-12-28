@@ -57,7 +57,7 @@ categories: vim
 
 使ってわかる、YCMのファイル補完の素晴らしさ。
 
-{% img image_on_frame center /images/blog/file_complete.png YCMのファイル補完機能 %}
+<img class="image_on_frame center" src="/images/blog/file_complete.png" alt="YCMのファイル補完機能" />
 
 - "[Dir], [File]"で、補完候補の種類を入力している
 - ファイル補完時、バッファ補完などのノイズが入らない

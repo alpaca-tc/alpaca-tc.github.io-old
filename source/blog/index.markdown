@@ -18,7 +18,7 @@ footer: true
 
 <section id="entry_list">
 <h1>記事一覧</h1>
-{% for post in site.posts reverse %}
+{% for post in site.posts reversed %}
 {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
 {% unless year == this_year %}
   {% assign year = this_year %}

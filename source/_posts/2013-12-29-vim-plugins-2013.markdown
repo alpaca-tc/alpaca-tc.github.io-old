@@ -23,7 +23,7 @@ categories: vim
 
 ## [alpaca\_powertabline]( https://github.com/alpaca-tc/alpaca_powertabline )
 
-{% img image_on_frame center https://github-camo.global.ssl.fastly.net/8a63810a39b08548c3ce51a796f589b79d9df4be/687474703a2f2f662e636c2e6c792f6974656d732f31443430317630553355306f336733553054306e2f616c706163615f7461626c696e652e706e67  alpaca_powertabline %}
+<img class="image_on_frame center" src="https://github-camo.global.ssl.fastly.net/8a63810a39b08548c3ce51a796f589b79d9df4be/687474703a2f2f662e636c2e6c792f6974656d732f31443430317630553355306f336733553054306e2f616c706163615f7461626c696e652e706e67" alt=" alpaca_powertabline" />
 
 tablineをpowerline化したプラグインです。
 
@@ -39,7 +39,7 @@ tablineをpowerline化したプラグインです。
 
 SQLiteの英和辞書を利用して、英語の補完をするプラグインです。Uniteを通じて、類義語検索や例文検索を行うこともできます。
 
-{% img image_on_frame center https://github-camo.global.ssl.fastly.net/cb17a71ffad0a656d3a2837fe4c216a50524c2e4/687474703a2f2f636c2e6c792f696d6167652f316c316c306732373249314e2f254533253832254239254533253832254146254533253833254141254533253833254243254533253833254233254533253832254237254533253833254137254533253833253833254533253833253838253230323031332d30342d3231253230382e33372e33392e706e67 alpaca_english_demo %}
+<img class="image_on_frame center" src="https://github-camo.global.ssl.fastly.net/cb17a71ffad0a656d3a2837fe4c216a50524c2e4/687474703a2f2f636c2e6c792f696d6167652f316c316c306732373249314e2f254533253832254239254533253832254146254533253833254141254533253833254243254533253833254233254533253832254237254533253833254137254533253833253833254533253833253838253230323031332d30342d3231253230382e33372e33392e706e67" alt="alpaca_english_demo" />
 
 これを書き始めたときに、勇気を出してlingrで発言しはじめました。+Ruby環境のバグをVim-JP報告したのもこのプラグインがきっかけですね。
 
@@ -51,7 +51,7 @@ Vimプラグインを書き始めたときなので、哀愁の漂うコード�
 
 整形・変換を行うプラグインです。糞便利。
 
-{% img image_on_frame center https://github.com/alpaca-tc/beautify.vim/blob/master/assets/02.gif?raw=true beautify.vim demo %}
+<img class="image_on_frame center" src="https://github.com/alpaca-tc/beautify.vim/blob/master/assets/02.gif?raw=true" alt="beautify.vim demo" />
 
 CSS-SCSS, JS-Coffeeなどの相互変換や、圧縮されたJS/CSSの整形などはお手の物です。
 
@@ -59,7 +59,7 @@ CSS-SCSS, JS-Coffeeなどの相互変換や、圧縮されたJS/CSSの整形な�
 
 tagsの非同期生成、tag用のunite-sourceなど同封しています。糞便利。
 
-{% img image_on_frame center https://github-camo.global.ssl.fastly.net/78073a9b0ac11577ea47c5083da6511140968510/687474703a2f2f6769667a6f2e6e65742f744944774866325a41702e676966 alpaca_tags.demo %}
+<img class="image_on_frame center" src="https://github-camo.global.ssl.fastly.net/78073a9b0ac11577ea47c5083da6511140968510/687474703a2f2f6769667a6f2e6e65742f744944774866325a41702e676966" alt="alpaca_tags.demo" />
 
 京都のCamphorでの勉強会で初めてお披露目したので、あのメンバーと出会ったのもこれを作った時期だった気がする。いつだっけ。。
 
@@ -73,7 +73,7 @@ tagsの非同期生成、tag用のunite-sourceなど同封しています。糞�
 
 ## [vim-unite-watson.vim]( https://github.com/alpaca-tc/vim-unite-watson.vim )
 
-{% img image_on_frame center https://f.cloud.github.com/assets/1688137/1726147/ac9b52fc-628a-11e3-8117-ef4824444729.gif watsonのcapture %}
+<img class="image_on_frame center" src="https://f.cloud.github.com/assets/1688137/1726147/ac9b52fc-628a-11e3-8117-ef4824444729.gif" alt="watsonのcapture" />
 
 [watson](https://goosecode.com/watson/)用のUnite-sourceです。watson本体もガッツリ書き換えました。海外の方にも結構使ってもらえているようです。自身がプログラミングするとき、思考を止めないためにこのプラグインを作りました。
 

@@ -2,7 +2,7 @@
   table td.code
     width: 100%
   border: 1px solid $pre-border !important
-  @include text-shadow(none)
+  text-shadow: none
 
 .highlight .line-numbers, .gist-syntax .highlight .line_numbers
   text-align: right
@@ -19,11 +19,11 @@
   span
     color: $base01 !important
   padding: .8em !important
-  +border-radius(0)
+  border-radius: 0
 
 figure.code, .gist-file, pre
   .highlight pre
-    +box-shadow(none)
+    box-shadow: none
 
 .gist .highlight, figure.code .highlight
   +selection(adjust-color($base03, $lightness: 23%, $saturation: -65%), $text_shadow: $base03 0 1px)
@@ -76,7 +76,7 @@ figure.code, .gist-file, pre
 
 pre
   background: $pre-bg $noise-bg
-  +border-radius(0.4em)
+  border-radius: 0.4em
   @extend .mono
   border: 1px solid $pre-border
   line-height: 1.45em
@@ -89,7 +89,8 @@ pre
 h3.filename
   @extend .code-title
   + pre
-    +border-top-radius(0px)
+    border-top-left-radius: 0px
+    border-top-right-radius: 0px
 
 p, li
   code
@@ -101,7 +102,7 @@ p, li
     line-height: 1.5em
     color: #555
     border: 1px solid #ddd
-    +border-radius(0.4em)
+    border-radius: 0.4em
     padding: 0 .3em
     margin: -1px 0
   pre code
@@ -223,7 +224,7 @@ p, li
 .highlight, .gist-highlight
   pre
     background: none
-    +border-radius(0px)
+    border-radius: 0px
     border: none
     padding: 0
     margin-bottom: 0
@@ -276,9 +277,10 @@ figure.code
   color: #474747
   font-weight: normal
   margin-bottom: 0
-  +border-top-radius(5px)
+  border-top-left-radius: 5px
+  border-top-right-radius: 5px
   font-family: "Helvetica Neue", Arial, "Lucida Grande", "Lucida Sans Unicode", Lucida, sans-serif
-  background: #aaaaaa image-url('solarized/code_bg.png') top repeat-x
+  background: #aaaaaa url('/images/solarized/code_bg.png') top repeat-x
   border: 1px solid #565656
   border-top-color: #cbcbcb
   border-left-color: #a5a5a5

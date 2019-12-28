@@ -1,5 +1,3 @@
-@import 'blueprint/grid'
-
 $main_contents_width: 690px
 
 =load_heavy_image
@@ -89,6 +87,13 @@ $main_contents_width: 690px
           padding-left: 15px
           // width: 100%
 
+= column($number, $boolean: false)
+  width: auto
+  display: inline;
+  float: left;
+  margin-right: 10px;
+  width: 39px * $number;
+
 // PC
 @media only screen and (min-width:960px)
   +load_heavy_image
@@ -165,6 +170,9 @@ $main_contents_width: 690px
   +centering_main_contents
   +centering_footer_nav
   +adaptable_aside
+  #header_nav
+    width: 550px
+
 
 // Tablet
 @media (min-width:761px) and (max-width:915px)
@@ -174,6 +182,9 @@ $main_contents_width: 690px
   +centering_footer_nav
   +adaptable_aside
   +pagination_2rows
+
+  #header_nav
+    width: 550px
 
 // Mobile
 @media (max-width:690px)

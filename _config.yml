@@ -22,8 +22,8 @@ description: Vim, Rails/Ruby, JavaScript、などWeb開発に関する技術ブ�
 date_format: 'ordinal'
 
 # RSS / Email (optional) subscription links (change if using something like Feedburner)
-subscribe_rss: /atom.xml
-subscribe_email:
+# subscribe_rss: /atom.xml
+# subscribe_email:
 # RSS feeds can list your email address if you like
 email:
 
@@ -36,11 +36,12 @@ root: /
 permalink: /blog/:categories/:title.html
 source: source
 destination: public
-plugins: plugins
-code_dir: downloads/code
+plugins:
+  - jekyll-paginate
+# code_dir: downloads/code
 category_dir: blog
-markdown: rdiscount
-# markdown: kramdown
+# markdown: rdiscount
+markdown: kramdown
 # kramdown:
 #   use_coderay: true
 #   coderay:
@@ -54,7 +55,7 @@ rdiscount:
 pygments: false # default python pygments have been replaced by pygments.rb
 
 paginate: 5          # Posts per page on the blog index
-pagination_dir: blog  # Directory base for pagination URLs eg. /blog/page/2/
+paginate_path: /blog/page/:num/  # Directory base for pagination URLs eg. /blog/page/2/
 pagination_recent_page: 5
 recent_posts: 5       # Posts in the sidebar Recent Posts section
 recent_posts_for_category: 3       # Posts in the sidebar Recent Posts section
@@ -83,7 +84,7 @@ social:
     show_profile_link: true
     skip_forks: true
   twitter:
-    user: alpaca_taichou
+    user: alpaca_tc
     enable: true
   google_plus:
     id: 105581201951227096827

@@ -1,0 +1,7 @@
+plugins:
+  postcss-import: {}
+  postcss-preset-env:
+    browsers: '> 1%' # .babelrcと揃える
+    features:
+      customProperties:
+        warnings: false # Ignore warnings of bulma.js

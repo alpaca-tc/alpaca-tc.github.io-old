@@ -15,7 +15,7 @@ categories: [seo]
 
 ブログを初めて3日目にて、はやくも**検索結果が1位**になりました！
 
-{% img image_on_frame center /images/blog/seo_no_1.png アルパカエンジニア SEO 1位 %}
+<img class="image_on_frame center" src="/images/blog/seo_no_1.png" alt="アルパカエンジニア SEO 1位"/>
 
 超ニッチなワードだと、タイトルの一致率高めてやれば一瞬なんですね〜。
 僕の他にもアルパカを名乗るエンジニアブログが居たのですが、順位を抜いたのでやっと胸を張れます。(何に)

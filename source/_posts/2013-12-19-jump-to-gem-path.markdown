@@ -86,7 +86,7 @@ $ bundle show --paths
 
 下記のような動作で定義元に飛べるのが確認できると思います。
 
-{% img image_on_frame center /images/blog/jump-to-gem-path/hM4zx40RmT.gif gemジャンプデモ %}
+<img class="image_on_frame center" src="/images/blog/jump-to-gem-path/hM4zx40RmT.gif" alt="gemジャンプデモ" />
 
 無事動いていますね。
 

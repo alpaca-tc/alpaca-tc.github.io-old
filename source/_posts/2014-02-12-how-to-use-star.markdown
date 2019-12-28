@@ -8,7 +8,7 @@ categories: ruby
 
 Splat Operatorとは、`*`のことです
 
-{% img image_on_frame center /images/blog/how-to-use-star/capture.png SplatOperator %}
+<img class="image_on_frame center" src="/images/blog/how-to-use-star/capture.png" alt="SplatOperator" />
 
 この前、友人にコードレビューしてもらっていたら
 

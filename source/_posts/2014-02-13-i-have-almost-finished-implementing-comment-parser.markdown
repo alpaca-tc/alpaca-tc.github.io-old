@@ -8,7 +8,7 @@ categories: ruby
 
 先日から書き続けていた[CommentExtractor](https://github.com/alpaca-tc/comment_extractor)が、大枠完成しました。
 
-{% img image_on_frame center /images/blog/i-have-almost-finished-implementing-comment-parser/capture.png CommentExtractor %}
+<img class="image_on_frame center" src="/images/blog/i-have-almost-finished-implementing-comment-parser/capture.png" alt="CommentExtractor" />
 
 さて、今回Gemを書くときに役に立った、便利なTipsを幾つか紹介します！
 

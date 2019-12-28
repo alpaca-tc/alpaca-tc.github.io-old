@@ -12,7 +12,7 @@ categories: vim
 
 新人の方もvimmerなので、そのためのプラグインを作りました。
 
-{% img image_on_frame center /images/blog/11_11.png Vimのデモ %}
+<img class="image_on_frame center" src="/images/blog/11_11.png" alt="Vimのデモ" />
 
 **[assignment.vim](https://github.com/enfactv/assignment)**
 
