@@ -45,6 +45,7 @@ GEM
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     public_suffix (4.0.2)
+    rake (13.0.1)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -52,6 +53,7 @@ GEM
     safe_yaml (1.0.5)
     sassc (2.2.1)
       ffi (~> 1.9)
+    stringex (2.8.5)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
     unicode-display_width (1.6.0)
@@ -63,6 +65,8 @@ DEPENDENCIES
   jekyll
   jekyll-paginate
   kramdown
+  rake
+  stringex
 
 BUNDLED WITH
    1.17.2

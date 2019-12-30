@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 gem 'jekyll'
-# gem 'rake'
+gem 'rake'
 # gem 'pry'
 # gem 'rdiscount'
 # gem 'pygments.rb'
@@ -12,7 +12,7 @@ gem 'jekyll'
 # gem 'sass-globbing'
 # gem 'rubypants'
 # gem 'rb-fsevent'
-# gem 'stringex'
+gem 'stringex'
 # gem 'liquid'
 # gem 'directory_watcher'
 gem 'kramdown'
