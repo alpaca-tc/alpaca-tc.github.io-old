@@ -1,0 +1,19 @@
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+
+/*! no exports provided */
+
+/*! all exports used */
+
+/*! ModuleConcatenation bailout: Module is an entry point */
+
+/*! ./sass/index.sass */
+
+/*!*****************************!*\
+  !*** ./src/sass/index.sass ***!
+  \*****************************/
+
+/*! no static exports found */
+
+/*! ModuleConcatenation bailout: Module is not an ECMAScript module */

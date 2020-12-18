@@ -4,7 +4,7 @@
   <title><![CDATA[RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2017-07-03T01:57:16+09:00</updated>
+  <updated>2020-12-18T18:30:00+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -14,91 +14,216 @@
 
   
   <entry>
+    <title type="html"><![CDATA[kamipoさんのアドバイスと拠点を跨いだ勉強会]]></title>
+    <link href="http://alpaca.tc/blog/ruby/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai.html"/>
+    <updated>2020-12-18T17:21:00+09:00</updated>
+    <id>http://alpaca.tc/blog/ruby/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai</id>
+    <content type="html"><![CDATA[<p>この記事は<a href="https://adventar.org/calendars/5425">京都開発拠点アドベントカレンダー</a> 18日目の記事です。</p>
+
+<p>マネーフォワードには開発拠点が複数ありますが、技術情報はSlackで議論・共有されています。<br />
+今日はそんなSlackの中から、東京拠点と京都拠点を跨いで開催した「Railsへコントリビュートする勉強会」について、東京拠点の<a href="https://github.com/alpaca-tc">アルパカ隊長</a>が紹介します。</p>
+
+<h2 id="はじまりのslack">はじまりのSlack</h2>
+
+<p>ふとした時に、社内SlackのRubyチャンネルでこんな会話がありました。</p>
+
+<blockquote>
+  <p><img width="20" alt="@alpaca-tc" src="/images/blog/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai/alpaca-tc.jpg" /> @alpaca-tc</p>
+
+  <p>程よい難易度で、kamipoさんが「これ自分がやらんでもええやろ」みたいなissueがあれば</p>
+
+  <p>このslackに投げてもらって</p>
+
+  <p>誰かシニアエンジニアがサポートしつつ、新卒がRailsコントリビュートするみたいなのやりたい:eyes:</p>
+</blockquote>
+
+<p>すると、kamipoさんからすぐ解決できるものは見た瞬間に直してしまっていると前置きがあった上で、
+こんなissueを教えてもらいました。</p>
+
+<!-- more -->
+
+<blockquote>
+  <p><img width="20" alt="@kamipo" src="/images/blog/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai/kamipo.png" /> @kamipo</p>
+
+  <p>簡単じゃないけど直したほうがいいと思ってるやつだとたとえば <a href="https://github.com/rails/rails/issues/35204">rails/rails#35204</a> とか。</p>
+
+  <p>これはautomatic_inverse_ofがバグっててinverse_ofって一対一の関係になるはずなのに</p>
+
+  <p>belongs_to :user と belongs_to :writer の両方ともinverse_ofが :user と誤認されるってバグで、</p>
+
+  <p>起きてることに気づきづらいから直したほうがいいんだけど</p>
+
+  <p>inverse_of: false すれば回避できるから優先順位が低い、とかそういう系のはいっぱいある。</p>
+</blockquote>
+
+<p>ふーむ、パッと見はよく分かりません。程よい難易度を感じます。
+追加でかなり詳しいアドバイス(ほぼ答え)をいただいて、早速チャレンジですヽ(・∀・ )ﾉ</p>
+
+<h2 id="拠点を跨いで勉強会を開催">拠点を跨いで勉強会を開催</h2>
+
+<p>昨今のコロナ禍によってオンライン化が一気に進みました。(僕も、今年は数回しか出社していません)
+おかげで、拠点間を跨ぐオンライン勉強会も突発的に開催できるようになりました。</p>
+
+<h3 id="当日の流れ">当日の流れ</h3>
+
+<p>今回は、京都の開発メンバーを含めた数人のメンバーを募り、Discordで話しながらkamipoさんのアドバイスを紐解いていくことになりました。</p>
+
+<h4 id="まずはセットアップ">まずはセットアップ</h4>
+
+<p><a href="https://edgeguides.rubyonrails.org/contributing_to_ruby_on_rails.html">Contributing to Ruby on Rails</a>からActiveRecordに関するセットアップ手順を抜粋して、各自でローカル環境をセットアップしていきます。<br />
+その上で、先ほどのissueを再現するテストコードを書いて、テストが失敗する状態を再現しました。</p>
+
+<p><a href="https://gist.github.com/alpaca-tc/e53fa34a55ebee4a170b54a87c266761">当日のセットアップ手順書</a></p>
+
+<h4 id="続いて調査">続いて調査</h4>
+
+<p>そして、全員の環境でテストが失敗する状態になったら、kamipoさんにいただいたアドバイスを調査していきます。</p>
+
+<blockquote>
+  <p><img width="20" alt="@kamipo" src="/images/blog/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai/kamipo.png" /> @kamipo</p>
+
+  <p>このissueを参照してるここ <a href="https://github.com/rails/rails/pull/36708#discussion_r307672794">rails/rails#36708</a> でも言及してるんですが、</p>
+
+  <p>automatic_inverse_ofは改善可能で改善すれば自ずとこの問題も解決されます。具体的には :foreign_key オプションをinverse_of判定に含めることでこれまで判定不能だったinverse_of判定も可能になります。</p>
+
+  <p>このissue自体はforeign_key未指定の同一クラス参照してるassociationがある場合にforeign_keyの一致を判定せずにクラスが一致するかどうかだけでinverse_of判定してることが問題なのだと思います。</p>
+</blockquote>
+
+<p>ざっくり言うと、<a href="https://github.com/rails/rails/issues/35204">このissue</a>はモデルの関連を指定した時に、判定の条件漏れがあることが原因のようです。<br />
+みんなで<a href="https://github.com/ktmouk/rails/blob/98ee2a40bf2df9ee2f7daca5532b71eace410fba/activerecord/lib/active_record/reflection.rb#L602"><code class="language-plaintext highlighter-rouge">ActiveRecord::Reflection#automatic_inverse_of</code></a>あたりを読み進めて、inverse_ofの判定処理に誤りがあることを発見しました。</p>
+
+<h2 id="prが完成">PRが完成</h2>
+
+<p>わいわい話しながらPRができたところで、kamipoさんにPRを見てもらって更にアドバイスをいただきました。</p>
+
+<ul>
+  <li>よほどのことがない限り1PR 1commitになるようにするのがのぞましい <a href="https://edgeguides.rubyonrails.org/contributing_to_ruby_on_rails.html#squashing-commits">contribution guide</a></li>
+  <li>レビュアーがまだ知らない情報は、ぜんぶPRに含めてくれるほうがレビューのハードルが下がるので頑張って欲しい
+    <ul>
+      <li>レビュアーが、わざわざこれは正しい変更だと解説コメントしなくてもいいぐらい書くといい</li>
+      <li>完全さよりもコンテキストを共有する気持ちが重要</li>
+    </ul>
+  </li>
+</ul>
+
+<p>貴重なアドバイスをいただきながら、完成したPRがこちらです。</p>
+
+<p><a href="https://github.com/rails/rails/pull/40643">rails/rails#40643</a></p>
+
+<p>このPRは無事マージされ、Rails6.1.0でリリースされています🎉</p>
+
+<h2 id="slackでの四方山話">Slackでの四方山話</h2>
+
+<p>今回は勉強会の話を抜粋しましたが、普段からSlackでは様々なトピックの技術系の話題がなされています。<br />
+個人的にも、kamipoさんにアドバイスをいただけたおかげで、直近1ヶ月で4つほどPRを送ることができました。</p>
+
+<ul>
+  <li><a href="https://github.com/rails/rails/pull/40704">複数DBに対応したrails console –sandbox</a></li>
+  <li><a href="https://github.com/rails/rails/pull/40545">serializeにデフォルト値を渡せるようにする</a></li>
+  <li><a href="https://github.com/rails/rails/pull/40538">6.1.0.rc1のバグ修正 1</a></li>
+  <li><a href="https://github.com/rails/rails/pull/40547">6.1.0.rc1のバグ修正 2</a></li>
+</ul>
+
+<p>ひとりでOSSへ取り組むのは難しさがありますが、Slackで議論ができるとハードルがグッと下がって踏み出しやすくなりますね。</p>
+
+<h2 id="まとめ">まとめ</h2>
+
+<p>今回の勉強会の件もそうですが、弊社では拠点に関係なくこういった技術の話題でワイワイできます。
+ぜひ皆さんも遊びにきてくださいヽ(・∀・ )ﾉ</p>
+
+<p>まとめ
+<strong>「kamipoさんはすごい人」</strong></p>
+
+<hr />
+
+<p>(※kamipoさんは弊社社員ではなく、善意でSlackのチャンネルに入ってくださっています。)</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[ピクシブを退職しました！]]></title>
     <link href="http://alpaca.tc/blog/pixiv/job/i_retired_from_pixiv.html"/>
     <updated>2017-07-03T00:03:00+09:00</updated>
     <id>http://alpaca.tc/blog/pixiv/job/i_retired_from_pixiv</id>
-    <content type="html"><![CDATA[<p>6月末で株式会社ピクシブを退社したので、退職エントリを書くゾヽ(・∀・ )ﾉ<br/>
+    <content type="html"><![CDATA[<p>6月末で株式会社ピクシブを退社したので、退職エントリを書くゾヽ(・∀・ )ﾉ<br />
 エントリを通じて、エンジニアとして働く誰かの参考になれば嬉しいゾ</p>
 
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/pixiv/face.jpg"></p>
+<p><img class="image_on_frame center" src="/images/blog/pixiv/face.jpg" /></p>
 
 <!-- more -->
 
+<h2 id="会社について">会社について</h2>
 
-<h2>会社について</h2>
-
-<p>ピクシブは「お絵かきがもっと楽しめる場所を作ること」を基本理念として、<br/>
+<p>ピクシブは「お絵かきがもっと楽しめる場所を作ること」を基本理念として、<br />
 <a href="https://www.pixiv.net">pixiv.net</a>を中心とした創作活動にまつわるWebサービスを運営する会社です。</p>
 
-<p>入社したタイミングは、 <strong>これから新規事業をどんどんやる！</strong> というタイミングでした。<br/>
-(入社当時のエントリはこちら→<a href="http://alpaca.tc/blog/blog/i-im-join-for-this-company.html">めまぐるしい１年！</a>)</p>
+<p>入社したタイミングは、 <strong>これから新規事業をどんどんやる！</strong> というタイミングでした。<br />
+(入社当時のエントリはこちら→<a href="/blog/blog/i-im-join-for-this-company.html">めまぐるしい１年！</a>)</p>
 
-<h2>これまでやってきたこと</h2>
+<h2 id="これまでやってきたこと">これまでやってきたこと</h2>
 
-<p>イラストやアニメといった文化に全く触れてこなかった僕にとって、<br/>
+<p>イラストやアニメといった文化に全く触れてこなかった僕にとって、<br />
 ピクシブで過ごした３年間は全てが新鮮で楽しいものでした( ﾟ∀ﾟ)o彡</p>
 
-<p>入社してすぐに<a href="https://factory.pixiv.net">pixivFACTORY</a>の立ち上げをしました。<br/>
+<p>入社してすぐに<a href="https://factory.pixiv.net">pixivFACTORY</a>の立ち上げをしました。<br />
 開発リーダーになってから３年間で、pixivFACTORYの大きな機能の多くを担当させてもらいました。</p>
 
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/pixiv/contribute.png"></p>
+<p><img class="image_on_frame center" src="/images/blog/pixiv/contribute.png" /></p>
 
 <p>我が子のような可愛い可愛いサービスですね。</p>
 
-<p>新卒2年目ごろからは、Railsおじさんとして<br/>
+<p>新卒2年目ごろからは、Railsおじさんとして<br />
 レガシー殺すマン、Rails-Wayマンとして、社内のプロジェクトに関わってきました。</p>
 
 <ul>
-<li><a href="https://booth.pm">BOOTH</a></li>
-<li><a href="https://factory.pixiv.net">pixivFACTORY</a></li>
-<li><a href="https://comic.pixiv.net">pixivコミック</a></li>
-<li><a href="https://novel.pixiv.net">pixivノベル</a></li>
-<li><a href="https://pawoo.net">pawoo</a></li>
+  <li><a href="https://booth.pm">BOOTH</a></li>
+  <li><a href="https://factory.pixiv.net">pixivFACTORY</a></li>
+  <li><a href="https://comic.pixiv.net">pixivコミック</a></li>
+  <li><a href="https://novel.pixiv.net">pixivノベル</a></li>
+  <li><a href="https://pawoo.net">pawoo</a></li>
 </ul>
 
-
-<p>退職が決まってからの最後の3ヶ月は、pixivFACTORYを離れて<a href="https://pawoo.net">pawoo</a>の開発をしていました。<br/>
+<p>退職が決まってからの最後の3ヶ月は、pixivFACTORYを離れて<a href="https://pawoo.net">pawoo</a>の開発をしていました。<br />
 Mastodon本家に高速化やバグ修正のパッチを投げていたら、GithubのGraphでトップ4に入るぐらいだったので、退社直前までそれなりにはやっていたと思います。</p>
 
-<h2>なんで辞めるの？</h2>
+<h2 id="なんで辞めるの">なんで辞めるの？</h2>
 
 <p>タイミングがたまたま良かったからです。</p>
 
-<p>引き継ぎをして新しい挑戦をしようというタイミングで、お話をいただきました。<br/>
+<p>引き継ぎをして新しい挑戦をしようというタイミングで、お話をいただきました。<br />
 その事業ドメインが魅力的だったので、エイヤッと転職することにしました。</p>
 
-<h2>転職は何を期待しているの？</h2>
+<h2 id="転職は何を期待しているの">転職は何を期待しているの？</h2>
 
-<p>次は、いわゆるFintechの会社にいきます。<br/>
+<p>次は、いわゆるFintechの会社にいきます。<br />
 pixivに入った時と同じように、何も前提知識を知らない業界だったというところに惹かれました。</p>
 
 <p><strong>何も知らない、分からないというのは、なんでもできることの裏返しなのできっと面白いですね。</strong></p>
 
 <p>何をするかは決まってませんが、きっと新しい会社でも楽しめるかなと思います。(´・ω・)</p>
 
-<h2>これから何するの？</h2>
+<h2 id="これから何するの">これから何するの？</h2>
 
-<p>8月まで1ヶ月のお休みをいただいています！<br/>
+<p>8月まで1ヶ月のお休みをいただいています！<br />
 元同僚がやっているアフリカの事業をお手伝いしつつ、 7/21からはSplatoonに費やしたいと思っております。</p>
 
-<p>また、日本でまだ行ったことがない都道府県が残り5県なので<br/>
+<p>また、日本でまだ行ったことがない都道府県が残り5県なので<br />
 各地をまわり、地元のおっちゃんと地酒を飲み語らいながら過ごしたいと思います。</p>
 
-<h2>おわりに</h2>
+<h2 id="おわりに">おわりに</h2>
 
-<p>新卒として東京に出てきて、<br/>
+<p>新卒として東京に出てきて、<br />
 この3年間を、pixivで働けたことは最高の日々でした。</p>
 
-<p>学生時代から何社も経験していますが<br/>
+<p>学生時代から何社も経験していますが<br />
 <strong>あんなに楽しい会社もなかなかない</strong> ので、本当にオススメします！</p>
 
 <p>最後に例のもの貼っておきます。何かいただけたら飛び跳ねて喜びます。ヽ(・∀・ )ﾉ</p>
 
-<p><a href="http://amzn.asia/8lJqzlJ">財布を無くして絶望マンのウィッシュリスト</a><br/>
-(旅行初日の本日、9万ぐらい入った財布とカードを落として地方で死に絶えそうです。マジで&hellip;。)</p>
+<p><a href="http://amzn.asia/8lJqzlJ">財布を無くして絶望マンのウィッシュリスト</a><br />
+(旅行初日の本日、9万ぐらい入った財布とカードを落として地方で死に絶えそうです。マジで…。)</p>
 
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/pixiv/last.jpg"></p>
+<p><img class="image_on_frame center" src="/images/blog/pixiv/last.jpg" /></p>
 
 <p>3年間、本当にありがとうございました。</p>
 ]]></content>
@@ -114,221 +239,118 @@ pixivに入った時と同じように、何も前提知識を知らない業界
 
 <p>↓こんなURLね</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>https://alpaca.tc/shares/uIx90S</span></code></pre></td></tr></table></div></figure>
-
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://alpaca.tc/shares/uIx90S
+</code></pre></div></div>
 
 <p>実装面白かったので紹介してみます＞＜</p>
 
 <!-- more -->
 
+<p>ちなみに僕の実装方法は、ポリモーフィックなカラムを持つ<code class="language-plaintext highlighter-rouge">share_links</code>テーブルを作って、シェアしたいrecordを紐付けることで実現した。</p>
 
-<p>ちなみに僕の実装方法は、ポリモーフィックなカラムを持つ<code>share_links</code>テーブルを作って、シェアしたいrecordを紐付けることで実現した。</p>
+<p>ユニークなキーが必要なため<code class="language-plaintext highlighter-rouge">id</code>を使用していてに、2度クエリを発行しているのだけど、パフォーマンスを気にするなら<code class="language-plaintext highlighter-rouge">LAST_INSERT_ID</code>を使って一度のクエリで済ます方が良い。</p>
 
-<p>ユニークなキーが必要なため<code>id</code>を使用していてに、2度クエリを発行しているのだけど、パフォーマンスを気にするなら<code>LAST_INSERT_ID</code>を使って一度のクエリで済ます方が良い。</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">CreateShareLinks</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span>
+  <span class="k">def</span> <span class="nf">change</span>
+    <span class="n">create_table</span> <span class="ss">:share_links</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+      <span class="n">t</span><span class="p">.</span><span class="nf">references</span> <span class="ss">:sharable</span><span class="p">,</span> <span class="ss">polymorphic: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">null: </span><span class="kp">false</span>
+      <span class="n">t</span><span class="p">.</span><span class="nf">string</span> <span class="ss">:uuid</span>
+      <span class="n">t</span><span class="p">.</span><span class="nf">timestamps</span> <span class="ss">null: </span><span class="kp">false</span>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">CreateShareLinks</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Migration</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">change</span>
-</span><span class='line'>    <span class="n">create_table</span> <span class="ss">:share_links</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
-</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">references</span> <span class="ss">:sharable</span><span class="p">,</span> <span class="ss">polymorphic</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">null</span><span class="p">:</span> <span class="kp">false</span>
-</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">string</span> <span class="ss">:uuid</span>
-</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">timestamps</span> <span class="ss">null</span><span class="p">:</span> <span class="kp">false</span>
-</span><span class='line'>
-</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">index</span> <span class="ss">:uuid</span><span class="p">,</span> <span class="ss">unique</span><span class="p">:</span> <span class="kp">true</span>
-</span><span class='line'>      <span class="n">t</span><span class="o">.</span><span class="n">index</span> <span class="o">[</span><span class="ss">:sharable_type</span><span class="p">,</span> <span class="ss">:sharable_id</span><span class="o">]</span><span class="p">,</span> <span class="ss">unique</span><span class="p">:</span> <span class="kp">true</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
+      <span class="n">t</span><span class="p">.</span><span class="nf">index</span> <span class="ss">:uuid</span><span class="p">,</span> <span class="ss">unique: </span><span class="kp">true</span>
+      <span class="n">t</span><span class="p">.</span><span class="nf">index</span> <span class="p">[</span><span class="ss">:sharable_type</span><span class="p">,</span> <span class="ss">:sharable_id</span><span class="p">],</span> <span class="ss">unique: </span><span class="kp">true</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
 
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># lib/share_link_uuid.rb</span>
+<span class="nb">require</span> <span class="s1">'digest/sha2'</span>
 
+<span class="k">module</span> <span class="nn">ShareLinkUuid</span>
+  <span class="c1"># URLで使用可能な文字列</span>
+  <span class="no">HEX64</span> <span class="o">=</span> <span class="p">[</span><span class="o">*</span><span class="p">(</span><span class="s1">'0'</span><span class="o">..</span><span class="s1">'9'</span><span class="p">),</span> <span class="o">*</span><span class="p">(</span><span class="s1">'A'</span><span class="o">..</span><span class="s1">'Z'</span><span class="p">),</span> <span class="o">*</span><span class="p">(</span><span class="s1">'a'</span><span class="o">..</span><span class="s1">'z'</span><span class="p">),</span> <span class="s1">'_'</span><span class="p">,</span> <span class="s1">'-'</span><span class="p">].</span><span class="nf">freeze</span>
 
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">generate</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span>
+    <span class="n">digest</span> <span class="o">=</span> <span class="no">Digest</span><span class="o">::</span><span class="no">SHA512</span><span class="p">.</span><span class="nf">hexdigest</span><span class="p">(</span><span class="nb">id</span><span class="p">.</span><span class="nf">to_s</span><span class="p">).</span><span class="nf">to_i</span><span class="p">(</span><span class="mi">16</span><span class="p">).</span><span class="nf">to_s</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># lib/share_link_uuid.rb</span>
-</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;digest/sha2&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">module</span> <span class="nn">ShareLinkUuid</span>
-</span><span class='line'>  <span class="c1"># URLで使用可能な文字列</span>
-</span><span class='line'>  <span class="no">HEX64</span> <span class="o">=</span> <span class="o">[*</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;9&#39;</span><span class="p">),</span> <span class="o">*</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;Z&#39;</span><span class="p">),</span> <span class="o">*</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;z&#39;</span><span class="p">),</span> <span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="o">].</span><span class="n">freeze</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">generate</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">digest</span> <span class="o">=</span> <span class="ss">Digest</span><span class="p">:</span><span class="ss">:SHA512</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">(</span><span class="nb">id</span><span class="o">.</span><span class="n">to_s</span><span class="p">)</span><span class="o">.</span><span class="n">to_i</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">uuid</span> <span class="o">=</span> <span class="n">digest</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/\d{2}/</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">token</span><span class="o">|</span>
-</span><span class='line'>      <span class="no">HEX64</span><span class="o">[</span><span class="n">token</span><span class="o">.</span><span class="n">to_i</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">to_i</span><span class="o">]</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">uuid</span><span class="o">[</span><span class="mi">0</span><span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="n">length</span><span class="o">]</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># app/models/share_link.rb</span>
-</span><span class='line'><span class="k">class</span> <span class="nc">ShareLink</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
-</span><span class='line'>  <span class="no">UUID_LENGTH</span> <span class="o">=</span> <span class="mi">6</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="n">belongs_to</span> <span class="ss">:sharable</span><span class="p">,</span> <span class="ss">polymorphic</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">required</span><span class="p">:</span> <span class="kp">true</span>
-</span><span class='line'>  <span class="n">validates</span> <span class="ss">:uuid</span><span class="p">,</span> <span class="ss">absence</span><span class="p">:</span> <span class="p">{</span> <span class="k">if</span><span class="p">:</span> <span class="ss">:new_record?</span> <span class="p">},</span> <span class="ss">presence</span><span class="p">:</span> <span class="p">{</span> <span class="k">if</span><span class="p">:</span> <span class="ss">:persisted?</span> <span class="p">}</span>
-</span><span class='line'>  <span class="n">validates</span> <span class="ss">:sharable_type</span><span class="p">,</span> <span class="ss">inclusion</span><span class="p">:</span> <span class="p">{</span> <span class="k">in</span><span class="p">:</span> <span class="sx">%w(Item)</span> <span class="p">}</span>
-</span><span class='line'>  <span class="n">after_create</span> <span class="ss">:save_uuid</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="kp">private</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">save_uuid</span>
-</span><span class='line'>    <span class="vi">@uuid_length</span> <span class="o">||=</span> <span class="no">UUID_LENGTH</span>
-</span><span class='line'>    <span class="n">update_uuid!</span><span class="p">(</span><span class="vi">@uuid_length</span><span class="p">)</span>
-</span><span class='line'>  <span class="k">rescue</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:RecordNotUnique</span>
-</span><span class='line'>    <span class="c1"># UUIDの長さを増やして再試行</span>
-</span><span class='line'>    <span class="vi">@uuid_length</span> <span class="o">+=</span> <span class="mi">1</span>
-</span><span class='line'>    <span class="k">retry</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">update_uuid!</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">uuid</span> <span class="o">=</span> <span class="no">ShareLinkUuid</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">update!</span><span class="p">(</span><span class="ss">uuid</span><span class="p">:</span> <span class="n">uuid</span><span class="p">)</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">module</span> <span class="nn">Sharable</span>
-</span><span class='line'>    <span class="kp">extend</span> <span class="ss">ActiveSupport</span><span class="p">:</span><span class="ss">:Concern</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">included</span> <span class="k">do</span>
-</span><span class='line'>      <span class="n">has_one</span> <span class="ss">:share_link</span><span class="p">,</span> <span class="ss">as</span><span class="p">:</span> <span class="ss">:sharable</span><span class="p">,</span> <span class="ss">dependent</span><span class="p">:</span> <span class="ss">:destroy</span>
-</span><span class='line'>
-</span><span class='line'>      <span class="n">scope</span> <span class="ss">:shared</span><span class="p">,</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="n">joins</span><span class="p">(</span><span class="ss">:share_link</span><span class="p">)</span> <span class="p">}</span>
-</span><span class='line'>      <span class="n">scope</span> <span class="ss">:not_shared</span><span class="p">,</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="n">where</span><span class="o">.</span><span class="n">not</span><span class="p">(</span><span class="nb">id</span><span class="p">:</span> <span class="n">shared</span><span class="p">)</span> <span class="p">}</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># app/models/item.rb</span>
-</span><span class='line'><span class="k">class</span> <span class="nc">Item</span>
-</span><span class='line'>  <span class="kp">include</span> <span class="ss">ShareLink</span><span class="p">:</span><span class="ss">:Sharable</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
+    <span class="n">uuid</span> <span class="o">=</span> <span class="n">digest</span><span class="p">.</span><span class="nf">gsub</span><span class="p">(</span><span class="sr">/\d{2}/</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">token</span><span class="o">|</span>
+      <span class="no">HEX64</span><span class="p">[</span><span class="n">token</span><span class="p">.</span><span class="nf">to_i</span><span class="p">(</span><span class="mi">8</span><span class="p">).</span><span class="nf">to_s</span><span class="p">(</span><span class="mi">10</span><span class="p">).</span><span class="nf">to_i</span><span class="p">]</span>
+    <span class="k">end</span>
 
+    <span class="n">uuid</span><span class="p">[</span><span class="mi">0</span><span class="o">...</span><span class="n">length</span><span class="p">]</span>
+  <span class="k">end</span>
+<span class="k">end</span>
 
+<span class="c1"># app/models/share_link.rb</span>
+<span class="k">class</span> <span class="nc">ShareLink</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="no">UUID_LENGTH</span> <span class="o">=</span> <span class="mi">6</span>
 
+  <span class="n">belongs_to</span> <span class="ss">:sharable</span><span class="p">,</span> <span class="ss">polymorphic: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">required: </span><span class="kp">true</span>
+  <span class="n">validates</span> <span class="ss">:uuid</span><span class="p">,</span> <span class="ss">absence: </span><span class="p">{</span> <span class="ss">if: :new_record?</span> <span class="p">},</span> <span class="ss">presence: </span><span class="p">{</span> <span class="ss">if: :persisted?</span> <span class="p">}</span>
+  <span class="n">validates</span> <span class="ss">:sharable_type</span><span class="p">,</span> <span class="ss">inclusion: </span><span class="p">{</span> <span class="ss">in: </span><span class="sx">%w(Item)</span> <span class="p">}</span>
+  <span class="n">after_create</span> <span class="ss">:save_uuid</span>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Rails</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">routes</span><span class="o">.</span><span class="n">draw</span> <span class="k">do</span>
-</span><span class='line'>  <span class="n">resources</span> <span class="ss">:shares</span><span class="p">,</span> <span class="ss">only</span><span class="p">:</span> <span class="o">[</span><span class="ss">:create</span><span class="o">]</span><span class="p">,</span> <span class="ss">controller</span><span class="p">:</span> <span class="ss">:share_links</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">ShareLinksController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">create</span>
-</span><span class='line'>    <span class="vi">@share_link</span> <span class="o">=</span> <span class="no">ShareLink</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">share_link_params</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">if</span> <span class="vi">@share_link</span><span class="o">.</span><span class="n">save</span>
-</span><span class='line'>      <span class="n">render</span> <span class="nb">format</span><span class="p">:</span> <span class="ss">:json</span>
-</span><span class='line'>    <span class="k">else</span>
-</span><span class='line'>      <span class="n">render</span> <span class="ss">:error</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="kp">private</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">share_link_params</span>
-</span><span class='line'>    <span class="n">params</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="ss">:share_link</span><span class="p">)</span><span class="o">.</span><span class="n">permit</span><span class="p">(</span>
-</span><span class='line'>      <span class="ss">:sharable_type</span><span class="p">,</span> <span class="ss">:sharable_id</span>
-</span><span class='line'>    <span class="p">)</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="ss">user</span><span class="p">:</span> <span class="n">current_user</span><span class="p">)</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
+  <span class="kp">private</span>
 
+  <span class="k">def</span> <span class="nf">save_uuid</span>
+    <span class="vi">@uuid_length</span> <span class="o">||=</span> <span class="no">UUID_LENGTH</span>
+    <span class="n">update_uuid!</span><span class="p">(</span><span class="vi">@uuid_length</span><span class="p">)</span>
+  <span class="k">rescue</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">RecordNotUnique</span>
+    <span class="c1"># UUIDの長さを増やして再試行</span>
+    <span class="vi">@uuid_length</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">retry</span>
+  <span class="k">end</span>
 
-<p>うーん、もっと良い方法ありそうだナ&hellip;</p>
+  <span class="k">def</span> <span class="nf">update_uuid!</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
+    <span class="n">uuid</span> <span class="o">=</span> <span class="no">ShareLinkUuid</span><span class="p">.</span><span class="nf">generate</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span>
+    <span class="n">update!</span><span class="p">(</span><span class="ss">uuid: </span><span class="n">uuid</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="k">module</span> <span class="nn">Sharable</span>
+    <span class="kp">extend</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Concern</span>
+
+    <span class="n">included</span> <span class="k">do</span>
+      <span class="n">has_one</span> <span class="ss">:share_link</span><span class="p">,</span> <span class="ss">as: :sharable</span><span class="p">,</span> <span class="ss">dependent: :destroy</span>
+
+      <span class="n">scope</span> <span class="ss">:shared</span><span class="p">,</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="n">joins</span><span class="p">(</span><span class="ss">:share_link</span><span class="p">)</span> <span class="p">}</span>
+      <span class="n">scope</span> <span class="ss">:not_shared</span><span class="p">,</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="n">where</span><span class="p">.</span><span class="nf">not</span><span class="p">(</span><span class="ss">id: </span><span class="n">shared</span><span class="p">)</span> <span class="p">}</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1"># app/models/item.rb</span>
+<span class="k">class</span> <span class="nc">Item</span> 
+  <span class="kp">include</span> <span class="no">ShareLink</span><span class="o">::</span><span class="no">Sharable</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Rails.application.routes.draw do
+  resources :shares, only: [:create], controller: :share_links
+end
+
+class ShareLinksController &lt; ApplicationController
+  def create
+    @share_link = ShareLink.new(share_link_params)
+
+    if @share_link.save
+      render format: :json
+    else
+      render :error
+    end
+  end
+
+  private
+
+  def share_link_params
+    params.require(:share_link).permit(
+      :sharable_type, :sharable_id
+    ).merge(user: current_user)
+  end
+end
+</code></pre></div></div>
+
+<p>うーん、もっと良い方法ありそうだナ…</p>
 ]]></content>
   </entry>
   
@@ -337,40 +359,39 @@ pixivに入った時と同じように、何も前提知識を知らない業界
     <link href="http://alpaca.tc/blog/diary/pixiv-year.html"/>
     <updated>2014-05-24T01:07:00+09:00</updated>
     <id>http://alpaca.tc/blog/diary/pixiv-year</id>
-    <content type="html"><![CDATA[<p>昨年の6月に越してきて、あと3ヶ月ほどで東京に来て一年！？<br/>
-時間が経つのは早いものですねー&hellip;。</p>
+    <content type="html"><![CDATA[<p>昨年の6月に越してきて、あと3ヶ月ほどで東京に来て一年！？<br />
+時間が経つのは早いものですねー…。</p>
 
 <!-- more -->
 
+<h2 id="今年の一年を振り返って">今年の一年を振り返って。</h2>
 
-<h2>今年の一年を振り返って。</h2>
-
-<p>憧れの東京に来て、なんだか目的もなく一年が過ぎかけてました。<br/>
+<p>憧れの東京に来て、なんだか目的もなく一年が過ぎかけてました。<br />
 ずっと東京に憧れていて、夢が叶っちゃったら長い間本当に無目的で生きてましたね:(</p>
 
-<p>あの勉強と仕事のストイックな3ヶ月はどこへやら&hellip;</p>
+<p>あの勉強と仕事のストイックな3ヶ月はどこへやら…</p>
 
-<h3>お仕事。</h3>
+<h3 id="お仕事">お仕事。</h3>
 
-<p>6月に入ってから<a href="https://booth.pm">BOOTH</a>にアサインされて、数ヶ月を過ごし<br/>
+<p>6月に入ってから<a href="https://booth.pm">BOOTH</a>にアサインされて、数ヶ月を過ごし<br />
 その後、<a href="http:://factory.pixiv.net">pixivFACTORY</a>のメインエンジニアとしてコード書いてました。</p>
 
 <p>pixivFACTORYが出た後に、ユーザーさん達が嬉しい言葉を言ってくださるのをTwitterで眺めていて、</p>
 
-<p>ゆるやかーに&hellip;「ボッ」 っと火が着いた今日この頃です。</p>
+<p>ゆるやかーに…「ボッ」 っと火が着いた今日この頃です。</p>
 
-<p>最近は、仕事が最高に楽しい。<br/>
+<p>最近は、仕事が最高に楽しい。<br />
 実は入社する前にこの会社に期待していたことはずっとやらせて貰えていて、文句は無いはずなのにイマイチ目的が無くてやる気が出てませんでした。</p>
 
-<p>でも、自分で作ったサービスを使ってくださるユーザーさんの声を聞いて、あーーーーーーやらねば&hellip;！！！とやる気が漲ってきている今日この頃です。</p>
+<p>でも、自分で作ったサービスを使ってくださるユーザーさんの声を聞いて、あーーーーーーやらねば…！！！とやる気が漲ってきている今日この頃です。</p>
 
 <p>惜しむべくはpixivはホワイト企業なところ。もうブラック企業に生きていきたい。</p>
 
-<h3>プライベート</h3>
+<h3 id="プライベート">プライベート</h3>
 
 <p>アートの趣味がかなり充実していました！</p>
 
-<p>東京ってやっぱりすごいですよ！<br/>
+<p>東京ってやっぱりすごいですよ！<br />
 ギャラリーが多いのでプラ〜っと出かけて適当にオシャレそうなカフェやギャラリーに入っても楽しめる。すごい！</p>
 
 <p>就活前にギャラリーで展示されてた方と仲良くなって、そのままプライベートのお付き合いしてたり、友人伝いで色んな人と会えたり、すごい！！</p>
@@ -379,9 +400,9 @@ pixivに入った時と同じように、何も前提知識を知らない業界
 
 <p>あと、不意打ちだったんですが、忘年会やなんやらと前職や前々職の方に声を掛けてもらえて嬉しかったです。</p>
 
-<h3>残りちょっと</h3>
+<h3 id="残りちょっと">残りちょっと</h3>
 
-<p>もうすぐ入社式です。<br/>
+<p>もうすぐ入社式です。<br />
 新卒になるのでまたゆるく頑張ります。</p>
 ]]></content>
   </entry>
@@ -393,84 +414,83 @@ pixivに入った時と同じように、何も前提知識を知らない業界
     <id>http://alpaca.tc/blog/diary/i-just-quit-my-job-at-kronos</id>
     <content type="html"><![CDATA[<p>先週、4月から働いていた株式会社クロノスを退社した。</p>
 
-<p>流行の退職エントリということだが、<br/>
+<p>流行の退職エントリということだが、<br />
 退職エントリといえば、<a href="https://d.hatena.ne.jp/takeda25/touch/20140407/1396864651">いい話(ウェブリオを辞めました)</a>の記事を読んで大変感銘を受けた！</p>
 
 <p>同じように、エンジニアとして働く誰かの参考になれば嬉しい:)</p>
 
 <!-- more -->
 
-
-<h2>会社について</h2>
+<h2 id="会社について">会社について</h2>
 
 <p>主な業務としてSler支援・IT教育・受託開発を包括的に行っていて、最近は5ヶ年計画を掲げて事業ドメインを自社開発中心へシフトしようと取り組んでいる。</p>
 
-<p>入社のきっかけは、前に働いていた社長による紹介である。<br/>
-<a href="http://alpaca.tc/blog/blog/i-im-join-for-this-company.html">前の記事</a>で書いた通り、僕は大学を辞める決断をした。その際に、先は分からないけれど取り敢えずの勤め先として社長がクロノスを紹介してくださった。</p>
+<p>入社のきっかけは、前に働いていた社長による紹介である。<br />
+<a href="/blog/blog/i-im-join-for-this-company.html">前の記事</a>で書いた通り、僕は大学を辞める決断をした。その際に、先は分からないけれど取り敢えずの勤め先として社長がクロノスを紹介してくださった。</p>
 
 <p>しかし、入れ違いで就職先が決まり、残念ながら2ヶ月だけしか在籍することが出来なかったのが心残りである。</p>
 
-<h2>クロノスの特徴</h2>
+<h2 id="クロノスの特徴">クロノスの特徴</h2>
 
 <p>今まで僕はWeb系の会社でしか働いたことが無かったので、驚くほど刺激的な時間を過ごすことができた！</p>
 
 <p>僕の直接の業務はとある医療系(？)Webアプリの開発で、マネジメントの高山さんと僕の2人で行なった。</p>
 
-<p>正直なところ、期間も短く業務も一部だったため他の事業ドメインの事情は疎い。<br/>
+<p>正直なところ、期間も短く業務も一部だったため他の事業ドメインの事情は疎い。<br />
 そのため情報はとても偏るけれど、目に映った事柄については率直な感想を書いていきたい。</p>
 
-<h3>悪かった点</h3>
+<h3 id="悪かった点">悪かった点</h3>
 
 <p>良かった点があまりに多かったため、先に悪かった点をざっと書いておく。</p>
 
-<h4>1. Slerの文化がやや浸透している</h4>
+<h4 id="1-slerの文化がやや浸透している">1. Slerの文化がやや浸透している</h4>
 
-<p>いわゆるエクセルを中心としたタスク管理、バグ管理はWeb系で活動してきた僕にとって初めての体験だった。<br/>
+<p>いわゆるエクセルを中心としたタスク管理、バグ管理はWeb系で活動してきた僕にとって初めての体験だった。<br />
 僕にはこういったマネジメントが馴染めなかった:(</p>
 
-<h4>2. Web技術の浸透度</h4>
+<h4 id="2-web技術の浸透度">2. Web技術の浸透度</h4>
 
-<p>もともとJavaを中心にしていたため、Web系技術の情報がまだ浸透しきっていないと感じた。<br/>
+<p>もともとJavaを中心にしていたため、Web系技術の情報がまだ浸透しきっていないと感じた。<br />
 現在はRuby/JS中心へ移行しつつあるので、これから浸透していくと思う。</p>
 
-<h3>良かった点</h3>
+<h3 id="良かった点">良かった点</h3>
 
-<p>クロノスで働いてみて、何度も感嘆した。。<br/>
+<p>クロノスで働いてみて、何度も感嘆した。。<br />
 良かった点が日常に溢れていて書ききれない！</p>
 
-<h4>1. 人間力が高すぎる</h4>
+<h4 id="1-人間力が高すぎる">1. 人間力が高すぎる</h4>
 
 <p>「エンジニア」としてだけではなく、ただひたすらに「人」として尊敬出来る会社だった！</p>
 
-<p>謙虚さや人の良さというのは、身に付けようとしてどうこうなるものではない。ましてや、会社としてそういった文化を根付かせようと思ったら尚更である。<br/>
+<p>謙虚さや人の良さというのは、身に付けようとしてどうこうなるものではない。ましてや、会社としてそういった文化を根付かせようと思ったら尚更である。<br />
 前向きな言葉に溢れて、常に人を気遣って笑顔で仕事に取り組んでいた。</p>
 
-<p>努力や技術とは別のベクトルにある要素である分、かけがえの無い感動があった。<br/>
+<p>努力や技術とは別のベクトルにある要素である分、かけがえの無い感動があった。<br />
 将来、仕事を依頼することになったら間違いなくクロノスにお願いするだろう。理由は言わずもがな、である。</p>
 
 <p>うーん、もっとあの感動を書き表せる文才が欲しい。笑</p>
 
-<h4>2. ホワイトなIT企業</h4>
+<h4 id="2-ホワイトなit企業">2. ホワイトなIT企業</h4>
 
-<p>とーってもホワイトな環境だった。<br/>
+<p>とーってもホワイトな環境だった。<br />
 残業はほとんど無いし、同僚は楽しい人ばかり。最高！</p>
 
-<h4>3. 技術的な向上心</h4>
+<h4 id="3-技術的な向上心">3. 技術的な向上心</h4>
 
-<p>クロノスには技術本の著者が何人もいる。(一定年齢以上はほとんど？)<br/>
+<p>クロノスには技術本の著者が何人もいる。(一定年齢以上はほとんど？)<br />
 会社としても、本の執筆や資格取得を推奨しているので、その気があればかなりサポートしてもらえるはず。</p>
 
-<h4>4. 教育体制</h4>
+<h4 id="4-教育体制">4. 教育体制</h4>
 
-<p>IT教育を事業ドメインのひとつとして捉えているだけあって、教育環境が素晴らしかった。<br/>
+<p>IT教育を事業ドメインのひとつとして捉えているだけあって、教育環境が素晴らしかった。<br />
 目の前で新卒の方々がメキメキ上達していく様は、かなり焦りを覚えるほどだった。</p>
 
-<p>クロノスは元々エンジニアでなくても、育ててくれる会社なので文系からエンジニアを志望する人にはかなりオススメです。<br/>
+<p>クロノスは元々エンジニアでなくても、育ててくれる会社なので文系からエンジニアを志望する人にはかなりオススメです。<br />
 何より、「教育体制」なんて垣根は関係なくて全ての先輩が親身になってくれる会社ですし。</p>
 
-<h2>まとめ</h2>
+<h2 id="まとめ">まとめ</h2>
 
-<p>２ヶ月という短い間でしたが、本当にお世話になりました！<br/>
+<p>２ヶ月という短い間でしたが、本当にお世話になりました！<br />
 クロノスという会社はとても良い会社なので、興味があればぜひ転職してみてくださいw</p>
 ]]></content>
   </entry>
@@ -480,80 +500,81 @@ pixivに入った時と同じように、何も前提知識を知らない業界
     <link href="http://alpaca.tc/blog/vim/alpaca-rails-support.html"/>
     <updated>2014-04-30T00:46:00+09:00</updated>
     <id>http://alpaca.tc/blog/vim/alpaca-rails-support</id>
-    <content type="html"><![CDATA[<h1>もうLocaleファイルに迷わない！</h1>
+    <content type="html"><![CDATA[<h1 id="もうlocaleファイルに迷わない">もうLocaleファイルに迷わない！</h1>
 
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/alpaca-rails-support/screen_shot_1.png" title="screen_shot_1" ></p>
+<p><img class="image_on_frame center" src="/images/blog/alpaca-rails-support/screen_shot_1.png" alt="screen_shot_1" /></p>
 
 <p>休日を利用して、久しぶりにRails関連のVimScriptを書いたよ:)</p>
 
 <!-- more -->
 
-
-<h2>Railsとlocalesファイル</h2>
+<h2 id="railsとlocalesファイル">Railsとlocalesファイル</h2>
 
 <p>きっかけは、とあるプロジェクトに立てられたIssueであった。</p>
 
-<blockquote><p><strong>言語ファイルが大きすぎてどこを編集しているのか全く分からなくなる。</strong><br/>
+<blockquote>
+  <p><strong>言語ファイルが大きすぎてどこを編集しているのか全く分からなくなる。</strong><br />
 <strong>もはや人が書くようなファイルじゃない。</strong></p>
 
-<p>便利なエディタがあるならエディタに頼ってもいいけどざっと探した感じ見つけられなかったので、いい解決方法があれば教えて欲しいです。</p></blockquote>
+  <p>便利なエディタがあるならエディタに頼ってもいいけどざっと探した感じ見つけられなかったので、いい解決方法があれば教えて欲しいです。</p>
+</blockquote>
 
-<p>おっしゃる通り、懸念すべき事項である。<br/>
+<p>おっしゃる通り、懸念すべき事項である。<br />
 多国籍に対応したプロジェクトをRailsで作った経験があると分かるが、気をつけていても<strong>localesはカオス</strong>になってしまう。</p>
 
 <p>しかし、次の発言で少し様相が変わる。</p>
 
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/alpaca-rails-support/screen_shot_3.png" title="issue" ></p>
+<p><img class="image_on_frame center" src="/images/blog/alpaca-rails-support/screen_shot_3.png" alt="issue" /></p>
 
-<p><strong>SublimeText2が有力&hellip;だと？</strong></p>
+<p><strong>SublimeText2が有力…だと？</strong></p>
 
 <p><del>何を寝ぼけたこt</del></p>
 
 <p>alpaca-tcはVimの人である。Vimで解決しんぜよう。</p>
 
-<h2>Railsの補助プラグイン</h2>
+<h2 id="railsの補助プラグイン">Railsの補助プラグイン</h2>
 
-<p>丁度、僕も今Railsで開発をしている。<br/>
+<p>丁度、僕も今Railsで開発をしている。<br />
 痒いところが幾つかあったので、休日に孫の手を作ることにした。</p>
 
 <p><strong><a href="https://github.com/alpaca-tc/alpaca_rails_support">Alpaca Rails Support</a></strong></p>
 
 <p>といっても、時間があまり無かったので<strong>3つの簡素な機能</strong>でまとめた。</p>
 
-<h3>I18nの探索</h3>
+<h3 id="i18nの探索">I18nの探索</h3>
 
-<p>本題の機能である「localesの編集をサポートする」プラグインである。<br/>
+<p>本題の機能である「localesの編集をサポートする」プラグインである。<br />
 キーを探索して、Uniteにぶち込んでくれる。</p>
 
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/alpaca-rails-support/screen_shot_4.png" title="Find_local" ></p>
+<p><img class="image_on_frame center" src="/images/blog/alpaca-rails-support/screen_shot_4.png" alt="Find_local" /></p>
 
 <p>探索は少し荒いので、Yamlをキレイに書いていなければ動かない。</p>
 
-<h3>Routesの補完</h3>
+<h3 id="routesの補完">Routesの補完</h3>
 
-<p>個人的に一番欲しかった機能である<br/>
+<p>個人的に一番欲しかった機能である<br />
 たかだかRoutesのスペルミスで、BetterErrorsと挨拶したくない。</p>
 
-<p><img class="image_on_frame center" src="https://raw.githubusercontent.com/alpaca-tc/alpaca_rails_support/master/assets/routes_completion.png" title="reoute補完" ></p>
+<p><img class="image_on_frame center" src="https://raw.githubusercontent.com/alpaca-tc/alpaca_rails_support/master/assets/routes_completion.png" alt="reoute補完" /></p>
 
-<p>ようやく<code>rake routes | grep ...</code>の地獄から解放されるヾ(*´∀｀*)ﾉ</p>
+<p>ようやく<code class="language-plaintext highlighter-rouge">rake routes | grep ...</code>の地獄から解放されるヾ(*´∀｀*)ﾉ</p>
 
-<h3>I18nのプレビュー</h3>
+<h3 id="i18nのプレビュー">I18nのプレビュー</h3>
 
 <p>特に必要は無かったけれど、思いついてしまったので作った。</p>
 
-<p><img class="image_on_frame center" src="https://raw.githubusercontent.com/alpaca-tc/alpaca_rails_support/master/assets/preview_locales.gif" title="preview" ></p>
+<p><img class="image_on_frame center" src="https://raw.githubusercontent.com/alpaca-tc/alpaca_rails_support/master/assets/preview_locales.gif" alt="preview" /></p>
 
 <p><strong>( ﾟ∀ﾟ)o彡ﾟギミックかっけー！</strong></p>
 
-<p>vim-easy-motionやvim-overと同じ方法を取り入れていて<br/>
-<code>while 1</code>と<code>getchar()</code>の組み合わせでkeypressを補足している。</p>
+<p>vim-easy-motionやvim-overと同じ方法を取り入れていて<br />
+<code class="language-plaintext highlighter-rouge">while 1</code>と<code class="language-plaintext highlighter-rouge">getchar()</code>の組み合わせでkeypressを補足している。</p>
 
 <p>新鮮な方法だったので、一番気に入っている。</p>
 
-<h2>今後</h2>
+<h2 id="今後">今後</h2>
 
-<p>もう少ししたら、オンラインのlocales探索アルゴリズムを実装しようと思っている。<br/>
+<p>もう少ししたら、オンラインのlocales探索アルゴリズムを実装しようと思っている。<br />
 VimScriptでアルゴリズムらしい手法を使ったことは無いので、楽しみである。</p>
 ]]></content>
   </entry>
@@ -563,7 +584,7 @@ VimScriptでアルゴリズムらしい手法を使ったことは無いので�
     <link href="http://alpaca.tc/blog/blog/i-im-join-for-this-company.html"/>
     <updated>2014-04-19T02:37:00+09:00</updated>
     <id>http://alpaca.tc/blog/blog/i-im-join-for-this-company</id>
-    <content type="html"><![CDATA[<h1>退学した！</h1>
+    <content type="html"><![CDATA[<h1 id="退学した">退学した！</h1>
 
 <p>昨年の6月、<strong>1年8ヶ月働いていたベンチャー企業を辞めて</strong>、大学に復帰した。</p>
 
@@ -579,8 +600,7 @@ VimScriptでアルゴリズムらしい手法を使ったことは無いので�
 
 <!-- more -->
 
-
-<h2>ベンチャー地獄</h2>
+<h2 id="ベンチャー地獄">ベンチャー地獄</h2>
 
 <p>僕は2回生の後期から大阪の会社で、エンジニアとして働き始めた。</p>
 
@@ -594,7 +614,7 @@ VimScriptでアルゴリズムらしい手法を使ったことは無いので�
 
 <p>怒濤の日々を終えてふと大学に戻ると、大学生の若さが眩しくて、随分と老いを感じた。笑</p>
 
-<h2>就職活動</h2>
+<h2 id="就職活動">就職活動</h2>
 
 <p>大学に戻ってからもせっせと働いていたら、いつの間にか就職活動シーズンに入っていた。</p>
 
@@ -604,23 +624,25 @@ VimScriptでアルゴリズムらしい手法を使ったことは無いので�
 
 <p>僕は自分の時間の浪費も、人の時間を奪う行為も、同じく悪だと思っている。リクナビのように、ポチポチと平気で<strong>時間を奪いあう</strong>なんてことは、到底やる気になれなかった。</p>
 
-<p>結局、別の方法で就活するも時間の奪い合いは止められなかった。そして、僕は2月まるまる就活を辞める&hellip;。(つ∀-)</p>
+<p>結局、別の方法で就活するも時間の奪い合いは止められなかった。そして、僕は2月まるまる就活を辞める…。(つ∀-)</p>
 
 <p><strong>エンジニア志望が毎日コードを書けないなんて、おかしいと思わない？</strong></p>
 
-<h2>決断のとき</h2>
+<h2 id="決断のとき">決断のとき</h2>
 
 <p>この時期に、問題にぶち当たる。学校に残ることは、<strong>就職のために時間を浪費する</strong>ということに気付いた。というより、確信に変わったというか。</p>
 
 <p>しかし、大学を辞めれば将来は厳しいのだろう。</p>
 
-<h3>信念みたいなもの</h3>
+<h3 id="信念みたいなもの">信念みたいなもの</h3>
 
 <p>人生はしょっちゅう選択を迫ってくる。けれど、僕は一貫して<strong>シンプルに選ぶことにしている。</strong></p>
 
-<blockquote><p>危険だ、という道は必ず、自分の行きたい道なのだ</p>
+<blockquote>
+  <p>危険だ、という道は必ず、自分の行きたい道なのだ</p>
 
-<p>怖かったら怖いほど、逆にそこに飛び込むんだ</p></blockquote>
+  <p>怖かったら怖いほど、逆にそこに飛び込むんだ</p>
+</blockquote>
 
 <p>岡本太郎を初めて知ったのは、もう10年ほど前のことだ。</p>
 
@@ -630,17 +652,17 @@ VimScriptでアルゴリズムらしい手法を使ったことは無いので�
 
 <p>22歳になって、この言葉はますます生命力を帯びている。</p>
 
-<h2>大学を辞める選択</h2>
+<h2 id="大学を辞める選択">大学を辞める選択</h2>
 
 <p>先日、ついに大学を辞めた。驚くかなぁと思って友人に話したら「ようやくか！」と笑われた。</p>
 
 <p>僕は死ぬまで賢く生きれないだろうなぁと思う。</p>
 
-<h3>これからの話</h3>
+<h3 id="これからの話">これからの話</h3>
 
 <p>さて、6月からpixivという会社で働くことになった。</p>
 
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/i-im-join-for-this-company/pixiv.jpg" title="pixiv" ></p>
+<p><img class="image_on_frame center" src="/images/blog/i-im-join-for-this-company/pixiv.jpg" alt="pixiv" /></p>
 
 <p>イラスト系のSNSを運営する会社で、知っている人は知っている会社かもしれない。</p>
 
@@ -655,48 +677,46 @@ VimScriptでアルゴリズムらしい手法を使ったことは無いので�
     <link href="http://alpaca.tc/blog/web-service/apiary.html"/>
     <updated>2014-04-10T21:36:00+09:00</updated>
     <id>http://alpaca.tc/blog/web-service/apiary</id>
-    <content type="html"><![CDATA[<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/apiary/apiary_top.png" title="apiary Build beautiful APIs" ></p>
+    <content type="html"><![CDATA[<p><img class="image_on_frame center" src="/images/blog/apiary/apiary_top.png" alt="apiary Build beautiful APIs" /></p>
 
 <p><a href="https://apiary.io/">Apiary</a>は、美しいAPIのドキュメント(Mockサーバー)が作成できるWebサービスです.</p>
 
 <!-- more -->
 
-
-<h2>Apiaryの使いどころ</h2>
+<h2 id="apiaryの使いどころ">Apiaryの使いどころ</h2>
 
 <p>仕事を進める上で、APIの仕様が先に作られることは多々あります.</p>
 
 <p>今関わっている案件でも、APIの仕様表だけ先に届いたので、Mockサーバーを立てて開発を進めることにしました.</p>
 
-<h2>ドキュメント(Mockサーバー)を作ってみる</h2>
+<h2 id="ドキュメントmockサーバーを作ってみる">ドキュメント(Mockサーバー)を作ってみる</h2>
 
 <p>Githubの連携でアカウントを作り、すぐにドキュメントの作成に取りかかれます.
 markdown(の拡張)でAPIの仕様を書けば、すぐにドキュメントが生成されます.</p>
 
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/apiary/apiary_document.png" title="Apiary Document" ></p>
+<p><img class="image_on_frame center" src="/images/blog/apiary/apiary_document.png" alt="Apiary Document" /></p>
 
-<p><strong>う、美しい&hellip;</strong></p>
+<p><strong>う、美しい…</strong></p>
 
 <p>その上、Apiaryではドキュメントと同時に、そのドキュメントからMockサーバーを立ててくれます.</p>
 
 <p>今回は、デモとして簡単なアルパカAPIを実装しました.</p>
 
 <ul>
-<li><a href="https://docs.alpaca.apiary.io/">生成されたドキュメント</a></li>
+  <li><a href="https://docs.alpaca.apiary.io/">生成されたドキュメント</a></li>
 </ul>
-
 
 <p>10分ぐらいで作成完了.すばらしい！</p>
 
-<h2>レスポンスを見てみる</h2>
+<h2 id="レスポンスを見てみる">レスポンスを見てみる</h2>
 
-<p>作成されたAPIのMockサーバーは、<code>API名.apiary-mock.com</code>で見ることができます.</p>
+<p>作成されたAPIのMockサーバーは、<code class="language-plaintext highlighter-rouge">API名.apiary-mock.com</code>で見ることができます.</p>
 
-<p>さっそく<code>curl</code>でレスポンスを見てみよう</p>
+<p>さっそく<code class="language-plaintext highlighter-rouge">curl</code>でレスポンスを見てみよう</p>
 
-<p><code>$ curl https://alpaca.apiary-mock.com/hello</code></p>
+<p><code class="language-plaintext highlighter-rouge">$ curl https://alpaca.apiary-mock.com/hello</code></p>
 
-<p>ヽ(・∀・ )ﾉす&hellip;すげぇ便利！</p>
+<p>ヽ(・∀・ )ﾉす…すげぇ便利！</p>
 ]]></content>
   </entry>
   
@@ -707,79 +727,73 @@ markdown(の拡張)でAPIの仕様を書けば、すぐにドキュメントが�
     <id>http://alpaca.tc/blog/ruby/i-have-almost-finished-implementing-comment-parser</id>
     <content type="html"><![CDATA[<p>先日から書き続けていた<a href="https://github.com/alpaca-tc/comment_extractor">CommentExtractor</a>が、大枠完成しました。</p>
 
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/i-have-almost-finished-implementing-comment-parser/capture.png" title="CommentExtractor" ></p>
+<p><img class="image_on_frame center" src="/images/blog/i-have-almost-finished-implementing-comment-parser/capture.png" alt="CommentExtractor" /></p>
 
 <p>さて、今回Gemを書くときに役に立った、便利なTipsを幾つか紹介します！</p>
 
 <!-- more -->
 
-
 <p>内容はバラバラです。笑</p>
 
 <ol>
-<li>READMEに視覚情報を追加する</li>
-<li>RubyGemsからGemを削除する</li>
-<li>RSpecをキレイに書く</li>
+  <li>READMEに視覚情報を追加する</li>
+  <li>RubyGemsからGemを削除する</li>
+  <li>RSpecをキレイに書く</li>
 </ol>
 
-
-<h2>1.READMEに視覚情報を追加する</h2>
+<h2 id="1readmeに視覚情報を追加する">1.READMEに視覚情報を追加する</h2>
 
 <p>READMEには視覚的なバッヂを追加出来ます。Gemを書くときには、ぜひとも入れておきたい情報ですね。</p>
 
 <ul>
-<li><a href="https://badge.fury.io/rb/comment_extractor"><img src="https://badge.fury.io/rb/comment_extractor.png" alt="Gem Version" /></a></li>
-<li><a href="https://travis-ci.org/alpaca-tc/comment_parser"><img src="https://travis-ci.org/alpaca-tc/comment_extractor.png?branch=v1.0.0" alt="Build Status" /></a></li>
-<li><a href="https://coveralls.io/r/alpaca-tc/comment_extractor?branch=v1.0.0"><img src="https://coveralls.io/repos/alpaca-tc/comment_extractor/badge.png?branch=v1.0.0" alt="Coverage Status" /></a></li>
+  <li><a href="https://badge.fury.io/rb/comment\_extractor"><img src="https://badge.fury.io/rb/comment_extractor.png" alt="Gem Version" /></a></li>
+  <li><a href="https://travis-ci.org/alpaca-tc/comment\_parser"><img src="https://travis-ci.org/alpaca-tc/comment_extractor.png?branch=v1.0.0" alt="Build Status" /></a></li>
+  <li><a href="https://coveralls.io/r/alpaca-tc/comment\_extractor?branch=v1.0.0"><img src="https://coveralls.io/repos/alpaca-tc/comment_extractor/badge.png?branch=v1.0.0" alt="Coverage Status" /></a></li>
 </ul>
-
 
 <p>もちろん、登録すれば無料で作ることが出来ます。</p>
 
 <p>詳しくは<a href="https://elgalu.github.io/2013/add-achievement-badges-to-your-gem-readme/">コチラの記事</a>を読んでみましょう。</p>
 
-<h2>2.RubyGemsからGemを削除する</h2>
+<h2 id="2rubygemsからgemを削除する">2.RubyGemsからGemを削除する</h2>
 
 <p>間違えてRubyGemsにPushしてしまった！</p>
 
 <p>そんなときに便利なyankコマンド。意外と知られていない。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>gem yank gem_name -v 1.0.0
-</span></code></pre></td></tr></table></div></figure>
-
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem yank gem_name <span class="nt">-v</span> 1.0.0
+</code></pre></div></div>
 
 <p>ただ、これをやっても論理削除されるだけのようですねぇ。多分。</p>
 
 <p>このバージョン使うなよ！新しいの使えよ！ってときに使うコマンドだと思います。</p>
 
-<h2>3.RSpecをキレイに書く</h2>
+<h2 id="3rspecをキレイに書く">3.RSpecをキレイに書く</h2>
 
 <p>RSpecをキレイに書く方法は、ある程度伝統があります。</p>
 
 <ul>
-<li><a href="https://betterspecs.org/">BetterSpecs</a></li>
-<li><a href="https://bitfluxx.com/2011/05/23/some-rspec-tips-and-best-practices.html">Some RSpec Tips and Best Practices</a></li>
+  <li><a href="https://betterspecs.org/">BetterSpecs</a></li>
+  <li><a href="https://bitfluxx.com/2011/05/23/some-rspec-tips-and-best-practices.html">Some RSpec Tips and Best Practices</a></li>
 </ul>
-
 
 <p>今回は、ある程度RSpecを書ける人向けに、検索してもあまり出てこない情報(検索しにくい？)を提供したいと思います。</p>
 
-<h3>Syntaxについて</h3>
+<h3 id="syntaxについて">Syntaxについて</h3>
 
-<h4>be_truthy, be_falsy</h4>
+<h4 id="be_truthy-be_falsy">be_truthy, be_falsy</h4>
 
-<p>RSpecが新しくなって、<code>be_true</code>, <code>be_false</code>→<code>be_truthy</code>, <code>be_falsy</code>となりました。
-今までは、厳密に<code>true</code>で無くてもテストが通っちゃいましたからね。</p>
+<p>RSpecが新しくなって、<code class="language-plaintext highlighter-rouge">be_true</code>, <code class="language-plaintext highlighter-rouge">be_false</code>→<code class="language-plaintext highlighter-rouge">be_truthy</code>, <code class="language-plaintext highlighter-rouge">be_falsy</code>となりました。
+今までは、厳密に<code class="language-plaintext highlighter-rouge">true</code>で無くてもテストが通っちゃいましたからね。</p>
 
-<h4>現在の主題であるクラスを取得する</h4>
+<h4 id="現在の主題であるクラスを取得する">現在の主題であるクラスを取得する</h4>
 
-<p>RSpecでは<code>described_class</code>というメソッドを使用出来ます。
-<code>describe KlassName do...</code>で指定したKlassNameが格納されます。</p>
+<p>RSpecでは<code class="language-plaintext highlighter-rouge">described_class</code>というメソッドを使用出来ます。
+<code class="language-plaintext highlighter-rouge">describe KlassName do...</code>で指定したKlassNameが格納されます。</p>
 
 <p>これを使えば、クラス名に依存せずにテストを書く事ができますね。</p>
 
-<h4>ExampleGroupを作る</h4>
+<h4 id="examplegroupを作る">ExampleGroupを作る</h4>
 
 <p>ご存知の通り、Railsのテストではcontroller, model, viewで使えるメソッドが大きく異なります。
 それは、RSpecのexample_groupという機能を使って、テストの種類を元にModuleをincludeしているからです。</p>
@@ -787,75 +801,42 @@ markdown(の拡張)でAPIの仕様を書けば、すぐにドキュメントが�
 <p>これを使えば、複数のファイルで共通する内容を簡単に記述する事が出来ます。
 次のような感じですね。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># spec_helper.rb</span>
-</span><span class='line'><span class="no">RSpec</span><span class="o">.</span><span class="n">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
-</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">include</span> <span class="no">ExampleGroupModuleName</span><span class="p">,</span> <span class="ss">type</span><span class="p">:</span> <span class="ss">:optional</span><span class="p">,</span> <span class="n">example_group</span><span class="p">:</span> <span class="p">{</span>
-</span><span class='line'>    <span class="n">file_path</span><span class="p">:</span> <span class="no">Regexp</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sx">%w[spec comment_extractor extractor .*.rb]</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;[\\\/]&#39;</span><span class="p">))</span>
-</span><span class='line'>  <span class="p">}</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># spec_helper.rb</span>
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+  <span class="n">config</span><span class="p">.</span><span class="nf">include</span> <span class="no">ExampleGroupModuleName</span><span class="p">,</span> <span class="ss">type: :optional</span><span class="p">,</span> <span class="ss">example_group: </span><span class="p">{</span>
+    <span class="ss">file_path: </span><span class="no">Regexp</span><span class="p">.</span><span class="nf">compile</span><span class="p">(</span><span class="sx">%w[spec comment_extractor extractor .*.rb]</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s1">'[\\\/]'</span><span class="p">))</span>
+  <span class="p">}</span>
+<span class="k">end</span>
+</code></pre></div></div>
 
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+  <span class="n">config</span><span class="p">.</span><span class="nf">add_setting</span> <span class="ss">:source_code_path</span><span class="p">,</span> <span class="ss">default: </span><span class="s1">'spec/assets/source_code'</span>
+<span class="k">end</span>
 
+<span class="k">module</span> <span class="nn">ExampleGroupModuleName</span>
+  <span class="k">def</span> <span class="nf">source_code_path</span><span class="p">(</span><span class="n">file_name</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
+    <span class="n">dir</span> <span class="o">=</span> <span class="no">RSpec</span><span class="p">.</span><span class="nf">configuration</span><span class="p">.</span><span class="nf">source_code_path</span>
+    <span class="n">file_name</span> <span class="p">?</span> <span class="s2">"</span><span class="si">#{</span><span class="n">dir</span><span class="si">}</span><span class="s2">/</span><span class="si">#{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">"</span> <span class="p">:</span> <span class="n">dir</span>
+  <span class="k">end</span>
 
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">included</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+    <span class="n">k</span><span class="p">.</span><span class="nf">class_eval</span> <span class="k">do</span>
+      <span class="n">let</span><span class="p">(</span><span class="ss">:instance</span><span class="p">)</span> <span class="p">{</span> <span class="n">described_class</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">source_code</span><span class="p">)</span> <span class="p">}</span>
+      <span class="n">let</span><span class="p">(</span><span class="ss">:source_code</span><span class="p">)</span> <span class="p">{</span> <span class="n">source_code_path</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span> <span class="p">}</span>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">RSpec</span><span class="o">.</span><span class="n">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
-</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">add_setting</span> <span class="ss">:source_code_path</span><span class="p">,</span> <span class="ss">default</span><span class="p">:</span> <span class="s1">&#39;spec/assets/source_code&#39;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">module</span> <span class="nn">ExampleGroupModuleName</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">source_code_path</span><span class="p">(</span><span class="n">file_name</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">dir</span> <span class="o">=</span> <span class="no">RSpec</span><span class="o">.</span><span class="n">configuration</span><span class="o">.</span><span class="n">source_code_path</span>
-</span><span class='line'>    <span class="n">file_name</span> <span class="p">?</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">dir</span><span class="si">}</span><span class="s2">/</span><span class="si">#{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">:</span> <span class="n">dir</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">included</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">k</span><span class="o">.</span><span class="n">class_eval</span> <span class="k">do</span>
-</span><span class='line'>      <span class="n">let</span><span class="p">(</span><span class="ss">:instance</span><span class="p">)</span> <span class="p">{</span> <span class="n">described_class</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">source_code</span><span class="p">)</span> <span class="p">}</span>
-</span><span class='line'>      <span class="n">let</span><span class="p">(</span><span class="ss">:source_code</span><span class="p">)</span> <span class="p">{</span> <span class="n">source_code_path</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span> <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>      <span class="n">describe</span> <span class="s1">&#39;.new&#39;</span> <span class="k">do</span>
-</span><span class='line'>        <span class="n">subject</span> <span class="p">{</span> <span class="n">instance</span> <span class="p">}</span>
-</span><span class='line'>        <span class="n">let</span><span class="p">(</span><span class="ss">:file_name</span><span class="p">)</span> <span class="p">{</span> <span class="s1">&#39;filename.rb&#39;</span> <span class="p">}</span>
-</span><span class='line'>        <span class="n">it</span> <span class="p">{</span> <span class="n">expect</span> <span class="p">{</span> <span class="n">subject</span> <span class="p">}</span><span class="o">.</span><span class="n">to_not</span> <span class="n">raise_error</span> <span class="p">}</span>
-</span><span class='line'>      <span class="k">end</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
+      <span class="n">describe</span> <span class="s1">'.new'</span> <span class="k">do</span>
+        <span class="n">subject</span> <span class="p">{</span> <span class="n">instance</span> <span class="p">}</span>
+        <span class="n">let</span><span class="p">(</span><span class="ss">:file_name</span><span class="p">)</span> <span class="p">{</span> <span class="s1">'filename.rb'</span> <span class="p">}</span>
+        <span class="n">it</span> <span class="p">{</span> <span class="n">expect</span> <span class="p">{</span> <span class="n">subject</span> <span class="p">}.</span><span class="nf">to_not</span> <span class="n">raise_error</span> <span class="p">}</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
 
 <p>これを使えば、まとまったテストをスッキリ書く事ができますね。</p>
 
-<h2>まとめ</h2>
+<h2 id="まとめ">まとめ</h2>
 
 <p>ざっくばらんに書きました。
 Gemを作るのは簡単なので、みなさんも作ってみてください！</p>
@@ -869,9 +850,9 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
     <link href="http://alpaca.tc/blog/ruby/how-to-use-star.html"/>
     <updated>2014-02-12T04:16:00+09:00</updated>
     <id>http://alpaca.tc/blog/ruby/how-to-use-star</id>
-    <content type="html"><![CDATA[<p>Splat Operatorとは、<code>*</code>のことです</p>
+    <content type="html"><![CDATA[<p>Splat Operatorとは、<code class="language-plaintext highlighter-rouge">*</code>のことです</p>
 
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/how-to-use-star/capture.png" title="SplatOperator" ></p>
+<p><img class="image_on_frame center" src="/images/blog/how-to-use-star/capture.png" alt="SplatOperator" /></p>
 
 <p>この前、友人にコードレビューしてもらっていたら</p>
 
@@ -879,64 +860,45 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 
 <!-- more -->
 
-
-<h1>Splat Operatorの色んな使い方</h1>
+<h1 id="splat-operatorの色んな使い方">Splat Operatorの色んな使い方</h1>
 
 <p>Splat Operatorは、応用の幅が広いです。</p>
 
 <p>結構当たり前だと思っていましたが、コード読書しないと見る機会は少ないかも。</p>
 
-<h2>1-1. 配列に変換する</h2>
+<h2 id="1-1-配列に変換する">1-1. 配列に変換する</h2>
 
 <p>まずは基本編。配列に変換してやりましょう</p>
 
-<p>文字列やsymbolは<code>.to_a</code>が無いですが、<code>*</code>を使えばどの変数でも配列に出来ちゃいます。</p>
+<p>文字列やsymbolは<code class="language-plaintext highlighter-rouge">.to_a</code>が無いですが、<code class="language-plaintext highlighter-rouge">*</code>を使えばどの変数でも配列に出来ちゃいます。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">string</span> <span class="o">=</span> <span class="o">*</span><span class="s2">&quot;string&quot;</span>
-</span><span class='line'><span class="nb">p</span> <span class="n">string</span> <span class="c1">#=&gt; [&quot;string&quot;]</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">symbol</span> <span class="o">=</span> <span class="o">*</span><span class="ss">:symbol</span>
-</span><span class='line'><span class="nb">p</span> <span class="n">symbol</span> <span class="c1">#=&gt; [:symbol]</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">hash</span> <span class="o">=</span> <span class="o">*</span><span class="p">{</span> <span class="nb">hash</span><span class="p">:</span> <span class="kp">nil</span> <span class="p">}</span>
-</span><span class='line'><span class="nb">p</span> <span class="nb">hash</span> <span class="c1">#=&gt; [[:hash, nil]]</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">range</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">10</span><span class="p">)</span>
-</span><span class='line'><span class="nb">p</span> <span class="n">range</span> <span class="c1">#=&gt; [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">string</span> <span class="o">=</span> <span class="o">*</span><span class="s2">"string"</span>
+<span class="nb">p</span> <span class="n">string</span> <span class="c1">#=&gt; ["string"]</span>
 
+<span class="n">symbol</span> <span class="o">=</span> <span class="o">*</span><span class="ss">:symbol</span>
+<span class="nb">p</span> <span class="n">symbol</span> <span class="c1">#=&gt; [:symbol]</span>
 
-<h2>1-2. 親クラスの引数を気にしない</h2>
+<span class="nb">hash</span> <span class="o">=</span> <span class="o">*</span><span class="p">{</span> <span class="ss">hash: </span><span class="kp">nil</span> <span class="p">}</span>
+<span class="nb">p</span> <span class="nb">hash</span> <span class="c1">#=&gt; [[:hash, nil]]</span>
 
-<p>またまた基本編。<code>*</code>を引数に指定してやれば、親クラスの引数は知らなくても大丈夫。</p>
+<span class="n">range</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">p</span> <span class="n">range</span> <span class="c1">#=&gt; [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
+</code></pre></div></div>
 
-<p><code>*</code>だけで出来ることを知らない人はいるかも。</p>
+<h2 id="1-2-親クラスの引数を気にしない">1-2. 親クラスの引数を気にしない</h2>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Child</span> <span class="o">&lt;</span> <span class="no">Super</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
-</span><span class='line'>    <span class="k">super</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
+<p>またまた基本編。<code class="language-plaintext highlighter-rouge">*</code>を引数に指定してやれば、親クラスの引数は知らなくても大丈夫。</p>
 
+<p><code class="language-plaintext highlighter-rouge">*</code>だけで出来ることを知らない人はいるかも。</p>
 
-<h2>1-3. 間の引数をまとめる</h2>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Child</span> <span class="o">&lt;</span> <span class="no">Super</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+    <span class="k">super</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h2 id="1-3-間の引数をまとめる">1-3. 間の引数をまとめる</h2>
 
 <p>引数の最後にSplat Operatorを使うことはよくありますが、間はなかなか見ないですね。</p>
 
@@ -944,82 +906,52 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 
 <p>メソッドやProc,lambdaでも同様の動作です。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">list</span> <span class="o">=</span> <span class="o">[[</span><span class="ss">:first</span><span class="p">,</span> <span class="ss">:second</span><span class="p">,</span> <span class="ss">:third</span><span class="p">,</span> <span class="ss">:fourth</span><span class="p">,</span> <span class="ss">:fifth</span><span class="o">]]</span>
-</span><span class='line'><span class="n">list</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">mid</span><span class="p">,</span> <span class="n">last</span><span class="o">|</span>
-</span><span class='line'>  <span class="nb">p</span> <span class="n">first</span>  <span class="c1">#=&gt; :first</span>
-</span><span class='line'>  <span class="nb">p</span> <span class="n">mid</span>    <span class="c1">#=&gt; [:second, :third, :fourth]</span>
-</span><span class='line'>  <span class="nb">p</span> <span class="n">last</span>   <span class="c1">#=&gt; :fifth</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># もちろん、こんなことも出来ます</span>
-</span><span class='line'><span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">other</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span>
-</span><span class='line'><span class="nb">p</span> <span class="n">other</span> <span class="c1">#=&gt; [2, 3]</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">list</span> <span class="o">=</span> <span class="p">[[</span><span class="ss">:first</span><span class="p">,</span> <span class="ss">:second</span><span class="p">,</span> <span class="ss">:third</span><span class="p">,</span> <span class="ss">:fourth</span><span class="p">,</span> <span class="ss">:fifth</span><span class="p">]]</span>
+<span class="n">list</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">mid</span><span class="p">,</span> <span class="n">last</span><span class="o">|</span>
+  <span class="nb">p</span> <span class="n">first</span>  <span class="c1">#=&gt; :first</span>
+  <span class="nb">p</span> <span class="n">mid</span>    <span class="c1">#=&gt; [:second, :third, :fourth]</span>
+  <span class="nb">p</span> <span class="n">last</span>   <span class="c1">#=&gt; :fifth</span>
+<span class="k">end</span>
 
+<span class="c1"># もちろん、こんなことも出来ます</span>
+<span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">other</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="nb">p</span> <span class="n">other</span> <span class="c1">#=&gt; [2, 3]</span>
+</code></pre></div></div>
 
-<h2>1-4. <code>**</code>を使う</h2>
+<h2 id="1-4-を使う">1-4. <code class="language-plaintext highlighter-rouge">**</code>を使う</h2>
 
 <p>キーワード引数って、まだあまり普及してないですね。互換性が気になるからだろうか？</p>
 
-<p><code>**</code>はキーワード引数を取るときに、余った引数をまとめます。</p>
+<p><code class="language-plaintext highlighter-rouge">**</code>はキーワード引数を取るときに、余った引数をまとめます。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">hoge</span><span class="p">(</span><span class="ss">first</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">second</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="o">**</span><span class="n">others</span><span class="p">)</span>
-</span><span class='line'>  <span class="nb">p</span> <span class="n">others</span> <span class="c1">#=&gt; { third: 3 }</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'><span class="n">hoge</span><span class="p">(</span><span class="ss">first</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">second</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="ss">third</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">hoge</span><span class="p">(</span><span class="ss">first: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">second: </span><span class="mi">2</span><span class="p">,</span> <span class="o">**</span><span class="n">others</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">others</span> <span class="c1">#=&gt; { third: 3 }</span>
+<span class="k">end</span>
+<span class="n">hoge</span><span class="p">(</span><span class="ss">first: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">second: </span><span class="mi">2</span><span class="p">,</span> <span class="ss">third: </span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div></div>
 
 <p>多分これはSplat Operatorと呼ばない。</p>
 
-<h2>まとめ</h2>
+<h2 id="まとめ">まとめ</h2>
 
 <p>こんな書き方が出来るSplat Operatorって本当に便利ね！</p>
 
 <p>( ﾟ∀ﾟ)o彡ﾟんぎもぢいい!!</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Integer</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">upto_with_exception</span><span class="p">(</span><span class="n">to</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">exception_array</span> <span class="o">=</span> <span class="o">*</span><span class="n">options</span><span class="o">[</span><span class="ss">:except</span><span class="o">]</span> <span class="c1">#=&gt; nilでも何でもおかまいなし！</span>
-</span><span class='line'>    <span class="n">exceptions</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">[</span><span class="n">exception_array</span><span class="o">.</span><span class="n">zip</span><span class="o">]</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">upto</span><span class="p">(</span><span class="n">to</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="nb">p</span> <span class="n">i</span> <span class="k">unless</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">has_key?</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">}</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="mi">1</span><span class="o">.</span><span class="n">upto_with_exception</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1">#=&gt; 1, 2, 3, 4, 5</span>
-</span><span class='line'><span class="mi">1</span><span class="o">.</span><span class="n">upto_with_exception</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="ss">except</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span> <span class="c1">#=&gt; 1, 2, 4, 5</span>
-</span><span class='line'><span class="mi">1</span><span class="o">.</span><span class="n">upto_with_exception</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="ss">except</span><span class="p">:</span> <span class="mi">2</span><span class="o">.</span><span class="n">.</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#=&gt; 1, 4, 5</span>
-</span><span class='line'><span class="mi">1</span><span class="o">.</span><span class="n">upto_with_exception</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="ss">except</span><span class="p">:</span> <span class="o">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span><span class="p">)</span> <span class="c1">#=&gt; 1, 2, 3</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Integer</span>
+  <span class="k">def</span> <span class="nf">upto_with_exception</span><span class="p">(</span><span class="n">to</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
+    <span class="n">exception_array</span> <span class="o">=</span> <span class="o">*</span><span class="n">options</span><span class="p">[</span><span class="ss">:except</span><span class="p">]</span> <span class="c1">#=&gt; nilでも何でもおかまいなし！</span>
+    <span class="n">exceptions</span> <span class="o">=</span> <span class="no">Hash</span><span class="p">[</span><span class="n">exception_array</span><span class="p">.</span><span class="nf">zip</span><span class="p">]</span>
 
+    <span class="nb">self</span><span class="p">.</span><span class="nf">upto</span><span class="p">(</span><span class="n">to</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="nb">p</span> <span class="n">i</span> <span class="k">unless</span> <span class="n">exceptions</span><span class="p">.</span><span class="nf">has_key?</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="mi">1</span><span class="p">.</span><span class="nf">upto_with_exception</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1">#=&gt; 1, 2, 3, 4, 5</span>
+<span class="mi">1</span><span class="p">.</span><span class="nf">upto_with_exception</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="ss">except: </span><span class="mi">3</span><span class="p">)</span> <span class="c1">#=&gt; 1, 2, 4, 5</span>
+<span class="mi">1</span><span class="p">.</span><span class="nf">upto_with_exception</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="ss">except: </span><span class="mi">2</span><span class="o">..</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#=&gt; 1, 4, 5</span>
+<span class="mi">1</span><span class="p">.</span><span class="nf">upto_with_exception</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="ss">except: </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span> <span class="c1">#=&gt; 1, 2, 3</span>
+</code></pre></div></div>
 ]]></content>
   </entry>
   
@@ -1032,16 +964,15 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 
 <p>去年から<a href="https://github.com/nhmood/watson-ruby">watson-ruby</a>というinline issue manager貢献してます。</p>
 
-<p>watsonは凄い便利なんですが、コードがかなりアレなのです&hellip;。</p>
+<p>watsonは凄い便利なんですが、コードがかなりアレなのです…。</p>
 
-<p>「全部リファクタリングさせてくれー！」って言っても、まだやりたい作業があるらしく「ブランチ切るから、もう少し待ってて:)」と言われたっきり&hellip;</p>
+<p>「全部リファクタリングさせてくれー！」って言っても、まだやりたい作業があるらしく「ブランチ切るから、もう少し待ってて:)」と言われたっきり…</p>
 
 <p>うーむ、、なかなか全部は触れないので、とりあえず一番やっかいな部分だけ汎用的にすべく自作しました。</p>
 
 <!-- more -->
 
-
-<h2>どんなGem?</h2>
+<h2 id="どんなgem">どんなGem?</h2>
 
 <p>あらゆるプログラムソースを読み取って、<strong>コメント行のみを取り出すGem</strong>です。watsonでは、このコメント行を読み取って、todoの管理を行っています。</p>
 
@@ -1049,56 +980,45 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 
 <p>どんなファイルタイプであれ、扱うのはコメントという概念なのだから、委譲して抽象化しちゃいましょう。</p>
 
-<h2>何が出来るようになるんだい？</h2>
+<h2 id="何が出来るようになるんだい">何が出来るようになるんだい？</h2>
 
 <p>あらゆるプログラムのソースコードをパースして、コメント行だけを抽象的に扱う事が出来ます。</p>
 
 <p>読み取って、何らかの処理をすることが出来ます。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># 今のところはこんな感じ。</span>
-</span><span class='line'><span class="c1"># Gem名やmethod名は変更します</span>
-</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;strip_comment&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/path/to/file&#39;</span>
-</span><span class='line'><span class="n">file</span> <span class="o">=</span> <span class="ss">StripComment</span><span class="p">:</span><span class="ss">:FileObject</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-</span><span class='line'><span class="n">parser</span> <span class="o">=</span> <span class="ss">StripComment</span><span class="p">:</span><span class="ss">:Parser</span><span class="o">.</span><span class="n">for</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
-</span><span class='line'><span class="n">parser</span><span class="o">.</span><span class="n">scan</span>
-</span><span class='line'><span class="n">parser</span><span class="o">.</span><span class="n">comments</span> <span class="c1"># =&gt; [StripComment::CodeObject::Comment, ...]</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 今のところはこんな感じ。</span>
+<span class="c1"># Gem名やmethod名は変更します</span>
+<span class="nb">require</span> <span class="s1">'strip_comment'</span>
 
+<span class="n">path</span> <span class="o">=</span> <span class="s1">'/path/to/file'</span>
+<span class="n">file</span> <span class="o">=</span> <span class="no">StripComment</span><span class="o">::</span><span class="no">FileObject</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="no">StripComment</span><span class="o">::</span><span class="no">Parser</span><span class="p">.</span><span class="nf">for</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<span class="n">parser</span><span class="p">.</span><span class="nf">scan</span>
+<span class="n">parser</span><span class="p">.</span><span class="nf">comments</span> <span class="c1"># =&gt; [StripComment::CodeObject::Comment, ...]</span>
+</code></pre></div></div>
 
 <p>簡単に思いつく限りの用途はこんな感じ。</p>
 
 <ul>
-<li>英語のコメントの文法チェック / 翻訳</li>
-<li><code>[review - @alpaca-tc ここ見ておいて！]</code>というコメントにGit post-hookをかけて、ダイレクトメッセージを送る</li>
-<li>iftttとの連携</li>
+  <li>英語のコメントの文法チェック / 翻訳</li>
+  <li><code class="language-plaintext highlighter-rouge">[review - @alpaca-tc ここ見ておいて！]</code>というコメントにGit post-hookをかけて、ダイレクトメッセージを送る</li>
+  <li>iftttとの連携</li>
 </ul>
-
 
 <p>他にも色々出来そうですね。</p>
 
-<h2>Vimでテスト</h2>
+<h2 id="vimでテスト">Vimでテスト</h2>
 
 <p>さっそくVimと連携してみました。</p>
 
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/create-strip-comment/comment.gif" title="comment.vimデモ" ></p>
+<p><img class="image_on_frame center" src="/images/blog/create-strip-comment/comment.gif" alt="comment.vimデモ" /></p>
 
 <p>コメント行を取り出して、Gingerで文法チェックしています。</p>
 
-<h2>まとめ</h2>
+<h2 id="まとめ">まとめ</h2>
 
 <p>あとは対応ファイルを増やして、リファクタリングしたら完成です。
-今<code>StripComment</code>という名前なんだけど、絶対違うよね。(´・ω・｀)良い名前が思いつかない</p>
+今<code class="language-plaintext highlighter-rouge">StripComment</code>という名前なんだけど、絶対違うよね。(´・ω・｀)良い名前が思いつかない</p>
 
 <p>終わったら誰か、コードレビューして欲しいなぁ！ヽ(・∀・ )ﾉわーい</p>
 ]]></content>
@@ -1109,26 +1029,29 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
     <link href="http://alpaca.tc/blog/diary/gyaku-syuukatsu-2.html"/>
     <updated>2014-01-20T16:28:00+09:00</updated>
     <id>http://alpaca.tc/blog/diary/gyaku-syuukatsu-2</id>
-    <content type="html"><![CDATA[<h1>再び逆就活に参加してきました！</h1>
+    <content type="html"><![CDATA[<h1 id="再び逆就活に参加してきました">再び逆就活に参加してきました！</h1>
 
-<p>逆就活へ初めて参加される方は、前の記事から見ると良いと思います。-> <a href="http://alpaca.tc/blog/diary/gyaku-syuukatsu-1">逆就活へ参加するときのノウハウまとめ</a></p>
+<p>逆就活へ初めて参加される方は、前の記事から見ると良いと思います。-&gt; <a href="/blog/diary/gyaku-syuukatsu-1">逆就活へ参加するときのノウハウまとめ</a></p>
 
 <p>1/18(土)に参加した<a href="https://www.studenthunting.com/">ITエンジニア逆求人</a>についての報告です:)</p>
 
 <!-- more -->
 
+<h2 id="逆就活へリベンジ">逆就活へリベンジ</h2>
 
-<h2>逆就活へリベンジ</h2>
+<p><a href="/blog/diary/gyaku-syuukatsu-1">前回の失敗</a>を活かして、<strong>「イベントに参加するメリットを最大化する」ための解決策</strong>を実践して来ました。</p>
 
-<p><a href="http://alpaca.tc/blog/diary/gyaku-syuukatsu-1">前回の失敗</a>を活かして、<strong>「イベントに参加するメリットを最大化する」ための解決策</strong>を実践して来ました。</p>
-
-<blockquote><p>ということで、次回参加する際には3社ぐらいからしか面談希望が来ないぐらいになれば合格かなぁ、と思います。</p></blockquote>
+<blockquote>
+  <p>ということで、次回参加する際には3社ぐらいからしか面談希望が来ないぐらいになれば合格かなぁ、と思います。</p>
+</blockquote>
 
 <p>こんなことを言っていたのですが、結果は如何に。</p>
 
-<h2>試したことと、その結果</h2>
+<h2 id="試したこととその結果">試したことと、その結果</h2>
 
-<blockquote><p>捨てること、そして集中すること。</p></blockquote>
+<blockquote>
+  <p>捨てること、そして集中すること。</p>
+</blockquote>
 
 <p>双方のために、不要なものは捨てて、重要なことに集中することが大事かと。</p>
 
@@ -1136,9 +1059,9 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 
 <p>さて、前回と今回の結果を比べるため、Gvalueという数値を挙げます。これは、イベント後に企業から送られてくる評価シートで、面談した企業からの評価が全て分かります。</p>
 
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/gyaku-syuukatsu-2/gvalue.jpg" title="G-valueの比較" ></p>
+<p><img class="image_on_frame center" src="/images/blog/gyaku-syuukatsu-2/gvalue.jpg" alt="G-valueの比較" /></p>
 
-<h3>1. 名刺交換の段階で、合わない企業さんは断る</h3>
+<h3 id="1-名刺交換の段階で合わない企業さんは断る">1. 名刺交換の段階で、合わない企業さんは断る</h3>
 
 <p><strong>当日に会わない企業を決める</strong></p>
 
@@ -1149,11 +1072,10 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 <p>僕は次の順番で優先順位を決めました。</p>
 
 <ol>
-<li>捨てるターゲット(合わない企業)を消す</li>
-<li>ターゲット(合うと思う企業)をリストアップする</li>
-<li>残った企業について、中 or 捨てるターゲットに振り分ける</li>
+  <li>捨てるターゲット(合わない企業)を消す</li>
+  <li>ターゲット(合うと思う企業)をリストアップする</li>
+  <li>残った企業について、中 or 捨てるターゲットに振り分ける</li>
 </ol>
-
 
 <p>残りを振り分ける方法としては、有価証券報告書、取締役の人の書いた本、<a href="https://jobtalk.jp/">転職会議</a>の情報を横断的に見て、自分と合うか考えると良いと思います。</p>
 
@@ -1162,65 +1084,65 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 <p><strong>結果</strong></p>
 
 <ul>
-<li>志向の近い企業が面談に集まった</li>
-<li>捨てるターゲットに選んでいた企業は1社のみ面談</li>
-<li>重要な成果をあげる時間(ターゲット企業との面談)に集中できた</li>
+  <li>志向の近い企業が面談に集まった</li>
+  <li>捨てるターゲットに選んでいた企業は1社のみ面談</li>
+  <li>重要な成果をあげる時間(ターゲット企業との面談)に集中できた</li>
 </ul>
 
+<h3 id="2-名刺交換の際にmbaで録画する">2. 名刺交換の際に、MBAで録画する</h3>
 
-<h3>2. 名刺交換の際に、MBAで録画する</h3>
+<blockquote>
+  <p>入れ替わり立ち代わりで、10~20人を覚えるのは無理です。笑
+なので、<strong>MacBookAirで録画しながら名刺交換</strong>をします。</p>
+</blockquote>
 
-<blockquote><p>入れ替わり立ち代わりで、10~20人を覚えるのは無理です。笑
-なので、<strong>MacBookAirで録画しながら名刺交換</strong>をします。</p></blockquote>
-
-<p>と言っていましたが、身長差激しくて録画無理www 今回は長身の方が多かったです&hellip;。</p>
+<p>と言っていましたが、身長差激しくて録画無理www 今回は長身の方が多かったです…。</p>
 
 <p>よく考えたら、名刺交換しているのにMBAを見ないですしね。何か無意識に目が行くような画像を表示させておくと、良いと思います！</p>
 
-<h3>3. プロフィールはターゲットに向けて作る</h3>
+<h3 id="3-プロフィールはターゲットに向けて作る">3. プロフィールはターゲットに向けて作る</h3>
 
 <p>続いて、ターゲット各社の採用情報サイトを読んで、<strong>求める人材像の共通解</strong>を出しました。</p>
 
 <ul>
-<li>主体性を持っている</li>
-<li>挑戦者である</li>
-<li>チームワークを重んじる</li>
-<li>問題解決が楽しい</li>
+  <li>主体性を持っている</li>
+  <li>挑戦者である</li>
+  <li>チームワークを重んじる</li>
+  <li>問題解決が楽しい</li>
 </ul>
 
-
-<p>まぁ&hellip;大体どこも同じようなこと書いてあるんです。これらは、元々自分が持っている特性だったので、プロフィールはあまり変更しませんでした。</p>
+<p>まぁ…大体どこも同じようなこと書いてあるんです。これらは、元々自分が持っている特性だったので、プロフィールはあまり変更しませんでした。</p>
 
 <p>ただ、採用情報以外にも共通項(志望動機)があると思うので、同時に挙げておくと良いですね。</p>
 
-<h3>3. 面談は重要なことに集中する</h3>
+<h3 id="3-面談は重要なことに集中する">3. 面談は重要なことに集中する</h3>
 
 <p>前回の反省であげたフローは次の通りです。</p>
 
-<blockquote><ol>
-<li>面談開始のときに、面談の目的をお互いに確認する</li>
-<li>その企業が求めている人材を確認する。(プロフィールのどこを見て来たのか、何位に指名したのか)</li>
-<li>自分が出来ることと、企業に入ってやりたいことをプレゼンする</li>
-<li>企業と雑談する</li>
-</ol>
+<blockquote>
+  <ol>
+    <li>面談開始のときに、面談の目的をお互いに確認する</li>
+    <li>その企業が求めている人材を確認する。(プロフィールのどこを見て来たのか、何位に指名したのか)</li>
+    <li>自分が出来ることと、企業に入ってやりたいことをプレゼンする</li>
+    <li>企業と雑談する</li>
+  </ol>
 </blockquote>
 
-<p>実際に実践しました！予想通り、<code>1.面談開始のときに、面談の目的をお互いに確認する</code>の段階で目的に齟齬がある企業さんもいました。「なぜ、僕を指名されたのでしょうか&hellip;？」となって、噛み合なかったです。;(</p>
+<p>実際に実践しました！予想通り、<code class="language-plaintext highlighter-rouge">1.面談開始のときに、面談の目的をお互いに確認する</code>の段階で目的に齟齬がある企業さんもいました。「なぜ、僕を指名されたのでしょうか…？」となって、噛み合なかったです。;(</p>
 
 <p>でも、多くの企業さんとは面談開始の時点で、互いの目的を確認し合える面談になったと思います。</p>
 
 <p><strong>結果</strong></p>
 
 <ul>
-<li>ターゲットの会社からのGvalueが全て<strong>満点</strong>(!!)</li>
-<li>ターゲット以外の企業からの「面接態度」のGvalueが悪くなった</li>
-<li>捨てるターゲットを除いたプレゼンのGvalueが、3.67(前回) &ndash;> 4.8</li>
+  <li>ターゲットの会社からのGvalueが全て<strong>満点</strong>(!!)</li>
+  <li>ターゲット以外の企業からの「面接態度」のGvalueが悪くなった</li>
+  <li>捨てるターゲットを除いたプレゼンのGvalueが、3.67(前回) -&gt; 4.8</li>
 </ul>
-
 
 <p>あと、捨てるターゲットに選んでいた企業とのマッチ度が最低だったので、この方法は合っていると確信しました。</p>
 
-<h2>まとめ</h2>
+<h2 id="まとめ">まとめ</h2>
 
 <p><strong>「捨てて良かったー！」</strong>の一言に尽きますね。ばっちり成果を出せたと思います。</p>
 
@@ -1230,18 +1152,17 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 
 <p>引き続き、選考を楽しみたいと思いますー。</p>
 
-<h3>おまけ1: 資料</h3>
+<h3 id="おまけ1-資料">おまけ1: 資料</h3>
 
-<p>もうきっとIT逆求人に参加しなさそうなので、公開しても問題無い&hellip;よね？今の選考が全て落ちるか、留年したら再度応募しますが:p</p>
+<p>もうきっとIT逆求人に参加しなさそうなので、公開しても問題無い…よね？今の選考が全て落ちるか、留年したら再度応募しますが:p</p>
 
 <ul>
-<li><a href="http://alpaca.tc/images/blog/gyaku-syuukatsu-2/gvalue1223.png">Gvalue 12/23</a></li>
-<li><a href="http://alpaca.tc/images/blog/gyaku-syuukatsu-2/gvalue0120.png">Gvalue 01/18</a></li>
-<li><a href="http://alpaca.tc/images/blog/gyaku-syuukatsu-2/presen20140118.pdf">プレゼン(PW:僕のTwitterID)</a></li>
+  <li><a href="/images/blog/gyaku-syuukatsu-2/gvalue1223.png">Gvalue 12/23</a></li>
+  <li><a href="/images/blog/gyaku-syuukatsu-2/gvalue0120.png">Gvalue 01/18</a></li>
+  <li><a href="/images/blog/gyaku-syuukatsu-2/presen20140118.pdf">プレゼン(PW:僕のTwitterID)</a></li>
 </ul>
 
-
-<h3>おまけ2: Gstylusさんへ</h3>
+<h3 id="おまけ2-gstylusさんへ">おまけ2: Gstylusさんへ</h3>
 
 <p>お世話になりました！僕のようなはみ出しものには、救いのあるイベントでしたw いつも僕たちのために夜遅くまでお仕事してくださっているおかげで、実のある体験が出来ました。</p>
 
@@ -1258,7 +1179,9 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
     <id>http://alpaca.tc/blog/diary/somethings-that-i-want-to-do</id>
     <content type="html"><![CDATA[<p>Takumi Kaiさんの<a href="https://nature-dot.com/othres/9">2014年にやりたい27のこと</a>を読んで、こういうのを記事にするのも良いなぁと思った。</p>
 
-<blockquote><p>思考は現実になる</p></blockquote>
+<blockquote>
+  <p>思考は現実になる</p>
+</blockquote>
 
 <p>この言葉は僕も好きだし、新しくやることを考えるのは楽しいんだよ！</p>
 
@@ -1266,58 +1189,57 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 
 <!-- more -->
 
+<h2 id="一人でやることリスト">一人でやることリスト</h2>
 
-<h2>一人でやることリスト</h2>
-
-<h3>1. 海外に行く</h3>
+<h3 id="1-海外に行く">1. 海外に行く</h3>
 
 <p>海外の美術館に凄い興味あります</p>
 
-<h3>2. 美術館に行く</h3>
+<h3 id="2-美術館に行く">2. 美術館に行く</h3>
 
 <p>今年は特に、予約が必要な個人のアトリエとか行きたいなー！</p>
 
-<h3>3. 東京まで散歩する</h3>
+<h3 id="3-東京まで散歩する">3. 東京まで散歩する</h3>
 
 <p>散歩が趣味です</p>
 
 <p>東京まで7日かからないみたいなので、就活がてら歩くよー:)</p>
 
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/somethings-that-i-want-to-do/IMG_0118.jpg" width="200" title="東京から滋賀まで歩く" ></p>
+<p><img class="image_on_frame center" src="/images/blog/somethings-that-i-want-to-do/IMG_0118.jpg" alt="200 東京から滋賀まで歩く" /></p>
 
-<h3>4. 岡本太郎の本を3冊読む(完)</h3>
+<h3 id="4-岡本太郎の本を3冊読む完">4. 岡本太郎の本を3冊読む(完)</h3>
 
 <p>中学生のころからたまらなく好き。</p>
 
 <p>20代の決意を新たにするために、読まないといけない！</p>
 
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/somethings-that-i-want-to-do/pic_okamoto.jpg" title="岡本太郎の本" ></p>
+<p><img class="image_on_frame center" src="/images/blog/somethings-that-i-want-to-do/pic_okamoto.jpg" alt="岡本太郎の本" /></p>
 
-<h3>5. 今年も1,000時間以上プログラミングする</h3>
+<h3 id="5-今年も1000時間以上プログラミングする">5. 今年も1,000時間以上プログラミングする</h3>
 
 <p>今のところの累計は8,500時間ぐらい。就活早く終われー</p>
 
-<h3>7. Vim Version3を読み切る</h3>
+<h3 id="7-vim-version3を読み切る">7. Vim Version3を読み切る</h3>
 
-<p>別の言語でVimを再実装する試み。もっとVimを愛さなければ&hellip;。</p>
+<p>別の言語でVimを再実装する試み。もっとVimを愛さなければ…。</p>
 
-<h2>人とやる事</h2>
+<h2 id="人とやる事">人とやる事</h2>
 
-<h3>7. アルパカのはんこを掘る</h3>
+<h3 id="7-アルパカのはんこを掘る">7. アルパカのはんこを掘る</h3>
 
 <p>祖父がはんこ職人で、僕も家に帰ったら彫刻刀で掘ってます。</p>
 
 <p>文字しか掘らないけれど、せっかくだしイラストのハンコ掘ってみたいなァ</p>
 
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/somethings-that-i-want-to-do/pic_hanko.jpg" width="200" title="判子を掘る" ></p>
+<p><img class="image_on_frame center" src="/images/blog/somethings-that-i-want-to-do/pic_hanko.jpg" alt=" 200 判子を掘る" /></p>
 
-<h3>8. 前職でお世話になった人に会う(完)</h3>
+<h3 id="8-前職でお世話になった人に会う完">8. 前職でお世話になった人に会う(完)</h3>
 
 <p>ドリラボ時代の先輩方に会いたい！</p>
 
 <p>尊敬している杉さんには昨晩会えました(ﾟ∀ﾟ)</p>
 
-<h3>9. 酒蔵に行く</h3>
+<h3 id="9-酒蔵に行く">9. 酒蔵に行く</h3>
 
 <p>東京で、酒蔵で働いている<em>まっちゃん</em>という方に日本酒の話を聞いて、感動しました。</p>
 
@@ -1325,7 +1247,7 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 
 <p>と思ったので、日本酒好きな同年代集めて酒蔵に行くよ。</p>
 
-<h3>10. 金沢の芸術家の一家に会いにいく</h3>
+<h3 id="10-金沢の芸術家の一家に会いにいく">10. 金沢の芸術家の一家に会いにいく</h3>
 
 <p>昨年、金沢の喫茶店で美味しいコーヒーを飲んでいたら、色々あって<strong>芸術家の家に泊まることになった。</strong></p>
 
@@ -1333,19 +1255,18 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 
 <p>一宿一飯の恩があるので、今年中にお礼に行きたい！</p>
 
-<h2>仕事とかやりたいこと</h2>
+<h2 id="仕事とかやりたいこと">仕事とかやりたいこと</h2>
 
 <p>長々と書いてきたので、少しはしょります。</p>
 
 <ul>
-<li>11.自分のブログ500uu/day アクセス</li>
-<li>12.自分のポートフォリオサイトを作る(完)</li>
-<li>13.仕事の事業を軌道に乗せる</li>
-<li>14.意思決定・事業計画の知識を学ぶ</li>
+  <li>11.自分のブログ500uu/day アクセス</li>
+  <li>12.自分のポートフォリオサイトを作る(完)</li>
+  <li>13.仕事の事業を軌道に乗せる</li>
+  <li>14.意思決定・事業計画の知識を学ぶ</li>
 </ul>
 
-
-<h2>人生について考える</h2>
+<h2 id="人生について考える">人生について考える</h2>
 
 <p>2014年にやること・やりたいことを考えるのは楽しいなぁー。</p>
 
@@ -1364,84 +1285,62 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
     <id>http://alpaca.tc/blog/vim/file-include-by-neocomplete</id>
     <content type="html"><![CDATA[<p>この記事は<a href="https://atnd.org/events/45072">Vim Advent Calendar 2013</a>の42日目の記事になります。</p>
 
-<h1>Neocomplete.vimのfile_includeを使いこなす</h1>
+<h1 id="neocompletevimのfile_includeを使いこなす">Neocomplete.vimのfile_includeを使いこなす</h1>
 
 <p>さて、今回の記事ではneocompleteのfile_includeを使いこなしてみます。</p>
 
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/file-include-by-neocomplete/completion_capture.png" title="neocomplete_file_include" ></p>
+<p><img class="image_on_frame center" src="/images/blog/file-include-by-neocomplete/completion_capture.png" alt="neocomplete_file_include" /></p>
 
 <!-- more -->
-
 
 <p>file_includeとは、ファイルパスを補完してくれるアレです。file補完との違いは、特定のキーワードや変換を含んだ補完が出来る点です。</p>
 
 <ol>
-<li>キーワード(<code>require</code>や<code>#include</code>)があると補完が始まり</li>
-<li>指定されたパスの中から候補を探し、変換して表示します。(例:<code>system.os</code>)</li>
+  <li>キーワード(<code class="language-plaintext highlighter-rouge">require</code>や<code class="language-plaintext highlighter-rouge">#include</code>)があると補完が始まり</li>
+  <li>指定されたパスの中から候補を探し、変換して表示します。(例:<code class="language-plaintext highlighter-rouge">system.os</code>)</li>
 </ol>
 
+<p>内部では、path, include, includeexprなどが使われています。(pathの参考 -&gt; <a href="/blog/vim/jump-to-gem-path.html">Vim中級者を脱する Path編</a>)</p>
 
-<p>内部では、path, include, includeexprなどが使われています。(pathの参考 &ndash;> <a href="http://alpaca.tc/blog/vim/jump-to-gem-path.html">Vim中級者を脱する Path編</a>)</p>
-
-<h2>neocompleteを拡張する</h2>
+<h2 id="neocompleteを拡張する">neocompleteを拡張する</h2>
 
 <p>file_includeを拡張する際には、neocompleteの設定をしてあげる必要があります。それぞれ、次のように5つ変数をファイルタイプ毎に設定します。</p>
 
 <p>指定しなければ、デフォルトの部分の変数が使用されます</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>" Liquidで画像pathを補完する
-</span><span class='line'>
-</span><span class='line'>" デフォルト &l:path(検索対象のディレクトリ`,`区切り)
-</span><span class='line'>let g:neocomplete#sources#include#paths.liquid =
-</span><span class='line'>  \ '/Users/alpaca-tc/projects/alpaca-tc.github.io/source'
-</span><span class='line'>
-</span><span class='line'>" デフォルト &l:include(正規表現にマッチしたら補完を開始)
-</span><span class='line'>let g:neocomplete#sources#include#patterns.liquid =
-</span><span class='line'>  \ '\({\s*%\(\s\+\w\+\)\+\(\s*\|\s\+[a-zA-Z0-9_#\?\!]\+\)\@=\|{\s*{\(\s\+\w\+\)\+\(\s*\|\s\+[a-zA-Z0-9_#\?\!]\+\)\@=\)'
-</span><span class='line'>
-</span><span class='line'>" デフォルト &l:includeexpr(ファイルパスを出力する際に変換する)
-</span><span class='line'>let g:neocomplete#sources#include#exprs.liquid =
-</span><span class='line'>  \ 'substitute(v:fname, "^/", "", "")'
-</span><span class='line'>
-</span><span class='line'>" デフォルト '.'(区切り文字の指定)
-</span><span class='line'>let g:neocomplete#sources#file_include#delimiters.liquid = '/'
-</span><span class='line'>
-</span><span class='line'>" デフォルト [](補完するファイル拡張子フィルター)
-</span><span class='line'>let g:neocomplete#sources#file_include#exts.liquid =
-</span><span class='line'>  \ ['png', 'jpg', 'gif', 'jpeg', 'ico']</span></code></pre></td></tr></table></div></figure>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>" Liquidで画像pathを補完する
 
+" デフォルト &amp;l:path(検索対象のディレクトリ`,`区切り)
+let g:neocomplete#sources#include#paths.liquid =
+  \ '/Users/alpaca-tc/projects/alpaca-tc.github.io/source'
 
-<h2>解説いる？</h2>
+" デフォルト &amp;l:include(正規表現にマッチしたら補完を開始)
+let g:neocomplete#sources#include#patterns.liquid =
+  \ '\({\s*%\(\s\+\w\+\)\+\(\s*\|\s\+[a-zA-Z0-9_#\?\!]\+\)\@=\|{\s*{\(\s\+\w\+\)\+\(\s*\|\s\+[a-zA-Z0-9_#\?\!]\+\)\@=\)'
+
+" デフォルト &amp;l:includeexpr(ファイルパスを出力する際に変換する)
+let g:neocomplete#sources#include#exprs.liquid =
+  \ 'substitute(v:fname, "^/", "", "")'
+
+" デフォルト '.'(区切り文字の指定)
+let g:neocomplete#sources#file_include#delimiters.liquid = '/'
+
+" デフォルト [](補完するファイル拡張子フィルター)
+let g:neocomplete#sources#file_include#exts.liquid =
+  \ ['png', 'jpg', 'gif', 'jpeg', 'ico']
+</code></pre></div></div>
+
+<h2 id="解説いる">解説いる？</h2>
 
 <p>先ほどのコードを読めば、だいたい分かると思います。(あなたがVimmerなら！)</p>
 
 <p>もし、マイナーな言語でfile_include補完があった方が便利ならば、拡張してみてくださいー。</p>
 
-<p>あるいは、&amp;l:include, &amp;l:includeexprなどで対応出来ているかもしれませんが。neocomplete.vim自体に設定が少ないのはそういうことです、(よね&hellip;？)</p>
+<p>あるいは、&amp;l:include, &amp;l:includeexprなどで対応出来ているかもしれませんが。neocomplete.vim自体に設定が少ないのはそういうことです、(よね…？)</p>
 
 <p>個人的には、フレームワーク毎にfile_includeが使いたい所存です。</p>
 
-<h2>Railsのimage_pathを補完してみる</h2>
+<h2 id="railsのimage_pathを補完してみる">Railsのimage_pathを補完してみる</h2>
 
 <p>最後です。</p>
 
@@ -1449,180 +1348,42 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 
 <p>こんな感じで色々対応出来るはずなので、誰か本格的なRails用カスタマイズを作ってみてくれたらうれしいです！</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>" Rails.vimが必須
-</span><span class='line'>function! s:setup_include_file_for_rails()
-</span><span class='line'>  if !exists('b:rails_root') || !exists('g:neocomplete#sources#include#paths')
-</span><span class='line'>    return
-</span><span class='line'>  endif
-</span><span class='line'>
-</span><span class='line'>  let g:neocomplete#sources#include#patterns.haml =
-</span><span class='line'>        \ '^\s*\&lt;\%(image_path\|image_tag\)\&gt;'
-</span><span class='line'>  let g:neocomplete#sources#include#paths.haml =
-</span><span class='line'>        \ b:rails_root . '/app/assets/images'
-</span><span class='line'>  let g:neocomplete#sources#include#exprs.haml =
-</span><span class='line'>        \ "substitute(substitute(v:fname,'::','/','g'),'$','','')"
-</span><span class='line'>  let g:neocomplete#sources#file_include#exts.haml =
-</span><span class='line'>        \ ['png', 'jpg', 'gif', 'jpeg', 'ico']
-</span><span class='line'>  let g:neocomplete#sources#file_include#delimiters.haml = '/'
-</span><span class='line'>endfunction
-</span><span class='line'>command! RailsView call s:setup_include_file_for_rails()</span></code></pre></td></tr></table></div></figure>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>" Rails.vimが必須
+function! s:setup_include_file_for_rails()
+  if !exists('b:rails_root') || !exists('g:neocomplete#sources#include#paths')
+    return
+  endif
 
+  let g:neocomplete#sources#include#patterns.haml =
+        \ '^\s*\&lt;\%(image_path\|image_tag\)\&gt;'
+  let g:neocomplete#sources#include#paths.haml =
+        \ b:rails_root . '/app/assets/images'
+  let g:neocomplete#sources#include#exprs.haml =
+        \ "substitute(substitute(v:fname,'::','/','g'),'$','','')"
+  let g:neocomplete#sources#file_include#exts.haml =
+        \ ['png', 'jpg', 'gif', 'jpeg', 'ico']
+  let g:neocomplete#sources#file_include#delimiters.haml = '/'
+endfunction
+command! RailsView call s:setup_include_file_for_rails()
+</code></pre></div></div>
 
 <p><strong>うっほい！</strong></p>
 
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/file-include-by-neocomplete/completion_for_rails_view.png" title="completion_for_rails_view" ></p>
+<p><img class="image_on_frame center" src="/images/blog/file-include-by-neocomplete/completion_for_rails_view.png" alt="completion_for_rails_view" /></p>
 
 <p>Shougoさんいつもありがとうございます。本当に。</p>
 
-<p>ちなみに、tpopeさんはこんな感じの事を剛腕で捩じ伏せて実現しています。Vimガチ勢怖い&hellip;。</p>
+<p>ちなみに、tpopeさんはこんな感じの事を剛腕で捩じ伏せて実現しています。Vimガチ勢怖い…。</p>
 
-<h2>Vim Advent Calendar 45</h2>
+<h2 id="vim-advent-calendar-45">Vim Advent Calendar 45</h2>
 
 <p>前日は@osyo_mangaさんの<a href="https://d.hatena.ne.jp/osyo-manga/20140110/1389342122">textobj の両端へ移動する operator つくった</a>でした。</p>
 
-<p>は！またosyoさんということは&hellip;!? と思っていたら、やはりVim Advent Calendarの今後の投稿者が居ませんでした;(</p>
+<p>は！またosyoさんということは…!? と思っていたら、やはりVim Advent Calendarの今後の投稿者が居ませんでした;(</p>
 
 <p>このブログを見ているあなた！(特にここまで読み切ったVim狂)</p>
 
-<p>どうせVimmerしか居ない事は分かっています。<strong>ぜひ書いてください</strong> &ndash;> <a href="https://twitter.com/manga_osyo">osyoさん</a>に「記事書きたいですー」とリプライ飛ばしましょうー！</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[カヤックのお年玉企画「お好き玉」の解説]]></title>
-    <link href="http://alpaca.tc/blog/web-service/kayac-2014-otoshidama-2.html"/>
-    <updated>2014-01-07T00:07:00+09:00</updated>
-    <id>http://alpaca.tc/blog/web-service/kayac-2014-otoshidama-2</id>
-    <content type="html"><![CDATA[<p><a href="http://alpaca.tc/blog/web-service/kayac-2014-otoshidama.html">先日紹介した「お好き玉」</a>ですが、アクセス数が多いはずなのにまだ2014に達していません！</p>
-
-<p>アクセスが足りないのか、みんな諦めるのか分かりませんが<strong>2014を超したほうが楽しい</strong>ので、少しだけヒント載せておきます！</p>
-
-<p>素人でも、これをきっかけに少しだけWebエンジニアっぽいことに挑戦できたら楽しいよね:)</p>
-
-<!-- more -->
-
-
-<h2>逃げる「イイネ!!」が押せない仕組み</h2>
-
-<p>このFBイイネが押せない理由は2つあります。</p>
-
-<ol>
-<li>イイネボタンの上にCSSでマスクがかかっている</li>
-<li>カーソルに合わせてボタンが動く</li>
-</ol>
-
-
-<p>この両方を解除しないとボタンは押せません。</p>
-
-<p><a href="https://www.google.com/intl/en/chrome/browser/">Google Chrome</a>の<a href="https://www.buildinsider.net/web/chromedevtools/01">Developer Tool</a>は必須ですヨ:)</p>
-
-<h3>1.イイネボタンの上にCSSでマスクがかかっている</h3>
-
-<p>z-indexの仕業かと思ったら、こんな方法もあるんですねぇ。感心。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="o">//</span> <span class="nt">https</span><span class="o">://</span><span class="nt">iine2014</span><span class="nc">.fnobi.com</span><span class="o">/</span><span class="nt">css</span><span class="o">/</span><span class="nt">iine2014</span><span class="nc">.css</span><span class="nd">:84</span>
-</span><span class='line'><span class="nf">#iine</span><span class="nd">:after</span> <span class="p">{</span>
-</span><span class='line'>  <span class="k">content</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
-</span><span class='line'>  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
-</span><span class='line'>  <span class="k">width</span><span class="o">:</span> <span class="m">120px</span><span class="p">;</span>
-</span><span class='line'>  <span class="k">height</span><span class="o">:</span> <span class="m">22px</span><span class="p">;</span>
-</span><span class='line'>  <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
-</span><span class='line'>  <span class="k">top</span><span class="o">:</span> <span class="m">0px</span><span class="p">;</span>
-</span><span class='line'>  <span class="k">left</span><span class="o">:</span> <span class="m">0px</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Facebookのイイネボタンのidが<code>#iine</code>で、その直後に疑似要素<code>:after</code>が同じサイズでかぶさっています。なので、どんなに頑張ってもボタンは押せません。</p>
-
-<p>この疑似要素を消すか、widthを0にしてしまえばボタンは押せますね。Developer Toolの出番やで！</p>
-
-<h2>2. カーソルに合わせてボタンが動く</h2>
-
-<p>JavaScriptを見てみると、<code>mouseover</code>と<code>touchstart</code>のタイミングで位置を移動させているのが分かります。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">// https://iine2014.fnobi.com/js/iine2014.js:9130</span>
-</span><span class='line'><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">win</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>        <span class="kd">var</span> <span class="nx">$window</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">);</span>
-</span><span class='line'>        <span class="kd">var</span> <span class="nx">$iine</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#iine&#39;</span><span class="p">);</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="c1">// 略</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="nx">$iine</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;mouseover touchstart&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>          <span class="c1">// 略</span>
-</span><span class='line'>        <span class="p">});</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>なので、このeventを解除してやれば動かなくなります(・∀・) <code>on</code>の逆をすればいいのです</p>
-
-<h2>まとめ</h2>
-
-<p>解説しましたが、つまるところ<code>#iine</code>にまつわるものを解除してやればいいので、Developer Toolを開いて、ちょめっとすれば一瞬ですネヾ(*´∀｀*)ﾉ</p>
-
-<p>さぁ<a href="https://iine2014.fnobi.com/">「お好き玉」</a>へ挑戦してみようー！</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[カヤックのお年玉企画がすげぇ！]]></title>
-    <link href="http://alpaca.tc/blog/web-service/kayac-2014-otoshidama.html"/>
-    <updated>2014-01-01T18:24:00+09:00</updated>
-    <id>http://alpaca.tc/blog/web-service/kayac-2014-otoshidama</id>
-    <content type="html"><![CDATA[<h1>2014人まで、「イイネ！」でお金がもらえるよ！</h1>
-
-<p>面白法人カヤックの新年企画だそうです^^</p>
-
-<p>FBの「イイネ！」を押して2014円ゲットしましょう！</p>
-
-<p><a href="https://iine2014.fnobi.com/">お好き玉</a></p>
-
-<p>ちなみに現在519人ぐらいです</p>
-
-<h2>おまけ</h2>
-
-<p>逆就活でカヤックさんからメール来ていました。そういえば、カヤックのVimmerのせいで、僕はVim狂になったんですよね！:p</p>
-
-<p>なんだか面白そうなので社長面談に行ってみたいな！</p>
+<p>どうせVimmerしか居ない事は分かっています。<strong>ぜひ書いてください</strong> -&gt; <a href="https://twitter.com/manga_osyo">osyoさん</a>に「記事書きたいですー」とリプライ飛ばしましょうー！</p>
 ]]></content>
   </entry>
   
@@ -1637,35 +1398,34 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 
 <!-- more -->
 
-
 <p>振り返ると、一年で人はここまでVimmerとして成長できるのかと驚くばかりです。(まだまだ未熟者ですが)</p>
 
-<h1>14個のVimプラグイン達</h1>
+<h1 id="14個のvimプラグイン達">14個のVimプラグイン達</h1>
 
 <p>今年書いたプラグインは14個以上でした。
 1年以内の出来事とは思えないぐらい、それぞれが思い出深いですね。。。</p>
 
 <p>外部に発表していなかったプラグインもあるので、余力があれば試してみてください。</p>
 
-<h2><a href="https://github.com/alpaca-tc/alpaca_powertabline">alpaca_powertabline</a></h2>
+<h2 id="alpaca_powertabline"><a href="https://github.com/alpaca-tc/alpaca_powertabline">alpaca_powertabline</a></h2>
 
-<p><img class="image_on_frame center" src="https://github-camo.global.ssl.fastly.net/8a63810a39b08548c3ce51a796f589b79d9df4be/687474703a2f2f662e636c2e6c792f6974656d732f31443430317630553355306f336733553054306e2f616c706163615f7461626c696e652e706e67" title="alpaca_powertabline" ></p>
+<p><img class="image_on_frame center" src="https://github-camo.global.ssl.fastly.net/8a63810a39b08548c3ce51a796f589b79d9df4be/687474703a2f2f662e636c2e6c792f6974656d732f31443430317630553355306f336733553054306e2f616c706163615f7461626c696e652e706e67" alt=" alpaca_powertabline" /></p>
 
 <p>tablineをpowerline化したプラグインです。</p>
 
 <p>初めてのVim Advent Calendarで<a href="https://qiita.com/alpaca_taichou/items/ab70f914a6a577e25d70">powerlineをいつ使う？今でしょ！</a>という記事を書いて、そこそこ人気な記事となり驚きました。</p>
 
-<p>いやぁ&hellip;<em>「今でしょ！」</em>って、もうさぶいねぇ。笑</p>
+<p>いやぁ…<em>「今でしょ！」</em>って、もうさぶいねぇ。笑</p>
 
 <p>初対面の人で、「使っているよ！」と言ってもらえることもあって嬉しかったです。</p>
 
 <p>今年はlightlineやvim-airlineが登場したので、statusline系の変化が大きかった年だとと思います。</p>
 
-<h2><a href="https://github.com/alpaca-tc/alpaca_english.git">alpaca_english</a></h2>
+<h2 id="alpaca_english"><a href="https://github.com/alpaca-tc/alpaca_english.git">alpaca_english</a></h2>
 
 <p>SQLiteの英和辞書を利用して、英語の補完をするプラグインです。Uniteを通じて、類義語検索や例文検索を行うこともできます。</p>
 
-<p><img class="image_on_frame center" src="https://github-camo.global.ssl.fastly.net/cb17a71ffad0a656d3a2837fe4c216a50524c2e4/687474703a2f2f636c2e6c792f696d6167652f316c316c306732373249314e2f254533253832254239254533253832254146254533253833254141254533253833254243254533253833254233254533253832254237254533253833254137254533253833253833254533253833253838253230323031332d30342d3231253230382e33372e33392e706e67" title="alpaca_english_demo" ></p>
+<p><img class="image_on_frame center" src="https://github-camo.global.ssl.fastly.net/cb17a71ffad0a656d3a2837fe4c216a50524c2e4/687474703a2f2f636c2e6c792f696d6167652f316c316c306732373249314e2f254533253832254239254533253832254146254533253833254141254533253833254243254533253833254233254533253832254237254533253833254137254533253833253833254533253833253838253230323031332d30342d3231253230382e33372e33392e706e67" alt="alpaca_english_demo" /></p>
 
 <p>これを書き始めたときに、勇気を出してlingrで発言しはじめました。+Ruby環境のバグをVim-JP報告したのもこのプラグインがきっかけですね。</p>
 
@@ -1673,52 +1433,51 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 
 <p>Vimプラグインを書き始めたときなので、哀愁の漂うコードです。あぁ、そろそろリファクタリングしないと！</p>
 
-<h2><a href="https://github.com/alpaca-tc/beautify.vim.git">Beautify.vim</a></h2>
+<h2 id="beautifyvim"><a href="https://github.com/alpaca-tc/beautify.vim.git">Beautify.vim</a></h2>
 
 <p>整形・変換を行うプラグインです。糞便利。</p>
 
-<p><img class="image_on_frame center" src="https://github.com/alpaca-tc/beautify.vim/blob/master/assets/02.gif?raw=true" title="beautify.vim demo" ></p>
+<p><img class="image_on_frame center" src="https://github.com/alpaca-tc/beautify.vim/blob/master/assets/02.gif?raw=true" alt="beautify.vim demo" /></p>
 
 <p>CSS-SCSS, JS-Coffeeなどの相互変換や、圧縮されたJS/CSSの整形などはお手の物です。</p>
 
-<h2><a href="https://github.com/alpaca-tc/alpaca_tags">alpaca_tags</a></h2>
+<h2 id="alpaca_tags"><a href="https://github.com/alpaca-tc/alpaca_tags">alpaca_tags</a></h2>
 
 <p>tagsの非同期生成、tag用のunite-sourceなど同封しています。糞便利。</p>
 
-<p><img class="image_on_frame center" src="https://github-camo.global.ssl.fastly.net/78073a9b0ac11577ea47c5083da6511140968510/687474703a2f2f6769667a6f2e6e65742f744944774866325a41702e676966" title="alpaca_tags.demo" ></p>
+<p><img class="image_on_frame center" src="https://github-camo.global.ssl.fastly.net/78073a9b0ac11577ea47c5083da6511140968510/687474703a2f2f6769667a6f2e6e65742f744944774866325a41702e676966" alt="alpaca_tags.demo" /></p>
 
 <p>京都のCamphorでの勉強会で初めてお披露目したので、あのメンバーと出会ったのもこれを作った時期だった気がする。いつだっけ。。</p>
 
-<h2><a href="https://github.com/alpaca-tc/alpaca_octopress.vim">alpaca_octopress</a></h2>
+<h2 id="alpaca_octopress"><a href="https://github.com/alpaca-tc/alpaca_octopress.vim">alpaca_octopress</a></h2>
 
 <p>最近作った、Octopressの操作を非同期で実行するプラグインです。糞b</p>
 
-<p><code>:Octopress preview</code>や<code>:Octopress gen_deploy</code>といった操作が非同期で行えるのが素晴らしい。</p>
+<p><code class="language-plaintext highlighter-rouge">:Octopress preview</code>や<code class="language-plaintext highlighter-rouge">:Octopress gen_deploy</code>といった操作が非同期で行えるのが素晴らしい。</p>
 
 <p>記事を書くのが随分楽になりました^^</p>
 
-<h2><a href="https://github.com/alpaca-tc/vim-unite-watson.vim">vim-unite-watson.vim</a></h2>
+<h2 id="vim-unite-watsonvim"><a href="https://github.com/alpaca-tc/vim-unite-watson.vim">vim-unite-watson.vim</a></h2>
 
-<p><img class="image_on_frame center" src="https://f.cloud.github.com/assets/1688137/1726147/ac9b52fc-628a-11e3-8117-ef4824444729.gif" title="watsonのcapture" ></p>
+<p><img class="image_on_frame center" src="https://f.cloud.github.com/assets/1688137/1726147/ac9b52fc-628a-11e3-8117-ef4824444729.gif" alt="watsonのcapture" /></p>
 
 <p><a href="https://goosecode.com/watson/">watson</a>用のUnite-sourceです。watson本体もガッツリ書き換えました。海外の方にも結構使ってもらえているようです。自身がプログラミングするとき、思考を止めないためにこのプラグインを作りました。</p>
 
-<h3>その他、今年作ったプラグイン</h3>
+<h3 id="その他今年作ったプラグイン">その他、今年作ったプラグイン</h3>
 
 <ul>
-<li><a href="https://github.com/alpaca-tc/alpaca_remove_dust.vim">alpaca_remove_dust.vim</a></li>
-<li><a href="https://github.com/alpaca-tc/alpaca_window.vim">alpaca_window.vim</a></li>
-<li><a href="https://github.com/alpaca-tc/assignment">assignment</a></li>
-<li><a href="https://github.com/alpaca-tc/neorspec.vim">neorspec.vim</a></li>
-<li><a href="https://github.com/alpaca-tc/lang-8.vim">lang-8.vim</a></li>
-<li><a href="https://github.com/alpaca-tc/rake.vim">rake.vim</a></li>
-<li><a href="https://github.com/alpaca-tc/snail.vim">snail.vim</a></li>
-<li><a href="https://github.com/alpaca-tc/unite-git-aliases">unite-git-aliases</a></li>
-<li><a href="https://github.com/alpaca-tc/documentation">documentation</a></li>
+  <li><a href="https://github.com/alpaca-tc/alpaca_remove_dust.vim">alpaca_remove_dust.vim</a></li>
+  <li><a href="https://github.com/alpaca-tc/alpaca_window.vim">alpaca_window.vim</a></li>
+  <li><a href="https://github.com/alpaca-tc/assignment">assignment</a></li>
+  <li><a href="https://github.com/alpaca-tc/neorspec.vim">neorspec.vim</a></li>
+  <li><a href="https://github.com/alpaca-tc/lang-8.vim">lang-8.vim</a></li>
+  <li><a href="https://github.com/alpaca-tc/rake.vim">rake.vim</a></li>
+  <li><a href="https://github.com/alpaca-tc/snail.vim">snail.vim</a></li>
+  <li><a href="https://github.com/alpaca-tc/unite-git-aliases">unite-git-aliases</a></li>
+  <li><a href="https://github.com/alpaca-tc/documentation">documentation</a></li>
 </ul>
 
-
-<h2>まとめ</h2>
+<h2 id="まとめ">まとめ</h2>
 
 <p>Vimプラグインを通じて、一杯勉強させてもらえていたようです。Vim力もだいぶ上がりました。</p>
 
@@ -1739,7 +1498,7 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
     <link href="http://alpaca.tc/blog/diary/gyaku-syuukatsu-1.html"/>
     <updated>2013-12-25T23:23:00+09:00</updated>
     <id>http://alpaca.tc/blog/diary/gyaku-syuukatsu-1</id>
-    <content type="html"><![CDATA[<h1>逆就活に参加してきました！</h1>
+    <content type="html"><![CDATA[<h1 id="逆就活に参加してきました">逆就活に参加してきました！</h1>
 
 <p>世の中には<a href="https://www.studenthunting.com/">IT系逆就活</a>というイベントがあります。</p>
 
@@ -1747,33 +1506,31 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 
 <!-- more -->
 
-
 <p>僕は「東京の企業さんを知りたい」と思って参加してみました。</p>
 
 <p>え、クリスマスって何それ美味しいの？</p>
 
-<h2>この記事の目的</h2>
+<h2 id="この記事の目的">この記事の目的</h2>
 
 <ul>
-<li>自分のための反省・備忘録</li>
-<li>次回イベント参加予定者のためのメモ</li>
-<li>イベントについて感想を書きたい(広めたい)</li>
+  <li>自分のための反省・備忘録</li>
+  <li>次回イベント参加予定者のためのメモ</li>
+  <li>イベントについて感想を書きたい(広めたい)</li>
 </ul>
-
 
 <p>特に、自分が<strong>「イベントに参加するメリットを最大化する」</strong>ことを目的にまとめます。</p>
 
 <p>他の人には、多少参考になればという程度です。長いので、逆就活に関係の無い人は見ないことをお勧めします。</p>
 
-<h2>どんなイベントなの？</h2>
+<h2 id="どんなイベントなの">どんなイベントなの？</h2>
 
 <p>色んな企業さんとお話できます。楽しかったです！</p>
 
-<p>pixiv, シーエーモバイル, 楽天, ネクスト, SanSan, GaiaX, リクルートホールディングス, 出版デジタル機構, ジャストシステム, エフォーション, イード, ABEJA, エイチーム, コロプラ, リッチメディア, ウイングル, Docomo, Microsoft&hellip;他数社(敬称略)</p>
+<p>pixiv, シーエーモバイル, 楽天, ネクスト, SanSan, GaiaX, リクルートホールディングス, 出版デジタル機構, ジャストシステム, エフォーション, イード, ABEJA, エイチーム, コロプラ, リッチメディア, ウイングル, Docomo, Microsoft…他数社(敬称略)</p>
 
 <p>の企業さんが来てくださっていました。</p>
 
-<h3>イベントの流れ</h3>
+<h3 id="イベントの流れ">イベントの流れ</h3>
 
 <p>イベントの体型は合同説明会の、企業と学生が入れ替わった感じでしょうか。
 30分ごとに、企業は指名した学生との面談を繰り返します。</p>
@@ -1781,19 +1538,18 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 <p>イベントの流れはこんな感じです。(企業側の流れは完全な憶測です)</p>
 
 <ol>
-<li>(学生) プロフィールをイベントページに公開</li>
-<li>(企業) 学生のプロフィールを見て面白そうな人をリストアップ</li>
-<li><strong>&mdash; イベント当日 &mdash;</strong></li>
-<li>(企業) <em>名刺交換会</em>にて、気になる学生に挨拶をする</li>
-<li>(企業) 会いたい学生に順位をつける(1~10位ぐらい)</li>
-<li>(主催) 順位を元に8タームの配分を調整する</li>
-<li><strong>面談 * 8</strong></li>
-<li>懇親会</li>
-<li><strong>&mdash; イベント翌日 &mdash;</strong> : マッチングできた企業さんから個別に面談</li>
+  <li>(学生) プロフィールをイベントページに公開</li>
+  <li>(企業) 学生のプロフィールを見て面白そうな人をリストアップ</li>
+  <li><strong>– イベント当日 –</strong></li>
+  <li>(企業) <em>名刺交換会</em>にて、気になる学生に挨拶をする</li>
+  <li>(企業) 会いたい学生に順位をつける(1~10位ぐらい)</li>
+  <li>(主催) 順位を元に8タームの配分を調整する</li>
+  <li><strong>面談 * 8</strong></li>
+  <li>懇親会</li>
+  <li><strong>– イベント翌日 –</strong> : マッチングできた企業さんから個別に面談</li>
 </ol>
 
-
-<h2>逆就活ノウハウ</h2>
+<h2 id="逆就活ノウハウ">逆就活ノウハウ</h2>
 
 <p>ノウハウって言い方だと、いかにも得意気ですね。笑</p>
 
@@ -1803,13 +1559,12 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 
 <p>それぞれのレイヤーで、<strong>「間違っていた仮説」</strong>と<strong>「次の仮説」</strong>を書いておきます。(次回に反省を生かす！)</p>
 
-<h3>プロフィール作成のノウハウ</h3>
+<h3 id="プロフィール作成のノウハウ">プロフィール作成のノウハウ</h3>
 
-<ul>
-<li>[x] 選考を通るために、プロフィールを作り込めば良い</li>
-<li>[o] 特定企業への熱烈なアピールのためのプロフィール + α</li>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />選考を通るために、プロフィールを作り込めば良い</li>
+  <li class="task-list-item">[o] 特定企業への熱烈なアピールのためのプロフィール + α</li>
 </ul>
-
 
 <p>今回、僕はプロフィールの作成において<strong>「選考を通る」</strong>ことのみを目的に作っていました。</p>
 
@@ -1818,14 +1573,13 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 <p>完全に間違いです。その理由は、次の通りです。</p>
 
 <ol>
-<li>企業はプロフィールを見て、指名を決める(順位込み)</li>
-<li>面談の30分で話せることはほとんどなく、プロフィールで示した内容の確認の時間だった</li>
+  <li>企業はプロフィールを見て、指名を決める(順位込み)</li>
+  <li>面談の30分で話せることはほとんどなく、プロフィールで示した内容の確認の時間だった</li>
 </ol>
-
 
 <p>思えば、イベントの選考に通ることを目的にするのは大変馬鹿げていましたね。。</p>
 
-<h4>イベントの選考</h4>
+<h4 id="イベントの選考">イベントの選考</h4>
 
 <p>今回、イベント選考は若い方が担当していました。</p>
 
@@ -1833,26 +1587,24 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 
 <p>ここに重点をおくとは、非常に馬鹿なことをしました。</p>
 
-<h4>プロフィールはこう作る</h4>
+<h4 id="プロフィールはこう作る">プロフィールはこう作る</h4>
 
 <p>となると、改善してやることはHPと一緒ですね。おぉ、簡単。</p>
 
 <ol>
-<li>興味をそそるコンテンツでページ(プロフィール)へ誘導する</li>
-<li>ファーストビューで、離脱率を減らす</li>
-<li>コンバージョン(次の選考/内定後の仕事)に向けて、必要なコンテンツを揃える</li>
+  <li>興味をそそるコンテンツでページ(プロフィール)へ誘導する</li>
+  <li>ファーストビューで、離脱率を減らす</li>
+  <li>コンバージョン(次の選考/内定後の仕事)に向けて、必要なコンテンツを揃える</li>
 </ol>
-
 
 <p>プロフィール画面が画一的なレイアウトなので、特徴を付けづらいのが残念です。</p>
 
-<h3>名刺交換のノウハウ</h3>
+<h3 id="名刺交換のノウハウ">名刺交換のノウハウ</h3>
 
-<ul>
-<li>[x] 顔をがんばって覚える</li>
-<li>[o] 顔は覚えない</li>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />顔をがんばって覚える</li>
+  <li class="task-list-item">[o] 顔は覚えない</li>
 </ul>
-
 
 <p>入れ替わり立ち代わりで、10~20人を覚えるのは無理です。笑</p>
 
@@ -1860,15 +1612,14 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 
 <p>その場で覚える必要な無くなれば、随分楽に名刺交換できますね。</p>
 
-<h3>面談</h3>
+<h3 id="面談">面談</h3>
 
-<ul>
-<li>[x] 企業は人物を知りたいと思っており、30分でどれだけ自分のことを知ってもらえるかが重要</li>
-<li>[x] 面談に来る企業は、自分にかなり興味がある</li>
-<li>[o] 企業はその学生は<strong>「何が出来るか」を知りたい</strong>と思っており、企業の事業と一致するかが重要</li>
-<li>[o] 面談に来る企業は、<strong>それぞれ目的が異なる</strong></li>
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />企業は人物を知りたいと思っており、30分でどれだけ自分のことを知ってもらえるかが重要</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" checked="checked" />面談に来る企業は、自分にかなり興味がある</li>
+  <li class="task-list-item">[o] 企業はその学生は<strong>「何が出来るか」を知りたい</strong>と思っており、企業の事業と一致するかが重要</li>
+  <li class="task-list-item">[o] 面談に来る企業は、<strong>それぞれ目的が異なる</strong></li>
 </ul>
-
 
 <p>うーむ、これは一番戦略を間違えましたね。
 Yahooの方に教えてもらえたような気がします。</p>
@@ -1876,46 +1627,43 @@ Yahooの方に教えてもらえたような気がします。</p>
 <p>まず、企業さんは「僕にとても興味を持ってくれている」という前提で考えていました。
 その前提でたつと、おかしな面談になります。</p>
 
-<h4>企業は何を考えている？</h4>
+<h4 id="企業は何を考えている">企業は何を考えている？</h4>
 
 <p>そもそも、イベントに来る企業さんはそれぞれ目的が違うみたいですね。
 多分、次のようなパターンに分かれると思います。</p>
 
-<h5>ポジティブな目的</h5>
+<h5 id="ポジティブな目的">ポジティブな目的</h5>
 
 <ol>
-<li>プロフィールを見て企業の採用基準に合致すると思い、確認のため</li>
-<li>単に、面白そうな学生だから話したかった</li>
+  <li>プロフィールを見て企業の採用基準に合致すると思い、確認のため</li>
+  <li>単に、面白そうな学生だから話したかった</li>
 </ol>
 
-
-<h5>ネガティブな目的</h5>
+<h5 id="ネガティブな目的">ネガティブな目的</h5>
 
 <p>企業はきっと多額のお金を主催者に払っています。
 とすると、人事の方としても次のような思惑が出てくるのではないでしょうか。</p>
 
 <ol>
-<li>人事の新人教育のため、練習台としての面談</li>
-<li>興味がない学生だけれど、8人まで希望を埋めないとお金が勿体ない</li>
-<li>自社のセミナーへ参加者が増えれば、自分の評価に繋がる</li>
+  <li>人事の新人教育のため、練習台としての面談</li>
+  <li>興味がない学生だけれど、8人まで希望を埋めないとお金が勿体ない</li>
+  <li>自社のセミナーへ参加者が増えれば、自分の評価に繋がる</li>
 </ol>
-
 
 <p>売上げは凄いけど、知名度の少ないベンチャー企業というのもあるので、(2,3)は十分に考えられます。</p>
 
-<h4>面談のノウハウ</h4>
+<h4 id="面談のノウハウ">面談のノウハウ</h4>
 
 <p>面談は、企業も学生も貴重な時間を使って参加しています。しかしながら、先ほど述べたように企業さんが何を考えているか分かりません。</p>
 
 <p>ということで、僕がまた参加する際には次のフローで面談を行おうと思います。</p>
 
 <ol>
-<li>面談開始のときに、面談の目的をお互いに確認する</li>
-<li>その企業が求めている人材を確認する。(プロフィールのどこを見て来たのか、何位に指名したのか)</li>
-<li>自分が出来ることと、企業に入ってやりたいことをプレゼンする</li>
-<li>企業と雑談する</li>
+  <li>面談開始のときに、面談の目的をお互いに確認する</li>
+  <li>その企業が求めている人材を確認する。(プロフィールのどこを見て来たのか、何位に指名したのか)</li>
+  <li>自分が出来ることと、企業に入ってやりたいことをプレゼンする</li>
+  <li>企業と雑談する</li>
 </ol>
-
 
 <p>そして、どこかで「あ、違うな。」と思ったら、もう面談は終えようかなと思います。</p>
 
@@ -1923,7 +1671,7 @@ Yahooの方に教えてもらえたような気がします。</p>
 
 <p>ただ、今回はそう思って切り替えて話した企業さんにNo.1学生に選ばれたので、就活って本当よく分かりません。</p>
 
-<h2>まとめ</h2>
+<h2 id="まとめ">まとめ</h2>
 
 <p>まとめとして言うのなら、<strong>捨てること</strong>が大事だと思います。</p>
 
@@ -1940,105 +1688,91 @@ Yahooの方に教えてもらえたような気がします。</p>
     <link href="http://alpaca.tc/blog/vim/jump-to-gem-path.html"/>
     <updated>2013-12-19T08:02:00+09:00</updated>
     <id>http://alpaca.tc/blog/vim/jump-to-gem-path</id>
-    <content type="html"><![CDATA[<p>はい、pathとは<code>:set path</code>で出てくるやつのことです。
-実際にはみなさん<code>gf</code>やファイル補完などでお世話になっていると思います。</p>
+    <content type="html"><![CDATA[<p>はい、pathとは<code class="language-plaintext highlighter-rouge">:set path</code>で出てくるやつのことです。
+実際にはみなさん<code class="language-plaintext highlighter-rouge">gf</code>やファイル補完などでお世話になっていると思います。</p>
 
 <p>今回はpathとは何かを説明して、.rbファイルのクラスからGemの定義元へ飛ぶ方法をやってみましょう。</p>
 
 <!-- more -->
 
-
 <p><strong>方法だけ知りたい人は、一番下までスクロールしてください</strong></p>
 
-<h1>pathとは？</h1>
+<h1 id="pathとは">pathとは？</h1>
 
-<p>Vimにおけるpathとは、<code>set path?</code>で出てくるpathです。</p>
+<p>Vimにおけるpathとは、<code class="language-plaintext highlighter-rouge">set path?</code>で出てくるpathです。</p>
 
 <p>適当にファイルを開いてコマンドを打ってみましょう。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>:set path?
-</span><span class='line'>path=.,/usr/include</span></code></pre></td></tr></table></div></figure>
-
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:set path?
+path=.,/usr/include
+</code></pre></div></div>
 
 <p>これを設定しておくことで何が嬉しいかというと、編集中の変数の定義元へ飛べたり、ファイルを検索出来たりします。つまるところ、Vimが<em>何かを探すときの基準になる</em>ディレクトリ達を指定することができます。</p>
 
 <p>補完プラグインや、Vimの基本機能などもpathに依存していることが多いため、裏側では結構活躍している設定でもあります。</p>
 
-<h2><code>gf</code>でGemの定義元に飛ぶ</h2>
+<h2 id="gfでgemの定義元に飛ぶ"><code class="language-plaintext highlighter-rouge">gf</code>でGemの定義元に飛ぶ</h2>
 
-<p><code>gf</code>は通常、カーソル</p>
+<p><code class="language-plaintext highlighter-rouge">gf</code>は通常、カーソル</p>
 
-<p>Rubyを編集する際、Vimのビルトインの<code>ftplugin/ruby.vim</code>が読み込まれ、<code>gf</code>が自動的に関数にマッピングされます。</p>
+<p>Rubyを編集する際、Vimのビルトインの<code class="language-plaintext highlighter-rouge">ftplugin/ruby.vim</code>が読み込まれ、<code class="language-plaintext highlighter-rouge">gf</code>が自動的に関数にマッピングされます。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>:set filetype=ruby
-</span><span class='line'>:nmap gf
-</span><span class='line'>n  gf          *@:&lt;C-U&gt;exe &lt;SNR&gt;121_gf(v:count1,"gf",'edit')&lt;CR&gt;</span></code></pre></td></tr></table></div></figure>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:set filetype=ruby
+:nmap gf
+n  gf          *@:&lt;C-U&gt;exe &lt;SNR&gt;121_gf(v:count1,"gf",'edit')&lt;CR&gt;
+</code></pre></div></div>
 
+<p>このおかげで、通常の<code class="language-plaintext highlighter-rouge">gf</code>が拡張されて幾つかのケースで<code class="language-plaintext highlighter-rouge">gf</code>が使えるようになります。(Rails.vimも同じ手法を使っていますね。)</p>
 
-<p>このおかげで、通常の<code>gf</code>が拡張されて幾つかのケースで<code>gf</code>が使えるようになります。(Rails.vimも同じ手法を使っていますね。)</p>
-
-<p>具体的には<code>require 'path/to/file'</code>やload, autoloadで書いたファイルパスへ飛ぶことができます。</p>
+<p>具体的には<code class="language-plaintext highlighter-rouge">require 'path/to/file'</code>やload, autoloadで書いたファイルパスへ飛ぶことができます。</p>
 
 <p>内部では拡張子を取り除いたり、ファイル名に不要な文字を変換したりしていますが、そのオプションについては、今回は割愛します。</p>
 
-<h3>pathにRubyのload_pathを追加する</h3>
+<h3 id="pathにrubyのload_pathを追加する">pathにRubyのload_pathを追加する</h3>
 
 <p>Rubyを編集中に、Gemの定義元へ移動する話をしましょう。</p>
 
-<p>まずRubyについて理解しておく必要があるのは、load_pathの仕組みです。Rubyは<code>require</code>などを使用したときに、指定されたファイルを<code>$LOAD_PATH</code>のディレクトリ一覧の中から探します。</p>
+<p>まずRubyについて理解しておく必要があるのは、load_pathの仕組みです。Rubyは<code class="language-plaintext highlighter-rouge">require</code>などを使用したときに、指定されたファイルを<code class="language-plaintext highlighter-rouge">$LOAD_PATH</code>のディレクトリ一覧の中から探します。</p>
 
 <p>下記のようなコマンドを打つことで、デフォルトの$LOAD_PATHを探すことができます。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">ruby</span> <span class="o">-</span><span class="n">e</span> <span class="s1">&#39;puts $LOAD_PATH&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ruby</span> <span class="o">-</span><span class="n">e</span> <span class="s1">'puts $LOAD_PATH'</span>
+</code></pre></div></div>
 
-
-<p>Gemfileを定義した場合、この$LOAD_PATHにそれらのGemの場所が追加されるので<code>require</code>で使うことがきるようになるんですね。</p>
+<p>Gemfileを定義した場合、この$LOAD_PATHにそれらのGemの場所が追加されるので<code class="language-plaintext highlighter-rouge">require</code>で使うことがきるようになるんですね。</p>
 
 <p>それでは、VimにもGemfileから取ってきたディレクトリ一覧を与えてやることで、定義元を探し出せるようにしましょう。</p>
 
-<h3>Gemfileからディレクトリ一覧を取り出す</h3>
+<h3 id="gemfileからディレクトリ一覧を取り出す">Gemfileからディレクトリ一覧を取り出す</h3>
 
-<p><code>bundle show --paths</code>を使うことで、一覧情報を取り出せます。</p>
+<p><code class="language-plaintext highlighter-rouge">bundle show --paths</code>を使うことで、一覧情報を取り出せます。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">$</span> <span class="n">bundle</span> <span class="n">show</span> <span class="o">--</span><span class="n">paths</span>
-</span><span class='line'><span class="sr">/Users/</span><span class="n">alpaca</span><span class="o">-</span><span class="n">tc</span><span class="o">/.</span><span class="n">rbenv</span><span class="o">/</span><span class="n">versions</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">p247</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ruby</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="no">RedCloth</span><span class="o">-</span><span class="mi">4</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">9</span>
-</span><span class='line'><span class="o">/</span><span class="no">Users</span><span class="o">/</span><span class="n">alpaca</span><span class="o">-</span><span class="n">tc</span><span class="o">/.</span><span class="n">rbenv</span><span class="o">/</span><span class="n">versions</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">p247</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ruby</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="n">bundler</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="mi">3</span><span class="o">.</span><span class="mi">5</span>
-</span><span class='line'><span class="o">/</span><span class="no">Users</span><span class="o">/</span><span class="n">alpaca</span><span class="o">-</span><span class="n">tc</span><span class="o">/.</span><span class="n">rbenv</span><span class="o">/</span><span class="n">versions</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">p247</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ruby</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="n">chunky_png</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">5</span>
-</span><span class='line'><span class="o">.</span><span class="n">.</span><span class="o">.</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle show --paths
+/Users/alpaca-tc/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/RedCloth-4.2.9
+/Users/alpaca-tc/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bundler-1.3.5
+/Users/alpaca-tc/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/chunky_png-1.2.5
+...
+</code></pre></div></div>
 
+<p>この情報を<code class="language-plaintext highlighter-rouge">setl path=...</code>と与えてやれば、<code class="language-plaintext highlighter-rouge">gf</code>を使って定義元に飛べるようになります。</p>
 
-<p>この情報を<code>setl path=...</code>と与えてやれば、<code>gf</code>を使って定義元に飛べるようになります。</p>
-
-<h3><code>set path=</code>を使って定義する</h3>
+<h3 id="set-pathを使って定義する"><code class="language-plaintext highlighter-rouge">set path=</code>を使って定義する</h3>
 
 <p><a href="https://gist.github.com/8031905">こちらのスクリプト</a>をvimrcに貼付けましょう。<a href="https://github.com/vim-jp/vital.vim">vital.vim</a>依存です(unite.vim, neocompleteがあれば動作します)</p>
 
-<p>これで、GemPathを読み込む<code>:LoadGem</code>というコマンドが作られます。</p>
+<p>これで、GemPathを読み込む<code class="language-plaintext highlighter-rouge">:LoadGem</code>というコマンドが作られます。</p>
 
 <p>下記のような動作で定義元に飛べるのが確認できると思います。</p>
 
-<p><img class="image_on_frame center" src="http://alpaca.tc/images/blog/jump-to-gem-path/hM4zx40RmT.gif" title="gemジャンプデモ" ></p>
+<p><img class="image_on_frame center" src="/images/blog/jump-to-gem-path/hM4zx40RmT.gif" alt="gemジャンプデモ" /></p>
 
 <p>無事動いていますね。</p>
 
-<h2>まとめ</h2>
+<h2 id="まとめ">まとめ</h2>
 
 <p>今回はpathについて、簡単に説明しました。</p>
 
-<p>次回は、pathを活用してさらに<code>include</code>, <code>includeexpr</code>あたりをやります。</p>
+<p>次回は、pathを活用してさらに<code class="language-plaintext highlighter-rouge">include</code>, <code class="language-plaintext highlighter-rouge">includeexpr</code>あたりをやります。</p>
 
 <p>この辺を勉強すると、自分の環境用にファイル補完を作り上げられます。 neocompleteのfile/includeあたりが書けるようになりますよ〜</p>
 ]]></content>
@@ -2057,60 +1791,57 @@ Yahooの方に教えてもらえたような気がします。</p>
 
 <!-- more -->
 
-
-<h2>今回紹介するのはvim-unite-giti!!</h2>
+<h2 id="今回紹介するのはvim-unite-giti">今回紹介するのはvim-unite-giti!!</h2>
 
 <p>何はともあれ、<strong>まずは動画をみてくれ。</strong></p>
 
-<iframe width="560" height="420" src="https://www.youtube.com/embed/jCgcpIO9oBs?color=white&theme=light"></iframe>
-
+<iframe src="https://www.youtube.com/embed/jCgcpIO9oBs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 
 <p>とにかく、uniteインターフェースは操作を覚えることが少ない。</p>
 
 <p>今回も、幾つかのUniteコマンドを使っているけれど、基本的に「選択」→「アクション」の動作しかない。</p>
 
-<h3>:Unite giti/status</h3>
+<h3 id="unite-gitistatus">:Unite giti/status</h3>
 
 <p>add, unstage, checkoutなどの操作が簡単ですね</p>
 
 <p>conflictがあれば、すぐ見れます。「選択」→「commitアクション」と進めば、指定したファイルだけのコミットもお手軽に作れます(!!)</p>
 
-<h3>:Unite giti/branch</h3>
+<h3 id="unite-gitibranch">:Unite giti/branch</h3>
 
 <p>tracking, chckout, deleteなどの操作が簡単ですね。</p>
 
 <p>branchを切るのにわざわざShellを使うなんて。あなた、Vimと触れ合う時間が減ってしまうではないですか。</p>
 
-<h3>:Unite giti/log</h3>
+<h3 id="unite-gitilog">:Unite giti/log</h3>
 
 <p>紹介していませんが、普通に便利です。vimdiffなどを見る事も簡単です。</p>
 
-<h2>vim-unite-giti以外のプラグイン</h2>
+<h2 id="vim-unite-giti以外のプラグイン">vim-unite-giti以外のプラグイン</h2>
 
-<h3><em>git-vim</em> :GitDiff, :Git push</h3>
+<h3 id="git-vim-gitdiff-git-push"><em>git-vim</em> :GitDiff, :Git push</h3>
 
 <p>こちらは、特に驚きはないので初めて使う人以外は見なくてもいいです。</p>
 
-<iframe width="560" height="420" src="https://www.youtube.com/embed/wWI3Wb-0Vw4?color=white&theme=light"></iframe>
-
+<iframe src="https://www.youtube.com/embed/wWI3Wb-0Vw4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 
 <p>言わずもがな、コマンド名の通りです。</p>
 
 <p>git-vimを使って何がうれしいかと言うと、それなりに補完ができる点です。</p>
 
-<h3><em>fugitive</em> :Gcommit, :Gblame</h3>
+<h3 id="fugitive-gcommit-gblame"><em>fugitive</em> :Gcommit, :Gblame</h3>
 
 <p>すでに語り尽くされているので、ここでは取り上げません。</p>
 
 <p>他のプラグインにもにたようなコマンドがありますが、色付きなのと、機能性が優れているのでfugitiveがおすすめです。</p>
 
-<h2>vimrc</h2>
+<h2 id="vimrc">vimrc</h2>
 
 <p>今回の動画で使用したvimrcと同じような設定です</p>
 
 <p><a href="https://gist.github.com/qickstarter/8008989">vimrc Gist</a></p>
 
-<h2>まとめ</h2>
+<h2 id="まとめ">まとめ</h2>
 
 <p>ujihisaさんに憧れてのYoutube記事です。笑</p>
 
@@ -2119,6 +1850,7 @@ Yahooの方に教えてもらえたような気がします。</p>
 <p>今までで読んできた中で、<em>一番奇麗なVimLのコード</em>でした。ほどよい抽象化、適切な命名、整理されたファイル達。率直に、この人と一緒に仕事出来る人は幸せだろうなぁと感じました。</p>
 
 <p>vim-unite-gitiを作ってくださって感謝します。</p>
+
 ]]></content>
   </entry>
   
@@ -2133,194 +1865,239 @@ Yahooの方に教えてもらえたような気がします。</p>
 
 <!-- more -->
 
-
-<h1>Rubyのクラス変数の扱いが難しい&hellip;。</h1>
+<h1 id="rubyのクラス変数の扱いが難しい">Rubyのクラス変数の扱いが難しい…。</h1>
 
 <p>これ、結構Ruby書いている自分でも初めて遭遇して悩む問題だった。</p>
 
 <p>まず、次のような動くコードを書いてみた。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Base</span><span class="p">;</span> <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">Node</span> <span class="o">&lt;</span> <span class="no">Base</span>
-</span><span class='line'>  <span class="vc">@@val</span> <span class="o">=</span> <span class="s1">&#39;Node&#39;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">Branch</span> <span class="o">&lt;</span> <span class="no">Base</span>
-</span><span class='line'>  <span class="vc">@@val</span> <span class="o">=</span> <span class="s1">&#39;Branch&#39;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">p</span> <span class="no">Node</span><span class="o">.</span><span class="n">class_variable_get</span><span class="p">(</span><span class="s1">&#39;@@val&#39;</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Node&#39;</span>
-</span><span class='line'><span class="nb">p</span> <span class="no">Branch</span><span class="o">.</span><span class="n">class_variable_get</span><span class="p">(</span><span class="s1">&#39;@@val&#39;</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Branch&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Base</span><span class="p">;</span> <span class="k">end</span>
 
+<span class="k">class</span> <span class="nc">Node</span> <span class="o">&lt;</span> <span class="no">Base</span>
+  <span class="vc">@@val</span> <span class="o">=</span> <span class="s1">'Node'</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Branch</span> <span class="o">&lt;</span> <span class="no">Base</span>
+  <span class="vc">@@val</span> <span class="o">=</span> <span class="s1">'Branch'</span>
+<span class="k">end</span>
+
+<span class="nb">p</span> <span class="no">Node</span><span class="p">.</span><span class="nf">class_variable_get</span><span class="p">(</span><span class="s1">'@@val'</span><span class="p">)</span> <span class="c1">#=&gt; 'Node'</span>
+<span class="nb">p</span> <span class="no">Branch</span><span class="p">.</span><span class="nf">class_variable_get</span><span class="p">(</span><span class="s1">'@@val'</span><span class="p">)</span> <span class="c1">#=&gt; 'Branch'</span>
+</code></pre></div></div>
 
 <p>ふむ、それぞれの派生クラスでクラス変数が使えますね。</p>
 
 <p>では、続いて基底クラスにもクラス変数を与えてみる。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Base</span>
-</span><span class='line'>  <span class="vc">@@val</span> <span class="o">=</span> <span class="kp">nil</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">Node</span> <span class="o">&lt;</span> <span class="no">Base</span>
-</span><span class='line'>  <span class="vc">@@val</span> <span class="o">=</span> <span class="s1">&#39;Node&#39;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">Branch</span> <span class="o">&lt;</span> <span class="no">Base</span>
-</span><span class='line'>  <span class="vc">@@val</span> <span class="o">=</span> <span class="s1">&#39;Branch&#39;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">p</span> <span class="no">Node</span><span class="o">.</span><span class="n">class_variable_get</span><span class="p">(</span><span class="s1">&#39;@@val&#39;</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Branch&#39;</span>
-</span><span class='line'><span class="nb">p</span> <span class="no">Branch</span><span class="o">.</span><span class="n">class_variable_get</span><span class="p">(</span><span class="s1">&#39;@@val&#39;</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Branch&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Base</span>
+  <span class="vc">@@val</span> <span class="o">=</span> <span class="kp">nil</span>
+<span class="k">end</span>
 
+<span class="k">class</span> <span class="nc">Node</span> <span class="o">&lt;</span> <span class="no">Base</span>
+  <span class="vc">@@val</span> <span class="o">=</span> <span class="s1">'Node'</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Branch</span> <span class="o">&lt;</span> <span class="no">Base</span>
+  <span class="vc">@@val</span> <span class="o">=</span> <span class="s1">'Branch'</span>
+<span class="k">end</span>
+
+<span class="nb">p</span> <span class="no">Node</span><span class="p">.</span><span class="nf">class_variable_get</span><span class="p">(</span><span class="s1">'@@val'</span><span class="p">)</span> <span class="c1">#=&gt; 'Branch'</span>
+<span class="nb">p</span> <span class="no">Branch</span><span class="p">.</span><span class="nf">class_variable_get</span><span class="p">(</span><span class="s1">'@@val'</span><span class="p">)</span> <span class="c1">#=&gt; 'Branch'</span>
+</code></pre></div></div>
 
 <p>Ooops!!! 派性クラス内のクラス変数が、基底クラス変数を参照しよる！！</p>
 
-<h2>解決編</h2>
+<h2 id="解決編">解決編</h2>
 
 <p>やりたいことは、派生クラスの子クラスに共通の変数を持たせるということ。</p>
 
 <p>うーん、意外と難しい！</p>
 
-<p>どうもクラス変数という感じではなくなるけれど、こうするしかないのだろうか&hellip;。</p>
+<p>どうもクラス変数という感じではなくなるけれど、こうするしかないのだろうか…。</p>
 
 <p>メソッドにしてみたら、とっても気持ちが悪い。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Base</span>
-</span><span class='line'>  <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
-</span><span class='line'>    <span class="kp">private</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">def</span> <span class="nf">val</span>
-</span><span class='line'>      <span class="s1">&#39;Base&#39;</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">Node</span> <span class="o">&lt;</span> <span class="no">Base</span>
-</span><span class='line'>  <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
-</span><span class='line'>    <span class="kp">private</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">def</span> <span class="nf">val</span>
-</span><span class='line'>      <span class="s1">&#39;Node&#39;</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">Branch</span> <span class="o">&lt;</span> <span class="no">Base</span>
-</span><span class='line'>  <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
-</span><span class='line'>    <span class="kp">private</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">def</span> <span class="nf">val</span>
-</span><span class='line'>      <span class="s1">&#39;Branch&#39;</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">p</span> <span class="no">Node</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="ss">:val</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Node&#39;</span>
-</span><span class='line'><span class="nb">p</span> <span class="no">Branch</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="ss">:val</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Branch&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Base</span>
+  <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
+    <span class="kp">private</span>
 
+    <span class="k">def</span> <span class="nf">val</span>
+      <span class="s1">'Base'</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Node</span> <span class="o">&lt;</span> <span class="no">Base</span>
+  <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
+    <span class="kp">private</span>
+
+    <span class="k">def</span> <span class="nf">val</span>
+      <span class="s1">'Node'</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Branch</span> <span class="o">&lt;</span> <span class="no">Base</span>
+  <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
+    <span class="kp">private</span>
+
+    <span class="k">def</span> <span class="nf">val</span>
+      <span class="s1">'Branch'</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="nb">p</span> <span class="no">Node</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="ss">:val</span><span class="p">)</span> <span class="c1">#=&gt; 'Node'</span>
+<span class="nb">p</span> <span class="no">Branch</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="ss">:val</span><span class="p">)</span> <span class="c1">#=&gt; 'Branch'</span>
+</code></pre></div></div>
 
 <p>これだと、一応コードとして動く。 ただ、<strong>これは無いだろ感</strong>あるよね。</p>
 
 <p>しかし、クラスインスタンス変数だと継承されないし、こうするしかないのかなぁ。</p>
 
-<p><strong>だれか正しい方法があれば、教えてください！</strong> >_&lt;</p>
+<p><strong>だれか正しい方法があれば、教えてください！</strong> &gt;_&lt;</p>
 
-<h3>追記</h3>
+<h3 id="追記">追記</h3>
 
 <p>思いついたんだけど、継承するときにクラスインスタンス変数を渡せばいいのかな？</p>
 
 <p>どうでしょう。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Base</span>
-</span><span class='line'>  <span class="vi">@val</span> <span class="o">=</span> <span class="s1">&#39;Base&#39;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">inherited</span><span class="p">(</span><span class="n">klass</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">klass</span><span class="o">.</span><span class="n">instance_variable_set</span><span class="p">(</span><span class="s1">&#39;@val&#39;</span><span class="p">,</span> <span class="vi">@val</span><span class="p">)</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">Node</span> <span class="o">&lt;</span> <span class="no">Base</span><span class="p">;</span> <span class="k">end</span>
-</span><span class='line'><span class="k">class</span> <span class="nc">Branch</span> <span class="o">&lt;</span> <span class="no">Base</span><span class="p">;</span> <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">p</span> <span class="no">Node</span><span class="o">.</span><span class="n">instance_variable_get</span><span class="p">(</span><span class="s1">&#39;@val&#39;</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Base&#39;</span>
-</span><span class='line'><span class="nb">p</span> <span class="no">Branch</span><span class="o">.</span><span class="n">instance_variable_get</span><span class="p">(</span><span class="s1">&#39;@val&#39;</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Base&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Base</span>
+  <span class="vi">@val</span> <span class="o">=</span> <span class="s1">'Base'</span>
 
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">inherited</span><span class="p">(</span><span class="n">klass</span><span class="p">)</span>
+    <span class="n">klass</span><span class="p">.</span><span class="nf">instance_variable_set</span><span class="p">(</span><span class="s1">'@val'</span><span class="p">,</span> <span class="vi">@val</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Node</span> <span class="o">&lt;</span> <span class="no">Base</span><span class="p">;</span> <span class="k">end</span>
+<span class="k">class</span> <span class="nc">Branch</span> <span class="o">&lt;</span> <span class="no">Base</span><span class="p">;</span> <span class="k">end</span>
+
+<span class="nb">p</span> <span class="no">Node</span><span class="p">.</span><span class="nf">instance_variable_get</span><span class="p">(</span><span class="s1">'@val'</span><span class="p">)</span> <span class="c1">#=&gt; 'Base'</span>
+<span class="nb">p</span> <span class="no">Branch</span><span class="p">.</span><span class="nf">instance_variable_get</span><span class="p">(</span><span class="s1">'@val'</span><span class="p">)</span> <span class="c1">#=&gt; 'Base'</span>
+</code></pre></div></div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Unite.vimとwatsonを使ったワークフロー]]></title>
+    <link href="http://alpaca.tc/blog/vim/using-vim-unite-watson.html"/>
+    <updated>2013-12-13T02:29:00+09:00</updated>
+    <id>http://alpaca.tc/blog/vim/using-vim-unite-watson</id>
+    <content type="html"><![CDATA[<p>最近、vim-unite-watsonを開発しました。</p>
+
+<p>これが、watsonの作者であるnhmoodさんにも好評で、僕自身ワークフローが変化して、だいぶ作業しやすくなりました。</p>
+
+<p>今回は、タスク管理をしたい人向けに、僕なりのワークフロー管理を紹介します。</p>
+
+<!-- more -->
+
+<h1 id="ワークフローとvim">ワークフローとVim</h1>
+
+<p>僕は普段、Webサービスの構築・保守を行う仕事をしています。</p>
+
+<p>そこでは、基本的なフローは次のような流れです。</p>
+
+<ol>
+  <li>新機能・バグに対してIssueを発行する(あるいは既にTODOリストにある)</li>
+  <li>トピックブランチを作る</li>
+  <li>コードを書く</li>
+  <li>コミット -&gt; Pull-Requestを送る -&gt; マージする</li>
+</ol>
+
+<p>では、Vimを一度も閉じることなくこれらの作業をしてみます。</p>
+
+<h2 id="1-issueの発行">1. Issueの発行</h2>
+
+<h3 id="1-1-todoをコードに入力する">1-1. TODOをコードに入力する</h3>
+
+<p><img class="image_on_frame center" src="/images/blog/workflow_1.png" alt="本番環境用にViewを作成すると記入する" /></p>
+
+<h3 id="1-2-issueをgithubにあげる">1-2. IssueをGithubにあげる</h3>
+
+<p>インラインIssue管理の<a href="/blog/ruby/how-to-use-watson.html">watson</a>を使って、GithubにIssueをあげます</p>
+
+<p><img class="image_on_frame center" src="/images/blog/workflow_2.png" alt=":Watsonのデモ" /></p>
+
+<p>Watsonを使えば、Vimから簡単にIssue管理を行うことが出来ますね。</p>
+
+<h2 id="2-作業の目処を立てる">2. 作業の目処を立てる</h2>
+
+<p>さて、これでIssueは挙げられたので、次はコードの改修をしていきます。</p>
+
+<h3 id="2-1-トピックブランチを作る">2-1. トピックブランチを作る</h3>
+
+<p>ブランチの作業は、<a href="https://github.com/alpaca-tc/vim-unite-giti">vim-unite-giti</a>を使います。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:Unite giti/branch
+</code></pre></div></div>
+
+<p>新しいブランチの名前を入力して、<code class="language-plaintext highlighter-rouge">[checkout branch]</code>の行を選択します。</p>
+
+<p><img class="image_on_frame center" src="/images/blog/workflow_3.png" alt="Unite gitiのデモ" /></p>
+
+<p>すると、新しいブランチが作られました。</p>
+
+<h3 id="2-2-コードの改修を行う場所に印をつけて行く">2-2. コードの改修を行う場所に印をつけて行く</h3>
+
+<p>コードの改修は、多くの場合幾つかのファイルに跨がります。</p>
+
+<p>そのため、経験から作業が必要な箇所に目処をつけて、コメントを書いて行きます。</p>
+
+<p><img class="image_on_frame center" src="/images/blog/workflow_4.png" alt="" /></p>
+
+<p><img class="image_on_frame center" src="/images/blog/workflow_5.png" alt="" /></p>
+
+<p><img class="image_on_frame center" src="/images/blog/workflow_6.png" alt="" /></p>
+
+<p>todoの内容は、watsonによって管理されるので、vim-unite-watsonを使えば一覧としてみることができます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:Unite watson/dirty
+</code></pre></div></div>
+
+<p><img class="image_on_frame center" src="/images/blog/workflow_7.png" alt="unite-watsonのdemo" /></p>
+
+<p>これで、issueを解決するために必要な作業の一覧を自分で作ることが出来ました。</p>
+
+<p>Unite上のコメントを選択すると、該当箇所に飛べます。</p>
+
+<p>後は、</p>
+
+<ol>
+  <li>該当箇所に飛ぶ</li>
+  <li>コードを修正する</li>
+  <li>解決したら、コメントを削除する</li>
+</ol>
+
+<p>を<code class="language-plaintext highlighter-rouge">:Unite watson/dirty</code>が空になるまで繰り返します。</p>
+
+<p>watsonの結果リストが空になれば、issueの問題を解決したことになり、次の作業に移ります。</p>
+
+<h3 id="3-githubにpull-requestする">3. GithubにPull-Requestする</h3>
+
+<p>これは、各々方法が分かれるかと思います。</p>
+
+<p>Vimから出ないでPull-Requestを送るには、<code class="language-plaintext highlighter-rouge">:!git push</code> &amp;&amp; <code class="language-plaintext highlighter-rouge">:!hub pull-request -h ...</code>というのが一番分かりやすいでしょうか。</p>
+
+<p>僕は、<code class="language-plaintext highlighter-rouge">:Unite giti/pull_request</code>で送るようにしています。</p>
+
+<h2 id="まとめ">まとめ</h2>
+
+<p>Watsonやgitiはかなり便利です。</p>
+
+<p>特に、watsonはコーディング作業をマネジメントしたい人に向いていると思います。
+作業時間の見積もりや、タスク管理を考えながらコーディングする人には向いているプラグインなのではないでしょうか。</p>
+
+<p>僕は経営学部にいるので、すっかりタスク管理や時間計測を気にしちゃうようになりました。。</p>
+
+<p><strong>今回紹介したプラグイン</strong></p>
+
+<ul>
+  <li><a href="https://github.com/alpaca-tc/vim-unite-watson.vim">vim-unite-watson</a></li>
+  <li><a href="https://github.com/kmnk/vim-unite-giti">vim-unite-giti (本家)</a></li>
+  <li><a href="https://github.com/alpaca-tc/vim-unite-giti">vim-unite-giti (giti/pull_request追加版)</a></li>
+</ul>
 ]]></content>
   </entry>
   

@@ -1,7 +1,5 @@
 
 
-  
-
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -9,8 +7,21 @@
     <meta charset="UTF-8">
     <title>RailsとRubyとVimのブログ</title>
     
-    <meta name="description" content="Vim中級者を脱する Augroup編 Nov 2nd, 2013 Posted by 石井浩之 augroup, autocmdを理解する 所要時間 3分 この記事を読むべき人 augroupを理解していない人
-:sourceコマンドを使う人 続きを読む &rarr; <a href=" &hellip;">
+    <meta name="description" content="
+  
+  
+    
+    
+      
+  
+    
+      
+        
+          
+            
+              
+                octopressとセットで入れておきたいVimプラグインまとめ
+           ...">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='RailsとRubyとVimのブログ' name='title' />
@@ -24,27 +35,52 @@
 <meta property="og:locale" content="ja_JP"/>
 <meta property="og:image" content="https://http://alpaca.tc/images/meta/site_title.png"/>
 <meta property="og:type" content="blog"/>
-<meta property="og:url" content="http://alpaca.tc/blog/page/7/index.html"/>
+<meta property="og:url" content="http://alpaca.tc/blog/page/7/"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
-<meta property="og:description" content="Vim中級者を脱する Augroup編 Nov 2nd, 2013 Posted by 石井浩之 augroup, autocmdを理解する 所要時間 3分 この記事を読むべき人 augroupを理解していない人
-:sourceコマンドを使う人 続きを読む &rarr; <a href=" &hellip;" />
+<meta property="og:description" content="
+  
+  
+    
+    
+      
+  
+    
+      
+        
+          
+            
+              
+                octopressとセットで入れておきたいVimプラグインまとめ
+           ..." />
 <meta property="fb:app_id" content="224701561024840" />
 
     <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RailsとRubyとVimのブログ">
-<meta name="twitter:description" content="Vim中級者を脱する Augroup編 Nov 2nd, 2013 Posted by 石井浩之 augroup, autocmdを理解する 所要時間 3分 この記事を読むべき人 augroupを理解していない人
-:sourceコマンドを使う人 続きを読む &rarr; <a href=" &hellip;">
+<meta name="twitter:description" content="
+  
+  
+    
+    
+      
+  
+    
+      
+        
+          
+            
+              
+                octopressとセットで入れておきたいVimプラグインまとめ
+           ...">
 <meta name="twitter:image" content="https://http://alpaca.tc/images/meta/twitter.png">
-<meta name="twitter:site" content="@alpaca_taichou">
-<meta name="twitter:creator" content="@alpaca_taichou">
+<meta name="twitter:site" content="@alpaca_tc">
+<meta name="twitter:creator" content="@alpaca_tc">
 
 
     <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
 
     <script type="text/javascript">window._pt_lt = new Date().getTime();</script>
 
-    <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="/stylesheets/compression.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="/stylesheets/main.css" type="text/css" media="all"/>
     <meta name="google-site-verification" content="thSL3cUT7BV1-AENglRFIF-kv6I85JJ6_iUGAU8GaQI" />
 
     <!--[if lte IE 8]>
@@ -70,15 +106,13 @@
 
 
 
-  <link rel="next" href="/blog/page/8/">
+
+
+  <link rel="prev" href="6">
 
 
 
-  <link rel="prev" href="/blog/page/6/">
-
-
-
-  <link rel="canonical" href="http://alpaca.tc/blog/page/7/index.html">
+  <link rel="canonical" href="http://alpaca.tc/blog/page/7/">
 
 
 
@@ -110,7 +144,7 @@
                   <a target="_blank" href="https://github.com/alpaca-tc">GitHub</a>
                 </li>
                 <li>
-                  <a target="_blank" href="https://twitter.com/alpaca_taichou">Twitter</a>
+                  <a target="_blank" href="https://twitter.com/alpaca_tc">Twitter</a>
                 </li>
               </ul>
             </nav>
@@ -125,126 +159,6 @@
               <div id="page_contents" class="inner">
                 <div id="index_contents" class="blog-index">
   
-  
-    
-    <div class="blog-articles">
-      <article class="post_row">
-  <div class="inner">
-    <header class="field-items">
-      
-        <h1>
-          
-            <a href="/blog/vim/break-vim-beginners-augroup.html">
-              
-                Vim中級者を脱する Augroup編
-              
-            </a>
-          
-        </h1>
-      
-
-      
-        <section class="meta">
-          <div class="inner">
-            
-
-
-
-
-
-
-
-
-  
-
-
-
-<time datetime="2013-11-02T02:30:00+09:00" pubdate data-updated="true">Nov 2<span>nd</span>, 2013</time>
-            
-  
-
-<span class="byline author">Posted by 石井浩之</span>
-
-            
-
-  <span class="categories">
-    
-      
-    
-  </span>
-
-
-          </div>
-        </section>
-      
-    </header>
-
-    
-      <section class="entry-content"><h2>augroup, autocmdを理解する</h2>
-
-<p><strong>所要時間 3分</strong></p>
-
-<h3>この記事を読むべき人</h3>
-
-<ul>
-<li><code>augroup</code>を理解していない人</li>
-<li><code>:source</code>コマンドを使う人</li>
-</ul>
-
-
-</section>
-      
-
-      
-        <footer class="article_footer">
-          <div class="read_more">
-  <a href="/blog/vim/break-vim-beginners-augroup.html">続きを読む &rarr;</a>
-</div>
-
-        </footer>
-      
-    
-
-    
-      
-  
-
-
-
-
-
-
-<section class="sharing clearfix">
-  <div class="button ft_like_button">
-    <div class="fb-like" data-href="http://alpaca.tc/blog/vim/break-vim-beginners-augroup.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
-  </div>
-
-  <div class="button ft_share_button">
-    <div class="fb-share-button" data-href="http://alpaca.tc/blog/vim/break-vim-beginners-augroup.html" data-type="button_count"></div>
-  </div>
-
-  <div class="button hatena_bookmark_button">
-    <a href="https://b.hatena.ne.jp/entry/http://alpaca.tc/blog/vim/break-vim-beginners-augroup.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
-Vim中級者を脱する augroup編 | RailsとRubyとVimのブログ 
-" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
-      <img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
-    </a>
-  </div>
-
-  <div class="button google_plus_button_like">
-    <div data-annotation="none" data-href="http://alpaca.tc/blog/vim/break-vim-beginners-augroup.html" class="g-plusone" data-size="medium" ></div>
-  </div>
-
-  <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/break-vim-beginners-augroup.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/vim/break-vim-beginners-augroup.html" ></a>
-  </div>
-</section>
-
-    
-  </div>
-</article>
-
-    </div>
   
     
     <div class="blog-articles">
@@ -275,14 +189,10 @@ Vim中級者を脱する augroup編 | RailsとRubyとVimのブログ
 
 
 
-  
 
 
-
-<time datetime="2013-11-01T17:06:00+09:00" pubdate data-updated="true">Nov 1<span>st</span>, 2013</time>
+<time datetime="2013-11-01T17:06:00+09:00" pubdate data-updated="true"></time>
             
-  
-
 <span class="byline author">Posted by 石井浩之</span>
 
             
@@ -305,23 +215,64 @@ Vim中級者を脱する augroup編 | RailsとRubyとVimのブログ
 
 <p>最低限下記のプラグインぐらいは入れておきましょう。</p>
 
+<!-- more -->
+
+<h2 id="vim-liquid"><a href="https://github.com/tpope/vim-liquid">vim-liquid</a></h2>
+
+<p><code class="language-plaintext highlighter-rouge">liquid</code>はoctopress(jekyll)で採用されているテンプレートエンジンです。</p>
+
+<p>このプラグインを入れると、ファイルタイプの検知や、キーワードのハイライトをしてくれるようになります。
+何が良いかというと、そのおかげで<code class="language-plaintext highlighter-rouge">neocomplete.vim</code>や<code class="language-plaintext highlighter-rouge">matchit.vim</code>などの他のプラグインもliquid用に対応してくれるんですよね。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NeoBundleLazy 'tpope/vim-liquid', { 'autoload' : {
+      \ 'filetypes' : 'liquid'
+      \ }}
+</code></pre></div></div>
+
+<h2 id="vim-octopress"><a href="https://github.com/tangledhelix/vim-octopress">vim-octopress</a></h2>
+
+<p>VimからOctopressのコマンド操作をするプラグインです。
+<code class="language-plaintext highlighter-rouge">:Octopress [command][{option}]</code>で実行することができます。</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">:Octopress new_post title</code></li>
+  <li><code class="language-plaintext highlighter-rouge">:Octopress gen_deploy</code></li>
+</ol>
+
+<p>この2回の操作で、新しい記事をアップロードできます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NeoBundleLazy 'tangledhelix/vim-octopress', { 'autoload' : {
+      \ 'commands': 'Octopress',
+      \ }}
+</code></pre></div></div>
+
+<h2 id="alpaca_octopress"><a href="https://github.com/alpaca-tc/alpaca_octopress.vim">alpaca_octopress</a></h2>
+
+<p><code class="language-plaintext highlighter-rouge">vim-octopress</code>の非同期実行版です。
+人柱属性のある方はこちらをオススメします。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NeoBundleLazy 'alpaca-tc/alpaca_octopress.vim', { 'autoload' : {
+      \ 'branch': 'v0.3',
+      \ 'functions' : 'octopress#complete',
+      \ 'commands': {
+      \   'name' : 'Octopress',
+      \   'complete' : 'customlist,octopress#complete',
+      \ },
+      \ }}
+</code></pre></div></div>
+
+<h2 id="まとめ">まとめ</h2>
+
+<p>Octopressはかなりエンジニアと相性が良いプロジェクトだと思います。
+ついでにVimmerの方は、これらのプラグインを入れてより親和性を高めましょう！</p>
 </section>
       
 
       
-        <footer class="article_footer">
-          <div class="read_more">
-  <a href="/blog/vim/octopress_and_vimplugin.html">続きを読む &rarr;</a>
-</div>
-
-        </footer>
-      
     
 
     
       
-  
-
 
 
 
@@ -349,7 +300,7 @@ octopressとセットで入れておきたいVimプラグインまとめ | Rails
   </div>
 
   <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/octopress_and_vimplugin.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/vim/octopress_and_vimplugin.html" ></a>
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/octopress_and_vimplugin.html" data-via="alpaca_tc" date-width="120" data-counturl="http://alpaca.tc/blog/vim/octopress_and_vimplugin.html" ></a>
   </div>
 </section>
 
@@ -388,14 +339,10 @@ octopressとセットで入れておきたいVimプラグインまとめ | Rails
 
 
 
-  
 
 
-
-<time datetime="2013-11-01T02:29:00+09:00" pubdate data-updated="true">Nov 1<span>st</span>, 2013</time>
+<time datetime="2013-11-01T02:29:00+09:00" pubdate data-updated="true"></time>
             
-  
-
 <span class="byline author">Posted by 石井浩之</span>
 
             
@@ -416,13 +363,15 @@ octopressとセットで入れておきたいVimプラグインまとめ | Rails
       <section class="entry-content"><p>二日前のブログにて
 こんなことを言っていたんですが、</p>
 
-<blockquote><h3>2. SEOで遊びたい</h3>
+<blockquote>
+  <h3 id="2-seoで遊びたい">2. SEOで遊びたい</h3>
 
-<p>そろそろ、「アルパカ エンジニア」や幾つかのキーワードが欲しいです。</p></blockquote>
+  <p>そろそろ、「アルパカ エンジニア」や幾つかのキーワードが欲しいです。</p>
+</blockquote>
 
 <p>ブログを初めて3日目にて、はやくも<strong>検索結果が1位</strong>になりました！</p>
 
-<p><img class="image_on_frame center" src="/images/blog/seo_no_1.png" title="アルパカエンジニア SEO 1位" ></p>
+<p><img class="image_on_frame center" src="/images/blog/seo_no_1.png" alt="アルパカエンジニア SEO 1位" /></p>
 
 <p>超ニッチなワードだと、タイトルの一致率高めてやれば一瞬なんですね〜。
 僕の他にもアルパカを名乗るエンジニアブログが居たのですが、順位を抜いたのでやっと胸を張れます。(何に)</p>
@@ -438,8 +387,6 @@ octopressとセットで入れておきたいVimプラグインまとめ | Rails
 
     
       
-  
-
 
 
 
@@ -467,7 +414,7 @@ octopressとセットで入れておきたいVimプラグインまとめ | Rails
   </div>
 
   <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/seo/no1_alpaca_engineer.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/seo/no1_alpaca_engineer.html" ></a>
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/seo/no1_alpaca_engineer.html" data-via="alpaca_tc" date-width="120" data-counturl="http://alpaca.tc/blog/seo/no1_alpaca_engineer.html" ></a>
   </div>
 </section>
 
@@ -487,7 +434,7 @@ octopressとセットで入れておきたいVimプラグインまとめ | Rails
           
             <a href="/blog/vim/alpaca_octopress/about_alpaca_complete.html">
               
-                Alpaca_octopress続き
+                alpaca_octopress続き
               
             </a>
           
@@ -506,14 +453,10 @@ octopressとセットで入れておきたいVimプラグインまとめ | Rails
 
 
 
-  
 
 
-
-<time datetime="2013-10-30T04:34:00+09:00" pubdate data-updated="true">Oct 30<span>th</span>, 2013</time>
+<time datetime="2013-10-30T04:34:00+09:00" pubdate data-updated="true"></time>
             
-  
-
 <span class="byline author">Posted by 石井浩之</span>
 
             
@@ -532,14 +475,14 @@ octopressとセットで入れておきたいVimプラグインまとめ | Rails
 
     
       <section class="entry-content"><p>octopress用のプラグイン<em>alpaca_octopress.vim</em>をガシガシ作っています。
-コマンドの非同期実行、サイトのプレビュー、etc&hellip;全てをVimで完結しつつあります！</p>
+コマンドの非同期実行、サイトのプレビュー、etc…全てをVimで完結しつつあります！</p>
 
 <p>ある程度完成したら、Vim使いがOctopressを5分で構築出来るようなプラグインも同封するつもり。
 全てVimで完結するのはVimmerにとっては楽でいいなぁ〜。</p>
 
-<h2>OctopressTweet!!</h2>
+<h2 id="octopresstweet">OctopressTweet!!</h2>
 
-<p>そして今から<code>:OctopressTweet</code>を実行して、この投稿がTweetされることを望みます。
+<p>そして今から<code class="language-plaintext highlighter-rouge">:OctopressTweet</code>を実行して、この投稿がTweetされることを望みます。
 無事Tweet出来たらまさに完結ですね。うりゃ！</p>
 </section>
       
@@ -549,8 +492,6 @@ octopressとセットで入れておきたいVimプラグインまとめ | Rails
 
     
       
-  
-
 
 
 
@@ -578,7 +519,7 @@ alpaca_octopress続き | RailsとRubyとVimのブログ
   </div>
 
   <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/alpaca_octopress/about_alpaca_complete.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/vim/alpaca_octopress/about_alpaca_complete.html" ></a>
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/alpaca_octopress/about_alpaca_complete.html" data-via="alpaca_tc" date-width="120" data-counturl="http://alpaca.tc/blog/vim/alpaca_octopress/about_alpaca_complete.html" ></a>
   </div>
 </section>
 
@@ -598,7 +539,7 @@ alpaca_octopress続き | RailsとRubyとVimのブログ
           
             <a href="/blog/vim/alpaca_octopress/create_new_plugin_for_octopress.html">
               
-                Alpaca_octopressを作っている
+                alpaca_octopressを作っている
               
             </a>
           
@@ -617,14 +558,10 @@ alpaca_octopress続き | RailsとRubyとVimのブログ
 
 
 
-  
 
 
-
-<time datetime="2013-10-29T04:52:00+09:00" pubdate data-updated="true">Oct 29<span>th</span>, 2013</time>
+<time datetime="2013-10-29T04:52:00+09:00" pubdate data-updated="true"></time>
             
-  
-
 <span class="byline author">Posted by 石井浩之</span>
 
             
@@ -644,23 +581,47 @@ alpaca_octopress続き | RailsとRubyとVimのブログ
     
       <section class="entry-content"><p>昨日言った通り、今は<a href="https://github.com/alpaca-tc/alpaca_octopress.vim">alpaca_octopress.vim</a>を作っています</p>
 
+<!-- more -->
+
+<p>ブランチは<code class="language-plaintext highlighter-rouge">v0.3</code>が最新ですね。</p>
+
+<h2 id="使い方">使い方</h2>
+
+<p><code class="language-plaintext highlighter-rouge">:Octopress [command] {option}</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>" 設定はこんな感じ
+let g:octopress#rake_command = 'bundle exec rake'
+let g:octopress#project_url = expand('~/project/octopress')
+let g:octopress#system#async = 1
+</code></pre></div></div>
+
+<p>Octopress関連で<code class="language-plaintext highlighter-rouge">deploy</code>とか<code class="language-plaintext highlighter-rouge">async</code>とかをよく使うけど、このプラグインを入れれば非同期で実行できます。
+新しく記事書くときは、<code class="language-plaintext highlighter-rouge">:Octopress new_post 新しい記事</code>とやればどのディレクトリに居ても起動出来るので、記事を書くのがちょっと楽になります。</p>
+
+<h2 id="初めてのvitalvim">初めてのvital.vim</h2>
+
+<p>このプラグインを作る上で、初めて<a href="https://github.com/vim-jp/vital.vim">vital.vim</a>さんを使ってみました。
+vitalは、JavaScriptでいうjQueryみたいに、これはベストな書き方！というコードを寄せ集めたスクリプト集です。</p>
+
+<p>今回は、プロセスをオブジェクト化して、非同期で実行&amp;管理するために使ってみました。
+触ってみた感じ、まだまだ人柱感が強いです。。</p>
+
+<p>荒削りというか、汎用的というか、、Process周りのvitalはまだまだ利用者がいないのだろうと思います。
+vimproc周りの動作もおかしいようだし、Vimからプロセス操作するのはやっぱり難しいね！</p>
+
+<hr />
+
+<p><code class="language-plaintext highlighter-rouge">:Octopress deploy</code>っと！</p>
+
+<p>さて、寝よう。</p>
 </section>
       
 
       
-        <footer class="article_footer">
-          <div class="read_more">
-  <a href="/blog/vim/alpaca_octopress/create_new_plugin_for_octopress.html">続きを読む &rarr;</a>
-</div>
-
-        </footer>
-      
     
 
     
       
-  
-
 
 
 
@@ -688,7 +649,136 @@ alpaca_octopressを作っている | RailsとRubyとVimのブログ
   </div>
 
   <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/alpaca_octopress/create_new_plugin_for_octopress.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/vim/alpaca_octopress/create_new_plugin_for_octopress.html" ></a>
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/alpaca_octopress/create_new_plugin_for_octopress.html" data-via="alpaca_tc" date-width="120" data-counturl="http://alpaca.tc/blog/vim/alpaca_octopress/create_new_plugin_for_octopress.html" ></a>
+  </div>
+</section>
+
+    
+  </div>
+</article>
+
+    </div>
+  
+    
+    <div class="blog-articles">
+      <article class="post_row">
+  <div class="inner">
+    <header class="field-items">
+      
+        <h1>
+          
+            <a href="/blog/diary/start_blog.html">
+              
+                初めました
+              
+            </a>
+          
+        </h1>
+      
+
+      
+        <section class="meta">
+          <div class="inner">
+            
+
+
+
+
+
+
+
+
+
+
+<time datetime="2013-10-27T23:12:00+09:00" pubdate data-updated="true"></time>
+            
+<span class="byline author">Posted by 石井浩之</span>
+
+            
+
+  <span class="categories">
+    
+      
+    
+  </span>
+
+
+          </div>
+        </section>
+      
+    </header>
+
+    
+      <section class="entry-content"><p>記念すべき初カキコ。
+さて、技術ブログは今までQiitaを使っていましたが、そちらを辞めて自分のブログを作ることにしました。</p>
+
+<h2 id="乗り換える2つの理由">乗り換える2つの理由</h2>
+
+<!-- more -->
+
+<h3 id="1-qiitaは使いにくい">1. Qiitaは使いにくい</h3>
+
+<p>皆さんも薄々感じていると思いますが、QiitaのUIは使いにくいです。だってVimから出るんだもん。</p>
+
+<h3 id="2-seoで遊びたい">2. SEOで遊びたい</h3>
+
+<p>そろそろ、「アルパカ エンジニア」や幾つかのキーワードが欲しいです。</p>
+
+<h3 id="3-対外アピールできない">3. 対外アピールできない</h3>
+
+<p>Qiitaで見ても、「この人どんな人？」って分からないですよね。それは楽しくないし、勿体ない。</p>
+
+<p>なので、<strong>Vimで完結</strong> + <strong>アルパカなエンジニア</strong>をアピールするためにブログにしたいと思います。</p>
+
+<h2 id="octopress--vim">Octopress + Vim</h2>
+
+<p>Vimから記事を書いて、Vimからデプロイしてます。
+Octopressを簡単に操作できるように<a href="https://github.com/alpaca-tc/alpaca_octopress.vim">プラグイン</a>を作りました。
+あぁ、簡単でいいですね。</p>
+
+<p><code class="language-plaintext highlighter-rouge">:Octopress new_post 新しい記事の名前</code></p>
+
+<h2 id="アルパカなエンジニアを目指す">アルパカなエンジニアを目指す</h2>
+
+<p>しばらくの目標です。
+半年ぐらいで、「アルパカ + エンジニア」のキーワードで1位取れればなぁと思います。
+そして、HPのデザインもアルパカな感じにしていきます！</p>
+</section>
+      
+
+      
+    
+
+    
+      
+
+
+
+
+
+<section class="sharing clearfix">
+  <div class="button ft_like_button">
+    <div class="fb-like" data-href="http://alpaca.tc/blog/diary/start_blog.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
+  </div>
+
+  <div class="button ft_share_button">
+    <div class="fb-share-button" data-href="http://alpaca.tc/blog/diary/start_blog.html" data-type="button_count"></div>
+  </div>
+
+  <div class="button hatena_bookmark_button">
+    <a href="https://b.hatena.ne.jp/entry/http://alpaca.tc/blog/diary/start_blog.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
+初めました | RailsとRubyとVimのブログ 
+" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
+      <img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+    </a>
+  </div>
+
+  <div class="button google_plus_button_like">
+    <div data-annotation="none" data-href="http://alpaca.tc/blog/diary/start_blog.html" class="g-plusone" data-size="medium" ></div>
+  </div>
+
+  <div class="button twitter_button">
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/diary/start_blog.html" data-via="alpaca_tc" date-width="120" data-counturl="http://alpaca.tc/blog/diary/start_blog.html" ></a>
   </div>
 </section>
 
@@ -707,17 +797,46 @@ alpaca_octopressを作っている | RailsとRubyとVimのブログ
     
       
       
+      
+      
+    
+      
+      
+      
+      
+    
+      
+      
+      
+      
+    
+      
+      
+      
+      
+    
+      
+      
+      
+      
+        <a class="paging_number " href="/blog/page/5/">5</a>
+      
+    
+      
+      
+      
+      
         <a class="paging_number " href="/blog/page/6/">6</a>
       
     
+      
+      
       
       
         <a class="paging_number current" href="/blog/page/7/">7</a>
       
     
 
-    
-      <a data-label="次" class="paging_number next" href="/blog/page/8/">次の記事へ &rarr;</a>
     
   </div>
 
@@ -747,13 +866,13 @@ alpaca_octopressを作っている | RailsとRubyとVimのブログ
     <h1>最新記事</h1>
     
       <article>
-        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
-        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
+        <time datetime="2020-12-18T17:21:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>18</span> <span class='year'>2020</span></time>
+        <h1><a href="/blog/ruby/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai.html">kamipoさんのアドバイスと拠点を跨いだ勉強会</a></h1>
       </article>
     
       <article>
-        <time datetime="2015-10-13T21:31:00+09:00" pubdate><span class='month'>Oct</span> <span class='day'>13</span> <span class='year'>2015</span></time>
-        <h1><a href="/blog/rails/create-share-link.html">シェアリンクの作り方</a></h1>
+        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
+        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
       </article>
     
   </div>
@@ -769,7 +888,7 @@ alpaca_octopressを作っている | RailsとRubyとVimのブログ
   <h1>プロフィール</h1>
   <section>
     <figure class="image_wrapper">
-      <img src="//lh4.googleusercontent.com/-lhc7W4Ee-NA/UnDGui7U9RI/AAAAAAAAACI/F95WUPatw7k/w237-h240-no/1001417_394227377345843_948534762_n.jpg" alt="石井 浩之">
+      <img src="/images/common/profile.jpg" alt="石井 浩之">
       <figcaption>石井 浩之</figcaption>
     </figure>
 
@@ -795,7 +914,7 @@ alpaca_octopressを作っている | RailsとRubyとVimのブログ
 
 
   <section id="side_twitter_timeline_widget" class="sidebar_row">
-  <a class="twitter-timeline" href="https://twitter.com/alpaca_taichou" data-widget-id="395937677314232320">@alpaca_taichou からのツイート</a>
+  <a class="twitter-timeline" href="https://twitter.com/alpaca_tc" data-widget-id="395937677314232320">@alpaca_tc からのツイート</a>
 </section>
 
 </aside>
@@ -843,8 +962,8 @@ alpaca_octopressを作っている | RailsとRubyとVimのブログ
                     </a>
                   </li>
                   <li class="twitter">
-                    <a target="_blank" href="https://twitter.com/alpaca_taichou">
-                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_taichou">
+                    <a target="_blank" href="https://twitter.com/alpaca_tc">
+                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_tc">
                     </a>
                   </li>
                 </ul>

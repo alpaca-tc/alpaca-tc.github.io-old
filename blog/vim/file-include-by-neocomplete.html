@@ -1,7 +1,5 @@
 
 
-  
-
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -9,7 +7,17 @@
     <meta charset="UTF-8">
     <title>neocomplete.vimのfile_includeを使いこなす - RailsとRubyとVimのブログ</title>
     
-    <meta name="description" content="この記事はVim Advent Calendar 2013の42日目の記事になります。 Neocomplete.vimのfile_includeを使いこなす さて、今回の記事ではneocompleteのfile_includeを使いこなしてみます。 file_includeとは、 &hellip;">
+    <meta name="description" content="この記事はVim Advent Calendar 2013の42日目の記事になります。
+
+Neocomplete.vimのfile_includeを使いこなす
+
+さて、今回の記事ではneocompleteのfile_includeを使いこなしてみます。
+
+
+
+
+
+file_includeとは、...">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='neocomplete.vimのfile_includeを使いこなす | RailsとRubyとVimのブログ' name='title' />
@@ -25,23 +33,42 @@
 <meta property="og:type" content="blog"/>
 <meta property="og:url" content="http://alpaca.tc/blog/vim/file-include-by-neocomplete.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
-<meta property="og:description" content="この記事はVim Advent Calendar 2013の42日目の記事になります。 Neocomplete.vimのfile_includeを使いこなす さて、今回の記事ではneocompleteのfile_includeを使いこなしてみます。 file_includeとは、 &hellip;" />
+<meta property="og:description" content="この記事はVim Advent Calendar 2013の42日目の記事になります。
+
+Neocomplete.vimのfile_includeを使いこなす
+
+さて、今回の記事ではneocompleteのfile_includeを使いこなしてみます。
+
+
+
+
+
+file_includeとは、..." />
 <meta property="fb:app_id" content="224701561024840" />
 
     <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="neocomplete.vimのfile_includeを使いこなす | RailsとRubyとVimのブログ">
-<meta name="twitter:description" content="この記事はVim Advent Calendar 2013の42日目の記事になります。 Neocomplete.vimのfile_includeを使いこなす さて、今回の記事ではneocompleteのfile_includeを使いこなしてみます。 file_includeとは、 &hellip;">
+<meta name="twitter:description" content="この記事はVim Advent Calendar 2013の42日目の記事になります。
+
+Neocomplete.vimのfile_includeを使いこなす
+
+さて、今回の記事ではneocompleteのfile_includeを使いこなしてみます。
+
+
+
+
+
+file_includeとは、...">
 <meta name="twitter:image" content="https://http://alpaca.tc/images/meta/twitter.png">
-<meta name="twitter:site" content="@alpaca_taichou">
-<meta name="twitter:creator" content="@alpaca_taichou">
+<meta name="twitter:site" content="@alpaca_tc">
+<meta name="twitter:creator" content="@alpaca_tc">
 
 
     <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
 
     <script type="text/javascript">window._pt_lt = new Date().getTime();</script>
 
-    <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="/stylesheets/compression.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="/stylesheets/main.css" type="text/css" media="all"/>
     <meta name="google-site-verification" content="thSL3cUT7BV1-AENglRFIF-kv6I85JJ6_iUGAU8GaQI" />
 
     <!--[if lte IE 8]>
@@ -71,7 +98,7 @@
 
 
 
-  <link rel="prev" href="/blog/web-service/kayac-2014-otoshidama-2.html">
+  <link rel="prev" href="/blog/vim/vim-plugins-2013.html">
 
 
 
@@ -109,7 +136,7 @@
                   <a target="_blank" href="https://github.com/alpaca-tc">GitHub</a>
                 </li>
                 <li>
-                  <a target="_blank" href="https://twitter.com/alpaca_taichou">Twitter</a>
+                  <a target="_blank" href="https://twitter.com/alpaca_tc">Twitter</a>
                 </li>
               </ul>
             </nav>
@@ -129,7 +156,7 @@
   
 
   <span typeof="v:Breadcrumb">
-    <a href="" rel="v:url" property="v:title">
+    <a href="/" rel="v:url" property="v:title">
       neocomplete.vimのfile_includeを使いこなす
     </a>
   </span>
@@ -164,14 +191,10 @@
 
 
 
-  
 
 
-
-<time datetime="2014-01-11T13:25:00+09:00" pubdate data-updated="true">Jan 11<span>th</span>, 2014</time>
+<time datetime="2014-01-11T13:25:00+09:00" pubdate data-updated="true"></time>
             
-  
-
 <span class="byline author">Posted by 石井浩之</span>
 
             
@@ -179,7 +202,7 @@
   <span class="categories">
     
       
-        <a class='category' href='/blog/vim/'>vim</a>
+        vim
       
     
   </span>
@@ -193,84 +216,62 @@
     
       <section class="entry-content"><p>この記事は<a href="https://atnd.org/events/45072">Vim Advent Calendar 2013</a>の42日目の記事になります。</p>
 
-<h1>Neocomplete.vimのfile_includeを使いこなす</h1>
+<h1 id="neocompletevimのfile_includeを使いこなす">Neocomplete.vimのfile_includeを使いこなす</h1>
 
 <p>さて、今回の記事ではneocompleteのfile_includeを使いこなしてみます。</p>
 
-<p><img class="image_on_frame center" src="/images/blog/file-include-by-neocomplete/completion_capture.png" title="neocomplete_file_include" ></p>
+<p><img class="image_on_frame center" src="/images/blog/file-include-by-neocomplete/completion_capture.png" alt="neocomplete_file_include" /></p>
 
 <!-- more -->
-
 
 <p>file_includeとは、ファイルパスを補完してくれるアレです。file補完との違いは、特定のキーワードや変換を含んだ補完が出来る点です。</p>
 
 <ol>
-<li>キーワード(<code>require</code>や<code>#include</code>)があると補完が始まり</li>
-<li>指定されたパスの中から候補を探し、変換して表示します。(例:<code>system.os</code>)</li>
+  <li>キーワード(<code class="language-plaintext highlighter-rouge">require</code>や<code class="language-plaintext highlighter-rouge">#include</code>)があると補完が始まり</li>
+  <li>指定されたパスの中から候補を探し、変換して表示します。(例:<code class="language-plaintext highlighter-rouge">system.os</code>)</li>
 </ol>
 
+<p>内部では、path, include, includeexprなどが使われています。(pathの参考 -&gt; <a href="/blog/vim/jump-to-gem-path.html">Vim中級者を脱する Path編</a>)</p>
 
-<p>内部では、path, include, includeexprなどが使われています。(pathの参考 &ndash;> <a href="/blog/vim/jump-to-gem-path.html">Vim中級者を脱する Path編</a>)</p>
-
-<h2>neocompleteを拡張する</h2>
+<h2 id="neocompleteを拡張する">neocompleteを拡張する</h2>
 
 <p>file_includeを拡張する際には、neocompleteの設定をしてあげる必要があります。それぞれ、次のように5つ変数をファイルタイプ毎に設定します。</p>
 
 <p>指定しなければ、デフォルトの部分の変数が使用されます</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>" Liquidで画像pathを補完する
-</span><span class='line'>
-</span><span class='line'>" デフォルト &l:path(検索対象のディレクトリ`,`区切り)
-</span><span class='line'>let g:neocomplete#sources#include#paths.liquid =
-</span><span class='line'>  \ '/Users/alpaca-tc/projects/alpaca-tc.github.io/source'
-</span><span class='line'>
-</span><span class='line'>" デフォルト &l:include(正規表現にマッチしたら補完を開始)
-</span><span class='line'>let g:neocomplete#sources#include#patterns.liquid =
-</span><span class='line'>  \ '\({\s*%\(\s\+\w\+\)\+\(\s*\|\s\+[a-zA-Z0-9_#\?\!]\+\)\@=\|{\s*{\(\s\+\w\+\)\+\(\s*\|\s\+[a-zA-Z0-9_#\?\!]\+\)\@=\)'
-</span><span class='line'>
-</span><span class='line'>" デフォルト &l:includeexpr(ファイルパスを出力する際に変換する)
-</span><span class='line'>let g:neocomplete#sources#include#exprs.liquid =
-</span><span class='line'>  \ 'substitute(v:fname, "^/", "", "")'
-</span><span class='line'>
-</span><span class='line'>" デフォルト '.'(区切り文字の指定)
-</span><span class='line'>let g:neocomplete#sources#file_include#delimiters.liquid = '/'
-</span><span class='line'>
-</span><span class='line'>" デフォルト [](補完するファイル拡張子フィルター)
-</span><span class='line'>let g:neocomplete#sources#file_include#exts.liquid =
-</span><span class='line'>  \ ['png', 'jpg', 'gif', 'jpeg', 'ico']</span></code></pre></td></tr></table></div></figure>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>" Liquidで画像pathを補完する
 
+" デフォルト &amp;l:path(検索対象のディレクトリ`,`区切り)
+let g:neocomplete#sources#include#paths.liquid =
+  \ '/Users/alpaca-tc/projects/alpaca-tc.github.io/source'
 
-<h2>解説いる？</h2>
+" デフォルト &amp;l:include(正規表現にマッチしたら補完を開始)
+let g:neocomplete#sources#include#patterns.liquid =
+  \ '\({\s*%\(\s\+\w\+\)\+\(\s*\|\s\+[a-zA-Z0-9_#\?\!]\+\)\@=\|{\s*{\(\s\+\w\+\)\+\(\s*\|\s\+[a-zA-Z0-9_#\?\!]\+\)\@=\)'
+
+" デフォルト &amp;l:includeexpr(ファイルパスを出力する際に変換する)
+let g:neocomplete#sources#include#exprs.liquid =
+  \ 'substitute(v:fname, "^/", "", "")'
+
+" デフォルト '.'(区切り文字の指定)
+let g:neocomplete#sources#file_include#delimiters.liquid = '/'
+
+" デフォルト [](補完するファイル拡張子フィルター)
+let g:neocomplete#sources#file_include#exts.liquid =
+  \ ['png', 'jpg', 'gif', 'jpeg', 'ico']
+</code></pre></div></div>
+
+<h2 id="解説いる">解説いる？</h2>
 
 <p>先ほどのコードを読めば、だいたい分かると思います。(あなたがVimmerなら！)</p>
 
 <p>もし、マイナーな言語でfile_include補完があった方が便利ならば、拡張してみてくださいー。</p>
 
-<p>あるいは、&amp;l:include, &amp;l:includeexprなどで対応出来ているかもしれませんが。neocomplete.vim自体に設定が少ないのはそういうことです、(よね&hellip;？)</p>
+<p>あるいは、&amp;l:include, &amp;l:includeexprなどで対応出来ているかもしれませんが。neocomplete.vim自体に設定が少ないのはそういうことです、(よね…？)</p>
 
 <p>個人的には、フレームワーク毎にfile_includeが使いたい所存です。</p>
 
-<h2>Railsのimage_pathを補完してみる</h2>
+<h2 id="railsのimage_pathを補完してみる">Railsのimage_pathを補完してみる</h2>
 
 <p>最後です。</p>
 
@@ -278,66 +279,47 @@
 
 <p>こんな感じで色々対応出来るはずなので、誰か本格的なRails用カスタマイズを作ってみてくれたらうれしいです！</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>" Rails.vimが必須
-</span><span class='line'>function! s:setup_include_file_for_rails()
-</span><span class='line'>  if !exists('b:rails_root') || !exists('g:neocomplete#sources#include#paths')
-</span><span class='line'>    return
-</span><span class='line'>  endif
-</span><span class='line'>
-</span><span class='line'>  let g:neocomplete#sources#include#patterns.haml =
-</span><span class='line'>        \ '^\s*\&lt;\%(image_path\|image_tag\)\&gt;'
-</span><span class='line'>  let g:neocomplete#sources#include#paths.haml =
-</span><span class='line'>        \ b:rails_root . '/app/assets/images'
-</span><span class='line'>  let g:neocomplete#sources#include#exprs.haml =
-</span><span class='line'>        \ "substitute(substitute(v:fname,'::','/','g'),'$','','')"
-</span><span class='line'>  let g:neocomplete#sources#file_include#exts.haml =
-</span><span class='line'>        \ ['png', 'jpg', 'gif', 'jpeg', 'ico']
-</span><span class='line'>  let g:neocomplete#sources#file_include#delimiters.haml = '/'
-</span><span class='line'>endfunction
-</span><span class='line'>command! RailsView call s:setup_include_file_for_rails()</span></code></pre></td></tr></table></div></figure>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>" Rails.vimが必須
+function! s:setup_include_file_for_rails()
+  if !exists('b:rails_root') || !exists('g:neocomplete#sources#include#paths')
+    return
+  endif
 
+  let g:neocomplete#sources#include#patterns.haml =
+        \ '^\s*\&lt;\%(image_path\|image_tag\)\&gt;'
+  let g:neocomplete#sources#include#paths.haml =
+        \ b:rails_root . '/app/assets/images'
+  let g:neocomplete#sources#include#exprs.haml =
+        \ "substitute(substitute(v:fname,'::','/','g'),'$','','')"
+  let g:neocomplete#sources#file_include#exts.haml =
+        \ ['png', 'jpg', 'gif', 'jpeg', 'ico']
+  let g:neocomplete#sources#file_include#delimiters.haml = '/'
+endfunction
+command! RailsView call s:setup_include_file_for_rails()
+</code></pre></div></div>
 
 <p><strong>うっほい！</strong></p>
 
-<p><img class="image_on_frame center" src="/images/blog/file-include-by-neocomplete/completion_for_rails_view.png" title="completion_for_rails_view" ></p>
+<p><img class="image_on_frame center" src="/images/blog/file-include-by-neocomplete/completion_for_rails_view.png" alt="completion_for_rails_view" /></p>
 
 <p>Shougoさんいつもありがとうございます。本当に。</p>
 
-<p>ちなみに、tpopeさんはこんな感じの事を剛腕で捩じ伏せて実現しています。Vimガチ勢怖い&hellip;。</p>
+<p>ちなみに、tpopeさんはこんな感じの事を剛腕で捩じ伏せて実現しています。Vimガチ勢怖い…。</p>
 
-<h2>Vim Advent Calendar 45</h2>
+<h2 id="vim-advent-calendar-45">Vim Advent Calendar 45</h2>
 
 <p>前日は@osyo_mangaさんの<a href="https://d.hatena.ne.jp/osyo-manga/20140110/1389342122">textobj の両端へ移動する operator つくった</a>でした。</p>
 
-<p>は！またosyoさんということは&hellip;!? と思っていたら、やはりVim Advent Calendarの今後の投稿者が居ませんでした;(</p>
+<p>は！またosyoさんということは…!? と思っていたら、やはりVim Advent Calendarの今後の投稿者が居ませんでした;(</p>
 
 <p>このブログを見ているあなた！(特にここまで読み切ったVim狂)</p>
 
-<p>どうせVimmerしか居ない事は分かっています。<strong>ぜひ書いてください</strong> &ndash;> <a href="https://twitter.com/manga_osyo">osyoさん</a>に「記事書きたいですー」とリプライ飛ばしましょうー！</p>
+<p>どうせVimmerしか居ない事は分かっています。<strong>ぜひ書いてください</strong> -&gt; <a href="https://twitter.com/manga_osyo">osyoさん</a>に「記事書きたいですー」とリプライ飛ばしましょうー！</p>
 </section>
     
 
     
       
-  
-
 
 
 
@@ -365,7 +347,7 @@ neocomplete.vimのfile_includeを使いこなす | RailsとRubyとVimのブロ�
   </div>
 
   <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/file-include-by-neocomplete.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/vim/file-include-by-neocomplete.html" ></a>
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/file-include-by-neocomplete.html" data-via="alpaca_tc" date-width="120" data-counturl="http://alpaca.tc/blog/vim/file-include-by-neocomplete.html" ></a>
   </div>
 </section>
 
@@ -389,7 +371,7 @@ neocomplete.vimのfile_includeを使いこなす | RailsとRubyとVimのブロ�
                 <div class="pagination meta clearfix">
   
     <div class="arrow_block left_block">
-      <a class="basic-alignment" href="/blog/web-service/kayac-2014-otoshidama-2.html" title="Previous Post: カヤックのお年玉企画「お好き玉」の解説">&laquo; カヤックのお年玉企画「お好き玉」の解説</a>
+      <a class="basic-alignment" href="/blog/vim/vim-plugins-2013.html" title="Previous Post: 2013年に作ったVimプラグイン達">&laquo; 2013年に作ったVimプラグイン達</a>
     </div>
   
 
@@ -409,13 +391,13 @@ neocomplete.vimのfile_includeを使いこなす | RailsとRubyとVimのブロ�
     <h1>最新記事</h1>
     
       <article>
-        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
-        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
+        <time datetime="2020-12-18T17:21:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>18</span> <span class='year'>2020</span></time>
+        <h1><a href="/blog/ruby/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai.html">kamipoさんのアドバイスと拠点を跨いだ勉強会</a></h1>
       </article>
     
       <article>
-        <time datetime="2015-10-13T21:31:00+09:00" pubdate><span class='month'>Oct</span> <span class='day'>13</span> <span class='year'>2015</span></time>
-        <h1><a href="/blog/rails/create-share-link.html">シェアリンクの作り方</a></h1>
+        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
+        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
       </article>
     
   </div>
@@ -431,17 +413,17 @@ neocomplete.vimのfile_includeを使いこなす | RailsとRubyとVimのブロ�
       
         <article>
           <time datetime="2014-04-30T00:46:00+09:00" pubdate><span class='month'>Apr</span> <span class='day'>30</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/vim/alpaca-rails-support.html">Railsの補助プラグインを書いた</a></h1>
+          <h1><a href="//blog/vim/alpaca-rails-support.html">Railsの補助プラグインを書いた</a></h1>
         </article>
       
         <article>
           <time datetime="2014-01-11T13:25:00+09:00" pubdate><span class='month'>Jan</span> <span class='day'>11</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/vim/file-include-by-neocomplete.html">neocomplete.vimのfile_includeを使いこなす</a></h1>
+          <h1><a href="//blog/vim/file-include-by-neocomplete.html">neocomplete.vimのfile_includeを使いこなす</a></h1>
         </article>
       
         <article>
           <time datetime="2013-12-29T22:54:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>29</span> <span class='year'>2013</span></time>
-          <h1><a href="/blog/vim/vim-plugins-2013.html">2013年に作ったVimプラグイン達</a></h1>
+          <h1><a href="//blog/vim/vim-plugins-2013.html">2013年に作ったVimプラグイン達</a></h1>
         </article>
       
 
@@ -460,7 +442,7 @@ neocomplete.vimのfile_includeを使いこなす | RailsとRubyとVimのブロ�
   <h1>プロフィール</h1>
   <section>
     <figure class="image_wrapper">
-      <img src="//lh4.googleusercontent.com/-lhc7W4Ee-NA/UnDGui7U9RI/AAAAAAAAACI/F95WUPatw7k/w237-h240-no/1001417_394227377345843_948534762_n.jpg" alt="石井 浩之">
+      <img src="/images/common/profile.jpg" alt="石井 浩之">
       <figcaption>石井 浩之</figcaption>
     </figure>
 
@@ -486,7 +468,7 @@ neocomplete.vimのfile_includeを使いこなす | RailsとRubyとVimのブロ�
 
 
   <section id="side_twitter_timeline_widget" class="sidebar_row">
-  <a class="twitter-timeline" href="https://twitter.com/alpaca_taichou" data-widget-id="395937677314232320">@alpaca_taichou からのツイート</a>
+  <a class="twitter-timeline" href="https://twitter.com/alpaca_tc" data-widget-id="395937677314232320">@alpaca_tc からのツイート</a>
 </section>
 
 </aside>
@@ -535,8 +517,8 @@ neocomplete.vimのfile_includeを使いこなす | RailsとRubyとVimのブロ�
                     </a>
                   </li>
                   <li class="twitter">
-                    <a target="_blank" href="https://twitter.com/alpaca_taichou">
-                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_taichou">
+                    <a target="_blank" href="https://twitter.com/alpaca_tc">
+                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_tc">
                     </a>
                   </li>
                 </ul>

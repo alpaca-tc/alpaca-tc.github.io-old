@@ -1,7 +1,5 @@
 
 
-  
-
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -9,7 +7,17 @@
     <meta charset="UTF-8">
     <title>Unite.vimとwatsonを使ったワークフロー - RailsとRubyとVimのブログ</title>
     
-    <meta name="description" content="最近、vim-unite-watsonを開発しました。 これが、watsonの作者であるnhmoodさんにも好評で、僕自身ワークフローが変化して、だいぶ作業しやすくなりました。 今回は、タスク管理をしたい人向けに、僕なりのワークフロー管理を紹介します。 ワークフローとVim 僕は普段、 &hellip;">
+    <meta name="description" content="最近、vim-unite-watsonを開発しました。
+
+これが、watsonの作者であるnhmoodさんにも好評で、僕自身ワークフローが変化して、だいぶ作業しやすくなりました。
+
+今回は、タスク管理をしたい人向けに、僕なりのワークフロー管理を紹介します。
+
+
+
+ワークフローとVim
+
+僕は普...">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='Unite.vimとwatsonを使ったワークフロー | RailsとRubyとVimのブログ' name='title' />
@@ -25,23 +33,42 @@
 <meta property="og:type" content="blog"/>
 <meta property="og:url" content="http://alpaca.tc/blog/vim/using-vim-unite-watson.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
-<meta property="og:description" content="最近、vim-unite-watsonを開発しました。 これが、watsonの作者であるnhmoodさんにも好評で、僕自身ワークフローが変化して、だいぶ作業しやすくなりました。 今回は、タスク管理をしたい人向けに、僕なりのワークフロー管理を紹介します。 ワークフローとVim 僕は普段、 &hellip;" />
+<meta property="og:description" content="最近、vim-unite-watsonを開発しました。
+
+これが、watsonの作者であるnhmoodさんにも好評で、僕自身ワークフローが変化して、だいぶ作業しやすくなりました。
+
+今回は、タスク管理をしたい人向けに、僕なりのワークフロー管理を紹介します。
+
+
+
+ワークフローとVim
+
+僕は普..." />
 <meta property="fb:app_id" content="224701561024840" />
 
     <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Unite.vimとwatsonを使ったワークフロー | RailsとRubyとVimのブログ">
-<meta name="twitter:description" content="最近、vim-unite-watsonを開発しました。 これが、watsonの作者であるnhmoodさんにも好評で、僕自身ワークフローが変化して、だいぶ作業しやすくなりました。 今回は、タスク管理をしたい人向けに、僕なりのワークフロー管理を紹介します。 ワークフローとVim 僕は普段、 &hellip;">
+<meta name="twitter:description" content="最近、vim-unite-watsonを開発しました。
+
+これが、watsonの作者であるnhmoodさんにも好評で、僕自身ワークフローが変化して、だいぶ作業しやすくなりました。
+
+今回は、タスク管理をしたい人向けに、僕なりのワークフロー管理を紹介します。
+
+
+
+ワークフローとVim
+
+僕は普...">
 <meta name="twitter:image" content="https://http://alpaca.tc/images/meta/twitter.png">
-<meta name="twitter:site" content="@alpaca_taichou">
-<meta name="twitter:creator" content="@alpaca_taichou">
+<meta name="twitter:site" content="@alpaca_tc">
+<meta name="twitter:creator" content="@alpaca_tc">
 
 
     <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
 
     <script type="text/javascript">window._pt_lt = new Date().getTime();</script>
 
-    <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="/stylesheets/compression.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="/stylesheets/main.css" type="text/css" media="all"/>
     <meta name="google-site-verification" content="thSL3cUT7BV1-AENglRFIF-kv6I85JJ6_iUGAU8GaQI" />
 
     <!--[if lte IE 8]>
@@ -109,7 +136,7 @@
                   <a target="_blank" href="https://github.com/alpaca-tc">GitHub</a>
                 </li>
                 <li>
-                  <a target="_blank" href="https://twitter.com/alpaca_taichou">Twitter</a>
+                  <a target="_blank" href="https://twitter.com/alpaca_tc">Twitter</a>
                 </li>
               </ul>
             </nav>
@@ -129,7 +156,7 @@
   
 
   <span typeof="v:Breadcrumb">
-    <a href="" rel="v:url" property="v:title">
+    <a href="/" rel="v:url" property="v:title">
       Unite.vimとwatsonを使ったワークフロー
     </a>
   </span>
@@ -164,14 +191,10 @@
 
 
 
-  
 
 
-
-<time datetime="2013-12-13T02:29:00+09:00" pubdate data-updated="true">Dec 13<span>th</span>, 2013</time>
+<time datetime="2013-12-13T02:29:00+09:00" pubdate data-updated="true"></time>
             
-  
-
 <span class="byline author">Posted by 石井浩之</span>
 
             
@@ -179,7 +202,7 @@
   <span class="categories">
     
       
-        <a class='category' href='/blog/vim/'>vim</a>
+        vim
       
     
   </span>
@@ -199,74 +222,70 @@
 
 <!-- more -->
 
-
-<h1>ワークフローとVim</h1>
+<h1 id="ワークフローとvim">ワークフローとVim</h1>
 
 <p>僕は普段、Webサービスの構築・保守を行う仕事をしています。</p>
 
 <p>そこでは、基本的なフローは次のような流れです。</p>
 
 <ol>
-<li>新機能・バグに対してIssueを発行する(あるいは既にTODOリストにある)</li>
-<li>トピックブランチを作る</li>
-<li>コードを書く</li>
-<li>コミット &ndash;> Pull-Requestを送る &ndash;> マージする</li>
+  <li>新機能・バグに対してIssueを発行する(あるいは既にTODOリストにある)</li>
+  <li>トピックブランチを作る</li>
+  <li>コードを書く</li>
+  <li>コミット -&gt; Pull-Requestを送る -&gt; マージする</li>
 </ol>
-
 
 <p>では、Vimを一度も閉じることなくこれらの作業をしてみます。</p>
 
-<h2>1. Issueの発行</h2>
+<h2 id="1-issueの発行">1. Issueの発行</h2>
 
-<h3>1-1. TODOをコードに入力する</h3>
+<h3 id="1-1-todoをコードに入力する">1-1. TODOをコードに入力する</h3>
 
-<p><img class="image_on_frame center" src="/images/blog/workflow_1.png" title="本番環境用にViewを作成すると記入する" ></p>
+<p><img class="image_on_frame center" src="/images/blog/workflow_1.png" alt="本番環境用にViewを作成すると記入する" /></p>
 
-<h3>1-2. IssueをGithubにあげる</h3>
+<h3 id="1-2-issueをgithubにあげる">1-2. IssueをGithubにあげる</h3>
 
 <p>インラインIssue管理の<a href="/blog/ruby/how-to-use-watson.html">watson</a>を使って、GithubにIssueをあげます</p>
 
-<p><img class="image_on_frame center" src="/images/blog/workflow_2.png" title=":Watsonのデモ" ></p>
+<p><img class="image_on_frame center" src="/images/blog/workflow_2.png" alt=":Watsonのデモ" /></p>
 
 <p>Watsonを使えば、Vimから簡単にIssue管理を行うことが出来ますね。</p>
 
-<h2>2. 作業の目処を立てる</h2>
+<h2 id="2-作業の目処を立てる">2. 作業の目処を立てる</h2>
 
 <p>さて、これでIssueは挙げられたので、次はコードの改修をしていきます。</p>
 
-<h3>2-1. トピックブランチを作る</h3>
+<h3 id="2-1-トピックブランチを作る">2-1. トピックブランチを作る</h3>
 
 <p>ブランチの作業は、<a href="https://github.com/alpaca-tc/vim-unite-giti">vim-unite-giti</a>を使います。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>:Unite giti/branch</span></code></pre></td></tr></table></div></figure>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:Unite giti/branch
+</code></pre></div></div>
 
+<p>新しいブランチの名前を入力して、<code class="language-plaintext highlighter-rouge">[checkout branch]</code>の行を選択します。</p>
 
-<p>新しいブランチの名前を入力して、<code>[checkout branch]</code>の行を選択します。</p>
-
-<p><img class="image_on_frame center" src="/images/blog/workflow_3.png" title="Unite gitiのデモ" ></p>
+<p><img class="image_on_frame center" src="/images/blog/workflow_3.png" alt="Unite gitiのデモ" /></p>
 
 <p>すると、新しいブランチが作られました。</p>
 
-<h3>2-2. コードの改修を行う場所に印をつけて行く</h3>
+<h3 id="2-2-コードの改修を行う場所に印をつけて行く">2-2. コードの改修を行う場所に印をつけて行く</h3>
 
 <p>コードの改修は、多くの場合幾つかのファイルに跨がります。</p>
 
 <p>そのため、経験から作業が必要な箇所に目処をつけて、コメントを書いて行きます。</p>
 
-<p><img class="image_on_frame center" src="/images/blog/workflow_4.png" title="" ></p>
+<p><img class="image_on_frame center" src="/images/blog/workflow_4.png" alt="" /></p>
 
-<p><img class="image_on_frame center" src="/images/blog/workflow_5.png" title="" ></p>
+<p><img class="image_on_frame center" src="/images/blog/workflow_5.png" alt="" /></p>
 
-<p><img class="image_on_frame center" src="/images/blog/workflow_6.png" title="" ></p>
+<p><img class="image_on_frame center" src="/images/blog/workflow_6.png" alt="" /></p>
 
 <p>todoの内容は、watsonによって管理されるので、vim-unite-watsonを使えば一覧としてみることができます。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>:Unite watson/dirty</span></code></pre></td></tr></table></div></figure>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:Unite watson/dirty
+</code></pre></div></div>
 
-
-<p><img class="image_on_frame center" src="/images/blog/workflow_7.png" title="unite-watsonのdemo" ></p>
+<p><img class="image_on_frame center" src="/images/blog/workflow_7.png" alt="unite-watsonのdemo" /></p>
 
 <p>これで、issueを解決するために必要な作業の一覧を自分で作ることが出来ました。</p>
 
@@ -275,25 +294,24 @@
 <p>後は、</p>
 
 <ol>
-<li>該当箇所に飛ぶ</li>
-<li>コードを修正する</li>
-<li>解決したら、コメントを削除する</li>
+  <li>該当箇所に飛ぶ</li>
+  <li>コードを修正する</li>
+  <li>解決したら、コメントを削除する</li>
 </ol>
 
-
-<p>を<code>:Unite watson/dirty</code>が空になるまで繰り返します。</p>
+<p>を<code class="language-plaintext highlighter-rouge">:Unite watson/dirty</code>が空になるまで繰り返します。</p>
 
 <p>watsonの結果リストが空になれば、issueの問題を解決したことになり、次の作業に移ります。</p>
 
-<h3>3. GithubにPull-Requestする</h3>
+<h3 id="3-githubにpull-requestする">3. GithubにPull-Requestする</h3>
 
 <p>これは、各々方法が分かれるかと思います。</p>
 
-<p>Vimから出ないでPull-Requestを送るには、<code>:!git push</code> &amp;&amp; <code>:!hub pull-request -h ...</code>というのが一番分かりやすいでしょうか。</p>
+<p>Vimから出ないでPull-Requestを送るには、<code class="language-plaintext highlighter-rouge">:!git push</code> &amp;&amp; <code class="language-plaintext highlighter-rouge">:!hub pull-request -h ...</code>というのが一番分かりやすいでしょうか。</p>
 
-<p>僕は、<code>:Unite giti/pull_request</code>で送るようにしています。</p>
+<p>僕は、<code class="language-plaintext highlighter-rouge">:Unite giti/pull_request</code>で送るようにしています。</p>
 
-<h2>まとめ</h2>
+<h2 id="まとめ">まとめ</h2>
 
 <p>Watsonやgitiはかなり便利です。</p>
 
@@ -305,18 +323,15 @@
 <p><strong>今回紹介したプラグイン</strong></p>
 
 <ul>
-<li><a href="https://github.com/alpaca-tc/vim-unite-watson.vim">vim-unite-watson</a></li>
-<li><a href="https://github.com/kmnk/vim-unite-giti">vim-unite-giti (本家)</a></li>
-<li><a href="https://github.com/alpaca-tc/vim-unite-giti">vim-unite-giti (giti/pull_request追加版)</a></li>
+  <li><a href="https://github.com/alpaca-tc/vim-unite-watson.vim">vim-unite-watson</a></li>
+  <li><a href="https://github.com/kmnk/vim-unite-giti">vim-unite-giti (本家)</a></li>
+  <li><a href="https://github.com/alpaca-tc/vim-unite-giti">vim-unite-giti (giti/pull_request追加版)</a></li>
 </ul>
-
 </section>
     
 
     
       
-  
-
 
 
 
@@ -344,7 +359,7 @@ Unite.vimとwatsonを使ったワークフロー | RailsとRubyとVimのブロ�
   </div>
 
   <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/using-vim-unite-watson.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/vim/using-vim-unite-watson.html" ></a>
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/using-vim-unite-watson.html" data-via="alpaca_tc" date-width="120" data-counturl="http://alpaca.tc/blog/vim/using-vim-unite-watson.html" ></a>
   </div>
 </section>
 
@@ -388,13 +403,13 @@ Unite.vimとwatsonを使ったワークフロー | RailsとRubyとVimのブロ�
     <h1>最新記事</h1>
     
       <article>
-        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
-        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
+        <time datetime="2020-12-18T17:21:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>18</span> <span class='year'>2020</span></time>
+        <h1><a href="/blog/ruby/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai.html">kamipoさんのアドバイスと拠点を跨いだ勉強会</a></h1>
       </article>
     
       <article>
-        <time datetime="2015-10-13T21:31:00+09:00" pubdate><span class='month'>Oct</span> <span class='day'>13</span> <span class='year'>2015</span></time>
-        <h1><a href="/blog/rails/create-share-link.html">シェアリンクの作り方</a></h1>
+        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
+        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
       </article>
     
   </div>
@@ -410,17 +425,17 @@ Unite.vimとwatsonを使ったワークフロー | RailsとRubyとVimのブロ�
       
         <article>
           <time datetime="2014-04-30T00:46:00+09:00" pubdate><span class='month'>Apr</span> <span class='day'>30</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/vim/alpaca-rails-support.html">Railsの補助プラグインを書いた</a></h1>
+          <h1><a href="//blog/vim/alpaca-rails-support.html">Railsの補助プラグインを書いた</a></h1>
         </article>
       
         <article>
           <time datetime="2014-01-11T13:25:00+09:00" pubdate><span class='month'>Jan</span> <span class='day'>11</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/vim/file-include-by-neocomplete.html">neocomplete.vimのfile_includeを使いこなす</a></h1>
+          <h1><a href="//blog/vim/file-include-by-neocomplete.html">neocomplete.vimのfile_includeを使いこなす</a></h1>
         </article>
       
         <article>
           <time datetime="2013-12-29T22:54:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>29</span> <span class='year'>2013</span></time>
-          <h1><a href="/blog/vim/vim-plugins-2013.html">2013年に作ったVimプラグイン達</a></h1>
+          <h1><a href="//blog/vim/vim-plugins-2013.html">2013年に作ったVimプラグイン達</a></h1>
         </article>
       
 
@@ -439,7 +454,7 @@ Unite.vimとwatsonを使ったワークフロー | RailsとRubyとVimのブロ�
   <h1>プロフィール</h1>
   <section>
     <figure class="image_wrapper">
-      <img src="//lh4.googleusercontent.com/-lhc7W4Ee-NA/UnDGui7U9RI/AAAAAAAAACI/F95WUPatw7k/w237-h240-no/1001417_394227377345843_948534762_n.jpg" alt="石井 浩之">
+      <img src="/images/common/profile.jpg" alt="石井 浩之">
       <figcaption>石井 浩之</figcaption>
     </figure>
 
@@ -465,7 +480,7 @@ Unite.vimとwatsonを使ったワークフロー | RailsとRubyとVimのブロ�
 
 
   <section id="side_twitter_timeline_widget" class="sidebar_row">
-  <a class="twitter-timeline" href="https://twitter.com/alpaca_taichou" data-widget-id="395937677314232320">@alpaca_taichou からのツイート</a>
+  <a class="twitter-timeline" href="https://twitter.com/alpaca_tc" data-widget-id="395937677314232320">@alpaca_tc からのツイート</a>
 </section>
 
 </aside>
@@ -514,8 +529,8 @@ Unite.vimとwatsonを使ったワークフロー | RailsとRubyとVimのブロ�
                     </a>
                   </li>
                   <li class="twitter">
-                    <a target="_blank" href="https://twitter.com/alpaca_taichou">
-                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_taichou">
+                    <a target="_blank" href="https://twitter.com/alpaca_tc">
+                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_tc">
                     </a>
                   </li>
                 </ul>

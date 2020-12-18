@@ -1,7 +1,5 @@
 
 
-  
-
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -9,11 +7,19 @@
     <meta charset="UTF-8">
     <title>Rubyのクラス変数について詰まったのでヘルプ - RailsとRubyとVimのブログ</title>
     
-    <meta name="description" content="基本的に、仕事でクラス変数を扱うことはほぼ無いです。 今回は遊びのコードを書いていて、悩んだことをまとめました。 Rubyのクラス変数の扱いが難しい&hellip;。 これ、結構Ruby書いている自分でも初めて遭遇して悩む問題だった。 まず、次のような動くコードを書いてみた。 1
-2
-3
-4
-5 &hellip;">
+    <meta name="description" content="基本的に、仕事でクラス変数を扱うことはほぼ無いです。
+
+今回は遊びのコードを書いていて、悩んだことをまとめました。
+
+
+
+Rubyのクラス変数の扱いが難しい…。
+
+これ、結構Ruby書いている自分でも初めて遭遇して悩む問題だった。
+
+まず、次のような動くコードを書いてみた。
+
+class Ba...">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='Rubyのクラス変数について詰まったのでヘルプ | RailsとRubyとVimのブログ' name='title' />
@@ -29,31 +35,46 @@
 <meta property="og:type" content="blog"/>
 <meta property="og:url" content="http://alpaca.tc/blog/ruby/ruby-class-variable.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
-<meta property="og:description" content="基本的に、仕事でクラス変数を扱うことはほぼ無いです。 今回は遊びのコードを書いていて、悩んだことをまとめました。 Rubyのクラス変数の扱いが難しい&hellip;。 これ、結構Ruby書いている自分でも初めて遭遇して悩む問題だった。 まず、次のような動くコードを書いてみた。 1
-2
-3
-4
-5 &hellip;" />
+<meta property="og:description" content="基本的に、仕事でクラス変数を扱うことはほぼ無いです。
+
+今回は遊びのコードを書いていて、悩んだことをまとめました。
+
+
+
+Rubyのクラス変数の扱いが難しい…。
+
+これ、結構Ruby書いている自分でも初めて遭遇して悩む問題だった。
+
+まず、次のような動くコードを書いてみた。
+
+class Ba..." />
 <meta property="fb:app_id" content="224701561024840" />
 
     <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Rubyのクラス変数について詰まったのでヘルプ | RailsとRubyとVimのブログ">
-<meta name="twitter:description" content="基本的に、仕事でクラス変数を扱うことはほぼ無いです。 今回は遊びのコードを書いていて、悩んだことをまとめました。 Rubyのクラス変数の扱いが難しい&hellip;。 これ、結構Ruby書いている自分でも初めて遭遇して悩む問題だった。 まず、次のような動くコードを書いてみた。 1
-2
-3
-4
-5 &hellip;">
+<meta name="twitter:description" content="基本的に、仕事でクラス変数を扱うことはほぼ無いです。
+
+今回は遊びのコードを書いていて、悩んだことをまとめました。
+
+
+
+Rubyのクラス変数の扱いが難しい…。
+
+これ、結構Ruby書いている自分でも初めて遭遇して悩む問題だった。
+
+まず、次のような動くコードを書いてみた。
+
+class Ba...">
 <meta name="twitter:image" content="https://http://alpaca.tc/images/meta/twitter.png">
-<meta name="twitter:site" content="@alpaca_taichou">
-<meta name="twitter:creator" content="@alpaca_taichou">
+<meta name="twitter:site" content="@alpaca_tc">
+<meta name="twitter:creator" content="@alpaca_tc">
 
 
     <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
 
     <script type="text/javascript">window._pt_lt = new Date().getTime();</script>
 
-    <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="/stylesheets/compression.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="/stylesheets/main.css" type="text/css" media="all"/>
     <meta name="google-site-verification" content="thSL3cUT7BV1-AENglRFIF-kv6I85JJ6_iUGAU8GaQI" />
 
     <!--[if lte IE 8]>
@@ -121,7 +142,7 @@
                   <a target="_blank" href="https://github.com/alpaca-tc">GitHub</a>
                 </li>
                 <li>
-                  <a target="_blank" href="https://twitter.com/alpaca_taichou">Twitter</a>
+                  <a target="_blank" href="https://twitter.com/alpaca_tc">Twitter</a>
                 </li>
               </ul>
             </nav>
@@ -141,7 +162,7 @@
   
 
   <span typeof="v:Breadcrumb">
-    <a href="" rel="v:url" property="v:title">
+    <a href="/" rel="v:url" property="v:title">
       Rubyのクラス変数について詰まったのでヘルプ
     </a>
   </span>
@@ -176,14 +197,10 @@
 
 
 
-  
 
 
-
-<time datetime="2013-12-16T01:10:00+09:00" pubdate data-updated="true">Dec 16<span>th</span>, 2013</time>
+<time datetime="2013-12-16T01:10:00+09:00" pubdate data-updated="true"></time>
             
-  
-
 <span class="byline author">Posted by 石井浩之</span>
 
             
@@ -191,7 +208,7 @@
   <span class="categories">
     
       
-        <a class='category' href='/blog/ruby/'>ruby</a>
+        ruby
       
     
   </span>
@@ -209,201 +226,123 @@
 
 <!-- more -->
 
-
-<h1>Rubyのクラス変数の扱いが難しい&hellip;。</h1>
+<h1 id="rubyのクラス変数の扱いが難しい">Rubyのクラス変数の扱いが難しい…。</h1>
 
 <p>これ、結構Ruby書いている自分でも初めて遭遇して悩む問題だった。</p>
 
 <p>まず、次のような動くコードを書いてみた。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Base</span><span class="p">;</span> <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">Node</span> <span class="o">&lt;</span> <span class="no">Base</span>
-</span><span class='line'>  <span class="vc">@@val</span> <span class="o">=</span> <span class="s1">&#39;Node&#39;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">Branch</span> <span class="o">&lt;</span> <span class="no">Base</span>
-</span><span class='line'>  <span class="vc">@@val</span> <span class="o">=</span> <span class="s1">&#39;Branch&#39;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">p</span> <span class="no">Node</span><span class="o">.</span><span class="n">class_variable_get</span><span class="p">(</span><span class="s1">&#39;@@val&#39;</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Node&#39;</span>
-</span><span class='line'><span class="nb">p</span> <span class="no">Branch</span><span class="o">.</span><span class="n">class_variable_get</span><span class="p">(</span><span class="s1">&#39;@@val&#39;</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Branch&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Base</span><span class="p">;</span> <span class="k">end</span>
 
+<span class="k">class</span> <span class="nc">Node</span> <span class="o">&lt;</span> <span class="no">Base</span>
+  <span class="vc">@@val</span> <span class="o">=</span> <span class="s1">'Node'</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Branch</span> <span class="o">&lt;</span> <span class="no">Base</span>
+  <span class="vc">@@val</span> <span class="o">=</span> <span class="s1">'Branch'</span>
+<span class="k">end</span>
+
+<span class="nb">p</span> <span class="no">Node</span><span class="p">.</span><span class="nf">class_variable_get</span><span class="p">(</span><span class="s1">'@@val'</span><span class="p">)</span> <span class="c1">#=&gt; 'Node'</span>
+<span class="nb">p</span> <span class="no">Branch</span><span class="p">.</span><span class="nf">class_variable_get</span><span class="p">(</span><span class="s1">'@@val'</span><span class="p">)</span> <span class="c1">#=&gt; 'Branch'</span>
+</code></pre></div></div>
 
 <p>ふむ、それぞれの派生クラスでクラス変数が使えますね。</p>
 
 <p>では、続いて基底クラスにもクラス変数を与えてみる。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Base</span>
-</span><span class='line'>  <span class="vc">@@val</span> <span class="o">=</span> <span class="kp">nil</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">Node</span> <span class="o">&lt;</span> <span class="no">Base</span>
-</span><span class='line'>  <span class="vc">@@val</span> <span class="o">=</span> <span class="s1">&#39;Node&#39;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">Branch</span> <span class="o">&lt;</span> <span class="no">Base</span>
-</span><span class='line'>  <span class="vc">@@val</span> <span class="o">=</span> <span class="s1">&#39;Branch&#39;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">p</span> <span class="no">Node</span><span class="o">.</span><span class="n">class_variable_get</span><span class="p">(</span><span class="s1">&#39;@@val&#39;</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Branch&#39;</span>
-</span><span class='line'><span class="nb">p</span> <span class="no">Branch</span><span class="o">.</span><span class="n">class_variable_get</span><span class="p">(</span><span class="s1">&#39;@@val&#39;</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Branch&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Base</span>
+  <span class="vc">@@val</span> <span class="o">=</span> <span class="kp">nil</span>
+<span class="k">end</span>
 
+<span class="k">class</span> <span class="nc">Node</span> <span class="o">&lt;</span> <span class="no">Base</span>
+  <span class="vc">@@val</span> <span class="o">=</span> <span class="s1">'Node'</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Branch</span> <span class="o">&lt;</span> <span class="no">Base</span>
+  <span class="vc">@@val</span> <span class="o">=</span> <span class="s1">'Branch'</span>
+<span class="k">end</span>
+
+<span class="nb">p</span> <span class="no">Node</span><span class="p">.</span><span class="nf">class_variable_get</span><span class="p">(</span><span class="s1">'@@val'</span><span class="p">)</span> <span class="c1">#=&gt; 'Branch'</span>
+<span class="nb">p</span> <span class="no">Branch</span><span class="p">.</span><span class="nf">class_variable_get</span><span class="p">(</span><span class="s1">'@@val'</span><span class="p">)</span> <span class="c1">#=&gt; 'Branch'</span>
+</code></pre></div></div>
 
 <p>Ooops!!! 派性クラス内のクラス変数が、基底クラス変数を参照しよる！！</p>
 
-<h2>解決編</h2>
+<h2 id="解決編">解決編</h2>
 
 <p>やりたいことは、派生クラスの子クラスに共通の変数を持たせるということ。</p>
 
 <p>うーん、意外と難しい！</p>
 
-<p>どうもクラス変数という感じではなくなるけれど、こうするしかないのだろうか&hellip;。</p>
+<p>どうもクラス変数という感じではなくなるけれど、こうするしかないのだろうか…。</p>
 
 <p>メソッドにしてみたら、とっても気持ちが悪い。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Base</span>
-</span><span class='line'>  <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
-</span><span class='line'>    <span class="kp">private</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">def</span> <span class="nf">val</span>
-</span><span class='line'>      <span class="s1">&#39;Base&#39;</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">Node</span> <span class="o">&lt;</span> <span class="no">Base</span>
-</span><span class='line'>  <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
-</span><span class='line'>    <span class="kp">private</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">def</span> <span class="nf">val</span>
-</span><span class='line'>      <span class="s1">&#39;Node&#39;</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">Branch</span> <span class="o">&lt;</span> <span class="no">Base</span>
-</span><span class='line'>  <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
-</span><span class='line'>    <span class="kp">private</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">def</span> <span class="nf">val</span>
-</span><span class='line'>      <span class="s1">&#39;Branch&#39;</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">p</span> <span class="no">Node</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="ss">:val</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Node&#39;</span>
-</span><span class='line'><span class="nb">p</span> <span class="no">Branch</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="ss">:val</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Branch&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Base</span>
+  <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
+    <span class="kp">private</span>
 
+    <span class="k">def</span> <span class="nf">val</span>
+      <span class="s1">'Base'</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Node</span> <span class="o">&lt;</span> <span class="no">Base</span>
+  <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
+    <span class="kp">private</span>
+
+    <span class="k">def</span> <span class="nf">val</span>
+      <span class="s1">'Node'</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Branch</span> <span class="o">&lt;</span> <span class="no">Base</span>
+  <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
+    <span class="kp">private</span>
+
+    <span class="k">def</span> <span class="nf">val</span>
+      <span class="s1">'Branch'</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="nb">p</span> <span class="no">Node</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="ss">:val</span><span class="p">)</span> <span class="c1">#=&gt; 'Node'</span>
+<span class="nb">p</span> <span class="no">Branch</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="ss">:val</span><span class="p">)</span> <span class="c1">#=&gt; 'Branch'</span>
+</code></pre></div></div>
 
 <p>これだと、一応コードとして動く。 ただ、<strong>これは無いだろ感</strong>あるよね。</p>
 
 <p>しかし、クラスインスタンス変数だと継承されないし、こうするしかないのかなぁ。</p>
 
-<p><strong>だれか正しい方法があれば、教えてください！</strong> >_&lt;</p>
+<p><strong>だれか正しい方法があれば、教えてください！</strong> &gt;_&lt;</p>
 
-<h3>追記</h3>
+<h3 id="追記">追記</h3>
 
 <p>思いついたんだけど、継承するときにクラスインスタンス変数を渡せばいいのかな？</p>
 
 <p>どうでしょう。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Base</span>
-</span><span class='line'>  <span class="vi">@val</span> <span class="o">=</span> <span class="s1">&#39;Base&#39;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">inherited</span><span class="p">(</span><span class="n">klass</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">klass</span><span class="o">.</span><span class="n">instance_variable_set</span><span class="p">(</span><span class="s1">&#39;@val&#39;</span><span class="p">,</span> <span class="vi">@val</span><span class="p">)</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">Node</span> <span class="o">&lt;</span> <span class="no">Base</span><span class="p">;</span> <span class="k">end</span>
-</span><span class='line'><span class="k">class</span> <span class="nc">Branch</span> <span class="o">&lt;</span> <span class="no">Base</span><span class="p">;</span> <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">p</span> <span class="no">Node</span><span class="o">.</span><span class="n">instance_variable_get</span><span class="p">(</span><span class="s1">&#39;@val&#39;</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Base&#39;</span>
-</span><span class='line'><span class="nb">p</span> <span class="no">Branch</span><span class="o">.</span><span class="n">instance_variable_get</span><span class="p">(</span><span class="s1">&#39;@val&#39;</span><span class="p">)</span> <span class="c1">#=&gt; &#39;Base&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Base</span>
+  <span class="vi">@val</span> <span class="o">=</span> <span class="s1">'Base'</span>
 
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">inherited</span><span class="p">(</span><span class="n">klass</span><span class="p">)</span>
+    <span class="n">klass</span><span class="p">.</span><span class="nf">instance_variable_set</span><span class="p">(</span><span class="s1">'@val'</span><span class="p">,</span> <span class="vi">@val</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Node</span> <span class="o">&lt;</span> <span class="no">Base</span><span class="p">;</span> <span class="k">end</span>
+<span class="k">class</span> <span class="nc">Branch</span> <span class="o">&lt;</span> <span class="no">Base</span><span class="p">;</span> <span class="k">end</span>
+
+<span class="nb">p</span> <span class="no">Node</span><span class="p">.</span><span class="nf">instance_variable_get</span><span class="p">(</span><span class="s1">'@val'</span><span class="p">)</span> <span class="c1">#=&gt; 'Base'</span>
+<span class="nb">p</span> <span class="no">Branch</span><span class="p">.</span><span class="nf">instance_variable_get</span><span class="p">(</span><span class="s1">'@val'</span><span class="p">)</span> <span class="c1">#=&gt; 'Base'</span>
+</code></pre></div></div>
 </section>
     
 
     
       
-  
-
 
 
 
@@ -431,7 +370,7 @@ Rubyのクラス変数について詰まったのでヘルプ | RailsとRubyとV
   </div>
 
   <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/ruby/ruby-class-variable.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/ruby/ruby-class-variable.html" ></a>
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/ruby/ruby-class-variable.html" data-via="alpaca_tc" date-width="120" data-counturl="http://alpaca.tc/blog/ruby/ruby-class-variable.html" ></a>
   </div>
 </section>
 
@@ -475,13 +414,13 @@ Rubyのクラス変数について詰まったのでヘルプ | RailsとRubyとV
     <h1>最新記事</h1>
     
       <article>
-        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
-        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
+        <time datetime="2020-12-18T17:21:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>18</span> <span class='year'>2020</span></time>
+        <h1><a href="/blog/ruby/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai.html">kamipoさんのアドバイスと拠点を跨いだ勉強会</a></h1>
       </article>
     
       <article>
-        <time datetime="2015-10-13T21:31:00+09:00" pubdate><span class='month'>Oct</span> <span class='day'>13</span> <span class='year'>2015</span></time>
-        <h1><a href="/blog/rails/create-share-link.html">シェアリンクの作り方</a></h1>
+        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
+        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
       </article>
     
   </div>
@@ -496,18 +435,18 @@ Rubyのクラス変数について詰まったのでヘルプ | RailsとRubyとV
 
       
         <article>
+          <time datetime="2020-12-18T17:21:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>18</span> <span class='year'>2020</span></time>
+          <h1><a href="//blog/ruby/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai.html">kamipoさんのアドバイスと拠点を跨いだ勉強会</a></h1>
+        </article>
+      
+        <article>
           <time datetime="2014-02-18T20:52:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>18</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/ruby/i-have-almost-finished-implementing-comment-parser.html">Gemを書くときに知っておきたい3つの事</a></h1>
+          <h1><a href="//blog/ruby/i-have-almost-finished-implementing-comment-parser.html">Gemを書くときに知っておきたい3つの事</a></h1>
         </article>
       
         <article>
           <time datetime="2014-02-12T04:16:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>12</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/ruby/how-to-use-star.html">ここまで出来る！RubyのSplat Operatorまとめ</a></h1>
-        </article>
-      
-        <article>
-          <time datetime="2014-02-10T12:33:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>10</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/ruby/create-strip-comment.html">久しぶりにGemを書いている</a></h1>
+          <h1><a href="//blog/ruby/how-to-use-star.html">ここまで出来る！RubyのSplat Operatorまとめ</a></h1>
         </article>
       
 
@@ -526,7 +465,7 @@ Rubyのクラス変数について詰まったのでヘルプ | RailsとRubyとV
   <h1>プロフィール</h1>
   <section>
     <figure class="image_wrapper">
-      <img src="//lh4.googleusercontent.com/-lhc7W4Ee-NA/UnDGui7U9RI/AAAAAAAAACI/F95WUPatw7k/w237-h240-no/1001417_394227377345843_948534762_n.jpg" alt="石井 浩之">
+      <img src="/images/common/profile.jpg" alt="石井 浩之">
       <figcaption>石井 浩之</figcaption>
     </figure>
 
@@ -552,7 +491,7 @@ Rubyのクラス変数について詰まったのでヘルプ | RailsとRubyとV
 
 
   <section id="side_twitter_timeline_widget" class="sidebar_row">
-  <a class="twitter-timeline" href="https://twitter.com/alpaca_taichou" data-widget-id="395937677314232320">@alpaca_taichou からのツイート</a>
+  <a class="twitter-timeline" href="https://twitter.com/alpaca_tc" data-widget-id="395937677314232320">@alpaca_tc からのツイート</a>
 </section>
 
 </aside>
@@ -601,8 +540,8 @@ Rubyのクラス変数について詰まったのでヘルプ | RailsとRubyとV
                     </a>
                   </li>
                   <li class="twitter">
-                    <a target="_blank" href="https://twitter.com/alpaca_taichou">
-                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_taichou">
+                    <a target="_blank" href="https://twitter.com/alpaca_tc">
+                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_tc">
                     </a>
                   </li>
                 </ul>

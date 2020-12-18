@@ -1,7 +1,5 @@
 
 
-  
-
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -9,7 +7,19 @@
     <meta charset="UTF-8">
     <title>ここまで出来る！RubyのSplat Operatorまとめ - RailsとRubyとVimのブログ</title>
     
-    <meta name="description" content="Splat Operatorとは、*のことです この前、友人にコードレビューしてもらっていたら 「え、Rubyってこんな書き方出来るんですか？」と言われて、「知らない人もいるんだなぁ」と思ったので簡単なまとめ Splat Operatorの色んな使い方 Splat Operatorは、 &hellip;">
+    <meta name="description" content="Splat Operatorとは、*のことです
+
+
+
+この前、友人にコードレビューしてもらっていたら
+
+「え、Rubyってこんな書き方出来るんですか？」と言われて、「知らない人もいるんだなぁ」と思ったので簡単なまとめ
+
+
+
+Splat Operatorの色んな使い方
+
+Splat Operat...">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='ここまで出来る！RubyのSplat Operatorまとめ | RailsとRubyとVimのブログ' name='title' />
@@ -25,23 +35,46 @@
 <meta property="og:type" content="blog"/>
 <meta property="og:url" content="http://alpaca.tc/blog/ruby/how-to-use-star.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
-<meta property="og:description" content="Splat Operatorとは、*のことです この前、友人にコードレビューしてもらっていたら 「え、Rubyってこんな書き方出来るんですか？」と言われて、「知らない人もいるんだなぁ」と思ったので簡単なまとめ Splat Operatorの色んな使い方 Splat Operatorは、 &hellip;" />
+<meta property="og:description" content="Splat Operatorとは、*のことです
+
+
+
+この前、友人にコードレビューしてもらっていたら
+
+「え、Rubyってこんな書き方出来るんですか？」と言われて、「知らない人もいるんだなぁ」と思ったので簡単なまとめ
+
+
+
+Splat Operatorの色んな使い方
+
+Splat Operat..." />
 <meta property="fb:app_id" content="224701561024840" />
 
     <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ここまで出来る！RubyのSplat Operatorまとめ | RailsとRubyとVimのブログ">
-<meta name="twitter:description" content="Splat Operatorとは、*のことです この前、友人にコードレビューしてもらっていたら 「え、Rubyってこんな書き方出来るんですか？」と言われて、「知らない人もいるんだなぁ」と思ったので簡単なまとめ Splat Operatorの色んな使い方 Splat Operatorは、 &hellip;">
+<meta name="twitter:description" content="Splat Operatorとは、*のことです
+
+
+
+この前、友人にコードレビューしてもらっていたら
+
+「え、Rubyってこんな書き方出来るんですか？」と言われて、「知らない人もいるんだなぁ」と思ったので簡単なまとめ
+
+
+
+Splat Operatorの色んな使い方
+
+Splat Operat...">
 <meta name="twitter:image" content="https://http://alpaca.tc/images/meta/twitter.png">
-<meta name="twitter:site" content="@alpaca_taichou">
-<meta name="twitter:creator" content="@alpaca_taichou">
+<meta name="twitter:site" content="@alpaca_tc">
+<meta name="twitter:creator" content="@alpaca_tc">
 
 
     <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
 
     <script type="text/javascript">window._pt_lt = new Date().getTime();</script>
 
-    <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="/stylesheets/compression.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="/stylesheets/main.css" type="text/css" media="all"/>
     <meta name="google-site-verification" content="thSL3cUT7BV1-AENglRFIF-kv6I85JJ6_iUGAU8GaQI" />
 
     <!--[if lte IE 8]>
@@ -109,7 +142,7 @@
                   <a target="_blank" href="https://github.com/alpaca-tc">GitHub</a>
                 </li>
                 <li>
-                  <a target="_blank" href="https://twitter.com/alpaca_taichou">Twitter</a>
+                  <a target="_blank" href="https://twitter.com/alpaca_tc">Twitter</a>
                 </li>
               </ul>
             </nav>
@@ -129,7 +162,7 @@
   
 
   <span typeof="v:Breadcrumb">
-    <a href="" rel="v:url" property="v:title">
+    <a href="/" rel="v:url" property="v:title">
       ここまで出来る！RubyのSplat Operatorまとめ
     </a>
   </span>
@@ -164,14 +197,10 @@
 
 
 
-  
 
 
-
-<time datetime="2014-02-12T04:16:00+09:00" pubdate data-updated="true">Feb 12<span>th</span>, 2014</time>
+<time datetime="2014-02-12T04:16:00+09:00" pubdate data-updated="true"></time>
             
-  
-
 <span class="byline author">Posted by 石井浩之</span>
 
             
@@ -179,7 +208,7 @@
   <span class="categories">
     
       
-        <a class='category' href='/blog/ruby/'>ruby</a>
+        ruby
       
     
   </span>
@@ -191,9 +220,9 @@
     </header>
 
     
-      <section class="entry-content"><p>Splat Operatorとは、<code>*</code>のことです</p>
+      <section class="entry-content"><p>Splat Operatorとは、<code class="language-plaintext highlighter-rouge">*</code>のことです</p>
 
-<p><img class="image_on_frame center" src="/images/blog/how-to-use-star/capture.png" title="SplatOperator" ></p>
+<p><img class="image_on_frame center" src="/images/blog/how-to-use-star/capture.png" alt="SplatOperator" /></p>
 
 <p>この前、友人にコードレビューしてもらっていたら</p>
 
@@ -201,64 +230,45 @@
 
 <!-- more -->
 
-
-<h1>Splat Operatorの色んな使い方</h1>
+<h1 id="splat-operatorの色んな使い方">Splat Operatorの色んな使い方</h1>
 
 <p>Splat Operatorは、応用の幅が広いです。</p>
 
 <p>結構当たり前だと思っていましたが、コード読書しないと見る機会は少ないかも。</p>
 
-<h2>1-1. 配列に変換する</h2>
+<h2 id="1-1-配列に変換する">1-1. 配列に変換する</h2>
 
 <p>まずは基本編。配列に変換してやりましょう</p>
 
-<p>文字列やsymbolは<code>.to_a</code>が無いですが、<code>*</code>を使えばどの変数でも配列に出来ちゃいます。</p>
+<p>文字列やsymbolは<code class="language-plaintext highlighter-rouge">.to_a</code>が無いですが、<code class="language-plaintext highlighter-rouge">*</code>を使えばどの変数でも配列に出来ちゃいます。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">string</span> <span class="o">=</span> <span class="o">*</span><span class="s2">&quot;string&quot;</span>
-</span><span class='line'><span class="nb">p</span> <span class="n">string</span> <span class="c1">#=&gt; [&quot;string&quot;]</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">symbol</span> <span class="o">=</span> <span class="o">*</span><span class="ss">:symbol</span>
-</span><span class='line'><span class="nb">p</span> <span class="n">symbol</span> <span class="c1">#=&gt; [:symbol]</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">hash</span> <span class="o">=</span> <span class="o">*</span><span class="p">{</span> <span class="nb">hash</span><span class="p">:</span> <span class="kp">nil</span> <span class="p">}</span>
-</span><span class='line'><span class="nb">p</span> <span class="nb">hash</span> <span class="c1">#=&gt; [[:hash, nil]]</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">range</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">10</span><span class="p">)</span>
-</span><span class='line'><span class="nb">p</span> <span class="n">range</span> <span class="c1">#=&gt; [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">string</span> <span class="o">=</span> <span class="o">*</span><span class="s2">"string"</span>
+<span class="nb">p</span> <span class="n">string</span> <span class="c1">#=&gt; ["string"]</span>
 
+<span class="n">symbol</span> <span class="o">=</span> <span class="o">*</span><span class="ss">:symbol</span>
+<span class="nb">p</span> <span class="n">symbol</span> <span class="c1">#=&gt; [:symbol]</span>
 
-<h2>1-2. 親クラスの引数を気にしない</h2>
+<span class="nb">hash</span> <span class="o">=</span> <span class="o">*</span><span class="p">{</span> <span class="ss">hash: </span><span class="kp">nil</span> <span class="p">}</span>
+<span class="nb">p</span> <span class="nb">hash</span> <span class="c1">#=&gt; [[:hash, nil]]</span>
 
-<p>またまた基本編。<code>*</code>を引数に指定してやれば、親クラスの引数は知らなくても大丈夫。</p>
+<span class="n">range</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">p</span> <span class="n">range</span> <span class="c1">#=&gt; [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
+</code></pre></div></div>
 
-<p><code>*</code>だけで出来ることを知らない人はいるかも。</p>
+<h2 id="1-2-親クラスの引数を気にしない">1-2. 親クラスの引数を気にしない</h2>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Child</span> <span class="o">&lt;</span> <span class="no">Super</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
-</span><span class='line'>    <span class="k">super</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
+<p>またまた基本編。<code class="language-plaintext highlighter-rouge">*</code>を引数に指定してやれば、親クラスの引数は知らなくても大丈夫。</p>
 
+<p><code class="language-plaintext highlighter-rouge">*</code>だけで出来ることを知らない人はいるかも。</p>
 
-<h2>1-3. 間の引数をまとめる</h2>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Child</span> <span class="o">&lt;</span> <span class="no">Super</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+    <span class="k">super</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h2 id="1-3-間の引数をまとめる">1-3. 間の引数をまとめる</h2>
 
 <p>引数の最後にSplat Operatorを使うことはよくありますが、間はなかなか見ないですね。</p>
 
@@ -266,89 +276,57 @@
 
 <p>メソッドやProc,lambdaでも同様の動作です。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">list</span> <span class="o">=</span> <span class="o">[[</span><span class="ss">:first</span><span class="p">,</span> <span class="ss">:second</span><span class="p">,</span> <span class="ss">:third</span><span class="p">,</span> <span class="ss">:fourth</span><span class="p">,</span> <span class="ss">:fifth</span><span class="o">]]</span>
-</span><span class='line'><span class="n">list</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">mid</span><span class="p">,</span> <span class="n">last</span><span class="o">|</span>
-</span><span class='line'>  <span class="nb">p</span> <span class="n">first</span>  <span class="c1">#=&gt; :first</span>
-</span><span class='line'>  <span class="nb">p</span> <span class="n">mid</span>    <span class="c1">#=&gt; [:second, :third, :fourth]</span>
-</span><span class='line'>  <span class="nb">p</span> <span class="n">last</span>   <span class="c1">#=&gt; :fifth</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># もちろん、こんなことも出来ます</span>
-</span><span class='line'><span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">other</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span>
-</span><span class='line'><span class="nb">p</span> <span class="n">other</span> <span class="c1">#=&gt; [2, 3]</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">list</span> <span class="o">=</span> <span class="p">[[</span><span class="ss">:first</span><span class="p">,</span> <span class="ss">:second</span><span class="p">,</span> <span class="ss">:third</span><span class="p">,</span> <span class="ss">:fourth</span><span class="p">,</span> <span class="ss">:fifth</span><span class="p">]]</span>
+<span class="n">list</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">mid</span><span class="p">,</span> <span class="n">last</span><span class="o">|</span>
+  <span class="nb">p</span> <span class="n">first</span>  <span class="c1">#=&gt; :first</span>
+  <span class="nb">p</span> <span class="n">mid</span>    <span class="c1">#=&gt; [:second, :third, :fourth]</span>
+  <span class="nb">p</span> <span class="n">last</span>   <span class="c1">#=&gt; :fifth</span>
+<span class="k">end</span>
 
+<span class="c1"># もちろん、こんなことも出来ます</span>
+<span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">other</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="nb">p</span> <span class="n">other</span> <span class="c1">#=&gt; [2, 3]</span>
+</code></pre></div></div>
 
-<h2>1-4. <code>**</code>を使う</h2>
+<h2 id="1-4-を使う">1-4. <code class="language-plaintext highlighter-rouge">**</code>を使う</h2>
 
 <p>キーワード引数って、まだあまり普及してないですね。互換性が気になるからだろうか？</p>
 
-<p><code>**</code>はキーワード引数を取るときに、余った引数をまとめます。</p>
+<p><code class="language-plaintext highlighter-rouge">**</code>はキーワード引数を取るときに、余った引数をまとめます。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">hoge</span><span class="p">(</span><span class="ss">first</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">second</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="o">**</span><span class="n">others</span><span class="p">)</span>
-</span><span class='line'>  <span class="nb">p</span> <span class="n">others</span> <span class="c1">#=&gt; { third: 3 }</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'><span class="n">hoge</span><span class="p">(</span><span class="ss">first</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">second</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="ss">third</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">hoge</span><span class="p">(</span><span class="ss">first: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">second: </span><span class="mi">2</span><span class="p">,</span> <span class="o">**</span><span class="n">others</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">others</span> <span class="c1">#=&gt; { third: 3 }</span>
+<span class="k">end</span>
+<span class="n">hoge</span><span class="p">(</span><span class="ss">first: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">second: </span><span class="mi">2</span><span class="p">,</span> <span class="ss">third: </span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div></div>
 
 <p>多分これはSplat Operatorと呼ばない。</p>
 
-<h2>まとめ</h2>
+<h2 id="まとめ">まとめ</h2>
 
 <p>こんな書き方が出来るSplat Operatorって本当に便利ね！</p>
 
 <p>( ﾟ∀ﾟ)o彡ﾟんぎもぢいい!!</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Integer</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">upto_with_exception</span><span class="p">(</span><span class="n">to</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">exception_array</span> <span class="o">=</span> <span class="o">*</span><span class="n">options</span><span class="o">[</span><span class="ss">:except</span><span class="o">]</span> <span class="c1">#=&gt; nilでも何でもおかまいなし！</span>
-</span><span class='line'>    <span class="n">exceptions</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">[</span><span class="n">exception_array</span><span class="o">.</span><span class="n">zip</span><span class="o">]</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">upto</span><span class="p">(</span><span class="n">to</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="nb">p</span> <span class="n">i</span> <span class="k">unless</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">has_key?</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">}</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="mi">1</span><span class="o">.</span><span class="n">upto_with_exception</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1">#=&gt; 1, 2, 3, 4, 5</span>
-</span><span class='line'><span class="mi">1</span><span class="o">.</span><span class="n">upto_with_exception</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="ss">except</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span> <span class="c1">#=&gt; 1, 2, 4, 5</span>
-</span><span class='line'><span class="mi">1</span><span class="o">.</span><span class="n">upto_with_exception</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="ss">except</span><span class="p">:</span> <span class="mi">2</span><span class="o">.</span><span class="n">.</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#=&gt; 1, 4, 5</span>
-</span><span class='line'><span class="mi">1</span><span class="o">.</span><span class="n">upto_with_exception</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="ss">except</span><span class="p">:</span> <span class="o">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span><span class="p">)</span> <span class="c1">#=&gt; 1, 2, 3</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Integer</span>
+  <span class="k">def</span> <span class="nf">upto_with_exception</span><span class="p">(</span><span class="n">to</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
+    <span class="n">exception_array</span> <span class="o">=</span> <span class="o">*</span><span class="n">options</span><span class="p">[</span><span class="ss">:except</span><span class="p">]</span> <span class="c1">#=&gt; nilでも何でもおかまいなし！</span>
+    <span class="n">exceptions</span> <span class="o">=</span> <span class="no">Hash</span><span class="p">[</span><span class="n">exception_array</span><span class="p">.</span><span class="nf">zip</span><span class="p">]</span>
 
+    <span class="nb">self</span><span class="p">.</span><span class="nf">upto</span><span class="p">(</span><span class="n">to</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="nb">p</span> <span class="n">i</span> <span class="k">unless</span> <span class="n">exceptions</span><span class="p">.</span><span class="nf">has_key?</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="mi">1</span><span class="p">.</span><span class="nf">upto_with_exception</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1">#=&gt; 1, 2, 3, 4, 5</span>
+<span class="mi">1</span><span class="p">.</span><span class="nf">upto_with_exception</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="ss">except: </span><span class="mi">3</span><span class="p">)</span> <span class="c1">#=&gt; 1, 2, 4, 5</span>
+<span class="mi">1</span><span class="p">.</span><span class="nf">upto_with_exception</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="ss">except: </span><span class="mi">2</span><span class="o">..</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#=&gt; 1, 4, 5</span>
+<span class="mi">1</span><span class="p">.</span><span class="nf">upto_with_exception</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="ss">except: </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span> <span class="c1">#=&gt; 1, 2, 3</span>
+</code></pre></div></div>
 </section>
     
 
     
       
-  
-
 
 
 
@@ -376,7 +354,7 @@
   </div>
 
   <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/ruby/how-to-use-star.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/ruby/how-to-use-star.html" ></a>
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/ruby/how-to-use-star.html" data-via="alpaca_tc" date-width="120" data-counturl="http://alpaca.tc/blog/ruby/how-to-use-star.html" ></a>
   </div>
 </section>
 
@@ -420,13 +398,13 @@
     <h1>最新記事</h1>
     
       <article>
-        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
-        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
+        <time datetime="2020-12-18T17:21:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>18</span> <span class='year'>2020</span></time>
+        <h1><a href="/blog/ruby/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai.html">kamipoさんのアドバイスと拠点を跨いだ勉強会</a></h1>
       </article>
     
       <article>
-        <time datetime="2015-10-13T21:31:00+09:00" pubdate><span class='month'>Oct</span> <span class='day'>13</span> <span class='year'>2015</span></time>
-        <h1><a href="/blog/rails/create-share-link.html">シェアリンクの作り方</a></h1>
+        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
+        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
       </article>
     
   </div>
@@ -441,18 +419,18 @@
 
       
         <article>
+          <time datetime="2020-12-18T17:21:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>18</span> <span class='year'>2020</span></time>
+          <h1><a href="//blog/ruby/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai.html">kamipoさんのアドバイスと拠点を跨いだ勉強会</a></h1>
+        </article>
+      
+        <article>
           <time datetime="2014-02-18T20:52:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>18</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/ruby/i-have-almost-finished-implementing-comment-parser.html">Gemを書くときに知っておきたい3つの事</a></h1>
+          <h1><a href="//blog/ruby/i-have-almost-finished-implementing-comment-parser.html">Gemを書くときに知っておきたい3つの事</a></h1>
         </article>
       
         <article>
           <time datetime="2014-02-12T04:16:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>12</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/ruby/how-to-use-star.html">ここまで出来る！RubyのSplat Operatorまとめ</a></h1>
-        </article>
-      
-        <article>
-          <time datetime="2014-02-10T12:33:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>10</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/ruby/create-strip-comment.html">久しぶりにGemを書いている</a></h1>
+          <h1><a href="//blog/ruby/how-to-use-star.html">ここまで出来る！RubyのSplat Operatorまとめ</a></h1>
         </article>
       
 
@@ -471,7 +449,7 @@
   <h1>プロフィール</h1>
   <section>
     <figure class="image_wrapper">
-      <img src="//lh4.googleusercontent.com/-lhc7W4Ee-NA/UnDGui7U9RI/AAAAAAAAACI/F95WUPatw7k/w237-h240-no/1001417_394227377345843_948534762_n.jpg" alt="石井 浩之">
+      <img src="/images/common/profile.jpg" alt="石井 浩之">
       <figcaption>石井 浩之</figcaption>
     </figure>
 
@@ -497,7 +475,7 @@
 
 
   <section id="side_twitter_timeline_widget" class="sidebar_row">
-  <a class="twitter-timeline" href="https://twitter.com/alpaca_taichou" data-widget-id="395937677314232320">@alpaca_taichou からのツイート</a>
+  <a class="twitter-timeline" href="https://twitter.com/alpaca_tc" data-widget-id="395937677314232320">@alpaca_tc からのツイート</a>
 </section>
 
 </aside>
@@ -546,8 +524,8 @@
                     </a>
                   </li>
                   <li class="twitter">
-                    <a target="_blank" href="https://twitter.com/alpaca_taichou">
-                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_taichou">
+                    <a target="_blank" href="https://twitter.com/alpaca_tc">
+                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_tc">
                     </a>
                   </li>
                 </ul>

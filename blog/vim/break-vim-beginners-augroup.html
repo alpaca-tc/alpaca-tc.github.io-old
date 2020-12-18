@@ -1,7 +1,5 @@
 
 
-  
-
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -9,9 +7,24 @@
     <meta charset="UTF-8">
     <title>Vim中級者を脱する augroup編 - RailsとRubyとVimのブログ</title>
     
-    <meta name="description" content="augroup, autocmdを理解する 所要時間 3分 この記事を読むべき人 augroupを理解していない人
-:sourceコマンドを使う人 そもそもautocmdって？ これは何をしているコマンドなのか分解してみましょう。 1
-autocmd BufNewFile * echo 'This &hellip;">
+    <meta name="description" content="augroup, autocmdを理解する
+
+所要時間 3分
+
+この記事を読むべき人
+
+
+  augroupを理解していない人
+  :sourceコマンドを使う人
+
+
+
+
+そもそもautocmdって？
+
+これは何をしているコマンドなのか分解してみましょう。
+
+autocmd BufNewFil...">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='Vim中級者を脱する augroup編 | RailsとRubyとVimのブログ' name='title' />
@@ -27,27 +40,56 @@ autocmd BufNewFile * echo 'This &hellip;">
 <meta property="og:type" content="blog"/>
 <meta property="og:url" content="http://alpaca.tc/blog/vim/break-vim-beginners-augroup.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
-<meta property="og:description" content="augroup, autocmdを理解する 所要時間 3分 この記事を読むべき人 augroupを理解していない人
-:sourceコマンドを使う人 そもそもautocmdって？ これは何をしているコマンドなのか分解してみましょう。 1
-autocmd BufNewFile * echo 'This &hellip;" />
+<meta property="og:description" content="augroup, autocmdを理解する
+
+所要時間 3分
+
+この記事を読むべき人
+
+
+  augroupを理解していない人
+  :sourceコマンドを使う人
+
+
+
+
+そもそもautocmdって？
+
+これは何をしているコマンドなのか分解してみましょう。
+
+autocmd BufNewFil..." />
 <meta property="fb:app_id" content="224701561024840" />
 
     <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vim中級者を脱する augroup編 | RailsとRubyとVimのブログ">
-<meta name="twitter:description" content="augroup, autocmdを理解する 所要時間 3分 この記事を読むべき人 augroupを理解していない人
-:sourceコマンドを使う人 そもそもautocmdって？ これは何をしているコマンドなのか分解してみましょう。 1
-autocmd BufNewFile * echo 'This &hellip;">
+<meta name="twitter:description" content="augroup, autocmdを理解する
+
+所要時間 3分
+
+この記事を読むべき人
+
+
+  augroupを理解していない人
+  :sourceコマンドを使う人
+
+
+
+
+そもそもautocmdって？
+
+これは何をしているコマンドなのか分解してみましょう。
+
+autocmd BufNewFil...">
 <meta name="twitter:image" content="https://http://alpaca.tc/images/meta/twitter.png">
-<meta name="twitter:site" content="@alpaca_taichou">
-<meta name="twitter:creator" content="@alpaca_taichou">
+<meta name="twitter:site" content="@alpaca_tc">
+<meta name="twitter:creator" content="@alpaca_tc">
 
 
     <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
 
     <script type="text/javascript">window._pt_lt = new Date().getTime();</script>
 
-    <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="/stylesheets/compression.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="/stylesheets/main.css" type="text/css" media="all"/>
     <meta name="google-site-verification" content="thSL3cUT7BV1-AENglRFIF-kv6I85JJ6_iUGAU8GaQI" />
 
     <!--[if lte IE 8]>
@@ -115,7 +157,7 @@ autocmd BufNewFile * echo 'This &hellip;">
                   <a target="_blank" href="https://github.com/alpaca-tc">GitHub</a>
                 </li>
                 <li>
-                  <a target="_blank" href="https://twitter.com/alpaca_taichou">Twitter</a>
+                  <a target="_blank" href="https://twitter.com/alpaca_tc">Twitter</a>
                 </li>
               </ul>
             </nav>
@@ -135,7 +177,7 @@ autocmd BufNewFile * echo 'This &hellip;">
   
 
   <span typeof="v:Breadcrumb">
-    <a href="" rel="v:url" property="v:title">
+    <a href="/" rel="v:url" property="v:title">
       Vim中級者を脱する augroup編
     </a>
   </span>
@@ -153,7 +195,7 @@ autocmd BufNewFile * echo 'This &hellip;">
         <h1>
           
             
-              Vim中級者を脱する Augroup編
+              Vim中級者を脱する augroup編
           
         </h1>
       
@@ -170,14 +212,10 @@ autocmd BufNewFile * echo 'This &hellip;">
 
 
 
-  
 
 
-
-<time datetime="2013-11-02T02:30:00+09:00" pubdate data-updated="true">Nov 2<span>nd</span>, 2013</time>
+<time datetime="2013-11-02T02:30:00+09:00" pubdate data-updated="true"></time>
             
-  
-
 <span class="byline author">Posted by 石井浩之</span>
 
             
@@ -185,7 +223,7 @@ autocmd BufNewFile * echo 'This &hellip;">
   <span class="categories">
     
       
-        <a class='category' href='/blog/vim/'>vim</a>
+        vim
       
     
   </span>
@@ -197,129 +235,106 @@ autocmd BufNewFile * echo 'This &hellip;">
     </header>
 
     
-      <section class="entry-content"><h2>augroup, autocmdを理解する</h2>
+      <section class="entry-content"><h2 id="augroup-autocmdを理解する">augroup, autocmdを理解する</h2>
 
 <p><strong>所要時間 3分</strong></p>
 
-<h3>この記事を読むべき人</h3>
+<h3 id="この記事を読むべき人">この記事を読むべき人</h3>
 
 <ul>
-<li><code>augroup</code>を理解していない人</li>
-<li><code>:source</code>コマンドを使う人</li>
+  <li><code class="language-plaintext highlighter-rouge">augroup</code>を理解していない人</li>
+  <li><code class="language-plaintext highlighter-rouge">:source</code>コマンドを使う人</li>
 </ul>
-
 
 <!-- more -->
 
-
-<h2>そもそもautocmdって？</h2>
+<h2 id="そもそもautocmdって">そもそもautocmdって？</h2>
 
 <p>これは何をしているコマンドなのか分解してみましょう。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>autocmd BufNewFile * echo 'This is new file'</span></code></pre></td></tr></table></div></figure>
-
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>autocmd BufNewFile * echo 'This is new file'
+</code></pre></div></div>
 
 <ol>
-<li>autocmdのコマンドを開始しますよ</li>
-<li><code>BufNewFile</code>というタイミングでこのコマンドを実行しますよ</li>
-<li>全てのバッファで<code>echo 'This is new file'</code>を実行しますよ</li>
+  <li>autocmdのコマンドを開始しますよ</li>
+  <li><code class="language-plaintext highlighter-rouge">BufNewFile</code>というタイミングでこのコマンドを実行しますよ</li>
+  <li>全てのバッファで<code class="language-plaintext highlighter-rouge">echo 'This is new file'</code>を実行しますよ</li>
 </ol>
-
 
 <p>となります。</p>
 
 <p>このように、保存時や新規のファイルといったタイミングでコマンドを実行できます。</p>
 
-<h2>では、augroupはなんのために存在するの？</h2>
+<h2 id="ではaugroupはなんのために存在するの">では、augroupはなんのために存在するの？</h2>
 
-<p><code>augroup</code>は、<code>autocmd</code>をグループでまとめるためのコマンドです。こんな感じて使われます。</p>
+<p><code class="language-plaintext highlighter-rouge">augroup</code>は、<code class="language-plaintext highlighter-rouge">autocmd</code>をグループでまとめるためのコマンドです。こんな感じて使われます。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>augroup EditNewFile
-</span><span class='line'>  autocmd!
-</span><span class='line'>  autocmd BufNewFile * echo 'This is new file'
-</span><span class='line'>augroup END</span></code></pre></td></tr></table></div></figure>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>augroup EditNewFile
+  autocmd!
+  autocmd BufNewFile * echo 'This is new file'
+augroup END
+</code></pre></div></div>
 
+<p>例えば、<code class="language-plaintext highlighter-rouge">autocmd</code>が設定されているvimrcを、<code class="language-plaintext highlighter-rouge">:source ~/.vimrc</code>で再度読み込むとしましょう。</p>
 
-<p>例えば、<code>autocmd</code>が設定されているvimrcを、<code>:source ~/.vimrc</code>で再度読み込むとしましょう。</p>
+<p>するとどうなるかというと、通常は<strong><code class="language-plaintext highlighter-rouge">autocmd</code>が重複して2度設定されます</strong>
+当然、その<code class="language-plaintext highlighter-rouge">autocmd</code>が発火するときに2度実行されるので、実行が遅くなります。</p>
 
-<p>するとどうなるかというと、通常は<strong><code>autocmd</code>が重複して2度設定されます</strong>
-当然、その<code>autocmd</code>が発火するときに2度実行されるので、実行が遅くなります。</p>
+<p>それを防ぐために<code class="language-plaintext highlighter-rouge">augroup</code>を使います。</p>
 
-<p>それを防ぐために<code>augroup</code>を使います。</p>
+<h2 id="ベストプラクティスは">ベストプラクティスは？</h2>
 
-<h2>ベストプラクティスは？</h2>
-
-<p>つまるところ、<code>augroup</code>は<code>autocmd</code>をまとめて初期化する場合に使用します。
+<p>つまるところ、<code class="language-plaintext highlighter-rouge">augroup</code>は<code class="language-plaintext highlighter-rouge">autocmd</code>をまとめて初期化する場合に使用します。
 具体例を上げると、下記のような形になります。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>augroup MyAutoCmd
-</span><span class='line'>  autocmd! " =&gt; このaugroupに紐づいたautocmdを消し去ります
-</span><span class='line'>augroup END
-</span><span class='line'>
-</span><span class='line'>...
-</span><span class='line'>
-</span><span class='line'>augroup MyAutoCmd
-</span><span class='line'>  autocmd BufNewFile * echo 'This is new file'
-</span><span class='line'>  autocmd BufNewFile,BufRead *.haml setf haml
-</span><span class='line'>augroup END</span></code></pre></td></tr></table></div></figure>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>augroup MyAutoCmd
+  autocmd! " =&gt; このaugroupに紐づいたautocmdを消し去ります
+augroup END
 
+...
+
+augroup MyAutoCmd
+  autocmd BufNewFile * echo 'This is new file'
+  autocmd BufNewFile,BufRead *.haml setf haml
+augroup END
+</code></pre></div></div>
 
 <p>こうすることで、2重に設定されることのない設定になります。</p>
 
-<h2>もう一歩踏み込んでみる</h2>
+<h2 id="もう一歩踏み込んでみる">もう一歩踏み込んでみる</h2>
 
 <p>autocmdの設定方法をVimのRuntimeから学んでみましょう。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>:edit $VIMRUNTIME/filetype.vim</span></code></pre></td></tr></table></div></figure>
-
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:edit $VIMRUNTIME/filetype.vim
+</code></pre></div></div>
 
 <p>これはファイルタイプの定義を行っているファイルです。</p>
 
-<p>augroupが宣言されているので、一覧を<code>:autocmd filetypedetect</code>でみれることが分かります。</p>
+<p>augroupが宣言されているので、一覧を<code class="language-plaintext highlighter-rouge">:autocmd filetypedetect</code>でみれることが分かります。</p>
 
 <p>驚くことに、もの凄い数のコマンドを実行してファイルタイプを設定していることが分かります。</p>
 
-<h3>ftdetectを知る</h3>
+<h3 id="ftdetectを知る">ftdetectを知る</h3>
 
-<p>filetype.vimにて<code>runtime! ftdetect/*.vim</code>と書かれており、<code>~/.vim/ftdetect/*</code>を読み込んでいることが分かります。</p>
+<p>filetype.vimにて<code class="language-plaintext highlighter-rouge">runtime! ftdetect/*.vim</code>と書かれており、<code class="language-plaintext highlighter-rouge">~/.vim/ftdetect/*</code>を読み込んでいることが分かります。</p>
 
-<p>つまり、ファイルタイプの設定は<code>ftdetect</code>以下で設定するのがベターとされています。</p>
+<p>つまり、ファイルタイプの設定は<code class="language-plaintext highlighter-rouge">ftdetect</code>以下で設定するのがベターとされています。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>" ~/.vim/ftdetect/coffee.vim
-</span><span class='line'>autocmd BufNewFile,BufRead *.coffee    setf coffee</span></code></pre></td></tr></table></div></figure>
-
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>" ~/.vim/ftdetect/coffee.vim
+autocmd BufNewFile,BufRead *.coffee    setf coffee
+</code></pre></div></div>
 
 <p>といった設定にて、ファイルタイプを検出できるようになります。
-<code>augroup filetypedetect</code>の宣言内なので、グループの宣言は不要です。</p>
+<code class="language-plaintext highlighter-rouge">augroup filetypedetect</code>の宣言内なので、グループの宣言は不要です。</p>
 
-<h2>本日の脱Vim中級者</h2>
+<h2 id="本日の脱vim中級者">本日の脱Vim中級者</h2>
 
-<p>vimrcでファイルタイプの検出をしている方は、<code>~/.vim/ftdetect</code>以下に設定を移してみましょう。</p>
+<p>vimrcでファイルタイプの検出をしている方は、<code class="language-plaintext highlighter-rouge">~/.vim/ftdetect</code>以下に設定を移してみましょう。</p>
 </section>
     
 
     
       
-  
-
 
 
 
@@ -347,7 +362,7 @@ Vim中級者を脱する augroup編 | RailsとRubyとVimのブログRailsとRuby
   </div>
 
   <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/break-vim-beginners-augroup.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/vim/break-vim-beginners-augroup.html" ></a>
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/break-vim-beginners-augroup.html" data-via="alpaca_tc" date-width="120" data-counturl="http://alpaca.tc/blog/vim/break-vim-beginners-augroup.html" ></a>
   </div>
 </section>
 
@@ -391,13 +406,13 @@ Vim中級者を脱する augroup編 | RailsとRubyとVimのブログRailsとRuby
     <h1>最新記事</h1>
     
       <article>
-        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
-        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
+        <time datetime="2020-12-18T17:21:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>18</span> <span class='year'>2020</span></time>
+        <h1><a href="/blog/ruby/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai.html">kamipoさんのアドバイスと拠点を跨いだ勉強会</a></h1>
       </article>
     
       <article>
-        <time datetime="2015-10-13T21:31:00+09:00" pubdate><span class='month'>Oct</span> <span class='day'>13</span> <span class='year'>2015</span></time>
-        <h1><a href="/blog/rails/create-share-link.html">シェアリンクの作り方</a></h1>
+        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
+        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
       </article>
     
   </div>
@@ -413,17 +428,17 @@ Vim中級者を脱する augroup編 | RailsとRubyとVimのブログRailsとRuby
       
         <article>
           <time datetime="2014-04-30T00:46:00+09:00" pubdate><span class='month'>Apr</span> <span class='day'>30</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/vim/alpaca-rails-support.html">Railsの補助プラグインを書いた</a></h1>
+          <h1><a href="//blog/vim/alpaca-rails-support.html">Railsの補助プラグインを書いた</a></h1>
         </article>
       
         <article>
           <time datetime="2014-01-11T13:25:00+09:00" pubdate><span class='month'>Jan</span> <span class='day'>11</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/vim/file-include-by-neocomplete.html">neocomplete.vimのfile_includeを使いこなす</a></h1>
+          <h1><a href="//blog/vim/file-include-by-neocomplete.html">neocomplete.vimのfile_includeを使いこなす</a></h1>
         </article>
       
         <article>
           <time datetime="2013-12-29T22:54:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>29</span> <span class='year'>2013</span></time>
-          <h1><a href="/blog/vim/vim-plugins-2013.html">2013年に作ったVimプラグイン達</a></h1>
+          <h1><a href="//blog/vim/vim-plugins-2013.html">2013年に作ったVimプラグイン達</a></h1>
         </article>
       
 
@@ -442,7 +457,7 @@ Vim中級者を脱する augroup編 | RailsとRubyとVimのブログRailsとRuby
   <h1>プロフィール</h1>
   <section>
     <figure class="image_wrapper">
-      <img src="//lh4.googleusercontent.com/-lhc7W4Ee-NA/UnDGui7U9RI/AAAAAAAAACI/F95WUPatw7k/w237-h240-no/1001417_394227377345843_948534762_n.jpg" alt="石井 浩之">
+      <img src="/images/common/profile.jpg" alt="石井 浩之">
       <figcaption>石井 浩之</figcaption>
     </figure>
 
@@ -468,7 +483,7 @@ Vim中級者を脱する augroup編 | RailsとRubyとVimのブログRailsとRuby
 
 
   <section id="side_twitter_timeline_widget" class="sidebar_row">
-  <a class="twitter-timeline" href="https://twitter.com/alpaca_taichou" data-widget-id="395937677314232320">@alpaca_taichou からのツイート</a>
+  <a class="twitter-timeline" href="https://twitter.com/alpaca_tc" data-widget-id="395937677314232320">@alpaca_tc からのツイート</a>
 </section>
 
 </aside>
@@ -517,8 +532,8 @@ Vim中級者を脱する augroup編 | RailsとRubyとVimのブログRailsとRuby
                     </a>
                   </li>
                   <li class="twitter">
-                    <a target="_blank" href="https://twitter.com/alpaca_taichou">
-                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_taichou">
+                    <a target="_blank" href="https://twitter.com/alpaca_tc">
+                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_tc">
                     </a>
                   </li>
                 </ul>

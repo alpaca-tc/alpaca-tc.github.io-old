@@ -1,7 +1,5 @@
 
 
-  
-
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -10,7 +8,15 @@
     <title>octopressとセットで入れておきたいVimプラグインまとめ - RailsとRubyとVimのブログ</title>
     
     <meta name="description" content="Octopressは利用者が一部なので、デフォルトのVimではなにも対応していません。
-プラグイン無しでも利用することもできますが、正直使いにくいですよね。 最低限下記のプラグインぐらいは入れておきましょう。 vim-liquid liquidはoctopress(jekyll) &hellip;">
+プラグイン無しでも利用することもできますが、正直使いにくいですよね。
+
+最低限下記のプラグインぐらいは入れておきましょう。
+
+
+
+vim-liquid
+
+liquidはoctopress(jekyll)で採...">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='octopressとセットで入れておきたいVimプラグインまとめ | RailsとRubyとVimのブログ' name='title' />
@@ -27,24 +33,39 @@
 <meta property="og:url" content="http://alpaca.tc/blog/vim/octopress_and_vimplugin.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
 <meta property="og:description" content="Octopressは利用者が一部なので、デフォルトのVimではなにも対応していません。
-プラグイン無しでも利用することもできますが、正直使いにくいですよね。 最低限下記のプラグインぐらいは入れておきましょう。 vim-liquid liquidはoctopress(jekyll) &hellip;" />
+プラグイン無しでも利用することもできますが、正直使いにくいですよね。
+
+最低限下記のプラグインぐらいは入れておきましょう。
+
+
+
+vim-liquid
+
+liquidはoctopress(jekyll)で採..." />
 <meta property="fb:app_id" content="224701561024840" />
 
     <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="octopressとセットで入れておきたいVimプラグインまとめ | RailsとRubyとVimのブログ">
 <meta name="twitter:description" content="Octopressは利用者が一部なので、デフォルトのVimではなにも対応していません。
-プラグイン無しでも利用することもできますが、正直使いにくいですよね。 最低限下記のプラグインぐらいは入れておきましょう。 vim-liquid liquidはoctopress(jekyll) &hellip;">
+プラグイン無しでも利用することもできますが、正直使いにくいですよね。
+
+最低限下記のプラグインぐらいは入れておきましょう。
+
+
+
+vim-liquid
+
+liquidはoctopress(jekyll)で採...">
 <meta name="twitter:image" content="https://http://alpaca.tc/images/meta/twitter.png">
-<meta name="twitter:site" content="@alpaca_taichou">
-<meta name="twitter:creator" content="@alpaca_taichou">
+<meta name="twitter:site" content="@alpaca_tc">
+<meta name="twitter:creator" content="@alpaca_tc">
 
 
     <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
 
     <script type="text/javascript">window._pt_lt = new Date().getTime();</script>
 
-    <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="/stylesheets/compression.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="/stylesheets/main.css" type="text/css" media="all"/>
     <meta name="google-site-verification" content="thSL3cUT7BV1-AENglRFIF-kv6I85JJ6_iUGAU8GaQI" />
 
     <!--[if lte IE 8]>
@@ -112,7 +133,7 @@
                   <a target="_blank" href="https://github.com/alpaca-tc">GitHub</a>
                 </li>
                 <li>
-                  <a target="_blank" href="https://twitter.com/alpaca_taichou">Twitter</a>
+                  <a target="_blank" href="https://twitter.com/alpaca_tc">Twitter</a>
                 </li>
               </ul>
             </nav>
@@ -132,7 +153,7 @@
   
 
   <span typeof="v:Breadcrumb">
-    <a href="" rel="v:url" property="v:title">
+    <a href="/" rel="v:url" property="v:title">
       octopressとセットで入れておきたいVimプラグインまとめ
     </a>
   </span>
@@ -167,14 +188,10 @@
 
 
 
-  
 
 
-
-<time datetime="2013-11-01T17:06:00+09:00" pubdate data-updated="true">Nov 1<span>st</span>, 2013</time>
+<time datetime="2013-11-01T17:06:00+09:00" pubdate data-updated="true"></time>
             
-  
-
 <span class="byline author">Posted by 石井浩之</span>
 
             
@@ -182,7 +199,7 @@
   <span class="categories">
     
       
-        <a class='category' href='/blog/vim/'>vim</a>
+        vim
       
     
   </span>
@@ -201,67 +218,51 @@
 
 <!-- more -->
 
+<h2 id="vim-liquid"><a href="https://github.com/tpope/vim-liquid">vim-liquid</a></h2>
 
-<h2><a href="https://github.com/tpope/vim-liquid">vim-liquid</a></h2>
-
-<p><code>liquid</code>はoctopress(jekyll)で採用されているテンプレートエンジンです。</p>
+<p><code class="language-plaintext highlighter-rouge">liquid</code>はoctopress(jekyll)で採用されているテンプレートエンジンです。</p>
 
 <p>このプラグインを入れると、ファイルタイプの検知や、キーワードのハイライトをしてくれるようになります。
-何が良いかというと、そのおかげで<code>neocomplete.vim</code>や<code>matchit.vim</code>などの他のプラグインもliquid用に対応してくれるんですよね。</p>
+何が良いかというと、そのおかげで<code class="language-plaintext highlighter-rouge">neocomplete.vim</code>や<code class="language-plaintext highlighter-rouge">matchit.vim</code>などの他のプラグインもliquid用に対応してくれるんですよね。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>NeoBundleLazy 'tpope/vim-liquid', { 'autoload' : {
-</span><span class='line'>      \ 'filetypes' : 'liquid'
-</span><span class='line'>      \ }}</span></code></pre></td></tr></table></div></figure>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NeoBundleLazy 'tpope/vim-liquid', { 'autoload' : {
+      \ 'filetypes' : 'liquid'
+      \ }}
+</code></pre></div></div>
 
-
-<h2><a href="https://github.com/tangledhelix/vim-octopress">vim-octopress</a></h2>
+<h2 id="vim-octopress"><a href="https://github.com/tangledhelix/vim-octopress">vim-octopress</a></h2>
 
 <p>VimからOctopressのコマンド操作をするプラグインです。
-<code>:Octopress [command][{option}]</code>で実行することができます。</p>
+<code class="language-plaintext highlighter-rouge">:Octopress [command][{option}]</code>で実行することができます。</p>
 
 <ol>
-<li><code>:Octopress new_post title</code></li>
-<li><code>:Octopress gen_deploy</code></li>
+  <li><code class="language-plaintext highlighter-rouge">:Octopress new_post title</code></li>
+  <li><code class="language-plaintext highlighter-rouge">:Octopress gen_deploy</code></li>
 </ol>
-
 
 <p>この2回の操作で、新しい記事をアップロードできます。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>NeoBundleLazy 'tangledhelix/vim-octopress', { 'autoload' : {
-</span><span class='line'>      \ 'commands': 'Octopress',
-</span><span class='line'>      \ }}</span></code></pre></td></tr></table></div></figure>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NeoBundleLazy 'tangledhelix/vim-octopress', { 'autoload' : {
+      \ 'commands': 'Octopress',
+      \ }}
+</code></pre></div></div>
 
+<h2 id="alpaca_octopress"><a href="https://github.com/alpaca-tc/alpaca_octopress.vim">alpaca_octopress</a></h2>
 
-<h2><a href="https://github.com/alpaca-tc/alpaca_octopress.vim">alpaca_octopress</a></h2>
-
-<p><code>vim-octopress</code>の非同期実行版です。
+<p><code class="language-plaintext highlighter-rouge">vim-octopress</code>の非同期実行版です。
 人柱属性のある方はこちらをオススメします。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>NeoBundleLazy 'alpaca-tc/alpaca_octopress.vim', { 'autoload' : {
-</span><span class='line'>      \ 'branch': 'v0.3',
-</span><span class='line'>      \ 'functions' : 'octopress#complete',
-</span><span class='line'>      \ 'commands': {
-</span><span class='line'>      \   'name' : 'Octopress',
-</span><span class='line'>      \   'complete' : 'customlist,octopress#complete',
-</span><span class='line'>      \ },
-</span><span class='line'>      \ }}</span></code></pre></td></tr></table></div></figure>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NeoBundleLazy 'alpaca-tc/alpaca_octopress.vim', { 'autoload' : {
+      \ 'branch': 'v0.3',
+      \ 'functions' : 'octopress#complete',
+      \ 'commands': {
+      \   'name' : 'Octopress',
+      \   'complete' : 'customlist,octopress#complete',
+      \ },
+      \ }}
+</code></pre></div></div>
 
-
-<h2>まとめ</h2>
+<h2 id="まとめ">まとめ</h2>
 
 <p>Octopressはかなりエンジニアと相性が良いプロジェクトだと思います。
 ついでにVimmerの方は、これらのプラグインを入れてより親和性を高めましょう！</p>
@@ -270,8 +271,6 @@
 
     
       
-  
-
 
 
 
@@ -299,7 +298,7 @@ octopressとセットで入れておきたいVimプラグインまとめ | Rails
   </div>
 
   <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/octopress_and_vimplugin.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/vim/octopress_and_vimplugin.html" ></a>
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/octopress_and_vimplugin.html" data-via="alpaca_tc" date-width="120" data-counturl="http://alpaca.tc/blog/vim/octopress_and_vimplugin.html" ></a>
   </div>
 </section>
 
@@ -343,13 +342,13 @@ octopressとセットで入れておきたいVimプラグインまとめ | Rails
     <h1>最新記事</h1>
     
       <article>
-        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
-        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
+        <time datetime="2020-12-18T17:21:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>18</span> <span class='year'>2020</span></time>
+        <h1><a href="/blog/ruby/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai.html">kamipoさんのアドバイスと拠点を跨いだ勉強会</a></h1>
       </article>
     
       <article>
-        <time datetime="2015-10-13T21:31:00+09:00" pubdate><span class='month'>Oct</span> <span class='day'>13</span> <span class='year'>2015</span></time>
-        <h1><a href="/blog/rails/create-share-link.html">シェアリンクの作り方</a></h1>
+        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
+        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
       </article>
     
   </div>
@@ -365,17 +364,17 @@ octopressとセットで入れておきたいVimプラグインまとめ | Rails
       
         <article>
           <time datetime="2014-04-30T00:46:00+09:00" pubdate><span class='month'>Apr</span> <span class='day'>30</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/vim/alpaca-rails-support.html">Railsの補助プラグインを書いた</a></h1>
+          <h1><a href="//blog/vim/alpaca-rails-support.html">Railsの補助プラグインを書いた</a></h1>
         </article>
       
         <article>
           <time datetime="2014-01-11T13:25:00+09:00" pubdate><span class='month'>Jan</span> <span class='day'>11</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/vim/file-include-by-neocomplete.html">neocomplete.vimのfile_includeを使いこなす</a></h1>
+          <h1><a href="//blog/vim/file-include-by-neocomplete.html">neocomplete.vimのfile_includeを使いこなす</a></h1>
         </article>
       
         <article>
           <time datetime="2013-12-29T22:54:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>29</span> <span class='year'>2013</span></time>
-          <h1><a href="/blog/vim/vim-plugins-2013.html">2013年に作ったVimプラグイン達</a></h1>
+          <h1><a href="//blog/vim/vim-plugins-2013.html">2013年に作ったVimプラグイン達</a></h1>
         </article>
       
 
@@ -394,7 +393,7 @@ octopressとセットで入れておきたいVimプラグインまとめ | Rails
   <h1>プロフィール</h1>
   <section>
     <figure class="image_wrapper">
-      <img src="//lh4.googleusercontent.com/-lhc7W4Ee-NA/UnDGui7U9RI/AAAAAAAAACI/F95WUPatw7k/w237-h240-no/1001417_394227377345843_948534762_n.jpg" alt="石井 浩之">
+      <img src="/images/common/profile.jpg" alt="石井 浩之">
       <figcaption>石井 浩之</figcaption>
     </figure>
 
@@ -420,7 +419,7 @@ octopressとセットで入れておきたいVimプラグインまとめ | Rails
 
 
   <section id="side_twitter_timeline_widget" class="sidebar_row">
-  <a class="twitter-timeline" href="https://twitter.com/alpaca_taichou" data-widget-id="395937677314232320">@alpaca_taichou からのツイート</a>
+  <a class="twitter-timeline" href="https://twitter.com/alpaca_tc" data-widget-id="395937677314232320">@alpaca_tc からのツイート</a>
 </section>
 
 </aside>
@@ -469,8 +468,8 @@ octopressとセットで入れておきたいVimプラグインまとめ | Rails
                     </a>
                   </li>
                   <li class="twitter">
-                    <a target="_blank" href="https://twitter.com/alpaca_taichou">
-                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_taichou">
+                    <a target="_blank" href="https://twitter.com/alpaca_tc">
+                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_tc">
                     </a>
                   </li>
                 </ul>

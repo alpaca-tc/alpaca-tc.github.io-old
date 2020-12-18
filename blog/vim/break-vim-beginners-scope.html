@@ -1,7 +1,5 @@
 
 
-  
-
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -9,11 +7,21 @@
     <meta charset="UTF-8">
     <title>Vim中級者を脱する スコープ編 - RailsとRubyとVimのブログ</title>
     
-    <meta name="description" content="個人的に、Vimで一番ハマったのがスコープの問題でした。 vimrcのコピペばかりの、あなた。 せめて、よく登場するスコープだけでも理解してみましょう。 よく見るスコープ一覧 グローバルスコープ　g:
-関数内スコープ　a:
-スクリプトスコープ　s:
-バッファスコープ　b:
-接頭辞なし　let &hellip;">
+    <meta name="description" content="個人的に、Vimで一番ハマったのがスコープの問題でした。
+
+vimrcのコピペばかりの、あなた。
+
+せめて、よく登場するスコープだけでも理解してみましょう。
+
+
+
+よく見るスコープ一覧
+
+
+  グローバルスコープ　g:
+  関数内スコープ　a:
+  スクリプトスコープ　s:
+  バッファスコー...">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='Vim中級者を脱する スコープ編 | RailsとRubyとVimのブログ' name='title' />
@@ -29,31 +37,50 @@
 <meta property="og:type" content="blog"/>
 <meta property="og:url" content="http://alpaca.tc/blog/vim/break-vim-beginners-scope.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
-<meta property="og:description" content="個人的に、Vimで一番ハマったのがスコープの問題でした。 vimrcのコピペばかりの、あなた。 せめて、よく登場するスコープだけでも理解してみましょう。 よく見るスコープ一覧 グローバルスコープ　g:
-関数内スコープ　a:
-スクリプトスコープ　s:
-バッファスコープ　b:
-接頭辞なし　let &hellip;" />
+<meta property="og:description" content="個人的に、Vimで一番ハマったのがスコープの問題でした。
+
+vimrcのコピペばかりの、あなた。
+
+せめて、よく登場するスコープだけでも理解してみましょう。
+
+
+
+よく見るスコープ一覧
+
+
+  グローバルスコープ　g:
+  関数内スコープ　a:
+  スクリプトスコープ　s:
+  バッファスコー..." />
 <meta property="fb:app_id" content="224701561024840" />
 
     <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vim中級者を脱する スコープ編 | RailsとRubyとVimのブログ">
-<meta name="twitter:description" content="個人的に、Vimで一番ハマったのがスコープの問題でした。 vimrcのコピペばかりの、あなた。 せめて、よく登場するスコープだけでも理解してみましょう。 よく見るスコープ一覧 グローバルスコープ　g:
-関数内スコープ　a:
-スクリプトスコープ　s:
-バッファスコープ　b:
-接頭辞なし　let &hellip;">
+<meta name="twitter:description" content="個人的に、Vimで一番ハマったのがスコープの問題でした。
+
+vimrcのコピペばかりの、あなた。
+
+せめて、よく登場するスコープだけでも理解してみましょう。
+
+
+
+よく見るスコープ一覧
+
+
+  グローバルスコープ　g:
+  関数内スコープ　a:
+  スクリプトスコープ　s:
+  バッファスコー...">
 <meta name="twitter:image" content="https://http://alpaca.tc/images/meta/twitter.png">
-<meta name="twitter:site" content="@alpaca_taichou">
-<meta name="twitter:creator" content="@alpaca_taichou">
+<meta name="twitter:site" content="@alpaca_tc">
+<meta name="twitter:creator" content="@alpaca_tc">
 
 
     <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
 
     <script type="text/javascript">window._pt_lt = new Date().getTime();</script>
 
-    <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="/stylesheets/compression.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="/stylesheets/main.css" type="text/css" media="all"/>
     <meta name="google-site-verification" content="thSL3cUT7BV1-AENglRFIF-kv6I85JJ6_iUGAU8GaQI" />
 
     <!--[if lte IE 8]>
@@ -121,7 +148,7 @@
                   <a target="_blank" href="https://github.com/alpaca-tc">GitHub</a>
                 </li>
                 <li>
-                  <a target="_blank" href="https://twitter.com/alpaca_taichou">Twitter</a>
+                  <a target="_blank" href="https://twitter.com/alpaca_tc">Twitter</a>
                 </li>
               </ul>
             </nav>
@@ -141,7 +168,7 @@
   
 
   <span typeof="v:Breadcrumb">
-    <a href="" rel="v:url" property="v:title">
+    <a href="/" rel="v:url" property="v:title">
       Vim中級者を脱する スコープ編
     </a>
   </span>
@@ -176,14 +203,10 @@
 
 
 
-  
 
 
-
-<time datetime="2013-11-13T17:26:00+09:00" pubdate data-updated="true">Nov 13<span>th</span>, 2013</time>
+<time datetime="2013-11-13T17:26:00+09:00" pubdate data-updated="true"></time>
             
-  
-
 <span class="byline author">Posted by 石井浩之</span>
 
             
@@ -191,7 +214,7 @@
   <span class="categories">
     
       
-        <a class='category' href='/blog/vim/'>vim</a>
+        vim
       
     
   </span>
@@ -211,38 +234,33 @@
 
 <!-- more -->
 
-
-<h1>よく見るスコープ一覧</h1>
+<h1 id="よく見るスコープ一覧">よく見るスコープ一覧</h1>
 
 <ul>
-<li><em>グローバル</em>スコープ　<code>g:</code></li>
-<li><em>関数内</em>スコープ　<code>a:</code></li>
-<li><em>スクリプト</em>スコープ　<code>s:</code></li>
-<li><em>バッファ</em>スコープ　<code>b:</code></li>
-<li><em>接頭辞なし</em>　<code>let huga=...</code>など</li>
+  <li><em>グローバル</em>スコープ　<code class="language-plaintext highlighter-rouge">g:</code></li>
+  <li><em>関数内</em>スコープ　<code class="language-plaintext highlighter-rouge">a:</code></li>
+  <li><em>スクリプト</em>スコープ　<code class="language-plaintext highlighter-rouge">s:</code></li>
+  <li><em>バッファ</em>スコープ　<code class="language-plaintext highlighter-rouge">b:</code></li>
+  <li><em>接頭辞なし</em>　<code class="language-plaintext highlighter-rouge">let huga=...</code>など</li>
 </ul>
 
-
-<h2>グローバル(g:)スコープ</h2>
+<h2 id="グローバルgスコープ">グローバル(g:)スコープ</h2>
 
 <p><strong>どこからでも参照できます。</strong></p>
 
 <p>プラグインの設定で見慣れたスコープですね。</p>
 
-<p><code>let g:neocomplete#enable_at_startup = 1</code></p>
+<p><code class="language-plaintext highlighter-rouge">let g:neocomplete#enable_at_startup = 1</code></p>
 
 <p>変数を初期化するには、次のようにします。
 大量のエラーコードによって操作できなくなるので、<strong>嫌いな人のvimrcの末尾に書き込んでください。</strong></p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>for key in keys(g:)
-</span><span class='line'>  execute 'unlet g:' . key
-</span><span class='line'>endfor</span></code></pre></td></tr></table></div></figure>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for key in keys(g:)
+  execute 'unlet g:' . key
+endfor
+</code></pre></div></div>
 
-
-<h2>関数内(a:)スコープ</h2>
+<h2 id="関数内aスコープ">関数内(a:)スコープ</h2>
 
 <p><strong>関数内で、引数を参照するときに使用するスコープ</strong></p>
 
@@ -250,25 +268,16 @@
 
 <p>こんな感じで使います。他言語から移ってきた人には、正直使いづらい。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>function! Huga(first, second)
-</span><span class='line'>  echo a:first
-</span><span class='line'>  "=&gt; 'a'
-</span><span class='line'>
-</span><span class='line'>  echo a:
-</span><span class='line'>  "=&gt; {'0': 0, '000': [], 'second': 'b', 'first': 'a', 'firstline': 5, 'lastline': 5}
-</span><span class='line'>endfunction
-</span><span class='line'>
-</span><span class='line'>call Huga('a', 'b')</span></code></pre></td></tr></table></div></figure>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function! Huga(first, second)
+  echo a:first
+  "=&gt; 'a'
 
+  echo a:
+  "=&gt; {'0': 0, '000': [], 'second': 'b', 'first': 'a', 'firstline': 5, 'lastline': 5}
+endfunction
+
+call Huga('a', 'b')
+</code></pre></div></div>
 
 <p>「あーなるほど、<strong>関数内でだけ有効なスコープなのか。</strong>」</p>
 
@@ -276,91 +285,79 @@
 
 <p>下記のようにすると、<strong>グローバルスコープとして参照できます。</strong></p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>function! a:huga()
-</span><span class='line'>  echo 'Global!?!?!?'
-</span><span class='line'>endfunction
-</span><span class='line'>
-</span><span class='line'>call a:huga() " =&gt; Global!?!?!?</span></code></pre></td></tr></table></div></figure>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function! a:huga()
+  echo 'Global!?!?!?'
+endfunction
 
+call a:huga() " =&gt; Global!?!?!?
+</code></pre></div></div>
 
-<p>実は、これ関数名に<code>:</code>が許可されているだけです。
-なので実際は<code>a:</code>スコープは関係ないんだけど、分かりづらい。</p>
+<p>実は、これ関数名に<code class="language-plaintext highlighter-rouge">:</code>が許可されているだけです。
+なので実際は<code class="language-plaintext highlighter-rouge">a:</code>スコープは関係ないんだけど、分かりづらい。</p>
 
-<h2>スクリプト(s:)スコープ</h2>
+<h2 id="スクリプトsスコープ">スクリプト(s:)スコープ</h2>
 
 <p><strong>ファイル内でのみ有効なスコープ</strong>です。</p>
 
 <p>プラグインで、プライベートなメソッドや定数を作るときによく使います。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>let s:script_scope = '外部からは参照できない'
-</span><span class='line'>function! s:script_scope_method()
-</span><span class='line'>  " プライベートメソッドとしてよく使われる
-</span><span class='line'>endfunction</span></code></pre></td></tr></table></div></figure>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let s:script_scope = '外部からは参照できない'
+function! s:script_scope_method()
+  " プライベートメソッドとしてよく使われる
+endfunction
+</code></pre></div></div>
 
-
-<p>この<code>s:</code>は、スクリプトがsourceされるときに置き換えられ、<code>&lt;SNR&gt;1_...</code>という感じの形になります。</p>
+<p>この<code class="language-plaintext highlighter-rouge">s:</code>は、スクリプトがsourceされるときに置き換えられ、<code class="language-plaintext highlighter-rouge">&lt;SNR&gt;1_...</code>という感じの形になります。</p>
 
 <p>えぇ、そうです。すると、<strong>グローバルなスコープとして参照できます。</strong></p>
 
-<p>この<code>&lt;SNR&gt;</code>の後にどの数値が割り振られているかは、<code>:scriptnames</code>で参照できます。</p>
+<p>この<code class="language-plaintext highlighter-rouge">&lt;SNR&gt;</code>の後にどの数値が割り振られているかは、<code class="language-plaintext highlighter-rouge">:scriptnames</code>で参照できます。</p>
 
-<p>また、<code>s:</code>は<code>&lt;SID&gt;</code>として使えばスコープを超えて使用できるようになります。</p>
+<p>また、<code class="language-plaintext highlighter-rouge">s:</code>は<code class="language-plaintext highlighter-rouge">&lt;SID&gt;</code>として使えばスコープを超えて使用できるようになります。</p>
 
 <p>マッピングの時に、scriptスコープを使う時などは必須ですね。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>nnoremap s :echo &lt;SID&gt;SID()&lt;CR&gt;</span></code></pre></td></tr></table></div></figure>
-
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nnoremap s :echo &lt;SID&gt;SID()&lt;CR&gt;
+</code></pre></div></div>
 
 <p>ただし、<strong>変数は基本的には聖域</strong>です。</p>
 
-<h2>バッファ(b:)スコープ</h2>
+<h2 id="バッファbスコープ">バッファ(b:)スコープ</h2>
 
 <p><strong>バッファ単位のスコープ</strong>です。</p>
 
 <p>ファイルタイプによる設定や、一時バッファによる変数などに使います。</p>
 
 <ul>
-<li>ファイルタイプの変更で、<code>b:current_syntax</code>などが初期化&amp;格納されます</li>
-<li>Uniteを起動で、<code>b:unite</code>にデータが格納されます。</li>
+  <li>ファイルタイプの変更で、<code class="language-plaintext highlighter-rouge">b:current_syntax</code>などが初期化&amp;格納されます</li>
+  <li>Uniteを起動で、<code class="language-plaintext highlighter-rouge">b:unite</code>にデータが格納されます。</li>
 </ul>
 
-
-<p>Uniteのデバッグするときには、<code>echo b:unite.candidates</code>などを参照しましょう。</p>
+<p>Uniteのデバッグするときには、<code class="language-plaintext highlighter-rouge">echo b:unite.candidates</code>などを参照しましょう。</p>
 
 <p>あぁ、ようやくまともなスコープだ。</p>
 
-<h2>接頭辞なし(<code>let huga=</code>)変数</h2>
+<h2 id="接頭辞なしlet-huga変数">接頭辞なし(<code class="language-plaintext highlighter-rouge">let huga=</code>)変数</h2>
 
 <p>えぇ。<strong>グローバルなスコープです。</strong></p>
 
 <p>お前もか！</p>
 
-<p>マナーとしては、やはり<code>g:</code>で宣言したいところですが、</p>
+<p>マナーとしては、やはり<code class="language-plaintext highlighter-rouge">g:</code>で宣言したいところですが、</p>
 
 <p>Vimにデフォルトで入っているプラグインは、容赦なくこの変数を使ってきます。</p>
 
-<p><code>:echo loaded_*&lt;Tab&gt;</code>などすれば、奴らを見つけられるはずです。</p>
+<p><code class="language-plaintext highlighter-rouge">:echo loaded_*&lt;Tab&gt;</code>などすれば、奴らを見つけられるはずです。</p>
 
 <p>細かいことを言えば、関数内ならばローカルスコープです。。。</p>
 
-<h2>スコープのまとめ</h2>
+<h2 id="スコープのまとめ">スコープのまとめ</h2>
 
 <ul>
-<li>スコープは<strong>ほとんどグローバルで参照できる</strong></li>
-<li>VimLは枠にハマらない<strong>素敵な</strong>言語仕様を持っている</li>
-<li>getbufvar()などでスコープへアクセス出来るため、<strong>聖域はほとんど無い</strong></li>
+  <li>スコープは<strong>ほとんどグローバルで参照できる</strong></li>
+  <li>VimLは枠にハマらない<strong>素敵な</strong>言語仕様を持っている</li>
+  <li>getbufvar()などでスコープへアクセス出来るため、<strong>聖域はほとんど無い</strong></li>
 </ul>
-
 
 <p><strong>正直今でも理解出来ていない。</strong></p>
 </section>
@@ -368,8 +365,6 @@
 
     
       
-  
-
 
 
 
@@ -397,7 +392,7 @@ Vim中級者を脱する スコープ編 | RailsとRubyとVimのブログRails�
   </div>
 
   <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/break-vim-beginners-scope.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/vim/break-vim-beginners-scope.html" ></a>
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/break-vim-beginners-scope.html" data-via="alpaca_tc" date-width="120" data-counturl="http://alpaca.tc/blog/vim/break-vim-beginners-scope.html" ></a>
   </div>
 </section>
 
@@ -441,13 +436,13 @@ Vim中級者を脱する スコープ編 | RailsとRubyとVimのブログRails�
     <h1>最新記事</h1>
     
       <article>
-        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
-        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
+        <time datetime="2020-12-18T17:21:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>18</span> <span class='year'>2020</span></time>
+        <h1><a href="/blog/ruby/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai.html">kamipoさんのアドバイスと拠点を跨いだ勉強会</a></h1>
       </article>
     
       <article>
-        <time datetime="2015-10-13T21:31:00+09:00" pubdate><span class='month'>Oct</span> <span class='day'>13</span> <span class='year'>2015</span></time>
-        <h1><a href="/blog/rails/create-share-link.html">シェアリンクの作り方</a></h1>
+        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
+        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
       </article>
     
   </div>
@@ -463,17 +458,17 @@ Vim中級者を脱する スコープ編 | RailsとRubyとVimのブログRails�
       
         <article>
           <time datetime="2014-04-30T00:46:00+09:00" pubdate><span class='month'>Apr</span> <span class='day'>30</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/vim/alpaca-rails-support.html">Railsの補助プラグインを書いた</a></h1>
+          <h1><a href="//blog/vim/alpaca-rails-support.html">Railsの補助プラグインを書いた</a></h1>
         </article>
       
         <article>
           <time datetime="2014-01-11T13:25:00+09:00" pubdate><span class='month'>Jan</span> <span class='day'>11</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/vim/file-include-by-neocomplete.html">neocomplete.vimのfile_includeを使いこなす</a></h1>
+          <h1><a href="//blog/vim/file-include-by-neocomplete.html">neocomplete.vimのfile_includeを使いこなす</a></h1>
         </article>
       
         <article>
           <time datetime="2013-12-29T22:54:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>29</span> <span class='year'>2013</span></time>
-          <h1><a href="/blog/vim/vim-plugins-2013.html">2013年に作ったVimプラグイン達</a></h1>
+          <h1><a href="//blog/vim/vim-plugins-2013.html">2013年に作ったVimプラグイン達</a></h1>
         </article>
       
 
@@ -492,7 +487,7 @@ Vim中級者を脱する スコープ編 | RailsとRubyとVimのブログRails�
   <h1>プロフィール</h1>
   <section>
     <figure class="image_wrapper">
-      <img src="//lh4.googleusercontent.com/-lhc7W4Ee-NA/UnDGui7U9RI/AAAAAAAAACI/F95WUPatw7k/w237-h240-no/1001417_394227377345843_948534762_n.jpg" alt="石井 浩之">
+      <img src="/images/common/profile.jpg" alt="石井 浩之">
       <figcaption>石井 浩之</figcaption>
     </figure>
 
@@ -518,7 +513,7 @@ Vim中級者を脱する スコープ編 | RailsとRubyとVimのブログRails�
 
 
   <section id="side_twitter_timeline_widget" class="sidebar_row">
-  <a class="twitter-timeline" href="https://twitter.com/alpaca_taichou" data-widget-id="395937677314232320">@alpaca_taichou からのツイート</a>
+  <a class="twitter-timeline" href="https://twitter.com/alpaca_tc" data-widget-id="395937677314232320">@alpaca_tc からのツイート</a>
 </section>
 
 </aside>
@@ -567,8 +562,8 @@ Vim中級者を脱する スコープ編 | RailsとRubyとVimのブログRails�
                     </a>
                   </li>
                   <li class="twitter">
-                    <a target="_blank" href="https://twitter.com/alpaca_taichou">
-                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_taichou">
+                    <a target="_blank" href="https://twitter.com/alpaca_tc">
+                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_tc">
                     </a>
                   </li>
                 </ul>

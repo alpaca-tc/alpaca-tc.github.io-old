@@ -1,7 +1,5 @@
 
 
-  
-
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -9,8 +7,16 @@
     <meta charset="UTF-8">
     <title>JavaScript補完プラグインのTernはすごいヤツ - RailsとRubyとVimのブログ</title>
     
-    <meta name="description" content="「え、JavaScriptを書いているのに、Tern使ってないの？」 ダサい。イケてない。
-あぁ、残念。 Ternは、marijnhという凄いエンジニアの人が作っているJavaScriptの動的補完プラグイン コードを動的にパースして、今カーソルがある変数の型まで調べて補完しちゃってくれる。 &hellip;">
+    <meta name="description" content="「え、JavaScriptを書いているのに、Tern使ってないの？」
+
+ダサい。イケてない。
+あぁ、残念。
+
+
+
+Ternは、marijnhという凄いエンジニアの人が作っているJavaScriptの動的補完プラグイン
+
+コードを動的にパースして、今カーソルがある変数の型まで調べて補完しちゃって...">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='JavaScript補完プラグインのTernはすごいヤツ | RailsとRubyとVimのブログ' name='title' />
@@ -26,25 +32,40 @@
 <meta property="og:type" content="blog"/>
 <meta property="og:url" content="http://alpaca.tc/blog/vim/how-to-use-tern-vim.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
-<meta property="og:description" content="「え、JavaScriptを書いているのに、Tern使ってないの？」 ダサい。イケてない。
-あぁ、残念。 Ternは、marijnhという凄いエンジニアの人が作っているJavaScriptの動的補完プラグイン コードを動的にパースして、今カーソルがある変数の型まで調べて補完しちゃってくれる。 &hellip;" />
+<meta property="og:description" content="「え、JavaScriptを書いているのに、Tern使ってないの？」
+
+ダサい。イケてない。
+あぁ、残念。
+
+
+
+Ternは、marijnhという凄いエンジニアの人が作っているJavaScriptの動的補完プラグイン
+
+コードを動的にパースして、今カーソルがある変数の型まで調べて補完しちゃって..." />
 <meta property="fb:app_id" content="224701561024840" />
 
     <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript補完プラグインのTernはすごいヤツ | RailsとRubyとVimのブログ">
-<meta name="twitter:description" content="「え、JavaScriptを書いているのに、Tern使ってないの？」 ダサい。イケてない。
-あぁ、残念。 Ternは、marijnhという凄いエンジニアの人が作っているJavaScriptの動的補完プラグイン コードを動的にパースして、今カーソルがある変数の型まで調べて補完しちゃってくれる。 &hellip;">
+<meta name="twitter:description" content="「え、JavaScriptを書いているのに、Tern使ってないの？」
+
+ダサい。イケてない。
+あぁ、残念。
+
+
+
+Ternは、marijnhという凄いエンジニアの人が作っているJavaScriptの動的補完プラグイン
+
+コードを動的にパースして、今カーソルがある変数の型まで調べて補完しちゃって...">
 <meta name="twitter:image" content="https://http://alpaca.tc/images/meta/twitter.png">
-<meta name="twitter:site" content="@alpaca_taichou">
-<meta name="twitter:creator" content="@alpaca_taichou">
+<meta name="twitter:site" content="@alpaca_tc">
+<meta name="twitter:creator" content="@alpaca_tc">
 
 
     <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
 
     <script type="text/javascript">window._pt_lt = new Date().getTime();</script>
 
-    <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="/stylesheets/compression.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="/stylesheets/main.css" type="text/css" media="all"/>
     <meta name="google-site-verification" content="thSL3cUT7BV1-AENglRFIF-kv6I85JJ6_iUGAU8GaQI" />
 
     <!--[if lte IE 8]>
@@ -112,7 +133,7 @@
                   <a target="_blank" href="https://github.com/alpaca-tc">GitHub</a>
                 </li>
                 <li>
-                  <a target="_blank" href="https://twitter.com/alpaca_taichou">Twitter</a>
+                  <a target="_blank" href="https://twitter.com/alpaca_tc">Twitter</a>
                 </li>
               </ul>
             </nav>
@@ -132,7 +153,7 @@
   
 
   <span typeof="v:Breadcrumb">
-    <a href="" rel="v:url" property="v:title">
+    <a href="/" rel="v:url" property="v:title">
       JavaScript補完プラグインのTernはすごいヤツ
     </a>
   </span>
@@ -167,14 +188,10 @@
 
 
 
-  
 
 
-
-<time datetime="2013-11-13T14:40:00+09:00" pubdate data-updated="true">Nov 13<span>th</span>, 2013</time>
+<time datetime="2013-11-13T14:40:00+09:00" pubdate data-updated="true"></time>
             
-  
-
 <span class="byline author">Posted by 石井浩之</span>
 
             
@@ -182,7 +199,7 @@
   <span class="categories">
     
       
-        <a class='category' href='/blog/vim/'>vim</a>
+        vim
       
     
   </span>
@@ -201,30 +218,21 @@
 
 <!-- more -->
 
-
 <p><a href="https://github.com/marijnh/tern">Tern</a>は、marijnhという凄いエンジニアの人が作っている<strong>JavaScriptの動的補完プラグイン</strong></p>
 
 <p>コードを動的にパースして、今カーソルがある変数の型まで調べて補完しちゃってくれる。</p>
 
 <p>設定をすれば、jQueryなどのプラグインでの諸々も補完しちゃう凄いやつなのだ。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>if has('python') && executable('npm')
-</span><span class='line'>  NeoBundleLazy 'marijnh/tern_for_vim', {
-</span><span class='line'>        \ 'build' : 'npm install',
-</span><span class='line'>        \ 'autoload' : {
-</span><span class='line'>        \   'functions': ['tern#Complete', 'tern#Enable'],
-</span><span class='line'>        \   'filetypes' : 'javascript'
-</span><span class='line'>        \ }}
-</span><span class='line'>endif</span></code></pre></td></tr></table></div></figure>
-
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if has('python') &amp;&amp; executable('npm')
+  NeoBundleLazy 'marijnh/tern_for_vim', {
+        \ 'build' : 'npm install',
+        \ 'autoload' : {
+        \   'functions': ['tern#Complete', 'tern#Enable'],
+        \   'filetypes' : 'javascript'
+        \ }}
+endif
+</code></pre></div></div>
 
 <p>まぁ、何はともあれ一度使ってみてください。</p>
 </section>
@@ -232,8 +240,6 @@
 
     
       
-  
-
 
 
 
@@ -261,7 +267,7 @@ JavaScript補完プラグインのTernはすごいヤツ | RailsとRubyとVimの
   </div>
 
   <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/how-to-use-tern-vim.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/vim/how-to-use-tern-vim.html" ></a>
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/how-to-use-tern-vim.html" data-via="alpaca_tc" date-width="120" data-counturl="http://alpaca.tc/blog/vim/how-to-use-tern-vim.html" ></a>
   </div>
 </section>
 
@@ -305,13 +311,13 @@ JavaScript補完プラグインのTernはすごいヤツ | RailsとRubyとVimの
     <h1>最新記事</h1>
     
       <article>
-        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
-        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
+        <time datetime="2020-12-18T17:21:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>18</span> <span class='year'>2020</span></time>
+        <h1><a href="/blog/ruby/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai.html">kamipoさんのアドバイスと拠点を跨いだ勉強会</a></h1>
       </article>
     
       <article>
-        <time datetime="2015-10-13T21:31:00+09:00" pubdate><span class='month'>Oct</span> <span class='day'>13</span> <span class='year'>2015</span></time>
-        <h1><a href="/blog/rails/create-share-link.html">シェアリンクの作り方</a></h1>
+        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
+        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
       </article>
     
   </div>
@@ -327,17 +333,17 @@ JavaScript補完プラグインのTernはすごいヤツ | RailsとRubyとVimの
       
         <article>
           <time datetime="2014-04-30T00:46:00+09:00" pubdate><span class='month'>Apr</span> <span class='day'>30</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/vim/alpaca-rails-support.html">Railsの補助プラグインを書いた</a></h1>
+          <h1><a href="//blog/vim/alpaca-rails-support.html">Railsの補助プラグインを書いた</a></h1>
         </article>
       
         <article>
           <time datetime="2014-01-11T13:25:00+09:00" pubdate><span class='month'>Jan</span> <span class='day'>11</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/vim/file-include-by-neocomplete.html">neocomplete.vimのfile_includeを使いこなす</a></h1>
+          <h1><a href="//blog/vim/file-include-by-neocomplete.html">neocomplete.vimのfile_includeを使いこなす</a></h1>
         </article>
       
         <article>
           <time datetime="2013-12-29T22:54:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>29</span> <span class='year'>2013</span></time>
-          <h1><a href="/blog/vim/vim-plugins-2013.html">2013年に作ったVimプラグイン達</a></h1>
+          <h1><a href="//blog/vim/vim-plugins-2013.html">2013年に作ったVimプラグイン達</a></h1>
         </article>
       
 
@@ -356,7 +362,7 @@ JavaScript補完プラグインのTernはすごいヤツ | RailsとRubyとVimの
   <h1>プロフィール</h1>
   <section>
     <figure class="image_wrapper">
-      <img src="//lh4.googleusercontent.com/-lhc7W4Ee-NA/UnDGui7U9RI/AAAAAAAAACI/F95WUPatw7k/w237-h240-no/1001417_394227377345843_948534762_n.jpg" alt="石井 浩之">
+      <img src="/images/common/profile.jpg" alt="石井 浩之">
       <figcaption>石井 浩之</figcaption>
     </figure>
 
@@ -382,7 +388,7 @@ JavaScript補完プラグインのTernはすごいヤツ | RailsとRubyとVimの
 
 
   <section id="side_twitter_timeline_widget" class="sidebar_row">
-  <a class="twitter-timeline" href="https://twitter.com/alpaca_taichou" data-widget-id="395937677314232320">@alpaca_taichou からのツイート</a>
+  <a class="twitter-timeline" href="https://twitter.com/alpaca_tc" data-widget-id="395937677314232320">@alpaca_tc からのツイート</a>
 </section>
 
 </aside>
@@ -431,8 +437,8 @@ JavaScript補完プラグインのTernはすごいヤツ | RailsとRubyとVimの
                     </a>
                   </li>
                   <li class="twitter">
-                    <a target="_blank" href="https://twitter.com/alpaca_taichou">
-                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_taichou">
+                    <a target="_blank" href="https://twitter.com/alpaca_tc">
+                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_tc">
                     </a>
                   </li>
                 </ul>

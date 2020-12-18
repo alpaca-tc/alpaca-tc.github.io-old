@@ -1,7 +1,5 @@
 
 
-  
-
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -9,10 +7,26 @@
     <meta charset="UTF-8">
     <title>Vimを勉強し始めました #1 - RailsとRubyとVimのブログ</title>
     
-    <meta name="description" content="Vim読書会 #1 先日から続けているVim読書会(一人)ですが、
-今回からモチベーションのために記事にあげて行おうと思います。 本日読むソースコード Vim-0.3 cmdline.c
-cmdtab.h
-cmdcmds.c cmdline.c L3723行 cmdline.c: &hellip;">
+    <meta name="description" content="Vim読書会 #1
+
+先日から続けているVim読書会(一人)ですが、
+今回からモチベーションのために記事にあげて行おうと思います。
+
+本日読むソースコード
+
+Vim-0.3
+
+
+  cmdline.c
+  cmdtab.h
+  cmdcmds.c
+
+
+
+
+cmdline.c L3723行
+
+c...">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='Vimを勉強し始めました #1 | RailsとRubyとVimのブログ' name='title' />
@@ -28,29 +42,60 @@ cmdcmds.c cmdline.c L3723行 cmdline.c: &hellip;">
 <meta property="og:type" content="blog"/>
 <meta property="og:url" content="http://alpaca.tc/blog/learning_vim/i-begin-to-lean-vim-1.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
-<meta property="og:description" content="Vim読書会 #1 先日から続けているVim読書会(一人)ですが、
-今回からモチベーションのために記事にあげて行おうと思います。 本日読むソースコード Vim-0.3 cmdline.c
-cmdtab.h
-cmdcmds.c cmdline.c L3723行 cmdline.c: &hellip;" />
+<meta property="og:description" content="Vim読書会 #1
+
+先日から続けているVim読書会(一人)ですが、
+今回からモチベーションのために記事にあげて行おうと思います。
+
+本日読むソースコード
+
+Vim-0.3
+
+
+  cmdline.c
+  cmdtab.h
+  cmdcmds.c
+
+
+
+
+cmdline.c L3723行
+
+c..." />
 <meta property="fb:app_id" content="224701561024840" />
 
     <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vimを勉強し始めました #1 | RailsとRubyとVimのブログ">
-<meta name="twitter:description" content="Vim読書会 #1 先日から続けているVim読書会(一人)ですが、
-今回からモチベーションのために記事にあげて行おうと思います。 本日読むソースコード Vim-0.3 cmdline.c
-cmdtab.h
-cmdcmds.c cmdline.c L3723行 cmdline.c: &hellip;">
+<meta name="twitter:description" content="Vim読書会 #1
+
+先日から続けているVim読書会(一人)ですが、
+今回からモチベーションのために記事にあげて行おうと思います。
+
+本日読むソースコード
+
+Vim-0.3
+
+
+  cmdline.c
+  cmdtab.h
+  cmdcmds.c
+
+
+
+
+cmdline.c L3723行
+
+c...">
 <meta name="twitter:image" content="https://http://alpaca.tc/images/meta/twitter.png">
-<meta name="twitter:site" content="@alpaca_taichou">
-<meta name="twitter:creator" content="@alpaca_taichou">
+<meta name="twitter:site" content="@alpaca_tc">
+<meta name="twitter:creator" content="@alpaca_tc">
 
 
     <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
 
     <script type="text/javascript">window._pt_lt = new Date().getTime();</script>
 
-    <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="/stylesheets/compression.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="/stylesheets/main.css" type="text/css" media="all"/>
     <meta name="google-site-verification" content="thSL3cUT7BV1-AENglRFIF-kv6I85JJ6_iUGAU8GaQI" />
 
     <!--[if lte IE 8]>
@@ -118,7 +163,7 @@ cmdcmds.c cmdline.c L3723行 cmdline.c: &hellip;">
                   <a target="_blank" href="https://github.com/alpaca-tc">GitHub</a>
                 </li>
                 <li>
-                  <a target="_blank" href="https://twitter.com/alpaca_taichou">Twitter</a>
+                  <a target="_blank" href="https://twitter.com/alpaca_tc">Twitter</a>
                 </li>
               </ul>
             </nav>
@@ -138,7 +183,7 @@ cmdcmds.c cmdline.c L3723行 cmdline.c: &hellip;">
   
 
   <span typeof="v:Breadcrumb">
-    <a href="" rel="v:url" property="v:title">
+    <a href="/" rel="v:url" property="v:title">
       Vimを勉強し始めました #1
     </a>
   </span>
@@ -173,14 +218,10 @@ cmdcmds.c cmdline.c L3723行 cmdline.c: &hellip;">
 
 
 
-  
 
 
-
-<time datetime="2013-11-21T09:11:00+09:00" pubdate data-updated="true">Nov 21<span>st</span>, 2013</time>
+<time datetime="2013-11-21T09:11:00+09:00" pubdate data-updated="true"></time>
             
-  
-
 <span class="byline author">Posted by 石井浩之</span>
 
             
@@ -188,7 +229,7 @@ cmdcmds.c cmdline.c L3723行 cmdline.c: &hellip;">
   <span class="categories">
     
       
-        <a class='category' href='/blog/learning-vim/'>learning_vim</a>
+        learning_vim
       
     
   </span>
@@ -200,7 +241,7 @@ cmdcmds.c cmdline.c L3723行 cmdline.c: &hellip;">
     </header>
 
     
-      <section class="entry-content"><h1>Vim読書会 #1</h1>
+      <section class="entry-content"><h1 id="vim読書会-1">Vim読書会 #1</h1>
 
 <p>先日から続けているVim読書会(一人)ですが、
 今回からモチベーションのために記事にあげて行おうと思います。</p>
@@ -210,93 +251,73 @@ cmdcmds.c cmdline.c L3723行 cmdline.c: &hellip;">
 <p><strong>Vim-0.3</strong></p>
 
 <ul>
-<li>cmdline.c</li>
-<li>cmdtab.h</li>
-<li>cmdcmds.c</li>
+  <li>cmdline.c</li>
+  <li>cmdtab.h</li>
+  <li>cmdcmds.c</li>
 </ul>
-
 
 <!-- more -->
 
-
-<h2>cmdline.c L3723行</h2>
+<h2 id="cmdlinec-l3723行">cmdline.c L3723行</h2>
 
 <p>cmdline.c: functions for reading in the command line and executing it</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="c1">// L650:</span>
-</span><span class='line'><span class="k">static</span> <span class="n">char_u</span> <span class="o">*</span> <span class="n">DoOneCmd</span><span class="p">(</span><span class="n">buff</span><span class="p">)</span> <span class="n">char_u</span> <span class="o">*</span><span class="n">buff</span><span class="p">;</span> <span class="p">{</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// L650:</span>
+<span class="k">static</span> <span class="n">char_u</span> <span class="o">*</span> <span class="n">DoOneCmd</span><span class="p">(</span><span class="n">buff</span><span class="p">)</span> <span class="n">char_u</span> <span class="o">*</span><span class="n">buff</span><span class="p">;</span> <span class="p">{</span>
+</code></pre></div></div>
 
 <p>この関数で、コマンドラインからの入力を処理してます。
 関数の前半部分で入力をパースして、後半部分でコマンドを分岐しています。</p>
 
 <p>分岐部分はこんな感じですね。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="nl">L1111:</span>
-</span><span class='line'><span class="nl">cmdswitch:</span>
-</span><span class='line'>  <span class="k">switch</span> <span class="p">(</span><span class="n">cmdidx</span><span class="p">)</span>
-</span><span class='line'>  <span class="p">{</span>
-</span><span class='line'>    <span class="cm">/*</span>
-</span><span class='line'><span class="cm">     * quit current window, quit Vim if closed the last window</span>
-</span><span class='line'><span class="cm">     */</span>
-</span><span class='line'>    <span class="k">case</span> <span class="n">CMD_quit</span>:
-</span><span class='line'>      <span class="p">...</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">case</span> <span class="n">CMD_qall</span>:
-</span><span class='line'>      <span class="p">...</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">L1111:</span>
+<span class="n">cmdswitch</span><span class="o">:</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="n">cmdidx</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="cm">/*
+     * quit current window, quit Vim if closed the last window
+     */</span>
+    <span class="k">case</span> <span class="n">CMD_quit</span><span class="p">:</span>
+      <span class="p">...</span>
 
+    <span class="k">case</span> <span class="n">CMD_qall</span><span class="p">:</span>
+      <span class="p">...</span>
+</code></pre></div></div>
 
-<p><code>:quit</code>の処理を変更したかったら、<code>case CMD_quit</code>以下を変更すればいいです。</p>
+<p><code class="language-plaintext highlighter-rouge">:quit</code>の処理を変更したかったら、<code class="language-plaintext highlighter-rouge">case CMD_quit</code>以下を変更すればいいです。</p>
 
-<h2>cmdtab.h L337行</h2>
+<h2 id="cmdtabh-l337行">cmdtab.h L337行</h2>
 
-<p>また、<code>CMD_...</code>といった定数は<code>cmdtab.h</code>で初期化されており、全てのコマンドが定義されています。
+<p>また、<code class="language-plaintext highlighter-rouge">CMD_...</code>といった定数は<code class="language-plaintext highlighter-rouge">cmdtab.h</code>で初期化されており、全てのコマンドが定義されています。
 コマンドは、ユニークなID,コマンド名,受け付ける引数がここで定義されます。</p>
 
-<p>そのコマンドの実際の動作は、<code>cmdline.c</code>にべた書きされているという感じでしょうか。</p>
+<p>そのコマンドの実際の動作は、<code class="language-plaintext highlighter-rouge">cmdline.c</code>にべた書きされているという感じでしょうか。</p>
 
-<p>Vim-3.0の書き方だと、コマンドがひとつ増える度に<code>cmdline.c</code>の分岐がひとつ増えるというヘビーな書き方なので、新しいバージョンではリファクタリングされてそう。</p>
+<p>Vim-3.0の書き方だと、コマンドがひとつ増える度に<code class="language-plaintext highlighter-rouge">cmdline.c</code>の分岐がひとつ増えるというヘビーな書き方なので、新しいバージョンではリファクタリングされてそう。</p>
 
-<h2>cmdcmds.c L541行</h2>
+<h2 id="cmdcmdsc-l541行">cmdcmds.c L541行</h2>
 
 <p>cmdcmds.c: functions for command line commands</p>
 
-<p><code>cmdcmds.c</code>は、<code>cmdline.c</code>でのコマンドの分岐で重なる部分の関数をまとめたもの、といった印象です。
+<p><code class="language-plaintext highlighter-rouge">cmdcmds.c</code>は、<code class="language-plaintext highlighter-rouge">cmdline.c</code>でのコマンドの分岐で重なる部分の関数をまとめたもの、といった印象です。
 Wordpressでいうfunctionsのような感じかな。一応、他の場所でも使える感じに仕上がっています。</p>
 
-<p>この中には、<code>do_align</code>や<code>doshell</code>といった、想像につく名前の関数がありますね。
-<code>CMD_move</code>で分岐した場合は、こちらに飛ばされます。</p>
+<p>この中には、<code class="language-plaintext highlighter-rouge">do_align</code>や<code class="language-plaintext highlighter-rouge">doshell</code>といった、想像につく名前の関数がありますね。
+<code class="language-plaintext highlighter-rouge">CMD_move</code>で分岐した場合は、こちらに飛ばされます。</p>
 
-<h2>まとめ</h2>
+<h2 id="まとめ">まとめ</h2>
 
 <p>コマンド関連の細かい実装を見るのは大変ですが、全体的に見ると読みやすかったです。
 Vimのオプションやコマンド名が、そのまま変数に使われているので読みやすかったです。</p>
 
-<p><code>:echo</code>などのコマンドを追加する場合は、ここら辺を弄るだけでなんとかなりそうですね！
+<p><code class="language-plaintext highlighter-rouge">:echo</code>などのコマンドを追加する場合は、ここら辺を弄るだけでなんとかなりそうですね！
 次回トライしてみます。</p>
 </section>
     
 
     
       
-  
-
 
 
 
@@ -324,7 +345,7 @@ Vimを勉強し始めました #1 | RailsとRubyとVimのブログRailsとRuby�
   </div>
 
   <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/learning_vim/i-begin-to-lean-vim-1.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/learning_vim/i-begin-to-lean-vim-1.html" ></a>
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/learning_vim/i-begin-to-lean-vim-1.html" data-via="alpaca_tc" date-width="120" data-counturl="http://alpaca.tc/blog/learning_vim/i-begin-to-lean-vim-1.html" ></a>
   </div>
 </section>
 
@@ -368,13 +389,13 @@ Vimを勉強し始めました #1 | RailsとRubyとVimのブログRailsとRuby�
     <h1>最新記事</h1>
     
       <article>
-        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
-        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
+        <time datetime="2020-12-18T17:21:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>18</span> <span class='year'>2020</span></time>
+        <h1><a href="/blog/ruby/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai.html">kamipoさんのアドバイスと拠点を跨いだ勉強会</a></h1>
       </article>
     
       <article>
-        <time datetime="2015-10-13T21:31:00+09:00" pubdate><span class='month'>Oct</span> <span class='day'>13</span> <span class='year'>2015</span></time>
-        <h1><a href="/blog/rails/create-share-link.html">シェアリンクの作り方</a></h1>
+        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
+        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
       </article>
     
   </div>
@@ -390,12 +411,12 @@ Vimを勉強し始めました #1 | RailsとRubyとVimのブログRailsとRuby�
       
         <article>
           <time datetime="2013-11-21T09:11:00+09:00" pubdate><span class='month'>Nov</span> <span class='day'>21</span> <span class='year'>2013</span></time>
-          <h1><a href="/blog/learning_vim/i-begin-to-lean-vim-1.html">Vimを勉強し始めました #1</a></h1>
+          <h1><a href="//blog/learning_vim/i-begin-to-lean-vim-1.html">Vimを勉強し始めました #1</a></h1>
         </article>
       
         <article>
           <time datetime="2013-11-15T06:58:00+09:00" pubdate><span class='month'>Nov</span> <span class='day'>15</span> <span class='year'>2013</span></time>
-          <h1><a href="/blog/learning_vim/i-begin-to-learn-vim.html">そろそろVimを使いこなせるようになりたい。</a></h1>
+          <h1><a href="//blog/learning_vim/i-begin-to-learn-vim.html">そろそろVimを使いこなせるようになりたい。</a></h1>
         </article>
       
 
@@ -414,7 +435,7 @@ Vimを勉強し始めました #1 | RailsとRubyとVimのブログRailsとRuby�
   <h1>プロフィール</h1>
   <section>
     <figure class="image_wrapper">
-      <img src="//lh4.googleusercontent.com/-lhc7W4Ee-NA/UnDGui7U9RI/AAAAAAAAACI/F95WUPatw7k/w237-h240-no/1001417_394227377345843_948534762_n.jpg" alt="石井 浩之">
+      <img src="/images/common/profile.jpg" alt="石井 浩之">
       <figcaption>石井 浩之</figcaption>
     </figure>
 
@@ -440,7 +461,7 @@ Vimを勉強し始めました #1 | RailsとRubyとVimのブログRailsとRuby�
 
 
   <section id="side_twitter_timeline_widget" class="sidebar_row">
-  <a class="twitter-timeline" href="https://twitter.com/alpaca_taichou" data-widget-id="395937677314232320">@alpaca_taichou からのツイート</a>
+  <a class="twitter-timeline" href="https://twitter.com/alpaca_tc" data-widget-id="395937677314232320">@alpaca_tc からのツイート</a>
 </section>
 
 </aside>
@@ -489,8 +510,8 @@ Vimを勉強し始めました #1 | RailsとRubyとVimのブログRailsとRuby�
                     </a>
                   </li>
                   <li class="twitter">
-                    <a target="_blank" href="https://twitter.com/alpaca_taichou">
-                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_taichou">
+                    <a target="_blank" href="https://twitter.com/alpaca_tc">
+                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_tc">
                     </a>
                   </li>
                 </ul>

@@ -1,7 +1,5 @@
 
 
-  
-
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -9,7 +7,19 @@
     <meta charset="UTF-8">
     <title>Guard-shellが便利だった話 - RailsとRubyとVimのブログ</title>
     
-    <meta name="description" content="Guardって便利ですよねー。 あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。 最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。 Guardを使って実現してみました。 guard + guard-shell &hellip;">
+    <meta name="description" content="Guardって便利ですよねー。
+
+あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。
+
+最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。
+
+Guardを使って実現してみました。
+
+
+
+guard + guard-shell
+
+おな...">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='Guard-shellが便利だった話 | RailsとRubyとVimのブログ' name='title' />
@@ -25,23 +35,46 @@
 <meta property="og:type" content="blog"/>
 <meta property="og:url" content="http://alpaca.tc/blog/ruby/the-story-about-guard-shell.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
-<meta property="og:description" content="Guardって便利ですよねー。 あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。 最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。 Guardを使って実現してみました。 guard + guard-shell &hellip;" />
+<meta property="og:description" content="Guardって便利ですよねー。
+
+あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。
+
+最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。
+
+Guardを使って実現してみました。
+
+
+
+guard + guard-shell
+
+おな..." />
 <meta property="fb:app_id" content="224701561024840" />
 
     <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Guard-shellが便利だった話 | RailsとRubyとVimのブログ">
-<meta name="twitter:description" content="Guardって便利ですよねー。 あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。 最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。 Guardを使って実現してみました。 guard + guard-shell &hellip;">
+<meta name="twitter:description" content="Guardって便利ですよねー。
+
+あの、ファイルをwatchして、変更を検知したらアクションをグルグル回すやつです。
+
+最近Vimの開発をしていて、あー変更と同時にコンパイルしてくれたらいいのになぁ。
+
+Guardを使って実現してみました。
+
+
+
+guard + guard-shell
+
+おな...">
 <meta name="twitter:image" content="https://http://alpaca.tc/images/meta/twitter.png">
-<meta name="twitter:site" content="@alpaca_taichou">
-<meta name="twitter:creator" content="@alpaca_taichou">
+<meta name="twitter:site" content="@alpaca_tc">
+<meta name="twitter:creator" content="@alpaca_tc">
 
 
     <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
 
     <script type="text/javascript">window._pt_lt = new Date().getTime();</script>
 
-    <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="/stylesheets/compression.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="/stylesheets/main.css" type="text/css" media="all"/>
     <meta name="google-site-verification" content="thSL3cUT7BV1-AENglRFIF-kv6I85JJ6_iUGAU8GaQI" />
 
     <!--[if lte IE 8]>
@@ -109,7 +142,7 @@
                   <a target="_blank" href="https://github.com/alpaca-tc">GitHub</a>
                 </li>
                 <li>
-                  <a target="_blank" href="https://twitter.com/alpaca_taichou">Twitter</a>
+                  <a target="_blank" href="https://twitter.com/alpaca_tc">Twitter</a>
                 </li>
               </ul>
             </nav>
@@ -129,7 +162,7 @@
   
 
   <span typeof="v:Breadcrumb">
-    <a href="" rel="v:url" property="v:title">
+    <a href="/" rel="v:url" property="v:title">
       Guard-shellが便利だった話
     </a>
   </span>
@@ -164,14 +197,10 @@
 
 
 
-  
 
 
-
-<time datetime="2013-11-23T01:34:00+09:00" pubdate data-updated="true">Nov 23<span>rd</span>, 2013</time>
+<time datetime="2013-11-23T01:34:00+09:00" pubdate data-updated="true"></time>
             
-  
-
 <span class="byline author">Posted by 石井浩之</span>
 
             
@@ -179,7 +208,7 @@
   <span class="categories">
     
       
-        <a class='category' href='/blog/ruby/'>ruby</a>
+        ruby
       
     
   </span>
@@ -201,100 +230,72 @@
 
 <!-- more -->
 
-
-<h1>guard + guard-shell</h1>
+<h1 id="guard--guard-shell">guard + guard-shell</h1>
 
 <p>おなじみのGuardにshellコマンドを実行できるようにします。</p>
 
 <p><em>GuardでC言語を自動コンパイル！！！</em></p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Gemfile</span>
-</span><span class='line'><span class="n">source</span> <span class="s1">&#39;https://rubygems.org&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;guard&#39;</span>
-</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;guard-shell&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Gemfile</span>
+<span class="n">source</span> <span class="s1">'https://rubygems.org'</span>
 
+<span class="n">gem</span> <span class="s1">'guard'</span>
+<span class="n">gem</span> <span class="s1">'guard-shell'</span>
+</code></pre></div></div>
 
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Guardfile</span>
+<span class="n">group</span> <span class="ss">:vim3</span> <span class="k">do</span>
+  <span class="n">guard</span> <span class="ss">:shell</span> <span class="k">do</span>
+    <span class="n">target_dir</span> <span class="o">=</span> <span class="s1">'vim-3\.0/src'</span>
+    <span class="n">watch</span><span class="p">(</span><span class="sr">%r!^</span><span class="si">#{</span><span class="n">target_dir</span><span class="si">}</span><span class="sr">/(.+)</span><span class="se">\.</span><span class="sr">(c|h)!</span><span class="p">)</span> <span class="k">do</span>
+      <span class="sb">`cd </span><span class="si">#{</span><span class="n">target_dir</span><span class="si">}</span><span class="sb"> &amp;&amp; make`</span>
+      <span class="sb">`cd </span><span class="si">#{</span><span class="n">target_dir</span><span class="si">}</span><span class="sb"> &amp;&amp; make debug`</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
 
+  <span class="o">...</span>
+<span class="k">end</span>
+</code></pre></div></div>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Guardfile</span>
-</span><span class='line'><span class="n">group</span> <span class="ss">:vim3</span> <span class="k">do</span>
-</span><span class='line'>  <span class="n">guard</span> <span class="ss">:shell</span> <span class="k">do</span>
-</span><span class='line'>    <span class="n">target_dir</span> <span class="o">=</span> <span class="s1">&#39;vim-3\.0/src&#39;</span>
-</span><span class='line'>    <span class="n">watch</span><span class="p">(</span><span class="sr">%r!^</span><span class="si">#{</span><span class="n">target_dir</span><span class="si">}</span><span class="sr">/(.+)\.(c|h)!</span><span class="p">)</span> <span class="k">do</span>
-</span><span class='line'>      <span class="sb">`cd </span><span class="si">#{</span><span class="n">target_dir</span><span class="si">}</span><span class="sb"> &amp;&amp; make`</span>
-</span><span class='line'>      <span class="sb">`cd </span><span class="si">#{</span><span class="n">target_dir</span><span class="si">}</span><span class="sb"> &amp;&amp; make debug`</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="o">.</span><span class="n">.</span><span class="o">.</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
+<p>ポイントは、<em>group</em>と<em>guard :shell …</em>ですね。</p>
 
-
-<p>ポイントは、<em>group</em>と<em>guard :shell &hellip;</em>ですね。</p>
-
-<h2>guardのDSL <em>group</em></h2>
+<h2 id="guardのdsl-group">guardのDSL <em>group</em></h2>
 
 <p>groupのDSLを使うと、guardの設定を切り替えることができます。</p>
 
 <p>例えば、バージョン毎にgroupで設定をわけておけば、不必要な部分でguardが動作することを防ぐことができます。
 僕の場合は、vimのバージョン毎に設定を切り替えることで不必要なコンパイルを防いでいます。</p>
 
-<p>また、分けてあるgroupを切り替えるときは、guardのコンソールで<code>scope vim3</code>と打てば切り替わります。</p>
+<p>また、分けてあるgroupを切り替えるときは、guardのコンソールで<code class="language-plaintext highlighter-rouge">scope vim3</code>と打てば切り替わります。</p>
 
-<p>(起動時にscopeを指定する場合は、<code>guard --group vim3</code>)</p>
+<p>(起動時にscopeを指定する場合は、<code class="language-plaintext highlighter-rouge">guard --group vim3</code>)</p>
 
-<h2>guard-shellを使う</h2>
+<h2 id="guard-shellを使う">guard-shellを使う</h2>
 
 <p>guard-shellは、ファイルの変更をフックにしてshellコマンドを実行するgemです。</p>
 
 <p>と、あたかもshellに特化したネーミングですが、実際はただ単にwatchに渡したブロックを評価するだけのシンプルなやつです。</p>
 
-<p>下記のようにすれば、ファイルが保存されたと同時に<code>hogepiyoooooooooooooo</code>と教えてくれます。
+<p>下記のようにすれば、ファイルが保存されたと同時に<code class="language-plaintext highlighter-rouge">hogepiyoooooooooooooo</code>と教えてくれます。
 わーい。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Guardfile</span>
-</span><span class='line'><span class="n">guard</span> <span class="ss">:shell</span> <span class="k">do</span>
-</span><span class='line'>  <span class="n">watch</span><span class="p">(</span><span class="sr">/.*/</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">m</span><span class="o">|</span> <span class="sb">`say hogepiyoooooooooooooo`</span> <span class="p">}</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Guardfile</span>
+<span class="n">guard</span> <span class="ss">:shell</span> <span class="k">do</span>
+  <span class="n">watch</span><span class="p">(</span><span class="sr">/.*/</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">m</span><span class="o">|</span> <span class="sb">`say hogepiyoooooooooooooo`</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre></div></div>
 
-
-<h2>まとめ</h2>
+<h2 id="まとめ">まとめ</h2>
 
 <p><em>guard-shell便利。</em></p>
 
 <p>(ホゲピヨーーーーーって言うのかと思ったら、「ホージピュゥ」って何か冷めた感じに返された。。。)</p>
+
 </section>
     
 
     
       
-  
-
 
 
 
@@ -322,7 +323,7 @@ Guard-shellが便利だった話 | RailsとRubyとVimのブログRailsとRubyと
   </div>
 
   <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/ruby/the-story-about-guard-shell.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/ruby/the-story-about-guard-shell.html" ></a>
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/ruby/the-story-about-guard-shell.html" data-via="alpaca_tc" date-width="120" data-counturl="http://alpaca.tc/blog/ruby/the-story-about-guard-shell.html" ></a>
   </div>
 </section>
 
@@ -366,13 +367,13 @@ Guard-shellが便利だった話 | RailsとRubyとVimのブログRailsとRubyと
     <h1>最新記事</h1>
     
       <article>
-        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
-        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
+        <time datetime="2020-12-18T17:21:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>18</span> <span class='year'>2020</span></time>
+        <h1><a href="/blog/ruby/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai.html">kamipoさんのアドバイスと拠点を跨いだ勉強会</a></h1>
       </article>
     
       <article>
-        <time datetime="2015-10-13T21:31:00+09:00" pubdate><span class='month'>Oct</span> <span class='day'>13</span> <span class='year'>2015</span></time>
-        <h1><a href="/blog/rails/create-share-link.html">シェアリンクの作り方</a></h1>
+        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
+        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
       </article>
     
   </div>
@@ -387,18 +388,18 @@ Guard-shellが便利だった話 | RailsとRubyとVimのブログRailsとRubyと
 
       
         <article>
+          <time datetime="2020-12-18T17:21:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>18</span> <span class='year'>2020</span></time>
+          <h1><a href="//blog/ruby/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai.html">kamipoさんのアドバイスと拠点を跨いだ勉強会</a></h1>
+        </article>
+      
+        <article>
           <time datetime="2014-02-18T20:52:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>18</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/ruby/i-have-almost-finished-implementing-comment-parser.html">Gemを書くときに知っておきたい3つの事</a></h1>
+          <h1><a href="//blog/ruby/i-have-almost-finished-implementing-comment-parser.html">Gemを書くときに知っておきたい3つの事</a></h1>
         </article>
       
         <article>
           <time datetime="2014-02-12T04:16:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>12</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/ruby/how-to-use-star.html">ここまで出来る！RubyのSplat Operatorまとめ</a></h1>
-        </article>
-      
-        <article>
-          <time datetime="2014-02-10T12:33:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>10</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/ruby/create-strip-comment.html">久しぶりにGemを書いている</a></h1>
+          <h1><a href="//blog/ruby/how-to-use-star.html">ここまで出来る！RubyのSplat Operatorまとめ</a></h1>
         </article>
       
 
@@ -417,7 +418,7 @@ Guard-shellが便利だった話 | RailsとRubyとVimのブログRailsとRubyと
   <h1>プロフィール</h1>
   <section>
     <figure class="image_wrapper">
-      <img src="//lh4.googleusercontent.com/-lhc7W4Ee-NA/UnDGui7U9RI/AAAAAAAAACI/F95WUPatw7k/w237-h240-no/1001417_394227377345843_948534762_n.jpg" alt="石井 浩之">
+      <img src="/images/common/profile.jpg" alt="石井 浩之">
       <figcaption>石井 浩之</figcaption>
     </figure>
 
@@ -443,7 +444,7 @@ Guard-shellが便利だった話 | RailsとRubyとVimのブログRailsとRubyと
 
 
   <section id="side_twitter_timeline_widget" class="sidebar_row">
-  <a class="twitter-timeline" href="https://twitter.com/alpaca_taichou" data-widget-id="395937677314232320">@alpaca_taichou からのツイート</a>
+  <a class="twitter-timeline" href="https://twitter.com/alpaca_tc" data-widget-id="395937677314232320">@alpaca_tc からのツイート</a>
 </section>
 
 </aside>
@@ -492,8 +493,8 @@ Guard-shellが便利だった話 | RailsとRubyとVimのブログRailsとRubyと
                     </a>
                   </li>
                   <li class="twitter">
-                    <a target="_blank" href="https://twitter.com/alpaca_taichou">
-                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_taichou">
+                    <a target="_blank" href="https://twitter.com/alpaca_tc">
+                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_tc">
                     </a>
                   </li>
                 </ul>

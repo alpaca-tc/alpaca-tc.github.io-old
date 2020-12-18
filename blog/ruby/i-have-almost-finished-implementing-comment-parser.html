@@ -1,7 +1,5 @@
 
 
-  
-
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -9,9 +7,20 @@
     <meta charset="UTF-8">
     <title>Gemを書くときに知っておきたい3つの事 - RailsとRubyとVimのブログ</title>
     
-    <meta name="description" content="先日から書き続けていたCommentExtractorが、大枠完成しました。 さて、今回Gemを書くときに役に立った、便利なTipsを幾つか紹介します！ 内容はバラバラです。笑 READMEに視覚情報を追加する
-RubyGemsからGemを削除する
-RSpecをキレイに書く 1. &hellip;">
+    <meta name="description" content="先日から書き続けていたCommentExtractorが、大枠完成しました。
+
+
+
+さて、今回Gemを書くときに役に立った、便利なTipsを幾つか紹介します！
+
+
+
+内容はバラバラです。笑
+
+
+  READMEに視覚情報を追加する
+  RubyGemsからGemを削除する
+  RSpecをキレ...">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='Gemを書くときに知っておきたい3つの事 | RailsとRubyとVimのブログ' name='title' />
@@ -27,27 +36,48 @@ RSpecをキレイに書く 1. &hellip;">
 <meta property="og:type" content="blog"/>
 <meta property="og:url" content="http://alpaca.tc/blog/ruby/i-have-almost-finished-implementing-comment-parser.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
-<meta property="og:description" content="先日から書き続けていたCommentExtractorが、大枠完成しました。 さて、今回Gemを書くときに役に立った、便利なTipsを幾つか紹介します！ 内容はバラバラです。笑 READMEに視覚情報を追加する
-RubyGemsからGemを削除する
-RSpecをキレイに書く 1. &hellip;" />
+<meta property="og:description" content="先日から書き続けていたCommentExtractorが、大枠完成しました。
+
+
+
+さて、今回Gemを書くときに役に立った、便利なTipsを幾つか紹介します！
+
+
+
+内容はバラバラです。笑
+
+
+  READMEに視覚情報を追加する
+  RubyGemsからGemを削除する
+  RSpecをキレ..." />
 <meta property="fb:app_id" content="224701561024840" />
 
     <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gemを書くときに知っておきたい3つの事 | RailsとRubyとVimのブログ">
-<meta name="twitter:description" content="先日から書き続けていたCommentExtractorが、大枠完成しました。 さて、今回Gemを書くときに役に立った、便利なTipsを幾つか紹介します！ 内容はバラバラです。笑 READMEに視覚情報を追加する
-RubyGemsからGemを削除する
-RSpecをキレイに書く 1. &hellip;">
+<meta name="twitter:description" content="先日から書き続けていたCommentExtractorが、大枠完成しました。
+
+
+
+さて、今回Gemを書くときに役に立った、便利なTipsを幾つか紹介します！
+
+
+
+内容はバラバラです。笑
+
+
+  READMEに視覚情報を追加する
+  RubyGemsからGemを削除する
+  RSpecをキレ...">
 <meta name="twitter:image" content="https://http://alpaca.tc/images/meta/twitter.png">
-<meta name="twitter:site" content="@alpaca_taichou">
-<meta name="twitter:creator" content="@alpaca_taichou">
+<meta name="twitter:site" content="@alpaca_tc">
+<meta name="twitter:creator" content="@alpaca_tc">
 
 
     <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
 
     <script type="text/javascript">window._pt_lt = new Date().getTime();</script>
 
-    <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="/stylesheets/compression.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="/stylesheets/main.css" type="text/css" media="all"/>
     <meta name="google-site-verification" content="thSL3cUT7BV1-AENglRFIF-kv6I85JJ6_iUGAU8GaQI" />
 
     <!--[if lte IE 8]>
@@ -115,7 +145,7 @@ RSpecをキレイに書く 1. &hellip;">
                   <a target="_blank" href="https://github.com/alpaca-tc">GitHub</a>
                 </li>
                 <li>
-                  <a target="_blank" href="https://twitter.com/alpaca_taichou">Twitter</a>
+                  <a target="_blank" href="https://twitter.com/alpaca_tc">Twitter</a>
                 </li>
               </ul>
             </nav>
@@ -135,7 +165,7 @@ RSpecをキレイに書く 1. &hellip;">
   
 
   <span typeof="v:Breadcrumb">
-    <a href="" rel="v:url" property="v:title">
+    <a href="/" rel="v:url" property="v:title">
       Gemを書くときに知っておきたい3つの事
     </a>
   </span>
@@ -170,14 +200,10 @@ RSpecをキレイに書く 1. &hellip;">
 
 
 
-  
 
 
-
-<time datetime="2014-02-18T20:52:00+09:00" pubdate data-updated="true">Feb 18<span>th</span>, 2014</time>
+<time datetime="2014-02-18T20:52:00+09:00" pubdate data-updated="true"></time>
             
-  
-
 <span class="byline author">Posted by 石井浩之</span>
 
             
@@ -185,7 +211,7 @@ RSpecをキレイに書く 1. &hellip;">
   <span class="categories">
     
       
-        <a class='category' href='/blog/ruby/'>ruby</a>
+        ruby
       
     
   </span>
@@ -199,79 +225,73 @@ RSpecをキレイに書く 1. &hellip;">
     
       <section class="entry-content"><p>先日から書き続けていた<a href="https://github.com/alpaca-tc/comment_extractor">CommentExtractor</a>が、大枠完成しました。</p>
 
-<p><img class="image_on_frame center" src="/images/blog/i-have-almost-finished-implementing-comment-parser/capture.png" title="CommentExtractor" ></p>
+<p><img class="image_on_frame center" src="/images/blog/i-have-almost-finished-implementing-comment-parser/capture.png" alt="CommentExtractor" /></p>
 
 <p>さて、今回Gemを書くときに役に立った、便利なTipsを幾つか紹介します！</p>
 
 <!-- more -->
 
-
 <p>内容はバラバラです。笑</p>
 
 <ol>
-<li>READMEに視覚情報を追加する</li>
-<li>RubyGemsからGemを削除する</li>
-<li>RSpecをキレイに書く</li>
+  <li>READMEに視覚情報を追加する</li>
+  <li>RubyGemsからGemを削除する</li>
+  <li>RSpecをキレイに書く</li>
 </ol>
 
-
-<h2>1.READMEに視覚情報を追加する</h2>
+<h2 id="1readmeに視覚情報を追加する">1.READMEに視覚情報を追加する</h2>
 
 <p>READMEには視覚的なバッヂを追加出来ます。Gemを書くときには、ぜひとも入れておきたい情報ですね。</p>
 
 <ul>
-<li><a href="https://badge.fury.io/rb/comment_extractor"><img src="https://badge.fury.io/rb/comment_extractor.png" alt="Gem Version" /></a></li>
-<li><a href="https://travis-ci.org/alpaca-tc/comment_parser"><img src="https://travis-ci.org/alpaca-tc/comment_extractor.png?branch=v1.0.0" alt="Build Status" /></a></li>
-<li><a href="https://coveralls.io/r/alpaca-tc/comment_extractor?branch=v1.0.0"><img src="https://coveralls.io/repos/alpaca-tc/comment_extractor/badge.png?branch=v1.0.0" alt="Coverage Status" /></a></li>
+  <li><a href="https://badge.fury.io/rb/comment\_extractor"><img src="https://badge.fury.io/rb/comment_extractor.png" alt="Gem Version" /></a></li>
+  <li><a href="https://travis-ci.org/alpaca-tc/comment\_parser"><img src="https://travis-ci.org/alpaca-tc/comment_extractor.png?branch=v1.0.0" alt="Build Status" /></a></li>
+  <li><a href="https://coveralls.io/r/alpaca-tc/comment\_extractor?branch=v1.0.0"><img src="https://coveralls.io/repos/alpaca-tc/comment_extractor/badge.png?branch=v1.0.0" alt="Coverage Status" /></a></li>
 </ul>
-
 
 <p>もちろん、登録すれば無料で作ることが出来ます。</p>
 
 <p>詳しくは<a href="https://elgalu.github.io/2013/add-achievement-badges-to-your-gem-readme/">コチラの記事</a>を読んでみましょう。</p>
 
-<h2>2.RubyGemsからGemを削除する</h2>
+<h2 id="2rubygemsからgemを削除する">2.RubyGemsからGemを削除する</h2>
 
 <p>間違えてRubyGemsにPushしてしまった！</p>
 
 <p>そんなときに便利なyankコマンド。意外と知られていない。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>gem yank gem_name -v 1.0.0
-</span></code></pre></td></tr></table></div></figure>
-
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem yank gem_name <span class="nt">-v</span> 1.0.0
+</code></pre></div></div>
 
 <p>ただ、これをやっても論理削除されるだけのようですねぇ。多分。</p>
 
 <p>このバージョン使うなよ！新しいの使えよ！ってときに使うコマンドだと思います。</p>
 
-<h2>3.RSpecをキレイに書く</h2>
+<h2 id="3rspecをキレイに書く">3.RSpecをキレイに書く</h2>
 
 <p>RSpecをキレイに書く方法は、ある程度伝統があります。</p>
 
 <ul>
-<li><a href="https://betterspecs.org/">BetterSpecs</a></li>
-<li><a href="https://bitfluxx.com/2011/05/23/some-rspec-tips-and-best-practices.html">Some RSpec Tips and Best Practices</a></li>
+  <li><a href="https://betterspecs.org/">BetterSpecs</a></li>
+  <li><a href="https://bitfluxx.com/2011/05/23/some-rspec-tips-and-best-practices.html">Some RSpec Tips and Best Practices</a></li>
 </ul>
-
 
 <p>今回は、ある程度RSpecを書ける人向けに、検索してもあまり出てこない情報(検索しにくい？)を提供したいと思います。</p>
 
-<h3>Syntaxについて</h3>
+<h3 id="syntaxについて">Syntaxについて</h3>
 
-<h4>be_truthy, be_falsy</h4>
+<h4 id="be_truthy-be_falsy">be_truthy, be_falsy</h4>
 
-<p>RSpecが新しくなって、<code>be_true</code>, <code>be_false</code>→<code>be_truthy</code>, <code>be_falsy</code>となりました。
-今までは、厳密に<code>true</code>で無くてもテストが通っちゃいましたからね。</p>
+<p>RSpecが新しくなって、<code class="language-plaintext highlighter-rouge">be_true</code>, <code class="language-plaintext highlighter-rouge">be_false</code>→<code class="language-plaintext highlighter-rouge">be_truthy</code>, <code class="language-plaintext highlighter-rouge">be_falsy</code>となりました。
+今までは、厳密に<code class="language-plaintext highlighter-rouge">true</code>で無くてもテストが通っちゃいましたからね。</p>
 
-<h4>現在の主題であるクラスを取得する</h4>
+<h4 id="現在の主題であるクラスを取得する">現在の主題であるクラスを取得する</h4>
 
-<p>RSpecでは<code>described_class</code>というメソッドを使用出来ます。
-<code>describe KlassName do...</code>で指定したKlassNameが格納されます。</p>
+<p>RSpecでは<code class="language-plaintext highlighter-rouge">described_class</code>というメソッドを使用出来ます。
+<code class="language-plaintext highlighter-rouge">describe KlassName do...</code>で指定したKlassNameが格納されます。</p>
 
 <p>これを使えば、クラス名に依存せずにテストを書く事ができますね。</p>
 
-<h4>ExampleGroupを作る</h4>
+<h4 id="examplegroupを作る">ExampleGroupを作る</h4>
 
 <p>ご存知の通り、Railsのテストではcontroller, model, viewで使えるメソッドが大きく異なります。
 それは、RSpecのexample_groupという機能を使って、テストの種類を元にModuleをincludeしているからです。</p>
@@ -279,75 +299,42 @@ RSpecをキレイに書く 1. &hellip;">
 <p>これを使えば、複数のファイルで共通する内容を簡単に記述する事が出来ます。
 次のような感じですね。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># spec_helper.rb</span>
-</span><span class='line'><span class="no">RSpec</span><span class="o">.</span><span class="n">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
-</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">include</span> <span class="no">ExampleGroupModuleName</span><span class="p">,</span> <span class="ss">type</span><span class="p">:</span> <span class="ss">:optional</span><span class="p">,</span> <span class="n">example_group</span><span class="p">:</span> <span class="p">{</span>
-</span><span class='line'>    <span class="n">file_path</span><span class="p">:</span> <span class="no">Regexp</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sx">%w[spec comment_extractor extractor .*.rb]</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;[\\\/]&#39;</span><span class="p">))</span>
-</span><span class='line'>  <span class="p">}</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># spec_helper.rb</span>
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+  <span class="n">config</span><span class="p">.</span><span class="nf">include</span> <span class="no">ExampleGroupModuleName</span><span class="p">,</span> <span class="ss">type: :optional</span><span class="p">,</span> <span class="ss">example_group: </span><span class="p">{</span>
+    <span class="ss">file_path: </span><span class="no">Regexp</span><span class="p">.</span><span class="nf">compile</span><span class="p">(</span><span class="sx">%w[spec comment_extractor extractor .*.rb]</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s1">'[\\\/]'</span><span class="p">))</span>
+  <span class="p">}</span>
+<span class="k">end</span>
+</code></pre></div></div>
 
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+  <span class="n">config</span><span class="p">.</span><span class="nf">add_setting</span> <span class="ss">:source_code_path</span><span class="p">,</span> <span class="ss">default: </span><span class="s1">'spec/assets/source_code'</span>
+<span class="k">end</span>
 
+<span class="k">module</span> <span class="nn">ExampleGroupModuleName</span>
+  <span class="k">def</span> <span class="nf">source_code_path</span><span class="p">(</span><span class="n">file_name</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
+    <span class="n">dir</span> <span class="o">=</span> <span class="no">RSpec</span><span class="p">.</span><span class="nf">configuration</span><span class="p">.</span><span class="nf">source_code_path</span>
+    <span class="n">file_name</span> <span class="p">?</span> <span class="s2">"</span><span class="si">#{</span><span class="n">dir</span><span class="si">}</span><span class="s2">/</span><span class="si">#{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">"</span> <span class="p">:</span> <span class="n">dir</span>
+  <span class="k">end</span>
 
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">included</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+    <span class="n">k</span><span class="p">.</span><span class="nf">class_eval</span> <span class="k">do</span>
+      <span class="n">let</span><span class="p">(</span><span class="ss">:instance</span><span class="p">)</span> <span class="p">{</span> <span class="n">described_class</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">source_code</span><span class="p">)</span> <span class="p">}</span>
+      <span class="n">let</span><span class="p">(</span><span class="ss">:source_code</span><span class="p">)</span> <span class="p">{</span> <span class="n">source_code_path</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span> <span class="p">}</span>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">RSpec</span><span class="o">.</span><span class="n">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
-</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">add_setting</span> <span class="ss">:source_code_path</span><span class="p">,</span> <span class="ss">default</span><span class="p">:</span> <span class="s1">&#39;spec/assets/source_code&#39;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">module</span> <span class="nn">ExampleGroupModuleName</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">source_code_path</span><span class="p">(</span><span class="n">file_name</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">dir</span> <span class="o">=</span> <span class="no">RSpec</span><span class="o">.</span><span class="n">configuration</span><span class="o">.</span><span class="n">source_code_path</span>
-</span><span class='line'>    <span class="n">file_name</span> <span class="p">?</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">dir</span><span class="si">}</span><span class="s2">/</span><span class="si">#{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">:</span> <span class="n">dir</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">included</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">k</span><span class="o">.</span><span class="n">class_eval</span> <span class="k">do</span>
-</span><span class='line'>      <span class="n">let</span><span class="p">(</span><span class="ss">:instance</span><span class="p">)</span> <span class="p">{</span> <span class="n">described_class</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">source_code</span><span class="p">)</span> <span class="p">}</span>
-</span><span class='line'>      <span class="n">let</span><span class="p">(</span><span class="ss">:source_code</span><span class="p">)</span> <span class="p">{</span> <span class="n">source_code_path</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span> <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>      <span class="n">describe</span> <span class="s1">&#39;.new&#39;</span> <span class="k">do</span>
-</span><span class='line'>        <span class="n">subject</span> <span class="p">{</span> <span class="n">instance</span> <span class="p">}</span>
-</span><span class='line'>        <span class="n">let</span><span class="p">(</span><span class="ss">:file_name</span><span class="p">)</span> <span class="p">{</span> <span class="s1">&#39;filename.rb&#39;</span> <span class="p">}</span>
-</span><span class='line'>        <span class="n">it</span> <span class="p">{</span> <span class="n">expect</span> <span class="p">{</span> <span class="n">subject</span> <span class="p">}</span><span class="o">.</span><span class="n">to_not</span> <span class="n">raise_error</span> <span class="p">}</span>
-</span><span class='line'>      <span class="k">end</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
+      <span class="n">describe</span> <span class="s1">'.new'</span> <span class="k">do</span>
+        <span class="n">subject</span> <span class="p">{</span> <span class="n">instance</span> <span class="p">}</span>
+        <span class="n">let</span><span class="p">(</span><span class="ss">:file_name</span><span class="p">)</span> <span class="p">{</span> <span class="s1">'filename.rb'</span> <span class="p">}</span>
+        <span class="n">it</span> <span class="p">{</span> <span class="n">expect</span> <span class="p">{</span> <span class="n">subject</span> <span class="p">}.</span><span class="nf">to_not</span> <span class="n">raise_error</span> <span class="p">}</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
 
 <p>これを使えば、まとまったテストをスッキリ書く事ができますね。</p>
 
-<h2>まとめ</h2>
+<h2 id="まとめ">まとめ</h2>
 
 <p>ざっくばらんに書きました。
 Gemを作るのは簡単なので、みなさんも作ってみてください！</p>
@@ -358,8 +345,6 @@ Gemを作るのは簡単なので、みなさんも作ってみてください�
 
     
       
-  
-
 
 
 
@@ -387,7 +372,7 @@ Gemを書くときに知っておきたい3つの事 | RailsとRubyとVimのブ�
   </div>
 
   <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/ruby/i-have-almost-finished-implementing-comment-parser.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/ruby/i-have-almost-finished-implementing-comment-parser.html" ></a>
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/ruby/i-have-almost-finished-implementing-comment-parser.html" data-via="alpaca_tc" date-width="120" data-counturl="http://alpaca.tc/blog/ruby/i-have-almost-finished-implementing-comment-parser.html" ></a>
   </div>
 </section>
 
@@ -431,13 +416,13 @@ Gemを書くときに知っておきたい3つの事 | RailsとRubyとVimのブ�
     <h1>最新記事</h1>
     
       <article>
-        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
-        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
+        <time datetime="2020-12-18T17:21:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>18</span> <span class='year'>2020</span></time>
+        <h1><a href="/blog/ruby/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai.html">kamipoさんのアドバイスと拠点を跨いだ勉強会</a></h1>
       </article>
     
       <article>
-        <time datetime="2015-10-13T21:31:00+09:00" pubdate><span class='month'>Oct</span> <span class='day'>13</span> <span class='year'>2015</span></time>
-        <h1><a href="/blog/rails/create-share-link.html">シェアリンクの作り方</a></h1>
+        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
+        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
       </article>
     
   </div>
@@ -452,18 +437,18 @@ Gemを書くときに知っておきたい3つの事 | RailsとRubyとVimのブ�
 
       
         <article>
+          <time datetime="2020-12-18T17:21:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>18</span> <span class='year'>2020</span></time>
+          <h1><a href="//blog/ruby/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai.html">kamipoさんのアドバイスと拠点を跨いだ勉強会</a></h1>
+        </article>
+      
+        <article>
           <time datetime="2014-02-18T20:52:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>18</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/ruby/i-have-almost-finished-implementing-comment-parser.html">Gemを書くときに知っておきたい3つの事</a></h1>
+          <h1><a href="//blog/ruby/i-have-almost-finished-implementing-comment-parser.html">Gemを書くときに知っておきたい3つの事</a></h1>
         </article>
       
         <article>
           <time datetime="2014-02-12T04:16:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>12</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/ruby/how-to-use-star.html">ここまで出来る！RubyのSplat Operatorまとめ</a></h1>
-        </article>
-      
-        <article>
-          <time datetime="2014-02-10T12:33:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>10</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/ruby/create-strip-comment.html">久しぶりにGemを書いている</a></h1>
+          <h1><a href="//blog/ruby/how-to-use-star.html">ここまで出来る！RubyのSplat Operatorまとめ</a></h1>
         </article>
       
 
@@ -482,7 +467,7 @@ Gemを書くときに知っておきたい3つの事 | RailsとRubyとVimのブ�
   <h1>プロフィール</h1>
   <section>
     <figure class="image_wrapper">
-      <img src="//lh4.googleusercontent.com/-lhc7W4Ee-NA/UnDGui7U9RI/AAAAAAAAACI/F95WUPatw7k/w237-h240-no/1001417_394227377345843_948534762_n.jpg" alt="石井 浩之">
+      <img src="/images/common/profile.jpg" alt="石井 浩之">
       <figcaption>石井 浩之</figcaption>
     </figure>
 
@@ -508,7 +493,7 @@ Gemを書くときに知っておきたい3つの事 | RailsとRubyとVimのブ�
 
 
   <section id="side_twitter_timeline_widget" class="sidebar_row">
-  <a class="twitter-timeline" href="https://twitter.com/alpaca_taichou" data-widget-id="395937677314232320">@alpaca_taichou からのツイート</a>
+  <a class="twitter-timeline" href="https://twitter.com/alpaca_tc" data-widget-id="395937677314232320">@alpaca_tc からのツイート</a>
 </section>
 
 </aside>
@@ -557,8 +542,8 @@ Gemを書くときに知っておきたい3つの事 | RailsとRubyとVimのブ�
                     </a>
                   </li>
                   <li class="twitter">
-                    <a target="_blank" href="https://twitter.com/alpaca_taichou">
-                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_taichou">
+                    <a target="_blank" href="https://twitter.com/alpaca_tc">
+                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_tc">
                     </a>
                   </li>
                 </ul>

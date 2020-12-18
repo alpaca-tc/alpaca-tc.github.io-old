@@ -1,7 +1,5 @@
 
 
-  
-
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -9,13 +7,17 @@
     <meta charset="UTF-8">
     <title>インラインTODO管理のWatsonを使う - RailsとRubyとVimのブログ</title>
     
-    <meta name="description" content="最近、Githubのトレンドにも入っていたWatsonを紹介します。 インラインTODO管理とは何か もしあなたがエンジニアなら、次のようなコメントを見たことがあると思います。 1
-2
-3
-4
-5
-6
-class ApplicationController &lt; &hellip;">
+    <meta name="description" content="最近、Githubのトレンドにも入っていたWatsonを紹介します。
+
+
+
+
+
+インラインTODO管理とは何か
+
+もしあなたがエンジニアなら、次のようなコメントを見たことがあると思います。
+
+class ApplicationController &lt; ActionController::...">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='インラインTODO管理のWatsonを使う | RailsとRubyとVimのブログ' name='title' />
@@ -31,35 +33,42 @@ class ApplicationController &lt; &hellip;">
 <meta property="og:type" content="blog"/>
 <meta property="og:url" content="http://alpaca.tc/blog/ruby/how-to-use-watson.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
-<meta property="og:description" content="最近、Githubのトレンドにも入っていたWatsonを紹介します。 インラインTODO管理とは何か もしあなたがエンジニアなら、次のようなコメントを見たことがあると思います。 1
-2
-3
-4
-5
-6
-class ApplicationController &lt; &hellip;" />
+<meta property="og:description" content="最近、Githubのトレンドにも入っていたWatsonを紹介します。
+
+
+
+
+
+インラインTODO管理とは何か
+
+もしあなたがエンジニアなら、次のようなコメントを見たことがあると思います。
+
+class ApplicationController &lt; ActionController::..." />
 <meta property="fb:app_id" content="224701561024840" />
 
     <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="インラインTODO管理のWatsonを使う | RailsとRubyとVimのブログ">
-<meta name="twitter:description" content="最近、Githubのトレンドにも入っていたWatsonを紹介します。 インラインTODO管理とは何か もしあなたがエンジニアなら、次のようなコメントを見たことがあると思います。 1
-2
-3
-4
-5
-6
-class ApplicationController &lt; &hellip;">
+<meta name="twitter:description" content="最近、Githubのトレンドにも入っていたWatsonを紹介します。
+
+
+
+
+
+インラインTODO管理とは何か
+
+もしあなたがエンジニアなら、次のようなコメントを見たことがあると思います。
+
+class ApplicationController &lt; ActionController::...">
 <meta name="twitter:image" content="https://http://alpaca.tc/images/meta/twitter.png">
-<meta name="twitter:site" content="@alpaca_taichou">
-<meta name="twitter:creator" content="@alpaca_taichou">
+<meta name="twitter:site" content="@alpaca_tc">
+<meta name="twitter:creator" content="@alpaca_tc">
 
 
     <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
 
     <script type="text/javascript">window._pt_lt = new Date().getTime();</script>
 
-    <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="/stylesheets/compression.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="/stylesheets/main.css" type="text/css" media="all"/>
     <meta name="google-site-verification" content="thSL3cUT7BV1-AENglRFIF-kv6I85JJ6_iUGAU8GaQI" />
 
     <!--[if lte IE 8]>
@@ -127,7 +136,7 @@ class ApplicationController &lt; &hellip;">
                   <a target="_blank" href="https://github.com/alpaca-tc">GitHub</a>
                 </li>
                 <li>
-                  <a target="_blank" href="https://twitter.com/alpaca_taichou">Twitter</a>
+                  <a target="_blank" href="https://twitter.com/alpaca_tc">Twitter</a>
                 </li>
               </ul>
             </nav>
@@ -147,7 +156,7 @@ class ApplicationController &lt; &hellip;">
   
 
   <span typeof="v:Breadcrumb">
-    <a href="" rel="v:url" property="v:title">
+    <a href="/" rel="v:url" property="v:title">
       インラインTODO管理のWatsonを使う
     </a>
   </span>
@@ -182,14 +191,10 @@ class ApplicationController &lt; &hellip;">
 
 
 
-  
 
 
-
-<time datetime="2013-12-03T23:49:00+09:00" pubdate data-updated="true">Dec 3<span>rd</span>, 2013</time>
+<time datetime="2013-12-03T23:49:00+09:00" pubdate data-updated="true"></time>
             
-  
-
 <span class="byline author">Posted by 石井浩之</span>
 
             
@@ -197,7 +202,7 @@ class ApplicationController &lt; &hellip;">
   <span class="categories">
     
       
-        <a class='category' href='/blog/ruby/'>ruby</a>
+        ruby
       
     
   </span>
@@ -213,27 +218,19 @@ class ApplicationController &lt; &hellip;">
 
 <!-- more -->
 
+<p><img class="image_on_frame center" src="/images/blog/watson.png" alt="watsonのデモ" /></p>
 
-<p><img class="image_on_frame center" src="/images/blog/watson.png" title="watsonのデモ" ></p>
-
-<h2>インラインTODO管理とは何か</h2>
+<h2 id="インラインtodo管理とは何か">インラインTODO管理とは何か</h2>
 
 <p>もしあなたがエンジニアなら、次のようなコメントを見たことがあると思います。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="ss">ActionController</span><span class="p">:</span><span class="ss">:Base</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">logged_in?</span>
-</span><span class='line'>    <span class="c1"># TODO 管理ユーザーと処理を分ける</span>
-</span><span class='line'>    <span class="o">.</span><span class="n">.</span><span class="o">.</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+  <span class="k">def</span> <span class="nf">logged_in?</span>
+    <span class="c1"># TODO 管理ユーザーと処理を分ける</span>
+    <span class="o">...</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
 
 <p>このように、コード内には至る所にコメントが書かれています。
 単なるコードの説明に限らず、修正が必要な内容を記述したものも多くあります。</p>
@@ -242,96 +239,82 @@ class ApplicationController &lt; &hellip;">
 
 <p>Watsonは、コード内に書かれたコメントを走査し、近代的な管理ツールに流し込むことでIssueを管理するツールです。</p>
 
-<h2>どうやって使うのか</h2>
+<h2 id="どうやって使うのか">どうやって使うのか</h2>
 
 <p>watsonを使って、コード内に記述されたコメントを洗い出して、GithubのIssueに登録してみましょう。</p>
 
-<h3>ステップ1: watsonのインストール</h3>
+<h3 id="ステップ1-watsonのインストール">ステップ1: watsonのインストール</h3>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>gem install watson
-</span></code></pre></td></tr></table></div></figure>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gem <span class="nb">install </span>watson
+</code></pre></div></div>
 
+<h3 id="ステップ2-watsonの初期化">ステップ2: watsonの初期化</h3>
 
-<h3>ステップ2: watsonの初期化</h3>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>path/to/project_dir
+<span class="nv">$ </span>watson
+<span class="c"># 一旦&lt;Ctrl-C&gt;で終了してください。</span>
+</code></pre></div></div>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span><span class="nb">cd </span>path/to/project_dir
-</span><span class='line'><span class="nv">$ </span>watson
-</span><span class='line'><span class="c"># 一旦&lt;Ctrl-C&gt;で終了してください。</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><code>.watsonrc</code>が自動的に作成されるので、プロジェクトに合わせて走査するディレクトリなどを設定します。</p>
+<p><code class="language-plaintext highlighter-rouge">.watsonrc</code>が自動的に作成されるので、プロジェクトに合わせて走査するディレクトリなどを設定します。</p>
 
 <p>例として、Railsプロジェクト用の<a href="https://gist.github.com/7770689">.watsonrc</a>を貼付けておきます。</p>
 
-<h3>ステップ3: watsonの実行！！</h3>
+<h3 id="ステップ3-watsonの実行">ステップ3: watsonの実行！！</h3>
 
 <p>watsonを使うときは、独自のタグを使ってコメントを書いておきます。</p>
 
 <ul>
-<li><code>[todo] - タスクの内容を記入する</code></li>
-<li><code>[review] - 他の人に意見を求めるような内容を記入する</code></li>
-<li><code>[fix] - バグの内容を記入する</code></li>
+  <li><code class="language-plaintext highlighter-rouge">[todo] - タスクの内容を記入する</code></li>
+  <li><code class="language-plaintext highlighter-rouge">[review] - 他の人に意見を求めるような内容を記入する</code></li>
+  <li><code class="language-plaintext highlighter-rouge">[fix] - バグの内容を記入する</code></li>
 </ul>
-
 
 <p>試しに、適当なファイルを開いて、上記のようなフォーマットでコメントを記入してみてください。</p>
 
-<p>後は、再度<code>watson</code>と打って実行！</p>
+<p>後は、再度<code class="language-plaintext highlighter-rouge">watson</code>と打って実行！</p>
 
 <p>めでたしめでたし。
 プロジェクト内のTODOなどが、一覧で出力されます。</p>
 
-<h3>ステップ4: githubへIssue登録する</h3>
+<h3 id="ステップ4-githubへissue登録する">ステップ4: githubへIssue登録する</h3>
 
 <p>先ほどの出力した内容を、Githubへ一括同期しましょう。</p>
 
 <p>まず、Githubのリポジトリをwatsonに認識させます</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>watson --remote github
-</span></code></pre></td></tr></table></div></figure>
-
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>watson <span class="nt">--remote</span> github
+</code></pre></div></div>
 
 <p>英語のコメントに沿って、情報を入力していきましょう。</p>
 
 <p>続いて、Issueを登録します。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>watson --update
-</span></code></pre></td></tr></table></div></figure>
-
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>watson <span class="nt">--update</span>
+</code></pre></div></div>
 
 <p>処理が終わると、Githubのissueへの登録が完了です。</p>
 
-<p><img class="image_on_frame center" src="/images/blog/watson_issue_preview.png" title="githubのissueプレビュー" ></p>
+<p><img src="/images/blog/watson_issue_preview.png" alt="githubのissueプレビュー" /></p>
 
-<h2>まとめ</h2>
+<h2 id="まとめ">まとめ</h2>
 
 <p>watsonは先月ぐらいに注目され始めた新しいプロジェクトです。</p>
 
 <p>今後は、コメントを活用して様々な処理を行えるように拡張されると思うので、動向が楽しみですね。</p>
 
-<h3>watsonの現状</h3>
+<h3 id="watsonの現状">watsonの現状</h3>
 
 <ul>
-<li>Ruby初心者の人が作ったため、コードがよろしくない(PR中)</li>
-<li>今のところ対応している管理ツールは、githubとbitbucket。</li>
-<li>安定版に必要な機能が未実装。なので、新機能のPRがなかなか取り入れられない状況。数ヶ月待たないといけなさそう。</li>
-<li>対応しているファイルタイプがまだ少ない</li>
+  <li>Ruby初心者の人が作ったため、コードがよろしくない(PR中)</li>
+  <li>今のところ対応している管理ツールは、githubとbitbucket。</li>
+  <li>安定版に必要な機能が未実装。なので、新機能のPRがなかなか取り入れられない状況。数ヶ月待たないといけなさそう。</li>
+  <li>対応しているファイルタイプがまだ少ない</li>
 </ul>
-
 </section>
     
 
     
       
-  
-
 
 
 
@@ -359,7 +342,7 @@ class ApplicationController &lt; &hellip;">
   </div>
 
   <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/ruby/how-to-use-watson.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/ruby/how-to-use-watson.html" ></a>
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/ruby/how-to-use-watson.html" data-via="alpaca_tc" date-width="120" data-counturl="http://alpaca.tc/blog/ruby/how-to-use-watson.html" ></a>
   </div>
 </section>
 
@@ -403,13 +386,13 @@ class ApplicationController &lt; &hellip;">
     <h1>最新記事</h1>
     
       <article>
-        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
-        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
+        <time datetime="2020-12-18T17:21:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>18</span> <span class='year'>2020</span></time>
+        <h1><a href="/blog/ruby/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai.html">kamipoさんのアドバイスと拠点を跨いだ勉強会</a></h1>
       </article>
     
       <article>
-        <time datetime="2015-10-13T21:31:00+09:00" pubdate><span class='month'>Oct</span> <span class='day'>13</span> <span class='year'>2015</span></time>
-        <h1><a href="/blog/rails/create-share-link.html">シェアリンクの作り方</a></h1>
+        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
+        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
       </article>
     
   </div>
@@ -424,18 +407,18 @@ class ApplicationController &lt; &hellip;">
 
       
         <article>
+          <time datetime="2020-12-18T17:21:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>18</span> <span class='year'>2020</span></time>
+          <h1><a href="//blog/ruby/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai.html">kamipoさんのアドバイスと拠点を跨いだ勉強会</a></h1>
+        </article>
+      
+        <article>
           <time datetime="2014-02-18T20:52:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>18</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/ruby/i-have-almost-finished-implementing-comment-parser.html">Gemを書くときに知っておきたい3つの事</a></h1>
+          <h1><a href="//blog/ruby/i-have-almost-finished-implementing-comment-parser.html">Gemを書くときに知っておきたい3つの事</a></h1>
         </article>
       
         <article>
           <time datetime="2014-02-12T04:16:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>12</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/ruby/how-to-use-star.html">ここまで出来る！RubyのSplat Operatorまとめ</a></h1>
-        </article>
-      
-        <article>
-          <time datetime="2014-02-10T12:33:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>10</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/ruby/create-strip-comment.html">久しぶりにGemを書いている</a></h1>
+          <h1><a href="//blog/ruby/how-to-use-star.html">ここまで出来る！RubyのSplat Operatorまとめ</a></h1>
         </article>
       
 
@@ -454,7 +437,7 @@ class ApplicationController &lt; &hellip;">
   <h1>プロフィール</h1>
   <section>
     <figure class="image_wrapper">
-      <img src="//lh4.googleusercontent.com/-lhc7W4Ee-NA/UnDGui7U9RI/AAAAAAAAACI/F95WUPatw7k/w237-h240-no/1001417_394227377345843_948534762_n.jpg" alt="石井 浩之">
+      <img src="/images/common/profile.jpg" alt="石井 浩之">
       <figcaption>石井 浩之</figcaption>
     </figure>
 
@@ -480,7 +463,7 @@ class ApplicationController &lt; &hellip;">
 
 
   <section id="side_twitter_timeline_widget" class="sidebar_row">
-  <a class="twitter-timeline" href="https://twitter.com/alpaca_taichou" data-widget-id="395937677314232320">@alpaca_taichou からのツイート</a>
+  <a class="twitter-timeline" href="https://twitter.com/alpaca_tc" data-widget-id="395937677314232320">@alpaca_tc からのツイート</a>
 </section>
 
 </aside>
@@ -529,8 +512,8 @@ class ApplicationController &lt; &hellip;">
                     </a>
                   </li>
                   <li class="twitter">
-                    <a target="_blank" href="https://twitter.com/alpaca_taichou">
-                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_taichou">
+                    <a target="_blank" href="https://twitter.com/alpaca_tc">
+                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_tc">
                     </a>
                   </li>
                 </ul>

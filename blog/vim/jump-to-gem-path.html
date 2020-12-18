@@ -1,7 +1,5 @@
 
 
-  
-
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -10,7 +8,13 @@
     <title>Vim中級者を脱する path編 - RailsとRubyとVimのブログ</title>
     
     <meta name="description" content="はい、pathとは:set pathで出てくるやつのことです。
-実際にはみなさんgfやファイル補完などでお世話になっていると思います。 今回はpathとは何かを説明して、.rbファイルのクラスからGemの定義元へ飛ぶ方法をやってみましょう。 方法だけ知りたい人は、一番下までスクロールしてください &hellip;">
+実際にはみなさんgfやファイル補完などでお世話になっていると思います。
+
+今回はpathとは何かを説明して、.rbファイルのクラスからGemの定義元へ飛ぶ方法をやってみましょう。
+
+
+
+方法だけ知りたい人は、一番下までスクロールし...">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='Vim中級者を脱する path編 | RailsとRubyとVimのブログ' name='title' />
@@ -27,24 +31,35 @@
 <meta property="og:url" content="http://alpaca.tc/blog/vim/jump-to-gem-path.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
 <meta property="og:description" content="はい、pathとは:set pathで出てくるやつのことです。
-実際にはみなさんgfやファイル補完などでお世話になっていると思います。 今回はpathとは何かを説明して、.rbファイルのクラスからGemの定義元へ飛ぶ方法をやってみましょう。 方法だけ知りたい人は、一番下までスクロールしてください &hellip;" />
+実際にはみなさんgfやファイル補完などでお世話になっていると思います。
+
+今回はpathとは何かを説明して、.rbファイルのクラスからGemの定義元へ飛ぶ方法をやってみましょう。
+
+
+
+方法だけ知りたい人は、一番下までスクロールし..." />
 <meta property="fb:app_id" content="224701561024840" />
 
     <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vim中級者を脱する path編 | RailsとRubyとVimのブログ">
 <meta name="twitter:description" content="はい、pathとは:set pathで出てくるやつのことです。
-実際にはみなさんgfやファイル補完などでお世話になっていると思います。 今回はpathとは何かを説明して、.rbファイルのクラスからGemの定義元へ飛ぶ方法をやってみましょう。 方法だけ知りたい人は、一番下までスクロールしてください &hellip;">
+実際にはみなさんgfやファイル補完などでお世話になっていると思います。
+
+今回はpathとは何かを説明して、.rbファイルのクラスからGemの定義元へ飛ぶ方法をやってみましょう。
+
+
+
+方法だけ知りたい人は、一番下までスクロールし...">
 <meta name="twitter:image" content="https://http://alpaca.tc/images/meta/twitter.png">
-<meta name="twitter:site" content="@alpaca_taichou">
-<meta name="twitter:creator" content="@alpaca_taichou">
+<meta name="twitter:site" content="@alpaca_tc">
+<meta name="twitter:creator" content="@alpaca_tc">
 
 
     <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
 
     <script type="text/javascript">window._pt_lt = new Date().getTime();</script>
 
-    <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="/stylesheets/compression.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="/stylesheets/main.css" type="text/css" media="all"/>
     <meta name="google-site-verification" content="thSL3cUT7BV1-AENglRFIF-kv6I85JJ6_iUGAU8GaQI" />
 
     <!--[if lte IE 8]>
@@ -112,7 +127,7 @@
                   <a target="_blank" href="https://github.com/alpaca-tc">GitHub</a>
                 </li>
                 <li>
-                  <a target="_blank" href="https://twitter.com/alpaca_taichou">Twitter</a>
+                  <a target="_blank" href="https://twitter.com/alpaca_tc">Twitter</a>
                 </li>
               </ul>
             </nav>
@@ -132,7 +147,7 @@
   
 
   <span typeof="v:Breadcrumb">
-    <a href="" rel="v:url" property="v:title">
+    <a href="/" rel="v:url" property="v:title">
       Vim中級者を脱する path編
     </a>
   </span>
@@ -150,7 +165,7 @@
         <h1>
           
             
-              Vim中級者を脱する Path編
+              Vim中級者を脱する path編
           
         </h1>
       
@@ -167,14 +182,10 @@
 
 
 
-  
 
 
-
-<time datetime="2013-12-19T08:02:00+09:00" pubdate data-updated="true">Dec 19<span>th</span>, 2013</time>
+<time datetime="2013-12-19T08:02:00+09:00" pubdate data-updated="true"></time>
             
-  
-
 <span class="byline author">Posted by 石井浩之</span>
 
             
@@ -182,7 +193,7 @@
   <span class="categories">
     
       
-        <a class='category' href='/blog/vim/'>vim</a>
+        vim
       
     
   </span>
@@ -194,105 +205,91 @@
     </header>
 
     
-      <section class="entry-content"><p>はい、pathとは<code>:set path</code>で出てくるやつのことです。
-実際にはみなさん<code>gf</code>やファイル補完などでお世話になっていると思います。</p>
+      <section class="entry-content"><p>はい、pathとは<code class="language-plaintext highlighter-rouge">:set path</code>で出てくるやつのことです。
+実際にはみなさん<code class="language-plaintext highlighter-rouge">gf</code>やファイル補完などでお世話になっていると思います。</p>
 
 <p>今回はpathとは何かを説明して、.rbファイルのクラスからGemの定義元へ飛ぶ方法をやってみましょう。</p>
 
 <!-- more -->
 
-
 <p><strong>方法だけ知りたい人は、一番下までスクロールしてください</strong></p>
 
-<h1>pathとは？</h1>
+<h1 id="pathとは">pathとは？</h1>
 
-<p>Vimにおけるpathとは、<code>set path?</code>で出てくるpathです。</p>
+<p>Vimにおけるpathとは、<code class="language-plaintext highlighter-rouge">set path?</code>で出てくるpathです。</p>
 
 <p>適当にファイルを開いてコマンドを打ってみましょう。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>:set path?
-</span><span class='line'>path=.,/usr/include</span></code></pre></td></tr></table></div></figure>
-
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:set path?
+path=.,/usr/include
+</code></pre></div></div>
 
 <p>これを設定しておくことで何が嬉しいかというと、編集中の変数の定義元へ飛べたり、ファイルを検索出来たりします。つまるところ、Vimが<em>何かを探すときの基準になる</em>ディレクトリ達を指定することができます。</p>
 
 <p>補完プラグインや、Vimの基本機能などもpathに依存していることが多いため、裏側では結構活躍している設定でもあります。</p>
 
-<h2><code>gf</code>でGemの定義元に飛ぶ</h2>
+<h2 id="gfでgemの定義元に飛ぶ"><code class="language-plaintext highlighter-rouge">gf</code>でGemの定義元に飛ぶ</h2>
 
-<p><code>gf</code>は通常、カーソル</p>
+<p><code class="language-plaintext highlighter-rouge">gf</code>は通常、カーソル</p>
 
-<p>Rubyを編集する際、Vimのビルトインの<code>ftplugin/ruby.vim</code>が読み込まれ、<code>gf</code>が自動的に関数にマッピングされます。</p>
+<p>Rubyを編集する際、Vimのビルトインの<code class="language-plaintext highlighter-rouge">ftplugin/ruby.vim</code>が読み込まれ、<code class="language-plaintext highlighter-rouge">gf</code>が自動的に関数にマッピングされます。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>:set filetype=ruby
-</span><span class='line'>:nmap gf
-</span><span class='line'>n  gf          *@:&lt;C-U&gt;exe &lt;SNR&gt;121_gf(v:count1,"gf",'edit')&lt;CR&gt;</span></code></pre></td></tr></table></div></figure>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:set filetype=ruby
+:nmap gf
+n  gf          *@:&lt;C-U&gt;exe &lt;SNR&gt;121_gf(v:count1,"gf",'edit')&lt;CR&gt;
+</code></pre></div></div>
 
+<p>このおかげで、通常の<code class="language-plaintext highlighter-rouge">gf</code>が拡張されて幾つかのケースで<code class="language-plaintext highlighter-rouge">gf</code>が使えるようになります。(Rails.vimも同じ手法を使っていますね。)</p>
 
-<p>このおかげで、通常の<code>gf</code>が拡張されて幾つかのケースで<code>gf</code>が使えるようになります。(Rails.vimも同じ手法を使っていますね。)</p>
-
-<p>具体的には<code>require 'path/to/file'</code>やload, autoloadで書いたファイルパスへ飛ぶことができます。</p>
+<p>具体的には<code class="language-plaintext highlighter-rouge">require 'path/to/file'</code>やload, autoloadで書いたファイルパスへ飛ぶことができます。</p>
 
 <p>内部では拡張子を取り除いたり、ファイル名に不要な文字を変換したりしていますが、そのオプションについては、今回は割愛します。</p>
 
-<h3>pathにRubyのload_pathを追加する</h3>
+<h3 id="pathにrubyのload_pathを追加する">pathにRubyのload_pathを追加する</h3>
 
 <p>Rubyを編集中に、Gemの定義元へ移動する話をしましょう。</p>
 
-<p>まずRubyについて理解しておく必要があるのは、load_pathの仕組みです。Rubyは<code>require</code>などを使用したときに、指定されたファイルを<code>$LOAD_PATH</code>のディレクトリ一覧の中から探します。</p>
+<p>まずRubyについて理解しておく必要があるのは、load_pathの仕組みです。Rubyは<code class="language-plaintext highlighter-rouge">require</code>などを使用したときに、指定されたファイルを<code class="language-plaintext highlighter-rouge">$LOAD_PATH</code>のディレクトリ一覧の中から探します。</p>
 
 <p>下記のようなコマンドを打つことで、デフォルトの$LOAD_PATHを探すことができます。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">ruby</span> <span class="o">-</span><span class="n">e</span> <span class="s1">&#39;puts $LOAD_PATH&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ruby</span> <span class="o">-</span><span class="n">e</span> <span class="s1">'puts $LOAD_PATH'</span>
+</code></pre></div></div>
 
-
-<p>Gemfileを定義した場合、この$LOAD_PATHにそれらのGemの場所が追加されるので<code>require</code>で使うことがきるようになるんですね。</p>
+<p>Gemfileを定義した場合、この$LOAD_PATHにそれらのGemの場所が追加されるので<code class="language-plaintext highlighter-rouge">require</code>で使うことがきるようになるんですね。</p>
 
 <p>それでは、VimにもGemfileから取ってきたディレクトリ一覧を与えてやることで、定義元を探し出せるようにしましょう。</p>
 
-<h3>Gemfileからディレクトリ一覧を取り出す</h3>
+<h3 id="gemfileからディレクトリ一覧を取り出す">Gemfileからディレクトリ一覧を取り出す</h3>
 
-<p><code>bundle show --paths</code>を使うことで、一覧情報を取り出せます。</p>
+<p><code class="language-plaintext highlighter-rouge">bundle show --paths</code>を使うことで、一覧情報を取り出せます。</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="err">$</span> <span class="n">bundle</span> <span class="n">show</span> <span class="o">--</span><span class="n">paths</span>
-</span><span class='line'><span class="sr">/Users/</span><span class="n">alpaca</span><span class="o">-</span><span class="n">tc</span><span class="o">/.</span><span class="n">rbenv</span><span class="o">/</span><span class="n">versions</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">p247</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ruby</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="no">RedCloth</span><span class="o">-</span><span class="mi">4</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">9</span>
-</span><span class='line'><span class="o">/</span><span class="no">Users</span><span class="o">/</span><span class="n">alpaca</span><span class="o">-</span><span class="n">tc</span><span class="o">/.</span><span class="n">rbenv</span><span class="o">/</span><span class="n">versions</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">p247</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ruby</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="n">bundler</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="mi">3</span><span class="o">.</span><span class="mi">5</span>
-</span><span class='line'><span class="o">/</span><span class="no">Users</span><span class="o">/</span><span class="n">alpaca</span><span class="o">-</span><span class="n">tc</span><span class="o">/.</span><span class="n">rbenv</span><span class="o">/</span><span class="n">versions</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">p247</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">ruby</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="n">chunky_png</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">5</span>
-</span><span class='line'><span class="o">.</span><span class="n">.</span><span class="o">.</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle show --paths
+/Users/alpaca-tc/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/RedCloth-4.2.9
+/Users/alpaca-tc/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/bundler-1.3.5
+/Users/alpaca-tc/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/chunky_png-1.2.5
+...
+</code></pre></div></div>
 
+<p>この情報を<code class="language-plaintext highlighter-rouge">setl path=...</code>と与えてやれば、<code class="language-plaintext highlighter-rouge">gf</code>を使って定義元に飛べるようになります。</p>
 
-<p>この情報を<code>setl path=...</code>と与えてやれば、<code>gf</code>を使って定義元に飛べるようになります。</p>
-
-<h3><code>set path=</code>を使って定義する</h3>
+<h3 id="set-pathを使って定義する"><code class="language-plaintext highlighter-rouge">set path=</code>を使って定義する</h3>
 
 <p><a href="https://gist.github.com/8031905">こちらのスクリプト</a>をvimrcに貼付けましょう。<a href="https://github.com/vim-jp/vital.vim">vital.vim</a>依存です(unite.vim, neocompleteがあれば動作します)</p>
 
-<p>これで、GemPathを読み込む<code>:LoadGem</code>というコマンドが作られます。</p>
+<p>これで、GemPathを読み込む<code class="language-plaintext highlighter-rouge">:LoadGem</code>というコマンドが作られます。</p>
 
 <p>下記のような動作で定義元に飛べるのが確認できると思います。</p>
 
-<p><img class="image_on_frame center" src="/images/blog/jump-to-gem-path/hM4zx40RmT.gif" title="gemジャンプデモ" ></p>
+<p><img class="image_on_frame center" src="/images/blog/jump-to-gem-path/hM4zx40RmT.gif" alt="gemジャンプデモ" /></p>
 
 <p>無事動いていますね。</p>
 
-<h2>まとめ</h2>
+<h2 id="まとめ">まとめ</h2>
 
 <p>今回はpathについて、簡単に説明しました。</p>
 
-<p>次回は、pathを活用してさらに<code>include</code>, <code>includeexpr</code>あたりをやります。</p>
+<p>次回は、pathを活用してさらに<code class="language-plaintext highlighter-rouge">include</code>, <code class="language-plaintext highlighter-rouge">includeexpr</code>あたりをやります。</p>
 
 <p>この辺を勉強すると、自分の環境用にファイル補完を作り上げられます。 neocompleteのfile/includeあたりが書けるようになりますよ〜</p>
 </section>
@@ -300,8 +297,6 @@
 
     
       
-  
-
 
 
 
@@ -329,7 +324,7 @@ Vim中級者を脱する path編 | RailsとRubyとVimのブログRailsとRubyと
   </div>
 
   <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/jump-to-gem-path.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/vim/jump-to-gem-path.html" ></a>
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/jump-to-gem-path.html" data-via="alpaca_tc" date-width="120" data-counturl="http://alpaca.tc/blog/vim/jump-to-gem-path.html" ></a>
   </div>
 </section>
 
@@ -373,13 +368,13 @@ Vim中級者を脱する path編 | RailsとRubyとVimのブログRailsとRubyと
     <h1>最新記事</h1>
     
       <article>
-        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
-        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
+        <time datetime="2020-12-18T17:21:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>18</span> <span class='year'>2020</span></time>
+        <h1><a href="/blog/ruby/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai.html">kamipoさんのアドバイスと拠点を跨いだ勉強会</a></h1>
       </article>
     
       <article>
-        <time datetime="2015-10-13T21:31:00+09:00" pubdate><span class='month'>Oct</span> <span class='day'>13</span> <span class='year'>2015</span></time>
-        <h1><a href="/blog/rails/create-share-link.html">シェアリンクの作り方</a></h1>
+        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
+        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
       </article>
     
   </div>
@@ -395,17 +390,17 @@ Vim中級者を脱する path編 | RailsとRubyとVimのブログRailsとRubyと
       
         <article>
           <time datetime="2014-04-30T00:46:00+09:00" pubdate><span class='month'>Apr</span> <span class='day'>30</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/vim/alpaca-rails-support.html">Railsの補助プラグインを書いた</a></h1>
+          <h1><a href="//blog/vim/alpaca-rails-support.html">Railsの補助プラグインを書いた</a></h1>
         </article>
       
         <article>
           <time datetime="2014-01-11T13:25:00+09:00" pubdate><span class='month'>Jan</span> <span class='day'>11</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/vim/file-include-by-neocomplete.html">neocomplete.vimのfile_includeを使いこなす</a></h1>
+          <h1><a href="//blog/vim/file-include-by-neocomplete.html">neocomplete.vimのfile_includeを使いこなす</a></h1>
         </article>
       
         <article>
           <time datetime="2013-12-29T22:54:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>29</span> <span class='year'>2013</span></time>
-          <h1><a href="/blog/vim/vim-plugins-2013.html">2013年に作ったVimプラグイン達</a></h1>
+          <h1><a href="//blog/vim/vim-plugins-2013.html">2013年に作ったVimプラグイン達</a></h1>
         </article>
       
 
@@ -424,7 +419,7 @@ Vim中級者を脱する path編 | RailsとRubyとVimのブログRailsとRubyと
   <h1>プロフィール</h1>
   <section>
     <figure class="image_wrapper">
-      <img src="//lh4.googleusercontent.com/-lhc7W4Ee-NA/UnDGui7U9RI/AAAAAAAAACI/F95WUPatw7k/w237-h240-no/1001417_394227377345843_948534762_n.jpg" alt="石井 浩之">
+      <img src="/images/common/profile.jpg" alt="石井 浩之">
       <figcaption>石井 浩之</figcaption>
     </figure>
 
@@ -450,7 +445,7 @@ Vim中級者を脱する path編 | RailsとRubyとVimのブログRailsとRubyと
 
 
   <section id="side_twitter_timeline_widget" class="sidebar_row">
-  <a class="twitter-timeline" href="https://twitter.com/alpaca_taichou" data-widget-id="395937677314232320">@alpaca_taichou からのツイート</a>
+  <a class="twitter-timeline" href="https://twitter.com/alpaca_tc" data-widget-id="395937677314232320">@alpaca_tc からのツイート</a>
 </section>
 
 </aside>
@@ -499,8 +494,8 @@ Vim中級者を脱する path編 | RailsとRubyとVimのブログRailsとRubyと
                     </a>
                   </li>
                   <li class="twitter">
-                    <a target="_blank" href="https://twitter.com/alpaca_taichou">
-                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_taichou">
+                    <a target="_blank" href="https://twitter.com/alpaca_tc">
+                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_tc">
                     </a>
                   </li>
                 </ul>

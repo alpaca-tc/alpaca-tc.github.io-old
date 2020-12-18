@@ -1,7 +1,5 @@
 
 
-  
-
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -9,7 +7,20 @@
     <meta charset="UTF-8">
     <title>Railsの補助プラグインを書いた - RailsとRubyとVimのブログ</title>
     
-    <meta name="description" content="もうLocaleファイルに迷わない！ 休日を利用して、久しぶりにRails関連のVimScriptを書いたよ:) Railsとlocalesファイル きっかけは、とあるプロジェクトに立てられたIssueであった。 言語ファイルが大きすぎてどこを編集しているのか全く分からなくなる。 &hellip;">
+    <meta name="description" content="もうLocaleファイルに迷わない！
+
+
+
+休日を利用して、久しぶりにRails関連のVimScriptを書いたよ:)
+
+
+
+Railsとlocalesファイル
+
+きっかけは、とあるプロジェクトに立てられたIssueであった。
+
+
+  言語ファイルが大きすぎてどこを編集しているのか全く分からな...">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='Railsの補助プラグインを書いた | RailsとRubyとVimのブログ' name='title' />
@@ -25,23 +36,48 @@
 <meta property="og:type" content="blog"/>
 <meta property="og:url" content="http://alpaca.tc/blog/vim/alpaca-rails-support.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
-<meta property="og:description" content="もうLocaleファイルに迷わない！ 休日を利用して、久しぶりにRails関連のVimScriptを書いたよ:) Railsとlocalesファイル きっかけは、とあるプロジェクトに立てられたIssueであった。 言語ファイルが大きすぎてどこを編集しているのか全く分からなくなる。 &hellip;" />
+<meta property="og:description" content="もうLocaleファイルに迷わない！
+
+
+
+休日を利用して、久しぶりにRails関連のVimScriptを書いたよ:)
+
+
+
+Railsとlocalesファイル
+
+きっかけは、とあるプロジェクトに立てられたIssueであった。
+
+
+  言語ファイルが大きすぎてどこを編集しているのか全く分からな..." />
 <meta property="fb:app_id" content="224701561024840" />
 
     <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Railsの補助プラグインを書いた | RailsとRubyとVimのブログ">
-<meta name="twitter:description" content="もうLocaleファイルに迷わない！ 休日を利用して、久しぶりにRails関連のVimScriptを書いたよ:) Railsとlocalesファイル きっかけは、とあるプロジェクトに立てられたIssueであった。 言語ファイルが大きすぎてどこを編集しているのか全く分からなくなる。 &hellip;">
+<meta name="twitter:description" content="もうLocaleファイルに迷わない！
+
+
+
+休日を利用して、久しぶりにRails関連のVimScriptを書いたよ:)
+
+
+
+Railsとlocalesファイル
+
+きっかけは、とあるプロジェクトに立てられたIssueであった。
+
+
+  言語ファイルが大きすぎてどこを編集しているのか全く分からな...">
 <meta name="twitter:image" content="https://http://alpaca.tc/images/meta/twitter.png">
-<meta name="twitter:site" content="@alpaca_taichou">
-<meta name="twitter:creator" content="@alpaca_taichou">
+<meta name="twitter:site" content="@alpaca_tc">
+<meta name="twitter:creator" content="@alpaca_tc">
 
 
     <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
 
     <script type="text/javascript">window._pt_lt = new Date().getTime();</script>
 
-    <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="/stylesheets/compression.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="/stylesheets/main.css" type="text/css" media="all"/>
     <meta name="google-site-verification" content="thSL3cUT7BV1-AENglRFIF-kv6I85JJ6_iUGAU8GaQI" />
 
     <!--[if lte IE 8]>
@@ -109,7 +145,7 @@
                   <a target="_blank" href="https://github.com/alpaca-tc">GitHub</a>
                 </li>
                 <li>
-                  <a target="_blank" href="https://twitter.com/alpaca_taichou">Twitter</a>
+                  <a target="_blank" href="https://twitter.com/alpaca_tc">Twitter</a>
                 </li>
               </ul>
             </nav>
@@ -129,7 +165,7 @@
   
 
   <span typeof="v:Breadcrumb">
-    <a href="" rel="v:url" property="v:title">
+    <a href="/" rel="v:url" property="v:title">
       Railsの補助プラグインを書いた
     </a>
   </span>
@@ -164,14 +200,10 @@
 
 
 
-  
 
 
-
-<time datetime="2014-04-30T00:46:00+09:00" pubdate data-updated="true">Apr 30<span>th</span>, 2014</time>
+<time datetime="2014-04-30T00:46:00+09:00" pubdate data-updated="true"></time>
             
-  
-
 <span class="byline author">Posted by 石井浩之</span>
 
             
@@ -179,7 +211,7 @@
   <span class="categories">
     
       
-        <a class='category' href='/blog/vim/'>vim</a>
+        vim
       
     
   </span>
@@ -191,88 +223,87 @@
     </header>
 
     
-      <section class="entry-content"><h1>もうLocaleファイルに迷わない！</h1>
+      <section class="entry-content"><h1 id="もうlocaleファイルに迷わない">もうLocaleファイルに迷わない！</h1>
 
-<p><img class="image_on_frame center" src="/images/blog/alpaca-rails-support/screen_shot_1.png" title="screen_shot_1" ></p>
+<p><img class="image_on_frame center" src="/images/blog/alpaca-rails-support/screen_shot_1.png" alt="screen_shot_1" /></p>
 
 <p>休日を利用して、久しぶりにRails関連のVimScriptを書いたよ:)</p>
 
 <!-- more -->
 
-
-<h2>Railsとlocalesファイル</h2>
+<h2 id="railsとlocalesファイル">Railsとlocalesファイル</h2>
 
 <p>きっかけは、とあるプロジェクトに立てられたIssueであった。</p>
 
-<blockquote><p><strong>言語ファイルが大きすぎてどこを編集しているのか全く分からなくなる。</strong><br/>
+<blockquote>
+  <p><strong>言語ファイルが大きすぎてどこを編集しているのか全く分からなくなる。</strong><br />
 <strong>もはや人が書くようなファイルじゃない。</strong></p>
 
-<p>便利なエディタがあるならエディタに頼ってもいいけどざっと探した感じ見つけられなかったので、いい解決方法があれば教えて欲しいです。</p></blockquote>
+  <p>便利なエディタがあるならエディタに頼ってもいいけどざっと探した感じ見つけられなかったので、いい解決方法があれば教えて欲しいです。</p>
+</blockquote>
 
-<p>おっしゃる通り、懸念すべき事項である。<br/>
+<p>おっしゃる通り、懸念すべき事項である。<br />
 多国籍に対応したプロジェクトをRailsで作った経験があると分かるが、気をつけていても<strong>localesはカオス</strong>になってしまう。</p>
 
 <p>しかし、次の発言で少し様相が変わる。</p>
 
-<p><img class="image_on_frame center" src="/images/blog/alpaca-rails-support/screen_shot_3.png" title="issue" ></p>
+<p><img class="image_on_frame center" src="/images/blog/alpaca-rails-support/screen_shot_3.png" alt="issue" /></p>
 
-<p><strong>SublimeText2が有力&hellip;だと？</strong></p>
+<p><strong>SublimeText2が有力…だと？</strong></p>
 
 <p><del>何を寝ぼけたこt</del></p>
 
 <p>alpaca-tcはVimの人である。Vimで解決しんぜよう。</p>
 
-<h2>Railsの補助プラグイン</h2>
+<h2 id="railsの補助プラグイン">Railsの補助プラグイン</h2>
 
-<p>丁度、僕も今Railsで開発をしている。<br/>
+<p>丁度、僕も今Railsで開発をしている。<br />
 痒いところが幾つかあったので、休日に孫の手を作ることにした。</p>
 
 <p><strong><a href="https://github.com/alpaca-tc/alpaca_rails_support">Alpaca Rails Support</a></strong></p>
 
 <p>といっても、時間があまり無かったので<strong>3つの簡素な機能</strong>でまとめた。</p>
 
-<h3>I18nの探索</h3>
+<h3 id="i18nの探索">I18nの探索</h3>
 
-<p>本題の機能である「localesの編集をサポートする」プラグインである。<br/>
+<p>本題の機能である「localesの編集をサポートする」プラグインである。<br />
 キーを探索して、Uniteにぶち込んでくれる。</p>
 
-<p><img class="image_on_frame center" src="/images/blog/alpaca-rails-support/screen_shot_4.png" title="Find_local" ></p>
+<p><img class="image_on_frame center" src="/images/blog/alpaca-rails-support/screen_shot_4.png" alt="Find_local" /></p>
 
 <p>探索は少し荒いので、Yamlをキレイに書いていなければ動かない。</p>
 
-<h3>Routesの補完</h3>
+<h3 id="routesの補完">Routesの補完</h3>
 
-<p>個人的に一番欲しかった機能である<br/>
+<p>個人的に一番欲しかった機能である<br />
 たかだかRoutesのスペルミスで、BetterErrorsと挨拶したくない。</p>
 
-<p><img class="image_on_frame center" src="https://raw.githubusercontent.com/alpaca-tc/alpaca_rails_support/master/assets/routes_completion.png" title="reoute補完" ></p>
+<p><img class="image_on_frame center" src="https://raw.githubusercontent.com/alpaca-tc/alpaca_rails_support/master/assets/routes_completion.png" alt="reoute補完" /></p>
 
-<p>ようやく<code>rake routes | grep ...</code>の地獄から解放されるヾ(*´∀｀*)ﾉ</p>
+<p>ようやく<code class="language-plaintext highlighter-rouge">rake routes | grep ...</code>の地獄から解放されるヾ(*´∀｀*)ﾉ</p>
 
-<h3>I18nのプレビュー</h3>
+<h3 id="i18nのプレビュー">I18nのプレビュー</h3>
 
 <p>特に必要は無かったけれど、思いついてしまったので作った。</p>
 
-<p><img class="image_on_frame center" src="https://raw.githubusercontent.com/alpaca-tc/alpaca_rails_support/master/assets/preview_locales.gif" title="preview" ></p>
+<p><img class="image_on_frame center" src="https://raw.githubusercontent.com/alpaca-tc/alpaca_rails_support/master/assets/preview_locales.gif" alt="preview" /></p>
 
 <p><strong>( ﾟ∀ﾟ)o彡ﾟギミックかっけー！</strong></p>
 
-<p>vim-easy-motionやvim-overと同じ方法を取り入れていて<br/>
-<code>while 1</code>と<code>getchar()</code>の組み合わせでkeypressを補足している。</p>
+<p>vim-easy-motionやvim-overと同じ方法を取り入れていて<br />
+<code class="language-plaintext highlighter-rouge">while 1</code>と<code class="language-plaintext highlighter-rouge">getchar()</code>の組み合わせでkeypressを補足している。</p>
 
 <p>新鮮な方法だったので、一番気に入っている。</p>
 
-<h2>今後</h2>
+<h2 id="今後">今後</h2>
 
-<p>もう少ししたら、オンラインのlocales探索アルゴリズムを実装しようと思っている。<br/>
+<p>もう少ししたら、オンラインのlocales探索アルゴリズムを実装しようと思っている。<br />
 VimScriptでアルゴリズムらしい手法を使ったことは無いので、楽しみである。</p>
 </section>
     
 
     
       
-  
-
 
 
 
@@ -300,7 +331,7 @@ Railsの補助プラグインを書いた | RailsとRubyとVimのブログRails�
   </div>
 
   <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/alpaca-rails-support.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/vim/alpaca-rails-support.html" ></a>
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/alpaca-rails-support.html" data-via="alpaca_tc" date-width="120" data-counturl="http://alpaca.tc/blog/vim/alpaca-rails-support.html" ></a>
   </div>
 </section>
 
@@ -344,13 +375,13 @@ Railsの補助プラグインを書いた | RailsとRubyとVimのブログRails�
     <h1>最新記事</h1>
     
       <article>
-        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
-        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
+        <time datetime="2020-12-18T17:21:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>18</span> <span class='year'>2020</span></time>
+        <h1><a href="/blog/ruby/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai.html">kamipoさんのアドバイスと拠点を跨いだ勉強会</a></h1>
       </article>
     
       <article>
-        <time datetime="2015-10-13T21:31:00+09:00" pubdate><span class='month'>Oct</span> <span class='day'>13</span> <span class='year'>2015</span></time>
-        <h1><a href="/blog/rails/create-share-link.html">シェアリンクの作り方</a></h1>
+        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
+        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
       </article>
     
   </div>
@@ -366,17 +397,17 @@ Railsの補助プラグインを書いた | RailsとRubyとVimのブログRails�
       
         <article>
           <time datetime="2014-04-30T00:46:00+09:00" pubdate><span class='month'>Apr</span> <span class='day'>30</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/vim/alpaca-rails-support.html">Railsの補助プラグインを書いた</a></h1>
+          <h1><a href="//blog/vim/alpaca-rails-support.html">Railsの補助プラグインを書いた</a></h1>
         </article>
       
         <article>
           <time datetime="2014-01-11T13:25:00+09:00" pubdate><span class='month'>Jan</span> <span class='day'>11</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/vim/file-include-by-neocomplete.html">neocomplete.vimのfile_includeを使いこなす</a></h1>
+          <h1><a href="//blog/vim/file-include-by-neocomplete.html">neocomplete.vimのfile_includeを使いこなす</a></h1>
         </article>
       
         <article>
           <time datetime="2013-12-29T22:54:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>29</span> <span class='year'>2013</span></time>
-          <h1><a href="/blog/vim/vim-plugins-2013.html">2013年に作ったVimプラグイン達</a></h1>
+          <h1><a href="//blog/vim/vim-plugins-2013.html">2013年に作ったVimプラグイン達</a></h1>
         </article>
       
 
@@ -395,7 +426,7 @@ Railsの補助プラグインを書いた | RailsとRubyとVimのブログRails�
   <h1>プロフィール</h1>
   <section>
     <figure class="image_wrapper">
-      <img src="//lh4.googleusercontent.com/-lhc7W4Ee-NA/UnDGui7U9RI/AAAAAAAAACI/F95WUPatw7k/w237-h240-no/1001417_394227377345843_948534762_n.jpg" alt="石井 浩之">
+      <img src="/images/common/profile.jpg" alt="石井 浩之">
       <figcaption>石井 浩之</figcaption>
     </figure>
 
@@ -421,7 +452,7 @@ Railsの補助プラグインを書いた | RailsとRubyとVimのブログRails�
 
 
   <section id="side_twitter_timeline_widget" class="sidebar_row">
-  <a class="twitter-timeline" href="https://twitter.com/alpaca_taichou" data-widget-id="395937677314232320">@alpaca_taichou からのツイート</a>
+  <a class="twitter-timeline" href="https://twitter.com/alpaca_tc" data-widget-id="395937677314232320">@alpaca_tc からのツイート</a>
 </section>
 
 </aside>
@@ -470,8 +501,8 @@ Railsの補助プラグインを書いた | RailsとRubyとVimのブログRails�
                     </a>
                   </li>
                   <li class="twitter">
-                    <a target="_blank" href="https://twitter.com/alpaca_taichou">
-                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_taichou">
+                    <a target="_blank" href="https://twitter.com/alpaca_tc">
+                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_tc">
                     </a>
                   </li>
                 </ul>

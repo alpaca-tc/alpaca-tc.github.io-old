@@ -1,7 +1,5 @@
 
 
-  
-
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -9,7 +7,11 @@
     <meta charset="UTF-8">
     <title>仕事が捗る！VimからGitを使う最適解 - RailsとRubyとVimのブログ</title>
     
-    <meta name="description" content="先日の記事でもチラッと出てきたvim-unite-gitiというプラグインがあります。 ものすごーーーく便利なプラグインなんですが、何故かほとんど話を聞かないプラグインです。 先日の記事でも、git系のプラグインは「知らなかった」という話を沢山聞きました。せっかくなので使い方を紹介します。 &hellip;">
+    <meta name="description" content="先日の記事でもチラッと出てきたvim-unite-gitiというプラグインがあります。
+
+ものすごーーーく便利なプラグインなんですが、何故かほとんど話を聞かないプラグインです。
+
+先日の記事でも、git系のプラグインは「知らなかった」という話を沢山聞きました。せっかくなので使い方を紹介します。...">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='仕事が捗る！VimからGitを使う最適解 | RailsとRubyとVimのブログ' name='title' />
@@ -25,23 +27,30 @@
 <meta property="og:type" content="blog"/>
 <meta property="og:url" content="http://alpaca.tc/blog/vim/how-to-use-vim-unite-giti.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
-<meta property="og:description" content="先日の記事でもチラッと出てきたvim-unite-gitiというプラグインがあります。 ものすごーーーく便利なプラグインなんですが、何故かほとんど話を聞かないプラグインです。 先日の記事でも、git系のプラグインは「知らなかった」という話を沢山聞きました。せっかくなので使い方を紹介します。 &hellip;" />
+<meta property="og:description" content="先日の記事でもチラッと出てきたvim-unite-gitiというプラグインがあります。
+
+ものすごーーーく便利なプラグインなんですが、何故かほとんど話を聞かないプラグインです。
+
+先日の記事でも、git系のプラグインは「知らなかった」という話を沢山聞きました。せっかくなので使い方を紹介します。..." />
 <meta property="fb:app_id" content="224701561024840" />
 
     <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="仕事が捗る！VimからGitを使う最適解 | RailsとRubyとVimのブログ">
-<meta name="twitter:description" content="先日の記事でもチラッと出てきたvim-unite-gitiというプラグインがあります。 ものすごーーーく便利なプラグインなんですが、何故かほとんど話を聞かないプラグインです。 先日の記事でも、git系のプラグインは「知らなかった」という話を沢山聞きました。せっかくなので使い方を紹介します。 &hellip;">
+<meta name="twitter:description" content="先日の記事でもチラッと出てきたvim-unite-gitiというプラグインがあります。
+
+ものすごーーーく便利なプラグインなんですが、何故かほとんど話を聞かないプラグインです。
+
+先日の記事でも、git系のプラグインは「知らなかった」という話を沢山聞きました。せっかくなので使い方を紹介します。...">
 <meta name="twitter:image" content="https://http://alpaca.tc/images/meta/twitter.png">
-<meta name="twitter:site" content="@alpaca_taichou">
-<meta name="twitter:creator" content="@alpaca_taichou">
+<meta name="twitter:site" content="@alpaca_tc">
+<meta name="twitter:creator" content="@alpaca_tc">
 
 
     <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
 
     <script type="text/javascript">window._pt_lt = new Date().getTime();</script>
 
-    <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="/stylesheets/compression.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="/stylesheets/main.css" type="text/css" media="all"/>
     <meta name="google-site-verification" content="thSL3cUT7BV1-AENglRFIF-kv6I85JJ6_iUGAU8GaQI" />
 
     <!--[if lte IE 8]>
@@ -109,7 +118,7 @@
                   <a target="_blank" href="https://github.com/alpaca-tc">GitHub</a>
                 </li>
                 <li>
-                  <a target="_blank" href="https://twitter.com/alpaca_taichou">Twitter</a>
+                  <a target="_blank" href="https://twitter.com/alpaca_tc">Twitter</a>
                 </li>
               </ul>
             </nav>
@@ -129,7 +138,7 @@
   
 
   <span typeof="v:Breadcrumb">
-    <a href="" rel="v:url" property="v:title">
+    <a href="/" rel="v:url" property="v:title">
       仕事が捗る！VimからGitを使う最適解
     </a>
   </span>
@@ -164,14 +173,10 @@
 
 
 
-  
 
 
-
-<time datetime="2013-12-17T23:36:00+09:00" pubdate data-updated="true">Dec 17<span>th</span>, 2013</time>
+<time datetime="2013-12-17T23:36:00+09:00" pubdate data-updated="true"></time>
             
-  
-
 <span class="byline author">Posted by 石井浩之</span>
 
             
@@ -179,7 +184,7 @@
   <span class="categories">
     
       
-        <a class='category' href='/blog/vim/'>vim</a>
+        vim
       
     
   </span>
@@ -199,60 +204,57 @@
 
 <!-- more -->
 
-
-<h2>今回紹介するのはvim-unite-giti!!</h2>
+<h2 id="今回紹介するのはvim-unite-giti">今回紹介するのはvim-unite-giti!!</h2>
 
 <p>何はともあれ、<strong>まずは動画をみてくれ。</strong></p>
 
-<iframe width="560" height="420" src="https://www.youtube.com/embed/jCgcpIO9oBs?color=white&theme=light"></iframe>
-
+<iframe src="https://www.youtube.com/embed/jCgcpIO9oBs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 
 <p>とにかく、uniteインターフェースは操作を覚えることが少ない。</p>
 
 <p>今回も、幾つかのUniteコマンドを使っているけれど、基本的に「選択」→「アクション」の動作しかない。</p>
 
-<h3>:Unite giti/status</h3>
+<h3 id="unite-gitistatus">:Unite giti/status</h3>
 
 <p>add, unstage, checkoutなどの操作が簡単ですね</p>
 
 <p>conflictがあれば、すぐ見れます。「選択」→「commitアクション」と進めば、指定したファイルだけのコミットもお手軽に作れます(!!)</p>
 
-<h3>:Unite giti/branch</h3>
+<h3 id="unite-gitibranch">:Unite giti/branch</h3>
 
 <p>tracking, chckout, deleteなどの操作が簡単ですね。</p>
 
 <p>branchを切るのにわざわざShellを使うなんて。あなた、Vimと触れ合う時間が減ってしまうではないですか。</p>
 
-<h3>:Unite giti/log</h3>
+<h3 id="unite-gitilog">:Unite giti/log</h3>
 
 <p>紹介していませんが、普通に便利です。vimdiffなどを見る事も簡単です。</p>
 
-<h2>vim-unite-giti以外のプラグイン</h2>
+<h2 id="vim-unite-giti以外のプラグイン">vim-unite-giti以外のプラグイン</h2>
 
-<h3><em>git-vim</em> :GitDiff, :Git push</h3>
+<h3 id="git-vim-gitdiff-git-push"><em>git-vim</em> :GitDiff, :Git push</h3>
 
 <p>こちらは、特に驚きはないので初めて使う人以外は見なくてもいいです。</p>
 
-<iframe width="560" height="420" src="https://www.youtube.com/embed/wWI3Wb-0Vw4?color=white&theme=light"></iframe>
-
+<iframe src="https://www.youtube.com/embed/wWI3Wb-0Vw4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 
 <p>言わずもがな、コマンド名の通りです。</p>
 
 <p>git-vimを使って何がうれしいかと言うと、それなりに補完ができる点です。</p>
 
-<h3><em>fugitive</em> :Gcommit, :Gblame</h3>
+<h3 id="fugitive-gcommit-gblame"><em>fugitive</em> :Gcommit, :Gblame</h3>
 
 <p>すでに語り尽くされているので、ここでは取り上げません。</p>
 
 <p>他のプラグインにもにたようなコマンドがありますが、色付きなのと、機能性が優れているのでfugitiveがおすすめです。</p>
 
-<h2>vimrc</h2>
+<h2 id="vimrc">vimrc</h2>
 
 <p>今回の動画で使用したvimrcと同じような設定です</p>
 
 <p><a href="https://gist.github.com/qickstarter/8008989">vimrc Gist</a></p>
 
-<h2>まとめ</h2>
+<h2 id="まとめ">まとめ</h2>
 
 <p>ujihisaさんに憧れてのYoutube記事です。笑</p>
 
@@ -261,13 +263,12 @@
 <p>今までで読んできた中で、<em>一番奇麗なVimLのコード</em>でした。ほどよい抽象化、適切な命名、整理されたファイル達。率直に、この人と一緒に仕事出来る人は幸せだろうなぁと感じました。</p>
 
 <p>vim-unite-gitiを作ってくださって感謝します。</p>
+
 </section>
     
 
     
       
-  
-
 
 
 
@@ -295,7 +296,7 @@
   </div>
 
   <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/how-to-use-vim-unite-giti.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/vim/how-to-use-vim-unite-giti.html" ></a>
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/how-to-use-vim-unite-giti.html" data-via="alpaca_tc" date-width="120" data-counturl="http://alpaca.tc/blog/vim/how-to-use-vim-unite-giti.html" ></a>
   </div>
 </section>
 
@@ -339,13 +340,13 @@
     <h1>最新記事</h1>
     
       <article>
-        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
-        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
+        <time datetime="2020-12-18T17:21:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>18</span> <span class='year'>2020</span></time>
+        <h1><a href="/blog/ruby/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai.html">kamipoさんのアドバイスと拠点を跨いだ勉強会</a></h1>
       </article>
     
       <article>
-        <time datetime="2015-10-13T21:31:00+09:00" pubdate><span class='month'>Oct</span> <span class='day'>13</span> <span class='year'>2015</span></time>
-        <h1><a href="/blog/rails/create-share-link.html">シェアリンクの作り方</a></h1>
+        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
+        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
       </article>
     
   </div>
@@ -361,17 +362,17 @@
       
         <article>
           <time datetime="2014-04-30T00:46:00+09:00" pubdate><span class='month'>Apr</span> <span class='day'>30</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/vim/alpaca-rails-support.html">Railsの補助プラグインを書いた</a></h1>
+          <h1><a href="//blog/vim/alpaca-rails-support.html">Railsの補助プラグインを書いた</a></h1>
         </article>
       
         <article>
           <time datetime="2014-01-11T13:25:00+09:00" pubdate><span class='month'>Jan</span> <span class='day'>11</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/vim/file-include-by-neocomplete.html">neocomplete.vimのfile_includeを使いこなす</a></h1>
+          <h1><a href="//blog/vim/file-include-by-neocomplete.html">neocomplete.vimのfile_includeを使いこなす</a></h1>
         </article>
       
         <article>
           <time datetime="2013-12-29T22:54:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>29</span> <span class='year'>2013</span></time>
-          <h1><a href="/blog/vim/vim-plugins-2013.html">2013年に作ったVimプラグイン達</a></h1>
+          <h1><a href="//blog/vim/vim-plugins-2013.html">2013年に作ったVimプラグイン達</a></h1>
         </article>
       
 
@@ -390,7 +391,7 @@
   <h1>プロフィール</h1>
   <section>
     <figure class="image_wrapper">
-      <img src="//lh4.googleusercontent.com/-lhc7W4Ee-NA/UnDGui7U9RI/AAAAAAAAACI/F95WUPatw7k/w237-h240-no/1001417_394227377345843_948534762_n.jpg" alt="石井 浩之">
+      <img src="/images/common/profile.jpg" alt="石井 浩之">
       <figcaption>石井 浩之</figcaption>
     </figure>
 
@@ -416,7 +417,7 @@
 
 
   <section id="side_twitter_timeline_widget" class="sidebar_row">
-  <a class="twitter-timeline" href="https://twitter.com/alpaca_taichou" data-widget-id="395937677314232320">@alpaca_taichou からのツイート</a>
+  <a class="twitter-timeline" href="https://twitter.com/alpaca_tc" data-widget-id="395937677314232320">@alpaca_tc からのツイート</a>
 </section>
 
 </aside>
@@ -465,8 +466,8 @@
                     </a>
                   </li>
                   <li class="twitter">
-                    <a target="_blank" href="https://twitter.com/alpaca_taichou">
-                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_taichou">
+                    <a target="_blank" href="https://twitter.com/alpaca_tc">
+                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_tc">
                     </a>
                   </li>
                 </ul>

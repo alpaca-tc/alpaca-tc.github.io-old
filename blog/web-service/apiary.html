@@ -1,7 +1,5 @@
 
 
-  
-
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -9,7 +7,17 @@
     <meta charset="UTF-8">
     <title>APIのMockサーバーを構築する「Apiary」を使ってみる - RailsとRubyとVimのブログ</title>
     
-    <meta name="description" content="Apiaryは、美しいAPIのドキュメント(Mockサーバー)が作成できるWebサービスです. Apiaryの使いどころ 仕事を進める上で、APIの仕様が先に作られることは多々あります. 今関わっている案件でも、APIの仕様表だけ先に届いたので、Mockサーバーを立てて開発を進めることにしました &hellip;">
+    <meta name="description" content="
+
+Apiaryは、美しいAPIのドキュメント(Mockサーバー)が作成できるWebサービスです.
+
+
+
+Apiaryの使いどころ
+
+仕事を進める上で、APIの仕様が先に作られることは多々あります.
+
+今関わっている案件でも、APIの仕様表だけ先に届いたので、Mockサーバーを立てて開発を進め...">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='APIのMockサーバーを構築する「Apiary」を使ってみる | RailsとRubyとVimのブログ' name='title' />
@@ -25,23 +33,42 @@
 <meta property="og:type" content="blog"/>
 <meta property="og:url" content="http://alpaca.tc/blog/web-service/apiary.html"/>
 <meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
-<meta property="og:description" content="Apiaryは、美しいAPIのドキュメント(Mockサーバー)が作成できるWebサービスです. Apiaryの使いどころ 仕事を進める上で、APIの仕様が先に作られることは多々あります. 今関わっている案件でも、APIの仕様表だけ先に届いたので、Mockサーバーを立てて開発を進めることにしました &hellip;" />
+<meta property="og:description" content="
+
+Apiaryは、美しいAPIのドキュメント(Mockサーバー)が作成できるWebサービスです.
+
+
+
+Apiaryの使いどころ
+
+仕事を進める上で、APIの仕様が先に作られることは多々あります.
+
+今関わっている案件でも、APIの仕様表だけ先に届いたので、Mockサーバーを立てて開発を進め..." />
 <meta property="fb:app_id" content="224701561024840" />
 
     <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="APIのMockサーバーを構築する「Apiary」を使ってみる | RailsとRubyとVimのブログ">
-<meta name="twitter:description" content="Apiaryは、美しいAPIのドキュメント(Mockサーバー)が作成できるWebサービスです. Apiaryの使いどころ 仕事を進める上で、APIの仕様が先に作られることは多々あります. 今関わっている案件でも、APIの仕様表だけ先に届いたので、Mockサーバーを立てて開発を進めることにしました &hellip;">
+<meta name="twitter:description" content="
+
+Apiaryは、美しいAPIのドキュメント(Mockサーバー)が作成できるWebサービスです.
+
+
+
+Apiaryの使いどころ
+
+仕事を進める上で、APIの仕様が先に作られることは多々あります.
+
+今関わっている案件でも、APIの仕様表だけ先に届いたので、Mockサーバーを立てて開発を進め...">
 <meta name="twitter:image" content="https://http://alpaca.tc/images/meta/twitter.png">
-<meta name="twitter:site" content="@alpaca_taichou">
-<meta name="twitter:creator" content="@alpaca_taichou">
+<meta name="twitter:site" content="@alpaca_tc">
+<meta name="twitter:creator" content="@alpaca_tc">
 
 
     <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
 
     <script type="text/javascript">window._pt_lt = new Date().getTime();</script>
 
-    <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="/stylesheets/compression.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="/stylesheets/main.css" type="text/css" media="all"/>
     <meta name="google-site-verification" content="thSL3cUT7BV1-AENglRFIF-kv6I85JJ6_iUGAU8GaQI" />
 
     <!--[if lte IE 8]>
@@ -109,7 +136,7 @@
                   <a target="_blank" href="https://github.com/alpaca-tc">GitHub</a>
                 </li>
                 <li>
-                  <a target="_blank" href="https://twitter.com/alpaca_taichou">Twitter</a>
+                  <a target="_blank" href="https://twitter.com/alpaca_tc">Twitter</a>
                 </li>
               </ul>
             </nav>
@@ -129,7 +156,7 @@
   
 
   <span typeof="v:Breadcrumb">
-    <a href="" rel="v:url" property="v:title">
+    <a href="/" rel="v:url" property="v:title">
       APIのMockサーバーを構築する「Apiary」を使ってみる
     </a>
   </span>
@@ -164,14 +191,10 @@
 
 
 
-  
 
 
-
-<time datetime="2014-04-10T21:36:00+09:00" pubdate data-updated="true">Apr 10<span>th</span>, 2014</time>
+<time datetime="2014-04-10T21:36:00+09:00" pubdate data-updated="true"></time>
             
-  
-
 <span class="byline author">Posted by 石井浩之</span>
 
             
@@ -179,7 +202,7 @@
   <span class="categories">
     
       
-        <a class='category' href='/blog/web-service/'>web-service</a>
+        web-service
       
     
   </span>
@@ -191,55 +214,51 @@
     </header>
 
     
-      <section class="entry-content"><p><img class="image_on_frame center" src="/images/blog/apiary/apiary_top.png" title="apiary Build beautiful APIs" ></p>
+      <section class="entry-content"><p><img class="image_on_frame center" src="/images/blog/apiary/apiary_top.png" alt="apiary Build beautiful APIs" /></p>
 
 <p><a href="https://apiary.io/">Apiary</a>は、美しいAPIのドキュメント(Mockサーバー)が作成できるWebサービスです.</p>
 
 <!-- more -->
 
-
-<h2>Apiaryの使いどころ</h2>
+<h2 id="apiaryの使いどころ">Apiaryの使いどころ</h2>
 
 <p>仕事を進める上で、APIの仕様が先に作られることは多々あります.</p>
 
 <p>今関わっている案件でも、APIの仕様表だけ先に届いたので、Mockサーバーを立てて開発を進めることにしました.</p>
 
-<h2>ドキュメント(Mockサーバー)を作ってみる</h2>
+<h2 id="ドキュメントmockサーバーを作ってみる">ドキュメント(Mockサーバー)を作ってみる</h2>
 
 <p>Githubの連携でアカウントを作り、すぐにドキュメントの作成に取りかかれます.
 markdown(の拡張)でAPIの仕様を書けば、すぐにドキュメントが生成されます.</p>
 
-<p><img class="image_on_frame center" src="/images/blog/apiary/apiary_document.png" title="Apiary Document" ></p>
+<p><img class="image_on_frame center" src="/images/blog/apiary/apiary_document.png" alt="Apiary Document" /></p>
 
-<p><strong>う、美しい&hellip;</strong></p>
+<p><strong>う、美しい…</strong></p>
 
 <p>その上、Apiaryではドキュメントと同時に、そのドキュメントからMockサーバーを立ててくれます.</p>
 
 <p>今回は、デモとして簡単なアルパカAPIを実装しました.</p>
 
 <ul>
-<li><a href="https://docs.alpaca.apiary.io/">生成されたドキュメント</a></li>
+  <li><a href="https://docs.alpaca.apiary.io/">生成されたドキュメント</a></li>
 </ul>
-
 
 <p>10分ぐらいで作成完了.すばらしい！</p>
 
-<h2>レスポンスを見てみる</h2>
+<h2 id="レスポンスを見てみる">レスポンスを見てみる</h2>
 
-<p>作成されたAPIのMockサーバーは、<code>API名.apiary-mock.com</code>で見ることができます.</p>
+<p>作成されたAPIのMockサーバーは、<code class="language-plaintext highlighter-rouge">API名.apiary-mock.com</code>で見ることができます.</p>
 
-<p>さっそく<code>curl</code>でレスポンスを見てみよう</p>
+<p>さっそく<code class="language-plaintext highlighter-rouge">curl</code>でレスポンスを見てみよう</p>
 
-<p><code>$ curl https://alpaca.apiary-mock.com/hello</code></p>
+<p><code class="language-plaintext highlighter-rouge">$ curl https://alpaca.apiary-mock.com/hello</code></p>
 
-<p>ヽ(・∀・ )ﾉす&hellip;すげぇ便利！</p>
+<p>ヽ(・∀・ )ﾉす…すげぇ便利！</p>
 </section>
     
 
     
       
-  
-
 
 
 
@@ -267,7 +286,7 @@ APIのMockサーバーを構築する「Apiary」を使ってみる | RailsとRu
   </div>
 
   <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/web-service/apiary.html" data-via="alpaca_taichou" date-width="120" data-counturl="http://alpaca.tc/blog/web-service/apiary.html" ></a>
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/web-service/apiary.html" data-via="alpaca_tc" date-width="120" data-counturl="http://alpaca.tc/blog/web-service/apiary.html" ></a>
   </div>
 </section>
 
@@ -311,13 +330,13 @@ APIのMockサーバーを構築する「Apiary」を使ってみる | RailsとRu
     <h1>最新記事</h1>
     
       <article>
-        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
-        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
+        <time datetime="2020-12-18T17:21:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>18</span> <span class='year'>2020</span></time>
+        <h1><a href="/blog/ruby/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai.html">kamipoさんのアドバイスと拠点を跨いだ勉強会</a></h1>
       </article>
     
       <article>
-        <time datetime="2015-10-13T21:31:00+09:00" pubdate><span class='month'>Oct</span> <span class='day'>13</span> <span class='year'>2015</span></time>
-        <h1><a href="/blog/rails/create-share-link.html">シェアリンクの作り方</a></h1>
+        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
+        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
       </article>
     
   </div>
@@ -333,17 +352,7 @@ APIのMockサーバーを構築する「Apiary」を使ってみる | RailsとRu
       
         <article>
           <time datetime="2014-04-10T21:36:00+09:00" pubdate><span class='month'>Apr</span> <span class='day'>10</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/web-service/apiary.html">APIのMockサーバーを構築する「Apiary」を使ってみる</a></h1>
-        </article>
-      
-        <article>
-          <time datetime="2014-01-07T00:07:00+09:00" pubdate><span class='month'>Jan</span> <span class='day'>07</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/web-service/kayac-2014-otoshidama-2.html">カヤックのお年玉企画「お好き玉」の解説</a></h1>
-        </article>
-      
-        <article>
-          <time datetime="2014-01-01T18:24:00+09:00" pubdate><span class='month'>Jan</span> <span class='day'>01</span> <span class='year'>2014</span></time>
-          <h1><a href="/blog/web-service/kayac-2014-otoshidama.html">カヤックのお年玉企画がすげぇ！</a></h1>
+          <h1><a href="//blog/web-service/apiary.html">APIのMockサーバーを構築する「Apiary」を使ってみる</a></h1>
         </article>
       
 
@@ -362,7 +371,7 @@ APIのMockサーバーを構築する「Apiary」を使ってみる | RailsとRu
   <h1>プロフィール</h1>
   <section>
     <figure class="image_wrapper">
-      <img src="//lh4.googleusercontent.com/-lhc7W4Ee-NA/UnDGui7U9RI/AAAAAAAAACI/F95WUPatw7k/w237-h240-no/1001417_394227377345843_948534762_n.jpg" alt="石井 浩之">
+      <img src="/images/common/profile.jpg" alt="石井 浩之">
       <figcaption>石井 浩之</figcaption>
     </figure>
 
@@ -388,7 +397,7 @@ APIのMockサーバーを構築する「Apiary」を使ってみる | RailsとRu
 
 
   <section id="side_twitter_timeline_widget" class="sidebar_row">
-  <a class="twitter-timeline" href="https://twitter.com/alpaca_taichou" data-widget-id="395937677314232320">@alpaca_taichou からのツイート</a>
+  <a class="twitter-timeline" href="https://twitter.com/alpaca_tc" data-widget-id="395937677314232320">@alpaca_tc からのツイート</a>
 </section>
 
 </aside>
@@ -437,8 +446,8 @@ APIのMockサーバーを構築する「Apiary」を使ってみる | RailsとRu
                     </a>
                   </li>
                   <li class="twitter">
-                    <a target="_blank" href="https://twitter.com/alpaca_taichou">
-                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_taichou">
+                    <a target="_blank" href="https://twitter.com/alpaca_tc">
+                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_tc">
                     </a>
                   </li>
                 </ul>
