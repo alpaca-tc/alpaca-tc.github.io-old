@@ -20,8 +20,9 @@
           
             
               
-                octopressとセットで入れておきたいVimプラグインまとめ
-           ...">
+                Vim中級者を脱する augroup編
+              
+         ...">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='RailsとRubyとVimのブログ' name='title' />
@@ -50,8 +51,9 @@
           
             
               
-                octopressとセットで入れておきたいVimプラグインまとめ
-           ..." />
+                Vim中級者を脱する augroup編
+              
+         ..." />
 <meta property="fb:app_id" content="224701561024840" />
 
     <meta name="twitter:card" content="summary">
@@ -69,8 +71,9 @@
           
             
               
-                octopressとセットで入れておきたいVimプラグインまとめ
-           ...">
+                Vim中級者を脱する augroup編
+              
+         ...">
 <meta name="twitter:image" content="https://http://alpaca.tc/images/meta/twitter.png">
 <meta name="twitter:site" content="@alpaca_tc">
 <meta name="twitter:creator" content="@alpaca_tc">
@@ -105,6 +108,8 @@
 
 
 
+
+  <link rel="next" href="8">
 
 
 
@@ -159,6 +164,196 @@
               <div id="page_contents" class="inner">
                 <div id="index_contents" class="blog-index">
   
+  
+    
+    <div class="blog-articles">
+      <article class="post_row">
+  <div class="inner">
+    <header class="field-items">
+      
+        <h1>
+          
+            <a href="/blog/vim/break-vim-beginners-augroup.html">
+              
+                Vim中級者を脱する augroup編
+              
+            </a>
+          
+        </h1>
+      
+
+      
+        <section class="meta">
+          <div class="inner">
+            
+
+
+
+
+
+
+
+
+
+
+<time datetime="2013-11-02T02:30:00+09:00" pubdate data-updated="true"></time>
+            
+<span class="byline author">Posted by 石井浩之</span>
+
+            
+
+  <span class="categories">
+    
+      
+    
+  </span>
+
+
+          </div>
+        </section>
+      
+    </header>
+
+    
+      <section class="entry-content"><h2 id="augroup-autocmdを理解する">augroup, autocmdを理解する</h2>
+
+<p><strong>所要時間 3分</strong></p>
+
+<h3 id="この記事を読むべき人">この記事を読むべき人</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">augroup</code>を理解していない人</li>
+  <li><code class="language-plaintext highlighter-rouge">:source</code>コマンドを使う人</li>
+</ul>
+
+<!-- more -->
+
+<h2 id="そもそもautocmdって">そもそもautocmdって？</h2>
+
+<p>これは何をしているコマンドなのか分解してみましょう。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>autocmd BufNewFile * echo 'This is new file'
+</code></pre></div></div>
+
+<ol>
+  <li>autocmdのコマンドを開始しますよ</li>
+  <li><code class="language-plaintext highlighter-rouge">BufNewFile</code>というタイミングでこのコマンドを実行しますよ</li>
+  <li>全てのバッファで<code class="language-plaintext highlighter-rouge">echo 'This is new file'</code>を実行しますよ</li>
+</ol>
+
+<p>となります。</p>
+
+<p>このように、保存時や新規のファイルといったタイミングでコマンドを実行できます。</p>
+
+<h2 id="ではaugroupはなんのために存在するの">では、augroupはなんのために存在するの？</h2>
+
+<p><code class="language-plaintext highlighter-rouge">augroup</code>は、<code class="language-plaintext highlighter-rouge">autocmd</code>をグループでまとめるためのコマンドです。こんな感じて使われます。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>augroup EditNewFile
+  autocmd!
+  autocmd BufNewFile * echo 'This is new file'
+augroup END
+</code></pre></div></div>
+
+<p>例えば、<code class="language-plaintext highlighter-rouge">autocmd</code>が設定されているvimrcを、<code class="language-plaintext highlighter-rouge">:source ~/.vimrc</code>で再度読み込むとしましょう。</p>
+
+<p>するとどうなるかというと、通常は<strong><code class="language-plaintext highlighter-rouge">autocmd</code>が重複して2度設定されます</strong>
+当然、その<code class="language-plaintext highlighter-rouge">autocmd</code>が発火するときに2度実行されるので、実行が遅くなります。</p>
+
+<p>それを防ぐために<code class="language-plaintext highlighter-rouge">augroup</code>を使います。</p>
+
+<h2 id="ベストプラクティスは">ベストプラクティスは？</h2>
+
+<p>つまるところ、<code class="language-plaintext highlighter-rouge">augroup</code>は<code class="language-plaintext highlighter-rouge">autocmd</code>をまとめて初期化する場合に使用します。
+具体例を上げると、下記のような形になります。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>augroup MyAutoCmd
+  autocmd! " =&gt; このaugroupに紐づいたautocmdを消し去ります
+augroup END
+
+...
+
+augroup MyAutoCmd
+  autocmd BufNewFile * echo 'This is new file'
+  autocmd BufNewFile,BufRead *.haml setf haml
+augroup END
+</code></pre></div></div>
+
+<p>こうすることで、2重に設定されることのない設定になります。</p>
+
+<h2 id="もう一歩踏み込んでみる">もう一歩踏み込んでみる</h2>
+
+<p>autocmdの設定方法をVimのRuntimeから学んでみましょう。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:edit $VIMRUNTIME/filetype.vim
+</code></pre></div></div>
+
+<p>これはファイルタイプの定義を行っているファイルです。</p>
+
+<p>augroupが宣言されているので、一覧を<code class="language-plaintext highlighter-rouge">:autocmd filetypedetect</code>でみれることが分かります。</p>
+
+<p>驚くことに、もの凄い数のコマンドを実行してファイルタイプを設定していることが分かります。</p>
+
+<h3 id="ftdetectを知る">ftdetectを知る</h3>
+
+<p>filetype.vimにて<code class="language-plaintext highlighter-rouge">runtime! ftdetect/*.vim</code>と書かれており、<code class="language-plaintext highlighter-rouge">~/.vim/ftdetect/*</code>を読み込んでいることが分かります。</p>
+
+<p>つまり、ファイルタイプの設定は<code class="language-plaintext highlighter-rouge">ftdetect</code>以下で設定するのがベターとされています。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>" ~/.vim/ftdetect/coffee.vim
+autocmd BufNewFile,BufRead *.coffee    setf coffee
+</code></pre></div></div>
+
+<p>といった設定にて、ファイルタイプを検出できるようになります。
+<code class="language-plaintext highlighter-rouge">augroup filetypedetect</code>の宣言内なので、グループの宣言は不要です。</p>
+
+<h2 id="本日の脱vim中級者">本日の脱Vim中級者</h2>
+
+<p>vimrcでファイルタイプの検出をしている方は、<code class="language-plaintext highlighter-rouge">~/.vim/ftdetect</code>以下に設定を移してみましょう。</p>
+</section>
+      
+
+      
+    
+
+    
+      
+
+
+
+
+
+<section class="sharing clearfix">
+  <div class="button ft_like_button">
+    <div class="fb-like" data-href="http://alpaca.tc/blog/vim/break-vim-beginners-augroup.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
+  </div>
+
+  <div class="button ft_share_button">
+    <div class="fb-share-button" data-href="http://alpaca.tc/blog/vim/break-vim-beginners-augroup.html" data-type="button_count"></div>
+  </div>
+
+  <div class="button hatena_bookmark_button">
+    <a href="https://b.hatena.ne.jp/entry/http://alpaca.tc/blog/vim/break-vim-beginners-augroup.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
+Vim中級者を脱する augroup編 | RailsとRubyとVimのブログ 
+" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
+      <img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+    </a>
+  </div>
+
+  <div class="button google_plus_button_like">
+    <div data-annotation="none" data-href="http://alpaca.tc/blog/vim/break-vim-beginners-augroup.html" class="g-plusone" data-size="medium" ></div>
+  </div>
+
+  <div class="button twitter_button">
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/break-vim-beginners-augroup.html" data-via="alpaca_tc" date-width="120" data-counturl="http://alpaca.tc/blog/vim/break-vim-beginners-augroup.html" ></a>
+  </div>
+</section>
+
+    
+  </div>
+</article>
+
+    </div>
   
     
     <div class="blog-articles">
@@ -659,135 +854,6 @@ alpaca_octopressを作っている | RailsとRubyとVimのブログ
 
     </div>
   
-    
-    <div class="blog-articles">
-      <article class="post_row">
-  <div class="inner">
-    <header class="field-items">
-      
-        <h1>
-          
-            <a href="/blog/diary/start_blog.html">
-              
-                初めました
-              
-            </a>
-          
-        </h1>
-      
-
-      
-        <section class="meta">
-          <div class="inner">
-            
-
-
-
-
-
-
-
-
-
-
-<time datetime="2013-10-27T23:12:00+09:00" pubdate data-updated="true"></time>
-            
-<span class="byline author">Posted by 石井浩之</span>
-
-            
-
-  <span class="categories">
-    
-      
-    
-  </span>
-
-
-          </div>
-        </section>
-      
-    </header>
-
-    
-      <section class="entry-content"><p>記念すべき初カキコ。
-さて、技術ブログは今までQiitaを使っていましたが、そちらを辞めて自分のブログを作ることにしました。</p>
-
-<h2 id="乗り換える2つの理由">乗り換える2つの理由</h2>
-
-<!-- more -->
-
-<h3 id="1-qiitaは使いにくい">1. Qiitaは使いにくい</h3>
-
-<p>皆さんも薄々感じていると思いますが、QiitaのUIは使いにくいです。だってVimから出るんだもん。</p>
-
-<h3 id="2-seoで遊びたい">2. SEOで遊びたい</h3>
-
-<p>そろそろ、「アルパカ エンジニア」や幾つかのキーワードが欲しいです。</p>
-
-<h3 id="3-対外アピールできない">3. 対外アピールできない</h3>
-
-<p>Qiitaで見ても、「この人どんな人？」って分からないですよね。それは楽しくないし、勿体ない。</p>
-
-<p>なので、<strong>Vimで完結</strong> + <strong>アルパカなエンジニア</strong>をアピールするためにブログにしたいと思います。</p>
-
-<h2 id="octopress--vim">Octopress + Vim</h2>
-
-<p>Vimから記事を書いて、Vimからデプロイしてます。
-Octopressを簡単に操作できるように<a href="https://github.com/alpaca-tc/alpaca_octopress.vim">プラグイン</a>を作りました。
-あぁ、簡単でいいですね。</p>
-
-<p><code class="language-plaintext highlighter-rouge">:Octopress new_post 新しい記事の名前</code></p>
-
-<h2 id="アルパカなエンジニアを目指す">アルパカなエンジニアを目指す</h2>
-
-<p>しばらくの目標です。
-半年ぐらいで、「アルパカ + エンジニア」のキーワードで1位取れればなぁと思います。
-そして、HPのデザインもアルパカな感じにしていきます！</p>
-</section>
-      
-
-      
-    
-
-    
-      
-
-
-
-
-
-<section class="sharing clearfix">
-  <div class="button ft_like_button">
-    <div class="fb-like" data-href="http://alpaca.tc/blog/diary/start_blog.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
-  </div>
-
-  <div class="button ft_share_button">
-    <div class="fb-share-button" data-href="http://alpaca.tc/blog/diary/start_blog.html" data-type="button_count"></div>
-  </div>
-
-  <div class="button hatena_bookmark_button">
-    <a href="https://b.hatena.ne.jp/entry/http://alpaca.tc/blog/diary/start_blog.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
-初めました | RailsとRubyとVimのブログ 
-" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
-      <img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
-    </a>
-  </div>
-
-  <div class="button google_plus_button_like">
-    <div data-annotation="none" data-href="http://alpaca.tc/blog/diary/start_blog.html" class="g-plusone" data-size="medium" ></div>
-  </div>
-
-  <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/diary/start_blog.html" data-via="alpaca_tc" date-width="120" data-counturl="http://alpaca.tc/blog/diary/start_blog.html" ></a>
-  </div>
-</section>
-
-    
-  </div>
-</article>
-
-    </div>
-  
 
   <div class="pagination">
     
@@ -836,7 +902,16 @@ Octopressを簡単に操作できるように<a href="https://github.com/alpaca-
         <a class="paging_number current" href="/blog/page/7/">7</a>
       
     
+      
+      
+      
+      
+        <a class="paging_number " href="/blog/page/8/">8</a>
+      
+    
 
+    
+      <a data-label="次" class="paging_number next" href="/blog/page/8/">次の記事へ &rarr;</a>
     
   </div>
 
@@ -866,13 +941,13 @@ Octopressを簡単に操作できるように<a href="https://github.com/alpaca-
     <h1>最新記事</h1>
     
       <article>
-        <time datetime="2020-12-18T17:21:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>18</span> <span class='year'>2020</span></time>
-        <h1><a href="/blog/ruby/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai.html">kamipoさんのアドバイスと拠点を跨いだ勉強会</a></h1>
+        <time datetime="2020-12-21T17:21:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>21</span> <span class='year'>2020</span></time>
+        <h1><a href="/blog/rust/rust-advent-calendar.html">Rustでブラウザからバイナリをパースする</a></h1>
       </article>
     
       <article>
-        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
-        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
+        <time datetime="2020-12-18T17:21:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>18</span> <span class='year'>2020</span></time>
+        <h1><a href="/blog/ruby/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai.html">kamipoさんのアドバイスと拠点を跨いだ勉強会</a></h1>
       </article>
     
   </div>

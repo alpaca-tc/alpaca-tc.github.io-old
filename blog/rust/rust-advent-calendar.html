@@ -1,0 +1,696 @@
+
+
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>Rustでブラウザからバイナリをパースする - RailsとRubyとVimのブログ</title>
+    
+    <meta name="description" content="この記事はRust Advent Calendar 2020 21日目の記事です。
+
+お仕事のメインはRuby/TypeScriptを使っていますが、新しいことを学びたいなーと思って、Rustを勉強し始めてみました。
+今回はWebAssemblyを使って、ブラウザからバイナリファイルをパースす...">
+    
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+    <meta content='Rustでブラウザからバイナリをパースする | RailsとRubyとVimのブログ' name='title' />
+
+    
+  <link rel="author" href="https://plus.google.com/105581201951227096827" />
+  <link rel="publisher" href="https://plus.google.com/105581201951227096827" />
+
+
+    <meta property="og:title" content='Rustでブラウザからバイナリをパースする' />
+<meta property="og:locale" content="ja_JP"/>
+<meta property="og:image" content="https://alpaca.tc/images/common/profile.jpg"/>
+<meta property="og:type" content="blog"/>
+<meta property="og:url" content="http://alpaca.tc/blog/rust/rust-advent-calendar.html"/>
+<meta property="og:site_name" content="RailsとRubyとVimのブログ"/>
+<meta property="og:description" content="この記事はRust Advent Calendar 2020 21日目の記事です。
+
+お仕事のメインはRuby/TypeScriptを使っていますが、新しいことを学びたいなーと思って、Rustを勉強し始めてみました。
+今回はWebAssemblyを使って、ブラウザからバイナリファイルをパースす..." />
+<meta property="fb:app_id" content="224701561024840" />
+
+    <meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Rustでブラウザからバイナリをパースする | RailsとRubyとVimのブログ">
+<meta name="twitter:description" content="この記事はRust Advent Calendar 2020 21日目の記事です。
+
+お仕事のメインはRuby/TypeScriptを使っていますが、新しいことを学びたいなーと思って、Rustを勉強し始めてみました。
+今回はWebAssemblyを使って、ブラウザからバイナリファイルをパースす...">
+<meta name="twitter:image" content="https://http://alpaca.tc/images/meta/twitter.png">
+<meta name="twitter:site" content="@alpaca_tc">
+<meta name="twitter:creator" content="@alpaca_tc">
+
+
+    <link rel="shortcut icon" href="/images/common/favicon.ico" type="image/x-icon">
+
+    <script type="text/javascript">window._pt_lt = new Date().getTime();</script>
+
+    <link rel="stylesheet" href="/stylesheets/main.css" type="text/css" media="all"/>
+    <meta name="google-site-verification" content="thSL3cUT7BV1-AENglRFIF-kv6I85JJ6_iUGAU8GaQI" />
+
+    <!--[if lte IE 8]>
+      <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- [todo] - あとで修正するよー -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    
+  <script>
+    var _gaq = _gaq || [];
+    _gaq.push(['_require', 'inpage_linkid', '//www.google-analytics.com/plugins/ga/inpage_linkid.js']);
+    _gaq.push(['_setAccount', 'UA-44082439-2']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://' : 'https://') + 'stats.g.doubleclick.net/dc.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <link rel="prev" href="/blog/ruby/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai.html">
+
+
+
+
+
+  </head>
+  <div id="fb-root"></div>
+
+  <body id="post_contents">
+    <div id="header_top" class="outer_envelope">
+      <header>        <div class="inner_wrapper clearfix">
+          <div class="inner clearfix">
+            <div id="logo">
+              
+                <h1>
+                  <a href="/" rel="v:url" property="v:title">
+                    RailsとRubyとVimのブログ
+                  </a>
+                </h1>
+              
+            </div>
+
+            <nav id="header_nav">
+              <ul class="clearfix">
+                <li>
+                  <a href="/about_me">About Me</a>
+                </li>
+                <li>
+                  <a href="/">Blog</a>
+                </li>
+                <li>
+                  <a href="/works/">Works</a>
+                </li>
+                <li>
+                  <a target="_blank" href="https://github.com/alpaca-tc">GitHub</a>
+                </li>
+                <li>
+                  <a target="_blank" href="https://twitter.com/alpaca_tc">Twitter</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+</header>
+
+      <div id="main_contents">
+        <div class="inner_wrapper">
+          <div id="breadcrumb" xmlns:v="https://rdf.data-vocabulary.org/#">
+  
+    <span typeof="v:Breadcrumb">
+      <a href="/blog/rust/" rel="v:url" property="v:title">
+        rust
+      </a> ›
+    </span>
+  
+
+  <span typeof="v:Breadcrumb">
+    <a href="/" rel="v:url" property="v:title">
+      Rustでブラウザからバイナリをパースする
+    </a>
+  </span>
+</div>
+
+
+
+          <div class="inner">
+            <div class="clearfix">
+              <div class="left_page inner_wrapper">
+                <article class="post_row">
+  <div class="inner">
+    <header class="field-items">
+      
+        <h1>
+          
+            
+              Rustでブラウザからバイナリをパースする
+          
+        </h1>
+      
+
+      
+        <section class="meta">
+          <div class="inner">
+            
+
+
+
+
+
+
+
+
+
+
+<time datetime="2020-12-21T17:21:00+09:00" pubdate data-updated="true"></time>
+            
+<span class="byline author">Posted by 石井浩之</span>
+
+            
+
+  <span class="categories">
+    
+      
+        rust
+      
+    
+  </span>
+
+
+          </div>
+        </section>
+      
+    </header>
+
+    
+      <section class="entry-content"><p>この記事は<a href="https://qiita.com/advent-calendar/2020/rust">Rust Advent Calendar 2020</a> 21日目の記事です。</p>
+
+<p>お仕事のメインはRuby/TypeScriptを使っていますが、新しいことを学びたいなーと思って、Rustを勉強し始めてみました。<br />
+今回はWebAssemblyを使って、ブラウザからバイナリファイルをパースする処理を書いてみます。</p>
+
+<h2 id="rustをwebassemblyに変換する">RustをWebAssemblyに変換する</h2>
+
+<p>この手の記事は沢山あるので、ざっくりやり方だけ書いておきます。<br />
+<a href="https://github.com/rustwasm/wasm-bindgen"><code class="language-plaintext highlighter-rouge">wasm-bindgen</code></a>と<a href="https://github.com/rustwasm/wasm-pack"><code class="language-plaintext highlighter-rouge">wasm-pack</code></a>をインストールして、</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Cargo.toml
+[package]
+name = "app"
+version = "0.0.1"
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+wasm-bindgen = "0.2.63"
+</code></pre></div></div>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cs"># src/lib.rs</span>
+<span class="k">use</span> <span class="nn">wasm_bindgen</span><span class="p">::</span><span class="nn">prelude</span><span class="p">::</span><span class="o">*</span><span class="p">;</span>
+
+<span class="nd">#[wasm_bindgen]</span>
+<span class="k">struct</span> <span class="nf">ApplicationRunner</span><span class="p">();</span>
+
+<span class="nd">#[wasm_bindgen]</span>
+<span class="k">impl</span> <span class="n">ApplicationRunner</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">new</span><span class="p">()</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code># index.html
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">'module'</span><span class="nt">&gt;</span>
+      <span class="k">import</span> <span class="nx">init</span><span class="p">,</span> <span class="p">{</span> <span class="nx">ApplicationRunner</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./app.js</span><span class="dl">'</span>
+
+      <span class="p">(</span><span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">await</span> <span class="nx">init</span><span class="p">(</span><span class="dl">'</span><span class="s1">/app.wasm</span><span class="dl">'</span><span class="p">)</span>
+        <span class="k">new</span> <span class="nx">ApplicationRunner</span><span class="p">()</span>
+      <span class="p">})()</span>
+    <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>あとは <code class="language-plaintext highlighter-rouge">wasm-pack</code> を使ってコンパイルすれば完成です。
+めちゃ簡単。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ wasm-pack build --no-typescript --dev --target web --out-dir ./public
+</code></pre></div></div>
+
+<h2 id="ファイルを読み込む">ファイルを読み込む</h2>
+
+<p>続いて、ブラウザから、ファイルを指定してRustにパースさせる導線を作っていきます。<br />
+先ほど定義した <code class="language-plaintext highlighter-rouge">ApplicationRunner</code> をnewしたタイミングで、イベントをlistenしたDOMをレンダリングしておきます。</p>
+
+<p>DOMの生成には <code class="language-plaintext highlighter-rouge">virtual_dom_rs</code> と <code class="language-plaintext highlighter-rouge">web_sys</code> と <code class="language-plaintext highlighter-rouge">js_sys</code> を使います。<br />
+すごく単純な例では、こんな感じでDOMをマウントすることができます。</p>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="n">vdom</span> <span class="o">=</span> <span class="nd">html!</span> <span class="p">{</span> <span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;&lt;/</span><span class="n">div</span><span class="o">&gt;</span> <span class="p">};</span>
+<span class="k">let</span> <span class="n">window</span> <span class="o">=</span> <span class="nn">web_sys</span><span class="p">::</span><span class="nf">window</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">()</span>
+<span class="k">let</span> <span class="n">dom_updater</span> <span class="o">=</span> <span class="nn">DomUpdater</span><span class="p">::</span><span class="nf">new_append_to_mount</span><span class="p">(</span><span class="n">vdom</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">window</span><span class="nf">.document</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">()</span><span class="nf">.body</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">());</span>
+<span class="n">dom_updater</span><span class="nf">.update</span><span class="p">(</span><span class="n">vdom</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>今回はファイルの読み込みをしたいので、vdomの中身を書き換えて、inputタグにイベントを仕込んだDOMにしてみます。</p>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">html!</span> <span class="p">{</span>
+  <span class="o">&lt;</span><span class="n">input</span>
+    <span class="k">type</span><span class="o">=</span><span class="s">"file"</span>
+    <span class="n">onchange</span><span class="o">=</span><span class="k">move</span> <span class="p">|</span><span class="n">event</span><span class="p">:</span> <span class="nn">web_sys</span><span class="p">::</span><span class="n">InputEvent</span><span class="p">|</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">target</span> <span class="o">=</span> <span class="n">event</span><span class="nf">.target</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">();</span>
+        <span class="k">let</span> <span class="n">input</span> <span class="o">=</span> <span class="n">target</span><span class="py">.dyn_ref</span><span class="p">::</span><span class="o">&lt;</span><span class="n">HtmlInputElement</span><span class="o">&gt;</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">();</span>
+        <span class="k">let</span> <span class="n">files</span> <span class="o">=</span> <span class="n">input</span><span class="nf">.files</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">();</span>
+        <span class="k">let</span> <span class="n">file</span> <span class="o">=</span> <span class="n">files</span><span class="nf">.item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="nf">.unwrap</span><span class="p">();</span>
+
+        <span class="k">let</span> <span class="n">file_reader</span> <span class="o">=</span> <span class="nn">web_sys</span><span class="p">::</span><span class="nn">FileReader</span><span class="p">::</span><span class="nf">new</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">();</span>
+        <span class="n">file_reader</span><span class="nf">.read_as_array_buffer</span><span class="p">(</span><span class="o">&amp;</span><span class="n">file</span><span class="p">)</span><span class="nf">.unwrap</span><span class="p">();</span>
+
+        <span class="k">let</span> <span class="k">mut</span> <span class="n">onload</span> <span class="o">=</span> <span class="nn">Closure</span><span class="p">::</span><span class="nf">wrap</span><span class="p">(</span><span class="nn">Box</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="k">move</span> <span class="p">|</span><span class="n">event</span><span class="p">:</span> <span class="n">Event</span><span class="p">|</span> <span class="p">{</span>
+            <span class="k">let</span> <span class="n">file_reader</span><span class="p">:</span> <span class="n">FileReader</span> <span class="o">=</span> <span class="n">event</span><span class="nf">.target</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">()</span><span class="nf">.dyn_into</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">();</span>
+            <span class="k">let</span> <span class="n">file</span> <span class="o">=</span> <span class="n">file_reader</span><span class="nf">.result</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">();</span>
+            <span class="k">let</span> <span class="n">file</span> <span class="o">=</span> <span class="nn">js_sys</span><span class="p">::</span><span class="nn">Uint8Array</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="o">&amp;</span><span class="n">file</span><span class="p">);</span>
+
+            <span class="k">let</span> <span class="k">mut</span> <span class="n">bytes</span> <span class="o">=</span> <span class="nd">vec!</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span> <span class="n">file</span><span class="nf">.length</span><span class="p">()</span> <span class="k">as</span> <span class="nb">usize</span><span class="p">];</span>
+            <span class="n">file</span><span class="nf">.copy_to</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="n">bytes</span><span class="p">);</span>
+
+            <span class="c">// ここにファイルの中身のパースを開始する処理を追加する</span>
+            <span class="nf">do_something</span><span class="p">(</span><span class="o">&amp;</span><span class="n">bytes</span><span class="p">)</span>
+        <span class="p">})</span> <span class="k">as</span> <span class="nb">Box</span><span class="o">&lt;</span><span class="nf">FnMut</span><span class="p">(</span><span class="mi">_</span><span class="p">)</span><span class="o">&gt;</span><span class="p">);</span>
+
+        <span class="n">file_reader</span><span class="nf">.set_onload</span><span class="p">(</span><span class="nf">Some</span><span class="p">(</span><span class="n">onload</span><span class="nf">.as_ref</span><span class="p">()</span><span class="nf">.unchecked_ref</span><span class="p">()));</span>
+        <span class="n">onload</span><span class="nf">.forget</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="o">&gt;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="ファイルをパースする">ファイルをパースする</h2>
+
+<p>ファイルの読み込みする処理が書けたので、次はファイルをパースしていきます。<br />
+単にバイナリを読んでいくだけであれば <code class="language-plaintext highlighter-rouge">std::io::Cursor</code> だけでいけますが、little endianを読み込もうとするとやや操作が面倒です。</p>
+
+<p>そこで、<a href="https://docs.rs/byteorder/1.3.4/byteorder/">byteorder</a>を使って読み込んでいきます。<br />
+下記の例では、今後UTF8の文字列変換や特定のバイナリに特化した読み込みに対応する時に拡張しやすくするために、読み取り用のwrapperを用意しました。<br />
+単純なzipファイルのパースであれば、file name fieldやextra fieldなどの可変長のfieldがあるため、指定長でvecやstringを返すメソッドも用意するといいかもしれません。</p>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">use</span> <span class="nn">byteorder</span><span class="p">::{</span><span class="n">BigEndian</span><span class="p">,</span> <span class="n">ByteOrder</span><span class="p">,</span> <span class="n">LittleEndian</span><span class="p">,</span> <span class="n">ReadBytesExt</span><span class="p">};</span>
+
+<span class="k">pub</span> <span class="k">struct</span> <span class="n">Binary</span><span class="o">&lt;</span><span class="nv">'a</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="n">cursor</span><span class="p">:</span> <span class="n">Cursor</span><span class="o">&lt;&amp;</span><span class="nv">'a</span> <span class="p">[</span><span class="nb">u8</span><span class="p">]</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">impl</span><span class="o">&lt;</span><span class="nv">'a</span><span class="o">&gt;</span> <span class="n">Binary</span><span class="o">&lt;</span><span class="nv">'a</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">new</span><span class="p">(</span><span class="n">bytes</span><span class="p">:</span> <span class="o">&amp;</span><span class="p">[</span><span class="nb">u8</span><span class="p">])</span> <span class="k">-&gt;</span> <span class="n">Binary</span> <span class="p">{</span>
+        <span class="n">Binary</span> <span class="p">{</span>
+            <span class="n">cursor</span><span class="p">:</span> <span class="nn">Cursor</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="n">bytes</span><span class="p">),</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">position</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">u64</span> <span class="p">{</span>
+        <span class="k">self</span><span class="py">.cursor</span><span class="nf">.position</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">read_little_u16</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="n">Result</span><span class="o">&lt;</span><span class="nb">u16</span><span class="p">,</span> <span class="n">Error</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="nf">Ok</span><span class="p">(</span><span class="k">self</span><span class="py">.cursor.read_u16</span><span class="p">::</span><span class="o">&lt;</span><span class="n">LittleEndian</span><span class="o">&gt;</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">())</span>
+    <span class="p">}</span>
+
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">read_little_u32</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="n">Result</span><span class="o">&lt;</span><span class="nb">u32</span><span class="p">,</span> <span class="n">Error</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="nf">Ok</span><span class="p">(</span><span class="k">self</span><span class="py">.cursor.read_u32</span><span class="p">::</span><span class="o">&lt;</span><span class="n">LittleEndian</span><span class="o">&gt;</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">())</span>
+    <span class="p">}</span>
+
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">read_u16</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="n">Result</span><span class="o">&lt;</span><span class="nb">u16</span><span class="p">,</span> <span class="n">Error</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="nf">Ok</span><span class="p">(</span><span class="k">self</span><span class="py">.cursor.read_u16</span><span class="p">::</span><span class="o">&lt;</span><span class="n">BigEndian</span><span class="o">&gt;</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">())</span>
+    <span class="p">}</span>
+
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">read_u32</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="n">Result</span><span class="o">&lt;</span><span class="nb">u32</span><span class="p">,</span> <span class="n">Error</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="nf">Ok</span><span class="p">(</span><span class="k">self</span><span class="py">.cursor.read_u32</span><span class="p">::</span><span class="o">&lt;</span><span class="n">BigEndian</span><span class="o">&gt;</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">())</span>
+    <span class="p">}</span>
+
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">read_i16</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="n">Result</span><span class="o">&lt;</span><span class="nb">i16</span><span class="p">,</span> <span class="n">Error</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="nf">Ok</span><span class="p">(</span><span class="k">self</span><span class="py">.cursor.read_i16</span><span class="p">::</span><span class="o">&lt;</span><span class="n">BigEndian</span><span class="o">&gt;</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">())</span>
+    <span class="p">}</span>
+
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">read_i32</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="n">Result</span><span class="o">&lt;</span><span class="nb">i32</span><span class="p">,</span> <span class="n">Error</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="nf">Ok</span><span class="p">(</span><span class="k">self</span><span class="py">.cursor.read_i32</span><span class="p">::</span><span class="o">&lt;</span><span class="n">BigEndian</span><span class="o">&gt;</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">())</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="パース処理を書いていく">パース処理を書いていく</h3>
+
+<p>過去にRubyでpsdやzipのパーサを書いたことがあるのですが、これらは仕様書通りの単純な構造だったので、同様に先頭から読み込んでstructに詰めていくだけでいけそうです。<br />
+今回はzipのヘッダーをパースする処理の書いてみます。</p>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// == LocalFileHeader</span>
+<span class="c">//</span>
+<span class="c">// local file header signature     4 bytes  (0x04034b50)</span>
+<span class="c">// version needed to extract       2 bytes</span>
+<span class="c">// general purpose bit flag        2 bytes</span>
+<span class="c">// compression method              2 bytes</span>
+<span class="c">// last mod file time              2 bytes</span>
+<span class="c">// last mod file date              2 bytes</span>
+<span class="c">// crc-32                          4 bytes</span>
+<span class="c">// compressed size                 4 bytes</span>
+<span class="c">// uncompressed size               4 bytes</span>
+<span class="c">// file name length                2 bytes</span>
+<span class="c">// extra field length              2 bytes</span>
+<span class="k">struct</span> <span class="n">LocalFileHeader</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="n">signature</span><span class="p">:</span> <span class="nb">u32</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">version</span><span class="p">:</span> <span class="nb">u16</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">general_purpose_bit_flag</span><span class="p">:</span> <span class="nb">u16</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">compression_method</span><span class="p">:</span> <span class="nb">u16</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">last_modified_file_time</span><span class="p">:</span> <span class="nb">u16</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">last_modified_file_date</span><span class="p">:</span> <span class="nb">u16</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">crc_32</span><span class="p">:</span> <span class="nb">u32</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">compressed_size</span><span class="p">:</span> <span class="nb">u32</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">uncompressed_size</span><span class="p">:</span> <span class="nb">u32</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">file_name_length</span><span class="p">:</span> <span class="nb">u16</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">extra_field_length</span><span class="p">:</span> <span class="nb">u16</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">impl</span> <span class="n">LocalFileHeader</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">from_bytes</span><span class="p">(</span><span class="n">bytes</span><span class="p">:</span> <span class="o">&amp;</span><span class="p">[</span><span class="nb">u8</span><span class="p">])</span> <span class="k">-&gt;</span> <span class="n">Result</span><span class="o">&lt;</span><span class="n">LocalFileHeader</span><span class="p">,</span> <span class="n">Error</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="k">mut</span> <span class="n">binary</span> <span class="o">=</span> <span class="nn">Binary</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="n">bytes</span><span class="p">);</span>
+
+        <span class="k">let</span> <span class="n">signature</span> <span class="o">=</span> <span class="n">binary</span><span class="nf">.read_little_u32</span><span class="p">()</span><span class="o">?</span><span class="p">;</span>
+        <span class="k">let</span> <span class="n">version</span> <span class="o">=</span> <span class="n">binary</span><span class="nf">.read_little_u16</span><span class="p">()</span><span class="o">?</span><span class="p">;</span>
+        <span class="k">let</span> <span class="n">general_purpose_bit_flag</span> <span class="o">=</span> <span class="n">binary</span><span class="nf">.read_little_u16</span><span class="p">()</span><span class="o">?</span><span class="p">;</span>
+        <span class="k">let</span> <span class="n">compression_method</span> <span class="o">=</span> <span class="n">binary</span><span class="nf">.read_little_u16</span><span class="p">()</span><span class="o">?</span><span class="p">;</span>
+        <span class="k">let</span> <span class="n">last_modified_file_time</span> <span class="o">=</span> <span class="n">binary</span><span class="nf">.read_u16</span><span class="p">()</span><span class="o">?</span><span class="p">;</span>
+        <span class="k">let</span> <span class="n">last_modified_file_date</span> <span class="o">=</span> <span class="n">binary</span><span class="nf">.read_u16</span><span class="p">()</span><span class="o">?</span><span class="p">;</span>
+        <span class="k">let</span> <span class="n">crc_32</span> <span class="o">=</span> <span class="n">binary</span><span class="nf">.read_u32</span><span class="p">()</span><span class="o">?</span><span class="p">;</span>
+        <span class="k">let</span> <span class="n">compressed_size</span> <span class="o">=</span> <span class="n">binary</span><span class="nf">.read_u32</span><span class="p">()</span><span class="o">?</span><span class="p">;</span>
+        <span class="k">let</span> <span class="n">uncompressed_size</span> <span class="o">=</span> <span class="n">binary</span><span class="nf">.read_u32</span><span class="p">()</span><span class="o">?</span><span class="p">;</span>
+        <span class="k">let</span> <span class="n">file_name_length</span> <span class="o">=</span> <span class="n">binary</span><span class="nf">.read_u16</span><span class="p">()</span><span class="o">?</span><span class="p">;</span>
+        <span class="k">let</span> <span class="n">extra_field_length</span> <span class="o">=</span> <span class="n">binary</span><span class="nf">.read_u16</span><span class="p">()</span><span class="o">?</span><span class="p">;</span>
+
+        <span class="nf">Ok</span><span class="p">(</span><span class="n">LocalFileHeader</span> <span class="p">{</span>
+            <span class="n">signature</span><span class="p">,</span>
+            <span class="n">version</span><span class="p">,</span>
+            <span class="n">general_purpose_bit_flag</span><span class="p">,</span>
+            <span class="n">compression_method</span><span class="p">,</span>
+            <span class="n">last_modified_file_time</span><span class="p">:</span> <span class="n">last_modified_file_time</span><span class="p">,</span>
+            <span class="n">last_modified_file_date</span><span class="p">,</span>
+            <span class="n">crc_32</span><span class="p">,</span>
+            <span class="n">compressed_size</span><span class="p">,</span>
+            <span class="n">uncompressed_size</span><span class="p">,</span>
+            <span class="n">file_name_length</span><span class="p">,</span>
+            <span class="n">extra_field_length</span><span class="p">,</span>
+        <span class="p">})</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>とても簡単ですね。</p>
+
+<h2 id="パースした内容をhtmlにレンダリングする">パースした内容をHTMLにレンダリングする</h2>
+
+<p>では、最後にパースした内容をHTMLへレンダリングしてみます。<br />
+諸々省略しているのでこのままでは動きませんが、雰囲気としてはこんな感じでDOMを生成して、初めに作ったDomUpdaterのupdateに返り値のVirtualNodeを渡せばOKです。</p>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// let local_file_header = LocalFileHeader::from_bytes(&amp;bytes)</span>
+<span class="c">// let vdom = render(...)</span>
+<span class="c">// dom_updater.update(vdom); という感じで使う</span>
+<span class="k">fn</span> <span class="nf">render</span><span class="p">(</span><span class="n">local_file_header</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">LocalFileHeader</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="n">VirtualNode</span> <span class="p">{</span>
+    <span class="nd">html!</span> <span class="p">{</span>
+      <span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">span</span><span class="o">&gt;</span>
+          <span class="n">signature</span><span class="p">:</span> <span class="p">{</span><span class="nd">format!</span><span class="p">(</span><span class="s">"{:X}"</span><span class="p">,</span> <span class="n">local_file_header</span><span class="py">.signature</span><span class="p">)}</span>
+          <span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+          <span class="n">version</span><span class="p">:</span> <span class="p">{</span><span class="nd">format!</span><span class="p">(</span><span class="s">"{:X}"</span><span class="p">,</span> <span class="n">local_file_header</span><span class="py">.version</span><span class="p">)}</span>
+          <span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+          <span class="n">general_purpose_bit_flag</span><span class="p">:</span> <span class="p">{</span><span class="nd">format!</span><span class="p">(</span><span class="s">"{:X}"</span><span class="p">,</span> <span class="n">local_file_header</span><span class="py">.general_purpose_bit_flag</span><span class="p">)}</span>
+          <span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+          <span class="n">compression_method</span><span class="p">:</span> <span class="p">{</span><span class="nd">format!</span><span class="p">(</span><span class="s">"{:X}"</span><span class="p">,</span> <span class="n">local_file_header</span><span class="py">.compression_method</span><span class="p">)}</span>
+          <span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+          <span class="n">last_modified_file_time</span><span class="p">:</span> <span class="p">{</span><span class="nd">format!</span><span class="p">(</span><span class="s">"{:X}"</span><span class="p">,</span> <span class="n">local_file_header</span><span class="py">.last_modified_file_time</span><span class="p">)}</span>
+          <span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+          <span class="n">last_modified_file_date</span><span class="p">:</span> <span class="p">{</span><span class="nd">format!</span><span class="p">(</span><span class="s">"{:X}"</span><span class="p">,</span> <span class="n">local_file_header</span><span class="py">.last_modified_file_date</span><span class="p">)}</span>
+          <span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+          <span class="n">crc_32</span><span class="p">:</span> <span class="p">{</span><span class="nd">format!</span><span class="p">(</span><span class="s">"{:X}"</span><span class="p">,</span> <span class="n">local_file_header</span><span class="py">.crc_32</span><span class="p">)}</span>
+          <span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span>
+      <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="まとめ">まとめ</h2>
+
+<p>今回は<code class="language-plaintext highlighter-rouge">wasm-bindgen</code>を使ってブラウザでファイルをパースする処理を書いてみました。<br />
+もう少しパース処理を作り込んでいけば、画像変換やzipの再圧縮などいろいろな処理を書くことができそうです。</p>
+
+<p>可能であれば、仕事でもちゃんとRust書いてみたいのでReal Worldの活用事例をもっと知りたいなぁと思いました(´・ω・｀)</p>
+</section>
+    
+
+    
+      
+
+
+
+
+
+<section class="sharing clearfix">
+  <div class="button ft_like_button">
+    <div class="fb-like" data-href="http://alpaca.tc/blog/rust/rust-advent-calendar.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
+  </div>
+
+  <div class="button ft_share_button">
+    <div class="fb-share-button" data-href="http://alpaca.tc/blog/rust/rust-advent-calendar.html" data-type="button_count"></div>
+  </div>
+
+  <div class="button hatena_bookmark_button">
+    <a href="https://b.hatena.ne.jp/entry/http://alpaca.tc/blog/rust/rust-advent-calendar.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
+Rustでブラウザからバイナリをパースする | RailsとRubyとVimのブログRailsとRubyとVimのブログ
+" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
+      <img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+    </a>
+  </div>
+
+  <div class="button google_plus_button_like">
+    <div data-annotation="none" data-href="http://alpaca.tc/blog/rust/rust-advent-calendar.html" class="g-plusone" data-size="medium" ></div>
+  </div>
+
+  <div class="button twitter_button">
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/rust/rust-advent-calendar.html" data-via="alpaca_tc" date-width="120" data-counturl="http://alpaca.tc/blog/rust/rust-advent-calendar.html" ></a>
+  </div>
+</section>
+
+    
+  </div>
+</article>
+
+
+                <section class="post_row">
+                  
+                    
+  <section class="entry-comment">
+    <div id="disqus_thread" aria-live="polite"></div>
+
+  </section>
+
+
+                  
+                </section>
+
+                <div class="pagination meta clearfix">
+  
+    <div class="arrow_block left_block">
+      <a class="basic-alignment" href="/blog/ruby/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai.html" title="Previous Post: kamipoさんのアドバイスと拠点を跨いだ勉強会">&laquo; kamipoさんのアドバイスと拠点を跨いだ勉強会</a>
+    </div>
+  
+
+  
+</div>
+
+              </div>
+
+              <aside id="sidebar" class="right_page inner_wrapper">
+  
+<section id="side_category_posts" class="sidebar_row">
+  <div id="blog-archives" class="category">
+    <h1>最新記事</h1>
+    
+      <article>
+        <time datetime="2020-12-21T17:21:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>21</span> <span class='year'>2020</span></time>
+        <h1><a href="/blog/rust/rust-advent-calendar.html">Rustでブラウザからバイナリをパースする</a></h1>
+      </article>
+    
+      <article>
+        <time datetime="2020-12-18T17:21:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>18</span> <span class='year'>2020</span></time>
+        <h1><a href="/blog/ruby/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai.html">kamipoさんのアドバイスと拠点を跨いだ勉強会</a></h1>
+      </article>
+    
+  </div>
+</section>
+
+  
+
+
+  <section id="side_category_posts" class="sidebar_row">
+    <div id="blog-archives" class="category">
+      <h1>rustカテゴリーの最新記事</h1>
+
+      
+        <article>
+          <time datetime="2020-12-21T17:21:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>21</span> <span class='year'>2020</span></time>
+          <h1><a href="//blog/rust/rust-advent-calendar.html">Rustでブラウザからバイナリをパースする</a></h1>
+        </article>
+      
+
+      <div class="category_link">
+        <span class="categories">
+          <a href="/blog/rust">→rustの記事をもっと見る</a>
+        </span>
+      </div>
+    </div>
+  </section>
+
+
+
+  
+    <section id="side_about_me" class="sidebar_row">
+  <h1>プロフィール</h1>
+  <section>
+    <figure class="image_wrapper">
+      <img src="/images/common/profile.jpg" alt="石井 浩之">
+      <figcaption>石井 浩之</figcaption>
+    </figure>
+
+    <p>
+      アルパカ大好きエンジニア
+    </p>
+
+    <p class="go_to_aboutme">
+      <a href="/about_me">→詳しく見る</a>
+    </p>
+  </section>
+</section>
+
+  
+
+  <section id="side_sharing" class="sidebar_row">
+  <div class="button hatena_bookmark_button">
+    <a href="https://b.hatena.ne.jp/entry/http://alpaca.tc" class="hatena-bookmark-button" data-hatena-bookmark-title="RailsとRubyとVimのブログ" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このブログをはてなブックマークに追加">
+      <img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このブログをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+    </a>
+  <!-- </div> -->
+</section>
+
+
+  <section id="side_twitter_timeline_widget" class="sidebar_row">
+  <a class="twitter-timeline" href="https://twitter.com/alpaca_tc" data-widget-id="395937677314232320">@alpaca_tc からのツイート</a>
+</section>
+
+</aside>
+
+            </div>
+          </div>
+        </div>
+      </div><!-- /div#main_contents -->
+
+      <footer role="contentinfo">        <div class="inner_wrapper">
+          <div class="inner">
+            <div id="go_to_top" class="clearfix">
+              <p><a href="#header_top">Go to Top</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="inner_wrapper">
+          <div class="inner">
+            <div id="footer_link" class="clearfix">
+              <nav id="footer_nav">
+                <ul class="clearfix">
+                  <li>
+                    <a rel="nofollow" href="/about_me">About Me</a>
+                  </li>
+                  <li>
+                    <a href="/">Blog</a>
+                  </li>
+                  <li>
+                    <a rel="nofollow" href="/works/">Works</a>
+                  </li>
+                </ul>
+              </nav>
+
+
+              <nav id="footer_social_link">
+                <ul class="clearfix">
+                  <li class="qiita">
+                    <a href="mailto:alprhcp666@gmail.com">
+                      <img src="/images/social/icon_mail.png" alt="Send mail to alpaca-tc">
+                    </a>
+                  </li>
+                  <li class="github">
+                    <a target="_blank" href="https://github.com/alpaca-tc">
+                      <img src="/images/social/icon_github.png" alt="Github @alpaca-tc">
+                    </a>
+                  </li>
+                  <li class="twitter">
+                    <a target="_blank" href="https://twitter.com/alpaca_tc">
+                      <img src="/images/social/icon_twitter.png" alt="Twitter @alpaca_tc">
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+
+            </div>
+          </div>
+        </div>
+        <div id="footer_mark">
+          <small>&nbsp;&copy; 2013, alpaca.tc</small>
+        </div>
+        <script>
+(function(w, d) {
+  load_javascript();
+  window.onload = function () {
+    setTimeout(function() { lazy_load_javascript(); }, 100);
+  };
+
+  function insert_javascript(u, i) {
+    var s, e = d.getElementsByTagName('script')[0];
+    if (!d.getElementById(i)) {
+      s = d.createElement('script');
+      s.src = u;
+      s.async = true
+      if (i) {
+        s.id = i;
+      }
+      e.parentNode.insertBefore(s, e);
+    }
+  };
+
+  function lazy_load_javascript() {
+    insert_javascript('//platform.twitter.com/widgets.js', 'twitter-wjs');
+    insert_javascript('//connect.facebook.net/ja_JP/all.js#xfbml=1&appId=224701561024840', 'facebook-jssdk');
+    insert_javascript('//apis.google.com/js/plusone.js');
+  }
+
+  function load_javascript() {
+    insert_javascript('//b.st-hatena.com/js/bookmark_button_wo_al.js');
+    insert_javascript('//alpaca-tc.disqus.com/embed.js');
+  }
+})(this, document);
+</script>
+
+</footer>
+    </div>
+  </body>
+</html>
+

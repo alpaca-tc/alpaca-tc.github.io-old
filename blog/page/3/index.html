@@ -20,10 +20,8 @@
           
             
               
-                久しぶりにGemを書いている
-              
-            
- ...">
+                ここまで出来る！RubyのSplat Operatorまとめ
+             ...">
     
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <meta content='RailsとRubyとVimのブログ' name='title' />
@@ -52,10 +50,8 @@
           
             
               
-                久しぶりにGemを書いている
-              
-            
- ..." />
+                ここまで出来る！RubyのSplat Operatorまとめ
+             ..." />
 <meta property="fb:app_id" content="224701561024840" />
 
     <meta name="twitter:card" content="summary">
@@ -73,10 +69,8 @@
           
             
               
-                久しぶりにGemを書いている
-              
-            
- ...">
+                ここまで出来る！RubyのSplat Operatorまとめ
+             ...">
 <meta name="twitter:image" content="https://http://alpaca.tc/images/meta/twitter.png">
 <meta name="twitter:site" content="@alpaca_tc">
 <meta name="twitter:creator" content="@alpaca_tc">
@@ -167,6 +161,203 @@
               <div id="page_contents" class="inner">
                 <div id="index_contents" class="blog-index">
   
+  
+    
+    <div class="blog-articles">
+      <article class="post_row">
+  <div class="inner">
+    <header class="field-items">
+      
+        <h1>
+          
+            <a href="/blog/ruby/how-to-use-star.html">
+              
+                ここまで出来る！RubyのSplat Operatorまとめ
+              
+            </a>
+          
+        </h1>
+      
+
+      
+        <section class="meta">
+          <div class="inner">
+            
+
+
+
+
+
+
+
+
+
+
+<time datetime="2014-02-12T04:16:00+09:00" pubdate data-updated="true"></time>
+            
+<span class="byline author">Posted by 石井浩之</span>
+
+            
+
+  <span class="categories">
+    
+      
+    
+  </span>
+
+
+          </div>
+        </section>
+      
+    </header>
+
+    
+      <section class="entry-content"><p>Splat Operatorとは、<code class="language-plaintext highlighter-rouge">*</code>のことです</p>
+
+<p><img class="image_on_frame center" src="/images/blog/how-to-use-star/capture.png" alt="SplatOperator" /></p>
+
+<p>この前、友人にコードレビューしてもらっていたら</p>
+
+<p>「え、Rubyってこんな書き方出来るんですか？」と言われて、「知らない人もいるんだなぁ」と思ったので簡単なまとめ</p>
+
+<!-- more -->
+
+<h1 id="splat-operatorの色んな使い方">Splat Operatorの色んな使い方</h1>
+
+<p>Splat Operatorは、応用の幅が広いです。</p>
+
+<p>結構当たり前だと思っていましたが、コード読書しないと見る機会は少ないかも。</p>
+
+<h2 id="1-1-配列に変換する">1-1. 配列に変換する</h2>
+
+<p>まずは基本編。配列に変換してやりましょう</p>
+
+<p>文字列やsymbolは<code class="language-plaintext highlighter-rouge">.to_a</code>が無いですが、<code class="language-plaintext highlighter-rouge">*</code>を使えばどの変数でも配列に出来ちゃいます。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">string</span> <span class="o">=</span> <span class="o">*</span><span class="s2">"string"</span>
+<span class="nb">p</span> <span class="n">string</span> <span class="c1">#=&gt; ["string"]</span>
+
+<span class="n">symbol</span> <span class="o">=</span> <span class="o">*</span><span class="ss">:symbol</span>
+<span class="nb">p</span> <span class="n">symbol</span> <span class="c1">#=&gt; [:symbol]</span>
+
+<span class="nb">hash</span> <span class="o">=</span> <span class="o">*</span><span class="p">{</span> <span class="ss">hash: </span><span class="kp">nil</span> <span class="p">}</span>
+<span class="nb">p</span> <span class="nb">hash</span> <span class="c1">#=&gt; [[:hash, nil]]</span>
+
+<span class="n">range</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">p</span> <span class="n">range</span> <span class="c1">#=&gt; [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
+</code></pre></div></div>
+
+<h2 id="1-2-親クラスの引数を気にしない">1-2. 親クラスの引数を気にしない</h2>
+
+<p>またまた基本編。<code class="language-plaintext highlighter-rouge">*</code>を引数に指定してやれば、親クラスの引数は知らなくても大丈夫。</p>
+
+<p><code class="language-plaintext highlighter-rouge">*</code>だけで出来ることを知らない人はいるかも。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Child</span> <span class="o">&lt;</span> <span class="no">Super</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+    <span class="k">super</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h2 id="1-3-間の引数をまとめる">1-3. 間の引数をまとめる</h2>
+
+<p>引数の最後にSplat Operatorを使うことはよくありますが、間はなかなか見ないですね。</p>
+
+<p>blockで引数を取るときに、間の引数をまとめる事が出来ます。</p>
+
+<p>メソッドやProc,lambdaでも同様の動作です。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">list</span> <span class="o">=</span> <span class="p">[[</span><span class="ss">:first</span><span class="p">,</span> <span class="ss">:second</span><span class="p">,</span> <span class="ss">:third</span><span class="p">,</span> <span class="ss">:fourth</span><span class="p">,</span> <span class="ss">:fifth</span><span class="p">]]</span>
+<span class="n">list</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">mid</span><span class="p">,</span> <span class="n">last</span><span class="o">|</span>
+  <span class="nb">p</span> <span class="n">first</span>  <span class="c1">#=&gt; :first</span>
+  <span class="nb">p</span> <span class="n">mid</span>    <span class="c1">#=&gt; [:second, :third, :fourth]</span>
+  <span class="nb">p</span> <span class="n">last</span>   <span class="c1">#=&gt; :fifth</span>
+<span class="k">end</span>
+
+<span class="c1"># もちろん、こんなことも出来ます</span>
+<span class="n">first</span><span class="p">,</span> <span class="o">*</span><span class="n">other</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="nb">p</span> <span class="n">other</span> <span class="c1">#=&gt; [2, 3]</span>
+</code></pre></div></div>
+
+<h2 id="1-4-を使う">1-4. <code class="language-plaintext highlighter-rouge">**</code>を使う</h2>
+
+<p>キーワード引数って、まだあまり普及してないですね。互換性が気になるからだろうか？</p>
+
+<p><code class="language-plaintext highlighter-rouge">**</code>はキーワード引数を取るときに、余った引数をまとめます。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">hoge</span><span class="p">(</span><span class="ss">first: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">second: </span><span class="mi">2</span><span class="p">,</span> <span class="o">**</span><span class="n">others</span><span class="p">)</span>
+  <span class="nb">p</span> <span class="n">others</span> <span class="c1">#=&gt; { third: 3 }</span>
+<span class="k">end</span>
+<span class="n">hoge</span><span class="p">(</span><span class="ss">first: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">second: </span><span class="mi">2</span><span class="p">,</span> <span class="ss">third: </span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>多分これはSplat Operatorと呼ばない。</p>
+
+<h2 id="まとめ">まとめ</h2>
+
+<p>こんな書き方が出来るSplat Operatorって本当に便利ね！</p>
+
+<p>( ﾟ∀ﾟ)o彡ﾟんぎもぢいい!!</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Integer</span>
+  <span class="k">def</span> <span class="nf">upto_with_exception</span><span class="p">(</span><span class="n">to</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
+    <span class="n">exception_array</span> <span class="o">=</span> <span class="o">*</span><span class="n">options</span><span class="p">[</span><span class="ss">:except</span><span class="p">]</span> <span class="c1">#=&gt; nilでも何でもおかまいなし！</span>
+    <span class="n">exceptions</span> <span class="o">=</span> <span class="no">Hash</span><span class="p">[</span><span class="n">exception_array</span><span class="p">.</span><span class="nf">zip</span><span class="p">]</span>
+
+    <span class="nb">self</span><span class="p">.</span><span class="nf">upto</span><span class="p">(</span><span class="n">to</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="nb">p</span> <span class="n">i</span> <span class="k">unless</span> <span class="n">exceptions</span><span class="p">.</span><span class="nf">has_key?</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="mi">1</span><span class="p">.</span><span class="nf">upto_with_exception</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1">#=&gt; 1, 2, 3, 4, 5</span>
+<span class="mi">1</span><span class="p">.</span><span class="nf">upto_with_exception</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="ss">except: </span><span class="mi">3</span><span class="p">)</span> <span class="c1">#=&gt; 1, 2, 4, 5</span>
+<span class="mi">1</span><span class="p">.</span><span class="nf">upto_with_exception</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="ss">except: </span><span class="mi">2</span><span class="o">..</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#=&gt; 1, 4, 5</span>
+<span class="mi">1</span><span class="p">.</span><span class="nf">upto_with_exception</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="ss">except: </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span> <span class="c1">#=&gt; 1, 2, 3</span>
+</code></pre></div></div>
+</section>
+      
+
+      
+    
+
+    
+      
+
+
+
+
+
+<section class="sharing clearfix">
+  <div class="button ft_like_button">
+    <div class="fb-like" data-href="http://alpaca.tc/blog/ruby/how-to-use-star.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
+  </div>
+
+  <div class="button ft_share_button">
+    <div class="fb-share-button" data-href="http://alpaca.tc/blog/ruby/how-to-use-star.html" data-type="button_count"></div>
+  </div>
+
+  <div class="button hatena_bookmark_button">
+    <a href="https://b.hatena.ne.jp/entry/http://alpaca.tc/blog/ruby/how-to-use-star.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
+ここまで出来る！RubyのSplat Operatorまとめ | RailsとRubyとVimのブログ 
+" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
+      <img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+    </a>
+  </div>
+
+  <div class="button google_plus_button_like">
+    <div data-annotation="none" data-href="http://alpaca.tc/blog/ruby/how-to-use-star.html" class="g-plusone" data-size="medium" ></div>
+  </div>
+
+  <div class="button twitter_button">
+    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/ruby/how-to-use-star.html" data-via="alpaca_tc" date-width="120" data-counturl="http://alpaca.tc/blog/ruby/how-to-use-star.html" ></a>
+  </div>
+</section>
+
+    
+  </div>
+</article>
+
+    </div>
   
     
     <div class="blog-articles">
@@ -948,199 +1139,6 @@ neocomplete.vimのfile_includeを使いこなす | RailsとRubyとVimのブロ�
 
     </div>
   
-    
-    <div class="blog-articles">
-      <article class="post_row">
-  <div class="inner">
-    <header class="field-items">
-      
-        <h1>
-          
-            <a href="/blog/vim/vim-plugins-2013.html">
-              
-                2013年に作ったVimプラグイン達
-              
-            </a>
-          
-        </h1>
-      
-
-      
-        <section class="meta">
-          <div class="inner">
-            
-
-
-
-
-
-
-
-
-
-
-<time datetime="2013-12-29T22:54:00+09:00" pubdate data-updated="true"></time>
-            
-<span class="byline author">Posted by 石井浩之</span>
-
-            
-
-  <span class="categories">
-    
-      
-    
-  </span>
-
-
-          </div>
-        </section>
-      
-    </header>
-
-    
-      <section class="entry-content"><p>今年も残すところあと僅か！あぁ、Vimにどっぷりの一年でした。</p>
-
-<p><strong>今年書いたプラグインを紹介しまーす！</strong></p>
-
-<!-- more -->
-
-<p>振り返ると、一年で人はここまでVimmerとして成長できるのかと驚くばかりです。(まだまだ未熟者ですが)</p>
-
-<h1 id="14個のvimプラグイン達">14個のVimプラグイン達</h1>
-
-<p>今年書いたプラグインは14個以上でした。
-1年以内の出来事とは思えないぐらい、それぞれが思い出深いですね。。。</p>
-
-<p>外部に発表していなかったプラグインもあるので、余力があれば試してみてください。</p>
-
-<h2 id="alpaca_powertabline"><a href="https://github.com/alpaca-tc/alpaca_powertabline">alpaca_powertabline</a></h2>
-
-<p><img class="image_on_frame center" src="https://github-camo.global.ssl.fastly.net/8a63810a39b08548c3ce51a796f589b79d9df4be/687474703a2f2f662e636c2e6c792f6974656d732f31443430317630553355306f336733553054306e2f616c706163615f7461626c696e652e706e67" alt=" alpaca_powertabline" /></p>
-
-<p>tablineをpowerline化したプラグインです。</p>
-
-<p>初めてのVim Advent Calendarで<a href="https://qiita.com/alpaca_taichou/items/ab70f914a6a577e25d70">powerlineをいつ使う？今でしょ！</a>という記事を書いて、そこそこ人気な記事となり驚きました。</p>
-
-<p>いやぁ…<em>「今でしょ！」</em>って、もうさぶいねぇ。笑</p>
-
-<p>初対面の人で、「使っているよ！」と言ってもらえることもあって嬉しかったです。</p>
-
-<p>今年はlightlineやvim-airlineが登場したので、statusline系の変化が大きかった年だとと思います。</p>
-
-<h2 id="alpaca_english"><a href="https://github.com/alpaca-tc/alpaca_english.git">alpaca_english</a></h2>
-
-<p>SQLiteの英和辞書を利用して、英語の補完をするプラグインです。Uniteを通じて、類義語検索や例文検索を行うこともできます。</p>
-
-<p><img class="image_on_frame center" src="https://github-camo.global.ssl.fastly.net/cb17a71ffad0a656d3a2837fe4c216a50524c2e4/687474703a2f2f636c2e6c792f696d6167652f316c316c306732373249314e2f254533253832254239254533253832254146254533253833254141254533253833254243254533253833254233254533253832254237254533253833254137254533253833253833254533253833253838253230323031332d30342d3231253230382e33372e33392e706e67" alt="alpaca_english_demo" /></p>
-
-<p>これを書き始めたときに、勇気を出してlingrで発言しはじめました。+Ruby環境のバグをVim-JP報告したのもこのプラグインがきっかけですね。</p>
-
-<p>右も左も分からず、色んな人に助けてもらいました。ありがたや、ありがたや。</p>
-
-<p>Vimプラグインを書き始めたときなので、哀愁の漂うコードです。あぁ、そろそろリファクタリングしないと！</p>
-
-<h2 id="beautifyvim"><a href="https://github.com/alpaca-tc/beautify.vim.git">Beautify.vim</a></h2>
-
-<p>整形・変換を行うプラグインです。糞便利。</p>
-
-<p><img class="image_on_frame center" src="https://github.com/alpaca-tc/beautify.vim/blob/master/assets/02.gif?raw=true" alt="beautify.vim demo" /></p>
-
-<p>CSS-SCSS, JS-Coffeeなどの相互変換や、圧縮されたJS/CSSの整形などはお手の物です。</p>
-
-<h2 id="alpaca_tags"><a href="https://github.com/alpaca-tc/alpaca_tags">alpaca_tags</a></h2>
-
-<p>tagsの非同期生成、tag用のunite-sourceなど同封しています。糞便利。</p>
-
-<p><img class="image_on_frame center" src="https://github-camo.global.ssl.fastly.net/78073a9b0ac11577ea47c5083da6511140968510/687474703a2f2f6769667a6f2e6e65742f744944774866325a41702e676966" alt="alpaca_tags.demo" /></p>
-
-<p>京都のCamphorでの勉強会で初めてお披露目したので、あのメンバーと出会ったのもこれを作った時期だった気がする。いつだっけ。。</p>
-
-<h2 id="alpaca_octopress"><a href="https://github.com/alpaca-tc/alpaca_octopress.vim">alpaca_octopress</a></h2>
-
-<p>最近作った、Octopressの操作を非同期で実行するプラグインです。糞b</p>
-
-<p><code class="language-plaintext highlighter-rouge">:Octopress preview</code>や<code class="language-plaintext highlighter-rouge">:Octopress gen_deploy</code>といった操作が非同期で行えるのが素晴らしい。</p>
-
-<p>記事を書くのが随分楽になりました^^</p>
-
-<h2 id="vim-unite-watsonvim"><a href="https://github.com/alpaca-tc/vim-unite-watson.vim">vim-unite-watson.vim</a></h2>
-
-<p><img class="image_on_frame center" src="https://f.cloud.github.com/assets/1688137/1726147/ac9b52fc-628a-11e3-8117-ef4824444729.gif" alt="watsonのcapture" /></p>
-
-<p><a href="https://goosecode.com/watson/">watson</a>用のUnite-sourceです。watson本体もガッツリ書き換えました。海外の方にも結構使ってもらえているようです。自身がプログラミングするとき、思考を止めないためにこのプラグインを作りました。</p>
-
-<h3 id="その他今年作ったプラグイン">その他、今年作ったプラグイン</h3>
-
-<ul>
-  <li><a href="https://github.com/alpaca-tc/alpaca_remove_dust.vim">alpaca_remove_dust.vim</a></li>
-  <li><a href="https://github.com/alpaca-tc/alpaca_window.vim">alpaca_window.vim</a></li>
-  <li><a href="https://github.com/alpaca-tc/assignment">assignment</a></li>
-  <li><a href="https://github.com/alpaca-tc/neorspec.vim">neorspec.vim</a></li>
-  <li><a href="https://github.com/alpaca-tc/lang-8.vim">lang-8.vim</a></li>
-  <li><a href="https://github.com/alpaca-tc/rake.vim">rake.vim</a></li>
-  <li><a href="https://github.com/alpaca-tc/snail.vim">snail.vim</a></li>
-  <li><a href="https://github.com/alpaca-tc/unite-git-aliases">unite-git-aliases</a></li>
-  <li><a href="https://github.com/alpaca-tc/documentation">documentation</a></li>
-</ul>
-
-<h2 id="まとめ">まとめ</h2>
-
-<p>Vimプラグインを通じて、一杯勉強させてもらえていたようです。Vim力もだいぶ上がりました。</p>
-
-<p>来年はVim本体をガシガシいじっていきたいと思います・T・</p>
-
-<p>さて、自分の作ったVimプラグインを振り返ると、Vimとともに一年の思い出が振り返れるようです！</p>
-
-<p><strong>ぜひ、他のVimmerもお試しあれ！</strong></p>
-
-<p><em>P.S.</em></p>
-
-<p>ほぼVimの記事だけで、Qiitaのストック数が1,000に到達しました。わーい。(白目)</p>
-</section>
-      
-
-      
-    
-
-    
-      
-
-
-
-
-
-<section class="sharing clearfix">
-  <div class="button ft_like_button">
-    <div class="fb-like" data-href="http://alpaca.tc/blog/vim/vim-plugins-2013.html" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
-  </div>
-
-  <div class="button ft_share_button">
-    <div class="fb-share-button" data-href="http://alpaca.tc/blog/vim/vim-plugins-2013.html" data-type="button_count"></div>
-  </div>
-
-  <div class="button hatena_bookmark_button">
-    <a href="https://b.hatena.ne.jp/entry/http://alpaca.tc/blog/vim/vim-plugins-2013.html" class="hatena-bookmark-button" data-hatena-bookmark-title="
-2013年に作ったVimプラグイン達 | RailsとRubyとVimのブログ 
-" data-hatena-bookmark-layout="small" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加">
-      <img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
-    </a>
-  </div>
-
-  <div class="button google_plus_button_like">
-    <div data-annotation="none" data-href="http://alpaca.tc/blog/vim/vim-plugins-2013.html" class="g-plusone" data-size="medium" ></div>
-  </div>
-
-  <div class="button twitter_button">
-    <a href="https://twitter.com/share" class="twitter-share-button"  data-url="http://alpaca.tc/blog/vim/vim-plugins-2013.html" data-via="alpaca_tc" date-width="120" data-counturl="http://alpaca.tc/blog/vim/vim-plugins-2013.html" ></a>
-  </div>
-</section>
-
-    
-  </div>
-</article>
-
-    </div>
-  
 
   <div class="pagination">
     
@@ -1193,6 +1191,11 @@ neocomplete.vimのfile_includeを使いこなす | RailsとRubyとVimのブロ�
       
       
     
+      
+      
+      
+      
+    
 
     
       <a data-label="次" class="paging_number next" href="/blog/page/4/">次の記事へ &rarr;</a>
@@ -1225,13 +1228,13 @@ neocomplete.vimのfile_includeを使いこなす | RailsとRubyとVimのブロ�
     <h1>最新記事</h1>
     
       <article>
-        <time datetime="2020-12-18T17:21:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>18</span> <span class='year'>2020</span></time>
-        <h1><a href="/blog/ruby/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai.html">kamipoさんのアドバイスと拠点を跨いだ勉強会</a></h1>
+        <time datetime="2020-12-21T17:21:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>21</span> <span class='year'>2020</span></time>
+        <h1><a href="/blog/rust/rust-advent-calendar.html">Rustでブラウザからバイナリをパースする</a></h1>
       </article>
     
       <article>
-        <time datetime="2017-07-03T00:03:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>03</span> <span class='year'>2017</span></time>
-        <h1><a href="/blog/pixiv/job/i_retired_from_pixiv.html">ピクシブを退職しました！</a></h1>
+        <time datetime="2020-12-18T17:21:00+09:00" pubdate><span class='month'>Dec</span> <span class='day'>18</span> <span class='year'>2020</span></time>
+        <h1><a href="/blog/ruby/kamipo-san-no-advice-to-kyoten-wo-mataida-benkyou-kai.html">kamipoさんのアドバイスと拠点を跨いだ勉強会</a></h1>
       </article>
     
   </div>

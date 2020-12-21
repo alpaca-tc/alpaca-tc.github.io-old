@@ -4,7 +4,7 @@
   <title><![CDATA[RailsとRubyとVimのブログ]]></title>
   <link href="http://alpaca.tc/atom.xml" rel="self"/>
   <link href="http://alpaca.tc/"/>
-  <updated>2020-12-18T18:47:06+09:00</updated>
+  <updated>2020-12-21T20:50:38+09:00</updated>
   <id>http://alpaca.tc/</id>
   <author>
     <name><![CDATA[alpaca-tc]]></name>
@@ -12,6 +12,278 @@
   </author>
   <generator uri="https://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rustでブラウザからバイナリをパースする]]></title>
+    <link href="http://alpaca.tc/blog/rust/rust-advent-calendar.html"/>
+    <updated>2020-12-21T17:21:00+09:00</updated>
+    <id>http://alpaca.tc/blog/rust/rust-advent-calendar</id>
+    <content type="html"><![CDATA[<p>この記事は<a href="https://qiita.com/advent-calendar/2020/rust">Rust Advent Calendar 2020</a> 21日目の記事です。</p>
+
+<p>お仕事のメインはRuby/TypeScriptを使っていますが、新しいことを学びたいなーと思って、Rustを勉強し始めてみました。<br />
+今回はWebAssemblyを使って、ブラウザからバイナリファイルをパースする処理を書いてみます。</p>
+
+<h2 id="rustをwebassemblyに変換する">RustをWebAssemblyに変換する</h2>
+
+<p>この手の記事は沢山あるので、ざっくりやり方だけ書いておきます。<br />
+<a href="https://github.com/rustwasm/wasm-bindgen"><code class="language-plaintext highlighter-rouge">wasm-bindgen</code></a>と<a href="https://github.com/rustwasm/wasm-pack"><code class="language-plaintext highlighter-rouge">wasm-pack</code></a>をインストールして、</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Cargo.toml
+[package]
+name = "app"
+version = "0.0.1"
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+wasm-bindgen = "0.2.63"
+</code></pre></div></div>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cs"># src/lib.rs</span>
+<span class="k">use</span> <span class="nn">wasm_bindgen</span><span class="p">::</span><span class="nn">prelude</span><span class="p">::</span><span class="o">*</span><span class="p">;</span>
+
+<span class="nd">#[wasm_bindgen]</span>
+<span class="k">struct</span> <span class="nf">ApplicationRunner</span><span class="p">();</span>
+
+<span class="nd">#[wasm_bindgen]</span>
+<span class="k">impl</span> <span class="n">ApplicationRunner</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">new</span><span class="p">()</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code># index.html
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">'module'</span><span class="nt">&gt;</span>
+      <span class="k">import</span> <span class="nx">init</span><span class="p">,</span> <span class="p">{</span> <span class="nx">ApplicationRunner</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./app.js</span><span class="dl">'</span>
+
+      <span class="p">(</span><span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">await</span> <span class="nx">init</span><span class="p">(</span><span class="dl">'</span><span class="s1">/app.wasm</span><span class="dl">'</span><span class="p">)</span>
+        <span class="k">new</span> <span class="nx">ApplicationRunner</span><span class="p">()</span>
+      <span class="p">})()</span>
+    <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>あとは <code class="language-plaintext highlighter-rouge">wasm-pack</code> を使ってコンパイルすれば完成です。
+めちゃ簡単。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ wasm-pack build --no-typescript --dev --target web --out-dir ./public
+</code></pre></div></div>
+
+<h2 id="ファイルを読み込む">ファイルを読み込む</h2>
+
+<p>続いて、ブラウザから、ファイルを指定してRustにパースさせる導線を作っていきます。<br />
+先ほど定義した <code class="language-plaintext highlighter-rouge">ApplicationRunner</code> をnewしたタイミングで、イベントをlistenしたDOMをレンダリングしておきます。</p>
+
+<p>DOMの生成には <code class="language-plaintext highlighter-rouge">virtual_dom_rs</code> と <code class="language-plaintext highlighter-rouge">web_sys</code> と <code class="language-plaintext highlighter-rouge">js_sys</code> を使います。<br />
+すごく単純な例では、こんな感じでDOMをマウントすることができます。</p>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="n">vdom</span> <span class="o">=</span> <span class="nd">html!</span> <span class="p">{</span> <span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;&lt;/</span><span class="n">div</span><span class="o">&gt;</span> <span class="p">};</span>
+<span class="k">let</span> <span class="n">window</span> <span class="o">=</span> <span class="nn">web_sys</span><span class="p">::</span><span class="nf">window</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">()</span>
+<span class="k">let</span> <span class="n">dom_updater</span> <span class="o">=</span> <span class="nn">DomUpdater</span><span class="p">::</span><span class="nf">new_append_to_mount</span><span class="p">(</span><span class="n">vdom</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">window</span><span class="nf">.document</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">()</span><span class="nf">.body</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">());</span>
+<span class="n">dom_updater</span><span class="nf">.update</span><span class="p">(</span><span class="n">vdom</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>今回はファイルの読み込みをしたいので、vdomの中身を書き換えて、inputタグにイベントを仕込んだDOMにしてみます。</p>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">html!</span> <span class="p">{</span>
+  <span class="o">&lt;</span><span class="n">input</span>
+    <span class="k">type</span><span class="o">=</span><span class="s">"file"</span>
+    <span class="n">onchange</span><span class="o">=</span><span class="k">move</span> <span class="p">|</span><span class="n">event</span><span class="p">:</span> <span class="nn">web_sys</span><span class="p">::</span><span class="n">InputEvent</span><span class="p">|</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">target</span> <span class="o">=</span> <span class="n">event</span><span class="nf">.target</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">();</span>
+        <span class="k">let</span> <span class="n">input</span> <span class="o">=</span> <span class="n">target</span><span class="py">.dyn_ref</span><span class="p">::</span><span class="o">&lt;</span><span class="n">HtmlInputElement</span><span class="o">&gt;</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">();</span>
+        <span class="k">let</span> <span class="n">files</span> <span class="o">=</span> <span class="n">input</span><span class="nf">.files</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">();</span>
+        <span class="k">let</span> <span class="n">file</span> <span class="o">=</span> <span class="n">files</span><span class="nf">.item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="nf">.unwrap</span><span class="p">();</span>
+
+        <span class="k">let</span> <span class="n">file_reader</span> <span class="o">=</span> <span class="nn">web_sys</span><span class="p">::</span><span class="nn">FileReader</span><span class="p">::</span><span class="nf">new</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">();</span>
+        <span class="n">file_reader</span><span class="nf">.read_as_array_buffer</span><span class="p">(</span><span class="o">&amp;</span><span class="n">file</span><span class="p">)</span><span class="nf">.unwrap</span><span class="p">();</span>
+
+        <span class="k">let</span> <span class="k">mut</span> <span class="n">onload</span> <span class="o">=</span> <span class="nn">Closure</span><span class="p">::</span><span class="nf">wrap</span><span class="p">(</span><span class="nn">Box</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="k">move</span> <span class="p">|</span><span class="n">event</span><span class="p">:</span> <span class="n">Event</span><span class="p">|</span> <span class="p">{</span>
+            <span class="k">let</span> <span class="n">file_reader</span><span class="p">:</span> <span class="n">FileReader</span> <span class="o">=</span> <span class="n">event</span><span class="nf">.target</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">()</span><span class="nf">.dyn_into</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">();</span>
+            <span class="k">let</span> <span class="n">file</span> <span class="o">=</span> <span class="n">file_reader</span><span class="nf">.result</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">();</span>
+            <span class="k">let</span> <span class="n">file</span> <span class="o">=</span> <span class="nn">js_sys</span><span class="p">::</span><span class="nn">Uint8Array</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="o">&amp;</span><span class="n">file</span><span class="p">);</span>
+
+            <span class="k">let</span> <span class="k">mut</span> <span class="n">bytes</span> <span class="o">=</span> <span class="nd">vec!</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span> <span class="n">file</span><span class="nf">.length</span><span class="p">()</span> <span class="k">as</span> <span class="nb">usize</span><span class="p">];</span>
+            <span class="n">file</span><span class="nf">.copy_to</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="n">bytes</span><span class="p">);</span>
+
+            <span class="c">// ここにファイルの中身のパースを開始する処理を追加する</span>
+            <span class="nf">do_something</span><span class="p">(</span><span class="o">&amp;</span><span class="n">bytes</span><span class="p">)</span>
+        <span class="p">})</span> <span class="k">as</span> <span class="nb">Box</span><span class="o">&lt;</span><span class="nf">FnMut</span><span class="p">(</span><span class="mi">_</span><span class="p">)</span><span class="o">&gt;</span><span class="p">);</span>
+
+        <span class="n">file_reader</span><span class="nf">.set_onload</span><span class="p">(</span><span class="nf">Some</span><span class="p">(</span><span class="n">onload</span><span class="nf">.as_ref</span><span class="p">()</span><span class="nf">.unchecked_ref</span><span class="p">()));</span>
+        <span class="n">onload</span><span class="nf">.forget</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="o">&gt;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="ファイルをパースする">ファイルをパースする</h2>
+
+<p>ファイルの読み込みする処理が書けたので、次はファイルをパースしていきます。<br />
+単にバイナリを読んでいくだけであれば <code class="language-plaintext highlighter-rouge">std::io::Cursor</code> だけでいけますが、little endianを読み込もうとするとやや操作が面倒です。</p>
+
+<p>そこで、<a href="https://docs.rs/byteorder/1.3.4/byteorder/">byteorder</a>を使って読み込んでいきます。<br />
+下記の例では、今後UTF8の文字列変換や特定のバイナリに特化した読み込みに対応する時に拡張しやすくするために、読み取り用のwrapperを用意しました。<br />
+単純なzipファイルのパースであれば、file name fieldやextra fieldなどの可変長のfieldがあるため、指定長でvecやstringを返すメソッドも用意するといいかもしれません。</p>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">use</span> <span class="nn">byteorder</span><span class="p">::{</span><span class="n">BigEndian</span><span class="p">,</span> <span class="n">ByteOrder</span><span class="p">,</span> <span class="n">LittleEndian</span><span class="p">,</span> <span class="n">ReadBytesExt</span><span class="p">};</span>
+
+<span class="k">pub</span> <span class="k">struct</span> <span class="n">Binary</span><span class="o">&lt;</span><span class="nv">'a</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="n">cursor</span><span class="p">:</span> <span class="n">Cursor</span><span class="o">&lt;&amp;</span><span class="nv">'a</span> <span class="p">[</span><span class="nb">u8</span><span class="p">]</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">impl</span><span class="o">&lt;</span><span class="nv">'a</span><span class="o">&gt;</span> <span class="n">Binary</span><span class="o">&lt;</span><span class="nv">'a</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">new</span><span class="p">(</span><span class="n">bytes</span><span class="p">:</span> <span class="o">&amp;</span><span class="p">[</span><span class="nb">u8</span><span class="p">])</span> <span class="k">-&gt;</span> <span class="n">Binary</span> <span class="p">{</span>
+        <span class="n">Binary</span> <span class="p">{</span>
+            <span class="n">cursor</span><span class="p">:</span> <span class="nn">Cursor</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="n">bytes</span><span class="p">),</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">position</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">u64</span> <span class="p">{</span>
+        <span class="k">self</span><span class="py">.cursor</span><span class="nf">.position</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">read_little_u16</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="n">Result</span><span class="o">&lt;</span><span class="nb">u16</span><span class="p">,</span> <span class="n">Error</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="nf">Ok</span><span class="p">(</span><span class="k">self</span><span class="py">.cursor.read_u16</span><span class="p">::</span><span class="o">&lt;</span><span class="n">LittleEndian</span><span class="o">&gt;</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">())</span>
+    <span class="p">}</span>
+
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">read_little_u32</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="n">Result</span><span class="o">&lt;</span><span class="nb">u32</span><span class="p">,</span> <span class="n">Error</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="nf">Ok</span><span class="p">(</span><span class="k">self</span><span class="py">.cursor.read_u32</span><span class="p">::</span><span class="o">&lt;</span><span class="n">LittleEndian</span><span class="o">&gt;</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">())</span>
+    <span class="p">}</span>
+
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">read_u16</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="n">Result</span><span class="o">&lt;</span><span class="nb">u16</span><span class="p">,</span> <span class="n">Error</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="nf">Ok</span><span class="p">(</span><span class="k">self</span><span class="py">.cursor.read_u16</span><span class="p">::</span><span class="o">&lt;</span><span class="n">BigEndian</span><span class="o">&gt;</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">())</span>
+    <span class="p">}</span>
+
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">read_u32</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="n">Result</span><span class="o">&lt;</span><span class="nb">u32</span><span class="p">,</span> <span class="n">Error</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="nf">Ok</span><span class="p">(</span><span class="k">self</span><span class="py">.cursor.read_u32</span><span class="p">::</span><span class="o">&lt;</span><span class="n">BigEndian</span><span class="o">&gt;</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">())</span>
+    <span class="p">}</span>
+
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">read_i16</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="n">Result</span><span class="o">&lt;</span><span class="nb">i16</span><span class="p">,</span> <span class="n">Error</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="nf">Ok</span><span class="p">(</span><span class="k">self</span><span class="py">.cursor.read_i16</span><span class="p">::</span><span class="o">&lt;</span><span class="n">BigEndian</span><span class="o">&gt;</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">())</span>
+    <span class="p">}</span>
+
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">read_i32</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="n">Result</span><span class="o">&lt;</span><span class="nb">i32</span><span class="p">,</span> <span class="n">Error</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="nf">Ok</span><span class="p">(</span><span class="k">self</span><span class="py">.cursor.read_i32</span><span class="p">::</span><span class="o">&lt;</span><span class="n">BigEndian</span><span class="o">&gt;</span><span class="p">()</span><span class="nf">.unwrap</span><span class="p">())</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="パース処理を書いていく">パース処理を書いていく</h3>
+
+<p>過去にRubyでpsdやzipのパーサを書いたことがあるのですが、これらは仕様書通りの単純な構造だったので、同様に先頭から読み込んでstructに詰めていくだけでいけそうです。<br />
+今回はzipのヘッダーをパースする処理の書いてみます。</p>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// == LocalFileHeader</span>
+<span class="c">//</span>
+<span class="c">// local file header signature     4 bytes  (0x04034b50)</span>
+<span class="c">// version needed to extract       2 bytes</span>
+<span class="c">// general purpose bit flag        2 bytes</span>
+<span class="c">// compression method              2 bytes</span>
+<span class="c">// last mod file time              2 bytes</span>
+<span class="c">// last mod file date              2 bytes</span>
+<span class="c">// crc-32                          4 bytes</span>
+<span class="c">// compressed size                 4 bytes</span>
+<span class="c">// uncompressed size               4 bytes</span>
+<span class="c">// file name length                2 bytes</span>
+<span class="c">// extra field length              2 bytes</span>
+<span class="k">struct</span> <span class="n">LocalFileHeader</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="n">signature</span><span class="p">:</span> <span class="nb">u32</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">version</span><span class="p">:</span> <span class="nb">u16</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">general_purpose_bit_flag</span><span class="p">:</span> <span class="nb">u16</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">compression_method</span><span class="p">:</span> <span class="nb">u16</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">last_modified_file_time</span><span class="p">:</span> <span class="nb">u16</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">last_modified_file_date</span><span class="p">:</span> <span class="nb">u16</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">crc_32</span><span class="p">:</span> <span class="nb">u32</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">compressed_size</span><span class="p">:</span> <span class="nb">u32</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">uncompressed_size</span><span class="p">:</span> <span class="nb">u32</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">file_name_length</span><span class="p">:</span> <span class="nb">u16</span><span class="p">,</span>
+    <span class="k">pub</span> <span class="n">extra_field_length</span><span class="p">:</span> <span class="nb">u16</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">impl</span> <span class="n">LocalFileHeader</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">from_bytes</span><span class="p">(</span><span class="n">bytes</span><span class="p">:</span> <span class="o">&amp;</span><span class="p">[</span><span class="nb">u8</span><span class="p">])</span> <span class="k">-&gt;</span> <span class="n">Result</span><span class="o">&lt;</span><span class="n">LocalFileHeader</span><span class="p">,</span> <span class="n">Error</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="k">mut</span> <span class="n">binary</span> <span class="o">=</span> <span class="nn">Binary</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="n">bytes</span><span class="p">);</span>
+
+        <span class="k">let</span> <span class="n">signature</span> <span class="o">=</span> <span class="n">binary</span><span class="nf">.read_little_u32</span><span class="p">()</span><span class="o">?</span><span class="p">;</span>
+        <span class="k">let</span> <span class="n">version</span> <span class="o">=</span> <span class="n">binary</span><span class="nf">.read_little_u16</span><span class="p">()</span><span class="o">?</span><span class="p">;</span>
+        <span class="k">let</span> <span class="n">general_purpose_bit_flag</span> <span class="o">=</span> <span class="n">binary</span><span class="nf">.read_little_u16</span><span class="p">()</span><span class="o">?</span><span class="p">;</span>
+        <span class="k">let</span> <span class="n">compression_method</span> <span class="o">=</span> <span class="n">binary</span><span class="nf">.read_little_u16</span><span class="p">()</span><span class="o">?</span><span class="p">;</span>
+        <span class="k">let</span> <span class="n">last_modified_file_time</span> <span class="o">=</span> <span class="n">binary</span><span class="nf">.read_u16</span><span class="p">()</span><span class="o">?</span><span class="p">;</span>
+        <span class="k">let</span> <span class="n">last_modified_file_date</span> <span class="o">=</span> <span class="n">binary</span><span class="nf">.read_u16</span><span class="p">()</span><span class="o">?</span><span class="p">;</span>
+        <span class="k">let</span> <span class="n">crc_32</span> <span class="o">=</span> <span class="n">binary</span><span class="nf">.read_u32</span><span class="p">()</span><span class="o">?</span><span class="p">;</span>
+        <span class="k">let</span> <span class="n">compressed_size</span> <span class="o">=</span> <span class="n">binary</span><span class="nf">.read_u32</span><span class="p">()</span><span class="o">?</span><span class="p">;</span>
+        <span class="k">let</span> <span class="n">uncompressed_size</span> <span class="o">=</span> <span class="n">binary</span><span class="nf">.read_u32</span><span class="p">()</span><span class="o">?</span><span class="p">;</span>
+        <span class="k">let</span> <span class="n">file_name_length</span> <span class="o">=</span> <span class="n">binary</span><span class="nf">.read_u16</span><span class="p">()</span><span class="o">?</span><span class="p">;</span>
+        <span class="k">let</span> <span class="n">extra_field_length</span> <span class="o">=</span> <span class="n">binary</span><span class="nf">.read_u16</span><span class="p">()</span><span class="o">?</span><span class="p">;</span>
+
+        <span class="nf">Ok</span><span class="p">(</span><span class="n">LocalFileHeader</span> <span class="p">{</span>
+            <span class="n">signature</span><span class="p">,</span>
+            <span class="n">version</span><span class="p">,</span>
+            <span class="n">general_purpose_bit_flag</span><span class="p">,</span>
+            <span class="n">compression_method</span><span class="p">,</span>
+            <span class="n">last_modified_file_time</span><span class="p">:</span> <span class="n">last_modified_file_time</span><span class="p">,</span>
+            <span class="n">last_modified_file_date</span><span class="p">,</span>
+            <span class="n">crc_32</span><span class="p">,</span>
+            <span class="n">compressed_size</span><span class="p">,</span>
+            <span class="n">uncompressed_size</span><span class="p">,</span>
+            <span class="n">file_name_length</span><span class="p">,</span>
+            <span class="n">extra_field_length</span><span class="p">,</span>
+        <span class="p">})</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>とても簡単ですね。</p>
+
+<h2 id="パースした内容をhtmlにレンダリングする">パースした内容をHTMLにレンダリングする</h2>
+
+<p>では、最後にパースした内容をHTMLへレンダリングしてみます。<br />
+諸々省略しているのでこのままでは動きませんが、雰囲気としてはこんな感じでDOMを生成して、初めに作ったDomUpdaterのupdateに返り値のVirtualNodeを渡せばOKです。</p>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// let local_file_header = LocalFileHeader::from_bytes(&amp;bytes)</span>
+<span class="c">// let vdom = render(...)</span>
+<span class="c">// dom_updater.update(vdom); という感じで使う</span>
+<span class="k">fn</span> <span class="nf">render</span><span class="p">(</span><span class="n">local_file_header</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">LocalFileHeader</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="n">VirtualNode</span> <span class="p">{</span>
+    <span class="nd">html!</span> <span class="p">{</span>
+      <span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">span</span><span class="o">&gt;</span>
+          <span class="n">signature</span><span class="p">:</span> <span class="p">{</span><span class="nd">format!</span><span class="p">(</span><span class="s">"{:X}"</span><span class="p">,</span> <span class="n">local_file_header</span><span class="py">.signature</span><span class="p">)}</span>
+          <span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+          <span class="n">version</span><span class="p">:</span> <span class="p">{</span><span class="nd">format!</span><span class="p">(</span><span class="s">"{:X}"</span><span class="p">,</span> <span class="n">local_file_header</span><span class="py">.version</span><span class="p">)}</span>
+          <span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+          <span class="n">general_purpose_bit_flag</span><span class="p">:</span> <span class="p">{</span><span class="nd">format!</span><span class="p">(</span><span class="s">"{:X}"</span><span class="p">,</span> <span class="n">local_file_header</span><span class="py">.general_purpose_bit_flag</span><span class="p">)}</span>
+          <span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+          <span class="n">compression_method</span><span class="p">:</span> <span class="p">{</span><span class="nd">format!</span><span class="p">(</span><span class="s">"{:X}"</span><span class="p">,</span> <span class="n">local_file_header</span><span class="py">.compression_method</span><span class="p">)}</span>
+          <span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+          <span class="n">last_modified_file_time</span><span class="p">:</span> <span class="p">{</span><span class="nd">format!</span><span class="p">(</span><span class="s">"{:X}"</span><span class="p">,</span> <span class="n">local_file_header</span><span class="py">.last_modified_file_time</span><span class="p">)}</span>
+          <span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+          <span class="n">last_modified_file_date</span><span class="p">:</span> <span class="p">{</span><span class="nd">format!</span><span class="p">(</span><span class="s">"{:X}"</span><span class="p">,</span> <span class="n">local_file_header</span><span class="py">.last_modified_file_date</span><span class="p">)}</span>
+          <span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+          <span class="n">crc_32</span><span class="p">:</span> <span class="p">{</span><span class="nd">format!</span><span class="p">(</span><span class="s">"{:X}"</span><span class="p">,</span> <span class="n">local_file_header</span><span class="py">.crc_32</span><span class="p">)}</span>
+          <span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span>
+      <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="まとめ">まとめ</h2>
+
+<p>今回は<code class="language-plaintext highlighter-rouge">wasm-bindgen</code>を使ってブラウザでファイルをパースする処理を書いてみました。<br />
+もう少しパース処理を作り込んでいけば、画像変換やzipの再圧縮などいろいろな処理を書くことができそうです。</p>
+
+<p>可能であれば、仕事でもちゃんとRust書いてみたいのでReal Worldの活用事例をもっと知りたいなぁと思いました(´・ω・｀)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[kamipoさんのアドバイスと拠点を跨いだ勉強会]]></title>
@@ -1977,127 +2249,6 @@ n  gf          *@:&lt;C-U&gt;exe &lt;SNR&gt;121_gf(v:count1,"gf",'edit')&lt;CR&g
 <span class="nb">p</span> <span class="no">Node</span><span class="p">.</span><span class="nf">instance_variable_get</span><span class="p">(</span><span class="s1">'@val'</span><span class="p">)</span> <span class="c1">#=&gt; 'Base'</span>
 <span class="nb">p</span> <span class="no">Branch</span><span class="p">.</span><span class="nf">instance_variable_get</span><span class="p">(</span><span class="s1">'@val'</span><span class="p">)</span> <span class="c1">#=&gt; 'Base'</span>
 </code></pre></div></div>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Unite.vimとwatsonを使ったワークフロー]]></title>
-    <link href="http://alpaca.tc/blog/vim/using-vim-unite-watson.html"/>
-    <updated>2013-12-13T02:29:00+09:00</updated>
-    <id>http://alpaca.tc/blog/vim/using-vim-unite-watson</id>
-    <content type="html"><![CDATA[<p>最近、vim-unite-watsonを開発しました。</p>
-
-<p>これが、watsonの作者であるnhmoodさんにも好評で、僕自身ワークフローが変化して、だいぶ作業しやすくなりました。</p>
-
-<p>今回は、タスク管理をしたい人向けに、僕なりのワークフロー管理を紹介します。</p>
-
-<!-- more -->
-
-<h1 id="ワークフローとvim">ワークフローとVim</h1>
-
-<p>僕は普段、Webサービスの構築・保守を行う仕事をしています。</p>
-
-<p>そこでは、基本的なフローは次のような流れです。</p>
-
-<ol>
-  <li>新機能・バグに対してIssueを発行する(あるいは既にTODOリストにある)</li>
-  <li>トピックブランチを作る</li>
-  <li>コードを書く</li>
-  <li>コミット -&gt; Pull-Requestを送る -&gt; マージする</li>
-</ol>
-
-<p>では、Vimを一度も閉じることなくこれらの作業をしてみます。</p>
-
-<h2 id="1-issueの発行">1. Issueの発行</h2>
-
-<h3 id="1-1-todoをコードに入力する">1-1. TODOをコードに入力する</h3>
-
-<p><img class="image_on_frame center" src="/images/blog/workflow_1.png" alt="本番環境用にViewを作成すると記入する" /></p>
-
-<h3 id="1-2-issueをgithubにあげる">1-2. IssueをGithubにあげる</h3>
-
-<p>インラインIssue管理の<a href="/blog/ruby/how-to-use-watson.html">watson</a>を使って、GithubにIssueをあげます</p>
-
-<p><img class="image_on_frame center" src="/images/blog/workflow_2.png" alt=":Watsonのデモ" /></p>
-
-<p>Watsonを使えば、Vimから簡単にIssue管理を行うことが出来ますね。</p>
-
-<h2 id="2-作業の目処を立てる">2. 作業の目処を立てる</h2>
-
-<p>さて、これでIssueは挙げられたので、次はコードの改修をしていきます。</p>
-
-<h3 id="2-1-トピックブランチを作る">2-1. トピックブランチを作る</h3>
-
-<p>ブランチの作業は、<a href="https://github.com/alpaca-tc/vim-unite-giti">vim-unite-giti</a>を使います。</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:Unite giti/branch
-</code></pre></div></div>
-
-<p>新しいブランチの名前を入力して、<code class="language-plaintext highlighter-rouge">[checkout branch]</code>の行を選択します。</p>
-
-<p><img class="image_on_frame center" src="/images/blog/workflow_3.png" alt="Unite gitiのデモ" /></p>
-
-<p>すると、新しいブランチが作られました。</p>
-
-<h3 id="2-2-コードの改修を行う場所に印をつけて行く">2-2. コードの改修を行う場所に印をつけて行く</h3>
-
-<p>コードの改修は、多くの場合幾つかのファイルに跨がります。</p>
-
-<p>そのため、経験から作業が必要な箇所に目処をつけて、コメントを書いて行きます。</p>
-
-<p><img class="image_on_frame center" src="/images/blog/workflow_4.png" alt="" /></p>
-
-<p><img class="image_on_frame center" src="/images/blog/workflow_5.png" alt="" /></p>
-
-<p><img class="image_on_frame center" src="/images/blog/workflow_6.png" alt="" /></p>
-
-<p>todoの内容は、watsonによって管理されるので、vim-unite-watsonを使えば一覧としてみることができます。</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:Unite watson/dirty
-</code></pre></div></div>
-
-<p><img class="image_on_frame center" src="/images/blog/workflow_7.png" alt="unite-watsonのdemo" /></p>
-
-<p>これで、issueを解決するために必要な作業の一覧を自分で作ることが出来ました。</p>
-
-<p>Unite上のコメントを選択すると、該当箇所に飛べます。</p>
-
-<p>後は、</p>
-
-<ol>
-  <li>該当箇所に飛ぶ</li>
-  <li>コードを修正する</li>
-  <li>解決したら、コメントを削除する</li>
-</ol>
-
-<p>を<code class="language-plaintext highlighter-rouge">:Unite watson/dirty</code>が空になるまで繰り返します。</p>
-
-<p>watsonの結果リストが空になれば、issueの問題を解決したことになり、次の作業に移ります。</p>
-
-<h3 id="3-githubにpull-requestする">3. GithubにPull-Requestする</h3>
-
-<p>これは、各々方法が分かれるかと思います。</p>
-
-<p>Vimから出ないでPull-Requestを送るには、<code class="language-plaintext highlighter-rouge">:!git push</code> &amp;&amp; <code class="language-plaintext highlighter-rouge">:!hub pull-request -h ...</code>というのが一番分かりやすいでしょうか。</p>
-
-<p>僕は、<code class="language-plaintext highlighter-rouge">:Unite giti/pull_request</code>で送るようにしています。</p>
-
-<h2 id="まとめ">まとめ</h2>
-
-<p>Watsonやgitiはかなり便利です。</p>
-
-<p>特に、watsonはコーディング作業をマネジメントしたい人に向いていると思います。
-作業時間の見積もりや、タスク管理を考えながらコーディングする人には向いているプラグインなのではないでしょうか。</p>
-
-<p>僕は経営学部にいるので、すっかりタスク管理や時間計測を気にしちゃうようになりました。。</p>
-
-<p><strong>今回紹介したプラグイン</strong></p>
-
-<ul>
-  <li><a href="https://github.com/alpaca-tc/vim-unite-watson.vim">vim-unite-watson</a></li>
-  <li><a href="https://github.com/kmnk/vim-unite-giti">vim-unite-giti (本家)</a></li>
-  <li><a href="https://github.com/alpaca-tc/vim-unite-giti">vim-unite-giti (giti/pull_request追加版)</a></li>
-</ul>
 ]]></content>
   </entry>
   
